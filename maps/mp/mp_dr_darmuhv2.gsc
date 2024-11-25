@@ -29,9 +29,6 @@ main()
 	if(isdefined(entTransporter))
 		for( i = 0; i < entTransporter.size; i++ )
 			entTransporter[i] thread transporter();
-
-
-
 			
 addTriggerToList( "trigger2" );
 addTriggerToList( "trigger3" );
@@ -44,7 +41,8 @@ addTriggerToList( "trigger9" );
 addTriggerToList( "trigger10" );
 addTriggerToList( "trigger11" );
 addTriggerToList( "trigger12" );
-addTriggerToList( "jumpweapon" );
+
+level.firstenter = false;
 
 thread ambient();
 thread trap2();
@@ -70,7 +68,6 @@ thread secretup();
 thread guidsecret();
 thread jumpfail();
 thread jumpfail2();
-thread Jumpweapon();
 thread oldroom();
 thread sniperoom();
 thread actisecret();
@@ -104,9 +101,10 @@ iprintln("Now Playing: ^2Macklemore and Ryan Lewis - Wings");
 
 roundstart()
 {
-object = getent("go", "targetname");
+	object = getent("go", "targetname");
 
 	wait 5;
+	level notify("secret_activation");
 	object movez (-250, 2);
 	object waittill ("movedone");
 }
@@ -118,32 +116,43 @@ matrix()
 	while(1)
 	{
 		trig waittill( "trigger", player );
-		musicplay ("door");
-		wait 10;
+		if(!isdefined(player.skjdvbmnsdov)) {
+			player.skjdvbmnsdov = true;
+			trig playsoundtoplayer("door", player);
+			player thread resetvarafterexittrigger(trig);
+		}
 	}
+}
+resetvarafterexittrigger(trigger) {
+	while(self istouching(trigger))
+		wait 0.05;
+
+	self.skjdvbmnsdov = undefined;
 }
 	
 transporter()
 {
+  	entTarget = getEnt( self.target, "targetname" );
 	for(;;)
 	{
   		self waittill( "trigger", player );
-  		entTarget = getEnt( self.target, "targetname" );
-  		wait (0.1);
-  		player setOrigin( entTarget.origin );
-  		player setplayerangles( entTarget.angles );
- 	 	wait (0.1);
-		player GiveWeapon("deserteaglegold_mp");
-		wait (0.05);
-		player SwitchToWeapon("remington700_mp");
-		wait (0.05);
-   		self playsound("mp_enemy_obj_captured");
-   		iprintlnbold ("^1Dafuq?");
-		player braxi\_rank::giveRankXP("", 5);
-		
+  		player thread tp_thread(entTarget, self);
 	}
-
 }
+
+tp_thread(entTarget, trigger) {
+	self setOrigin( entTarget.origin );
+	self setplayerangles( entTarget.angles );
+	wait (0.1);
+	self GiveWeapon("deserteaglegold_mp");
+	wait (0.05);
+	self SwitchToWeapon("remington700_mp");
+	wait (0.05);
+	trigger playsound("mp_enemy_obj_captured");
+	iprintlnbold ("^1Dafuq?");
+	self braxi\_rank::giveRankXP("", 5);
+}
+
 
 trap6()
 {
@@ -255,7 +264,6 @@ trap10()
 {
 	trig = getent ("trigger10", "targetname");
 	object = getent ("upup", "targetname");
-	level.dermuh = "ffbb9d529c5fbeb275d1fcf8aedc2203";
 	hurt = getent("bttm", "targetname");
  
 	hurt enablelinkto();
@@ -441,11 +449,11 @@ trap4b()
 
 trap4c()
 {
- object = getent("spin1", "targetname");
- objct = getent("spin2", "targetname");
- trigger = getent("trigger4", "targetname");
+	object = getent("spin1", "targetname");
+	objct = getent("spin2", "targetname");
+	trigger = getent("trigger4", "targetname");
 
- trigger waittill("trigger", player);
+	trigger waittill("trigger", player);
 
 
 	while (1)
@@ -460,24 +468,20 @@ trap4c()
 }
 trap3()
 {
- object = getent("MvingBs", "targetname");
- trigger = getent("trigger3", "targetname");
- 
- trigger waittill("trigger", player);
- 
+	object = getent("MvingBs", "targetname");
+	trigger = getent("trigger3", "targetname");
 
- while (1)
- {
-  object movex (140,1);
-  object waittill ("movedone");
-  wait (0.2);
-  object movex (-140,1);
-  object waittill ("movedone");
-  wait (0.2);
- }
+	trigger waittill("trigger", player);
 
- 
-
+	while (1)
+	{
+	object movex (140,1);
+	object waittill ("movedone");
+	wait (0.2);
+	object movex (-140,1);
+	object waittill ("movedone");
+	wait (0.2);
+	}
 }
 
 endteleport()
@@ -491,7 +495,6 @@ endteleport()
 		trig waittill("trigger", player);
 		player SetPlayerAngles ( spawn.angles );
 		player SetOrigin ( spawn.origin );
-		wait (0.05);
 	}
 }
 
@@ -526,7 +529,6 @@ teleport()
 		trig waittill("trigger", player);
 		player SetPlayerAngles ( spawn.angles );
 		player SetOrigin ( spawn.origin );
-		wait (0.05);
 		player iPrintLnBold("^2Welcome^7 to the ^5Secret ^7Room!");
 	}
 }
@@ -534,13 +536,13 @@ teleport2()
 {
 	trig = getent("ufailinsecret", "targetname");
 	spawn = getent("spot1", "targetname");
+	trig.origin = trig.origin + (0,70,0);
 
 	while (1)
 	{
 		trig waittill("trigger", player);
 		player SetPlayerAngles ( spawn.angles );
 		player SetOrigin ( spawn.origin );
-		wait (0.05);
 		player iPrintLnBold("^1HAHAHA ^7Seriously? You failed in ^2Secret?");
 	}
 }
@@ -554,7 +556,6 @@ secretfail()
 		trig waittill("trigger", player);
 		player SetPlayerAngles ( spawn.angles );
 		player SetOrigin ( spawn.origin );
-		wait (0.05);
 		player iPrintLnBold("^1HAHAHA ^7Seriously? You failed in ^2Secret?");
 	}
 }
@@ -566,16 +567,16 @@ kniferoom()
     
     while(1)
     {
-        level.knife_trig waittill( "trigger", player );
         if( !isDefined( level.knife_trig ) )
             return;
+        level.knife_trig waittill( "trigger", player );
         if(level.firstenter==true)
 		{
-		level.snipe_trig delete();
-		level.old_trig delete();
-		level.jump_trig delete();
-		level.random_trigger delete();
-		level.firstenter=false;
+			level.snipe_trig thread maps\mp\_utility::triggerOff();
+			level.old_trig thread maps\mp\_utility::triggerOff();
+			level.jump_trig thread maps\mp\_utility::triggerOff();
+			level.random_trigger thread maps\mp\_utility::triggerOff();
+			level.firstenter=false;
 		}
 		
         player SetPlayerAngles( jump.angles );
@@ -665,11 +666,9 @@ bossbounce()
  
 	object notsolid();
 		
-		
-  		trig waittill("trigger", player);
-		wait (0.05);
-        	iPrintlnBold( " ^5" + player.name + " ^7is a ^1BOSS^7!" );
-		player braxi\_rank::giveRankXP("", 50);	
+  	trig waittill("trigger", player);
+    iPrintlnBold( " ^5" + player.name + " ^7is a ^1BOSS^7!" );
+	player braxi\_rank::giveRankXP("", 50);	
 }
 
  
@@ -682,21 +681,23 @@ addTriggerToList( name )
 
 actisecret()
 {
-    level.secret_trig = getEnt( "datacti", "targetname");
-    level.secret_trig waittill( "trigger", player );
-	if( !isDefined( level.secret_trig ) )
+    secret_trig = getEnt( "datacti", "targetname");
+	if( !isDefined( secret_trig ) )
             return;
-        if(level.firstenter==true)
-		{
-        level.secret_trig delete();
-		thread teleport();
-		thread bossbounce();
-		iPrintlnBold( "^1Activators ^7are supposed to ^1Activate^7..." );
+	secret_trig thread maps\mp\_utility::triggerOff();
+
+    // secret_trig waittill( "trigger", player );
+	level waittill("secret_activation");
+	thread teleport();
+	thread bossbounce();
+	iPrintlnBold( "^1Activators ^7are supposed to ^1Activate^7..." );
+
+	if(randomint(2) == 0) {
 		AmbientStop( 2 );
 		AmbientPlay( "wonder" );
 		wait 5;
 		iprintln ("Now Playing: ^3Griz - Wonder Why");
-		}
+	}
 }
 
 guidsecret()
@@ -704,25 +705,21 @@ guidsecret()
  vip_trig = getent("Authorization", "targetname");
  org = getEnt( "lvl", "targetname" );	
  level.darmuh = "Darmuh"; //Darmuh
+ level.dermuh = "ffbb9d529c5fbeb275d1fcf8aedc2203";
 
-    
+    for(;;) {
         vip_trig waittill( "trigger", player );
 		tempGuid = player getGUID();
-        
-        {
-            if( ( player.name == level.darmuh )  && ( tempGuid == level.dermuh ) )
-            {
-                player SetOrigin( org.origin );
-				player SetPlayerAngles ( org.angles );
-				wait (0.05);
-				iprintlnbold ( " ^3Darmuh ^7is all up in dis bitch^5!" );
-				player braxi\_rank::giveRankXP("", 50);
-            }
-            else
-            {
-				wait (1);
-            }
-        }
+
+		if(( player.name == level.darmuh )  && ( tempGuid == level.dermuh ))
+		{
+			player SetOrigin( org.origin );
+			player SetPlayerAngles ( org.angles );
+			wait (0.05);
+			iprintlnbold ( " ^3Darmuh ^7is all up in dis bitch^5!" );
+			player braxi\_rank::giveRankXP("", 50);
+		}
+	}
 } 
 
 Jumproom()
@@ -730,17 +727,24 @@ Jumproom()
     level.jump_trig = getEnt( "Jump", "targetname");
     jump = getEnt( "jumper_enter_jumproom", "targetname" );
     acti = getEnt( "activator_enter_jumproom", "targetname" );
+	level.jwep_trig = getent( "jumpweapon", "targetname");
+	wep_trig_org = level.jwep_trig.origin;
+	level thread Jumpweapon();
+	level.weapon_got = false;
     while(1)
     {
         level.jump_trig waittill( "trigger", player );
         if(level.firstenter==true)
 		{
-		level.snipe_trig delete();
-		level.old_trig delete();
-		level.knife_trig delete();
-		level.random_trigger delete();
-		level.firstenter=false;
+			level.snipe_trig thread maps\mp\_utility::triggerOff();
+			level.old_trig thread maps\mp\_utility::triggerOff();
+			level.knife_trig thread maps\mp\_utility::triggerOff();
+			level.random_trigger thread maps\mp\_utility::triggerOff();
+			level.firstenter=false;
 		}
+		level.weapon_got = false;
+		level.jwep_trig setorigin(wep_trig_org);
+
         player SetPlayerAngles( jump.angles );
         player setOrigin( jump.origin );
         player TakeAllWeapons();
@@ -773,13 +777,11 @@ Jumpfail()
 		trig waittill( "trigger", player );
 		if(player == level.activ)
 		{
-		wait (0.05);
 		level.activ setPlayerangles( acti.angles );
         level.activ setOrigin( acti.origin );
 		}
 		else
 		{
-		wait (0.05);
 		player SetPlayerAngles ( jump.angles );
 		player SetOrigin ( jump.origin );
 		}
@@ -797,13 +799,11 @@ Jumpfail2()
 		trig waittill( "trigger", player );
 		if(player == level.activ)
 		{
-		wait (0.05);
 		level.activ setPlayerangles( acti.angles );
         level.activ setOrigin( acti.origin );
 		}
 		else
 		{
-		wait (0.05);
 		player SetPlayerAngles ( jump.angles );
 		player SetOrigin ( jump.origin );
 		}
@@ -812,35 +812,18 @@ Jumpfail2()
 }
 Jumpweapon()
 {
-	level.jwep_trig = getent( "jumpweapon", "targetname");
-	
 	while(1) 
 	{
-	
-	level.jwep_trig waittill( "trigger", player );
-	if(level.first==true)
-		{
-        level.jwep_trig delete();
-	level.first=false;
+		level.jwep_trig waittill( "trigger", player );
+
+		if(level.weapon_got==false) {
+        	level.jwep_trig.origin = level.jwep_trig.origin + (0, 0, -10000);
+			level.weapon_got = true;
 		}
-		if(player == level.activ)
-		{
-			wait (0.05);
-			level.activ GiveWeapon( "rpd_mp");
-			wait (0.05);
-			level.activ switchToWeapon( "rpd_mp");
-			iPrintlnBold( " ^1" + player.name + " ^7grabbed the ^1RPD^7!" );
-			wait (0.05);
-		}
-		if(player != level.activ)
-		{
-		wait (0.05);
-		player GiveWeapon( "rpd_mp");
-		wait (0.05);
-        player switchToWeapon( "rpd_mp" );
-        iPrintlnBold( " ^5" + player.name + " ^7grabbed the ^1RPD^7!" );
-		wait (0.05);
-		}
+
+		level.activ GiveWeapon( "rpd_mp");
+		level.activ switchToWeapon( "rpd_mp");
+		iPrintlnBold( " ^1" + player.name + " ^7grabbed the ^1RPD^7!" );
 	}
 }
 OldRoom()
@@ -849,26 +832,25 @@ OldRoom()
 	object = getent("doorsold", "targetname");
 	trig = getent( "Classic", "targetname");
 	
-        level.old_trig waittill( "trigger", player );
-        if( !isDefined( level.old_trig ) )
-            return;
-	
+	if( !isDefined( level.old_trig ) )
+		return;
+	level.old_trig waittill( "trigger", player );
+
 	if(level.firstenter==true)
-		{
-		level.snipe_trig delete();
-		level.jump_trig delete();
-		level.knife_trig delete();
-		level.random_trigger delete();
-		level.firstenter=false;
-		}
-	
-		trig waittill( "trigger", player );
-		object movez (175,5);
-		object waittill ("movedone");
-		wait (0.2);
-		iPrintlnBold( " ^5" + player.name + " ^3 picked ^1Classic^7!" );
-		wait (0.2);
-		
+	{
+	level.snipe_trig thread maps\mp\_utility::triggerOff();
+	level.jump_trig thread maps\mp\_utility::triggerOff();
+	level.knife_trig thread maps\mp\_utility::triggerOff();
+	level.random_trigger thread maps\mp\_utility::triggerOff();
+	level.firstenter=false;
+	}
+
+	trig waittill( "trigger", player );
+	object movez (175,5);
+	object waittill ("movedone");
+	wait (0.2);
+	iPrintlnBold( " ^5" + player.name + " ^3 picked ^1Classic^7!" );
+	wait (0.2);	
 }
 
 secretwall()
@@ -913,16 +895,16 @@ sniperoom()
     
     while(1)
     {
-        level.snipe_trig waittill( "trigger", player );
         if( !isDefined( level.snipe_trig ) )
             return;
+        level.snipe_trig waittill( "trigger", player );
 			
 		if(level.firstenter==true)
 		{
-		level.jump_trig delete();
-		level.old_trig delete();
-		level.knife_trig delete();
-		level.random_trigger delete();
+		level.jump_trig thread maps\mp\_utility::triggerOff();
+		level.old_trig thread maps\mp\_utility::triggerOff();
+		level.knife_trig thread maps\mp\_utility::triggerOff();
+		level.random_trigger thread maps\mp\_utility::triggerOff();
 		level.firstenter=false;
 		}
         iPrintlnBold( " ^5" + player.name + " ^3 picked ^1SHNIPAH WAR^7!" );
@@ -930,22 +912,22 @@ sniperoom()
         player setOrigin( jump.origin );
         level.activ setPlayerangles( acti.angles );
         level.activ setOrigin( acti.origin );
-	full solid();
-        player TakeAllWeapons();
-	level.activ TakeAllWeapons();
-	iprintlnbold ( "^33" );
-	wait 1;
-        player GiveWeapon( "M40A3_mp" );
-        level.activ GiveWeapon( "m40a3_mp" );
-	iprintlnbold ( "^22" );
-	wait 1;
-	player GiveWeapon( "remington700_mp" );
-	level.activ GiveWeapon( "remington700_mp" );
-	iprintlnbold ( "^11" );
-	wait 1;
-	full notsolid();
-	iprintlnbold ( "^7GO^5!" );
-	player switchToWeapon( "m40a3_mp" );
+		full solid();
+		player TakeAllWeapons();
+		level.activ TakeAllWeapons();
+		iprintlnbold ( "^33" );
+		wait 1;
+		player GiveWeapon( "M40A3_mp" );
+		level.activ GiveWeapon( "m40a3_mp" );
+		iprintlnbold ( "^22" );
+		wait 1;
+		player GiveWeapon( "remington700_mp" );
+		level.activ GiveWeapon( "remington700_mp" );
+		iprintlnbold ( "^11" );
+		wait 1;
+		full notsolid();
+		iprintlnbold ( "^7GO^5!" );
+		player switchToWeapon( "m40a3_mp" );
         level.activ SwitchToWeapon( "m40a3_mp" );
         while( isAlive( player ) && isDefined( player ) )
             wait 1;
@@ -956,63 +938,45 @@ room_random()
 {
 	level.random_trigger = getent ("dontcare", "targetname");
 
-	while(1)
-	    {
+	while(1) {
 		level.random_trigger waittill("trigger", player);
-		wait (0.2);
 		iprintlnbold ( " ^5" + player.name + " ^3 picked ^1RANDOM^5!" );
-		wait (0.2);
 		player thread randomroom();
 		while( isAlive( player ) && isDefined( player ) )
-		    wait 1;
-	    }
+			wait 1;
+	}
 
 }
 
 GetRandomRoom( num )
 {
-    if( num == 1 )
+	num = RandomInt(30);
+
+	if(num < 10)
+        return "kniferoom";
+	else if(num >= 20)
         return "sniperoom";
-    else
-    {
-        x = 1+RandomInt(49);
-        if( x < 10 )
-            return "kniferoom";
-        if( x > 9 && x < 20 )
-            return "kniferoom";
-        if( x > 20 && x < 30 )
-            return "sniperoom";
-        if( x > 30 && x < 40 )
-            return "sniperoom";
-        if( x > 40 && x < 50 )
-            return "jump";
-        if( x >= 50 )
-            return "jump";
-    }
+	else
+        return "jump";
 }
 
 randomroom()
 {
-
-x = 1+RandomInt(49);
-room = GetRandomRoom( x );
+	room = GetRandomRoom();
 
 	if( (room) == "kniferoom")
 	{
 	    level.knife_trig = getEnt( "Knife", "targetname");
 	    kjump = getEnt( "jumper_enter_kniferoom", "targetname" );
 	    kacti = getEnt( "activator_enter_kniferoom", "targetname" );
-	
-	
 		    
-		if(level.firstenter==true)
-			{
-			level.snipe_trig delete();
-			level.old_trig delete();
-			level.jump_trig delete();
-			level.knife_trig delete();
+		if(level.firstenter==true) {
+			level.snipe_trig thread maps\mp\_utility::triggerOff();
+			level.old_trig thread maps\mp\_utility::triggerOff();
+			level.jump_trig thread maps\mp\_utility::triggerOff();
+			level.knife_trig thread maps\mp\_utility::triggerOff();
 			level.firstenter=false;
-			}
+		}
 			
 		self SetPlayerAngles( kjump.angles );
 		self setOrigin( kjump.origin );
@@ -1036,10 +1000,10 @@ room = GetRandomRoom( x );
 			
 		if(level.firstenter==true)
 		{
-		level.old_trig delete();
-		level.knife_trig delete();
-		level.jump_trig delete();
-		level.snipe_trig delete();
+		level.old_trig thread maps\mp\_utility::triggerOff();
+		level.knife_trig thread maps\mp\_utility::triggerOff();
+		level.jump_trig thread maps\mp\_utility::triggerOff();
+		level.snipe_trig thread maps\mp\_utility::triggerOff();
 		level.firstenter=false;
 		}
         
@@ -1077,11 +1041,11 @@ room = GetRandomRoom( x );
     
         if(level.firstenter==true)
 		{
-		level.snipe_trig delete();
-		level.old_trig delete();
-		level.knife_trig delete();
+		level.snipe_trig thread maps\mp\_utility::triggerOff();
+		level.old_trig thread maps\mp\_utility::triggerOff();
+		level.knife_trig thread maps\mp\_utility::triggerOff();
+		level.jump_trig thread maps\mp\_utility::triggerOff();
 		level.firstenter=false;
-		level.jump_trig delete();
 		}
         self SetPlayerAngles( jump.angles );
         self setOrigin( jump.origin );
@@ -1100,35 +1064,5 @@ room = GetRandomRoom( x );
 		AmbientPlay( "jumproom" );
 		wait 5;
 		iprintln( "Now Playing: ^3Flux Pavilion & SKisM - Jump Back (Ft. Foreign Beggars)");
-	}
-	else
-	{
-		    level.knife_trig = getEnt( "Knife", "targetname");
-	    kjump = getEnt( "jumper_enter_kniferoom", "targetname" );
-	    kacti = getEnt( "activator_enter_kniferoom", "targetname" );
-	
-	
-		    
-		if(level.firstenter==true)
-			{
-			level.snipe_trig delete();
-			level.old_trig delete();
-			level.jump_trig delete();
-			level.knife_trig delete();
-			level.firstenter=false;
-			}
-			
-		self SetPlayerAngles( kjump.angles );
-		self setOrigin( kjump.origin );
-		self TakeAllWeapons();
-		self GiveWeapon( "knife_mp" );       
-		level.activ setPlayerangles( kacti.angles );
-		level.activ setOrigin( kacti.origin );
-		level.activ TakeAllWeapons();
-		level.activ GiveWeapon( "knife_mp" );        
-		wait 0.05;
-		self switchToWeapon( "knife_mp" );
-		level.activ SwitchToWeapon( "knife_mp" );
-		iPrintlnBold( "^1knife^5!" );
 	}
 }

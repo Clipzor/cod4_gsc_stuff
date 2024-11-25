@@ -38,19 +38,18 @@ main()
 	thread removalclips ();
 }
 
+// BraX
 message1()
-	{
-	so = getent ("write","targetname");
-	so waittill ("trigger",player);
-	player iprintln ("^3This map was created by ^2iNext'Mr-X");
+{
+	wait 6;
+	iprintln ("^3This map was created by ^2iNext'Mr-X");
 	wait 1;
-	player iprintln ("^4Add me in Xfire ^1mousasalem");
-	wait 1 ;
-	player iprintln ("^7 rember this is still Beta Version");
-	wait 100;
+	iprintln ("^4Add me in Xfire ^1mousasalem");
+	wait 1;
+	iprintln ("^7This map is still in BETA version");
+}
+// <===
 
-	}
-	
 trap1 ()
 	{
 	trig_1 = getent ("trig1","targetname");
@@ -179,33 +178,43 @@ moving ()
 		}
 	}
 
-trap7 ()
-	{
-	hid = getent ("hid","targetname");
+// BraX
+trap7()
+{
+	hid = getent ( "hid", "targetname" );
 	hid hide ();
 	
-	sh = getent ("sh","targetname");
-	teleporter = getent ("teleporter","targetname");
-	fill = getent ("fill","targetname");
-	trig_7 = getent ("trig7","targetname");
+	sh = getent( "sh", "targetname" );
+	teleporter = getent( "teleporter", "targetname" );
+	fill = getent( "fill", "targetname" );
+	trig_7 = getent( "trig7", "targetname" );
 	
-	trig_7 waittill ("trigger",player);
-	trig_7 delete ();
+	trig_7 waittill( "trigger", player );
+	trig_7 delete();
 	
-	wait 0.1 ;
-	hid show ();
-	sh hide ();
-	if (player istouching (teleporter))
+	wait 0.1;
+	hid show();
+	sh hide();
+	
+	time = 10;
+	for( i = 0; i < time*5; i++ )
 	{
-	wait 0.001;
-	player setorigin (fill.origin , 0.1 );
+		players = getEntArray( "player", "classname" );	
+		for( j = 0; j < players.size; j++ )
+		{
+			if( players[j].sessionstate == "playing" && players[j] isTouching ( teleporter ) )
+			{
+				players[j] setOrigin( fill.origin );
+			}
+		}
+		wait 0.2;
 	}
-	wait 10 ; 
-	hid hide ();
-	sh show ();
-	teleporter delete ();
-	}
-	
+
+	hid hide();
+	sh show();
+	teleporter delete();
+}
+// <===	
 	
 trap8 ()
 	{
