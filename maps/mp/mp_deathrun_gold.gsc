@@ -4,12 +4,12 @@ main()
 	maps\mp\teleporter::teleporter();
 	ambientPlay("lol");
 	
-	game["allies"] = "sas";
-	game["axis"] = "russian";
-	game["attackers"] = "allies";
-	game["defenders"] = "axis";
-	game["allies_soldiertype"] = "woodland";
-	game["axis_soldiertype"] = "woodland";
+	game["allies"]  =  "sas";
+	game["axis"]  =  "russian";
+	game["attackers"]  =  "allies";
+	game["defenders"]  =  "axis";
+	game["allies_soldiertype"]  =  "woodland";
+	game["axis_soldiertype"]  =  "woodland";
 
 	thread spinnything();
 	thread trap1();
@@ -28,58 +28,30 @@ main()
 	addTriggerToList( "trap3_trigger" );
 	addTriggerToList( "trap4_trigger" );
 	addTriggerToList( "trap5_trigger" );
+
+}
+
+fix_secret_cut(ent) {
+    trigger  =  spawn("trigger_radius", (-14450,500,1260), undefined, 500, 1000);
+    for(;;) {
+        trigger waittill("trigger", player);
+        player SetOrigin( ent.origin );
+        player setvelocity((0,0,0));
+    }
 }
 
 addTriggerToList( name )
 {
 if( !isDefined( level.trapTriggers ) )
-level.trapTriggers = [];
-level.trapTriggers[level.trapTriggers.size] = getEnt( name, "targetname" );
-}
-
-addTestClients()
-{
-    setDvar("scr_testclients", "");
-    wait 1;
-    for(;;)
-    {
-        if(getdvarInt("scr_testclients") > 0)
-            break;
-        wait 1;
-    }
-    testclients = getdvarInt("scr_testclients");
-    setDvar( "scr_testclients", 0 );
-    for(i=0;i<testclients;i++)
-    {
-        ent[i] = addtestclient();
-
-        if (!isdefined(ent[i]))
-        {
-            println("Could not add test client");
-            wait 1;
-            continue;
-        }
-        ent[i].pers["isBot"] = true;
-        ent[i] thread TestClient("autoassign");
-    }
-    thread addTestClients();
-}
-TestClient(team)
-{
-    self endon( "disconnect" );
-
-    while(!isdefined(self.pers["team"]))
-        wait .05;
-        
-    self notify("menuresponse", game["menu_team"], team);
-    wait 0.5;
+level.trapTriggers  =  [];
+level.trapTriggers[level.trapTriggers.size]  =  getEnt( name, "targetname" );
 }
 
 
 trap1(){
-trig = getEnt ("trap1_trigger", "targetname"); 
-hurt = getEnt ("hurttrig", "targetname"); 
-spikes = getEnt ("goldcrush", "targetname"); 
+trig  =  getEnt ("trap1_trigger", "targetname"); 
+hurt  =  getEnt ("hurttrig", "targetname"); 
+spikes  =  getEnt ("goldcrush", "targetname"); 
 
 hurt enablelinkto(); 
 hurt linkto (spikes); 
@@ -94,11 +66,11 @@ spikes moveZ (112,3);
 }
 
 trap2(){
-trig2 = getEnt ("trap2_trigger", "targetname");
-lines1 = getEnt ("lines1", "targetname");
-lines2 = getEnt ("lines2", "targetname");
-hurt1 = getEnt ("lines1hurt", "targetname");
-hurt2 = getEnt ("lines2hurt", "targetname");
+trig2  =  getEnt ("trap2_trigger", "targetname");
+lines1  =  getEnt ("lines1", "targetname");
+lines2  =  getEnt ("lines2", "targetname");
+hurt1  =  getEnt ("lines1hurt", "targetname");
+hurt2  =  getEnt ("lines2hurt", "targetname");
 
 hurt1 enablelinkto(); 
 hurt1 linkto (lines1);
@@ -115,7 +87,7 @@ lines2 moveX (-144,0.9);
 }
 
 spinnything(){
-spinny2 = getent ("spinnythingy", "targetname");
+spinny2  =  getent ("spinnythingy", "targetname");
 while(1){
 spinny2 rotateyaw(360,3);
 wait 1;
@@ -123,8 +95,8 @@ wait 1;
 }
 
 trap3(){
-trig3 = getEnt ("trap3_trigger", "targetname"); 
-roll = getEnt ("spinnythingy", "targetname"); 
+trig3  =  getEnt ("trap3_trigger", "targetname"); 
+roll  =  getEnt ("spinnythingy", "targetname"); 
 
 trig3 waittill ("trigger");
 trig3 delete();
@@ -136,8 +108,8 @@ roll moveY (400,1);
 }
 
 trap4(){
-trig4 = getEnt ("trap4_trigger", "targetname"); 
-spinny5 = getEnt ("goldspin", "targetname");
+trig4  =  getEnt ("trap4_trigger", "targetname"); 
+spinny5  =  getEnt ("goldspin", "targetname");
 
 trig4 waittill ("trigger");
 trig4 delete();
@@ -150,10 +122,10 @@ wait 3;
 }
 
 trap5(){
-trig5 = getEnt ("trap5_trigger", "targetname");
-spikei = getEnt ("spikespinz", "targetname");
-hurt2 = getEnt ("hurttrig2", "targetname");
-hurt3 = getEnt ("hurttrig3", "targetname");
+trig5  =  getEnt ("trap5_trigger", "targetname");
+spikei  =  getEnt ("spikespinz", "targetname");
+hurt2  =  getEnt ("hurttrig2", "targetname");
+hurt3  =  getEnt ("hurttrig3", "targetname");
 
 hurt2 enablelinkto();
 hurt2 linkto (spikei);
@@ -173,9 +145,9 @@ wait 0.1;
 
 sniper()
 {
-    level.knife_trig = getEnt( "snipe_trig", "targetname");
-    jump = getEnt( "enter_snipe", "targetname" );
-    acti = getEnt( "acti_snipe", "targetname" );
+    level.knife_trig  =  getEnt( "snipe_trig", "targetname");
+    jump  =  getEnt( "enter_snipe", "targetname" );
+    acti  =  getEnt( "acti_snipe", "targetname" );
     
     while(1)
     {
@@ -206,9 +178,9 @@ sniper()
 
 knife()
 {
-    level.snipe_trig = getEnt( "knife_trig", "targetname");
-    jump1 = getEnt( "jumper_knife", "targetname" );
-    acti2 = getEnt( "acti_knife", "targetname" );
+    level.snipe_trig  =  getEnt( "knife_trig", "targetname");
+    jump1  =  getEnt( "jumper_knife", "targetname" );
+    acti2  =  getEnt( "acti_knife", "targetname" );
     
     while(1)
     {
@@ -237,20 +209,23 @@ knife()
     }
 }	
 
-secret(){
-trig=getent("secret","targetname");
-origin=getent("origin","targetname");
-while(1){
-trig waittill("trigger",user);
-user SetOrigin( origin.origin );
-}
+secret() {
+    trig = getent("secret","targetname");
+    origin = getent("origin","targetname");
+    thread fix_secret_cut(origin);
+
+    while(1) {
+        trig waittill("trigger",user);
+        user SetOrigin( origin.origin );
+    }
 }
 
-secretend(){
-trig7=getent("secretend","targetname");
-origin7=getent("origin2","targetname");
-while(1){
-trig7 waittill("trigger",user);
-user SetOrigin( origin7.origin );
-}
+secretend() {
+    trig7 = getent("secretend","targetname");
+    origin7 = getent("origin2","targetname");
+
+    while(1) {
+        trig7 waittill("trigger",user);
+        user SetOrigin( origin7.origin );
+    }
 }
