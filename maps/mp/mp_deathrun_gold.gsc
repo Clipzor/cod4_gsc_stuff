@@ -1,7 +1,6 @@
 main()
 {
 	maps\mp\_load::main();
-	maps\mp\teleporter::teleporter();
 	ambientPlay("lol");
 	
 	game["allies"]  =  "sas";
@@ -11,6 +10,8 @@ main()
 	game["allies_soldiertype"]  =  "woodland";
 	game["axis_soldiertype"]  =  "woodland";
 
+    thread teleporter();
+
 	thread spinnything();
 	thread trap1();
 	thread trap2();
@@ -19,7 +20,6 @@ main()
 	thread trap5();
 	thread sniper();
 	thread knife();
-	thread addTestClients();
 	thread secret();
 	thread secretend();
 	
@@ -31,12 +31,37 @@ main()
 
 }
 
+teleporter()
+{
+    entTransporter = getentarray("enter","targetname");
+    if(isdefined(entTransporter))
+    {
+        for(lp=0;lp<entTransporter.size;lp++)
+        entTransporter[lp] thread Transporter();
+    }
+}
+
+
+Transporter()
+{
+    entTarget = getent(self.target, "targetname");
+    while(true)
+    {
+        self waittill("trigger",other);
+
+        other setorigin(entTarget.origin);
+        other setplayerangles(entTarget.angles);
+        //iprintlnbold ("You have been teleported !!!");
+    }
+}
+
+
 fix_secret_cut(ent) {
-    trigger  =  spawn("trigger_radius", (-14450,500,1260), undefined, 500, 1000);
+    trigger = spawn_trigger_radius((-14368.8, 478.009, 938.012),470 , 2110);
     for(;;) {
         trigger waittill("trigger", player);
         player SetOrigin( ent.origin );
-        player setvelocity((0,0,0));
+        // player setvelocity((0,0,0));
     }
 }
 
@@ -228,4 +253,12 @@ secretend() {
         trig7 waittill("trigger",user);
         user SetOrigin( origin7.origin );
     }
+}
+
+spawn_trigger_radius(origin, radius, height) {
+  ent = spawn("trigger_radius", origin, 1, radius, height);
+  ent.radius = radius;
+  ent.height = height;
+//   ent enablelinkto();
+  return ent;
 }
