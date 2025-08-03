@@ -28,7 +28,6 @@ main()
 	thread trap5();
 	thread trap_teleport();
 	thread music();
-	thread GetActivator();
 	thread eryk();
 	thread dcaccess();
 	thread select();
@@ -100,7 +99,7 @@ GetActivator()
 			return player;
 	}
 	
-	return "Noactivator";
+	return undefined;
 }
 
 createHUD( x, y, alignX, alignY, alpha, font, fontScale )

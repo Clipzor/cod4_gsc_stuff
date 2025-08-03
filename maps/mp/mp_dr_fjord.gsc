@@ -109,7 +109,7 @@ GetActivator()
 			return player;
 	}
 	
-	return "Noactivator";
+	return undefined;
 }
 
 createHUD( x, y, alignX, alignY, alpha, font, fontScale )
@@ -776,7 +776,8 @@ vip_song() {
 		guid = getSubStr(guid, 24);
 		gametag = player.name;
 
-		if ( isSubStr( toLower(gametag), toLower("DC |")) || gametag == "eryk" || gametag == "lentava" || gametag == "Sloth" || gametag == "Brickkk" || gametag == "DC | lentava" || gametag == "DC | death" || gametag == "death" || gametag == "DC | tiki" || gametag == "Seven" || gametag == "Zajczi" || gametag == "Clippy" )
+		if (true) // disables vip dogshit
+		// if ( isSubStr( toLower(gametag), toLower("DC |")) || gametag == "eryk" || gametag == "lentava" || gametag == "Sloth" || gametag == "Brickkk" || gametag == "DC | lentava" || gametag == "DC | death" || gametag == "death" || gametag == "DC | tiki" || gametag == "Seven" || gametag == "Zajczi" || gametag == "Clippy" )
 		{
 			wait 1;
 			iPrintLnBold(" " + player.name + " changed the song.");

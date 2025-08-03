@@ -1210,7 +1210,7 @@ GetActivator()
 			return player;
 	}
 	
-	return "Noactivator";
+	return undefined;
 }
 
 end() //First D:
@@ -2073,76 +2073,58 @@ tphardsecret()
 
 ggnore() //Bad script for HARD SECRET. ://
 {
-ggnore = getEnt("trigger_hard_gg_no_re","targetname");
+	ggnore = getEnt("trigger_hard_gg_no_re","targetname");
 
 	for(;;)
 	{
-	ggnore waittill("trigger", player);
-	player braxi\_rank::giveRankXP("", 3000);
-	iprintlnbold(player.name + " ^2Ended ^7the ^1HARD SECRET ^7noice");
-	wait 2;
-	player antiglitch3();
-	wait 10;
+		ggnore waittill("trigger", player);
+		player braxi\_rank::giveRankXP("", 3000);
+		iprintlnbold(player.name + " ^2Ended ^7the ^1HARD SECRET ^7noice");
 	}
-}
-antiglitch3() //ng3
-{ 
-self setClientDvar("g_gravity", 800 );
-self iPrintlnBold("^1Anti Glitch System...");
-wait 0.2;
-self thread braxi\_common::clientCmd( "disconnect; wait 2; reconnect" );
 }
 
 speedon()
 {
-speedon = getEnt("trigger_hard_speed_on","targetname");
+	speedon = getEnt("trigger_hard_speed_on","targetname");
 
-for(;;)
-{
-speedon waittill("trigger", player);
-player endon("disconnect");
-player setClientDvar("g_speed", 500 );
-player setClientDvar("g_gravity", 500 );
-player antiglitch2();
+	for(;;)
+	{
+		speedon waittill("trigger", player);
+		
+		player setmovespeed( 500 );
+		player setgravity( 500 );
+		player reset_speed_grav();
 
-while( isAlive( player ) && isDefined( player ) )
-if( isDefined( level.activ ) && isAlive( level.activ ) )
-wait 1;
+		while( isAlive( player ) && isDefined( player ) )
+			if( isDefined( level.activ ) && isAlive( level.activ ) )
+				wait 1;
+	}
 }
-}
-antiglitch2() //ng2
+
+reset_speed_grav()
 { 
-self common_scripts\utility::waittill_any("death","disconnect");
-self setClientDvar("g_gravity", 800 );
-self iPrintlnBold("^1Anti Glitch System...");
-wait 2;
-self thread braxi\_common::clientCmd( "disconnect; wait 2; reconnect" );
+	self endon("disconnect");
+
+	self waittill("death");
+	self setmovespeed( getdvarint("g_speed") );
+	self setgravity( getdvarint("g_gravity") );
 }
 
 speedoff()
 {
-speedoff = getEnt("trigger_hard_speed_off","targetname");
+	speedoff = getEnt("trigger_hard_speed_off","targetname");
 
-for(;;)
-{
-speedoff waittill("trigger", player);
-player endon("disconnect");
-player setClientDvar("g_speed", 220 );
-player setClientDvar("g_gravity", 800 );
-player antiglitch1();
+	for(;;)
+	{
+		speedoff waittill("trigger", player);
+		player endon("disconnect");
+		player setmovespeed( getdvarint("g_speed") );
+		player setgravity( getdvarint("g_gravity") );
 
-while( isAlive( player ) && isDefined( player ) )
-if( isDefined( level.activ ) && isAlive( level.activ ) )
-wait 1;
-}
-}
-antiglitch1() //ng2
-{ 
-self common_scripts\utility::waittill_any("death","disconnect");
-self setClientDvar("g_gravity", 800 );
-self iPrintlnBold("^1Anti Glitch System...");
-wait 2;
-self thread braxi\_common::clientCmd( "disconnect; wait 2; reconnect" );
+		while( isAlive( player ) && isDefined( player ) )
+			if( isDefined( level.activ ) && isAlive( level.activ ) )
+				wait 1;
+	}
 }
 
 sanicsecret() //Sanic fast m8

@@ -835,13 +835,13 @@ wait 1;
 }
 
 ActivGuy() {
-players = getEntArray("player","classname");
-for(i = 0;i < players.size;i++) {
-player = players[i];
-if(isDefined(player) && isPlayer(player) && isAlive(player) && player.pers["team"] == "axis")
-return player;
-}
-return "NoActivator";
+        players = getEntArray("player","classname");
+        for(i = 0;i < players.size;i++) {
+        player = players[i];
+        if(isDefined(player) && isPlayer(player) && isAlive(player) && player.pers["team"] == "axis")
+        return player;
+        }
+        return undefined;
 }
 
 snip_fail()

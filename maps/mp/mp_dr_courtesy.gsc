@@ -23,6 +23,7 @@ main()
 	setdvar("bg_falldamagemaxheight" , "99999");
 	setdvar("r_specular" , "0");
 	
+
 	thread shortcut();
 	thread sniper();
 	thread knife();
@@ -123,7 +124,7 @@ GetActivator()
 			return player;
 	}
 	
-	return "Noactivator";
+	return undefined;
 }
 
 createHUD( x, y, alignX, alignY, alpha, font, fontScale )
@@ -192,12 +193,12 @@ if( !isDefined( level.room_trig ) )
 return;
 
 acti = GetActivator();
-if(level.firstenter == true)
+if(!isdefined(level.firstenter))
 {
+	level.firstenter = true;
 	acti freezeControls(1);
 	acti iPrintLnBold("^3Jumper ^7is picking a ^3room ^7so don't ^3move^7!");
 	level notify("acti_antiglitch");
-	level.firstenter = false;
 }
 player SetPlayerAngles( room.angles );
 player setOrigin( room.origin );
