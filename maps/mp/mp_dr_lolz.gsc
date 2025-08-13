@@ -2071,6 +2071,8 @@ tphardsecret()
 	}
 }
 
+freeze_player()
+
 ggnore() //Bad script for HARD SECRET. ://
 {
 	ggnore = getEnt("trigger_hard_gg_no_re","targetname");
