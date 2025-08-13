@@ -272,6 +272,7 @@ randomStagePoint(in,out,num)
 }
 stageArrows()
 {
+	arrow = [];
 	arrow[0] = getEnt("stage3_arrow","targetname");
 	arrow[1] = getEnt("stage2_arrow","targetname");
 	while(1)
@@ -304,6 +305,7 @@ welcomeText(player,textOne,textTwo,glowColor)
 {
 	player endon("death");
 	player endon("disconnect");
+	line = [];
 	line[0] = player createText("default",2.5,"","",-1000,-160,1,10,textOne);
 	line[1] = player createText("default",2,"","",1000,-120,1,10,textTwo);
 	for(k = 0; k < line.size; k++)
@@ -720,6 +722,7 @@ trap10Slide()
 }
 trap10Spin1()
 {
+	brush = [];
 	brush[0] = getEnt("trap10_spin1","targetname");
 	brush[1] = getEnt("trap10_spin4","targetname");
 	while(1)
@@ -736,6 +739,7 @@ trap10Spin1()
 }
 trap10Spin2()
 {
+	brush = [];
 	brush[0] = getEnt("trap10_spin2","targetname");
 	brush[1] = getEnt("trap10_spin3","targetname");
 	while(1)
@@ -851,6 +855,7 @@ moveTrap13()
 }
 spinningBlades()
 {
+	brush = [];
 	brush[0] = getEnt("trap13_spinning_axle","targetname");
 	brush[1] = getEnt("trap13_spinning_blades","targetname");
 	while(1)
@@ -863,6 +868,7 @@ spinningBlades()
 }
 lazerTrap1()
 {
+	lazer1 = [];
 	lazer1[0] = getEnt("lazer_1_lazer","targetname");
 	lazer1[0] notSolid();
 	lazer1[1] = getEnt("lazer_1_right","targetname");
@@ -882,6 +888,7 @@ lazerTrap1()
 }
 lazerTrap2()
 {
+	lazer1 = [];
 	lazer1[0] = getEnt("lazer_2_lazer1","targetname");
 	lazer1[0] notSolid();
 	lazer1[1] = getEnt("lazer_2_right","targetname");
@@ -903,6 +910,7 @@ lazerTrap2()
 }
 lazerTrap2Move()
 {
+	lazer2 = [];
 	lazer2[0] = getEnt("lazer_2_lazer2","targetname");
 	lazer2[0] notSolid();
 	lazer2[1] = getEnt("lazer_2_top","targetname");

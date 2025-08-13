@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "cod4_raw_maps",
+			"path": "cod4_raw_maps"
+		},
+		{
+			"name": "cod4_gsc_stuff",
+			"path": "."
+		}
+	],
+	"settings": {}
+}

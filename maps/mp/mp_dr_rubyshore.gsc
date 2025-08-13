@@ -554,6 +554,7 @@ rope_move(player, src, dest, drop) // thx 2 Arfy
 
 ruby_rotate()
 {
+	rubys = [];
 	rubys[0] = getEnt( "trap_01_ruby_rotate", "targetname" );
 	rubys[1] = getEnt( "trap_02_ruby_rotate", "targetname" );
 	rubys[2] = getEnt( "trap_03_ruby_rotate", "targetname" );
@@ -1030,6 +1031,8 @@ secret_wall2()
 
 secret_brick()
 {
+	bricks = [];
+	triggers = [];
 	fx_origin = getEnt( "find_brick_origin", "targetname" );
 	bricks[0] = getEnt( "find_brick_01", "targetname" );
 	bricks[1] = getEnt( "find_brick_02", "targetname" );

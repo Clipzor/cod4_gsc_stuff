@@ -29,7 +29,7 @@ main()
         thread end_roof();
         thread end();
         thread music_hud();
-        thread addTestCLients();
+
         thread vip();
         thread moving_platform();
         thread Secret();
@@ -224,77 +224,7 @@ end()
     iprintlnbold("^3"+ player.name +"^1 Have Finished The Map ^51st ^2!!!!!");
        
   }
- 
-  addTestClients()
-{
-        wait 5;
- 
-        for(;;)
-        {
-                if(getdvarInt("scr_testclients") > 0)
-                        break;
-                wait 1;
-        }
- 
-//      for ( index = 1; index < 24; index++ )
-//              kick( index );
- 
-        testclients = getdvarInt("scr_testclients");
-        setDvar( "scr_testclients", 0 );
-        for(i = 0; i < testclients; i++)
-        {
-                ent[i] = addtestclient();
- 
-                if (!isdefined(ent[i])) {
-                        println("Could not add test client");
-                        wait 1;
-                        continue;
-                }
-                       
-                /*if(i & 1)
-                        team = "allies";
-                else
-                        team = "axis";*/
-                       
-                ent[i].pers["isBot"] = true;
-                ent[i] thread TestClient("autoassign");
-        }
-       
-        thread addTestClients();
-}
- 
-TestClient(team)
-{
-        self endon( "disconnect" );
- 
-        while(!isdefined(self.pers["team"]))
-                wait .05;
- 
-        self notify("menuresponse", game["menu_team"], team);
-        wait 0.5;
- 
-        classes = getArrayKeys( level.classMap );
-        okclasses = [];
-        for ( i = 0; i < classes.size; i++ )
-        {
-                if ( !issubstr( classes[i], "custom" ) && isDefined( level.default_perk[ level.classMap[ classes[i] ] ] ) )
-                        okclasses[ okclasses.size ] = classes[i];
-        }
-       
-        assert( okclasses.size );
- 
-        while( 1 )
-        {
-                class = okclasses[ randomint( okclasses.size ) ];
-               
-                if ( !level.oldschool )
-                        self notify("menuresponse", "changeclass", class);
-                       
-                self waittill( "spawned_player" );
-                self freezeControls(true);
-                wait ( 0.10 );
-        }
-}
+  
 vip()
 {      
 //On AR51 servers you have different guid so i add 2 :P

@@ -938,7 +938,6 @@ runroom()
         {
 		    player room_setup(jump,"knife_mp",undefined,"yes",1);
             level.activ room_setup(acti,"knife_mp",undefined,"yes",1);
-			;
             noti = SpawnStruct();
             noti.titleText = "Bounce Room";
             noti.notifyText = "^7"+level.activ.name+" ^1vs ^7"+player.name;
@@ -1008,7 +1007,7 @@ deagroom()
         {
 		    player room_setup(jump,"deserteagle_mp",undefined,"yes",1);
             level.activ room_setup(acti,"deserteagle_mp",undefined,"yes",1);
-			;
+			
             noti = SpawnStruct();
             noti.titleText = "Deagle Room";
             noti.notifyText = "^7"+level.activ.name+" ^1vs ^7"+player.name;

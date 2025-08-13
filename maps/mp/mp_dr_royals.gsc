@@ -157,7 +157,7 @@ trig waittill ("trigger");
 trig delete();
 
 brush moveZ (-480,1);
-wait 5;;
+wait 5;
 brush moveZ (480,1);
 }
 
@@ -171,7 +171,7 @@ trig delete();
 
 
 brush moveZ (480,1);
-wait 5;;
+wait 5;
 brush moveZ (-480,1);
 }
 

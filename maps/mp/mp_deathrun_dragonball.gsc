@@ -1021,7 +1021,7 @@ credit()
 wait(10);
 thread drawInformation( 800, 0.8, 1, "Dragonball" );
 wait(4);
-thread drawInformation( 800, 0.8, 1, "© Wingzor " );
+thread drawInformation( 800, 0.8, 1, "ï¿½ Wingzor " );
 wait(4);
 }
 
@@ -1055,7 +1055,7 @@ new_ending_hud( align, fade_in_time, x_off, y_off )
  	hud.fontScale = 3;
 
 	hud.color = (0.8, 1.0, 0.8);
-	hud.font = "objective";
+	hud.font = "Objective";
 	hud.glowColor = (0.3, 0.6, 0.3);
 	hud.glowAlpha = 1;
 
@@ -1413,7 +1413,7 @@ meteor delete();
 spawnmodel(origin,angles,model,solid,donthide)
 {
 newmodel = spawn("script_model",origin);
-newmodel.angles = (90,0,0);;
+newmodel.angles = (90,0,0);
 newmodel setModel(model);
 if(donthide != "none")
 newmodel ShowAllParts();
@@ -1659,22 +1659,22 @@ CastFireBall()
 	wait 0.05;
 	PlayFXOnTag( level.abovehuman["fireball_idle"], Obj, "tag_origin" );
 	
-	obj PlaySound("fire_cast");
-	obj PlayLoopSound("firewall");
+	Obj PlaySound("fire_cast");
+	Obj PlayLoopSound("firewall");
 	
 	while(1)
 	{
-		target = obj.origin+AnglesToForward( obj.angles )*550;
-		obj MoveTo( target, 0.1);
-		if( !BulletTracePassed( obj.origin, target, true, self ) )
+		target = Obj.origin+AnglesToForward( Obj.angles )*550;
+		Obj MoveTo( target, 0.1);
+		if( !BulletTracePassed( Obj.origin, target, true, self ) )
 			break;
 		wait 0.1;
 	}
 	Obj PlaySound("explo_metal_rand");
-	PlayFX( level.abovehuman["fireball_explosion"], obj.origin );
-	EarthQuake( 1, 1, obj.origin, 600 );
-	RadiusDamage( obj.origin, 400, 100, 30, self );
-	obj delete();
+	PlayFX( level.abovehuman["fireball_explosion"], Obj.origin );
+	EarthQuake( 1, 1, Obj.origin, 600 );
+	RadiusDamage( Obj.origin, 400, 100, 30, self );
+	Obj delete();
 }
 
 CastFireBall2()
@@ -1685,22 +1685,22 @@ CastFireBall2()
 	wait 0.05;
 	PlayFXOnTag( level.abovehuman["fireball_idlebig"], Obj, "tag_origin" );
 	
-	obj PlaySound("fire_cast");
-	obj PlayLoopSound("firewall");
+	Obj PlaySound("fire_cast");
+	Obj PlayLoopSound("firewall");
 	
 	while(1)
 	{
-		target = obj.origin+AnglesToForward( obj.angles )*350;
-		obj MoveTo( target, 0.1);
-		if( !BulletTracePassed( obj.origin, target, true, self ) )
+		target = Obj.origin+AnglesToForward( Obj.angles )*350;
+		Obj MoveTo( target, 0.1);
+		if( !BulletTracePassed( Obj.origin, target, true, self ) )
 			break;
 		wait 0.1;
 	}
 	Obj PlaySound("explo_metal_rand");
-	PlayFX( level.abovehuman["fireball_explosionbig"], obj.origin );
-	EarthQuake( 1, 2, obj.origin, 2200 );
-	RadiusDamage( obj.origin, 1000, 400, 80, self );
-	obj delete();
+	PlayFX( level.abovehuman["fireball_explosionbig"], Obj.origin );
+	EarthQuake( 1, 2, Obj.origin, 2200 );
+	RadiusDamage( Obj.origin, 1000, 400, 80, self );
+	Obj delete();
 }
 
 trap_crouchpush()

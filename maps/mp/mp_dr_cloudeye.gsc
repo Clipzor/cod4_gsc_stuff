@@ -35,8 +35,6 @@ main()
 	precacheItem ("uzi_mp");
 	precacheItem ("mp5_mp");
 	precacheItem ("barrett_mp" );
-
-	thread addTestClients();
 	
 	addTriggerToList( "trap_01_trigger" );
     addTriggerToList( "trap_02_trigger" );
@@ -1850,6 +1848,7 @@ isDublicated(array, x, index)
 
 init_gold_blocks()
 {
+	gold = [];
 	gold[0] = getEnt( "gold_block_01", "targetname" );
 	gold[1] = getEnt( "gold_block_02", "targetname" );
 	gold[2] = getEnt( "gold_block_03", "targetname" );
@@ -1886,7 +1885,8 @@ init_gold_blocks()
 	}
 	
 	wait .5; // wait till gold spawns
-	
+	fx = [];
+	trigger = [];
 	for(i = 0; i < random_gold.size; i++)
 	{
 		thread exec_object_rotate(gold[random_gold[i]]);
@@ -2364,52 +2364,4 @@ exec_move_down(object)
 	wait 1.1;
 	
 	object delete();
-}
-
-/*TEST*CLIENTS********************************************************************/
-
-addTestClients()
-{
-	setDvar("scr_testclients", "");
-	wait 1;
-	
-	for(;;)
-	{
-		if(getDvarInt("scr_testclients") > 0)
-			break;
-		
-		wait 1;
-	}
-	
-	testClients = getdvarInt("scr_testclients");
-	setDvar("scr_testclients", 0);
-	
-	for(i=0; i<testClients; i++)
-	{
-		ent[i] = addTestClient();
-
-		if (!isdefined(ent[i]))
-		{
-			println("Could not add test client");
-			wait 1;
-			
-			continue;
-		}
-		
-		ent[i].pers["isBot"] = true;
-		ent[i] thread testClient("autoassign");
-	}
-	
-	thread addTestClients();
-}
-
-testClient(team)
-{
-	self endon( "disconnect" );
-
-	while(!isdefined(self.pers["team"]))
-		wait .05;
-		
-	self notify("menuresponse", game["menu_team"], team);
-	wait 0.5;
 }

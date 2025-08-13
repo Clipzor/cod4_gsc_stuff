@@ -332,6 +332,7 @@ trap7()
 }
 trap8()
 {
+	hammer = [];
 	hammer[0] = getEnt("trap8aa","targetname");
 	hammer[1] = getEnt("trap8b","targetname");
 	hammer[2] = getEnt("trap8c","targetname");

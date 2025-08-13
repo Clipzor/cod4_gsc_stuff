@@ -3,7 +3,7 @@
 ////xfire:xlossx steam:xlossxftw//////////////////////////////
 ////My website: www.lossycreation.weebly.com//////////////////
 ////These scripts are copyright material//////////////////////
-////do not edit or change anything. Copyright © 2012-2013/////
+////do not edit or change anything. Copyright ï¿½ 2012-2013/////
 /////////////////////////////////////////////////////////////
 
 main()
@@ -1357,7 +1357,7 @@ activator_m60e4()
 	for(;;)
 	{
 	
-		trig waittill ("trigger", who);;
+		trig waittill ("trigger", who);
 		
 		who takeWeapon( who getCurrentWeapon() ); //take weapon from player
 

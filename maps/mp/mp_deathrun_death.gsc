@@ -24,6 +24,7 @@ main()
 	level._effect["clouds"] = LoadFX("deathrun/clouds");
 	
 	cloud = getentarray("ambient_clouds", "targetname");
+	weatherfx = [];
 	for(i=0;i<cloud.size;i++)
 	{
 		weatherfx[i] = maps\mp\_utility::createOneshotEffect( "clouds" );
@@ -34,6 +35,7 @@ main()
 	}
 	
 	fire = getentarray("ambient_blue_fire_small", "targetname");
+	blue_fire = [];
 	for(i=0;i<fire.size;i++)
 	{
 		blue_fire[i] = maps\mp\_utility::createOneshotEffect( "blue_fire_small" );

@@ -210,7 +210,7 @@ trap_4_1()
 		trap waittill ("movedone");
 		wait 0.1;
 		trap movez (-56,0.3,0);
-		trap waittill ("movedone");;
+		trap waittill ("movedone");
 		wait 0.1;
 		trap movex (-564,2,0,0);
 		trap waittill ("movedone");

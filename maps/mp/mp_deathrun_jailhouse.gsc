@@ -108,20 +108,21 @@ defineentities()
 }
 hintstrings()
 {
-trig[1] = level.trigger1;
-trig[2] = level.trigger2;
-trig[3] = level.trigger3;
-trig[4] = level.trigger4;
-trig[5] = level.trigger5;
-trig[6] = level.trigger6;
-trig[7] = level.trigger7;
-trig[8] = level.trigger8;
-trig[9] = level.trigger8;
-for( i = 1; i < trig.size; i++ )
+	trig = [];
+	trig[1] = level.trigger1;
+	trig[2] = level.trigger2;
+	trig[3] = level.trigger3;
+	trig[4] = level.trigger4;
+	trig[5] = level.trigger5;
+	trig[6] = level.trigger6;
+	trig[7] = level.trigger7;
+	trig[8] = level.trigger8;
+	trig[9] = level.trigger8;
+	for( i = 1; i < trig.size; i++ )
 	{
-	trig[i] sethintstring("Press [USE] to Activate");
-	trig[i] SetCursorHint("HINT_ACTIVATE");
-	attl(trig[i].targetname);
+		trig[i] sethintstring("Press [USE] to Activate");
+		trig[i] SetCursorHint("HINT_ACTIVATE");
+		attl(trig[i].targetname);
 	}
 }
 // Define Functions

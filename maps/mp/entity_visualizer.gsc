@@ -248,7 +248,7 @@ display_ent() {
   else {
     if(level.EV_display_undefined) {
       targetname = "no_targetname";
-      target_color = (1, 0.76, 0.94);;
+      target_color = (1, 0.76, 0.94);
     }
     else
       return;

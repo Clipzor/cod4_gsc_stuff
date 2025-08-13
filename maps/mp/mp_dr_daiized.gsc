@@ -459,7 +459,7 @@ sniperroom()
 	level.sniper setHintString("^1>>^7 Press ^1&&1 ^7 to Enter The ^2Sniper ^7Room!");
 	while(1)
 	{
-		level.sniper waittill("trigger", player);;
+		level.sniper waittill("trigger", player);
 		
 		if(!isdefined(level.sniper))
 			return;
@@ -675,7 +675,6 @@ bounceroom()
         {
 		    player room_setup(jump,"knife_mp",undefined,"yes",1);
             level.activ room_setup(acti,"knife_mp",undefined,"yes",1);
-			;
             noti = SpawnStruct();
             noti.titleText = "Bounce Room";
             noti.notifyText = "^7"+level.activ.name+" ^1vs ^7"+player.name;

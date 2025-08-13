@@ -209,7 +209,7 @@ finishdoor()
 	door movez(290,5);
 	iprintlnbold("^5Finish Door is Open");
 	wait 4;
-	door delete();;
+	door delete();
 }
 
 hs()

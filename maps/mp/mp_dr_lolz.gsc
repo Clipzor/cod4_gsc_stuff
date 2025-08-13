@@ -2071,7 +2071,9 @@ tphardsecret()
 	}
 }
 
-freeze_player()
+freeze_player(){
+	
+}
 
 ggnore() //Bad script for HARD SECRET. ://
 {

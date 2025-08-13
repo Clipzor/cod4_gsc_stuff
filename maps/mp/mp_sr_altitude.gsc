@@ -52,7 +52,7 @@ secret1entrance()
 }
 secret2entrance()
 {
-	trig getEnt("210entrancetrig");
+	trig = getEnt("210entrancetrig");
 	ori = getEnt("210entrance");
 	trig setHintString("Press ^1&&1 ^7to enter the 210 secret!");
     
@@ -124,6 +124,8 @@ checkpoints1()
             player freezeControls( 1 );
             wait 0.1;
             player freezeControls( 0 );
+        }
+    }
 }
 
 secret1_checkpoint1()
@@ -229,8 +231,9 @@ checkpoints2()
         }
 
 	}
+}
 
-	secret2_checkpoint1()
+secret2_checkpoint1()
 {
 	 trig = getEnt("secret_2checkpoint1", "targetname");
     while(true)
@@ -279,7 +282,7 @@ secret1end()
 {
 	trig = getEnt("190endtrig", "targetname");
 
-	while(;;)
+	for(;;)
 	{
 		trig waittill("trigger", player);
 		iPrintLnBold("^1" + player.name + "^7 has finished the 190 secret!");
@@ -291,7 +294,7 @@ secret2end()
 {
 	trig = getEnt("210endtrig", "targetname");
 
-	while(;;)
+	for(;;)
 	{
 		trig waittill("trigger", player);
 		iPrintLnBold("^1" + player.name + "^7 has finished the 210 secret!");

@@ -804,7 +804,7 @@ trap8b()
 trap8()
 {
 	block1 = getent("trap8_a", "targetname");
-	block2 = getent("trap8_b", "targetname");;
+	block2 = getent("trap8_b", "targetname");
     block1 moveX (-89, 1.5);
     block2 moveX (89, 1.5);
     wait 3;

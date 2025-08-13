@@ -1851,7 +1851,7 @@ endroom1()
 	player SetPlayerAngles( pos.angles );
 	player GiveWeapon("m40a3_acog_mp");
 	wait 0.05;
-	Player SwitchToWeapon("m40a3_acog_mp");
+	player SwitchToWeapon("m40a3_acog_mp");
 	wait 2;
 	player FreezeControls (0);
 
@@ -1916,7 +1916,7 @@ endroom2()
 	player FreezeControls (1);
 	player TakeAllWeapons();
 	player Setorigin(pos.origin);
-	player SetPlayerAngles( pos.angles );;
+	player SetPlayerAngles( pos.angles );
 	wait 2;
 	player FreezeControls (0);
 
@@ -1983,7 +1983,7 @@ endroom3()
 	player SetPlayerAngles( pos.angles );
 	player GiveWeapon("dragunov_acog_mp");
 	wait 0.05;
-	Player SwitchToWeapon("dragunov_acog_mp");
+	player SwitchToWeapon("dragunov_acog_mp");
 	wait 2;
 	player FreezeControls (0);
 
@@ -2048,8 +2048,8 @@ endroom4()
 	level thread theFinalBlow( );
 
 	if( isDefined( player )) {
-		level.megKillerPlayer = player; // so fuck stupid
-		debug("Player = "+player.name );
+		level.megKillerplayer = player; // so fuck stupid
+		debug("player = "+player.name );
 		player		thread megMonitorPlayer( getEnt ("meg1", "targetname" ), "megside" );
 		player		thread monitorCuntsSuicide();
 	}
@@ -2088,14 +2088,14 @@ megUI() {
 	debug(self.name + " has UI");
 	// don't double thread for acti.
 	if( !isDefined(self.megUi) )
-		self.megUi = createText("CENTER", "CENTER", 0, -200, 1.4, "Activators Score: "+level.megActiScore+"\n"+level.megKillerPlayer.name+"'s Score: "+level.playerScore);
+		self.megUi = createText("CENTER", "CENTER", 0, -200, 1.4, "Activators Score: "+level.megActiScore+"\n"+level.megKillerplayer.name+"'s Score: "+level.playerScore);
 
 	while( self.playingWithMeg ) {
 		level waittill("ameghasbeenshot");
 		debug(self.name);
-		debug("Updated ui? Acti Score: "+level.megActiScore+" Player Score: "+level.playerScore);
+		debug("Updated ui? Acti Score: "+level.megActiScore+" player Score: "+level.playerScore);
 		if( isDefined(self.megUi) )
-			self.megUi setText("Activators Score: "+level.megActiScore+"\n"+level.megKillerPlayer.name+"'s Score: "+level.playerScore); // wops
+			self.megUi setText("Activators Score: "+level.megActiScore+"\n"+level.megKillerplayer.name+"'s Score: "+level.playerScore); // wops
 	}
 }
 
@@ -2686,7 +2686,7 @@ cjpooptwo()
 			actitele waittill("trigger", player);
 			player GiveWeapon("colt44_mp");
 			wait 0.05;
-			Player SwitchToWeapon("colt44_mp");
+			player SwitchToWeapon("colt44_mp");
 			player SetPlayerAngles( actiorigin.angles );
 	        player setOrigin( actiorigin.origin );
 	}
@@ -2783,7 +2783,7 @@ bunny(){
 	player GiveWeapon("knife_mp");
 	level.activ GiveWeapon("knife_mp");
 	wait 0.05;
-	Player SwitchToWeapon("knife_mp");
+	player SwitchToWeapon("knife_mp");
 	level.activ SwitchToWeapon("knife_mp");
 	level.activ setgravity(800);
 	level notify("fam_endroom");
@@ -2800,7 +2800,7 @@ bunny(){
 		player GiveWeapon("knife_mp");
 		level.activ GiveWeapon("knife_mp");
 		wait 0.05;
-		Player SwitchToWeapon("knife_mp");
+		player SwitchToWeapon("knife_mp");
 		level.activ SwitchToWeapon("knife_mp");
 		level notify("fam_endroom");
 		player setOrigin( one.origin );
@@ -2821,7 +2821,7 @@ knife(){
 	level.activ GiveWeapon("knife_mp");
 	level.activ setgravity(800);
 	wait 0.05;
-	Player SwitchToWeapon("knife_mp");
+	player SwitchToWeapon("knife_mp");
 	level.activ SwitchToWeapon("knife_mp");
 	level notify("fam_endroom");
 	player setOrigin( one.origin );
@@ -2842,7 +2842,7 @@ knife(){
 		player GiveWeapon("knife_mp");
 		level.activ GiveWeapon("knife_mp");
 		wait 0.05;
-		Player SwitchToWeapon("knife_mp");
+		player SwitchToWeapon("knife_mp");
 		level.activ SwitchToWeapon("knife_mp");
 		level notify("fam_endroom");
 		player setOrigin( one.origin );
@@ -2861,7 +2861,7 @@ old(){
 	level.activ setgravity(800);
 	player GiveWeapon("m60e4_grip_mp");
 	wait 0.05;
-	Player SwitchToWeapon("m60e4_grip_mp");
+	player SwitchToWeapon("m60e4_grip_mp");
 	player setOrigin( one.origin );
 	player SetPlayerAngles( one.angles );
 	level.activ setOrigin( acti.origin );
@@ -2878,7 +2878,7 @@ old(){
 		player TakeAllWeapons();
 		player GiveWeapon("m60e4_grip_mp");
 		wait 0.05;
-		Player SwitchToWeapon("m60e4_grip_mp");
+		player SwitchToWeapon("m60e4_grip_mp");
 		level notify("fam_endroom");
 		player setOrigin( one.origin );
 		player SetPlayerAngles( one.angles );
@@ -3381,7 +3381,7 @@ braintelep()
 			player TakeAllWeapons();
 			player GiveWeapon("knife_mp");
 			wait 0.05;
-			Player SwitchToWeapon("knife_mp");
+			player SwitchToWeapon("knife_mp");
 			player SetPlayerAngles( actiorigin.angles );
 	        player setOrigin( actiorigin.origin );
 	}
@@ -3488,65 +3488,3 @@ debug( message ) {
 	if( level.mikeyDebug )
 		iPrintln( "^1[debug]: ^9"+ message );
 }
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-/*
-														map by wofles
-														scripted by wofles (with help)
-														steam = jwofles
-														go to jwofl.es
-
-*/
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-/*
-						                                             .---.
-						                                        _.--(\,/\,`\
-						                                      ,' . . .' . \/`-._
-						                                      : . . .' .  . |  _`--.
-						                                      :,----'--.  . ; (  \  `-.
-						                                    ,;:|,-----.`,   `  `\_)  . `-.
-						                                  ,;;;`;        /; ,         '   `.
-						                                ,';;,-'`.    ,-;;;;/-.         .  :
-						                              ,;;;,'     `-,;;;;;-'  `-      ; '
-						                             .;;,'       ,;;;;-'   :  .     -'
-						                            .;.'       ,';;;':     `  `
-						                            ;;'      .;;;-'  ;  ,             ,
-						            ____,-------.__ `'      .','    ;   `           , '
-						         ,-'     __,---.__ `-.      `'   ,-'  ,             '
-						      _,'___,-    `\_:_/'  - `:       ,-'     `  ,
-						    ,'  ((_); . .    :   . .  :    ,-'           `
-						  ,' :  '   :  . . _.;._  .  ,' ,-'
-						 ,'  `      `.  _,:,---.`-._,' ,              _,---------._
-						'      :     `.::||     ::||  '            ,-'         ___ `-.                    see
-						  `    `-.     ::||     ::||`-.     __,---.,--_      ,'---`, `.
-						    ,    `     ::|| `-' ::||   `_,-' `\_:_/'   `--._ `-(_)-'  |                		   you
-						    `          ::||      :||   ; .  .   :    .  .   ;       `.|
-						               ::||`-'   :||  : .  .  __`.__  .  .  :          |							soon!
-						               `:||      :|;  `.  .  ; ____ :  .  . `,         |
-						                :;       `'     `.  /;'    `|---._   ;          |
-						                `               ; );::.,   , \:::||/'           `.
-						                               .' :::||` - '  :::||              :
-						                              ,'  :::||       :::||              :.
-						   (         `.   ,'         ,'   :::|| `--'  :::||  -'          ::
-						     -.       `---'       _,-'    `::|:       :::||              `|
-						      `-  (             ,'   ,     ::|| `   ' :::|| -'            |
-						    )    )  -.         ,'    `     ::||       `::||   --'         :
-						   ) -.      `     __,-'    ,       :||        ::||               :
-						      `   _____,--'         `        \;        `;/'            : .:
-						 __,-----'            ,        ` .                              `::
-						-'           ,         `      :   `  .         -                   :
-						     ,    , `,     ,         `.__    `     -      -      ;      '::
-						(  , '    '  `     `    ;    ,'  `---.__            ;    ',      :
-						 \ '  ,          ,     ,'               `-._         ;    ';    ::
-						  `-. '          `    :   ;                 `.        ,    ;,   ::
-						     )        ,       :   `;                  `.   ,' ` ,  ,'   ;
-						`.  )__    ,  `  ,    `.   `; __                :  ,    ` ,'   :
-						 )  )  `---`____ `      `   _'--`-.             ;___,----:    ,
-						__ \)))          `-----. _,-' --   `------.__,  ,'       |    ;
-						                     ,-' -__,_______           ;        :       ,'
-						                      `--'          `---------'          `-----'
-
-*/

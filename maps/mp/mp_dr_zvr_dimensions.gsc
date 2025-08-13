@@ -58,7 +58,7 @@ main()
 	thread jumptele2();
 	thread bottomtext();
 	thread suit_change();
-	thread addTestClients();
+
 	thread spawn1();
 	//music
 	thread musicBox();
@@ -2014,46 +2014,6 @@ addTriggerToList( name, positionOfIconAboveTrap )
     if( !isDefined( level.icon_origins ) )
         level.icon_origins = [];
     level.icon_origins[level.icon_origins.size] = positionOfIconAboveTrap;
-}
-
-addTestClients()
-{
-     setDvar("scr_testclients", "");
-     wait 1;
-     for(;;)
-     {
-         if(getdvarInt("scr_testclients") > 0)
-             break;
-         wait 1;
-     }
-     testclients = getdvarInt("scr_testclients");
-     setDvar( "scr_testclients", 0 );
-     for(i=0;i<testclients;i++)
-     {
-         ent[i] = addtestclient();
-
-         if (!isdefined(ent[i]))
-         {
-             println("Could not add test client");
-             wait 1;
-             continue;
-         }
-         ent[i].pers["isBot"] = true;
-         ent[i].pers["registered"] = 0;
-         ent[i] thread TestClient("autoassign");
-     }
-     thread addTestClients();
-}
-
-TestClient(team)
-{
-     self endon( "disconnect" );
-
-     while(!isdefined(self.pers["team"]))
-         wait .05;
-         
-     self notify("menuresponse", game["menu_team"], team);
-     wait 0.5;
 }
 
 secret_timer() 

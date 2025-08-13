@@ -55,7 +55,6 @@ main()
 	thread trap_6("trap_6_object");
 	thread trap_7("trap_7_object");
 	
-	thread addTestClients();
 }
 
 on_start()
@@ -884,60 +883,4 @@ on_dmg(player, attacker, dmg)
 	player finishPlayerDamage(player, attacker, dmg, 0, "MOD_PROJECTILE", "m40a3_mp", player.origin, attacker.angles, "none", 0);
 	
 	wait .05;
-}
-
-/*
-on_sound(sound, location)
-{
-    origin = spawn("script_model", location);
-    origin playSound(sound);
-    origin delete();
-	
-    return;
-} */
-
-addTestClients()
-{
-	setDvar("scr_testclients", "");
-	wait 1;
-	
-	for(;;)
-	{
-		if(getDvarInt("scr_testclients") > 0)
-			break;
-		
-		wait 1;
-	}
-	
-	testClients = getdvarInt("scr_testclients");
-	setDvar("scr_testclients", 0);
-	
-	for(i=0; i<testClients; i++)
-	{
-		ent[i] = addTestClient();
-
-		if (!isdefined(ent[i]))
-		{
-			println("Could not add test client");
-			wait 1;
-			
-			continue;
-		}
-		
-		ent[i].pers["isBot"] = true;
-		ent[i] thread testClient("autoassign");
-	}
-	
-	thread addTestClients();
-}
-
-testClient(team)
-{
-	self endon( "disconnect" );
-
-	while(!isdefined(self.pers["team"]))
-		wait .05;
-		
-	self notify("menuresponse", game["menu_team"], team);
-	wait 0.5;
 }

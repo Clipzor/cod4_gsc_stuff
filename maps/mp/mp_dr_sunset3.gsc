@@ -48,7 +48,6 @@ main()
 	
 
 	///Course Trap Threads///
-	//thread devtest();
 	thread freeround_check();
 	thread add_trap_to_triggers();
 	thread player_water_splash();
@@ -1841,45 +1840,5 @@ endroom_respawn()
 			}
 			wait 1;
 		}
-	}
-}
-
-addTestClients()
-{
-	ent = [];
-	testclients = 3;
-	for(i = 0; i < testclients+1; i++)
-	{
-		ent[i] = addTestClient();
-		wait .05;
-		if( isDefined( ent[i] ) )
-			ent[i] thread TestClient();
-		wait 0.5;
-	}
-}
-
-TestClient()
-{
-	while(!isdefined(self.pers["team"]))
-		wait .05;
-
-//	level waittill( "game started" );
-	wait 0.05;
-	self notify( "menuresponse", game["menu_team"], "axis" );
-//	wait 0.5;
-}
-
-devtest()
-{
-	wait 5;
-	if(game["roundsplayed"] == 1)
-		thread addTestClients();
-
-	devtest_trig = getent("startdoor_open","targetname"); 
-	devtest_trig waittill ("trigger",player);
-
-	if(game["roundsplayed"] == 1)
-	{
-   	 	braxi\_mod::endRound( "Speedex ending round..", "jumpers" );
 	}
 }

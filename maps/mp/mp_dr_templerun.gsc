@@ -865,7 +865,7 @@ fan()
 }
 
 fan_stuff(fx_ent) {
-    fx_ent thread fan_fx(fx_ent);
+    fx_ent thread fan_fx();
     self RotatePitch(3240, 9);
     self thread fan_sound();
 }
@@ -976,7 +976,7 @@ fire_torch_sound_fx()
    
     level waittill("round_started");
      
-    for(i=0;i<sound.size;i++) {
+    for(i=0;i<ent.size;i++) {
         PlayFX(level.fire_torch, ent[i].origin);
         ent[i] playloopsound ("temple_fire_statue");
     }

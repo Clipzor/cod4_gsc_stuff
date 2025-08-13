@@ -1,8 +1,8 @@
 main()
 {
 
-level.fire2 = loadFX("deathrun/fire2"); 	   
-maps\mp\_load::main();
+	level.fire2 = loadFX("deathrun/fire2"); 	   
+	maps\mp\_load::main();
 
 	game["allies"] = "sas";
 	game["axis"] = "opfor";
@@ -18,10 +18,9 @@ maps\mp\_load::main();
 entTransporter = getentarray( "enter", "targetname" );
 	if(isdefined(entTransporter))
 	for( i = 0; i < entTransporter.size; i++ )
-	entTransporter[i]
+	entTransporter[i] thread transporter();
 
 //essentials 
-thread transporter();
 thread games();
 thread credits();
 thread secret11();

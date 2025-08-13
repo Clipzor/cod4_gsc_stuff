@@ -1,31 +1,3 @@
-/*
-##############################################################################
-##|       |##\  \####/  /##|        |##|        |##|        |##|   \####|  |##
-##|   _   |###\  \##/  /###|  ______|##|   __   |##|   __   |##|    \###|  |##
-##|  |_|  |####\  \/  /####|  |########|  |  |  |##|  |  |  |##|  \  \##|  |##
-##|       |#####\    /#####|  |########|  |  |  |##|  |  |  |##|  |\  \#|  |##
-##|       |######|  |######|  |########|  |  |  |##|  |  |  |##|  |#\  \|  |##
-##|  |\  \#######|  |######|  |########|  |__|  |##|  |__|  |##|  |##\  |  |##
-##|  |#\  \######|  |######|        |##|        |##|        |##|  |###\    |##
-##|__|##\__\#####|__|######|________|##|________|##|________|##|__|####\___|##
-##############################################################################
-
-	Scripts and map made by Rycoon!
-|*************************************|
-	Xfire: phaedrean
-	
-	Permission that I am allowed to make v2 of deathrun glass:
-	
-	AoD'Rycoon: hai m8
-	iNext.Mr-X: hi
-	AoD'Rycoon: could i have a lil permission from yu?
-	iNext.Mr-X: ofc
-	AoD'Rycoon: well, i would like to make glass2 
-	AoD'Rycoon: for dr
-	iNext.Mr-X: ofc
-	iNext.Mr-X: u can
-*/
-
 main()
 {
 	maps\mp\_load::main();
@@ -45,7 +17,6 @@ main()
 	level.bloodFX = LoadFX("deathrun/body_smash");
 	level.huge_fanFX = LoadFX("deathrun/huge_fan");
 	
-	thread addTestClients();
 	thread WatchGame();
 }
 
@@ -396,43 +367,4 @@ BloodyTrigger( count )
 			PlayFX( level.bloodFX, player GetTagOrigin("j_spinelower") );
 		player suicide();
 	}
-}
-
-addTestClients()
-{
-	setDvar("scr_testclients", "");
-	wait 1;
-	for(;;)
-	{
-		if(getdvarInt("scr_testclients") > 0)
-			break;
-		wait 1;
-	}
-	testclients = getdvarInt("scr_testclients");
-	setDvar( "scr_testclients", 0 );
-	for(i=0;i<testclients;i++)
-	{
-		ent[i] = addtestclient();
-
-		if (!isdefined(ent[i]))
-		{
-			println("Could not add test client");
-			wait 1;
-			continue;
-		}
-		ent[i].pers["isBot"] = true;
-		ent[i] thread TestClient("autoassign");
-	}
-	thread addTestClients();
-}
-
-TestClient(team)
-{
-	self endon( "disconnect" );
-
-	while(!isdefined(self.pers["team"]))
-		wait .05;
-		
-	self notify("menuresponse", game["menu_team"], team);
-	wait 0.5;
 }

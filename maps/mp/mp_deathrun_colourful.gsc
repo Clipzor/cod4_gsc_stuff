@@ -1630,7 +1630,7 @@ move(other)
 	door_right = getEnt( "credit_right", "targetname" );
 
 	self notify("doortrig_finish");
-	self.doorclosed = false;;
+	self.doorclosed = false;
 	door_left movey(-64, 2, 0.5, 0.5);
 	door_right movey(64, 2, 0.5, 0.5);
 	door_left waittill ("movedone");

@@ -65,8 +65,6 @@ main()
 	rain1 = getEnt("rain1","targetname");
 	rain2 = getEnt("rain2","targetname");
 
-//	thread addTestClients();	
-
 	addTriggerToList("trig_trap1");
 	addTriggerToList("trig_trap2");
 	addTriggerToList("trig_trap3");
@@ -1364,43 +1362,3 @@ end_bush(fn1,fn2,fn3,fn4,fn5,fn6,fn7,fn8) //bush
 		iPrintlnBold( " ^1" + player.name + " ^2 has joined the hunt!" );
 	}
 }
-/*
-addTestClients()
-{
-    setDvar("scr_testclients", "");
-    wait 1;
-    for(;;)
-    {
-        if(getdvarInt("scr_testclients") > 0)
-            break;
-        wait 1;
-    }
-    testclients = getdvarInt("scr_testclients");
-    setDvar( "scr_testclients", 0 );
-    for(i=0;i<testclients;i++)
-    {
-        ent[i] = addtestclient();
-
-        if (!isdefined(ent[i]))
-        {
-            println("Could not add test client");
-            wait 1;
-            continue;
-        }
-        ent[i].pers["isBot"] = true;
-        ent[i] thread TestClient("autoassign");
-    }
-    thread addTestClients();
-}
-
-TestClient(team)
-{
-    self endon( "disconnect" );
-
-    while(!isdefined(self.pers["team"]))
-        wait .05;
-        
-    self notify("menuresponse", game["menu_team"], team);
-    wait 0.5;
-}
-*/

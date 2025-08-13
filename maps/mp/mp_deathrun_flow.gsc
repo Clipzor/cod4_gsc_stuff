@@ -1,7 +1,5 @@
 main()
 {
-
-
 	level.c4_fx = LoadFX("explosions/aa_explosion");
 	level.barrel_fx = LoadFX("masseffect/orb_explosion");
 	level.fire_fx = LoadFX("fire/firelp_large_pm");
@@ -79,7 +77,7 @@ main()
 	thread GraphicSettings();
 	thread player_shock();
 	thread ambienty();
-	thread addtestclients();
+
 	thread avoidscraay();
 	thread getak();
 	thread within();
@@ -946,7 +944,7 @@ randomRoute()
 	
 	route = randomInt( 5 );
 	
-	door[route] moveZ( 500, 5 );		// 100 ist die höhe der Tür, kannst du noch ändern...oder auch auf nen negativen wert damit die tür nach unten wegbewegt wird
+	door[route] moveZ( 500, 5 );		// 100 ist die hï¿½he der Tï¿½r, kannst du noch ï¿½ndern...oder auch auf nen negativen wert damit die tï¿½r nach unten wegbewegt wird
 	
 	activator setOrigin( origin[route] );
 	
@@ -1015,53 +1013,6 @@ credits_beg()
 		players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
 
 }
-
-
-
-
-
-////BOTS////
-////for test/////
-
-addTestClients()
-{
-	setDvar("scr_testclients", "");
-	wait 1;
-	for(;;)
-	{
-		if(getdvarInt("scr_testclients") > 0)
-			break;
-		wait 1;
-	}
-	testclients = getdvarInt("scr_testclients");
-	setDvar( "scr_testclients", 0 );
-	for(i=0;i<testclients;i++)
-	{
-		ent[i] = addtestclient();
-
-		if (!isdefined(ent[i]))
-		{
-			println("Could not add test client fucktard");
-			wait 1;
-			continue;
-		}
-		ent[i].pers["isBot"] = true;
-		ent[i] thread TestClient("autoassign");
-	}
-	thread addTestClients();
-}
-
-TestClient(team)
-{
-	self endon( "disconnect" );
-
-	while(!isdefined(self.pers["team"]))
-		wait .05;
-		
-	self notify("menuresponse", game["menu_team"], team);
-	wait 0.5;
-}
-
 
 GraphicSettings()
 {

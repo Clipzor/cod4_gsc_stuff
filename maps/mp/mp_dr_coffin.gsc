@@ -467,7 +467,7 @@ for(;;)
 {
  trig waittill("trigger", player);
  player braxi\_rank::giveRankXP("", 4000);
- player iprintlnBOld ("^7You ^3found ^7hidden ^3XP^7!")
+ player iprintlnBOld ("^7You ^3found ^7hidden ^3XP^7!");
  iPrintLn("^3" + player.name + " ^0found some ^3XP^0!");
  trig delete();
  wait 0.5;
