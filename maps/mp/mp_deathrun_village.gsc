@@ -31,8 +31,8 @@ maps\mp\_load::main();
 	thread trap2();
 	thread trap4();
 	thread Czone1();
-	thread cZone2();
-	thread cZone3();
+	thread Czone2();
+	thread Czone3();
 	thread quake();
 	thread addtrapstofreerun();
 	thread sniper();
@@ -231,46 +231,46 @@ Czone1 ()
 
 	trig5 waittill( "trigger", who );
 	trig5 delete();
-	cZone1_1 moveZ( -500, 3 );
-	cZone1_2 moveZ( -500, 3 );
-	cZone1_3 moveZ( -500, 3 );
-	cZone1_4 moveZ( -500, 3 );
-	cZone1_5 moveZ( -500, 3 );
-	cZone1_6 moveZ( -500, 3 );
-	cZone1_7 moveZ( -500, 3 );
-	cZone1_8 moveZ( -500, 3 );
-	cZone1_9 moveZ( -500, 3 );
-	cZone1_10 moveZ( -500, 3 );
-	cZone1_11 moveZ( -500, 3 );
-	cZone1_12 moveZ( -500, 3 );
-	cZone1_13 moveZ( -500, 3 );
-	cZone1_14 moveZ( -500, 3 );
+	Czone1_1 moveZ( -500, 3 );
+	Czone1_2 moveZ( -500, 3 );
+	Czone1_3 moveZ( -500, 3 );
+	Czone1_4 moveZ( -500, 3 );
+	Czone1_5 moveZ( -500, 3 );
+	Czone1_6 moveZ( -500, 3 );
+	Czone1_7 moveZ( -500, 3 );
+	Czone1_8 moveZ( -500, 3 );
+	Czone1_9 moveZ( -500, 3 );
+	Czone1_10 moveZ( -500, 3 );
+	Czone1_11 moveZ( -500, 3 );
+	Czone1_12 moveZ( -500, 3 );
+	Czone1_13 moveZ( -500, 3 );
+	Czone1_14 moveZ( -500, 3 );
 	wait 20;
-	cZone1_1 moveZ( 500, 1 );
-	cZone1_2 moveZ( 500, 1 );
-	cZone1_3 moveZ( 500, 1 );
-	cZone1_4 moveZ( 500, 1 );
-	cZone1_5 moveZ( 500, 1 );
-	cZone1_6 moveZ( 500, 1 );
-	cZone1_7 moveZ( 500, 1 );
-	cZone1_8 moveZ( 500, 1 );
-	cZone1_9 moveZ( 500, 1 );
-	cZone1_10 moveZ( 500, 1 );
-	cZone1_11 moveZ( 500, 1 );
-	cZone1_12 moveZ( 500, 1 );
-	cZone1_13 moveZ( 500, 1 );
-	cZone1_14 moveZ( 500, 1 );
+	Czone1_1 moveZ( 500, 1 );
+	Czone1_2 moveZ( 500, 1 );
+	Czone1_3 moveZ( 500, 1 );
+	Czone1_4 moveZ( 500, 1 );
+	Czone1_5 moveZ( 500, 1 );
+	Czone1_6 moveZ( 500, 1 );
+	Czone1_7 moveZ( 500, 1 );
+	Czone1_8 moveZ( 500, 1 );
+	Czone1_9 moveZ( 500, 1 );
+	Czone1_10 moveZ( 500, 1 );
+	Czone1_11 moveZ( 500, 1 );
+	Czone1_12 moveZ( 500, 1 );
+	Czone1_13 moveZ( 500, 1 );
+	Czone1_14 moveZ( 500, 1 );
 }
 
 
 Czone2 ()
 	{
 	loltrig = getent ("trig6","targetname");
-	cZone2 = getent ("cZone2","targetname");
+	Czone2 = getent ("Czone2","targetname");
 	loltrig waittill ("trigger");
 	loltrig delete ();
 		{
-		cZone2 moveZ (-500 , 1 );
+		Czone2 moveZ (-500 , 1 );
 		wait 1 ;
 		}
 	}
@@ -279,17 +279,17 @@ Czone2 ()
 Czone3 ()
 	{
 	trig7 = getent ("trig7","targetname");
-	cZone3_1 = getent ("Czone3_1","targetname");
-	cZone3_2 = getent ("Czone3_2","targetname");
-	cZone3_3 = getent ("Czone3_3","targetname");
+	Czone3_1 = getent ("Czone3_1","targetname");
+	Czone3_2 = getent ("Czone3_2","targetname");
+	Czone3_3 = getent ("Czone3_3","targetname");
 	trig7 waittill ("trigger");
 	trig7 delete ();
 	
 	while (1)
 		{
-		cZone3_1 rotatePitch (360 , 8 );
-		cZone3_2 rotatePitch (360 , 8 );
-		cZone3_3 rotatePitch (360 , 8 );
+		Czone3_1 rotatePitch (360 , 8 );
+		Czone3_2 rotatePitch (360 , 8 );
+		Czone3_3 rotatePitch (360 , 8 );
 		wait 1 ;
 		}
 	}

@@ -261,7 +261,7 @@ miscData(id) {
 								response = randomIntRange(1, self.songs.size + 1);
 							}
 							break;
-					};
+					}
 				break;
 			case 1: //End Rooms
 			case 2:
@@ -391,7 +391,7 @@ roomTeleportListener(roomId, side, spawnCount) {
 			spawn = getEnt("misc_" + roomId + "_spawn_" + side + "_" + spawnPoint, "targetname");
 			player setOrigin(spawn.origin);
 			player setPlayerAngles(spawn.angles);
-		};
+		}
 }
 
 //listen for player death in end room

@@ -569,9 +569,9 @@ jumppad()
 	for(;;)
 	{
 		self waittill("trigger",player);
-		tempobj = spawn("script_model",player.origin);
-		player linkto(tempobj);
-		tempobj thread placemover(player,tempobj);
+		tempObj = spawn("script_model",player.origin);
+		player linkto(tempObj);
+		tempObj thread placemover(player,tempObj);
 
 		while(player isTouching(self))
 			wait 0.01;
@@ -801,12 +801,12 @@ targetshooting_room()
 targets_setup()
 {
 	level.canshottarget = false;
-	obj = getentarray("target_obj","targetname");
+	Obj = getentarray("target_Obj","targetname");
 	trig = getentarray("target_trig","targetname");
-	for(i=0;i<obj.size;i++)
+	for(i=0;i<Obj.size;i++)
 	{
 		trig[i] enablelinkto();
-		trig[i] linkto(obj[i]);
+		trig[i] linkto(Obj[i]);
 		trig[i] thread points();
 	}
 	for(;;)
@@ -819,15 +819,15 @@ targets_setup()
 			x = randomint(12);
 			time = RandomFloatRange(0.5, 0.7);
 
-			obj[x] rotatepitch(-90,time);
-			obj[x] waittill("rotatedone");
+			Obj[x] rotatepitch(-90,time);
+			Obj[x] waittill("rotatedone");
 			level.canshottarget = true;
 
 			wait time/2;
 
 			level.canshottarget = false;
-			obj[x] rotatepitch(90,time);
-			obj[x] waittill("rotatedone");
+			Obj[x] rotatepitch(90,time);
+			Obj[x] waittill("rotatedone");
 
 			level.tsplayer.shottarget = false;
 			level.activ.shottarget = false;

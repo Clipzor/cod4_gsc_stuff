@@ -33,7 +33,7 @@ song1()
 {
     trig = getEnt("song1_trig", "targetname");
     trig waittill("trigger",player);
-    iPrintLnBold("^1omg epic"):
+    iPrintLnBold("^1omg epic");
     ambientStop("song2");
     ambientPlay("song1");
 }

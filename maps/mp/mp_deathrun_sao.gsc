@@ -403,7 +403,7 @@ musichud(text)
 	level.music.alpha = 0;
 	level.music.x = 0;
 	level.music.y = -5;
-	level.music.font = "objective";
+	level.music.font = "Objective";
 	level.music.fontscale = 2;
 	level.music.glowalpha = 1;
 	level.music.glowcolor = (1,0,0);
@@ -542,15 +542,15 @@ watersuicide()
 
 d_t_crystal()
 {
-	obj = getent("crystal1","targetname");
+	Obj = getent("crystal1","targetname");
 	for(;;)
 	{
-	obj rotateYaw(360, 2);
-	obj moveZ(30,1);
-	obj waittill("movedone");
+	Obj rotateYaw(360, 2);
+	Obj moveZ(30,1);
+	Obj waittill("movedone");
 	wait 1;
-	obj moveZ(-30,1);
-	obj waittill("movedone");
+	Obj moveZ(-30,1);
+	Obj waittill("movedone");
 	wait 1;
 	}	
 
@@ -903,14 +903,14 @@ c_trap6()
 c_trap7()
 {
 	trig = getent("trap12_trig","targetname");
-	obj = getent("flor","targetname");
+	Obj = getent("flor","targetname");
 	trig SetHintString("^1Press^7 [^4F^7] To ^1Activate");
 	level.changeofheart = false;
 	trig waittill("trigger", user );
 	{
 		thread trap7stuff();
 		trig delete();
-		obj delete();
+		Obj delete();
 		//iprintlnbold("^0Change ^7Of ^1Heart ^2Activated!");
 		user sayall("^1Time to change you desteny! Change of Heart, Activate!");
 		thread fxwork();
@@ -968,8 +968,8 @@ changeofheart()
 
 c_trap8()
 {
-	obj1 = getent("trap13_1","targetname");
-	obj2 = getent("trap13_2","targetname");
+	Obj1 = getent("trap13_1","targetname");
+	Obj2 = getent("trap13_2","targetname");
 	trig = getent("trap13_trig","targetname");
 	trig SetHintString("^1Press^7 [^4F^7] To ^1Activate");
 	trig waittill("trigger", player );
@@ -978,11 +978,11 @@ c_trap8()
 		i = 0;
 		while(i<2)
 		{
-			obj1 rotateroll(360 ,2);
-			obj2 rotateroll(-360, 2);
+			Obj1 rotateroll(360 ,2);
+			Obj2 rotateroll(-360, 2);
 			wait 4;
-			obj1 rotateroll(-360, 2);
-			obj2 rotateroll(360, 2);
+			Obj1 rotateroll(-360, 2);
+			Obj2 rotateroll(360, 2);
 			i++;
 			wait 4;
 		}
@@ -1064,19 +1064,19 @@ spikes moveZ(560, 1, 0.5);
 r_trap3()
 {
 	trig = getEnt("trap16_trig","targetname");
-	obj = getEnt("trap16","targetname");
+	Obj = getEnt("trap16","targetname");
 	trig SetHintString("^1Press^7 [^4F^7] To ^1Activate");
 	kill = getEnt("killt3","targetname");
 	trig waittill("trigger", user );
 	trig delete();
 	{
 		kill enablelinkto();
-		kill linkto (obj);
-		obj moveZ(-384, 1);
-		obj waittill("movedone");
+		kill linkto (Obj);
+		Obj moveZ(-384, 1);
+		Obj waittill("movedone");
 		wait .1;
-		obj moveZ(384, 1, 0.5);
-		obj waittill("movedone");
+		Obj moveZ(384, 1, 0.5);
+		Obj waittill("movedone");
 	}
 }
 

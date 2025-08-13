@@ -209,7 +209,7 @@ while( 1 )
 iPrintLn("^4---^1Map made by sxzoR^4---");
 wait(40);
 iPrintLn("^4---^1xFire: dinac777^4---");
-wait(40)
+wait(40);
 iPrintLn("^4---^1mp_dr_around^4---");
 }
 }

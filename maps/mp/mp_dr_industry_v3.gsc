@@ -1,7 +1,7 @@
 main()
 {
 	maps\mp\_load::main();
-	maps\mp\industryv3\_intart_objs::main();
+	maps\mp\industryv3\_intart_Objs::main();
 
 	level._fire = loadfx( "industryv3/fire" );
 	
@@ -144,34 +144,34 @@ trap2moves()
 trap3()
 {
 	trig = getent("trap3trig","targetname");
-	obj = getEnt("trap3obj","targetname");
+	Obj = getEnt("trap3Obj","targetname");
 	trig waittill("trigger",player);
 	trig delete();
 
-	obj hide();
-	obj notsolid();
+	Obj hide();
+	Obj notsolid();
 	wait randomint(5)+1;
-	obj show();
-	obj solid();
+	Obj show();
+	Obj solid();
 }
 
 trap4()
 {
 	trig = getent("trap4trig","targetname");
-	obj = getent("trap4bounce","targetname");
+	Obj = getent("trap4bounce","targetname");
 
 	trig waittill("trigger",player);
 	trig delete();
 
-	obj movex(-336,1);
+	Obj movex(-336,1);
 	wait 3;
-	obj movex(336,1);
+	Obj movex(336,1);
 }
 
 trap5()
 {
 	trig = getent("trap5trig","targetname");
-	obj = getentarray("pillars_trap5","targetname");
+	Obj = getentarray("pillars_trap5","targetname");
 
 	trig waittill("trigger",player);
 	trig delete();
@@ -179,8 +179,8 @@ trap5()
 	for(;;)
 	{
 		ang = randomintrange(-180,180);
-		obj[0] rotateyaw(ang,1);
-		obj[1] rotateyaw(ang-(ang*2),1);
+		Obj[0] rotateyaw(ang,1);
+		Obj[1] rotateyaw(ang-(ang*2),1);
 		wait 3;
 	}
 }
@@ -188,26 +188,26 @@ trap5()
 trap6()
 {
 	trig = getent("trap6trig","targetname");
-	obj_group1 = getentarray("pillars_trap6g1","targetname");
-	obj_group2 = getentarray("pillars_trap6g2","targetname");
+	Obj_group1 = getentarray("pillars_trap6g1","targetname");
+	Obj_group2 = getentarray("pillars_trap6g2","targetname");
 
 	trig waittill("trigger",player);
 	trig delete();
 
 	for(;;)
 	{
-		for(i=0;i<obj_group1.size;i++)
+		for(i=0;i<Obj_group1.size;i++)
 		{
-			obj_group1[i] rotateyaw(-180,2);
-			obj_group2[i] rotateyaw(180,2);
+			Obj_group1[i] rotateyaw(-180,2);
+			Obj_group2[i] rotateyaw(180,2);
 		}
 
 		wait 4;
 
-		for(i=0;i<obj_group1.size;i++)
+		for(i=0;i<Obj_group1.size;i++)
 		{
-			obj_group1[i] rotateyaw(180,2);
-			obj_group2[i] rotateyaw(-180,2);
+			Obj_group1[i] rotateyaw(180,2);
+			Obj_group2[i] rotateyaw(-180,2);
 		}
 
 		wait 4;

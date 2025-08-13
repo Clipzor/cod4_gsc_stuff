@@ -456,7 +456,7 @@ GetActivator()
 			return player;
 	}
 	
-	return "Noactivator";
+	return undefined;
 }
 
 //^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!

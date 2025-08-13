@@ -1193,18 +1193,18 @@ pndm_magic(spell)
 
 pndm_firewall()
 {
-    obj = Spawn("script_model", self GetEye()+AnglesToForward( self GetPlayerAngles() )*30 );
-    obj SetModel("tag_origin");
-    obj.angles = self GetPlayerAngles();
+    Obj = Spawn("script_model", self GetEye()+AnglesToForward( self GetPlayerAngles() )*30 );
+    Obj SetModel("tag_origin");
+    Obj.angles = self GetPlayerAngles();
 
     wait 0.05;
-    playfxontag(level.pndm["firewall"], obj, "tag_origin" );
+    playfxontag(level.pndm["firewall"], Obj, "tag_origin" );
     
-    obj PlaySound("pndm_cast");
-    obj PlayLoopSound("pndm_firewall");
+    Obj PlaySound("pndm_cast");
+    Obj PlayLoopSound("pndm_firewall");
     
-    target = obj.origin+AnglesToForward( obj.angles )*600;
-    obj MoveTo( target, 4, 0, 0 );
+    target = Obj.origin+AnglesToForward( Obj.angles )*600;
+    Obj MoveTo( target, 4, 0, 0 );
     
     time = 40;
     
@@ -1212,14 +1212,14 @@ pndm_firewall()
     {
         if( time > 0 )
         {
-            RadiusDamage( obj.origin, 200, 20, 10, self );
+            RadiusDamage( Obj.origin, 200, 20, 10, self );
             time --;
         }
         else
             break;
         wait 0.1;
     }
-    obj delete();
+    Obj delete();
 }
 
 pndm_plasma()
@@ -1229,23 +1229,23 @@ pndm_plasma()
     Obj.angles = self GetPlayerAngles();
 
     wait 0.05;
-    playfxontag(level.pndm["plasma"], obj, "tag_origin" );
+    playfxontag(level.pndm["plasma"], Obj, "tag_origin" );
     
-    obj PlaySound("pndm_cast");
+    Obj PlaySound("pndm_cast");
 
     while(1)
     {
-        target = obj.origin+AnglesToForward( obj.angles )*80;
-        obj MoveTo( target, 0.1, 0, 0 );
-        if( !BulletTracePassed( obj.origin, target, true, self ) )
+        target = Obj.origin+AnglesToForward( Obj.angles )*80;
+        Obj MoveTo( target, 0.1, 0, 0 );
+        if( !BulletTracePassed( Obj.origin, target, true, self ) )
             break;
         wait 0.1;
     }
     Obj PlaySound("pndm_plasma");
-    Playfx(level.pndm["plasma_exp"], obj.origin );
-    EarthQuake( 1, 1, obj.origin, 600 );
-    RadiusDamage( obj.origin, 400, 100, 30, self );
-    obj delete();
+    Playfx(level.pndm["plasma_exp"], Obj.origin );
+    EarthQuake( 1, 1, Obj.origin, 600 );
+    RadiusDamage( Obj.origin, 400, 100, 30, self );
+    Obj delete();
 }
 
 pndm_lightning()
@@ -1253,22 +1253,22 @@ pndm_lightning()
     trace = BulletTrace( self GetEye(), self GetEye()+AnglesToForward( self GetPlayerAngles() )*3000, false, self );
     center = trace["position"];
     
-    obj = Spawn("script_origin", center );
+    Obj = Spawn("script_origin", center );
     
     x = 5+RandomInt(3);
     for(i=0;i<x;i++)
     {
         pos = center+(RandomInt(200,-200),RandomInt(200,-200),0);
         trace = BulletTrace( pos+(0,0,200), pos-(0,0,600), false, self );
-        obj.origin = trace["position"];
-        obj PlaySound("pndm_lightning");
+        Obj.origin = trace["position"];
+        Obj PlaySound("pndm_lightning");
         PlayFX( level.pndm["lightning"], trace["position"] );
         PlayFX( level.pndm["lightning_exp"], trace["position"] );
         EarthQuake( 1, 1, trace["position"], 400 );
         RadiusDamage( trace["position"], 100, 50, 15, self );
         wait 0.3+RandomFloat(0.2);
     }
-    obj delete();
+    Obj delete();
 }
 
 pndm_room_setup(targ,weap,weap2,health,freeze)

@@ -257,7 +257,7 @@ callStrike()
 	planeFlyHeight = 850;
 	planeFlySpeed = 7000;
 	
-	startpoint = level.plane_start;
+	startPoint = level.plane_start;
 	endPoint = level.plane_end;
 	
 	// Make the plane fly by
@@ -280,7 +280,7 @@ doPlaneStrike(startPoint, endPoint, flyTime, direction)
 
 	
 	// Spawn the planes
-	plane = spawnplane(owner, "script_model", startpoint.origin );
+	plane = spawnplane(owner, "script_model", startPoint.origin );
 	plane setModel( "vehicle_mig29_desert" );
 	plane.angles = direction;
 	wait 0.1;
@@ -554,7 +554,7 @@ callStrike2()
 	planeFlyHeight = 850;
 	planeFlySpeed = 7000;
 	
-	startpoint = level.plane_start2;
+	startPoint = level.plane_start2;
 	endPoint = level.plane_end2;
 	
 	// Make the plane fly by
@@ -577,7 +577,7 @@ doPlaneStrike2(startPoint, endPoint, flyTime, direction)
 
 	
 	// Spawn the planes
-	plane2 = spawnplane(owner, "script_model", startpoint.origin );
+	plane2 = spawnplane(owner, "script_model", startPoint.origin );
 	plane2 setModel( "vehicle_mig29_desert" );
 	plane2.angles = direction;
 	wait 0.1;
@@ -1005,7 +1005,7 @@ callStrike3()
 	planeFlyHeight = 850;
 	planeFlySpeed = 7000;
 	
-	startpoint = level.plane_start3;
+	startPoint = level.plane_start3;
 	endPoint = level.plane_end3;
 	
 	// Make the plane fly by
@@ -1028,7 +1028,7 @@ doPlaneStrike3(startPoint, endPoint, flyTime, direction)
 
 	
 	// Spawn the planes
-	plane3 = spawnplane(owner, "script_model", startpoint.origin );
+	plane3 = spawnplane(owner, "script_model", startPoint.origin );
 	plane3 setModel( "vehicle_mig29_desert" );
 	plane3.angles = direction;
 	wait 0.1;

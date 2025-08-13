@@ -128,7 +128,7 @@ new_ending_hud( align, fade_in_time, x_off, y_off )
  	hud.fontScale = 3;
 
 	hud.color = (0.8, 1.0, 0.8);
-	hud.font = "objective";
+	hud.font = "Objective";
 	hud.glowColor = (0.3, 0.6, 0.3);
 	hud.glowAlpha = 1;
 
@@ -143,28 +143,28 @@ new_ending_hud( align, fade_in_time, x_off, y_off )
 
 mover()
 {
-	obj = getent("mover","targetname");
+	Obj = getent("mover","targetname");
 	wait 1;
 	while(1)
 	{
 	wait 1;
-	obj movey(576, 1);
-	obj waittill("movedone");
-	obj movey(-576, 1);
+	Obj movey(576, 1);
+	Obj waittill("movedone");
+	Obj movey(-576, 1);
 	wait 1;
 	}
 }
 
 mover1()
 {
-	obj = getent("mover1","targetname");
+	Obj = getent("mover1","targetname");
 	wait 1;
 	while(1)
 	{
 	wait 1;
-	obj movey(-832, 1);
-	obj waittill("movedone");
-	obj movey(832, 1);
+	Obj movey(-832, 1);
+	Obj waittill("movedone");
+	Obj movey(832, 1);
 	wait 1;
 	}
 }
@@ -576,30 +576,30 @@ while(1)
 
 duduk()
 {
-	obj1 = getent("dudu1","targetname");
-	obj2 = getent("dudu2","targetname");
-	obj3 = getent("dudu3","targetname");
-	obj4 = getent("dudu4","targetname");
+	Obj1 = getent("dudu1","targetname");
+	Obj2 = getent("dudu2","targetname");
+	Obj3 = getent("dudu3","targetname");
+	Obj4 = getent("dudu4","targetname");
 	pistaba = getent("pistabacsi","targetname");
 
 	while(1)
 	{
 	wait .1;
-	obj1 movey(944,2);
-	obj1 waittill("movedone");
-	obj2 movey(944,2);
+	Obj1 movey(944,2);
+	Obj1 waittill("movedone");
+	Obj2 movey(944,2);
 	pistaba movey(-944,2);
-	obj1 rotateYaw(180,.1);
-	obj1 movey(-944,2);
-	obj3 movey(944,2);
+	Obj1 rotateYaw(180,.1);
+	Obj1 movey(-944,2);
+	Obj3 movey(944,2);
 	pistaba rotateYaw(180,.1);
-	obj1 waittill("movedone");
-	obj2 movey(-944,2);
-	obj4 movey(-944,2);
-	obj3 movey(-944,2);
+	Obj1 waittill("movedone");
+	Obj2 movey(-944,2);
+	Obj4 movey(-944,2);
+	Obj3 movey(-944,2);
 	pistaba movey(944,2);
-	obj3 waittill("movedone");
-	obj4 movey(944,2);
+	Obj3 waittill("movedone");
+	Obj4 movey(944,2);
 	pistaba rotateYaw(180,.1);
 	}
 }

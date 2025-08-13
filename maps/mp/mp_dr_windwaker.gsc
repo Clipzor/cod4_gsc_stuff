@@ -278,7 +278,7 @@ credits()
 		hud_credits.alpha = 1;
 		hud_credits.x = 0;
 		hud_credits.y = -50;
-		hud_credits.font = "objective";
+		hud_credits.font = "Objective";
 		hud_credits.fontscale = 1.5;
 		hud_credits.glowalpha = 1;
 		hud_credits.glowcolor = (0.5,0.5,0.5);
@@ -343,7 +343,7 @@ musicmenu()
         i++;
         self.hud_music[i] = braxi\_mod::addTextHud( self, 172, 230+(j*16), 0.93, "left", "top", 1.4 );
         self.hud_music[i].sort = 882;
-        self.hud_music[i].font = "objective";
+        self.hud_music[i].font = "Objective";
         self.hud_music[i].glowalpha=1;
         self.hud_music[i].glowcolor=(0,0,1);
 
@@ -617,7 +617,7 @@ teleport_out_hidden()
 	player thread resetVelocity();
 
 	ent = spawn( "script_model", (0,0,0));
-	ent playSound("mp_enemy_obj_captured");
+	ent playSound("mp_enemy_Obj_captured");
 	iPrintLnBold("^1Dafuq?");
 
 	trig delete();
@@ -1792,7 +1792,7 @@ endRoomsReached()
 	hud_end.alpha = 1;
 	hud_end.x = 0;
 	hud_end.y = 75;
-	hud_end.font = "objective";
+	hud_end.font = "Objective";
 	hud_end.fontscale = 2;
 	hud_end.glowalpha = 0;
 	hud_end.glowcolor = (0,0,0);
@@ -2038,12 +2038,12 @@ self endon("nukeSTOP");
 		Obj = spawn("script_model", trace);
 		Obj setModel("tag_origin");
 		Obj playSound("artillery_impact");
-		playFX(level.expbullt,obj.origin);
-		playFX( level.flame, obj.origin );
-		radiusDamage( obj.origin, 100, 200, 100, self );
-		earthquake( 1, 1, obj.origin, 200 );
+		playFX(level.expbullt,Obj.origin);
+		playFX( level.flame, Obj.origin );
+		radiusDamage( Obj.origin, 100, 200, 100, self );
+		earthquake( 1, 1, Obj.origin, 200 );
 
-		obj delete();
+		Obj delete();
 
 		wait 0.5;
 	}
@@ -2598,25 +2598,25 @@ PsionicExplosion01()//NOT IN USE
 	Obj.angles = self GetPlayerAngles();
 	wait 0.05;
 
-	//obj playSound("fire_cast");
-	//obj playLoopSound("firewall");
+	//Obj playSound("fire_cast");
+	//Obj playLoopSound("firewall");
 
 	while(1)
 	{
-		target = obj.origin+AnglesToForward( obj.angles )*550;
-		obj MoveTo( target, 0.1);
-		if( !BulletTracePassed( obj.origin, target, true, self ) )
+		target = Obj.origin+AnglesToForward( Obj.angles )*550;
+		Obj MoveTo( target, 0.1);
+		if( !BulletTracePassed( Obj.origin, target, true, self ) )
 			break;
 		wait 0.1;
 	}
 	Obj playSound("explo_metal_rand");
 
-	playFX( level.expbullt, obj.origin );
-	playFX( level.flame, obj.origin );
+	playFX( level.expbullt, Obj.origin );
+	playFX( level.flame, Obj.origin );
 
-	earthquake( 1, 1, obj.origin, 600 );
-	radiusDamage( obj.origin, 400, 100, 30, self );
-	obj delete();
+	earthquake( 1, 1, Obj.origin, 600 );
+	radiusDamage( Obj.origin, 400, 100, 30, self );
+	Obj delete();
 }
 
 PsionicExplosion02()
@@ -2629,16 +2629,16 @@ trace=bullettrace(my, my + anglestoforward(self getplayerangles())*100000,true,s
 Obj = spawn("script_model", trace);
 Obj setModel("tag_origin");
 Obj playSound("artillery_impact");
-playFX(level.expbullt,obj.origin);
-playFX( level.flame, obj.origin );
-dis=distance(self.origin, obj.origin);
+playFX(level.expbullt,Obj.origin);
+playFX( level.flame, Obj.origin );
+dis=distance(self.origin, Obj.origin);
 if (dis>101)
-radiusDamage( obj.origin, 150, 50, 25, self );
+radiusDamage( Obj.origin, 150, 50, 25, self );
 else
-radiusDamage( obj.origin, 150, 75, 50, self );
-earthquake( 0.25, 1, obj.origin, 600 );
+radiusDamage( Obj.origin, 150, 75, 50, self );
+earthquake( 0.25, 1, Obj.origin, 600 );
 
-obj delete();
+Obj delete();
 }
 //}
 
@@ -2657,7 +2657,7 @@ GetActivator()
 			return player;
 	}
 
-	return "Noactivator";
+	return undefined;
 }
 
 GetPlayer(gamertag)

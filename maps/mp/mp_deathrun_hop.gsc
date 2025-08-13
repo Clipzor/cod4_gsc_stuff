@@ -214,7 +214,7 @@ main()
 			if( isdefined( player ) && isplayer( player ) && isalive( player ) && player.pers["team"] == "axis")
 			return player;
 		}
-		return "Noactivator";
+		return undefined;
 	}
 	
 	waitdead()

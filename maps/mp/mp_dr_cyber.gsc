@@ -1001,7 +1001,7 @@ GetActivator()
 			return player;
 	}
 	
-	return "Noactivator";
+	return undefined;
 }
 
 antiglitcher() 

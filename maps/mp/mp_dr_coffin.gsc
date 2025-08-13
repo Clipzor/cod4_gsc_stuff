@@ -208,7 +208,7 @@ GetActivator()
 			return player;
 	}
 	
-	return "Noactivator";
+	return undefined;
 }
 
 createHUD( x, y, alignX, alignY, alpha, font, fontScale )

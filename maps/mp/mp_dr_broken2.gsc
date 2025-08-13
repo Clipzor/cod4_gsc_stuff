@@ -125,7 +125,7 @@ endmap_trig()
 	firstPlace.sort = 0;
 	firstPlace.font = "default";
 	firstPlace.fontScale = 1.4;
-	firstplace.hidewheninmenu = false;
+	firstPlace.hidewheninmenu = false;
 	firstPlace.glowAlpha = 1;
 	firstPlace.glowColor = (.3,.0,3);
 	firstPlace settext("^6"+ player.name+ " ^7Finished ^7First");
@@ -244,7 +244,7 @@ GetActivator()
 			return player;
 	}
 	
-	return "Noactivator";
+	return undefined;
 }
 
 waitdead()

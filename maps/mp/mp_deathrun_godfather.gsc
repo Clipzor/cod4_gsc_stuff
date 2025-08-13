@@ -75,7 +75,7 @@ new_ending_hud( align, fade_in_time, x_off, y_off )
  	hud.fontScale = 3;
 
 	hud.color = (0.8, 1.0, 0.8);
-	hud.font = "objective";
+	hud.font = "Objective";
 	hud.glowColor = (0.3, 0.6, 0.3);
 	hud.glowAlpha = 1;
 
@@ -93,22 +93,22 @@ secret()
 {
 	secrettrig = getent("start", "targetname");
 	trig = getent("secretfusion", "targetname");
-	obj2 = getent("start_open","targetname");
-	obj = getent("secretacti","targetname");
+	Obj2 = getent("start_open","targetname");
+	Obj = getent("secretacti","targetname");
 	secrettrig waittill( "trigger", who );
-	obj2 delete();
+	Obj2 delete();
 	trig waittill( "trigger", who ); 
 	wait 0.1;
 	trig delete();
 	wait 0.1;
-	obj delete();
+	Obj delete();
 	iprintlnBold(who.name + " ^1Opened ^7the secret!");
 	ambientStop(0);
 	ambientPlay("music5");
 	who takeAllWeapons();
 	who GiveWeapon("uzi_acog_mp");
 	who SwitchToWeapon("uzi_acog_mp");
-	iprintlnBold("Special thanks to our ^1Púzsér ^7alias ^3Hiroe");
+	iprintlnBold("Special thanks to our ^1Pï¿½zsï¿½r ^7alias ^3Hiroe");
 	iprintlnBold("To creative manager: ^3DonTaki");
 	iprintlnBold("^1Additional Help: ^3Neo");
 	who iprintlnBold("And the club27 Team Leader: ^3rocco ^7!");
