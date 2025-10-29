@@ -513,7 +513,7 @@ shotgun()
 
         if( !isdefined( level.shotgun_trigger) )
         return;
-        if(level.firstenter==true)
+        if(!isdefined(level.firstenter))
         {
             level.firstenter=false;
         }
@@ -566,7 +566,7 @@ level.sniper_trigger waittill( "trigger", player );
 
 if( !isDefined( level.sniper_trigger ) )
 return;
-if(level.firstenter==true)
+if(!isdefined(level.firstenter))
 {
 level.firstenter=false;
 }
@@ -648,7 +648,7 @@ level.bounce_trigger waittill( "trigger", player );
 
 if( !isDefined( level.bounce_trigger ) )
 return;
-if(level.firstenter==true)
+if(!isdefined(level.firstenter))
 {
 level.firstenter=false;
 } 
@@ -711,7 +711,7 @@ level.knife_trigger waittill( "trigger", player );
 
 if( !isDefined( level.knife_trigger ) )
 return;
-if(level.firstenter==true)
+if(!isdefined(level.firstenter))
 {
 level.firstenter=false;
 } 

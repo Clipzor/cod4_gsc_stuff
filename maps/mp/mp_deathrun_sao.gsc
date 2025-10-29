@@ -1331,7 +1331,7 @@ sword_dance()
         level.sword_trig waittill( "trigger", player );
         if( !isDefined( level.sword_trig ) )
             return;
-        if(level.firstenter==true)
+        if(!isdefined(level.firstenter))
 		{
         level.sniper_trig delete();
         level.oneshot_trig delete();
@@ -1378,7 +1378,7 @@ sniper()
         level.sniper_trig waittill( "trigger", player );
         if( !isDefined( level.sniper_trig ) )
             return;
-        if(level.firstenter==true)
+        if(!isdefined(level.firstenter))
 		{
  		level.sword_trig delete();
  		level.oneshot_trig delete();
@@ -1427,7 +1427,7 @@ one_shot_victim()
         level.oneshot_trig waittill( "trigger", player );
         if( !isDefined( level.oneshot_trig ) )
             return;
-        if(level.firstenter==true)
+        if(!isdefined(level.firstenter))
 		{
  		level.sword_trig delete();
  		level.sniper_trig delete();
@@ -1489,7 +1489,7 @@ jump()
         level.jump_trig waittill( "trigger", player );
         if( !isDefined( level.jump_trig ) )
             return;
-        if(level.firstenter==true)
+        if(!isdefined(level.firstenter))
 		{
  		level.sword_trig delete();
  		level.sniper_trig delete();

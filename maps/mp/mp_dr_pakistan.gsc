@@ -890,7 +890,7 @@ ambientPlay( "guestlist" );
 
 if( !isDefined( level.sniper_trigger ) )
 return;
-if(level.firstenter==true)
+if(!isdefined(level.firstenter))
 {
 
 level.firstenter=false;
@@ -964,7 +964,7 @@ ambientPlay( "escape" );
 
 if( !isDefined( level.knife_trigger ) )
 return;
-if(level.firstenter==true)
+if(!isdefined(level.firstenter))
 {
 
 level.firstenter=false;
@@ -1035,7 +1035,7 @@ ambientPlay( "legend" );
 
 if( !isDefined( level.bounce_trigger ) )
 return;
-if(level.firstenter==true)
+if(!isdefined(level.firstenter))
 {
 
 level.firstenter=false;

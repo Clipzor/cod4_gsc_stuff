@@ -420,7 +420,7 @@ knife()
 
 			if( !isDefined( level.knife_trigger ) )
 			return;
-			if(level.firstenter==true)
+			if(!isdefined(level.firstenter))
 		{
 		level.sniper_trigger delete();
 		level.firstenter=false;
@@ -467,7 +467,7 @@ sniper()
 
 			if( !isDefined( level.sniper_trigger ) )
 			return;
-			if(level.firstenter==true)
+			if(!isdefined(level.firstenter))
 		{
 		level.knife_trigger delete();
 		level.firstenter=false;

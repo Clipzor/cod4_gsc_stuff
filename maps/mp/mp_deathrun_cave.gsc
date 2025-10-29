@@ -763,17 +763,15 @@ sniperoom()
     while(1)
     {
         level.snipe_trig waittill( "trigger", player );
-        if( !isDefined( level.snipe_trig ) )
-            return;
 			
-		if(level.firstenter==true)
+		if(!isdefined(level.firstenter))
 		{
-        level.bounce_trig delete();
-		level.knife_trig delete();
-		level.rpg_trig delete();
-		level.shotgun_trig delete();
-		level.old_trig delete();
-		level.firstenter=false;
+			level.bounce_trig delete();
+			level.knife_trig delete();
+			level.rpg_trig delete();
+			level.shotgun_trig delete();
+			level.old_trig delete();
+			level.firstenter=false;
 		}
 		ambientplay("sniper");
 		iprintln("^1Playng:^7 Olly Murs feat. Flo Rida - Troublemaker");
@@ -818,16 +816,15 @@ shotgunroom()
     while(1)
     {
         level.shotgun_trig waittill( "trigger", player );
-        if( !isDefined( level.shotgun_trig ) )
-            return;
-        if(level.firstenter==true)
+
+        if(!isdefined(level.firstenter))
 		{
-        level.snipe_trig delete();
-        level.bounce_trig delete();
-		level.knife_trig delete();
-		level.rpg_trig delete();
-		level.old_trig delete();
-		level.firstenter=false;
+			level.snipe_trig delete();
+			level.bounce_trig delete();
+			level.knife_trig delete();
+			level.rpg_trig delete();
+			level.old_trig delete();
+			level.firstenter=false;
 		}
 		ambientplay("shotgun");
 		iprintln("^1Playng:^7 Macklemore & Ryan Lewis - Can't Hold Us Dubstep");
@@ -871,7 +868,7 @@ kniferoom()
         level.knife_trig waittill( "trigger", player );
         if( !isDefined( level.knife_trig ) )
             return;
-        if(level.firstenter==true)
+        if(!isdefined(level.firstenter))
 		{
         level.snipe_trig delete();
         level.bounce_trig delete();
@@ -922,7 +919,7 @@ rpgroom()
         level.rpg_trig waittill( "trigger", player );
         if( !isDefined( level.rpg_trig ) )
             return;
-        if(level.firstenter==true)
+        if(!isdefined(level.firstenter))
 		{
         level.snipe_trig delete();
         level.bounce_trig delete();
@@ -974,7 +971,7 @@ bounceroom()
         level.bounce_trig waittill( "trigger", player );
         if( !isDefined( level.bounce_trig ) )
             return;
-        if(level.firstenter==true)
+        if(!isdefined(level.firstenter))
 		{
         level.snipe_trig delete();
         level.rpg_trig delete();

@@ -2,13 +2,13 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////																									///////
 ///////																									///////
-///////		//			//	////////////	//////////	  /////////		//////////	/////////////		///////
-///////		//			//	//				//					//		//		//	/		   //		///////
-///////		//			//	//				//			 	   // 		//		//	////////////		///////
-///////		//			//	////////////	//////////		  //		//		//	//	  //			///////
-///////		//			//	//				//				 //			//		//	//	   //			///////
-///////		//			//	//				//			    //			//		//	//		//			///////
-///////		/////////	//	//				///////////	   /////////	//////////	//		 //			///////
+///////		//			//	////////////	//////////	/////////		//////////	/////////////		///////
+///////		//			//	//				//					//		//		//	/		//		///////
+///////		//			//	//				//				// 		//		//	////////////		///////
+///////		//			//	////////////	//////////		//		//		//	//	//			///////
+///////		//			//	//				//				//			//		//	//	//			///////
+///////		//			//	//				//				//			//		//	//		//			///////
+///////		/////////	//	//				///////////	/////////	//////////	//		//			///////
 ///////																									///////
 ///////																									///////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -32,10 +32,10 @@ main()
 	game["allies_soldiertype"] = "woodland";
 	game["axis_soldiertype"] = "woodland";
 	
-	    setdvar( "r_specularcolorscale", "1" );
-        setdvar("r_glowbloomintensity0",".25");
-        setdvar("r_glowbloomintensity1",".25");
-        setdvar("r_glowskybleedintensity0",".3");
+		setdvar( "r_specularcolorscale", "1" );
+		setdvar("r_glowbloomintensity0",".25");
+		setdvar("r_glowbloomintensity1",".25");
+		setdvar("r_glowskybleedintensity0",".3");
 		
 /////////////		Teles etc..			\\\\\\\\\\\\\\\\\\
 
@@ -79,83 +79,83 @@ main()
 
 addTriggerToList( name )
 {
-   if( !isDefined( level.trapTriggers ) )
-      level.trapTriggers = [];
-   level.trapTriggers[level.trapTriggers.size] = getEnt( name, "targetname" );
+	if( !isDefined( level.trapTriggers ) )
+		level.trapTriggers = [];
+	level.trapTriggers[level.trapTriggers.size] = getEnt( name, "targetname" );
 }
 
 credits()
 {
-     for(;;)
-	 {
-	 iPrintLn ("^3>>^1Map By ^2Lifezor");
-	 wait 12;
-	 iPrintLn ("^3>>^1Fixed version.");
-	 wait 12;
-	 iPrintLn ("^3>>^1Youtube ^2http://www.youtube.com/IH8LifesSucks");
-	 wait 12;
-	 iPrintLn ("^3>>^1Song Name: ^2Adam Lambert - Runnin ");
-	 wait 12;
-	 iPrintLn ("^3>>^1Thanks for playing ^2mp_deathrun_boss");
-	 wait 12;
-	 iPrintLn ("^3>>^1Steam: ^2Lifezor");
-	 wait 12;
-	 iPrintLn ("^3>>^1Thanks to ^2Sheep Wizard ^1For secret!");
-	 wait 18;
-	 }
+	for(;;)
+	{
+	iPrintLn ("^3>>^1Map By ^2Lifezor");
+	wait 12;
+	iPrintLn ("^3>>^1Fixed version.");
+	wait 12;
+	iPrintLn ("^3>>^1Youtube ^2http://www.youtube.com/IH8LifesSucks");
+	wait 12;
+	iPrintLn ("^3>>^1Song Name: ^2Adam Lambert - Runnin ");
+	wait 12;
+	iPrintLn ("^3>>^1Thanks for playing ^2mp_deathrun_boss");
+	wait 12;
+	iPrintLn ("^3>>^1Steam: ^2Lifezor");
+	wait 12;
+	iPrintLn ("^3>>^1Thanks to ^2Sheep Wizard ^1For secret!");
+	wait 18;
+	}
 }
 
 mapper()
 {
-     wait 6;
-     hud_clock = NewHudElem();
-     hud_clock.alignX = "center";
-     hud_clock.alignY = "bottom";
-     hud_clock.horzalign = "center";
-     hud_clock.vertalign = "bottom";
-     hud_clock.alpha = 1;
-     hud_clock.x = 0;
-     hud_clock.y = 0;
-     hud_clock.font = "objective";
-     hud_clock.fontscale = 2;
-     hud_clock.glowalpha = 5;
-     hud_clock.glowcolor = (0.0,0.8,0.0);
-     hud_clock.label = &"Map by Lifezor";
-     hud_clock SetPulseFX( 40, 5400, 200 );
-     wait 5;
+	wait 6;
+	hud_clock = NewHudElem();
+	hud_clock.alignX = "center";
+	hud_clock.alignY = "bottom";
+	hud_clock.horzalign = "center";
+	hud_clock.vertalign = "bottom";
+	hud_clock.alpha = 1;
+	hud_clock.x = 0;
+	hud_clock.y = 0;
+	hud_clock.font = "objective";
+	hud_clock.fontscale = 2;
+	hud_clock.glowalpha = 5;
+	hud_clock.glowcolor = (0.0,0.8,0.0);
+	hud_clock.label = &"Map by Lifezor";
+	hud_clock SetPulseFX( 40, 5400, 200 );
+	wait 5;
 }
 
 actitele1()
 {
-    trig = getEnt("acti1tele_trig", "targetname");
-    target = getEnt("acti1tele_origin", "targetname");
-       
-    while(1)
-    {
-        trig waittill("trigger", player);
-                   
-        {
-            player setOrigin( target.origin );
-            player setPlayerAngles( target.angles );
-        }
-    }
+	trig = getEnt("acti1tele_trig", "targetname");
+	target = getEnt("acti1tele_origin", "targetname");
+		
+	while(1)
+	{
+		trig waittill("trigger", player);
+						
+		{
+				player setOrigin( target.origin );
+				player setPlayerAngles( target.angles );
+		}
+	}
 }
 
 startdoor()
 {
-    door=getent("spawndoor","targetname");
-    wait(8);
-    iPrintLnBold("^4Door is opening");
-    door movez(256,10,1,9);
-    door waittill ("movedone");
+	door=getent("spawndoor","targetname");
+	wait(8);
+	iPrintLnBold("^4Door is opening");
+	door movez(256,10,1,9);
+	door waittill ("movedone");
 }
 
 actidoor()
 {
-    door=getent("actidoor","targetname");
-    wait(8);
-    door movez(256,10,1,9);
-    door waittill ("movedone");
+	door=getent("actidoor","targetname");
+	wait(8);
+	door movez(256,10,1,9);
+	door waittill ("movedone");
 }
 
 trap1()
@@ -274,19 +274,19 @@ secretenter()
 
 secretrespawn()
 {
-    trig = getEnt("secretrespawn", "targetname");
-    target = getEnt("secretrespawn_origin", "targetname");
-           
-        while(1)
-        {
-            trig waittill("trigger", player);
-                   
-            {
+	trig = getEnt("secretrespawn", "targetname");
+	target = getEnt("secretrespawn_origin", "targetname");
+
+		while(1)
+		{
+				trig waittill("trigger", player);
+						
+				{
 				player iPrintLnBold("^2Respawned.");
-                player setOrigin( target.origin );
-                player setPlayerAngles( target.angles );
-            }
-        }
+					player setOrigin( target.origin );
+					player setPlayerAngles( target.angles );
+				}
+		}
 }
 
 secretend()
@@ -299,7 +299,7 @@ secretend()
 		trig waittill("trigger", player);
 		
 		{
-		    iPrintLnBold(player.name + " ^2Finished the secret.");
+			iPrintLnBold(player.name + " ^2Finished the secret.");
 			player setOrigin( target.origin );
 			player setPlayerAngles( target.angles );
 			player braxi\_rank::giveRankXP("", 100);
@@ -310,155 +310,148 @@ secretend()
 
 sniper() //WINGZOOOOR :D:D:D:D:D:D:D:D:d:DDDD:D:D:D:D:D:D
 {
-     level.sniper_trig = getEnt( "sniper", "targetname");
-     sjump = getEnt( "sniperplayer", "targetname" );
-     sacti = getEnt( "sniperacti", "targetname" );
-	 
-	 if( !isDefined( level.sniper_trig ) )
-         return;
-		 
-	 while(1)
-	 {
+	level.sniper_trig = getEnt( "sniper", "targetname");
+	sjump = getEnt( "sniperplayer", "targetname" );
+	sacti = getEnt( "sniperacti", "targetname" );
+	
+	if( !isDefined( level.sniper_trig ) )
+		return;
+		
+	while(1)
+	{
 		level.sniper_trig waittill( "trigger", player );
 		
-		if(!isdefined(level.firstenter))
-			level.firstenter=false;
-			
-		if(level.firstenter==false)
-		{
-		 level.knife_trig delete();
-		 level.old_trig delete();
-		 level.firstenter=true;
-		}
-			level.activ freezeControls(1);
-			player FreezeControls(1);
-			
-			player SetPlayerAngles( sjump.angles );
-			player setOrigin( sjump.origin );
-			level.activ setPlayerangles( sacti.angles );
-			level.activ setOrigin( sacti.origin );
-			level.activ TakeAllWeapons();
-			player TakeAllWeapons();
-			
-			level.activ giveweapon( "m40a3_mp");
-			player giveweapon( "m40a3_mp");
-			player switchToWeapon( "m40a3_mp" );
-			level.activ SwitchToWeapon( "m40a3_mp" );
-			player giveMaxAmmo( "m40a3_mp" );
-			level.activ giveMaxAmmo( "m40a3_mp" );
-			
-			level.activ giveweapon( "remington700_mp");
-			player giveweapon( "remington700_mp");
-			player switchToWeapon( "remington700_mp" );
-			level.activ SwitchToWeapon( "remington700_mp" );
-			player giveMaxAmmo( "remington700_mp" );
-			level.activ giveMaxAmmo( "remington700_mp" );
-			
-			level.activ freezeControls(1);
-			player FreezeControls(1);
-			
-					noti = SpawnStruct();
-					noti.titleText = (player.name+"^3Has ^6Chosen ^5Sniper ^2Fight!");
-					noti.notifyText = level.activ.name + " ^1VS^5 " + player.name;
-					noti.duration = 6;
-					noti.glowcolor = (0, 0, 1.0);
-					
-					players = getEntArray("player", "classname");
-					for(i=0;i<players.size;i++)
-						players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-					
-			wait 2;
-			
-			level.activ FreezeControls(0);
-			player FreezeControls(0);
-			
-			wait 0.1;
-                     
-			while(isAlive(player))
-				wait 1;
 
+		if(!isdefined(level.firstenter))
+		{
+			level.knife_trig delete();
+			level.old_trig delete();
+			level.firstenter=true;
 		}
+		level.activ freezeControls(1);
+		player FreezeControls(1);
+		
+		player SetPlayerAngles( sjump.angles );
+		player setOrigin( sjump.origin );
+		level.activ setPlayerangles( sacti.angles );
+		level.activ setOrigin( sacti.origin );
+		level.activ TakeAllWeapons();
+		player TakeAllWeapons();
+		
+		level.activ giveweapon( "m40a3_mp");
+		player giveweapon( "m40a3_mp");
+		player switchToWeapon( "m40a3_mp" );
+		level.activ SwitchToWeapon( "m40a3_mp" );
+		player giveMaxAmmo( "m40a3_mp" );
+		level.activ giveMaxAmmo( "m40a3_mp" );
+		
+		level.activ giveweapon( "remington700_mp");
+		player giveweapon( "remington700_mp");
+		player switchToWeapon( "remington700_mp" );
+		level.activ SwitchToWeapon( "remington700_mp" );
+		player giveMaxAmmo( "remington700_mp" );
+		level.activ giveMaxAmmo( "remington700_mp" );
+		
+		level.activ freezeControls(1);
+		player FreezeControls(1);
+		
+				noti = SpawnStruct();
+				noti.titleText = (player.name+"^3Has ^6Chosen ^5Sniper ^2Fight!");
+				noti.notifyText = level.activ.name + " ^1VS^5 " + player.name;
+				noti.duration = 6;
+				noti.glowcolor = (0, 0, 1.0);
+				
+				players = getEntArray("player", "classname");
+				for(i=0;i<players.size;i++)
+					players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
+				
+		wait 2;
+		
+		level.activ FreezeControls(0);
+		player FreezeControls(0);
+					
+		while(isAlive(player))
+			wait 1;
+
+	}
 }
 
 knife() //WINGZOOOOR :D:D:D:D:D:D:D:D:D:D:D:D:D:D:DDDD:D:
 {
-     level.knife_trig = getEnt( "knife", "targetname");
-     kjump = getEnt( "knifeplayer", "targetname" );
-     kacti = getEnt( "knifeacti", "targetname" );
-	 
+	level.knife_trig = getEnt( "knife", "targetname");
+	kjump = getEnt( "knifeplayer", "targetname" );
+	kacti = getEnt( "knifeacti", "targetname" );
+	
 	if( !isDefined( level.knife_trig ) )
-         return;
-		 
-	 while(1)
-	 {
+			return;
+		
+	while(1)
+	{
 		level.knife_trig waittill( "trigger", player );
 		
 		if(!isdefined(level.firstenter))
-			level.firstenter=false;
-			
-		if(level.firstenter==false)
 		{
-		 level.sniper_trig delete();
-		 level.old_trig delete();
-		 level.firstenter=true;
+			level.sniper_trig delete();
+			level.old_trig delete();
+			level.firstenter=true;
 		}
-			level.activ freezeControls(1);
-			player FreezeControls(1);
-			
-			player SetPlayerAngles( kjump.angles );
-			player setOrigin( kjump.origin );
-			level.activ setPlayerangles( kacti.angles );
-			level.activ setOrigin( kacti.origin );
-			level.activ TakeAllWeapons();
-			player TakeAllWeapons();
-			
-			level.activ giveweapon( "knife_mp");
-			player giveweapon( "knife_mp");
-			player switchToWeapon( "knife_mp" );
-			level.activ SwitchToWeapon( "knife_mp" );
-			
-			level.activ freezeControls(1);
-			player FreezeControls(1);
-			
-					noti = SpawnStruct();
-					noti.titleText = (player.name+"^3Has ^6Chosen ^5Knife ^2Fight!");
-					noti.notifyText = level.activ.name + " ^1VS^7 " + player.name;
-					noti.duration = 6;
-					noti.glowcolor = (0, 0, 1.0);
-					
-					players = getEntArray("player", "classname");
-					for(i=0;i<players.size;i++)
-						players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-					
-			wait 2;
-			
-			level.activ FreezeControls(0);
-			player FreezeControls(0);
-			
-			wait 0.1;
-                     
-			while(isAlive(player))
-				wait 1;
 
-		}
+		level.activ freezeControls(1);
+		player FreezeControls(1);
+		
+		player SetPlayerAngles( kjump.angles );
+		player setOrigin( kjump.origin );
+		level.activ setPlayerangles( kacti.angles );
+		level.activ setOrigin( kacti.origin );
+		level.activ TakeAllWeapons();
+		player TakeAllWeapons();
+		
+		level.activ giveweapon( "knife_mp");
+		player giveweapon( "knife_mp");
+		player switchToWeapon( "knife_mp" );
+		level.activ SwitchToWeapon( "knife_mp" );
+		
+		level.activ freezeControls(1);
+		player FreezeControls(1);
+		
+		noti = SpawnStruct();
+		noti.titleText = (player.name+"^3Has ^6Chosen ^5Knife ^2Fight!");
+		noti.notifyText = level.activ.name + " ^1VS^7 " + player.name;
+		noti.duration = 6;
+		noti.glowcolor = (0, 0, 1.0);
+		
+		players = getEntArray("player", "classname");
+		for(i=0;i<players.size;i++)
+			players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
+				
+		wait 2;
+		
+		level.activ FreezeControls(0);
+		player FreezeControls(0);
+		
+						
+		while(isAlive(player))
+			wait 1;
+
+	}
 }
 
 old()
 {
-     level.old_trig = getEnt( "old", "targetname");
-     ojump = getEnt( "playerold", "targetname" );
-     oacti = getEnt( "actiold", "targetname" );
-	 
+	level.old_trig = getEnt( "old", "targetname");
+	ojump = getEnt( "playerold", "targetname" );
+	oacti = getEnt( "actiold", "targetname" );
+	
 	if( !isDefined( level.old_trig ) )
-         return;
-		 
-	 while(1)
-	 {
+			return;
+		
+	while(1)
+	{
 		level.old_trig waittill( "trigger", player );
 		
 		{
-		 level.sniper_trig delete();
-		 level.knife_trig delete();
+		level.sniper_trig delete();
+		level.knife_trig delete();
 		}
 			level.activ freezeControls(0);
 			player FreezeControls(0);
@@ -494,7 +487,7 @@ old()
 			player FreezeControls(0);
 			
 			wait 0.1;
-                     
+							
 			while(isAlive(player))
 				wait 1;
 
@@ -541,26 +534,26 @@ trap6b()
 
 secretrespawn2()
 {
-    trig = getEnt("secretrespawn2", "targetname");
-    target = getEnt("secretrespawn2_origin", "targetname");
-           
-        while(1)
-        {
-            trig waittill("trigger", player);
-                   
-            {
+	trig = getEnt("secretrespawn2", "targetname");
+	target = getEnt("secretrespawn2_origin", "targetname");
+			
+		while(1)
+		{
+				trig waittill("trigger", player);
+						
+				{
 				player iPrintLnBold("^2Respawned.");
-                player setOrigin( target.origin );
-                player setPlayerAngles( target.angles );
-            }
-        }
+					player setOrigin( target.origin );
+					player setPlayerAngles( target.angles );
+				}
+		}
 }
 
 music()
 {
-    level waittill( "round_started" );
-    
-    wait 1;
-    
-    ambientPlay( "song1" );
+	level waittill( "round_started" );
+	
+	wait 1;
+	
+	ambientPlay( "song1" );
 }

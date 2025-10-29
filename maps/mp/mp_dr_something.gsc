@@ -1021,7 +1021,7 @@ sniper()
 
 		if(!isDefined(level.sniper_trigger))
 					return;
-			if(level.firstenter==true)
+			if(!isdefined(level.firstenter))
 		{
 				//level.bounce_trigger delete();
 				level.old_trigger delete();
@@ -1099,7 +1099,7 @@ bounce()
 
          	if( !isDefined( level.bounce_trigger ) )
          	return;
-			if(level.firstenter==true)
+			if(!isdefined(level.firstenter))
 		{
 		level.sniper_trigger delete();
 		level.old_trigger delete();
@@ -1180,7 +1180,7 @@ knife()
 
          	if( !isDefined( level.knife_trigger ) )
          	return;
-			if(level.firstenter==true)
+			if(!isdefined(level.firstenter))
 		{
 		level.sniper_trigger delete();
 		level.old_trigger delete();
@@ -1228,7 +1228,7 @@ ladder()
 
          	if( !isDefined( level.ladder_trigger ) )
          	return;
-			if(level.firstenter==true)
+			if(!isdefined(level.firstenter))
 		{
 		level.sniper_trigger delete();
 		level.old_trigger delete();

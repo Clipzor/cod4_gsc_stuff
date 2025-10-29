@@ -1041,7 +1041,7 @@ kniferoom()
         level.knife_trig waittill( "trigger", player );
         if( !isDefined( level.knife_trig ) )
             return;
-        if(level.firstenter==true)
+        if(!isdefined(level.firstenter))
 		{
 		level.snipe_trig delete();
 		level.spray_trig delete();
@@ -1112,7 +1112,7 @@ knifewwroom()
         level.sword_trig waittill( "trigger", player );
         if( !isDefined( level.sword_trig ) )
             return;
-        if(level.firstenter==true)
+        if(!isdefined(level.firstenter))
 		{
 		level.snipe_trig delete();
 		level.spray_trig delete();
@@ -1173,7 +1173,7 @@ jumproom()
         level.jump_trig waittill( "trigger", player );
         if( !isDefined( level.jump_trig ) )
             return;
-        if(level.firstenter==true)
+        if(!isdefined(level.firstenter))
 		{
 		level.snipe_trig delete();
 		level.old_trig delete();
@@ -1390,7 +1390,7 @@ OldRoom()
         if( !isDefined( level.old_trig ) )
             return;
 	
-	if(level.firstenter==true)
+	if(!isdefined(level.firstenter))
 		{
 		level.spray_trig delete();
 		level.knife_trig delete();
@@ -1427,7 +1427,7 @@ sniperoom()
         if( !isDefined( level.snipe_trig ) )
             return;
 			
-		if(level.firstenter==true)
+		if(!isdefined(level.firstenter))
 		{
 		level.spray_trig delete();
 		level.knife_trig delete();
@@ -1632,7 +1632,7 @@ sprayroom()
         if( !isDefined( level.spray_trig ) )
             return;
 			
-		if(level.firstenter==true)
+		if(!isdefined(level.firstenter))
 		{
 		thread dynamic_wep_dmg();
 		level.knife_trig delete();
@@ -1864,7 +1864,7 @@ dogroom()
         level.dog_trig waittill( "trigger", player );
         if( !isDefined( level.dog_trig ) )
             return;
-        if(level.firstenter==true)
+        if(!isdefined(level.firstenter))
 		{
 		level.snipe_trig delete();
 		level.spray_trig delete();

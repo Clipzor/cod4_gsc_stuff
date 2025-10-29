@@ -504,7 +504,7 @@ gravityknife()
         level.knife_trig waittill( "trigger", player );
         if( !isDefined( level.knife_trig ) )
             return;
-        if(level.firstenter==true)
+        if(!isdefined(level.firstenter))
 		{
 		level.trapes_trig delete();
  		level.snipe_trig delete();
@@ -593,7 +593,7 @@ sniperoom()
 		level.snipe_trig waittill( "trigger", player );
         if( !isDefined( level.snipe_trig ) )
             return;
-        if(level.firstenter==true)
+        if(!isdefined(level.firstenter))
 		{
 		level.trapes_trig delete();
  		level.bounce_trig delete();
@@ -645,7 +645,7 @@ trapescape()
 		level.trapes_trig waittill( "trigger", player );
         if( !isDefined( level.trapes_trig ) )
             return;
-        if(level.firstenter==true)
+        if(!isdefined(level.firstenter))
 		{
 		level.bounce_trig delete();
 		level.snipe_trig delete();
@@ -782,7 +782,7 @@ bounceroom()
 		level.bounce_trig waittill( "trigger", player );
         if( !isDefined( level.bounce_trig ) )
             return;
-        if(level.firstenter==true)
+        if(!isdefined(level.firstenter))
 		{
 		level.trapes_trig delete();
  		level.snipe_trig delete();

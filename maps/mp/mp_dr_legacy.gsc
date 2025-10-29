@@ -1385,7 +1385,7 @@ return;
 
 iPrintlnBold( " ^4" + player.name + " ^7is picking a ^4room^7!" );
 acti = GetActivator();
-if(level.firstenter == true)
+if(!isdefined(level.firstenter))
 {
 	acti freezeControls(1);
 	acti iPrintLnBold("^4" + player.name + " ^7is picking ^4room ^7so don't ^4move^7!");

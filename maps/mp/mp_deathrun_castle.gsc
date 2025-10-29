@@ -330,10 +330,8 @@ sniperoom()
     while(1)
     {
         level.snipe_trig waittill( "trigger", player );
-        if( !isDefined( level.snipe_trig ) )
-            return;
 			
-		if(level.firstenter==true)
+		if(!isdefined(level.firstenter))
 		{
         level.old_trig delete();
 		level.jump_trig delete();
@@ -369,12 +367,12 @@ jumproom()
     while(1)
     {
         level.jump_trig waittill( "trigger", player );
-        if(level.firstenter==true)
+        if(!isdefined(level.firstenter))
 		{       
-	    level.snipe_trig delete();
-        level.old_trig delete();
-		level.knife_trig delete();
-		level.firstenter=false;
+			level.snipe_trig delete();
+			level.old_trig delete();
+			level.knife_trig delete();
+			level.firstenter=false;
 		}
         player SetPlayerAngles( jump.angles );
         player setOrigin( jump.origin );
@@ -403,14 +401,13 @@ kniferoom()
     while(1)
     {
         level.knife_trig waittill( "trigger", player );
-        if( !isDefined( level.knife_trig ) )
-            return;
-        if(level.firstenter==true)
+
+        if(!isdefined(level.firstenter))
 		{
-        level.snipe_trig delete();
-        level.old_trig delete();
- 		level.jump_trig delete();
-		level.firstenter=false;
+			level.snipe_trig delete();
+			level.old_trig delete();
+			level.jump_trig delete();
+			level.firstenter=false;
 		}
 		
         player SetPlayerAngles( jump.angles );
@@ -439,15 +436,14 @@ old()
     while(1)
     {
         level.old_trig waittill( "trigger", player );
-        if( !isDefined( level.old_trig ) )
-            return;
-        if(level.firstenter==true)
+
+        if(!isdefined(level.firstenter))
 		{
-		level.gun_trig delete();
-                level.snipe_trig delete();
-                level.knife_trig delete();
- 		level.jump_trig delete();
-		level.firstenter=false;
+			level.gun_trig delete();
+			level.snipe_trig delete();
+			level.knife_trig delete();
+			level.jump_trig delete();
+			level.firstenter=false;
 		}
 		
         player SetPlayerAngles( jump.angles );

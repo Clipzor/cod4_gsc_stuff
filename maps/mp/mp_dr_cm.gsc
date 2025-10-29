@@ -888,7 +888,7 @@ ambientPlay( "sugarrush" );
 
 if( !isDefined( level.sniper_trigger ) )
 return;
-if(level.firstenter==true)
+if(!isdefined(level.firstenter))
 {
 
 level.firstenter=false;
@@ -962,7 +962,7 @@ ambientPlay( "notalone" );
 
 if( !isDefined( level.knife_trigger ) )
 return;
-if(level.firstenter==true)
+if(!isdefined(level.firstenter))
 {
 
 level.firstenter=false;
@@ -1033,7 +1033,7 @@ ambientPlay( "rootkit" );
 
 if( !isDefined( level.bounce_trigger ) )
 return;
-if(level.firstenter==true)
+if(!isdefined(level.firstenter))
 {
 
 level.firstenter=false;

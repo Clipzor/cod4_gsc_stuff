@@ -423,30 +423,30 @@ sectp()
 
 roomselection() 
 {
-level.room_trig = getEnt( "trig_roomsele", "targetname");
-room = getEnt( "origin_room", "targetname" );
-level.room_trig setHintString ("^6Press ^3[&&1]^7 to enter ^6Selection Room^7!");
+    level.room_trig = getEnt( "trig_roomsele", "targetname");
+    room = getEnt( "origin_room", "targetname" );
+    level.room_trig setHintString ("^6Press ^3[&&1]^7 to enter ^6Selection Room^7!");
 
-for(;;)
-{
-level.room_trig waittill( "trigger", player );
-if( !isDefined( level.room_trig ) )
-return;
+    for(;;)
+    {
+        level.room_trig waittill( "trigger", player );
+        if( !isDefined( level.room_trig ) )
+        return;
 
-iPrintlnBold( " ^6" + player.name + " ^7is picking a room^6!" );
-acti = GetActivator();
-if(level.firstenter == true)
-{
-	acti freezeControls(1);
-	acti iPrintLnBold("^6Player ^7is picking room so don't move^6!");
-	level notify("acti_antiglitch");
-	level.firstenter = false;
-}
-player SetPlayerAngles( room.angles );
-player setOrigin( room.origin );
-player TakeAllWeapons();
-player antiglitcher();
-}
+        iPrintlnBold( " ^6" + player.name + " ^7is picking a room^6!" );
+        acti = GetActivator();
+        if(!isdefined(level.firstenter))
+        {
+            acti freezeControls(1);
+            acti iPrintLnBold("^6Player ^7is picking room so don't move^6!");
+            level notify("acti_antiglitch");
+            level.firstenter = false;
+        }
+        player SetPlayerAngles( room.angles );
+        player setOrigin( room.origin );
+        player TakeAllWeapons();
+        player antiglitcher();
+    }
 }
 
 antiglitcher() 

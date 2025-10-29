@@ -330,130 +330,125 @@ sniper() //WINGZOOOOR :D:D:D:D:D:D:D:D:d:DDDD:D:D:D:D:D:D
 	 {
 		level.sniper_trig waittill( "trigger", player );
 		
+			
 		if(!isdefined(level.firstenter))
-			level.firstenter=false;
-			
-		if(level.firstenter==false)
 		{
-		 level.pistol_trig delete();
-		 level.knife_trig delete();
-		 level.shotgun_trig delete();
-         level.bounce_trig delete();
-		 level.firstenter=true;
+			level.pistol_trig delete();
+			level.knife_trig delete();
+			level.shotgun_trig delete();
+			level.bounce_trig delete();
+			level.firstenter=true;
 		}
-			level.activ freezeControls(1);
-			player FreezeControls(1);
-			
-			player SetPlayerAngles( sjump.angles );
-			player setOrigin( sjump.origin );
-			level.activ setPlayerangles( sacti.angles );
-			level.activ setOrigin( sacti.origin );
-			level.activ TakeAllWeapons();
-			player TakeAllWeapons();
-			
-			level.activ giveweapon( "m40a3_mp");
-			player giveweapon( "m40a3_mp");
-			player switchToWeapon( "m40a3_mp" );
-			level.activ SwitchToWeapon( "m40a3_mp" );
-			player giveMaxAmmo( "m40a3_mp" );
-			level.activ giveMaxAmmo( "m40a3_mp" );
-			
-			level.activ giveweapon( "remington700_mp");
-			player giveweapon( "remington700_mp");
-			player switchToWeapon( "remington700_mp" );
-			level.activ SwitchToWeapon( "remington700_mp" );
-			player giveMaxAmmo( "remington700_mp" );
-			level.activ giveMaxAmmo( "remington700_mp" );
-			
-			level.activ freezeControls(1);
-			player FreezeControls(1);
-			
-					noti = SpawnStruct();
-					noti.titleText = (player.name+"^3Has ^6Chosen ^5Sniper ^2Fight!");
-					noti.notifyText = level.activ.name + " ^1VS^5 " + player.name;
-					noti.duration = 6;
-					noti.glowcolor = (0, 0, 1.0);
-					
-					players = getEntArray("player", "classname");
-					for(i=0;i<players.size;i++)
-						players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-					
-			wait 2;
-			
-			level.activ FreezeControls(0);
-			player FreezeControls(0);
-			
-			wait 0.1;
-                     
-			while(isAlive(player))
-				wait 1;
 
-		}
+		level.activ freezeControls(1);
+		player FreezeControls(1);
+		
+		player SetPlayerAngles( sjump.angles );
+		player setOrigin( sjump.origin );
+		level.activ setPlayerangles( sacti.angles );
+		level.activ setOrigin( sacti.origin );
+		level.activ TakeAllWeapons();
+		player TakeAllWeapons();
+		
+		level.activ giveweapon( "m40a3_mp");
+		player giveweapon( "m40a3_mp");
+		player switchToWeapon( "m40a3_mp" );
+		level.activ SwitchToWeapon( "m40a3_mp" );
+		player giveMaxAmmo( "m40a3_mp" );
+		level.activ giveMaxAmmo( "m40a3_mp" );
+		
+		level.activ giveweapon( "remington700_mp");
+		player giveweapon( "remington700_mp");
+		player switchToWeapon( "remington700_mp" );
+		level.activ SwitchToWeapon( "remington700_mp" );
+		player giveMaxAmmo( "remington700_mp" );
+		level.activ giveMaxAmmo( "remington700_mp" );
+		
+		level.activ freezeControls(1);
+		player FreezeControls(1);
+		
+		noti = SpawnStruct();
+		noti.titleText = (player.name+"^3Has ^6Chosen ^5Sniper ^2Fight!");
+		noti.notifyText = level.activ.name + " ^1VS^5 " + player.name;
+		noti.duration = 6;
+		noti.glowcolor = (0, 0, 1.0);
+		
+		players = getEntArray("player", "classname");
+		for(i=0;i<players.size;i++)
+			players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
+				
+		wait 2;
+		
+		level.activ FreezeControls(0);
+		player FreezeControls(0);
+					
+		while(isAlive(player))
+			wait 1;
+	}
 }
 
 knife() //WINGZOOOOR :D:D:D:D:D:D:D:D:D:D:D:D:D:D:DDDD:D:
 {
-     level.knife_trig = getEnt( "knife", "targetname");
-     kjump = getEnt( "playerk", "targetname" );
-     kacti = getEnt( "actik", "targetname" );
+	level.knife_trig = getEnt( "knife", "targetname");
+	kjump = getEnt( "playerk", "targetname" );
+	kacti = getEnt( "actik", "targetname" );
 	 
 	if( !isDefined( level.knife_trig ) )
-         return;
+        return;
 		 
-	 while(1)
-	 {
+	while(1)
+	{
 		level.knife_trig waittill( "trigger", player );
-		
-		if(!isdefined(level.firstenter))
-			level.firstenter=false;
-			
-		if(level.firstenter==false)
-		{
-		 level.pistol_trig delete();
-		 level.sniper_trig delete();
-		 level.shotgun_trig delete();
-		 level.bounce_trig delete();
-		 level.firstenter=true;
-		}
-			level.activ freezeControls(1);
-			player FreezeControls(1);
-			
-			player SetPlayerAngles( kjump.angles );
-			player setOrigin( kjump.origin );
-			level.activ setPlayerangles( kacti.angles );
-			level.activ setOrigin( kacti.origin );
-			level.activ TakeAllWeapons();
-			player TakeAllWeapons();
-			
-			level.activ giveweapon( "tomahawk_mp");
-			player giveweapon( "tomahawk_mp");
-			player switchToWeapon( "tomahawk_mp" );
-			level.activ SwitchToWeapon( "tomahawk_mp" );
-			
-			level.activ freezeControls(1);
-			player FreezeControls(1);
-			
-					noti = SpawnStruct();
-					noti.titleText = (player.name+"^3Has ^6Chosen ^5Knife ^2Fight!");
-					noti.notifyText = level.activ.name + " ^1VS^7 " + player.name;
-					noti.duration = 6;
-					noti.glowcolor = (0, 0, 1.0);
-					
-					players = getEntArray("player", "classname");
-					for(i=0;i<players.size;i++)
-						players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-					
-			wait 2;
-			
-			level.activ FreezeControls(0);
-			player FreezeControls(0);
-			
-			wait 0.1;
-                     
-			while(isAlive(player))
-				wait 1;
 
+			
+		if(!isdefined(level.firstenter))
+		{
+			level.pistol_trig delete();
+			level.sniper_trig delete();
+			level.shotgun_trig delete();
+			level.bounce_trig delete();
+			level.firstenter = true;
 		}
+
+		level.activ freezeControls(1);
+		player FreezeControls(1);
+		
+		player SetPlayerAngles( kjump.angles );
+		player setOrigin( kjump.origin );
+		level.activ setPlayerangles( kacti.angles );
+		level.activ setOrigin( kacti.origin );
+		level.activ TakeAllWeapons();
+		player TakeAllWeapons();
+		
+		level.activ giveweapon( "tomahawk_mp");
+		player giveweapon( "tomahawk_mp");
+		player switchToWeapon( "tomahawk_mp" );
+		level.activ SwitchToWeapon( "tomahawk_mp" );
+		
+		level.activ freezeControls(1);
+		player FreezeControls(1);
+		
+				noti = SpawnStruct();
+				noti.titleText = (player.name+"^3Has ^6Chosen ^5Knife ^2Fight!");
+				noti.notifyText = level.activ.name + " ^1VS^7 " + player.name;
+				noti.duration = 6;
+				noti.glowcolor = (0, 0, 1.0);
+				
+				players = getEntArray("player", "classname");
+				for(i=0;i<players.size;i++)
+					players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
+				
+		wait 2;
+		
+		level.activ FreezeControls(0);
+		player FreezeControls(0);
+		
+		wait 0.1;
+					
+		while(isAlive(player))
+			wait 1;
+
+	}
 }
 
 actitele1()
@@ -700,71 +695,67 @@ music()
 	ambientPlay("song1");
 }
 
-    bounce()
-    {
-         level.bounce_trig = getEnt( "bounceroom_trig", "targetname");
-         bjumper = getEnt( "jumperb", "targetname" );
-         bacti = getEnt( "actib", "targetname" );
-             
-            if( !isDefined( level.bounce_trig ) )
-             return;
-                     
-             while(1)
-             {
-                    level.bounce_trig waittill( "trigger", player );
-                   
-                            if(!isdefined(level.firstenter))
-                            level.firstenter=false;
-                           
-                    if(level.firstenter==false)
-                    {
-                     level.sniper_trig delete();
-                     level.knife_trig delete();
-                     level.pistol_trig delete();
-                     level.shotgun_trig delete();
-                     level.firstenter=true;
-                    }
-                            level.activ freezeControls(1);
-                            player FreezeControls(1);
-                           
-                            player SetPlayerAngles( bjumper.angles );
-                            player setOrigin( bjumper.origin );
-                            level.activ setPlayerangles( bacti.angles );
-                            level.activ setOrigin( bacti.origin );
-							
-							                    player takeallweapons();
-                    player GiveWeapon( "tomahawk_mp" );
-            player SwitchtoWeapon( "tomahawk_mp" );
-            level.activ takeallweapons();
-                    level.activ GiveWeapon( "tomahawk_mp" );
-            level.activ SwitchtoWeapon( "tomahawk_mp" );
-                           
-                           
-                            level.activ freezeControls(1);
-                            player FreezeControls(1);
-                           
-                                            noti = SpawnStruct();
-                                            noti.titleText = (player.name+"Has Chosen Bounce Room!");
-                                            noti.notifyText = level.activ.name + " ^1VS^7 " + player.name;
-                                            noti.duration = 6;
-                                            noti.glowcolor = (0, 0, 1.0);
-                                           
-                                            players = getEntArray("player", "classname");
-                                            for(i=0;i<players.size;i++)
-                                                    players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-                                           
-                            wait 2;
-                           
-                            level.activ FreezeControls(0);
-                            player FreezeControls(0);
-                           
-                            wait 0.1;
-                         
-                            while(isAlive(player))
-                                    wait 1;
-     
-                    }
-    }
+bounce()
+{
+	level.bounce_trig = getEnt( "bounceroom_trig", "targetname");
+	bjumper = getEnt( "jumperb", "targetname" );
+	bacti = getEnt( "actib", "targetname" );
+		
+	if( !isDefined( level.bounce_trig ) )
+		return;
+				
+	while(1)
+	{
+		level.bounce_trig waittill( "trigger", player );
+		
+				
+		if(!isdefined(level.firstenter))
+		{
+			level.sniper_trig delete();
+			level.knife_trig delete();
+			level.pistol_trig delete();
+			level.shotgun_trig delete();
+			level.firstenter=true;
+		}
+		level.activ freezeControls(1);
+		player FreezeControls(1);
+		
+		player SetPlayerAngles( bjumper.angles );
+		player setOrigin( bjumper.origin );
+		level.activ setPlayerangles( bacti.angles );
+		level.activ setOrigin( bacti.origin );
+		
+		player takeallweapons();
+		player GiveWeapon( "tomahawk_mp" );
+		player SwitchtoWeapon( "tomahawk_mp" );
+		level.activ takeallweapons();
+		level.activ GiveWeapon( "tomahawk_mp" );
+		level.activ SwitchtoWeapon( "tomahawk_mp" );
+				
+				
+		level.activ freezeControls(1);
+		player FreezeControls(1);
+
+		noti = SpawnStruct();
+		noti.titleText = (player.name+"Has Chosen Bounce Room!");
+		noti.notifyText = level.activ.name + " ^1VS^7 " + player.name;
+		noti.duration = 6;
+		noti.glowcolor = (0, 0, 1.0);
+		
+		players = getEntArray("player", "classname");
+		for(i=0;i<players.size;i++)
+				players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
+		
+		wait 2;
+		
+		level.activ FreezeControls(0);
+		player FreezeControls(0);
+		
+		
+		while(isAlive(player))
+				wait 1;
+	}
+}
 	
     jumpertp()
     {

@@ -170,25 +170,25 @@ level.room_trig = getEnt( "trigger_select_room", "targetname");
 room = getEnt( "origin_select_room", "targetname" );
 level.room_trig setHintString ("Press ^3[&&1]^7 to enter room selection");
 
-for(;;)
-{
-level.room_trig waittill( "trigger", player );
-if( !isDefined( level.room_trig ) )
-return;
+	for(;;)
+	{
+		level.room_trig waittill( "trigger", player );
+		if( !isDefined( level.room_trig ) )
+		return;
 
-acti = GetActivator();
-if(level.firstenter == true)
-{
-	acti freezeControls(1);
-	acti iPrintLnBold("^3Jumper ^7is picking a ^3room ^7so don't ^3move^7!");
-	level notify("acti_antiglitch");
-	level.firstenter = false;
-}
-player SetPlayerAngles( room.angles );
-player setOrigin( room.origin );
-player TakeAllWeapons();
-player antiglitcher();
-}
+		acti = GetActivator();
+		if(!isdefined(level.firstenter))
+		{
+			acti freezeControls(1);
+			acti iPrintLnBold("^3Jumper ^7is picking a ^3room ^7so don't ^3move^7!");
+			level notify("acti_antiglitch");
+			level.firstenter = false;
+		}
+		player SetPlayerAngles( room.angles );
+		player setOrigin( room.origin );
+		player TakeAllWeapons();
+		player antiglitcher();
+	}
 }
 
 endmap()

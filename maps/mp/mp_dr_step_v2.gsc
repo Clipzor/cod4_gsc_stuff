@@ -366,13 +366,12 @@ end()
 		
 		else 
 		{
-		if(!isdefined(level.firstenter))
-			level.firstenter=false;
+				
+			if(!isdefined(level.firstenter))
+			{
+				level.firstenter=true;
+			}
 			
-		if(level.firstenter==false)
-		{
-		 level.firstenter=true;
-		}
 			level.activ freezeControls(1);
 			player FreezeControls(1);
 			

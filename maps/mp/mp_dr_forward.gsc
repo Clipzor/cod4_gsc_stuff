@@ -235,7 +235,7 @@ if( !isDefined( level.room_trig ) )
 return;
 
 acti = GetActivator();
-if(level.firstenter == true)
+if(!isdefined(level.firstenter))
 {
 	acti freezeControls(1);
 	acti iPrintLnBold("^3Jumper ^7is picking a ^3room ^7so don't ^3move^7!");

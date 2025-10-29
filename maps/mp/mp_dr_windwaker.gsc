@@ -1837,7 +1837,7 @@ old_room()
 		level.trigger_old waittill ("trigger", player);
 		level.trigger_old setHintString ("^4" + player.name + "^7 in room!");
 
-		if(level.firstenter==true) {
+		if(!isdefined(level.firstenter)) {
 
 			//level.trigger_old delete();
 			level.trigger_knife delete();
@@ -1885,7 +1885,7 @@ knife_room()
 		level.trigger_knife waittill ("trigger", player);
 		level.trigger_knife setHintString ("^4" + player.name + "^7 in room!");
 
-		if(level.firstenter==true) {
+		if(!isdefined(level.firstenter)) {
 
 			level.trigger_old delete();
 			//level.trigger_knife delete();
@@ -1945,7 +1945,7 @@ sniper_room()
 		level.trigger_sniper waittill ("trigger", player);
 		level.trigger_sniper setHintString ("^4" + player.name + "^7 in room!");
 
-		if(level.firstenter==true) {
+		if(!isdefined(level.firstenter)) {
 
 			level.trigger_old delete();
 			level.trigger_knife delete();
@@ -2066,7 +2066,7 @@ bounce_room()
 		level.trigger_bounce waittill ("trigger", player);
 		level.trigger_bounce setHintString ("^4" + player.name + "^7 in room!");
 
-		if(level.firstenter==true) {
+		if(!isdefined(level.firstenter)) {
 
 			level.trigger_old delete();
 			level.trigger_knife delete();
@@ -2478,7 +2478,7 @@ space_room()
 		level.trigger_space waittill ("trigger", player);
 		level.trigger_space setHintString ("^4" + player.name + "^7 in room!");
 
-		if(level.firstenter==true) {
+		if(!isdefined(level.firstenter)) {
 
 			level.trigger_old delete();
 			level.trigger_knife delete();

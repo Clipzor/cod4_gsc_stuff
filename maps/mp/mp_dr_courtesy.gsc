@@ -16,12 +16,10 @@ main()
 	game["allies_soldiertype"] = "desert";
 	game["axis_soldiertype"] = "desert";
 
-	setdvar("bg_bobmax" , "0");
 	//setdvar("jump_slowdownenable" , "0");
 	setdvar("g_speed" , "210");
 	setdvar("bg_falldamageminheight" , "99998");
 	setdvar("bg_falldamagemaxheight" , "99999");
-	setdvar("r_specular" , "0");
 	
 
 	thread shortcut();
@@ -38,6 +36,11 @@ main()
 	thread trap3();
 	thread trap4();
 	thread trap5();
+	addTriggerToList("trigger_trap1");
+	addTriggerToList("trigger_trap2");
+	addTriggerToList("trigger_trap3");
+	addTriggerToList("trigger_trap4");
+	addTriggerToList("trigger_trap5");
 	thread acti_tp1();
 	thread acti_tp2();
 	thread ele_secret_tp();
@@ -463,7 +466,7 @@ for(;;)
 dcaccess()
 {
     trigger = getEnt ("trigger_vip", "targetname");
-    trigger setHintString ("^6VIP & DC Team Access^7");
+    trigger setHintString ("^6VIP Access^7");
 for(;;)
 {
 

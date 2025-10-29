@@ -285,7 +285,7 @@ kniferoom()
         level.knife_trig waittill( "trigger", player );
         if( !isDefined( level.knife_trig ) )
             return;
-        if(level.firstenter==true)
+        if(!isdefined(level.firstenter))
 		{
         level.snipe_trig delete();
 		level.old_trig delete();
@@ -323,7 +323,7 @@ sniperoom()
         if( !isDefined( level.snipe_trig ) )
             return;
 			
-		if(level.firstenter==true)
+		if(!isdefined(level.firstenter))
 		{
         level.jump_trig delete();
 		level.old_trig delete();
@@ -408,7 +408,7 @@ weaponroom()
         if( !isDefined( level.weapon_trig ) )
             return;
         
-        if(level.firstenter==true)
+        if(!isdefined(level.firstenter))
 		{
         level.snipe_trig delete();
 		level.old_trig delete();
@@ -518,7 +518,7 @@ actisecret()
     level.secret_trig waittill( "trigger", player );
 	if( !isDefined( level.secret_trig ) )
             return;
-        if(level.firstenter==true)
+        if(!isdefined(level.firstenter))
 		{
         level.secret_trig delete();
 		thread teleport();
@@ -561,7 +561,7 @@ Jumproom()
     while(1)
     {
         level.jump_trig waittill( "trigger", player );
-        if(level.firstenter==true)
+        if(!isdefined(level.firstenter))
 		{
         level.snipe_trig delete();
 		level.old_trig delete();
@@ -681,7 +681,7 @@ OldRoom()
         if( !isDefined( level.old_trig ) )
             return;
 	
-	if(level.firstenter==true)
+	if(!isdefined(level.firstenter))
 		{
         level.snipe_trig delete();
 		level.jump_trig delete();

@@ -499,7 +499,7 @@ level.old_trigger delete();
 
 if(!isDefined(level.sniper_trigger))
             return;
-    if(level.firstenter==true)
+    if(!isdefined(level.firstenter))
 {
 		level.bounce_trigger delete();
 		level.old_trigger delete();
@@ -554,7 +554,7 @@ ambientPlay("bounceRoom_runit");
 
 if(!isDefined(level.bounce_trigger))
             return;
-    if(level.firstenter==true)
+    if(!isdefined(level.firstenter))
 		{
 		level.firstenter=false;
 		}	
@@ -660,7 +660,7 @@ ambientPlay("knifeRoom_runit");
 
 if(!isDefined(level.knife_trigger))
             return;
-    if(level.firstenter==true)
+    if(!isdefined(level.firstenter))
 {
 
 

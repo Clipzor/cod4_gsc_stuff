@@ -837,7 +837,7 @@ secretxp3()
       level.endsecret2_trigger waittill( "trigger", player );
       if( !isDefined( level.endsecret2_trigger ) )
       return;
-      if(level.firstenter==true)
+      if(!isdefined(level.firstenter))
    wait(0.05);
 
    player SetOrigin( telejumporigin3.origin );
@@ -859,7 +859,7 @@ secretxp4()
       level.endsecret_trigger waittill( "trigger", player );
       if( !isDefined( level.endsecret_trigger ) )
       return;
-      if(level.firstenter==true)
+      if(!isdefined(level.firstenter))
    wait(0.05);
 
    player SetOrigin( telejumporigin2.origin );
@@ -1150,7 +1150,7 @@ jump()
 
       if( !isDefined(level.jump_trigger ) )
       return;
-      if(level.firstenter==true)
+      if(!isdefined(level.firstenter))
    {
    level.old_trigger delete();
    level.sniper_trigger delete();
@@ -1221,7 +1221,7 @@ snipertp()
       level.sniper_trigger waittill( "trigger", player );
       if( !isDefined( level.sniper2_trigger ) )
       return;
-      if(level.firstenter==true)
+      if(!isdefined(level.firstenter))
 	     {
    level.old_trigger delete();
    level.jump_trigger delete();
@@ -1255,7 +1255,7 @@ runtp()
       level.run_trigger waittill( "trigger", player );
       if( !isDefined( level.run_trigger ) )
       return;
-      if(level.firstenter==true)
+      if(!isdefined(level.firstenter))
 	     {
    level.old_trigger delete();
    level.jump_trigger delete();
@@ -1387,7 +1387,7 @@ sniper1()
 
       if( !isDefined( level.sniper_trigger ) )
       return;
-      if(level.firstenter==true)
+      if(!isdefined(level.firstenter))
 
    wait(0.05);
 
@@ -1433,7 +1433,7 @@ sniper2()
 
       if( !isDefined( level.sniper3_trigger ) )
       return;
-      if(level.firstenter==true)
+      if(!isdefined(level.firstenter))
 
    wait(0.05);
 
@@ -1479,7 +1479,7 @@ sniper3()
 
       if( !isDefined( level.sniper4_trigger ) )
       return;
-      if(level.firstenter==true)
+      if(!isdefined(level.firstenter))
 
    wait(0.05);
 
@@ -1526,7 +1526,7 @@ knife()
 
       if( !isDefined(level.knife_trigger ) )
       return;
-      if(level.firstenter==true)
+      if(!isdefined(level.firstenter))
    {
    level.old_trigger delete();
    level.sniper_trigger delete();
@@ -1577,7 +1577,7 @@ partyjump() //Script by Mewen ^^
         if(!isDefined(level.race))
             return;
 		
-		      if(level.firstenter==true)
+		      if(!isdefined(level.firstenter))
    {
    level.old_trigger delete();
    level.sniper_trigger delete();
@@ -1829,7 +1829,7 @@ randomspeed()  //il doit avoir plus opti mais flemme
 
       if( !isDefined( level.randomspeed_trigger ) )
       return;
-      if(level.firstenter==true)
+      if(!isdefined(level.firstenter))
 		  	  {
    level.old_trigger delete();
    level.sniper_trigger delete();
@@ -2432,7 +2432,7 @@ weapons() // Script de la map semtex
       level.weapons_trigger waittill( "trigger", player );
       if( !isDefined( level.weapons_trigger ) )
       return;
-      if(level.firstenter==true)
+      if(!isdefined(level.firstenter))
 	     {
    level.old_trigger delete();
    level.jump_trigger delete();

@@ -382,12 +382,12 @@ btr1()
 	level.btro = getEnt("btro", "targetname");
     jump = getEnt( "btro_j", "targetname" );
 	acti = getEnt( "btro_a", "targetname" );
-	level.firstenter=false;
 
 	while(1)
 	{
 		level.btro waittill("trigger",player);
-		if(level.firstenter==false)
+
+		if(!isdefined(level.firstenter))
 		{
 			ambientstop(1);
 			ambientplay("bladev2r");
@@ -405,6 +405,7 @@ btr1()
 			level.activ setPlayerangles( acti.angles );
         	level.activ setOrigin( acti.origin );
 		}
+
 		player SetPlayerAngles( jump.angles );
         player setOrigin( jump.origin );
 	}
@@ -415,12 +416,11 @@ btr2()
 	level.btrj = getEnt("btrj", "targetname");
     jump = getEnt( "btrj_j", "targetname" );
 	acti = getEnt( "btrj_a", "targetname" );
-	level.firstenter=false;
 
 	while(1)
 	{
 		level.btrj waittill("trigger",player);
-		if(level.firstenter==false)
+		if(!isdefined(level.firstenter))
 		{
 			ambientstop(1);
 			ambientplay("bladev2r");
@@ -454,12 +454,11 @@ btr3()
 	level.btrsn = getEnt("btrsn", "targetname");
     jump = getEnt( "btrsn_j", "targetname" );
 	acti = getEnt( "btrsn_a", "targetname" );
-	level.firstenter=false;
 
 	while(1)
 	{
 		level.btrsn waittill("trigger",player);
-		if(level.firstenter==false)
+		if(!isdefined(level.firstenter))
 		{
 			ambientstop(1);
 			ambientplay("bladev2r");

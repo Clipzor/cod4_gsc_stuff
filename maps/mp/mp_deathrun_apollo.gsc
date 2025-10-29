@@ -131,13 +131,13 @@ addTriggerToList( name )
         level.knife_trig waittill( "trigger", player );
         if( !isDefined( level.knife_trig ) )
             return;
-        if(level.firstenter==true)
-		{
-                level.snipe_trig delete();
-                level.oldtrigger delete();
- 		level.bounce_trig delete();
-		level.firstenter=false;
-		}
+        if(!isdefined(level.firstenter))
+      {
+        level.snipe_trig delete();
+        level.oldtrigger delete();
+        level.bounce_trig delete();
+        level.firstenter=false;
+      }
 		
         player SetPlayerAngles( jump.angles );
         player setOrigin( jump.origin );
@@ -170,7 +170,7 @@ addTriggerToList( name )
         level.knife_trig waittill( "trigger", player );
         if( !isDefined( level.knife_trig ) )
             return;
-        if(level.firstenter==true)
+        if(!isdefined(level.firstenter))
 		{
                 level.snipe_trig delete();
                 level.oldtrigger delete();
@@ -208,7 +208,7 @@ addTriggerToList( name )
         level.knife_trig waittill( "trigger", player );
         if( !isDefined( level.knife_trig ) )
             return;
-        if(level.firstenter==true)
+        if(!isdefined(level.firstenter))
 		{
                 level.snipe_trig delete();
                 level.oldtrigger delete();
@@ -247,7 +247,7 @@ addTriggerToList( name )
         level.knife_trig waittill( "trigger", player );
         if( !isDefined( level.knife_trig ) )
             return;
-        if(level.firstenter==true)
+        if(!isdefined(level.firstenter))
 		{
                 level.snipe_trig delete();
                 level.oldtrigger delete();
