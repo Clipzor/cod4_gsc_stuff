@@ -205,7 +205,7 @@ trap3()
 	player braxi\_rank::giveRankXP( "", 25);
 
 	trap3 playsound("grenade_explode_concrete");
-	playfx(level.c4, (trap3.origin));;
+	playfx(level.c4, (trap3.origin));
 	wait 0.1;
 	trap3 delete();
 	trig delete();
@@ -249,7 +249,7 @@ trap4_a()
 	
 	brush playsound("grenade_explode_concrete");
 	Earthquake(1, 1, trig.origin, 350);
-	playfx(level.c4, (trig.origin));;
+	playfx(level.c4, (trig.origin));
 	wait 0.1;
 	brush delete();
 	trig delete();
@@ -264,7 +264,7 @@ trap4_b()
 	
 	brush playsound("grenade_explode_concrete");
 	Earthquake(1, 1, trig.origin, 350);
-	playfx(level.c4, (trig.origin));;
+	playfx(level.c4, (trig.origin));
 	wait 0.1;
 	brush delete();
 	trig delete();
@@ -279,7 +279,7 @@ trap4_c()
 	
 	brush playsound("grenade_explode_concrete");
 	Earthquake(1, 1, trig.origin, 350);
-	playfx(level.c4, (trig.origin));;
+	playfx(level.c4, (trig.origin));
 	wait 0.1;
 	brush delete();
 	trig delete();
@@ -1375,7 +1375,7 @@ old_room()
 
 	wait 2;
 	door playsound("grenade_explode_concrete");
-	playfx(level.c4, (door.origin));;
+	playfx(level.c4, (door.origin));
 	door delete();
 	level.old delete();
   }

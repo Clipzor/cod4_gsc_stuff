@@ -194,29 +194,28 @@ addTriggerToList( name )
 
 fx() 
 { 
+
+	flame = getentarray("bluefire", "targetname"); 
+	spawn_fire = [];
+	for(i=0;i<flame.size;i++) 
 	{ 
-		flame = getentarray("bluefire", "targetname"); 
-		for(i=0;i<flame.size;i++) 
-		{ 
-			spawn_fire[i] = maps\mp\_utility::createOneshotEffect( "bluefire" ); 
-			spawn_fire[i].v[ "origin" ] = flame[i].origin; 
-			spawn_fire[i].v[ "angles" ] = ( 270, 0, 0 ); 
-			spawn_fire[i].v[ "fxid" ] = "bluefire"; 
-			spawn_fire[i].v[ "delay" ] = -13; 
-			spawn_fire[i].v[ "soundalias" ] = "fire_metal_large"; 
-		} 
+		spawn_fire[i] = maps\mp\_utility::createOneshotEffect( "bluefire" ); 
+		spawn_fire[i].v[ "origin" ] = flame[i].origin; 
+		spawn_fire[i].v[ "angles" ] = ( 270, 0, 0 ); 
+		spawn_fire[i].v[ "fxid" ] = "bluefire"; 
+		spawn_fire[i].v[ "delay" ] = -13; 
+		spawn_fire[i].v[ "soundalias" ] = "fire_metal_large"; 
 	} 
 
+	glow = getentarray("glowforme", "targetname"); 
+	spawn_glow = [];
+	for(i=0;i<glow.size;i++) 
 	{ 
-		glow = getentarray("glowforme", "targetname"); 
-		for(i=0;i<glow.size;i++) 
-		{ 
-			spawn_glow[i] = maps\mp\_utility::createOneshotEffect( "glowing" ); 
-			spawn_glow[i].v[ "origin" ] = glow[i].origin; 
-			spawn_glow[i].v[ "angles" ] = ( 270, 0, 0 ); 
-			spawn_glow[i].v[ "fxid" ] = "glowing"; 
-			spawn_glow[i].v[ "delay" ] = -8; 
-		} 
+		spawn_glow[i] = maps\mp\_utility::createOneshotEffect( "glowing" ); 
+		spawn_glow[i].v[ "origin" ] = glow[i].origin; 
+		spawn_glow[i].v[ "angles" ] = ( 270, 0, 0 ); 
+		spawn_glow[i].v[ "fxid" ] = "glowing"; 
+		spawn_glow[i].v[ "delay" ] = -8; 
 	} 
 }
 

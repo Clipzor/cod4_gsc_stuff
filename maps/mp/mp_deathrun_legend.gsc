@@ -318,7 +318,7 @@ sniperoom()
 	wait 0.1;
 	player GiveWeapon( "M40A3_mp" );
 	level.activ GiveWeapon( "M40A3_mp" );
-	wait 0.1;;
+	wait 0.1;
 	player switchToWeapon( "remington700_mp" );
         level.activ SwitchToWeapon( "remington700_mp" );
         while( isAlive( player ) && isDefined( player ) )

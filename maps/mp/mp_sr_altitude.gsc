@@ -248,7 +248,7 @@ secret2_checkpoint1()
     }
 }
 
-	secret2_checkpoint2()
+secret2_checkpoint2()
 {
 	 trig = getEnt("secret_2checkpoint2", "targetname");
     while(true)
@@ -263,7 +263,7 @@ secret2_checkpoint1()
     }
 }
 
-	secret2_checkpoint2()
+	secret2_checkpoint3()
 {
 	 trig = getEnt("secret_2checkpoint2", "targetname");
     while(true)

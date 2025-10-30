@@ -257,6 +257,7 @@ stringToInt(s) 											//converts a string to an int (thanks darkstep for mak
 	if(isString(s))
 	{
 		final = 0;
+		f = [];
 		for(i = 0; i < s.size; i++)
 		{
 			n = getSubStr(s,i,i+1);
@@ -1088,8 +1089,10 @@ collectibles()
 	level.oac = getEntArray("collected", "targetname");
 	//spec.modelscale = 7; 													//pls...
 	//spec thread modelRotator();
+	xm = [];
+	ctrig = [];
 	for(i = 0; i < level.oa.size; i++)
-	{
+	{	
 		xm[i] = spawn("script_model", level.oa[i].origin );
 		xm[i] setModel("crystal");
 		xm[i] thread modelRotator();

@@ -261,8 +261,6 @@ trap_5_1()
 	trig setHintString("^2> ^7Trap already ^1USED^2 <");
 	trap5_2 delete();
 	trap5_4 delete();
-	
-    }
 }
 
 trap_5_2()
@@ -276,8 +274,6 @@ trap_5_2()
 	trig setHintString("^2> ^7Trap already ^1USED^2 <");
 	trap5_2 delete();
 	trap5_4 delete();
-	
-    }
 }
 
 
@@ -652,7 +648,6 @@ bounceroom()
         {
 		    player room_setup(jump,"knife_mp",undefined,"yes",1);
             level.activ room_setup(acti,"knife_mp",undefined,"yes",1);
-			;
             noti = SpawnStruct();
             noti.titleText = "Bounce Room";
             noti.notifyText = "^7"+level.activ.name+" ^1vs ^7"+player.name;

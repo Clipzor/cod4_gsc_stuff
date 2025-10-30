@@ -154,7 +154,7 @@ trap4()
 
 	trig sethintstring("Press ^3&&1 ^7for activate.");
 	trig waittill ("trigger", player);
-	trig sethintstring("^1Activated^2!");;
+	trig sethintstring("^1Activated^2!");
 
 	trap4 Show();
 	trap4 Solid();
@@ -454,7 +454,7 @@ deagle()
 		player setOrigin( jump.origin );
 		player TakeAllWeapons();
 		player GiveWeapon( "deserteagle_mp" );
-		player giveMaxAmmo( "deserteagle_mp" );;
+		player giveMaxAmmo( "deserteagle_mp" );
 		level.activ setPlayerangles( acti.angles );
 		level.activ setOrigin( acti.origin );
 		level.activ TakeAllWeapons();

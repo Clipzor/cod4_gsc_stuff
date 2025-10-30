@@ -330,7 +330,7 @@ trap5()
 	while(1)
 	{
 		fx1 = spawnFX( level._effect["dust"], fxfan1.origin);    
-		TriggerFx( FX1 );
+		TriggerFx( fx1 );
 		fan1 rotateYaw(-1800,4);
 		fxfan1 playSound("fan_sound");
 		bounce1 triggerOn();
@@ -357,7 +357,7 @@ trap6()
 	while(1)
 	{
 		fx2 = spawnFX( level._effect["dust"], fxfan2.origin);    
-		TriggerFx( FX2 );
+		TriggerFx( fx2 );
 		fxfan2 playSound("fan_sound");
 		fan2 rotateYaw(-1800,4);
 		bounce2 triggerOn();

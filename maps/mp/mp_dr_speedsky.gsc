@@ -298,7 +298,7 @@ sniperroom()
 	level.sniper setHintString("^1>>^7 Press ^1&&1 ^7 to Enter The ^2Sniper ^7Room!");
 	while(1)
 	{
-		level.sniper waittill("trigger", player);;
+		level.sniper waittill("trigger", player);
 		
 		if(!isdefined(level.sniper))
 			return;

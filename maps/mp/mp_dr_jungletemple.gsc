@@ -1134,7 +1134,7 @@ callStrike()
 	// Make the plane fly by
 	flyTime = ( 34816 / planeFlySpeed );
 	
-	level thread doPlaneStrike(startPoint, endPoint, flyTime, direction);
+	level thread doPlaneStrike(startpoint, endPoint, flyTime, direction);
 	wait 1;
 }
 
@@ -1144,7 +1144,7 @@ doPlaneStrike(startPoint, endPoint, flyTime, direction)
 
 	
 	// Spawn the planes
-	plane = spawnplane(owner, "script_model", startpoint.origin );
+	plane = spawnplane(owner, "script_model", startPoint.origin );
 	plane setModel( "vehicle_mig29_desert" );
 	plane.angles = direction;
 	

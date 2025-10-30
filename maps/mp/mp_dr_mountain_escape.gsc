@@ -116,6 +116,7 @@ seashark(name,pointattmp){ //DarkFollower
     seashark = getent(name,"targetname");
     
     pointat = 0;
+	point = [];
     point[0] = (-1943,542,-314);
     point[1] = (-1054 , 543 , -314);
     point[2] = (-671 , 676 , -314);

@@ -359,9 +359,10 @@ jump()
 	air1 = getent ("air1","targetname");
 	air2 = getent ("air2","targetname");
 	air3 = getent ("air3","targetname");
-
+	
+	time = .5;
 	for(;;)
-{
+	{
 		jumpx waittill ("trigger",user);
 		if (user istouching(jumpx))
 		{
@@ -371,8 +372,8 @@ jump()
 			user linkto (air);
 			air moveto (air3.origin, time);
 			user unlink();
-}
-}
+		}
+	}
 }
 
 jump2()
@@ -386,7 +387,7 @@ jump2()
 
 	time = .5;
 	for(;;)
-{
+	{
 		jump2 waittill ("trigger",user);
 		if (user istouching(jump2))
 		{

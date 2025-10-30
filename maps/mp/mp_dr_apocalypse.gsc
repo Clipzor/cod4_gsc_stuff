@@ -302,6 +302,8 @@ trap6_kill_player()
 /////////////Trap 7/////////////
 trap7()
 {
+	axle = [];
+	blade = [];
 	trigger = getEnt("trap7_trigger","targetname");
 	axle[0] = getEnt("trap7_axle1","targetname");
 	axle[1] = getEnt("trap7_axle2","targetname");
@@ -339,6 +341,7 @@ randomSpin()
 trap8()
 {
 	trigger = getEnt("trap8_trigger","targetname");
+	hammer = [];
 	hammer[0] = getEnt("trap8_hammer_1","targetname");
 	hammer[1] = getEnt("trap8_hammer_2","targetname");
 	hammer[2] = getEnt("trap8_hammer_3","targetname");
@@ -516,6 +519,8 @@ trap13()
 	trig waittill("trigger");
 	trig setHintString("");
 	
+	flame = [];
+	trigger = [];
 	flame[0] = getEntArray("trap13_flame1","targetname");
 	flame[1] = getEntArray("trap13_flame2","targetname");
 	trigger[0] = getEntArray("trap13_death1","targetname");

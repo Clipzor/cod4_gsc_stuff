@@ -64,8 +64,8 @@ while(1)
 trigger waittill ("trigger");
 trigger delete ();
 wait 1;
-Trap2 movez (-60,2);
-Trap2 waittill ("movedone");
+trap2 movez (-60,2);
+trap2 waittill ("movedone");
 }
 }
 
@@ -77,11 +77,11 @@ trigger=getent("trigtrap3","targetname");
 trigger waittill ("trigger");
 trigger delete ();
 wait 1;
-Trap3 movey (316,3);
-Trap3 waittill ("movedone");
+trap3 movey (316,3);
+trap3 waittill ("movedone");
 wait 10;
-Trap3 movey (-316,3);
-Trap3 waittill ("movedone");
+trap3 movey (-316,3);
+trap3 waittill ("movedone");
 }
 }
 

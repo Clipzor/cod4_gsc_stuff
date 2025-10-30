@@ -792,7 +792,7 @@ attackPlayer()
             if(dist<150)
                 radiusdamage(self.origin,150,35,15);
 
-            self moveto(newlocation,(dist/150));
+            self moveto(newLocation,(dist/150));
             self.angles =(vectortoangles((players[rand].origin)-(self.origin)));
         }
         wait 0.1;

@@ -141,12 +141,12 @@ for(;;)
 	trig waittill("trigger", player);
 	if(player == jumper)
 	{
-		level.jumperbouncehud setText("Jumper^2(" + Player.name + ")^3 Has Sniper");
+		level.jumperbouncehud setText("Jumper^2(" + player.name + ")^3 Has Sniper");
 		level.bouncejumperhasniper = 1;
 	}
 	else if(player == GetActivator())
 	{
-		level.actibouncehud setText("Activator^2(" + Player.name + ")^3 Has Sniper");
+		level.actibouncehud setText("Activator^2(" + player.name + ")^3 Has Sniper");
 		level.bounceactihasniper = 1;
 	}
 	else
@@ -180,15 +180,15 @@ level.actibouncehud = createbouncehud(-80);
 level.jumperbouncehud = createbouncehud(-100);
 thread bouncesniper(jumper);
 Acti = GetActivator();
-if(!isdefined(acti))
+if(!isdefined(Acti))
 {
-	acti = jumper;
+	Acti = jumper;
 }
 if(!isdefined(jumper))
 {
 	jumper.name = "NOJUMPER!";
 }
-level.actibouncehud setText("Activator^2(" + acti.name + ")^1 Fail:^3 0");
+level.actibouncehud setText("Activator^2(" + Acti.name + ")^1 Fail:^3 0");
 level.jumperbouncehud setText("Jumper^2(" + jumper.name + ")^1 Fail:^3 0");
 thread bouncefailcounting(jumper);
 }

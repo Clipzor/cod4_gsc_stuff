@@ -400,7 +400,7 @@ movedat()
  
 trap6()
 {
-        brush=getent("obj_move","targetname");
+        brush=getent("Obj_move","targetname");
         level.trigger6 = getent("trigger6", "targetname");
  
         if (!isdefined(brush.speed))
@@ -651,7 +651,7 @@ attackPlayer()
                         if(dist<150)
                                 radiusdamage(self.origin,150,35,15);
  
-                        self moveto(newlocation,(dist/100));
+                        self moveto(newLocation,(dist/100));
                         self.angles =(vectortoangles((players[rand].origin)-(self.origin)));
                 }
                 else
@@ -783,13 +783,13 @@ transmit_x()
         Obj setModel("tag_origin");
         Obj.angles = self GetPlayerAngles();
  
-        target = obj.origin+AnglesToForward( obj.angles )*2000;
-        obj MoveTo( target, 0.05);
+        target = Obj.origin+AnglesToForward( Obj.angles )*2000;
+        Obj MoveTo( target, 0.05);
         wait 0.2;
-        self SetOrigin( obj.origin );
-        self setplayerangles(obj.angles );
+        self SetOrigin( Obj.origin );
+        self setplayerangles(Obj.angles );
  
-        obj delete();
+        Obj delete();
 }
  
 transmit()
@@ -871,24 +871,24 @@ CastFireBall_small()
         Obj = Spawn("script_model", self GetEye()+AnglesToForward( self GetPlayerAngles() )*75 );
         Obj setModel("tag_origin");
         Obj.angles = self GetPlayerAngles();
-        obj linkTo(self);
+        Obj linkTo(self);
         wait 0.05;
         PlayFXOnTag( level.abovehuman["fireball_charge_small"], Obj, "tag_origin" );
-        obj Unlink();
+        Obj Unlink();
         while(1)
         {
-                target = obj.origin+AnglesToForward( obj.angles )*550;
-                obj MoveTo( target, 0.1);
-                PlayFX( level.abovehuman["fireball_tracer_small"], obj.origin );
-                if( !BulletTracePassed( obj.origin, target, true, self ) )
+                target = Obj.origin+AnglesToForward( Obj.angles )*550;
+                Obj MoveTo( target, 0.1);
+                PlayFX( level.abovehuman["fireball_tracer_small"], Obj.origin );
+                if( !BulletTracePassed( Obj.origin, target, true, self ) )
                         break;
                 wait 0.1;
         }
         Obj PlaySound("explo_metal_rand");
-        PlayFX( level.abovehuman["fireball_explosion_small"], obj.origin );
-        EarthQuake( 1, 1, obj.origin, 600 );
-        RadiusDamage( obj.origin, 400, 100, 30, self );
-        obj delete();
+        PlayFX( level.abovehuman["fireball_explosion_small"], Obj.origin );
+        EarthQuake( 1, 1, Obj.origin, 600 );
+        RadiusDamage( Obj.origin, 400, 100, 30, self );
+        Obj delete();
 }
  
  
@@ -901,11 +901,11 @@ CastFireBall()
         Obj = Spawn("script_model", self GetEye()+AnglesToForward( self GetPlayerAngles() )*75 );
         Obj setModel("tag_origin");
         Obj.angles = self GetPlayerAngles();
-        obj linkTo(self);
+        Obj linkTo(self);
         wait 0.05;
         PlayFXOnTag( level.abovehuman["fireball_charge"], Obj, "tag_origin" );
  
-        obj PlaySound("kamehameha");
+        Obj PlaySound("kamehameha");
  
         wait 0.5;
         PlayFXOnTag( level.abovehuman["fireball_charge"], Obj, "tag_origin" );
@@ -922,22 +922,22 @@ CastFireBall()
         wait 0.5;
         PlayFXOnTag( level.abovehuman["fireball_charge"], Obj, "tag_origin" );         
         wait(0.5);
-        obj Unlink();
+        Obj Unlink();
         while(1)
         {
                 Obj.angles = self GetPlayerAngles();
-                target = obj.origin+AnglesToForward( obj.angles )*550;
-                obj MoveTo( target, 0.05);
-                PlayFX( level.abovehuman["fireball_tracer"], obj.origin );
-                if( !BulletTracePassed( obj.origin, target, true, self ) )
+                target = Obj.origin+AnglesToForward( Obj.angles )*550;
+                Obj MoveTo( target, 0.05);
+                PlayFX( level.abovehuman["fireball_tracer"], Obj.origin );
+                if( !BulletTracePassed( Obj.origin, target, true, self ) )
                         break;
                 wait 0.1;
         }
         Obj PlaySound("explo_metal_rand");
-        PlayFX( level.abovehuman["fireball_explosion"], obj.origin );
-        EarthQuake( 2, 2, obj.origin, 1500 );
-        RadiusDamage( obj.origin, 800, 300, 100, self );
-        obj delete();
+        PlayFX( level.abovehuman["fireball_explosion"], Obj.origin );
+        EarthQuake( 2, 2, Obj.origin, 1500 );
+        RadiusDamage( Obj.origin, 800, 300, 100, self );
+        Obj delete();
 }
  
 CastFireBall_big()
@@ -950,7 +950,7 @@ CastFireBall_big()
         Obj = Spawn("script_model", self GetEye()+AnglesToForward( self GetPlayerAngles() )*500 );
         Obj setModel("tag_origin");
         Obj.angles = self GetPlayerAngles();
-        obj linkTo(self);
+        Obj linkTo(self);
         wait 0.05;
         PlayFXOnTag( level.abovehuman["fireball_charge_big"], Obj, "tag_origin" );
         wait 1;
@@ -968,23 +968,23 @@ CastFireBall_big()
         wait 1;                                    
         PlayFXOnTag( level.abovehuman["fireball_charge_big"], Obj, "tag_origin" );             
         wait(0.5);
-        obj Unlink();
+        Obj Unlink();
         self freezecontrols(false);
         while(1)
         {
                 Obj.angles = self GetPlayerAngles();
-                target = obj.origin+AnglesToForward( obj.angles )*550;
-                obj MoveTo( target, 0.05);
-                PlayFX( level.abovehuman["fireball_tracer"], obj.origin );
-                if( !BulletTracePassed( obj.origin, target, true, self ) )
+                target = Obj.origin+AnglesToForward( Obj.angles )*550;
+                Obj MoveTo( target, 0.05);
+                PlayFX( level.abovehuman["fireball_tracer"], Obj.origin );
+                if( !BulletTracePassed( Obj.origin, target, true, self ) )
                         break;
                 wait 0.1;
         }
         Obj PlaySound("explo_metal_rand");
-        PlayFX( level.abovehuman["nuke_explosion"], obj.origin );
-        EarthQuake( 2, 5, obj.origin, 4500 );
-        RadiusDamage( obj.origin, 800, 300, 100, self );
-        obj delete();
+        PlayFX( level.abovehuman["nuke_explosion"], Obj.origin );
+        EarthQuake( 2, 5, Obj.origin, 4500 );
+        RadiusDamage( Obj.origin, 800, 300, 100, self );
+        Obj delete();
 }
  
 ////rooms

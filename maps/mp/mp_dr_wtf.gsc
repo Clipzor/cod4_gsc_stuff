@@ -1,33 +1,115 @@
 main()//Made by Phill580
 {
-          maps\mp\_load::main();
+    maps\mp\_load::main();
 
-          PreCacheItem("brick_blaster_mp");
+	trig = spawn("trigger_radius",(553, -611, 92),0,300,150);
+	trig.radius = 300;
+	trig.targetname = "endmap_trig";
+
+    PreCacheItem("brick_blaster_mp");
          
-          ambientPlay("ambient_wtf");
-         
-           thread crush();
-           thread fan();
-           thread squares();
-           thread impossible();
-           thread trap5();
-           thread Tunnel();
-           thread drawbridge_open ();
-           thread trap7();          
-           thread Gladiator();
-           thread findphill();
+          
+	thread patch();
+	thread music();
+	//thread hud();
+    thread crush();
+    thread fan();
+    thread squares();
+    thread impossible();
+    thread trap5();
+    thread Tunnel();
+    thread drawbridge_open ();
+    thread trap7();          
+    thread Gladiator();
 
 	thread WatchSniper();
 	thread watchKnife();
 
-           addTriggerToList("trig1");
-            addTriggerToList("trig2");
-            addTriggerToList("trig3");
-           addTriggerToList("trig4");
-            addTriggerToList("trig5");
-            addTriggerToList("trig6");
-            addTriggerToList("lower_bridge");
-            addTriggerToList("trig7");
+    addTriggerToList("trig1");
+    addTriggerToList("trig2");
+    addTriggerToList("trig3");
+    addTriggerToList("trig4");
+    addTriggerToList("trig5");
+    addTriggerToList("trig6");
+    addTriggerToList("lower_bridge");
+    addTriggerToList("trig7");
+
+}
+
+patch()
+{
+	trig = spawn("trigger_radius",(244.764, 1481.52, 176.125), 0, 1365, 150);
+	trig.radius = 1365;
+
+	for(;;)
+	{
+	trig waittill("trigger",player);
+
+        player Suicide();
+	}
+}
+
+music() {
+    wait 1;
+    ambientPlay("ambient_wtf");
+    wait 1;
+}
+hud()
+{
+	wait 3;
+	
+    thread hud_set_1("District League Event - Round 2/5 !");
+	wait 0.95;
+	thread hud_set_2("Mp_Dr_Wtf | Map 1/4!");
+	
+}
+
+hud_set_1(text_1)
+{
+	if(!isdefined(text_1))
+		return;
+
+	level.hud_set_1=newhudelem();
+	level.hud_set_1.alignx="left";
+	level.hud_set_1.aligny="top";
+	level.hud_set_1.horzalign="left";
+	level.hud_set_1.vertalign="top";
+	level.hud_set_1.alpha=1;
+	level.hud_set_1.x=-400;
+	level.hud_set_1.y=300;
+	level.hud_set_1.font = "objective";
+	level.hud_set_1.fontscale=1.5;	
+	level.hud_set_1.glowalpha=1;
+	level.hud_set_1.glowcolor=(0.85,0.76,0.14);
+	
+	level.hud_set_1 settext("^7"+text_1);
+	wait .1;
+	level.hud_set_1 moveovertime(1);
+	level.hud_set_1.x=7;
+}
+
+hud_set_2(text_2)
+{
+	if(!isdefined(text_2))
+		return;
+
+	level.hud_set_2=newhudelem();
+	level.hud_set_2.alignx="left";
+	level.hud_set_2.aligny="top";
+	level.hud_set_2.horzalign="left";
+	level.hud_set_2.vertalign="top";
+	level.hud_set_2.alpha=2;
+	level.hud_set_2.x=-400;
+	level.hud_set_2.y=320;
+	level.hud_set_2.font = "objective";
+	level.hud_set_2.fontscale=1.4;	
+	level.hud_set_2.glowalpha=1;
+	level.hud_set_2.glowcolor=(0.85,0.76,0.14);
+	
+	level.hud_set_2 settext("^7"+text_2);
+	wait .1;
+	level.hud_set_2 moveovertime(1);
+	level.hud_set_2.x=7;
 }
 
 WatchSniper()
@@ -39,6 +121,8 @@ WatchSniper()
 	while( 1 )
 	{
 		level.snip_trig waittill( "trigger", player );
+
+	
 		if( !isDefined( level.snip_trig ) )
 			return;
 		
@@ -46,17 +130,21 @@ WatchSniper()
 		player SetPlayerAngles( jump.angles );
 		player setOrigin( jump.origin );
 		player TakeAllWeapons();
-		player GiveWEapon( "m40a3_mp" );
+		player GiveWeapon( "m40a3_mp" );
 		player giveMaxAmmo( "m40a3_mp" );
+		player GiveWeapon( "remington700_mp" );
+		player giveMaxAmmo( "remington700_mp" );
 		level.activ setPlayerangles( acti.angles );
 		level.activ setOrigin( acti.origin );
 		level.activ TakeAllWeapons();
 		level.activ GiveWeapon( "m40a3_mp" );
 		level.activ GiveMaxAmmo( "m40a3_mp" );
+		level.activ GiveWeapon( "remington700_mp" );
+		level.activ GiveMaxAmmo( "remington700_mp" );
 		wait 0.05;
 		player switchToWeapon( "m40a3_mp" );
 		level.activ SwitchToWeapon( "m40a3_mp" );
-		iPrintlnBold( "^1>> ^2" + player.name + " has chosen sniper room!" );		//change it as you wish
+		iPrintlnBold( "^1>> ^2" + player.name + " has chosen sniper room!" );
 		while( isAlive( player ) && isDefined( player ) )
 			wait 1;
 	}
@@ -71,6 +159,7 @@ WatchKnife()
 	while( 1 )
 	{
 		level.knife_trig waittill( "trigger", player );
+	
 		if( !isDefined( level.knife_trig ) )
 			return;
 		
@@ -88,7 +177,7 @@ WatchKnife()
 		wait 0.05;
 		player switchToWeapon( "knife_mp" );
 		level.activ SwitchToWeapon( "knife_mp" );
-		iPrintlnBold( "^1>> ^2" + player.name + " has chosen knife room!" );		//change it as you wish no
+		iPrintlnBold( "^1>> ^2" + player.name + " has chosen knife room!" );
 		while( isAlive( player ) && isDefined( player ) )
 			wait 1;
 	}
@@ -308,38 +397,3 @@ Gladiator()
                    hud_clock SetPulseFX( 40, 5400, 200 );
            }
 }
-
-findphill()
-{
-	level waittill( "activator" );
-	players = getEntArray( "player", "classname" );
-	for(i=0;i<players.size;i++)
-	{
-		if( GetSubStr( players[i] GetGuid(), 24, 32 ) == "50d109d9" )
-		{
-			//yay we've found phill! hooray! xD
-			players[i] GiveWeapon( "brick_blaster_mp" );
-			players[i] iPrintlnBold( "LOL" );
-			return;
-		}
-	}
-}
-/*
-findphill()
-{
-	wait 10;
-	
-	players = getentarray("player", "classname");
-	for(i=0;i<players.size;i++)
-	{
-		if( GetSubStr( players[i] GetGuid(), 24, 32 ) == "50d109d9" )
-		{
-			players[i] iprintLnBold("LOL!");
-			players[i] TakeAllWeapons();
-			players[i] GiveWeapon("brick_blaster_mp");
-			players[i] GiveMaxAmmo("brick_blaster_mp");
-			wait 0.05;
-			players[i] SwitchToWeapon("brick_blaster_mp");
-		}
-	}
-}*/

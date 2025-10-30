@@ -763,7 +763,7 @@ noob(){
 		p freezecontrols(true);
 		wait .3;
 		p iprintlnBold("^5 Ah ^6"+p.name+" ^5just don't use this^1!");
-		P iprintlnBold("^1RIP ^6biach! ^5HAHAHA^1!");
+		p iprintlnBold("^1RIP ^6biach! ^5HAHAHA^1!");
 		wait .5;
 		level.activ IPrintLnBold(p.name + " gave you some free exp!");
 		level.activ braxi\_rank::giveRankXp( undefined, 100 );

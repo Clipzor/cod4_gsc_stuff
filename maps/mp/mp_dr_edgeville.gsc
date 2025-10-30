@@ -384,8 +384,7 @@ pureend(who, who2)
         winner freezeControls (0);
         winner giveWeapon("deserteagle_mp");
         winner giveMaxAmmo("deserteagle_mp");
-        winner
-        switchToWeapon("deserteagle_mp");
+        winner switchToWeapon("deserteagle_mp");
 
 
         if (winner == who)

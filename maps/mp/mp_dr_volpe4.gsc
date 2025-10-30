@@ -585,8 +585,8 @@ trap4()
 	ied1 playSound("explo_roadblock"); 
 	ied2 playSound("explo_roadblock"); 
 	Earthquake(1, 1, kill.origin, 350);
-	playfx(level.ied, (ied1.origin));;
-	playfx(level.ied, (ied2.origin));;
+	playfx(level.ied, (ied1.origin));
+	playfx(level.ied, (ied2.origin));
 	wait 0.1;
 	ied1 delete();
 	ied2 delete();

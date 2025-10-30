@@ -406,7 +406,7 @@ trap2a()
     trap moveY (232, 0.25);
     wait 0.35;
     //thread trap2_sound_1_b();
-    trap moveY (-232, 1.5);;
+    trap moveY (-232, 1.5);
 }
 
 trap2b()
