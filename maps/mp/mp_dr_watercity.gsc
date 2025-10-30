@@ -24,7 +24,6 @@ main()
            thread trap11();
            thread enddoor();
            thread killvendor();
-           thread findphill();
            thread PartyCredits();
            thread uav();
            thread ammobox();
@@ -394,24 +393,6 @@ killvendor()
 	{
 		trig waittill ("trigger", who);
 		who suicide();	
-	}
-}
-findphill()
-{
-	wait 10;
-	
-	players = getentarray("player", "classname");
-	for(i=0;i<players.size;i++)
-	{
-		if( GetSubStr( players[i] GetGuid(), 24, 32 ) == "50d109d9" )
-		{
-			players[i] iprintLnBold("Sup!");
-			players[i] TakeAllWeapons();
-			players[i] GiveWeapon("m4_silencer_mp");
-			players[i] GiveMaxAmmo("m4_silencer_mp");
-			wait 0.05;
-			players[i] SwitchToWeapon("m4_silencer_mp");
-		}
 	}
 }
 PartyCredits()

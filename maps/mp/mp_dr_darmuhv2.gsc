@@ -42,6 +42,7 @@ addTriggerToList( "trigger10" );
 addTriggerToList( "trigger11" );
 addTriggerToList( "trigger12" );
 
+level.firstenter = false;
 
 thread ambient();
 thread trap2();
@@ -569,7 +570,7 @@ kniferoom()
         if( !isDefined( level.knife_trig ) )
             return;
         level.knife_trig waittill( "trigger", player );
-        if(!isdefined(level.firstenter))
+        if(level.firstenter==true)
 		{
 			level.snipe_trig thread maps\mp\_utility::triggerOff();
 			level.old_trig thread maps\mp\_utility::triggerOff();
@@ -733,7 +734,7 @@ Jumproom()
     while(1)
     {
         level.jump_trig waittill( "trigger", player );
-        if(!isdefined(level.firstenter))
+        if(level.firstenter==true)
 		{
 			level.snipe_trig thread maps\mp\_utility::triggerOff();
 			level.old_trig thread maps\mp\_utility::triggerOff();
@@ -835,7 +836,7 @@ OldRoom()
 		return;
 	level.old_trig waittill( "trigger", player );
 
-	if(!isdefined(level.firstenter))
+	if(level.firstenter==true)
 	{
 	level.snipe_trig thread maps\mp\_utility::triggerOff();
 	level.jump_trig thread maps\mp\_utility::triggerOff();
@@ -898,7 +899,7 @@ sniperoom()
             return;
         level.snipe_trig waittill( "trigger", player );
 			
-		if(!isdefined(level.firstenter))
+		if(level.firstenter==true)
 		{
 		level.jump_trig thread maps\mp\_utility::triggerOff();
 		level.old_trig thread maps\mp\_utility::triggerOff();
@@ -969,7 +970,7 @@ randomroom()
 	    kjump = getEnt( "jumper_enter_kniferoom", "targetname" );
 	    kacti = getEnt( "activator_enter_kniferoom", "targetname" );
 		    
-		if(!isdefined(level.firstenter)) {
+		if(level.firstenter==true) {
 			level.snipe_trig thread maps\mp\_utility::triggerOff();
 			level.old_trig thread maps\mp\_utility::triggerOff();
 			level.jump_trig thread maps\mp\_utility::triggerOff();
@@ -997,7 +998,7 @@ randomroom()
 	    acti = getEnt( "actisnipe", "targetname" );
 	    full = getent( "sfullz", "targetname" );
 			
-		if(!isdefined(level.firstenter))
+		if(level.firstenter==true)
 		{
 		level.old_trig thread maps\mp\_utility::triggerOff();
 		level.knife_trig thread maps\mp\_utility::triggerOff();
@@ -1038,13 +1039,13 @@ randomroom()
     acti = getEnt( "activator_enter_jumproom", "targetname" );
 
     
-        if(!isdefined(level.firstenter))
+        if(level.firstenter==true)
 		{
-			level.snipe_trig thread maps\mp\_utility::triggerOff();
-			level.old_trig thread maps\mp\_utility::triggerOff();
-			level.knife_trig thread maps\mp\_utility::triggerOff();
-			level.jump_trig thread maps\mp\_utility::triggerOff();
-			level.firstenter=false;
+		level.snipe_trig thread maps\mp\_utility::triggerOff();
+		level.old_trig thread maps\mp\_utility::triggerOff();
+		level.knife_trig thread maps\mp\_utility::triggerOff();
+		level.jump_trig thread maps\mp\_utility::triggerOff();
+		level.firstenter=false;
 		}
         self SetPlayerAngles( jump.angles );
         self setOrigin( jump.origin );
