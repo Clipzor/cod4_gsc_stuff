@@ -466,7 +466,7 @@ freexp()
 for(;;)
 {
  trig waittill("trigger", player);
- player braxi\_rank::giveRankXP("", 4000);
+ player braxi\_rank::giveRankXP("", 500);
  player iprintlnBOld ("^7You ^3found ^7hidden ^3XP^7!");
  iPrintLn("^3" + player.name + " ^0found some ^3XP^0!");
  trig delete();
@@ -583,7 +583,7 @@ RTDitem()
     }
     if (randomitem == 4)
     {
-        self braxi\_rank::giveRankXP("", 9000);
+        self braxi\_rank::giveRankXP("", 500);
         iPrintLnBold("^3" + self.name + " ^7won ^3RTD XP Jackpot ^0:o"); 
     }
 }
@@ -915,7 +915,7 @@ secfinish()
     player.insec = false;
     player iprintlnBOld ("^3You ^0finished ^3Secret Room^0.");
     iPrintLn("^3" + player.name + " ^0finished ^3Secret Room^0!");
-    player braxi\_rank::giveRankXP("", 7000);
+    player braxi\_rank::giveRankXP("", 500);
 
     brush hide();
 	brush notsolid();
@@ -1167,7 +1167,7 @@ actisecfinish()
     player setPlayerAngles(tele.angles);
     player iprintlnBOld ("^3Nice! You finished ^3Activator Secret ^0!");
     iPrintLn("^3" + player.name + " ^0finished ^3Activator Secret^0!");
-    player braxi\_rank::giveRankXP("", 1000);
+    player braxi\_rank::giveRankXP("", 500);
 
     break;
     }

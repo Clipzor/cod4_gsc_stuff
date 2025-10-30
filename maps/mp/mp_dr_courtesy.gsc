@@ -643,7 +643,7 @@ ele_secret_tp()
 	player setOrigin(tele.origin);
 	iPrintLnBold("^1 " + player.name + " has just finished secret elevator!^7");
 	player show();
-	player braxi\_rank::giveRankXP("", 10000);
+	player braxi\_rank::giveRankXP("", 500);
 	wait 1;
 	}
 }
@@ -801,7 +801,7 @@ bonus_exp1()
 
  
 	iPrintLnBold("^1" + player.name + " found bonus XP!^7");
-	player braxi\_rank::giveRankXP("", 4000);
+	player braxi\_rank::giveRankXP("", 500);
 	trig delete();
 	
 }
@@ -815,7 +815,7 @@ bonus_exp2()
  
 
 	iPrintLnBold("^1" + player.name + " found another bonus XP!^7");
-	player braxi\_rank::giveRankXP("", 4000);
+	player braxi\_rank::giveRankXP("", 500);
 	trig delete();
  
 }
@@ -869,7 +869,7 @@ acti_secret_finish()
 	{
 		trig waittill("trigger", player);
 		player setOrigin(tele.origin);
-		player braxi\_rank::giveRankXP("", 3000);
+		player braxi\_rank::giveRankXP("", 500);
 		iPrintLnBold("^1Activator^7 has finished the secret training room");
 	}
 

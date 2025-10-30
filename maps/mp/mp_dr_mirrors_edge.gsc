@@ -793,7 +793,7 @@ hardfinng(player, hardfinn, hhfin)
 	player.hardfin = true;
 	player setOrigin(hhfin.origin);
 	player setPlayerAngles(hhfin.angles);
-	player braxi\_rank::giveRankXP("", 800);
+	player braxi\_rank::giveRankXP("", 500);
 	player notify("finished2");
 	timerres = (getTime() - self.timer) / 1000;
 	iprintlnbold( player.name + " ^7Finished ^1HARD ^7Secret in^1 " + timerres + " ^7!");

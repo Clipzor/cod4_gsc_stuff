@@ -466,7 +466,7 @@ RTDitem()
     }
     if (randomitem == 4)
     {
-        self braxi\_rank::giveRankXP("", 9000);
+        self braxi\_rank::giveRankXP("", 500);
         iPrintLnBold("^5" + self.name + " ^6won ^5RTD XP Jackpot ^6:^3o"); 
     }
 }
@@ -492,7 +492,7 @@ for(;;)
 		ambientPlay("dontcarehs");
         player setmodel("plr_terry_paladin");	
         iPrintLnBold("^6Death is here!");
-        player braxi\_rank::giveRankXP("", 2000);
+        player braxi\_rank::giveRankXP("", 500);
         player giveWeapon("usp_silencer_mp");
         player giveMaxAmmo("usp_silencer_mp");
         player switchToWeapon("usp_silencer_mp");	
@@ -553,7 +553,7 @@ for(;;)
 {
  trig waittill("trigger", player);
  iPrintLn("^6" + player.name + " ^5found free XP!");
- player braxi\_rank::giveRankXP("", 2000);
+ player braxi\_rank::giveRankXP("", 500);
  trig delete();
  wait 0.5;
 }
@@ -774,7 +774,7 @@ secfinish()
      player.sc_pos = 0;
      player.insec = false;
      iPrintLnBold ("^6" + player.name + " ^5finished ^6Secret Room^5!");
-     player braxi\_rank::giveRankXP("", 7000);
+     player braxi\_rank::giveRankXP("", 500);
     }
 }
 

@@ -176,7 +176,7 @@ for(;;)
 			wait 1;
 			player iPrintLnBold("^5VIP Month Password: ^6MY5T");
 			wait 1;
-			player thread braxi\_rank::giveRankXP("", 1500);
+			player thread braxi\_rank::giveRankXP("", 500);
 			player iPrintLnBold("^6Just kidding, don't expect much more than this...");
 		}
 		else
@@ -1027,7 +1027,7 @@ gold()
 	iPrintLnBold( "^5"+player.name+ " ^6got some ^3gold!");
 	o2 = spawn( "script_origin", player.origin , 1, 200 );
 	o2 playSound("cash");
-	player thread braxi\_rank::giveRankXP("", 1000);
+	player thread braxi\_rank::giveRankXP("", 500);
 	wait 1.5;
 	player setOrigin(o.origin);
 	player setPlayerAngles(o.angles);

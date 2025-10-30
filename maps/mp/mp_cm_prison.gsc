@@ -416,7 +416,7 @@ sectp()
 	  player setOrigin(tele1.origin);
      player setPlayerAngles(tele1.angles);
      iPrintLnBold ("^6" + player.name + " ^7got scamed. ^6Huehue.");
-     player braxi\_rank::giveRankXP("", 8000);
+     player braxi\_rank::giveRankXP("", 500);
      trig delete();
     }
 }
@@ -608,7 +608,7 @@ for(;;)
 {
  trig waittill("trigger", player);
  player iPrintLnBold("^6You saved prisoners from ^1fire^7,^6what a great man ^7:P");
- player braxi\_rank::giveRankXP("", 5000);
+ player braxi\_rank::giveRankXP("", 500);
  trig delete();
  wait 0.5;
 }
@@ -622,7 +622,7 @@ for(;;)
 {
  trig waittill("trigger", player);
  iPrintLnBold("^6" + player.name + "^7 has reached ^6Mine ^7first^6!");
- player braxi\_rank::giveRankXP("", 2000);
+ player braxi\_rank::giveRankXP("", 500);
  trig delete();
  wait 0.1;
 }

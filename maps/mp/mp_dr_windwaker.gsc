@@ -560,7 +560,7 @@ rollTheDiceContent()
 		if (rand == targetInt)
 		{
 			self thread superpower(100, 5, 2, false);
-			self braxi\_rank::giveRankXP("", 1500);
+			self braxi\_rank::giveRankXP("", 500);
 			self iPrintLnBold ("You ^2won!^7 Enjoy your gift!");
 			wait 1;
 			iPrintLnBold ("^4" + self.name + "^7 has ^2won^7 in ^3Roll ^2the ^1dice^7!");
@@ -1299,7 +1299,7 @@ secret2Finish()
 		player thread resetVelocity();
 		iPrintLnBold ("^4" + player.name + "^7 Has finished the ^1HARD ^7secret room!");
 
-		player braxi\_rank::giveRankXP("", 1000);
+		player braxi\_rank::giveRankXP("", 500);
 		
 		player takeWeapon("rpg_mp");
 		if (isDefined( level.trapsDisabled ) && level.trapsDisabled == false)

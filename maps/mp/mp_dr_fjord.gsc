@@ -601,7 +601,7 @@ bonus_exp1()
     trig waittill("trigger", player);
 
     iPrintLnBold("^1" + player.name + " found bonus XP!^7");
-    player braxi\_rank::giveRankXP("", 4000);
+    player braxi\_rank::giveRankXP("", 500);
 
     players = getEntArray("player", "classname");
     for (i = 0; i < players.size; i++) 
@@ -621,7 +621,7 @@ bonus_exp2()
  	trig waittill ("trigger" , player);
 
 	iPrintLnBold("^1" + player.name + " found another bonus XP!^7");
-	player braxi\_rank::giveRankXP("", 4000);
+	player braxi\_rank::giveRankXP("", 500);
 	trig delete();
  
 }
@@ -804,7 +804,7 @@ acti_jump() {
 
 	iPrintLn("^1" + player.name + " has finished very difficult activators' jump room.^7");
 	player iPrintLnBold("^1CONGRATULATIONS!^7");
-	player braxi\_rank::giveRankXP("", 1000);
+	player braxi\_rank::giveRankXP("", 500);
 	trig delete();
 }
 

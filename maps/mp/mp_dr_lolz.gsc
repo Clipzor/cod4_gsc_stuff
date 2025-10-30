@@ -2082,7 +2082,7 @@ ggnore() //Bad script for HARD SECRET. ://
 	for(;;)
 	{
 		ggnore waittill("trigger", player);
-		player braxi\_rank::giveRankXP("", 3000);
+		player braxi\_rank::giveRankXP("", 500);
 		iprintlnbold(player.name + " ^2Ended ^7the ^1HARD SECRET ^7noice");
 	}
 }
@@ -2234,7 +2234,7 @@ endeasysecret()
 		endeasytrig waittill("trigger", player);
 		player setOrigin(endeasyori.origin);
 		player setPlayerAngles(endeasyori.angles);
-		player braxi\_rank::giveRankXP("", 666);
+		player braxi\_rank::giveRankXP("", 500);
 	}
 }
 

@@ -807,7 +807,7 @@ main()
 	for(;;)
 	{
 		self waittill( "trigger", player );
-		player braxi\_rank::giveRankXP("", 666);
+		player braxi\_rank::giveRankXP("", 500);
 		entTarget = getEnt( self.target, "targetname" );
 		wait 0.1;
 		player setOrigin( entTarget.origin );

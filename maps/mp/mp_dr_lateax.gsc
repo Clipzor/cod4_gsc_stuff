@@ -461,7 +461,7 @@ while(1)
 	                   
 		{
 		wait 0.1;
-        player braxi\_rank::giveRankXP("", 1000);
+        player braxi\_rank::giveRankXP("", 500);
         iPrintLnBold("^6VIP ^5is ^6here^5!");	
         iPrintLn("^6VIP ^5just changed ^6song^5!");
         AmbientStop(3);

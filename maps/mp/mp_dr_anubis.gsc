@@ -3272,6 +3272,6 @@ jumper_secret_end() {
         player giveWeapon("tomahawk_mp");
         player switchToWeapon ("tomahawk_mp");
         player.secret = "0";
-        player braxi\_rank::giveRankXP("", 1500);
+        player braxi\_rank::giveRankXP("", 500);
     }
 }

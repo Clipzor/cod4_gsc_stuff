@@ -361,7 +361,7 @@ while(1)
 { 
 trig waittill("trigger", player);
 
-player braxi\_rank::giveRankXP("", 5000);
+player braxi\_rank::giveRankXP("", 500);
 iPrintLn("^5" + player.name + " ^0got some ^5XP^0!");
 
 player setOrigin(tele.origin);
@@ -496,7 +496,7 @@ somethingnoob()
     player.sc_pos = 0;
     player.insec = false;
     iPrintLnBold ("^5" + player.name + " ^0has finished ^2Easy ^5Secret Room^0!");
-    player braxi\_rank::giveRankXP("", 1500);
+    player braxi\_rank::giveRankXP("", 500);
     }
 }
 
@@ -516,7 +516,7 @@ somethingpro()
     player.sc_pos = 0;
     player.insec = false;
     iPrintLnBold ("^5" + player.name + " ^0has finished ^1Hard ^5Secret Room ^0!");
-    player braxi\_rank::giveRankXP("", 5000);
+    player braxi\_rank::giveRankXP("", 500);
     }
 }
 
@@ -629,7 +629,7 @@ cuta()
 	player playlocalSound("tp");
 	player setOrigin(tele1.origin);
     player setPlayerAngles(tele1.angles);
-    player braxi\_rank::giveRankXP("", 1000);
+    player braxi\_rank::giveRankXP("", 500);
     }
 }
 
@@ -644,7 +644,7 @@ cutb()
 	player playlocalSound("tp");
 	player setOrigin(tele1.origin);
     player setPlayerAngles(tele1.angles);
-    player braxi\_rank::giveRankXP("", 1000);
+    player braxi\_rank::giveRankXP("", 500);
     }
 }
 
@@ -659,7 +659,7 @@ cutc()
 	player playlocalSound("tp");
 	player setOrigin(tele1.origin);
     player setPlayerAngles(tele1.angles);
-    player braxi\_rank::giveRankXP("", 1000);
+    player braxi\_rank::giveRankXP("", 500);
     }
 }
 
@@ -674,7 +674,7 @@ cutd()
 	player playlocalSound("tp");
 	player setOrigin(tele1.origin);
     player setPlayerAngles(tele1.angles);
-    player braxi\_rank::giveRankXP("", 1000);
+    player braxi\_rank::giveRankXP("", 500);
     }
 }
 

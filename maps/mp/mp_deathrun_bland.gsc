@@ -42,7 +42,7 @@ xp_give()
 	acti = getEnt ("xp_give", "targetname");
 	
 	acti waittill ("trigger", player);
-	player braxi\_rank::giveRankXP("", 700);
+	player braxi\_rank::giveRankXP("", 500);
 	
 	player SetPlayerAngles( target.angles );
     player setOrigin( target.origin );

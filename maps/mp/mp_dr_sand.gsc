@@ -299,7 +299,7 @@ secret_hard_finish()
 		player setplayerangles(ori.angles);
 		player setorigin(ori.origin);
 		iPrintlnBold(player.name + " Has finished the hard secret");
-			player braxi\_rank::giveRankXP("", 1250);
+			player braxi\_rank::giveRankXP("", 500);
 		wait 1;
 		player freezeControls(false);
 		wait 1;

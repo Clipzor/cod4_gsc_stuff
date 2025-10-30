@@ -434,7 +434,7 @@ for(;;)
 		wait 0.5;
 		ambientPlay("pyramids");	
         iPrintLnBold("^1Death is here!");
-        player braxi\_rank::giveRankXP("", 1000);	
+        player braxi\_rank::giveRankXP("", 500);	
         level.vipisplaying = true;
         trigger delete();
 	   }
@@ -453,7 +453,7 @@ for(;;)
 {
  trig waittill("trigger", player);
  iPrintLnBold("^3" + player.name + " ^0is ^3Pro^0!");
- player braxi\_rank::giveRankXP("", 5000);
+ player braxi\_rank::giveRankXP("", 500);
  trig delete();
  wait 0.5;
 }
@@ -467,7 +467,7 @@ for(;;)
 {
  trig waittill("trigger", player);
  iPrintLnBold("^3" + player.name + " ^0is first on ^3second part^0!");
- player braxi\_rank::giveRankXP("", 1000);
+ player braxi\_rank::giveRankXP("", 500);
  trig delete();
  wait 0.5;
 }
@@ -572,7 +572,7 @@ finaldoor()
    finishdoora moveZ (-370, 2);
    finishdoorb moveZ (370, 2);
    iPrintLnBold ("^3" + player.name + " ^0opened ^3FINAL ^0Gate^3!"); 
-   player braxi\_rank::giveRankXP("", 1000); 
+   player braxi\_rank::giveRankXP("", 500); 
 
    finishdoor_trigger delete();   
    }
@@ -618,7 +618,7 @@ secdoor()
    trig setHintString ("^0Press ^3[&&1]^0 to open ^3Secret Door");
    trig waittill ("trigger", player);
    player iPrintLnBold("^3" + player.name + " ^0found ^3useless shortcut^0!");
-   player braxi\_rank::giveRankXP("", 2000);
+   player braxi\_rank::giveRankXP("", 500);
    door moveZ (200, 6);
    wait 6;
 
@@ -745,7 +745,7 @@ teleport4()
 	 player setOrigin(tele1.origin);
      player setPlayerAngles(tele1.angles);
      player iPrintLnBold ("^1Good Luck with passing map again^0!");
-     player braxi\_rank::giveRankXP("", 2000);
+     player braxi\_rank::giveRankXP("", 500);
      self thread braxi\_mod::givelife();
     }
 }
@@ -1043,7 +1043,7 @@ secfinish()
      player.sc_pos = 0;
      player.insec = false;
      iPrintLnBold ("^3" + player.name + " ^0finished ^3Secret^0!");
-     player braxi\_rank::giveRankXP("", 7000);
+     player braxi\_rank::giveRankXP("", 500);
     }
 }
 
@@ -1062,7 +1062,7 @@ actisecfinish()
      player.sc_pos = 0;
      player.insec = false;
      iPrintLn ("^3" + player.name + " ^0finished ^3Activator Secret^0!");
-     player braxi\_rank::giveRankXP("", 3000);
+     player braxi\_rank::giveRankXP("", 500);
     }
 }
 

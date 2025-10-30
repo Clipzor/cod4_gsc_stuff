@@ -532,7 +532,7 @@ TheSecret3()
 	{
 	trig waittill ("trigger", player);
 
-	player braxi\_rank::giveRankXP("", 1000);
+	player braxi\_rank::giveRankXP("", 500);
 	
         hud_clock = NewHudElem();
 	hud_clock.alignX = "center";

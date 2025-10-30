@@ -2372,7 +2372,7 @@ secretend210()
 			player setPlayerAngles(o.angles);
 			player freezeControls(1);
 			iPrintLnBold("^7"+player.name+" finished the ^4INTER ^7secret");
-			player braxi\_rank::giveRankXP("", 1500);
+			player braxi\_rank::giveRankXP("", 500);
 			player.fasts = 1;
 			player notify("secret_stop");
     player.secretTimer destroy();

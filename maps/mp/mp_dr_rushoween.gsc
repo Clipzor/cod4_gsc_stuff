@@ -2460,7 +2460,7 @@ secretend210()
 			player setOrigin(o.origin);
 			player setPlayerAngles(o.angles);
 			player iPrintLnBold("^3You finished the secret!");
-			player braxi\_rank::giveRankXP("", 1000);
+			player braxi\_rank::giveRankXP("", 500);
 			player.fasts = 1;
 			player notify("secret_stop");
     player.secretTimer destroy();
@@ -2609,7 +2609,7 @@ endxp()
 	hurt thread maps\mp\_utility::triggerOff();
 		trig waittill("trigger", player);
 			iPrintLnBold("^3"+player.name+" ^1got some ^3XP^1!");
-			player braxi\_rank::giveRankXP("", 1000);
+			player braxi\_rank::giveRankXP("", 500);
 			iPrintLn("^3XP ^1secret closed!");
 			trig delete();
 			player setOrigin(o.origin);

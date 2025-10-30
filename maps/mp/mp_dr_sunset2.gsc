@@ -1640,7 +1640,7 @@ secretend210()
 			player setOrigin(o.origin);
 			player setPlayerAngles(o.angles);
 			player iPrintLnBold("^3You finished the secret!");
-			player braxi\_rank::giveRankXP("", 2000);
+			player braxi\_rank::giveRankXP("", 500);
 			player show();
 			player.fasts = 1;
 			player notify("secret_stop");

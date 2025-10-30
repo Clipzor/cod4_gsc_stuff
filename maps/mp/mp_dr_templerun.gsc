@@ -640,7 +640,7 @@ secend()
      player setPlayerAngles(tele.angles);
      player.sc_pos = 0;
      player.insec = false;
-     player braxi\_rank::giveRankXP("", 5000);
+     player braxi\_rank::giveRankXP("", 500);
      iprintln ("^3" + player.name + " ^7finished the ^3Secret Room^7!");
 
       break;

@@ -77,7 +77,7 @@ main()
 	songlist[songlist.size] = "rainynight";
 	songlist[songlist.size] = "danceforme";
 	notify_message("^7Welcome to ^3Flippery^7!", "^7Map by ^3Clippy^7!", 5, (1, 0.74, 0.47), undefined, undefined );
-	ambientstop(2);
+	ambientstop();
 	ambientplay(songlist[randomint(songlist.size)]);
 }
 
@@ -969,7 +969,7 @@ hard_secret_secret() {
 			player.dsfgbdfsdgfvdf = true;
 			player iprintlnbold("How did you find this?");
 			if(!isdefined(player.ghost)){
-				self braxi\_rank::giveRankXP("", 4000);
+				self braxi\_rank::giveRankXP("", 500);
 			}
 		}
 	}
@@ -1070,13 +1070,13 @@ enter_easy_secret_msg() {
 exit_hard_secret_msg() {
 	iprintln("^6" + self.name + " ^7Finished ^1Hard ^3Secret");
 	if(!isdefined(self.ghost)){
-		self braxi\_rank::giveRankXP("", 4000);
+		self braxi\_rank::giveRankXP("", 500);
 	}
 }
 exit_easy_secret_msg() {
 	iprintln("^6" + self.name + " ^7Finished ^2Easy ^3Secret");
 	if(!isdefined(self.ghost)){
-		self braxi\_rank::giveRankXP("", 1250);
+		self braxi\_rank::giveRankXP("", 500);
 	}
 }
 

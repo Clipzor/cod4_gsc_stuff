@@ -364,7 +364,7 @@ roofxpyuhu()
 	for (;;)
 	{
 		xpyahooo waittill ("trigger", player);
-		player braxi\_rank::giveRankXP("", 2000);
+		player braxi\_rank::giveRankXP("", 500);
 		player setorigin (tp_roofxpyuhu.origin); 
 		}
 }

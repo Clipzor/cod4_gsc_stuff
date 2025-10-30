@@ -377,7 +377,7 @@ teleport2()
       trig waittill("trigger", player);
 	  player setOrigin(tele2.origin);
       player setPlayerAngles(tele2.angles);
-	  player braxi\_rank::giveRankXP("", 5000);
+	  player braxi\_rank::giveRankXP("", 500);
 	  iPrintLnBold ("^5" + player.name + " ^7has finished the ^5Secret Room!");
     }
 }
@@ -432,7 +432,7 @@ easysecrettp()
       trig waittill("trigger", player);
 	  player setOrigin(tele7.origin);
       player setPlayerAngles(tele7.angles);
-	  player braxi\_rank::giveRankXP("", 3000);
+	  player braxi\_rank::giveRankXP("", 500);
 	  iPrintLnBold ("^5" + player.name + " ^7has finished ^5Gap Room!");
     }
 }

@@ -961,7 +961,7 @@ velo_exp1_()
 	logo1 = getEnt("velo_exp1" , "targetname");	
     trig1 = getEnt("trigger_velo_exp1", "targetname");
     trig1 waittill("trigger", player);
-    player braxi\_rank::giveRankXP("", 1000);
+    player braxi\_rank::giveRankXP("", 500);
 	player playlocalsound("orb");
 	trig1 delete();
 	logo1 hide();
@@ -981,7 +981,7 @@ velo_exp2_()
 	logo2 = getEnt("velo_exp2" , "targetname");	
     trig2 = getEnt("trigger_velo_exp2", "targetname");
     trig2 waittill("trigger", player);
-    player braxi\_rank::giveRankXP("", 1000);
+    player braxi\_rank::giveRankXP("", 500);
 	player playlocalsound("orb");
 	trig2 delete();
 	logo2 hide();
@@ -1001,7 +1001,7 @@ velo_exp3_()
 	logo3 = getEnt("velo_exp3" , "targetname");	
     trig3 = getEnt("trigger_velo_exp3", "targetname");
     trig3 waittill("trigger", player);
-    player braxi\_rank::giveRankXP("", 1000);
+    player braxi\_rank::giveRankXP("", 500);
 	player playlocalsound("orb");
 	trig3 delete();
 	logo3 hide();
@@ -1021,7 +1021,7 @@ velo_exp4_()
 	logo4 = getEnt("velo_exp4" , "targetname");	
     trig4 = getEnt("trigger_velo_exp4", "targetname");
     trig4 waittill("trigger", player);
-    player braxi\_rank::giveRankXP("", 1000);
+    player braxi\_rank::giveRankXP("", 500);
 	player playlocalsound("orb");
 	trig4 delete();
 	logo4 hide();
@@ -1139,7 +1139,7 @@ acti_secret_end()
 		iPrintLnBold("Activator has finished the secret bounce");
 		wait 1;
 		player freezeControls(0);
-		player braxi\_rank::giveRankXP("", 1000);
+		player braxi\_rank::giveRankXP("", 500);
 		wait 1;
 }
 

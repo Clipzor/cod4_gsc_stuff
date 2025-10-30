@@ -580,5 +580,5 @@ secretxp()
 	trig = getEnt("trig_freexp", "targetname");
 		trig waittill("trigger", player);
 			iPrintLnBold("^3"+player.name+" ^1is got ^3XP^1!");
-			player braxi\_rank::giveRankXP("", 1000);
+			player braxi\_rank::giveRankXP("", 500);
 }

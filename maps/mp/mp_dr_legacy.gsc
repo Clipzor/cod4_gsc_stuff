@@ -422,7 +422,7 @@ acti_secret_finish()
     player setPlayerAngles(tp.angles);
     player FreezeControls(1);
     player PlayLocalSound("legacy_reward");
-    player braxi\_rank::giveRankXP("", 1500);
+    player braxi\_rank::giveRankXP("", 500);
     wait 1;
     player FreezeControls(0);
     }
@@ -551,7 +551,7 @@ secret_enter()
      player.sc_pos = 0;
      player.insec = false;
      iprintln ("^4" + player.name + " ^7finished the ^4Secret Room^7!");
-     player braxi\_rank::giveRankXP("", 6000);
+     player braxi\_rank::giveRankXP("", 500);
 
       break;
     }
@@ -669,7 +669,7 @@ RTD_random_items()
         
         self PlayLocalSound("legacy_reward");
         iPrintLnBold("^4" + self.name + " ^7won ^4RTD Mini XP Jackpot ^7:o"); 
-        self braxi\_rank::giveRankXP("", 3000);
+        self braxi\_rank::giveRankXP("", 500);
         self FreezeControls(0); 
     }
     if (randomitem == 3)
@@ -686,7 +686,7 @@ RTD_random_items()
         
         self PlayLocalSound("legacy_reward");
         iPrintLnBold("^4" + self.name + " ^7won ^4RTD XP Jackpot ^7:o"); 
-        self braxi\_rank::giveRankXP("", 6000);
+        self braxi\_rank::giveRankXP("", 500);
         self FreezeControls(0); 
     }
 }

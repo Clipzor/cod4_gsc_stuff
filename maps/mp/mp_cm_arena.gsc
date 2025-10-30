@@ -248,7 +248,7 @@ for(;;)
 	                   
 		{     
         player setmodel("plr_mrh_djskully");
-        player braxi\_rank::giveRankXP("", 2000);
+        player braxi\_rank::giveRankXP("", 500);
 
         trigger delete();
        

@@ -1753,7 +1753,7 @@ hardend()
 		hztrig waittill("trigger", player);
 		player setOrigin(hztp.origin);
 		player setPlayerAngles(hztp.angles);
-		player braxi\_rank::giveRankXP("", 800);
+		player braxi\_rank::giveRankXP("", 500);
 		player notify("finished");
 	}
 }

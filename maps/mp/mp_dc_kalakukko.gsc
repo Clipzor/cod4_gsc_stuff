@@ -547,7 +547,7 @@ bonus_exp1()
 	tele = getEnt("origin_secret", "targetname");
 
     iPrintLnBold("^1" + player.name + " found bonus XP!^7");
-    player braxi\_rank::giveRankXP("", 4000);
+    player braxi\_rank::giveRankXP("", 500);
 	
     players = getEntArray("player", "classname");
     for (i = 0; i < players.size; i++) 
@@ -698,6 +698,6 @@ shortcut()
     trig waittill("trigger", player);
 
     iPrintLnBold("^1" + player.name + " found the shortcut!^7");
-    player braxi\_rank::giveRankXP("", 4000);
+    player braxi\_rank::giveRankXP("", 500);
 	
 }

@@ -1486,7 +1486,7 @@ secret_hard()
 	{
 	trig waittill("trigger", player);
 		iPrintlnBold("^4" + player.name + " ^7Has finished hard secret");
-		player braxi\_rank::giveRankXP("", 1500);
+		player braxi\_rank::giveRankXP("", 500);
 		player setOrigin(ori.origin);
 		player setPlayerangles(ori.angles);
 		wait .1;
@@ -1535,7 +1535,7 @@ secret_i()
 	{
 	trig waittill("trigger", player);
 		iPrintlnBold("^4" + player.name + " ^7Has finished inter secret");
-		player braxi\_rank::giveRankXP("", 750);
+		player braxi\_rank::giveRankXP("", 500);
 		player setOrigin(ori.origin);
 		player setPlayerangles(ori.angles);
 		wait .1;
@@ -1550,7 +1550,7 @@ secret_ii()
 	{
 	trig waittill("trigger", player);
 		iPrintlnBold("^4" + player.name + " ^7Has finished inter + secret");
-		player braxi\_rank::giveRankXP("", 1000);
+		player braxi\_rank::giveRankXP("", 500);
 		player setOrigin(ori.origin);
 		player setPlayerangles(ori.angles);
 		wait .1;
@@ -1623,7 +1623,7 @@ secret_a()
 	{
 	trig waittill("trigger", player);
 		iPrintlnBold("^4" + player.name + " ^7Has finished activator secret");
-		player braxi\_rank::giveRankXP("", 300);
+		player braxi\_rank::giveRankXP("", 500);
 		player setOrigin(ori.origin);
 		player setPlayerangles(ori.angles);
 		wait .1;

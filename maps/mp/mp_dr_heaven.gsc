@@ -391,7 +391,7 @@ acti_dbl_secret_end()
 	player SetOrigin(end.origin);
         player SetPlayerAngles( end.angles );
 	iPrintlnBold (" ^1Activator ^7 Finished the secret inside of the secret!");
-	player braxi\_rank::giveRankXP("", 1000); //change amount of xp if you really think that is too high, Finishing the double secret is not easy.
+	player braxi\_rank::giveRankXP("", 500); //change amount of xp if you really think that is too high, Finishing the double secret is not easy.
 	}
 
 }
@@ -480,7 +480,7 @@ dbl_secret_end()
 	player SetOrigin(end.origin);
         player SetPlayerAngles( end.angles );
 	iPrintlnBold (" ^5" + player.name + " ^7 Finished the secret inside of the secret!");
-	player braxi\_rank::giveRankXP("", 1000); //change amount of xp if you really think that is too high, Finishing the double secret is not easy.
+	player braxi\_rank::giveRankXP("", 500); //change amount of xp if you really think that is too high, Finishing the double secret is not easy.
 	}
 
 }

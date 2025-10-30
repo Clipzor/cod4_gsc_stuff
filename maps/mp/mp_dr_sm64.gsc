@@ -476,7 +476,7 @@ darkstar9t = getEnt("dark_star_1_secret","targetname");
 
 	{
 	darkstartrig waittill("trigger", player);
-	player braxi\_rank::giveRankXP("", 300);
+	player braxi\_rank::giveRankXP("", 500);
 	iPrintLnBold( player.name + " ^1Found the ^9Dark Star");
 	player playSound("finish3");
 	darkstar9t hide();
@@ -614,7 +614,7 @@ h1tp = getEnt("hardsecret_finish_tp","targetname");
 	{
 	h1f waittill("trigger",player);
 	player notify("finished");
-	player braxi\_rank::giveRankXp("", 600);
+	player braxi\_rank::giveRankXp("", 500);
 	iprintlnbold( player.name + " ^3Finished ^1HARD ^7Secret ^21 !!!!" );
 	player setOrigin(h1tp.origin);
 	player setPlayerAngles(h1tp.angles);
@@ -630,7 +630,7 @@ h2tp = getEnt("hardsecret_finish_tp","targetname");
 	{
 	h2f waittill("trigger",player);
 	player notify("finished");
-	player braxi\_rank::giveRankXp("", 800);
+	player braxi\_rank::giveRankXP("", 500);
 	iprintlnbold( player.name + " ^3Finished ^1HARD ^7Secret ^12 !!!!" );
 	player setOrigin(h2tp.origin);
 	player setPlayerAngles(h2tp.angles);

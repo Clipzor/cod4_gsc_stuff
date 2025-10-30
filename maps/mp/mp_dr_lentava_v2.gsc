@@ -258,7 +258,7 @@ for(;;)
 	player GiveWeapon("deserteaglegold_mp");
 	player SwitchToWeapon("deserteaglegold_mp");
 	player GiveMaxAmmo("deserteaglegold_mp");
-//	player braxi\_rank::giveRankXP("", 1000);
+//	player braxi\_rank::giveRankXP("", 500);
 	trigger delete();
  }
 }

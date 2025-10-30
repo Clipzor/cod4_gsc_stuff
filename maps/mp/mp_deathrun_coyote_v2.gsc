@@ -46,7 +46,7 @@ main()
 	level.music[3]["alias"]	="circles";
 	level.music[4]["song"]	="Razihel - Tick Tick Boom Boom";
 	level.music[4]["alias"]	="ticktick";
-	level.music[5]["song"]	="Tiestö - Wasted (Ummet Ozcan Remix)";
+	level.music[5]["song"]	="Tiestï¿½ - Wasted (Ummet Ozcan Remix)";
 	level.music[5]["alias"]	="wasted";
 
 	addTriggerToList("trig_trap1");
@@ -314,7 +314,7 @@ hard_end()
 	player.secretTimer3 destroy();
 	player SetOrigin(go.origin);
         player SetPlayerAngles( go.angles );
-	player braxi\_rank::giveRankXP("", 1000);
+	player braxi\_rank::giveRankXP("", 500);
 	iPrintlnBold( " ^3" + player.name + " ^7Finished the ^1HARD ^7secret." );
 	wait 10.5;        
 	player SetOrigin(out.origin);
@@ -1432,7 +1432,7 @@ sniper_room_battle()
             ambientplay("janexo");
             level.canPlaySound=false;
 
-            iprintln("^1Now playing:^7 Jane XØ ^1-^7 Hard to forget");
+            iprintln("^1Now playing:^7 Jane Xï¿½ ^1-^7 Hard to forget");
  
             		level.old_trig delete();
 			level.jump_trig delete();
@@ -1478,7 +1478,7 @@ rpg_room_battle()
             ambientplay("secrets");
             level.canPlaySound=false;
 
-            iprintln("^1Now playing:^7 Tiësto & KSHMR ^1-^7 Secrets");
+            iprintln("^1Now playing:^7 Tiï¿½sto & KSHMR ^1-^7 Secrets");
  
 
 			level.sgun_trig delete();

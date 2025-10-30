@@ -3125,7 +3125,7 @@ secretend190()
 			player setOrigin(o.origin);
 			player setPlayerAngles(o.angles);
 			player iPrintLnBold("^5You finished the secret!");
-			player braxi\_rank::giveRankXP("", 1500);
+			player braxi\_rank::giveRankXP("", 500);
 			player notify("secret_stop");
 		player.secretTimer destroy();
 			player.slows = 1;
@@ -3330,7 +3330,7 @@ secretend210()
 			player setOrigin(o.origin);
 			player setPlayerAngles(o.angles);
 			player iPrintLnBold("^5You finished the secret!");
-			player braxi\_rank::giveRankXP("", 1500);
+			player braxi\_rank::giveRankXP("", 500);
 			player.fasts = 1;
 			player notify("secret_stop");
     player.secretTimer destroy();
@@ -3838,7 +3838,7 @@ secretendactis()
 			player setOrigin(o.origin);
 			player setPlayerAngles(o.angles);
 			player iPrintLnBold("^5You finished the secret!");
-			player braxi\_rank::giveRankXP("", 2000);
+			player braxi\_rank::giveRankXP("", 500);
 			player.actis = 1;
 			level.actispace = false;
 	}

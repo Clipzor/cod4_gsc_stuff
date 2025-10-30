@@ -1183,10 +1183,6 @@ collectend()
 			for(i = 0;i < players.size;i++)
 			{
 				players[i] braxi\_rank::giveRankXP("",500);
-				players[i] braxi\_rank::giveRankXP("",500);
-				players[i] braxi\_rank::giveRankXP("",500);
-				players[i] braxi\_rank::giveRankXP("",500);
-				players[i] braxi\_rank::giveRankXP("",500);
 			}
 			return;
 		}
@@ -1887,9 +1883,7 @@ secretend190()
 		player setOrigin(o.origin);
 		player setPlayerAngles(o.angles);
 		iPrintLnBold(player.name+"^5 finished the ^1HARD ^5secret!");
-		player braxi\_rank::giveRankXP("", 2500);
-		player braxi\_rank::giveRankXP("", 2500);
-		player braxi\_rank::giveRankXP("", 2500);
+		player braxi\_rank::giveRankXP("", 500);
 		player notify("secret_stop");
 		player.secretTimer destroy();
 		player.slows = 1;

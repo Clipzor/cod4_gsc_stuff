@@ -529,7 +529,7 @@ gametag = player.name;
 		AmbientStop(0);
 		MusicStop(0);
 		ambientPlay("liquid");	
-        player braxi\_rank::giveRankXP("", 1000);
+        player braxi\_rank::giveRankXP("", 500);
 		level.vipisplaying = true;	
        trigger delete();
 	   }
@@ -541,7 +541,7 @@ gametag = player.name;
 		AmbientStop(0);
 		MusicStop(0);
 	  ambientPlay("waitingtodie");
-      player braxi\_rank::giveRankXP("", 2000);
+      player braxi\_rank::giveRankXP("", 500);
 	  iPrintLnBold("^1Death is here!");
 	  level.vipisplaying = true;
 	  trigger delete();
@@ -663,7 +663,7 @@ trig = getent("trig_itemrtd", "targetname");
     }
     if (randomitem == 4)
     {
-        player braxi\_rank::giveRankXP("", 9000);
+        player braxi\_rank::giveRankXP("", 500);
         iPrintLnBold("^3" + player.name + " ^0won ^3RTD XP Jackpot ^0:^3o"); 
     }
     
@@ -678,7 +678,7 @@ freexp()
 for(;;)
 {
  trig waittill("trigger", player);
- player braxi\_rank::giveRankXP("", 5000);
+ player braxi\_rank::giveRankXP("", 500);
  iPrintLn("^3" + player.name + " ^0found some ^3XP^0!");
  trig delete();
  wait 0.5;
@@ -739,7 +739,7 @@ secfinish()
      player.sc_pos = 0;
      player.insec = false;
      iPrintLnBold ("^3" + player.name + " ^0finished ^3Secret^0!");
-     player braxi\_rank::giveRankXP("", 7500);
+     player braxi\_rank::giveRankXP("", 500);
      player playlocalSound("nicework");
     }
 }
