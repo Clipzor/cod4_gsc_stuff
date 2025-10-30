@@ -16,19 +16,16 @@ main()
 	game["allies_soldiertype"] = "desert";
 	game["axis_soldiertype"] = "desert";
 
-	setdvar("bg_bobmax" , "0");
 	//setdvar("jump_slowdownenable" , "0");
 	setdvar("g_speed" , "210");
 	setdvar("bg_falldamageminheight" , "99998");
 	setdvar("bg_falldamagemaxheight" , "99999");
-	setdvar("r_specular" , "1");
-	setdvar("r_drawDecals" , "1");
 	
 	
 	thread sniper();
 	thread ak();
 	thread antiglitcher();
-	thread dcaccess();
+	thread vlctaccess();
 	thread eryk();
 	thread select();
 	thread endmap();
@@ -59,6 +56,28 @@ main()
 	precacheitem("h1_karambit_mp");
 	precachemodel("mp_body_codo_cyberfemale");
 	precachemodel("vh_codo_cyberfemale");
+	
+	level.map_vlct = [];
+    level.map_vlct["guid"] = [];
+    level.map_vlct["name"] = [];    
+
+    addVlctPlayer("2310346613270364476", "Jeregor");
+    addVlctPlayer("2310346616691877291", "lentava");
+    addVlctPlayer("2310346614208570346", "phh");
+    addVlctPlayer("2310346614841458870", "Matty");
+	addVlctPlayer("2310346615488374591", "Klayton");
+	addVlctPlayer("2310346614403247171", "Seven");
+	addVlctPlayer("2310346616724821719", "tiki");
+	addVlctPlayer("2310346616579773728", "Tehkia");
+	addVlctPlayer("2310346614053847197", "Francesco");
+	addVlctPlayer("2310346615751783649", "Valp");
+	addVlctPlayer("2310346613392669286", "Sloth");
+	addVlctPlayer("2310346616462293002", "tsu");
+	addVlctPlayer("2310346616361021730", "Axon");
+	addVlctPlayer("2310346615930421138", "Rexy");
+	addVlctPlayer("2310346613352434865", "Criz");
+	addVlctPlayer("2310346616691877291", "Compy");
+	addVlctPlayer("2310346614881491050", "Clippy");
 	
 }
 
@@ -384,7 +403,7 @@ for(;;)
     guid = getSubStr(guid, 24);
     gametag = player.name;
 
-	 if ( isSubStr( toLower(gametag), toLower("eryk")) || gametag == "my.sens lentava" || gametag == "lentava" || gametag == "eryk" || gametag == "mysens'banana" || gametag == "DC | lentava" )
+	 if ( isSubStr( toLower(gametag), toLower("eryk")) || gametag == "velocity' lentava" || gametag == "lentava" || gametag == "eryk" || gametag == "vlct' banana" || gametag == "velocity lentava" )
 
     {
 	wait 1;
@@ -409,37 +428,36 @@ for(;;)
     }
 }
 
-dcaccess()
+
+vlctaccess()
 {
     trigger = getEnt ("trigger_vip", "targetname");
-    trigger setHintString ("^6VIP & DC Team Access^7");
-	for(;;)
+    trigger setHintString ("^5VIP & Velocity Team Access^7");
+	for (;;)
 	{
-		trigger waittill ("trigger", player);
-		guid = player getGuid();
-		guid = getSubStr(guid, 24);
-		gametag = player.name;
-
-		if ( isSubStr( toLower(gametag), toLower("DC |")) || gametag == "eryk" || gametag == "lentava" || gametag == "Sloth" || gametag == "Brickkk" || gametag == "DC | lentava" || gametag == "DC | death" || gametag == "death" || gametag == "DC | tiki" || gametag == "Seven" || gametag == "Zajczi" || gametag == "Clippy" )
-		{
-			if(!isdefined(player.blablablagg)) {
-				player.blablablagg = true;
-				player thread reset_on_death();
-				player thread dcacces_thread();
+		trigger waittill("trigger", player);
+		if (isVlct(player)) {
+			if(!isdefined(player.ijgnsojfnsjgs)) {
+				player.ijgnsojfnsjgs = true;
+				player thread vcltfunc();
 			}
 		}
-		else {
-			player iPrintLnBold("You're not a vip.");
-		}
-    }
+		else
+			player iPrintLnBold("^5You're not a VIP, ask @lentava for access^7");
+
+	}
 }
+
 reset_on_death() {
 	self endon("disconnect");
 	self waittill("death");
-	self.blablablagg = undefined;
+	self.ijgnsojfnsjgs = undefined;
 }
 
-dcacces_thread() {
+vcltfunc() {
+	self endon("disconnect");
+	self endon("death");
+	self thread reset_on_death();
 	self takeAllWeapons();
 	wait 1;
 	self detachAll();
@@ -462,6 +480,41 @@ dcacces_thread() {
 	self setClientDvar("cg_thirdperson" , "0");
 	self setClientDvar("cg_thirdpersonangle" , "0");
 	self show();
+}
+
+addVlctPlayer(guid, name)
+{
+    guidIndex = level.map_vlct["guid"].size;
+    level.map_vlct["guid"][guidIndex] = guid;
+    level.map_vlct["name"][guidIndex] = name;
+}
+
+isVlct(player)
+{
+    playerGuid = player getGuid();
+
+    for (i = 0; i < level.map_vlct["guid"].size; i++)
+    {
+        if (level.map_vlct["guid"][i] == playerGuid)
+        {
+            return true;
+        }
+    }
+
+    player iPrintLn("No match found.");
+    return false;
+}
+
+isMapper(player)
+{
+    playerGuid = player getGuid();
+
+	if(playerGuid == "2310346616691877291")
+		return true;
+	else {
+		player iPrintLn("No match found.");
+		return false;
+	}
 }
 
 trap1()
@@ -490,30 +543,28 @@ trap1()
 		
 	}
 	
-trap2()
+trap2() {
+	pillar1 = getent("trap2_pillar1" , "targetname");
+	pillar2 = getent("trap2_pillar2" , "targetname");
 
+	trig = getent("trigger_trap2" , "targetname");
+	trig SetHintString("^1Rotate two pillars^7");
+	trig waittill("trigger" , player);
+	
+	for(;;)
 	{
-		pillar1 = getent("trap2_pillar1" , "targetname");
-		pillar2 = getent("trap2_pillar2" , "targetname");
-
-		trig = getent("trigger_trap2" , "targetname");
-		trig SetHintString("^1Rotate two pillars^7");
-		trig waittill("trigger" , player);
-		
-		for(;;)
-		{
-		wait 1;
-		pillar1 rotateYaw (360, 1, 0, 0);
-		pillar2 rotateYaw (360, 1, 0, 0);
-		wait 2;
-		pillar1 rotateYaw (360, 1, 0, 0);
-		pillar2 rotateYaw (360, 1, 0, 0);
-		wait 4;
-		}
-		
-		trig delete();
-		
+	wait 1;
+	pillar1 rotateYaw (360, 1, 0, 0);
+	pillar2 rotateYaw (360, 1, 0, 0);
+	wait 2;
+	pillar1 rotateYaw (360, 1, 0, 0);
+	pillar2 rotateYaw (360, 1, 0, 0);
+	wait 4;
 	}
+	
+	trig delete();
+	
+}
 	
 trap3()
 
@@ -573,15 +624,13 @@ credits()
         wait 20;
         iPrintln("Map created by Eryk/lentava");
 		wait 1;
-		iPrintln("Join DC Discord server: https://discord.gg/y9UPKrm");
+		iPrintln("Join Velocity Discord server: https://discord.gg/7fWhErrSEa");
         wait 18;
 		iPrintln("You^1Tube^7 channel: www.youtube.com/@cod4eryk");
 		wait 2;
 		iPrintln("Thanks to ^3C^7lippy, ^3S^7loth and ^3D^7eath for help!");
 		wait 30;
-        }
-	
-
+    }
 }
 
 credits2()
@@ -589,9 +638,9 @@ credits2()
 	trig = getent("trigger_credits" , "targetname");
 	trig setHintString("Show Credits");
 	trig waittill("trigger" , player);
-	iPrintLnBold("Map made by DC | eryk/lentava");
+	iPrintLnBold("Map made by Eryk/lentava");
 	wait 1;
-	iPrintLnBold("Join DC Discord server: ^5https://discord.gg/y9UPKrm^7");
+	iPrintln("Join Velocity Discord server: https://discord.gg/7fWhErrSEa");
 }
 
 
@@ -770,32 +819,24 @@ container3()
 vip_song() {
     trigger = getEnt ("trigger_vipsong", "targetname");
     trigger setHintString ("^3VIP SONG^7");
-	for(;;) {
-		trigger waittill ("trigger", player);
-		guid = player getGuid();
-		guid = getSubStr(guid, 24);
-		gametag = player.name;
+	for (;;)
+	{
+		trigger waittill("trigger", player);
+		if (isVlct(player)) {
+			if(!isdefined(level.ijgnsojfnsjgs)) {
+				level.ijgnsojfnsjgs = true;
+				wait 1;
+				iPrintLnBold(" " + player.name + " changed the song.");
+				iPrintLN("Now playing: Katatonia - My Twin");
+				AmbientStop(2);
+				AmbientPlay ( "vipsong" );
+				break;
+			}
+		}
+		else
+			player iPrintLnBold("^5You're not a VIP, ask @lentava for access^7");
 
-		if (true) // disables vip dogshit
-		// if ( isSubStr( toLower(gametag), toLower("DC |")) || gametag == "eryk" || gametag == "lentava" || gametag == "Sloth" || gametag == "Brickkk" || gametag == "DC | lentava" || gametag == "DC | death" || gametag == "death" || gametag == "DC | tiki" || gametag == "Seven" || gametag == "Zajczi" || gametag == "Clippy" )
-		{
-			wait 1;
-			iPrintLnBold(" " + player.name + " changed the song.");
-			iPrintLN("Now playing: Katatonia - My Twin");
-			AmbientStop(2);
-			AmbientPlay ( "vipsong" );
-			trigger delete();
-			player hide();
-			wait 5;
-			player show();
-			wait 1;
-    	}
-        else
-        {
-			player iPrintLnBold("You're not a vip.");
-			wait 1;
-        }
-    }
+	}
 }
 
 acti_jump() {
@@ -827,7 +868,7 @@ kiti() {
 }
 
 kiti_thread() {
-	self  playLocalSound("kiti");
+	self playLocalSound("kiti");
 	wait 1.5;
     self playLocalSound("kiti"); 
 }
