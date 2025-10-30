@@ -258,41 +258,24 @@ messagescreen()
 
 messages()
 {
-   wait 4;
-   for(;;)
-{  
-   wait 10;
- x = randomint(6);
-   if (x==0)
-{
-   iPrintln("^3Mapped ^7and ^3scripted ^7by ^3CM'death^7!");
-}
-
-   if (x==1)
-{
-   iPrintln("^7Visit ^3CM'Discord Server: ^7dv82mEHCY7");
-}
-
-   if (x==2)
-{
-   iPrintln("^3CM'Deathrun IP: ^7cm-clan.com:28960");
-}
-
-   if (x==3)
-{
-   iPrintln("^7Feel free to report any ^3bugs^7.");
-}
-
-   if (x==4)
-{
-   iPrintLn("^3Map speed: ^7[^3"+getDvar("g_speed")+"^7]^7, ^7[^3"+getDvar("dr_jumpers_speed")+"^7]");
-}
-
-   if (x==5)
-{
-   iPrintLn("^7Thanks to ^3CM'Nobody ^7and ^3Ohh Rexy<3 ^7for helping me with the ^3bugs^7!");
-}
-}
+    wait 4;
+    for(;;)
+    {  
+        x = randomint(3);
+        if (x==0)
+        {
+        iPrintln("^3Mapped ^7and ^3scripted ^7by ^3CM'death^7!");
+        }
+        if (x==1)
+        {
+        iPrintLn("^3Map speed: ^7[^3"+getDvar("g_speed")+"^7]^7, ^7[^3"+getDvar("dr_jumpers_speed")+"^7]");
+        }
+        if (x==2)
+        {
+        iPrintLn("^7Thanks to ^3CM'Nobody ^7and ^3Ohh Rexy<3 ^7for helping me with the ^3bugs^7!");
+        }
+        wait 20;
+    }
 }
 
 randommusic()

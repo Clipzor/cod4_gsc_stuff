@@ -13,6 +13,8 @@ main()
 	addTriggerToList( "trigger_t9_" );
 	addTriggerToList( "trig_trap10" );
 	addTriggerToList( "trig_trap11" );
+
+	level.auto_open_door = false;
 	
 	maps\mp\_load::main();
 	maps\mp\_teleport1::main();
@@ -77,15 +79,17 @@ trigger = GetEnt( "creator", "targetname" );
 
 startdoor()
 {
-trigger = getent("trig_startdoor","targetname");
-object = getent("startdoor","targetname");
-trigger waittill ("trigger" , player );
-trigger delete();
-{
-object movez(-320, 4);
-object waittill("movedone");
-wait 1;
-}
+	trigger = getent("trig_startdoor","targetname");
+	object = getent("startdoor","targetname");
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		object delete();
+		trigger delete();
+	} else {
+		trigger waittill ("trigger" , player );
+		trigger delete();
+
+		object movez(-320, 4);
+	}
 }
 
 trap1()

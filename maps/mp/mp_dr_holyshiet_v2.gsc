@@ -30,6 +30,8 @@ main()
     game["allies_soldiertype"] = "woodland";
     game["axis_soldiertype"] = "woodland";
 
+    level.auto_open_door = false;
+
     ambientplay("holyshiet");
 
     setdvar("r_specularcolorscale","1");
@@ -66,14 +68,11 @@ prints()
     thread shiet_end_port();
 
     msg_list = strtok("Welcome to ^5mp_dr_holyshiet_v2;Map by ^5Blade;Discord: ^5Blade #6504;Visit ^5vistic-clan.net",";");
-    while(1)
+
+    for(i=0;i<msg_list.size;i++)
     {
-        for(i=0;i<msg_list.size;i++)
-        {
-            iprintln("^1>>^7 "+msg_list[i]);
-            wait 10;
-        }
-        wait .1;
+        iprintln("^1>>^7 "+msg_list[i]);
+        wait 10;
     }
 }
 
@@ -82,15 +81,20 @@ shiet_startdoor()
     trig = getent("shiet_door_trig","targetname");
     door = getent("shiet_startdoor","targetname");
 
-    trig sethintstring("^1&&1^7: open ^1Startdoor");
-    trig waittill("trigger");
-    trig delete();
+    if(isdefined(level.auto_open_door) && level.auto_open_door) {
+        trig delete();
+        door delete();
+    } else {
+        trig sethintstring("^1&&1^7: open ^1Startdoor");
+        trig waittill("trigger");
+        trig delete();
 
-    iprintlnbold("^1Startdoor ^7will open in ^15 ^7Seconds");
-    wait 5;
-    door movez(-120,5);
-    wait 5;
-    door delete();
+        iprintlnbold("^1Startdoor ^7will open in ^15 ^7Seconds");
+        wait 5;
+        door movez(-120,5);
+        wait 5;
+        door delete();
+    }
 
     hud_clock = NewHudElem();
     hud_clock.alignX = "center";

@@ -18,7 +18,7 @@
 
 //Map by Lifezor
 //Script by Lifezor
-//Exclusively for boss'Deathrun
+//Exclusively for boss'Deathrun // fucking cringe lord holy shit
 //mp_deathrun_boss_v2
 //Started: 12.12.2016
 //Finished: 27.12.2016
@@ -26,7 +26,7 @@
 //Mapping finished:27.12.2016
 //bullshit script dont care lol
 //thanks Wingzor for room scripts, i havent bothered making my own xd
-//tarik's a stupid bosnian cunt that isn't socialist and bosnia is not strong :)))))
+//tarik's a stupid bosnian cunt that isn't socialist and bosnia is not strong :))))) and you make "Exclusive" maps and comment out _load
 
 main()
 {
@@ -35,6 +35,8 @@ main()
 	precacheItem ("deserteagle_mp");
 	precacheItem ("colt45_silencer_mp");
 	precacheItem ("winchester1200_mp");
+
+	level.auto_open_door = false;
 	
 	game["allies"] = "sas";
 	game["axis"] = "russian";
@@ -43,10 +45,10 @@ main()
 	game["allies_soldiertype"] = "woodland";
 	game["axis_soldiertype"] = "woodland";
 	
-		setdvar( "r_specularcolorscale", "1" );
-		setdvar("r_glowbloomintensity0",".25");
-        setdvar("r_glowbloomintensity1",".25");
-        setdvar("r_glowskybleedintensity0",".3");
+	setdvar( "r_specularcolorscale", "1" );
+	setdvar("r_glowbloomintensity0",".25");
+	setdvar("r_glowbloomintensity1",".25");
+	setdvar("r_glowskybleedintensity0",".3");
 	
 	
 	//////Doors teles etc random stuff/////
@@ -626,10 +628,14 @@ trap7()
 startdoor()
 {
 	startdoor = getent("startdoor","targetname");
-	level waittill("round_started");
-	wait 5;
-	iPrintLnBold("Start door Removed..");
-	startdoor delete();
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		startdoor delete();
+	} else {
+		level waittill("round_started");
+		wait 5;
+		iPrintLnBold("Start door Removed..");
+		startdoor delete();
+	}
 }
 	
 trap10()

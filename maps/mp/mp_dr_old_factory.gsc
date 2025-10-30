@@ -3691,7 +3691,7 @@ iPrintlnBold("^5Map ^7made by ^5CM'Nobody");
 for(;;)
 {
 wait 30;
-x=randomint(8);
+x=randomint(3);
 if (x==0)
 {
 iPrintln("^5Map ^7made by ^5CM'Nobody");
@@ -3699,39 +3699,15 @@ iPrintln("^5Map ^7made by ^5CM'Nobody");
 
 if (x==1)
 {
-iPrintLn("^5Map speed: ^5[^7"+getDvar("g_speed")+"^5]");
-}
-
-if (x==2)
-{
-iPrintln("^7Feel free to join ^5CM Discord >>^7 discord.gg/CxVnas6 ^5<<");
-}
-
-if (x==3)
-{
-iPrintln("^5If you find any bugs please report them");
-}
-
-if (x==4)
-{
-iPrintln("^7Feel free to join ^5CM'Deathrun >>^7 91.121.145.85:27550 ^5<<");
-}
-
-if (x==5)
-{
 iPrintln("^7Discord: ^5Derazerr | Nobody#3996 ");
 iPrintln("^7Steam: ^5xderazerr");
 }
 
-if (x==6)
+if (x==2)
 {
 iPrintln("^7Special thanks to : ^5Teairon ^7for testing the map, ^5Rexy ^7for helping to fix weapons models, ^5ERIK ^7for giving tips");
 }
 
-if (x==7)
-{
-iPrintln("^7There is ^5Jumper ^7and ^5Activator Secrets ^7. Find them");
-}
 
 }
 }

@@ -11,105 +11,107 @@
 
 main()
 {
- maps\mp\_load::main();
- 
- precacheItem("knife_mp");
- precacheItem("cherry_bo_L96_mp");
- precacheItem("cherry_sword_mp");
- precacheItem("cherry_minigun_mp");
- precacheModel( "playermodel_terminator" );
- precacheModel( "playermodel_aot_rosco_00_light" );
+	maps\mp\_load::main();
 
- game["allies"] = "marines";
- game["axis"] = "opfor";
- game["attackers"] = "axis";
- game["defenders"] = "allies";
- game["allies_soldiertype"] = "desert";
- game["axis_soldiertype"] = "desert";
+	precacheItem("knife_mp");
+	precacheItem("cherry_bo_L96_mp");
+	precacheItem("cherry_sword_mp");
+	precacheItem("cherry_minigun_mp");
+	precacheModel( "playermodel_terminator" );
+	precacheModel( "playermodel_aot_rosco_00_light" );
 
- setdvar( "r_specularcolorscale", "1" );
- setdvar("r_glowbloomintensity0",".25");
- setdvar("r_glowbloomintensity1",".25");
- setdvar("r_glowskybleedintensity0",".3");
- setdvar("compassmaxrange","1800");
+	level.auto_open_door = false;
 
- 
- level.darmuh = "Darmuh"; //It's quite pointless to take my name but if you really want to use it you'll get a gold deagle rather than a normal deagle.
- level.irroy8 = "irRoy8";
- level.bjump1 = getEnt( "jb1", "targetname" );
- level.bacti1 = getEnt( "ab1", "targetname" );
- level.bjump2 = getEnt( "jb2", "targetname" );
- level.bacti2 = getEnt( "ab2", "targetname" );
- level.bjump3 = getEnt( "jb3", "targetname" );
- level.bacti3 = getEnt( "ab3", "targetname" );
- level._spraysion[ "Sprode" ] = loadfx( "explosions/aerial_explosion_large" );
- level.firstenter=true;
+	game["allies"] = "marines";
+	game["axis"] = "opfor";
+	game["attackers"] = "axis";
+	game["defenders"] = "allies";
+	game["allies_soldiertype"] = "desert";
+	game["axis_soldiertype"] = "desert";
 
- 
-addTriggerToList( "t1use" );
-addTriggerToList( "t2use" );
-addTriggerToList( "t3use" );
-addTriggerToList( "t4use" );
-addTriggerToList( "t5use" );
-addTriggerToList( "t6use" );
-addTriggerToList( "t7use" );
-addTriggerToList( "t8use" );
-addTriggerToList( "t9use" );
-addTriggerToList( "t10use" );
-addTriggerToList( "t11use" );
-addTriggerToList( "t12use" );
-addTriggerToList( "t13use" );
+	setdvar( "r_specularcolorscale", "1" );
+	setdvar("r_glowbloomintensity0",".25");
+	setdvar("r_glowbloomintensity1",".25");
+	setdvar("r_glowskybleedintensity0",".3");
+	setdvar("compassmaxrange","1800");
 
-thread trap1();
-thread mtrap2();
-thread trap2();
-thread trap3();
-thread trap4();
-thread trap5();
-thread trap6();
-thread trap7();
-thread trap8();
-thread trap9();
-thread trap10();
-thread trap11();
-thread trap12();
-thread trap13();
-thread movefirst();
-thread gmove1();
-thread gmove2();
-thread gmove3();
-thread gmove4();
-thread elevator();
-thread platform1();
-thread platform2();
-thread platform3();
-thread rblocks();
-thread OldRoom();
-thread stahp();
-thread wutru();
-thread doing();
-thread sniperoom();
-thread snipevator();
-thread snipehover();
-thread ammo();
-thread knifewwroom();
-thread kniferoom();
-thread srct();
-thread srctfail();
-thread secsee();
-thread jumproom();
-thread jumpreset1();
-thread jumpreset2();
-thread jumpreset3();
-thread sprayroom();
-thread startbutton();
-thread startdoor();
-thread signs();
-thread spam();
-//thread dynamic_wep_dmg(); Moved to inside spray room thread (Scripted by Duffman)
-thread deagle();
-thread dogroom();
-thread yayufinished();
+
+	level.darmuh = "Darmuh"; //It's quite pointless to take my name but if you really want to use it you'll get a gold deagle rather than a normal deagle.
+	level.irroy8 = "irRoy8";
+	level.bjump1 = getEnt( "jb1", "targetname" );
+	level.bacti1 = getEnt( "ab1", "targetname" );
+	level.bjump2 = getEnt( "jb2", "targetname" );
+	level.bacti2 = getEnt( "ab2", "targetname" );
+	level.bjump3 = getEnt( "jb3", "targetname" );
+	level.bacti3 = getEnt( "ab3", "targetname" );
+	level._spraysion[ "Sprode" ] = loadfx( "explosions/aerial_explosion_large" );
+	level.firstenter=true;
+
+	
+	addTriggerToList( "t1use" );
+	addTriggerToList( "t2use" );
+	addTriggerToList( "t3use" );
+	addTriggerToList( "t4use" );
+	addTriggerToList( "t5use" );
+	addTriggerToList( "t6use" );
+	addTriggerToList( "t7use" );
+	addTriggerToList( "t8use" );
+	addTriggerToList( "t9use" );
+	addTriggerToList( "t10use" );
+	addTriggerToList( "t11use" );
+	addTriggerToList( "t12use" );
+	addTriggerToList( "t13use" );
+
+	thread trap1();
+	thread mtrap2();
+	thread trap2();
+	thread trap3();
+	thread trap4();
+	thread trap5();
+	thread trap6();
+	thread trap7();
+	thread trap8();
+	thread trap9();
+	thread trap10();
+	thread trap11();
+	thread trap12();
+	thread trap13();
+	thread movefirst();
+	thread gmove1();
+	thread gmove2();
+	thread gmove3();
+	thread gmove4();
+	thread elevator();
+	thread platform1();
+	thread platform2();
+	thread platform3();
+	thread rblocks();
+	thread OldRoom();
+	thread stahp();
+	thread wutru();
+	thread doing();
+	thread sniperoom();
+	thread snipevator();
+	thread snipehover();
+	thread ammo();
+	thread knifewwroom();
+	thread kniferoom();
+	thread srct();
+	thread srctfail();
+	thread secsee();
+	thread jumproom();
+	thread jumpreset1();
+	thread jumpreset2();
+	thread jumpreset3();
+	thread sprayroom();
+	thread startbutton();
+	thread startdoor();
+	thread signs();
+	thread spam();
+	//thread dynamic_wep_dmg(); Moved to inside spray room thread (Scripted by Duffman)
+	thread deagle();
+	thread dogroom();
+	thread yayufinished();
 
 }
 
@@ -236,13 +238,16 @@ startbutton()
 
 startdoor()
 {
- brush = getent("startdoor", "targetname");
- 
-	wait 10;
-	brush playsound ( "bttn" );
-	brush movez (-1000, 5);
-	brush waittill ("movedone");
-	iprintlnbold("^7Start door ^3opened^7.");
+	brush = getent("startdoor", "targetname");
+	if(isdefined(level.auto_open_door) && level.auto_open_door) { 
+		brush delete();
+	} else {
+		wait 10;
+		brush playsound ( "bttn" );
+		brush movez (-1000, 5);
+		brush waittill ("movedone");
+		iprintlnbold("^7Start door ^3opened^7.");
+	}
 }
 hover()
 {

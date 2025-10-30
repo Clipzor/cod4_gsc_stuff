@@ -5,14 +5,16 @@
 #include common_scripts\utility;
 main()
 {
-maps\mp\_load::main();
- 
-game["allies"] = "marines";
-game["axis"] = "opfor";
-game["attackers"] = "axis";
-game["defenders"] = "allies";
-game["allies_soldiertype"] = "desert";
-game["axis_soldiertype"] = "desert";
+    maps\mp\_load::main();
+    
+    level.auto_open_door = false;
+
+    game["allies"] = "marines";
+    game["axis"] = "opfor";
+    game["attackers"] = "axis";
+    game["defenders"] = "allies";
+    game["allies_soldiertype"] = "desert";
+    game["axis_soldiertype"] = "desert";
 
    setdvar("g_speed" ,"210"); 
    setdvar( "r_specularcolorscale", "1" );
@@ -33,19 +35,17 @@ game["axis_soldiertype"] = "desert";
    precacheModel("plr_mrh_djskully");
    precacheShader("mtl_mrh_skully");
 
-thread messages();
-thread startdoor();
-thread vipstuff();
-thread sniperroom();
-thread kniferoom();
-thread oldroom();
-thread trap1();
-thread trap2();
-thread trap3();
-thread trap4();
-thread trap5();
-
-
+    thread messages();
+    thread startdoor();
+    thread vipstuff();
+    thread sniperroom();
+    thread kniferoom();
+    thread oldroom();
+    thread trap1();
+    thread trap2();
+    thread trap3();
+    thread trap4();
+    thread trap5();
 }
 
 addTriggerToList( name )
@@ -223,13 +223,13 @@ if (x==5)
 
 startdoor()
 {
-startdoor = getent("startdoor", "targetname");
-
-wait 10;
-
-startdoor moveZ(-350, 5);
-
-wait 2;
+    startdoor = getent("startdoor", "targetname");
+    if(isdefined(level.auto_open_door) && level.auto_open_door) {
+        startdoor delete();
+    } else {
+        wait 10;
+        startdoor moveZ(-350, 5);
+    }
 }
 
 vipstuff()

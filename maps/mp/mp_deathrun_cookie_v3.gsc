@@ -87,12 +87,19 @@ self.welcomeused = 1;
 
 startdoor()
 {
-door = getent("startdoor", "targetname");
-wait 5;
-ambientPlay("cookie");
-wait 5;
-door moveZ (-230,2);
-iprintlnbold (" start doors opened. ");
+	door = getent("startdoor", "targetname");
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		door delete();
+		wait 5;
+		ambientPlay("cookie");
+	}
+	else {
+		wait 5;
+		ambientPlay("cookie");
+		wait 5;
+		door moveZ (-230,2);
+		iprintlnbold (" start doors opened. ");
+	}
 }
 
 trap1()

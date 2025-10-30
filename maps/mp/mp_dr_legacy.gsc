@@ -242,47 +242,11 @@ welcome()
 
 messages_iprintln()
 {  
-   level waittill("round_started");
-   wait 2;
-   for(;;)
-{  
-   wait 10;
- x = randomint(7);
-   if (x==0)
-{
-   iPrintln("^4Mapped ^7and ^4scripted ^7by ^4death ^7!");
-}
-
-   if (x==1)
-{
-   iPrintln("^4Feel free ^7to ^4report ^7any ^4bugs ^7to my ^4Discord account ^7: ^4death01_ !");
-}
-
-   if (x==2)
-{
-   iPrintLn("^4Map speed: ^7[^4"+getDvar("g_speed")+"^7]^7, ^7[^4"+getDvar("dr_jumpers_speed")+"^7]");
-}
-
-   if (x==3)
-{
-   iPrintLn("^7Thanks to ^4CM'Nobody ^7for ^4helping me ^7with the ^4bugs ^7!");
-}
-
-   if (x==4)
-{
-   iPrintLn("^4Map ^7is ^4playable ^7on ^4 190+ speed ^7!");
-}
-
-   if (x==5)
-{
-   iPrintLn("^4Map ^7has ^4 1 Jumper Secret ^7and ^4 1 Activator Secret ^7with ^4RTD ^7somewhere on ^4map ^7!");
-}
-
-   if (x==6)
-{
-   iPrintLn("^4Map ^7has ^4 8 End rooms^7(^4Bounce^7,^4Spinning^7,^4Parkour^7,^4Knife^7,^4Sniper^7,^4Old^7,^4Simon Says ^7and ^4Pure Strafe^7) !");
-}
-}
+    level waittill("round_started");
+    wait 2;
+    iPrintln("^4Mapped ^7and ^4scripted ^7by ^4death ^7!");
+    wait 2;
+    iPrintLn("^7Thanks to ^4CM'Nobody ^7for ^4helping me ^7with the ^4bugs ^7!");
 }
 
 dead_sound()

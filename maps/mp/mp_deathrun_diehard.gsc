@@ -4,7 +4,6 @@ main()
 	
 	
 	setExpFog(500, 2200, 0.81, 0.75, 0.63, 0.5);
-	Print3d( (0,0,0), "START", (1.0, 0.8, 0.5), 1000, 1000, 100000 );
 	
 	
 	precacheItem("m40a3_mp");
@@ -12,6 +11,7 @@ main()
 	precacheItem("ak74u_mp");
 	precacheItem("deserteaglegold_mp");	
 	
+	level.auto_open_door = false;
 	
 	ambientPlay("ambient1");
 	
@@ -78,7 +78,6 @@ main()
 	
 		
 	thread startdoor();
-	thread startdoor2();
 	thread trap_4squares();
 	thread elevator();
 	thread trap_pusher();
@@ -241,48 +240,49 @@ laser2 waittill("movedone");
 
 finaldoor()
 {
-door=getent("finaldoor","targetname");
-wall=getent("finaldoor_wall","targetname");
-level.classictrigger = getEnt("lastdoor", "targetname");
-level.classictrigger waittill("trigger");
-level.snipertrigger delete();
-level.jumpertrigger delete();
-iPrintLnBold("Final door is opening"); //Change the message if you want
-door movez(-200,3);
-wall movez(200,1);
-door waittill ("movedone");
-level.square delete();
-level.pushertrig delete();
-level.rollertrig delete();
-level.spiketrig delete();
-level.liftertrig delete();
-level.twistertrig delete();
-level.floortrig delete();
+	door=getent("finaldoor","targetname");
+	wall=getent("finaldoor_wall","targetname");
+	level.classictrigger = getEnt("lastdoor", "targetname");
+	level.classictrigger waittill("trigger");
+	level.snipertrigger delete();
+	level.jumpertrigger delete();
+	iPrintLnBold("Final door is opening"); //Change the message if you want
+	door movez(-200,3);
+	wall movez(200,1);
+	door waittill ("movedone");
+	level.square delete();
+	level.pushertrig delete();
+	level.rollertrig delete();
+	level.spiketrig delete();
+	level.liftertrig delete();
+	level.twistertrig delete();
+	level.floortrig delete();
 }
 
 startact()
 {
-door=getent("startact","targetname");
-wait(12);
-door movez(-200,3);
-door waittill ("movedone");
+	door=getent("startact","targetname");
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		door delete();
+	} else {
+		wait(12);
+		door movez(-200,3);
+	}
 }
 
 startdoor()
 {
-door=getent("startdoor","targetname");
-wait(12);
-iPrintLnBold("^2Door is opening"); //Change the message if you want
-door movez(-325,10,1,9);
-door waittill ("movedone");
-}
-
-startdoor2()
-{
-door2=getent("startdoor2","targetname");
-wait(12);
-door2 movez(-325,10,1,9);
-door2 waittill ("movedone");
+	door=getent("startdoor","targetname");
+	door2=getent("startdoor2","targetname");
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		door delete();
+		door2 delete();
+	} else {
+		wait(12);
+		iPrintLnBold("^2Door is opening"); //Change the message if you want
+		door movez(-325,10,1,9);
+		door2 movez(-325,10,1,9);
+	}
 }
 	
 rotateplanks_always()

@@ -469,18 +469,11 @@ knife()
 
 credits() 
 {
-    while(1) 
-	{
-        wait 20;
-        iPrintln("Map created by Eryk/lentava");
-		wait 1;
-		iPrintln("Join DC Discord server: https://discord.gg/y9UPKrm");
-        wait 25;
-		iPrintln("You^1Tube^7 channel: www.youtube.com/@cod4eryk");
-		wait 30;
-		iPrintln("Huge thanks to @death fixing room bug for me <3");
-		wait 30;
-        }
+	iPrintln("Map created by Eryk/lentava");
+	wait 2;
+	iPrintln("Join Velocity Discord server: https://discord.gg/7fWhErrSEa");
+	wait 15;
+	iPrintln("You^1Tube^7 channel: www.youtube.com/@cod4eryk");
 }
 
 gate()

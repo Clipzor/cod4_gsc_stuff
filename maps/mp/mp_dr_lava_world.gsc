@@ -433,55 +433,10 @@ iPrintln("^2>>^1Now playing: ^5TENVEY - Oceans^2<<");
 
 messages()
 {
-wait 10;
-iprintlnBold("^1Lava World");
-wait 5;
-iPrintln("^9Map made by ^0Dark^9STEP");
-for(;;)
-{
-wait 35;
-x=randomint(8);
-if (x==0)
-{
-iPrintln("^9Map made by ^0Dark^9STEP");
-}
-
-if (x==1)
-{
-iPrintln("^9You will have less time to find a safe zone if the speed is higher than 190!");
-}
-
-if (x==2)
-{
-iPrintln("^7There is ^11 ^7Secret on this Map! Try finding it ;)");
-}
-
-if (x==3)
-{
-iPrintln("^9From an original idea of ^0Dark^9STEP");
-}
-
-if (x==4)
-{
-iPrintln("^9Steam: ^0Dark^9STEP");
-}
-
-if (x==5)
-{
-iPrintln("^5Feel free to report bugs");
-}
-
-if (x==6)
-{
-iPrintln("^9Feel free to join Amnesia's Deathrun!");
-}
-
-if (x==7)
-{
-iPrintln("^9Discord: DarkSTEP#7390");
-}
-
-}
+	wait 10;
+	iprintlnBold("^1Lava World");
+	wait 5;
+	iPrintln("^9Map made by ^0Dark^9STEP");
 }
 
 games() 

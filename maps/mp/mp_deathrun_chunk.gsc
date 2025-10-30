@@ -26,6 +26,8 @@ main()
 
 	maps\mp\_load::main(); 
 	ambientPlay("gramatik");
+
+	level.auto_open_door = false;
 	
 	game["allies"] = "marines";
 	game["axis"] = "opfor";
@@ -87,15 +89,13 @@ main()
 //-----------------Start door & Credits-----------------//
 startdoor()
 {
-	level waittill( "round_started", player );
 	main_door = getent( "door1", "targetname" );
-	main_door moveZ (-450,5);	
-	wait 1;
-	iPrintLnBold("^8Map made by ^4Gabriel");
-	wait 1;
-	iprintln("^2Visit Darmuh's Youtube channel: ^8Darmuh");
-	wait 1;
-	iprintln("^5Thanks to Lossy & Triton for helping me out with all bugs ^6<3");
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		main_door delete();
+	} else {
+		level waittill( "round_started", player );
+		main_door moveZ (-450,5);
+	}
 }
 
 Credits()

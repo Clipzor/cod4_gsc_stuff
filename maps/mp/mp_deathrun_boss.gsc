@@ -23,7 +23,7 @@ main()
 {
 	//maps\mp\_load::main();
 	
-	
+	level.auto_open_door = false;
 	
 	game["allies"] = "sas";
 	game["axis"] = "russian";
@@ -32,10 +32,10 @@ main()
 	game["allies_soldiertype"] = "woodland";
 	game["axis_soldiertype"] = "woodland";
 	
-		setdvar( "r_specularcolorscale", "1" );
-		setdvar("r_glowbloomintensity0",".25");
-		setdvar("r_glowbloomintensity1",".25");
-		setdvar("r_glowskybleedintensity0",".3");
+	setdvar( "r_specularcolorscale", "1" );
+	setdvar("r_glowbloomintensity0",".25");
+	setdvar("r_glowbloomintensity1",".25");
+	setdvar("r_glowskybleedintensity0",".3");
 		
 /////////////		Teles etc..			\\\\\\\\\\\\\\\\\\
 
@@ -144,10 +144,13 @@ actitele1()
 startdoor()
 {
 	door=getent("spawndoor","targetname");
-	wait(8);
-	iPrintLnBold("^4Door is opening");
-	door movez(256,10,1,9);
-	door waittill ("movedone");
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		door delete();
+	} else {
+		wait(8);
+		iPrintLnBold("^4Door is opening");
+		door movez(256,10,1,9);
+	}
 }
 
 actidoor()

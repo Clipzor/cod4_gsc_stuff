@@ -879,18 +879,12 @@ xm_advertise()
 {
 	trig = getEnt("trig_adv", "targetname");
 	
+	trig setHintString("Press [USE] ^7To Advertise Clan");
 	while(1)
 	{
-	
-	trig setHintString("Press [USE] ^7To Advertise Clan");
-	
-	trig waittill("trigger", player);
-	iPrintLnBold("Welcome to ^6xM#DeathRun!");
-	wait 2;
-	iPrintLnBold("Discord: ^3https://discord.gg/Ky8g2Fp");
-	wait 2;
-	iPrintLnBold("Facebook: ^3Facebook.com/XMRaky");
-	wait 2;
+		trig waittill("trigger", player);
+		iPrintLnBold("Raky Is A Little Bitch");
+		wait 3;
 	}
 }
 

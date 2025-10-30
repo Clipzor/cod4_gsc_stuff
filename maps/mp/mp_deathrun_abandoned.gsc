@@ -4,24 +4,26 @@
 
 main()
 {
- maps\mp\_load::main();
- maps\mp\mp_deathrun_abandoned\_teleport::main();
-	
- game["allies"] = "marines";
- game["axis"] = "opfor";
- game["attackers"] = "axis";
- game["defenders"] = "allies";
- game["allies_soldiertype"] = "desert";
- game["axis_soldiertype"] = "desert";
- 
- addTriggerToList( "trig_trap1" );
- addTriggerToList( "trig_trap2" );
- addTriggerToList( "trig_trap3" );
- addTriggerToList( "trig_trap4" );
- addTriggerToList( "trig_trap5" );
- addTriggerToList( "trig_trap6" );
- addTriggerToList( "trig_trap7" );
- addTriggerToList( "trig_trap8" );
+    maps\mp\_load::main();
+    maps\mp\mp_deathrun_abandoned\_teleport::main();
+
+    level.auto_open_door = false;
+    
+    game["allies"] = "marines";
+    game["axis"] = "opfor";
+    game["attackers"] = "axis";
+    game["defenders"] = "allies";
+    game["allies_soldiertype"] = "desert";
+    game["axis_soldiertype"] = "desert";
+
+    addTriggerToList( "trig_trap1" );
+    addTriggerToList( "trig_trap2" );
+    addTriggerToList( "trig_trap3" );
+    addTriggerToList( "trig_trap4" );
+    addTriggerToList( "trig_trap5" );
+    addTriggerToList( "trig_trap6" );
+    addTriggerToList( "trig_trap7" );
+    addTriggerToList( "trig_trap8" );
  
     thread end();
     thread games();	
@@ -138,13 +140,18 @@ randomodabir()
 
 startdoor()
 {
-	door=getent("startdoor","targetname");
-	wait 15;
-	thread randomodabir();
-	iprintlnbold("^3Door is opening");
-	door movez(-180,5);
-	wait 4;
-	door delete();
+	door = getent("startdoor","targetname");
+    if(isdefined(level.auto_open_door) && level.auto_open_door) {
+        door delete();
+        thread randomodabir();
+    } else {
+        wait 15;
+        thread randomodabir();
+        iprintlnbold("^3Door is opening");
+        door movez(-180,5);
+        wait 4;
+        door delete();
+    }
 }
 
 lift()

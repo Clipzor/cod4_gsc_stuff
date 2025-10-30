@@ -278,25 +278,31 @@ messages()
 
 startdoor1()
 {
-   door = getent("startdoor1","targetname");
-{
-   wait 10;
-   door moveZ(400, 12);
-   iprintlnbold("^5Start door opened.");
-   wait 12;
-   door delete();
-}
+    door = getent("startdoor1","targetname");
+    if(isdefined(level.auto_open_door) && level.auto_open_door) {
+        door delete();
+    } else {
+        wait 10;
+        door moveZ(400, 12);
+        iprintlnbold("^5Start door opened.");
+        wait 12;
+        door delete();
+    }
 }
 
 startdoor2()
 {
    door = getent("startdoor2","targetname");
-{
-   wait 10;
-   door moveZ(400, 12);
-   wait 12;
-   door delete();
-}
+
+    if(isdefined(level.auto_open_door) && level.auto_open_door) {
+        door delete();
+    } else {
+        wait 10;
+        door moveZ(400, 12);
+        wait 12;
+        door delete();
+    }
+
 }
 
 movingplatform()

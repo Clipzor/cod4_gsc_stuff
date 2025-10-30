@@ -57,9 +57,7 @@ main()
 
 	thread startdoor();
     thread messages();
-    thread vc_logo_shoot();
     thread map_logo_shoot();
-    //thread vcfox_logo_shoot();
     thread platform_1();
     thread platform_2();
     thread platform_3();
@@ -268,18 +266,6 @@ ele_open()
 	player thread maps\mp\gametypes\_hud_message::oldNotifyMessage("^2u wot");
 }
 
-
-vc_logo_shoot()
-{
-	while(1)
-	{
-	trig = getEnt("trig_vc", "targetname");
-	trig waittill("trigger", player);
-	player iPrintLnBold("^3Vistic Discord: ^7discord.gg/JKwXV3h");
-	wait 0.1;
-	}
-}
-
 map_logo_shoot()
 {
 	while(1)
@@ -290,20 +276,6 @@ map_logo_shoot()
 	wait 0.1;
 	}
 }
-
-vcfox_logo_shoot()
-{
-
-	trig = getEnt("trig_logo_vcfox", "targetname");
-	trig waittill("trigger", player);
-	trig delete();
-	player iPrintLnBold("^7fine take it lmao");
-	wait 1;
-	player giveWeapon("artillery_mp");
-	player giveMaxAmmo("artillery_mp");
-	player switchToWeapon("artillery_mp");
-}
-
 
 platform_1()
 {

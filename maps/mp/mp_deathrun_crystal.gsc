@@ -197,12 +197,14 @@ wait 1;
 
 startdoor()
 {
-door = getent("door","targetname");
-{
-wait 15;
-door moveZ(144, 5);
-wait 2;
-}
+	door = getent("door","targetname");
+
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		door delete();
+	} else {
+		wait 15;
+		door moveZ(144, 5);
+	}
 }
 
 plat1()

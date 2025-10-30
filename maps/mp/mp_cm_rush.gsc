@@ -5,16 +5,18 @@
 #include common_scripts\utility;
 main()
 {
- maps\mp\_load::main();
+    maps\mp\_load::main();
 
- level.fire_tv = LoadFx("fire/tv_fire2");
+    level.fire_tv = LoadFx("fire/tv_fire2");
+    
+    level.auto_open_door = false;
 
- game["allies"] = "marines";
- game["axis"] = "opfor";
- game["attackers"] = "axis";
- game["defenders"] = "allies";
- game["allies_soldiertype"] = "desert";
- game["axis_soldiertype"]= "desert";
+    game["allies"] = "marines";
+    game["axis"] = "opfor";
+    game["attackers"] = "axis";
+    game["defenders"] = "allies";
+    game["allies_soldiertype"] = "desert";
+    game["axis_soldiertype"]= "desert";
  
 	setdvar("g_speed" ,"210");
 	setdvar("dr_jumpers_speed" ,"1.12");
@@ -390,25 +392,27 @@ randommusic()
 ///DOOR AT START
 startdoor()
 {
-   sdoor = getent("startdoor","targetname");
- 
-wait(5);
-	iPrintlnBold( "^6Floor is moving in..." );
-	iPrintlnBold( "^55" );
-	wait(1);
-	iPrintlnBold( "^54" );
-	wait(1);
-    iPrintlnBold( "^53" );
-	wait(1);
-    iPrintlnBold( "^52" );
-	wait(1);
-    iPrintlnBold( "^51" );
-	wait(1);
-    iPrintlnBold( "^6Good Luck!" );
-    
-  sdoor  moveY (-256,3,1,1);
+    sdoor = getent("startdoor","targetname");
+    if(isdefined(level.auto_open_door) && level.auto_open_door) {
+        sdoor delete();
+    } else {
+        wait(5);
+        iPrintlnBold( "^6Floor is moving in..." );
+        iPrintlnBold( "^55" );
+        wait(1);
+        iPrintlnBold( "^54" );
+        wait(1);
+        iPrintlnBold( "^53" );
+        wait(1);
+        iPrintlnBold( "^52" );
+        wait(1);
+        iPrintlnBold( "^51" );
+        wait(1);
+        iPrintlnBold( "^6Good Luck!" );
 
- }  
+        sdoor  moveY (-256,3,1,1);
+    }
+}  
 
 ///RTD SYSTEM
 RTDcheck()

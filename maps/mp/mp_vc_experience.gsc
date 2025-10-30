@@ -674,12 +674,7 @@ messages()
 
     wait 10;
      
-     iprintln ("^7Diskord ^5[CIR] eG0sxs#1823");
-
-    wait 10;
-     
-     iprintln ("^5Vistic ^7Discord: https://discord.gg/JKwXV3h ");
-    
+     iprintln ("^7Discord ^5[CIR] eG0sxs#1823");
 }
 
 vistic41()

@@ -87,14 +87,11 @@ prints()
     level waittill("round_started");
 
     msg_list = strtok("Welcome to ^5mp_dr_noob;Map by ^5|BH's|Kri26<3;Discord: ^5Krista26<3#2595; ^5Magik is noob",";");
-    while(1)
+
+    for(i=0;i<msg_list.size;i++)
     {
-        for(i=0;i<msg_list.size;i++)
-        {
-            iprintln("^1>>^7 "+msg_list[i]);
-            wait 10;
-        }
-        wait .1;
+        iprintln("^1>>^7 "+msg_list[i]);
+        wait 10;
     }
 }
 prints2()
