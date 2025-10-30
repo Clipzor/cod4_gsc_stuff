@@ -429,8 +429,6 @@ sniper()
     while(1)
     {
         level.sniper waittill("trigger",player);
-        //if(!plugins\_respect::roomCheck(player))
-        //   continue;
 
         if(!isdefined(level.sniper))
             return; 
@@ -480,8 +478,6 @@ jump()
     while(1)
     {
         level.jump waittill("trigger",player);
-        //if(!plugins\_respect::roomCheck(player))
-        //   continue;
 
         if(!isdefined(level.jump))
             return; 
@@ -533,8 +529,6 @@ knife()
     while(1)
     {
         level.knife waittill("trigger",player);
-        //if(!plugins\_respect::roomCheck(player))
-        //   continue;
 
         if(!isdefined(level.knife))
             return; 

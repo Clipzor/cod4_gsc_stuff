@@ -268,8 +268,7 @@ select()
         
         if( !isDefined( trig_room ) )
         return;
-//        if(!plugins\_respect::roomCheck(player))
-        continue;
+//        
         
 		player setOrigin(selecttp.origin);
 		player setPlayerAngles (selecttp.angles); 

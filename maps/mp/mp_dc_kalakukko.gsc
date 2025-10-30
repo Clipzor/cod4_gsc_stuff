@@ -19,14 +19,10 @@ main()
 	game["allies_soldiertype"] = "desert";
 	game["axis_soldiertype"] = "desert";
 
-	setdvar("bg_bobmax" , "0");
 	//setdvar("jump_slowdownenable" , "0");
 	setdvar("g_speed" , "210");
 	setdvar("bg_falldamageminheight" , "99998");
 	setdvar("bg_falldamagemaxheight" , "99999");
-	setdvar("r_specular" , "1");
-	setdvar("r_drawDecals" , "1");
-	setdvar("SetMoveSpeedScale" , "1.12");
 	
 	
 	thread sniper();

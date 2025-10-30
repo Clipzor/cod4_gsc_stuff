@@ -2,12 +2,10 @@
 #include common_scripts\utility;
 #include maps\mp\gametypes\_hud_util;
 
-
 main()
 {
-    //maps\mp\mp_dr_xmdc_fx::main();
+    //maps\mp\mp_dr_schizo_fx::main();
     maps\mp\_load::main();
-    //thread maps\saveload::main();
 
     game["allies"] = "sas";
     game["axis"] = "russian";
@@ -16,30 +14,37 @@ main()
     game["allies_soldiertype"] = "woodland";
     game["axis_soldiertype"] = "woodland";
 
-    SetDvar("bg_falldamagemaxheight", 99999);
-    SetDvar("bg_falldamageminheight", 99998);
-    SetDvar("g_speed", 210);
-    SetDvar("jump_slowdownenable", 0);
+    //SetDvar("bg_falldamagemaxheight", 99999);
+    //SetDvar("bg_falldamageminheight", 99998);
+    //SetDvar("g_speed", 210);
+    //SetDvar("jump_slowdownenable", 0);
 
-    precacheitem("h1_ringsword_mp");
-    precacheitem("t6_ballista_mp");
+    level.firstenter = true;
 
-    addTriggerToList( "actitrap1" );
-    addTriggerToList( "actitrap2" );
-    addTriggerToList( "actitrap3" );
+    addTriggerToList( "acti1" );
+    addTriggerToList( "acti2" );
+    addTriggerToList( "acti3" );
 
-    thread SpinningTrapDC();
-    thread SpinningTrap2();
+    thread teleport1();
+    thread teleport2();
+    thread teleport3();
+    thread teleport4();
+    thread teleport5();
+    thread teleport6();
+    thread teleport7();
+    thread teleport8();
+    thread credits();
+    thread music();
+    thread secretsong();
+    thread trap1();
+    thread trap2();
+    thread trap3();
+    thread sniper();
+    thread rifle();
     thread endmap();
     thread antiglitcher();
-    thread knife();
-    thread select();
-    thread sniper();
-    thread music();
-    thread credit();
-    thread DeleteLastTrap();
-    thread SpinningTrap2_2();
-    thread SpinningTrapXM();
+    thread teleportacti();
+    //thread select();
 }
 
 antiglitcher()
@@ -94,7 +99,7 @@ RoomCountDown(text, duration, extra)
 waitdead()
 {
     activator = GetActivator();
-    level.trigger_knife = getent("kniferoomtrigger","targetname");
+    level.trigger_knife = getent("rifleroomtrigger","targetname");
     level.trigger_scope = getent("sniperroomtrigger","targetname");
     level.trigger_knife thread maps\mp\_utility::triggerOff();
     level.trigger_scope thread maps\mp\_utility::triggerOff();
@@ -133,35 +138,6 @@ endmap()
     firstPlace.x = -500;
     wait 7;
     firstPlace destroy(); 
-}
-
-select() 
-{
-level.room_trig = getEnt( "roomselecttrigger", "targetname");
-room = getEnt( "endroomorigin", "targetname" );
-level.room_trig setHintString ("Press ^3[&&1]^7 to enter room selection");
-
-for(;;)
-{
-level.room_trig waittill( "trigger", player );
-///////RESPECT SCRIPT/////////////////////////
-
-///////RESPECT SCRIPT END/////////////////////////
-if( !isDefined( level.room_trig ) )
-return;
-acti = GetActivator();
-if(!isdefined(level.firstenter))
-{
-    acti freezeControls(1);
-    acti iPrintLnBold("^3Jumper ^7is picking a ^3room ^7so don't ^3move^7!");
-    level notify("acti_antiglitch");
-    level.firstenter = false;
-}
-player SetPlayerAngles( room.angles );
-player setOrigin( room.origin );
-player TakeAllWeapons();
-player antiglitcher();
-}
 }
 
 fightHUD(room, jumper, activ)
@@ -230,7 +206,6 @@ removeTextActivator()
         self.hud_textacti destroy();
     }
 } 
-
     
 GetActivator()
 {
@@ -265,28 +240,146 @@ createHUD( x, y, alignX, alignY, alpha, font, fontScale )
     return hud;
 }
 
-SpinningTrapDC()
+select() 
 {
-trig = getEnt("actitrap1","targetname");
+level.room_trig = getEnt( "roomselecttrigger", "targetname");
+room = getEnt( "endroomorigin", "targetname" );
+level.room_trig setHintString ("Press ^3[&&1]^7 to enter room selection");
 
-brush = getEnt("trapdc","targetname");
-
-trig waittill("trigger", player);
-
-trig delete();
 for(;;)
-        {
-        wait 1;
-        brush rotateRoll (-360, 3, 0, 0);
-        wait 4;
-        }
+{
+level.room_trig waittill( "trigger", player );
+///////RESPECT SCRIPT END/////////////////////////
+if( !isDefined( level.room_trig ) )
+return;
+acti = GetActivator();
+if(level.firstenter == true)
+{
+    acti freezeControls(1);
+    acti iPrintLnBold("^3Jumper ^7is picking a ^3room ^7so don't ^3move^7!");
+    level notify("acti_antiglitch");
+    level.firstenter = false;
+}
+player SetPlayerAngles( room.angles );
+player setOrigin( room.origin );
+player TakeAllWeapons();
+player antiglitcher();
+}
 }
 
-SpinningTrapXM()
+teleport1()
 {
-trig = getEnt("actitrap1","targetname");
+    trig = getEnt("triggertp1", "targetname");
+    tele = getEnt("origintp1", "targetname");
+    for(;;)
+    {
+        trig waittill("trigger", player);
+        player setOrigin(tele.origin);
+        player setPlayerAngles(tele.angles);
+    }
+}
 
-brush = getEnt("trapxm","targetname");
+teleport2()
+{
+    trig = getEnt("triggertp2", "targetname");
+    tele = getEnt("origintp2", "targetname");
+    for(;;)
+    {
+        trig waittill("trigger", player);
+        player setOrigin(tele.origin);
+        player setPlayerAngles(tele.angles);
+    }
+}
+
+teleport3()
+{
+    trig = getEnt("triggertp3", "targetname");
+    tele = getEnt("origintp3", "targetname");
+    for(;;)
+    {
+        trig waittill("trigger", player);
+        player setOrigin(tele.origin);
+        player setPlayerAngles(tele.angles);
+    }
+}
+
+teleport4()
+{
+    trig = getEnt("triggertp4", "targetname");
+    tele = getEnt("origintp4", "targetname");
+    for(;;)
+    {
+        trig waittill("trigger", player);
+        player setOrigin(tele.origin);
+        player setPlayerAngles(tele.angles);
+    }
+}
+
+teleport5()
+{
+    trig = getEnt("triggertp5", "targetname");
+    tele = getEnt("origintp5", "targetname");
+    for(;;)
+    {
+        trig waittill("trigger", player);
+        player setOrigin(tele.origin);
+        player setPlayerAngles(tele.angles);
+    }
+}
+
+teleport6()
+{
+    trig = getEnt("triggertp6", "targetname");
+    tele = getEnt("origintp6", "targetname");
+    for(;;)
+    {
+        trig waittill("trigger", player);
+        player setOrigin(tele.origin);
+        player setPlayerAngles(tele.angles);
+    }
+}
+
+teleport7()
+{
+    trig = getEnt("triggertp7", "targetname");
+    tele = getEnt("origintp7", "targetname");
+    for(;;)
+    {
+        trig waittill("trigger", player);
+        player setOrigin(tele.origin);
+        player setPlayerAngles(tele.angles);
+    }
+}
+
+teleport8()
+{
+    trig = getEnt("triggertp8", "targetname");
+    tele = getEnt("origintp8", "targetname");
+    for(;;)
+    {
+        trig waittill("trigger", player);
+        player setOrigin(tele.origin);
+        player setPlayerAngles(tele.angles);
+    }
+}
+
+teleportacti()
+{
+    trig = getEnt("actitptrigger", "targetname");
+    tele = getEnt("actitporigin", "targetname");
+    for(;;)
+    {
+        trig waittill("trigger", player);
+        player setOrigin(tele.origin);
+        player setPlayerAngles(tele.angles);
+    }
+}
+
+Trap1()
+{
+trig = getEnt("acti1","targetname");
+
+brush = getEnt("trap1","targetname");
 
 trig waittill("trigger", player);
 
@@ -299,51 +392,36 @@ for(;;)
         }
 }
 
-SpinningTrap2_2()
+Trap2()
 {
-trig = getEnt("actitrap2","targetname");
+   brush = getent("trap2", "targetname");
+   trig = getent("acti2", "targetname");
+   trig waittill ("trigger");
 
-brush = getEnt("trap2_2","targetname");
-
-trig waittill("trigger", player);
-
-trig delete();
-for(;;)
-        {
-        wait 1;
-        brush rotatePitch (-360, 3, 0, 0);
-        wait 4;
-        }
+   trig delete();
+   for(;;)
+    {
+    brush moveY(170,3);
+    wait 3;
+    brush moveY(-170,3);
+    wait 3;
+    }
 }
 
-SpinningTrap2()
+trap3()
 {
-trig = getEnt("actitrap2","targetname");
+   brush = getent("trap3", "targetname");
+   trig = getent("acti3", "targetname");
+   trig waittill ("trigger");
 
-brush = getEnt("trap2","targetname");
-
-trig waittill("trigger", player);
-
-trig delete();
-for(;;)
-        {
-        wait 1;
-        brush rotatePitch (-360, 3, 0, 0);
-        wait 4;
-        }
-}
-
-DeleteLastTrap()
-{
-	trig = getEnt("actitrap3","targetname");
-
-    brush = getEnt("trap3","targetname");
-
-	trig waittill("trigger", player);
-
-	trig delete();
-    
-	brush delete();
+   trig delete();
+   for(;;)
+    {
+    brush moveZ(170,3);
+    wait 3;
+    brush moveZ(-170,3);
+    wait 3;
+    }
 }
 
 sniper()
@@ -369,16 +447,16 @@ sniper()
         activator setPlayerAngles (actisc.angles);
         player takeAllWeapons();
         activator takeAllWeapons();
-        player giveWeapon("t6_ballista_mp");
-        activator giveWeapon("t6_ballista_mp");
-        player giveMaxAmmo("t6_ballista_mp");
-        activator giveMaxAmmo("t6_ballista_mp");
+        player giveWeapon("remmington700_mp");
+        activator giveWeapon("remmington700_mp");
+        player giveMaxAmmo("remmington700_mp");
+        activator giveMaxAmmo("remmington700_mp");
         player giveWeapon("m40a3_mp");
         activator giveWeapon("m40a3_mp");
         player giveMaxAmmo("m40a3_mp");
         activator giveMaxAmmo("m40a3_mp");
-        player switchToWeapon("t6_ballista_mp");
-        activator switchToWeapon("t6_ballista_mp");   
+        player switchToWeapon("m40a3_mp");
+        activator switchToWeapon("m40a3_mp");   
         player.maxhealth = 100;
         player.health = player.maxhealth;
 
@@ -387,33 +465,33 @@ sniper()
     }
 }
 
-knife()
+rifle()
 {
-   level.trigger_knife = getEnt ("kniferoomtrigger", "targetname");
-   level.trigger_knife setHintString("Press ^3[&&1]^7 to enter knife room");
-    jumperk = getEnt ("knifejumperorigin", "targetname");
-    actik = getEnt ("knifeactiorigin", "targetname");
+   level.trigger_knife = getEnt ("rifleroomtrigger", "targetname");
+   level.trigger_knife setHintString("Press ^3[&&1]^7 to enter rifle room");
+    jumperk = getEnt ("riflejumperorigin", "targetname");
+    actik = getEnt ("rifleactiorigin", "targetname");
 
    for(;;)
     {
         level.trigger_knife waittill ("trigger", player);
 
-        iPrintLnBold("^6 " + player.name + " ^7Entered The ^6Knife ^7Room^6!^7");
+        iPrintLnBold("^6 " + player.name + " ^7Entered The ^6Rifle ^7Room^6!^7");
         activator = getactivator();
         player thread waitdead();
         thread fightHUD("Knife Room", player, activator);
-        activator thread RoomCountDown("^3Knife each other !", 3, 0);
-        player thread RoomCountDown("^3Knife each other !", 3, 0);
+        activator thread RoomCountDown("^3Kill each other !", 3, 0);
+        player thread RoomCountDown("^3Kill each other !", 3, 0);
         player setOrigin (jumperk.origin);
         player setPlayerAngles (jumperk.angles);
         activator setOrigin (actik.origin);
         activator setPlayerAngles (actik.angles);
         player takeAllWeapons();
         activator takeAllWeapons();
-        player giveWeapon("h1_ringsword_mp");
-        activator giveWeapon("h1_ringsword_mp");
-        player switchToWeapon("h1_ringsword_mp");
-        activator switchToWeapon("h1_ringsword_mp");
+        player giveWeapon("ak47_mp");
+        activator giveWeapon("ak47_mp");
+        player switchToWeapon("ak47_mp");
+        activator switchToWeapon("ak47_mp");
         player.maxhealth = 100;
         player.health = player.maxhealth;
         
@@ -432,41 +510,57 @@ music()
       case 0:
             AmbientStop(2);
      AmbientPlay( "song1" );
-     iPrintLN("Song name: SubFocus - Illuminate");
+     iPrintLN("Song name: i was only temporary - my head is empty");
      break;
       case 1:
             AmbientStop(2);
      AmbientPlay( "song2" );
-     iPrintLN("Song name: LJP2900 - POCKET FULL OF CHEESE");
+     iPrintLN("Song name: Poison Tree - Grouper");
      break;
       case 2:
             AmbientStop(2);
      AmbientPlay( "song3" );
-     iPrintLN("Song name: Vieze Asbak - Friesenjung (Klingelton)");
+     iPrintLN("Song name: A1-It's just a burning memory - The Caretaker");
      break;
       case 3:
             AmbientStop(2);
      AmbientPlay( "song4" );
-     iPrintLN("Song name: Dual Damage - Burning Down");
+     iPrintLN("Song name: Cancel - REDCHINAWAVE");
+     break;
+     case 4:
+            AmbientStop(2);
+     AmbientPlay( "song5" );
+     iPrintLN("Song name: Gans Gewoen - Erwin");
      break; 
     }
 }
-credit()
+
+secretsong()
+{
+    trig = getent("triggersecretsong" , "targetname");
+    trig setHintString("Play a happy song");
+    trig waittill ("trigger", player);
+    iPrintln("Song Name: Gans Gewoen - Erwin");
+          AmbientStop(2);
+    AmbientPlay ( "song5" );
+//    break;
+    trig delete();
+}
+
+credits()
 {
   while(1) 
     {
         wait 10;
         iPrintln("^3M^7ap created by Flub");
-        wait 5;
-        iPrintln("Special thanks to:");
-        wait 0.5;
-        iPrintln("^3C^7lippy for improvements and help");
-        wait 0.5;
-        iPrintln("^3S^7loth for custom weapons and help");
+        wait 10;
+        iPrintln("Special thanks to the people in my walls and... :");
         wait 0.5;
         iPrintln("^3E^7ryk | ^3L^7entava for scripting & mapping help");
         wait 0.5;
-        iPrintln("^3CAR ^7Druglord for helping");
+        iPrintln("^3S^7loth for custom weapons and mapping help");
+        wait 0.5;
+        iPrintln("^3C^7lippy for being my Microsoft Helpdesk");
         wait 30;
     }
 }
