@@ -201,22 +201,25 @@ if (x==5)
 //DOOR AT START
 startdoor()
 {
-   fences = getent("startdoor","targetname");
- 
-  fences show();
-  fences solid();
+    fences = getent("startdoor","targetname");
 
-wait(6);
-	iPrintln( "^1Door ^0is removing in..." );
-	iPrintln( "^13" );
-	wait(1);
-	iPrintln( "^12" );
-	wait(1);
-	iPrintln( "^11" );
-	wait(1);
-  fences hide();
-  fences notsolid();
+    if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		fences delete();
+	} else {
+        fences show();
+        fences solid();
 
+        wait(6);
+        iPrintln( "^1Door ^0is removing in..." );
+        iPrintln( "^13" );
+        wait(1);
+        iPrintln( "^12" );
+        wait(1);
+        iPrintln( "^11" );
+        wait(1);
+        fences hide();
+        fences notsolid();
+	}
 }  
 
 ///RANDOM MUSIC

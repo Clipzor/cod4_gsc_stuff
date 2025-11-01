@@ -163,15 +163,15 @@ while(1)
 	}
 }	
 
-startdoor()
-	{
+startdoor() {
 	startdoor = getEnt ("startdoor","targetname");
-
-
-	level waittill( "round_started" );
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		startdoor delete();
+	} else {
+		level waittill( "round_started" );
 		wait 4;
 		startdoor moveZ (-251, 5, 1);
-
+	}
 }	
 
 music()

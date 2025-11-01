@@ -30,7 +30,7 @@ main()
     game["allies_soldiertype"] = "woodland";
     game["axis_soldiertype"] = "woodland";
 
-    level.auto_open_door = false;
+    
 
     ambientplay("holyshiet");
 
@@ -95,21 +95,6 @@ shiet_startdoor()
         wait 5;
         door delete();
     }
-
-    hud_clock = NewHudElem();
-    hud_clock.alignX = "center";
-    hud_clock.alignY = "middle";
-    hud_clock.horzalign = "center";
-    hud_clock.vertalign = "middle";
-    hud_clock.alpha = 1;
-    hud_clock.x = 0;
-    hud_clock.y = 150;
-    hud_clock.font = "objective";
-    hud_clock.fontscale = 1.8;
-    hud_clock.glowalpha = 1;
-    hud_clock.glowcolor = (1,0,1);
-    hud_clock.label = &"Map by ^1VC' Blade";
-    hud_clock SetPulseFX( 40, 5400, 200 );
 }
 
 logo()

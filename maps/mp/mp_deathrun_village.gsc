@@ -52,19 +52,8 @@ maps\mp\_load::main();
 
 creds()
 {
-    for(;;)
-    {
-        wait 40;
-        iPrintln("Map made by IceOps|^6Synd!");
-	    wait 40;
-		iPrintln("^4Thank you Unnamedplayer and ^1red^7nose!");
-		wait 10;
-		iPrintln("^5BETA ^6Testers: ^9Unnamedplayer, and ^1$car!");
-		wait 5;
-		iPrintln("Please ^9report ^7any ^1bugs.");
-		wait 1;
-		iPrintln("^3xfire: Synd555");
-    }
+    iPrintln("Map made by ^6Synd!");
+	iPrintln("^4Thank you Unnamedplayer and ^1red^7nose!");
 }
 
 

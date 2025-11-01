@@ -267,10 +267,14 @@ v9x7()
 startdoor()
 {
 	door = getEnt("startdoor","targetname");
-	level waittill("round_started");
-	wait 7;
-	IPrintLnBold("^6Start Door Opened!");
-	door Delete();
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		door delete();
+	} else {
+		level waittill("round_started");
+		wait 7;
+		IPrintLnBold("^6Start Door Opened!");
+		door Delete();
+	}
 }
 
 teleport1()

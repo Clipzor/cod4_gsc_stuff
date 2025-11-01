@@ -27,7 +27,7 @@ main()
 	maps\mp\_load::main(); 
 	ambientPlay("gramatik");
 
-	level.auto_open_door = false;
+	
 	
 	game["allies"] = "marines";
 	game["axis"] = "opfor";
@@ -100,44 +100,7 @@ startdoor()
 
 Credits()
 {
-	if( isDefined( self.logoText ) )
-	self.logoText destroy();
-
-	self.logoText = newHudElem();
-	self.logoText.y = 10;
-	self.logoText.alignX = "center";
-	self.logoText.alignY = "middle";
-	self.logoText.horzAlign = "center_safearea";
-
-	self.logoText.alpha = 0;
-	self.logoText.sort = -3;
-	self.logoText.fontScale = 1.6;
-	self.logoText.archieved = true;
-
-	for(;;)
-	{
-		self.logoText fadeOverTime(1);
-		self.logoText.alpha = 1;
-		self.logoText setText("^7>>^7Map By: ^9Gabriel^7<<");
-		wait 8;
-		self.logoText fadeOverTime(1);
-		self.logoText.alpha = 0;
-		wait 1;
-		self.logoText fadeOverTime(1);
-		self.logoText.alpha = 1;
-		self.logoText setText("^7>>^3www.Raid-gaming.net^7<<");
-		wait 8;
-		self.logoText fadeOverTime(1);
-		self.logoText.alpha = 0;
-		wait 1;
-		self.logoText fadeOverTime(1);
-		self.logoText.alpha = 1;
-		self.logoText setText("^7>>^7Report bugs to xFire & Steam: ^9epikxgamer^7<<");
-		wait 8;
-		self.logoText fadeOverTime(1);
-		self.logoText.alpha = 0;
-		wait 1;
-	}
+	iprintln("^7>>^7Map By: ^9Gabriel^7<<");
 }
 //-----------------Traps-----------------//
 

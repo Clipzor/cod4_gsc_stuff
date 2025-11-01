@@ -71,13 +71,15 @@ wait 1;
 
 startdoors()
 {
-door = getent("startdoor","targetname");
-{
-wait 10;
-door moveZ (-280, 1);
-iprintlnbold("^2Start door is opening");
-}
+	door = getent("startdoor","targetname");
 
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		door delete();
+	} else {
+		wait 10;
+		door moveZ (-280, 1);
+		iprintlnbold("^2Start door is opening");
+	}
 }
 
 song1()

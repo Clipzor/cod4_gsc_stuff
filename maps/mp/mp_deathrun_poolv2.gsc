@@ -146,11 +146,16 @@ startdoor()
 {
    door = getent("startdoor","targetname");
 
-   wait 8;
-   door moveZ(256, 9);
-   iprintlnbold("^4Start door opened.");
-   wait 6;
-   door delete();
+   if(isdefined(level.auto_open_door) && level.auto_open_door) {
+      door delete();
+	} else {
+      wait 8;
+      door moveZ(256, 9);
+      iprintlnbold("^4Start door opened.");
+      wait 6;
+      door delete();
+	}
+
 }
 
 finishdoor()

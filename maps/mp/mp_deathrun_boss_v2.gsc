@@ -36,7 +36,7 @@ main()
 	precacheItem ("colt45_silencer_mp");
 	precacheItem ("winchester1200_mp");
 
-	level.auto_open_door = false;
+	
 	
 	game["allies"] = "sas";
 	game["axis"] = "russian";

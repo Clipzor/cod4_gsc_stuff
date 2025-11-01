@@ -14,7 +14,7 @@ main()
 	addTriggerToList( "trig_trap10" );
 	addTriggerToList( "trig_trap11" );
 
-	level.auto_open_door = false;
+	
 	
 	maps\mp\_load::main();
 	maps\mp\_teleport1::main();

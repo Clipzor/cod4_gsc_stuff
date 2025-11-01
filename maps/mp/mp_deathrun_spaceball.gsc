@@ -20,7 +20,6 @@ ambientPlay("fullmap");
  thread teleport8();
  thread teleport9();
  thread teleport10();
- thread start();
  thread creator();
  thread move11();
  thread trap1();
@@ -198,23 +197,10 @@ teleport10()
       }
 }
 
-start()
-{
-wait(5);
-thread braxi\_mod::drawInformation( 800, 0.8, 1, "^5SPACEBALL" );
-wait(4);
-thread braxi\_mod::drawInformation( 800, 0.8, 1, "^4Map by ^5Madlion ^4xFire: ^5madlion3" );
-wait(4);
-thread braxi\_mod::drawInformation( 800, 0.8, 1, "^5Let's go" );
-}
 
 creator()
 {
-while( 1 )
-{
-iPrintLn( "^5Map made by ^4MadLion ^5xfire: ^4madlion3");
-wait(60);
-}
+    iPrintLn( "^5Map made by ^4MadLion ^5xfire: ^4madlion3");
 }
 
 move11()

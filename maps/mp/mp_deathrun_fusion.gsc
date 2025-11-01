@@ -79,7 +79,7 @@ main()
 	thread createRandomOrigin();
 	thread createRandomOriginMoveTo();
 	thread soulSpawn();
-	thread demonotify();
+	thread crediters();
 	
 	////////endgames/////////////
 	/* thread aiminit();
@@ -93,53 +93,9 @@ main()
 
 ///////////////////////////////////map-scripts////////////////////////////////////////
 
-demonotify()
+crediters()
 {
-	if( isDefined( self.logoText ) )
-		self.logoText destroy();
-
-	self.logoText = newHudElem();
-	self.logoText.y = 10;
-	self.logoText.alignX = "center";
-	self.logoText.alignY = "middle";
-	self.logoText.horzAlign = "center_safearea";
-
-	self.logoText.alpha = 0;
-	self.logoText.sort = -3;
-	self.logoText.fontScale = 1.6;
-	self.logoText.archieved = true;
-
-	for(;;)
-	{
-		self.logoText fadeOverTime(1);
-		self.logoText.alpha = 1;
-		self.logoText setText("^2---^1Map Made By Wingzor^2---");
-		wait 5;
-		self.logoText fadeOverTime(1);
-		self.logoText.alpha = 0;
-		wait 1;
-		self.logoText fadeOverTime(1);
-		self.logoText.alpha = 1;
-		self.logoText setText("^2---^7BETA ^11.02^7 Report bugs please^2---");
-		wait 5;
-		self.logoText fadeOverTime(1);
-		self.logoText.alpha = 0;
-		wait 1;
-		self.logoText fadeOverTime(1);
-		self.logoText.alpha = 1;
-		self.logoText setText("^2---^1Xfire^2=^1evilphinal^2---");
-		wait 5;
-		self.logoText fadeOverTime(1);
-		self.logoText.alpha = 0;
-		wait 1;
-		self.logoText fadeOverTime(1);
-		self.logoText.alpha = 1;
-		self.logoText setText("^2---^1REMEMBER THIS IS JUST A PUBLIC BETA^2---");
-		wait 5;
-		self.logoText fadeOverTime(1);
-		self.logoText.alpha = 0;
-		wait 1;
-	}
+	iprintln("^2---^1Map Made By Wingzor^2---");
 }
 
 scopegame()
@@ -183,15 +139,6 @@ level.snipertrigger = getEnt("trigger_gamedoor_sniper", "targetname");
 	}
 }
 
-
-creatorcredit()
-{
-wait(1);
-thread drawInformation( 800, 0.8, 1, "Fusion" );
-wait(4);
-thread drawInformation( 800, 0.8, 1, "© Wingzor Xfire:Evilphinal" );
-wait(4);
-}
 
 drawInformation( start_offset, movetime, mult, text )
 {
@@ -450,7 +397,6 @@ introbase()
 					players[i] FreezeControls( true );			
 		}
 		AmbientPlay("zor");
-		thread creatorcredit();
 		thread startSpecialintro();
 		wait(15);
 			if( level.freeRun )

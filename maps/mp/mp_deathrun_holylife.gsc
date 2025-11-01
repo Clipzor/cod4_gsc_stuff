@@ -68,21 +68,8 @@ addTriggerToList( name )
 
 credits()
 {
-     for(;;)
-	 {
-	 iPrintLn ("^3>>^1Map By ^2Lifezor");
-	 wait 7;
-	 iPrintLn ("^3>>^1Youtube ^2http://www.youtube.com/IH8LifesSucks");
-	 wait 7;
-	 iPrintLn ("^3>>^1Xfire ^2xhdkillerhdx");
-	 wait 7;
-	 iPrintLn ("^3>>Song Name: Excision & Downlink - Swerve (Specimen A Remix)");
-	 wait 7;
-	 iPrintLn ("^3>>^1Thanks to ^2Sheep Wizard and Wingzor^6<3^1!");
-	 wait 7;
-	 iPrintLn ("^3>>^1Thanks for playing ^2mp_deathrun_holylife");
-	 wait 14;
-	 }
+	iPrintLn ("^3>>^1Map By ^2Lifezor");
+	iPrintLn ("^3>>^1Thanks to ^2Sheep Wizard and Wingzor^6<3^1!");
 }
 
 

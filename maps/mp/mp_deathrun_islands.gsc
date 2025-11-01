@@ -1,7 +1,6 @@
 /*
 Map made by Sheep Wizard
 youtube: http://www.youtube.com/user/paap15
-xfire: paap15
 */
 main()
 {
@@ -247,22 +246,7 @@ brush delete();
 
 credits()
 {
-for(;;)
-	 {
-	 iPrintLn ("^1>>^3Map By Sheep Wizard");
-	 wait 7;
-	 iPrintLn ("^1>>^3Youtube: paap15");
-	 wait 7;
-	 iPrintLn ("^1>>^3Xfire: paap15");
-	 wait 7;
-	 iPrintLn ("^1>>^3Thanks to Darmuh + Blade");
-	 wait 7;
-	 iPrintLn ("^1>>^3Thanks to FeZe Dench (Rickster) for helping test map");
-	 wait 7;
-	 iPrintLn ("^1>>^3Thanks for playing ^2mp_deathrun_islands, ^3Hope you enjoy!");
-	 wait 7;
-	 iPrintLn ("^1>>^3Thanks to FeZe Dench (Rickster) for helping test map");
-	 }
+	iPrintLn ("^1>>^3Map By Sheep Wizard");
 }
 
 beta() 

@@ -94,36 +94,24 @@ addTriggerToList( name )
 //Startdoor
 startdoor()
 {
-   trigger = getEnt("startdoor_trig", "targetname");
-   door = getEnt("startdoor", "targetname");
-   
-   trigger setHintString("^1Press ^7F ^1!");
-   trigger waittill("trigger");
-   
-   iPrintLnBold("^1Startdoor ^7will open in ^15 ^7Seconds");
-   trigger delete();
-   wait (5);
-   
-   door movez(-120,3);
-   wait 1;
-   door delete();
-   
-  hud_clock = NewHudElem();
-	hud_clock.alignX = "center";
-	hud_clock.alignY = "middle";
-	hud_clock.horzalign = "center";
-	hud_clock.vertalign = "middle";
-	hud_clock.alpha = 1;
-	hud_clock.x = 0;
-	hud_clock.y = 0;
-	hud_clock.font = "objective";
-	hud_clock.fontscale = 2;
-	hud_clock.glowalpha = 5;
-	hud_clock.glowcolor = (0.0,0.8,0.0);
-	hud_clock.label = &"^1Map by ^7VC' Blade";
-                   hud_clock SetPulseFX( 40, 5400, 200 );
-                   wait 3;
+  trigger = getEnt("startdoor_trig", "targetname");
+  door = getEnt("startdoor", "targetname");
+  if(isdefined(level.auto_open_door) && level.auto_open_door) {
+    trigger delete();
+    door delete();
+  } else {
+    trigger setHintString("^1Press ^7F ^1!");
+    trigger waittill("trigger");
+    
+    iPrintLnBold("^1Startdoor ^7will open in ^15 ^7Seconds");
+    trigger delete();
+    wait (5);
+    
+    door movez(-120,3);
+    wait 1;
+    door delete();
   }
+}
   
 //Traps
 trap1()

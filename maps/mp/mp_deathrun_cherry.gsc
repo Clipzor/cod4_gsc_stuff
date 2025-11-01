@@ -20,7 +20,7 @@ main()
 	precacheModel( "playermodel_terminator" );
 	precacheModel( "playermodel_aot_rosco_00_light" );
 
-	level.auto_open_door = false;
+	
 
 	game["allies"] = "marines";
 	game["axis"] = "opfor";

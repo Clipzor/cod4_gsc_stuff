@@ -835,8 +835,12 @@ x = randomint(4);
 startdoor()
 {
 	door=getent("startdoor","targetname");
-	wait 20;
-	door delete();
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		door delete();
+	} else {
+		wait 20;
+		door delete();
+	}
 }
 
 secret1()

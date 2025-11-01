@@ -113,15 +113,20 @@ on_start()
 startdoor(object_entity)
 {
 	door = getEnt(object_entity, "targetname");
+
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		door delete();
+	} else {
+		wait 10;
+		door moveZ(-192, 6, 5, 1);
+	}
 	
-	wait 10;
-	
+	wait 2;
 	iPrintLn("> Map by ^3Icomar");
-	door moveZ(-192, 6, 5, 1);
-	wait 6;
+	wait 4;
 	
 	iPrintLn("> Special thanks to ^3Arfy");
-	wait 6;
+	wait 4;
 	
 	iPrintLn("> Big thanks to ^3Blade ^7for the sick teleport FX");
 }

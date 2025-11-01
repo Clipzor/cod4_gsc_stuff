@@ -45,7 +45,6 @@ precacheShader( "white" );
  thread mus3();
  thread finalroom2();
  thread creator();
- thread printCredits();
  thread jumper();
  thread musictrig();
  thread initMusic();
@@ -851,84 +850,10 @@ jumpheight( strenght )
 	}
 }
 
-creator1()
-{
-players = getentarray("player", "classname");
-for(i=0;i<=players.size;i++)
-            {
-            wait 0.1;
-                {	
-self.hud_music = [];
-i = 0;	
-	self.hud_music[i] = braxi\_mod::addTextHud( self, 270, 360, 1, "left", "top", 1.6 );
-	self.hud_music[i].sort = 885;
-	self.hud_music[i] setText( "^3Map made by ^3MadLion" );
-}
-}
-}
-
 creator()
 {
-wait(5);
-thread braxi\_mod::drawInformation( 800, 0.8, 1, "SHADOW" );
-while( 1 )
-{
-self setClientDvar( "r_specular 1", "1" ); 
-iPrintLn("^4Map made by ^3MadLion");
-wait(60);
-iPrintLn("^4xfire: ^3madlion3");
+    iPrintLn("^4Map made by ^3MadLion");
 }
-}
-
-printCredits()
-    {
-            if( isDefined( self.logoText ) )
-                    self.logoText destroy();
-     
-            self.logoText = newHudElem();
-            self.logoText.y = 10;
-            self.logoText.alignX = "center";
-            self.logoText.alignY = "middle";
-            self.logoText.horzAlign = "center_safearea";
-     
-            self.logoText.alpha = 0;
-            self.logoText.sort = -3;
-            self.logoText.fontScale = 1.6;
-            self.logoText.archieved = true;
-     
-            for(;;)
-            {
-                    self.logoText fadeOverTime(1);
-                    self.logoText.alpha = 1;
-                    self.logoText setText("^3---^3Map made by MadLion^3---");
-                    wait 3;
-                    self.logoText fadeOverTime(1);
-                    self.logoText.alpha = 0;
-                    wait 1;
-                    self.logoText fadeOverTime(1);
-                    self.logoText.alpha = 1;
-                    self.logoText setText("^3---^3xf: madlion3^3---");
-                    wait 3;
-                    self.logoText fadeOverTime(1);
-                    self.logoText.alpha = 0;
-                    wait 1;
-                    self.logoText fadeOverTime(1);
-                    self.logoText.alpha = 1;
-                    self.logoText setText("^3---^3Credits: Twiyo(xf: 1buzzz)^3---");
-                    wait 3;
-                    self.logoText fadeOverTime(1);
-                    self.logoText.alpha = 0;
-                    wait 1;
-                    self.logoText fadeOverTime(1);
-                    self.logoText.alpha = 1;
-                    self.logoText setText("^3---^3Shadow 1.2^3---");
-                    wait 3;
-                    self.logoText fadeOverTime(1);
-                    self.logoText.alpha = 0;
-                    wait 1;
-		}
-	
-	}
 
 jumper()
 {

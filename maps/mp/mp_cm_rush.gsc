@@ -9,7 +9,7 @@ main()
 
     level.fire_tv = LoadFx("fire/tv_fire2");
     
-    level.auto_open_door = false;
+    
 
     game["allies"] = "marines";
     game["axis"] = "opfor";

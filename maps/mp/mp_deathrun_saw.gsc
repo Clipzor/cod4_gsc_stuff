@@ -176,11 +176,15 @@ addTriggerToList( name )
  
 startdoor()
 {
-door = getent("rise1","targetname");
-wait(15);
-iPrintLnBold("^4 Start Door is opening"); //Change the message if you want
-door movez(200,10,1,9);
-door waittill ("movedone");
+	door = getent("rise1","targetname");
+
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+      	door delete();
+	} else {
+		wait(15);
+		iPrintLnBold("^4 Start Door is opening"); //Change the message if you want
+		door movez(200,10,1,9);
+	}
 }
 
 trap1()

@@ -383,20 +383,15 @@ startdoor()
 	object = getent("startdoor","targetname");
 	i = randomintrange( 0, 3 );
 	if(i == 0)
-	{
 		ambientplay("towers1");
-		wait 15;
-		object movez(144,4);
-	}
 	else if(i == 1)
-	{
 		ambientplay("towers2");
-		wait 15;
-		object movez(144,4);
-	}
 	else if(i == 2)
-	{
 		ambientplay("towers3");
+
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		object delete();
+	} else {
 		wait 15;
 		object movez(144,4);
 	}

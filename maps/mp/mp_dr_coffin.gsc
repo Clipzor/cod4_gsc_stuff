@@ -389,15 +389,18 @@ effect()
 
 startdoor()
 {
-door = getent("startdoor","targetname");
-{
-wait 10;
-iprintlnbold("^3Start door ^0is ^3openning^0...");
-door moveZ(-160,2);
-wait 2;
-door hide();
-door notsolid();
-}
+    door = getent("startdoor","targetname");
+    
+    if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		door delete();
+	} else {
+        wait 10;
+        iprintlnbold("^3Start door ^0is ^3openning^0...");
+        door moveZ(-160,2);
+        wait 2;
+        door delete();
+	}
+    
 }
 
 doorexplode()

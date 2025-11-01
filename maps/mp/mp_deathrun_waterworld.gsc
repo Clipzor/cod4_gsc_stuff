@@ -69,14 +69,17 @@ startdoor()
 {
 	target = getEnt ( "startdoor_target", "targetname" );
 	clip = getEnt ( "startdoor_clip", "targetname" );
-	
-	clip Linkto ( target );
-	wait 20;
-	
-	target moveZ ( 168, 5, 3, 1);
-	wait 9;
-	
-	clip delete();
+
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		target delete();
+		clip delete();
+	} else {
+		clip Linkto ( target );
+		wait 20;
+		target moveZ ( 168, 5, 3, 1);
+		wait 9;
+		clip delete();
+	}
 }
 
 //by Blade

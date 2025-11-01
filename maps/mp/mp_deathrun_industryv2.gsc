@@ -240,11 +240,16 @@ startdoors()
 {
 	door1 = getent("sdoor1","targetname");
 	door2 = getent("sdoor2","targetname");
-	wait 5;
-	door1 playsound("ele_door");
-	door1 moveY(-48,2,0.5,1);
-	door2 playsound("ele_door");
-	door2 moveY(48,2,0.5,1);
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		door1 delete();
+		door2 delete();
+	} else {
+		wait 5;
+		door1 playsound("ele_door");
+		door1 moveY(-48,2,0.5,1);
+		door2 playsound("ele_door");
+		door2 moveY(48,2,0.5,1);
+	}
 }
 
 stage3autoplats()

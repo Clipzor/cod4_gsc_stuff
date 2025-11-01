@@ -11,7 +11,7 @@ main()
 	precacheItem("ak74u_mp");
 	precacheItem("deserteaglegold_mp");	
 	
-	level.auto_open_door = false;
+	
 	
 	ambientPlay("ambient1");
 	

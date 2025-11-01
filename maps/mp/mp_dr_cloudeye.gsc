@@ -98,7 +98,6 @@ init_on_start()
 	
 	thread init_misc();
 	
-	wait 2;
 	startdoor();
 	
 	thread exec_steam(steam_1);
@@ -235,49 +234,67 @@ startdoor()
 	door_fragment_12 = getEnt("door_fragment_12", "targetname");
 	door_fragment_13 = getEnt("door_fragment_13", "targetname");
 	door_fragment_14 = getEnt("door_fragment_14", "targetname");
-	wait .1;
-	
-	thread exec_move_down(door_fragment_01);
-	wait .1;
-	
-	thread exec_move_down(door_fragment_02);
-	wait .1;
-	
-	thread exec_move_down(door_fragment_03);
-	wait .1;
-	
-	thread exec_move_down(door_fragment_04);
-	wait .1;
-	
-	thread exec_move_down(door_fragment_05);
-	wait .1;
-	
-	thread exec_move_down(door_fragment_06);
-	wait .1;
-	
-	thread exec_move_down(door_fragment_07);
-	wait .1;
-	
-	thread exec_move_down(door_fragment_08);
-	wait .1;
-	
-	thread exec_move_down(door_fragment_09);
-	wait .1;
-	
-	thread exec_move_down(door_fragment_10);
-	wait .1;
-	
-	thread exec_move_down(door_fragment_11);
-	wait .1;
-	
-	thread exec_move_down(door_fragment_12);
-	wait .1;
-	
-	thread exec_move_down(door_fragment_13);
-	wait .1;
-	
-	thread exec_move_down(door_fragment_14);
-	wait .1;
+
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		door_fragment_01 delete();
+		door_fragment_02 delete();
+		door_fragment_03 delete();
+		door_fragment_04 delete();
+		door_fragment_05 delete();
+		door_fragment_06 delete();
+		door_fragment_07 delete();
+		door_fragment_08 delete();
+		door_fragment_09 delete();
+		door_fragment_10 delete();
+		door_fragment_11 delete();
+		door_fragment_12 delete();
+		door_fragment_13 delete();
+		door_fragment_14 delete();
+	} else {
+		wait 2.1;
+		
+		thread exec_move_down(door_fragment_01);
+		wait .1;
+		
+		thread exec_move_down(door_fragment_02);
+		wait .1;
+		
+		thread exec_move_down(door_fragment_03);
+		wait .1;
+		
+		thread exec_move_down(door_fragment_04);
+		wait .1;
+		
+		thread exec_move_down(door_fragment_05);
+		wait .1;
+		
+		thread exec_move_down(door_fragment_06);
+		wait .1;
+		
+		thread exec_move_down(door_fragment_07);
+		wait .1;
+		
+		thread exec_move_down(door_fragment_08);
+		wait .1;
+		
+		thread exec_move_down(door_fragment_09);
+		wait .1;
+		
+		thread exec_move_down(door_fragment_10);
+		wait .1;
+		
+		thread exec_move_down(door_fragment_11);
+		wait .1;
+		
+		thread exec_move_down(door_fragment_12);
+		wait .1;
+		
+		thread exec_move_down(door_fragment_13);
+		wait .1;
+		
+		thread exec_move_down(door_fragment_14);
+		wait .1;
+	}
 }
 
 /*TRAP*01*************************************************************************/

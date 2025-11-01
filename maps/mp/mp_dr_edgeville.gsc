@@ -827,23 +827,27 @@ musicMenu()
 }
 
 startdoor() {
-	level waittill( "round_started" );
-	wait 10;
-	iprintlnbold("5");
-	wait 1;
-	iprintlnbold("4");
-	wait 1;
-	iprintlnbold("3");
-	wait 1;
-	iprintlnbold("2");
-	wait 1;
-	iprintlnbold("1");
-	wait 1;
-	iprintlnbold("Get to Edgeville!");
 	startdoor = getent("startdoor","targetname");
-	startdoor moveZ(-500, 1);
-	startdoor waittill ("movedone");
-	startdoor delete();
+    if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		startdoor delete();
+	} else {
+        level waittill( "round_started" );
+        wait 10;
+        iprintlnbold("5");
+        wait 1;
+        iprintlnbold("4");
+        wait 1;
+        iprintlnbold("3");
+        wait 1;
+        iprintlnbold("2");
+        wait 1;
+        iprintlnbold("1");
+        wait 1;
+        iprintlnbold("Get to Edgeville!");
+        startdoor moveZ(-500, 1);
+        startdoor waittill ("movedone");
+        startdoor delete();
+	}
 }
 
 brasskey() {

@@ -47,13 +47,19 @@ startdoor()
 
     bn2 thread hover();
 
-    trig sethintstring("^1Press ^0&&1 ^1to open the Startdoor");
-    trig waittill("trigger");
-    trig delete();
+    if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		door delete();
+        trig delete();
+	} else {
+        trig sethintstring("^1Press ^0&&1 ^1to open the Startdoor");
+        trig waittill("trigger");
+        trig delete();
 
-    door movez(-160,2);
-    wait 2;
-    door delete();
+        door movez(-160,2);
+        wait 2;
+        door delete();
+	}
+    
 
     while(isdefined(bn2))
     {

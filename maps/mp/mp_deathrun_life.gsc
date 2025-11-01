@@ -239,10 +239,15 @@ startdoors()
 	door1 = getent("door1","targetname");
 	door2 = getent("door2","targetname");
 
-	wait level.startwait;
-
-	door1 rotateyaw(120,2);
-	door2 rotateyaw(-120,2);
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		door1 rotateyaw(120,0.5);
+		door2 rotateyaw(-120,0.5);
+	} else {
+		wait level.startwait;
+		door1 rotateyaw(120,2);
+		door2 rotateyaw(-120,2);
+	}
+	
 }
 
 breakwindow()

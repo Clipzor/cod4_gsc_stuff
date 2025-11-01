@@ -23,7 +23,7 @@ main()
 {
 	//maps\mp\_load::main();
 	
-	level.auto_open_door = false;
+	
 	
 	game["allies"] = "sas";
 	game["axis"] = "russian";

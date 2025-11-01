@@ -287,21 +287,26 @@ unlimitedmessages()
 //Open The Starting Door Below 
 openstartdoor()
 {
-door = getEnt("startdoor" , "targetname");
-wait 5;
-wait 3;
-iPrintlnbold("^1Door Opening In 3");
-wait 1;
-iPrintlnbold("^2 2");
-wait 1;
-iPrintlnbold("^1 1");
-wait 1;
+	door = getEnt("startdoor" , "targetname");
 
-door moveZ(200, 7);
-wait 3;
-iPrintlnbold("^2Start Door Opened!");
-wait 4;
-door delete();
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+      	door delete();
+	} else {
+		wait 8;
+		iPrintlnbold("^1Door Opening In 3");
+		wait 1;
+		iPrintlnbold("^2 2");
+		wait 1;
+		iPrintlnbold("^1 1");
+		wait 1;
+
+		door moveZ(200, 7);
+		wait 3;
+		iPrintlnbold("^2Start Door Opened!");
+		wait 4;
+		door delete();
+	}
+
 }
 
 //End Start Door Script 

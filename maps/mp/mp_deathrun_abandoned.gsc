@@ -7,7 +7,7 @@ main()
     maps\mp\_load::main();
     maps\mp\mp_deathrun_abandoned\_teleport::main();
 
-    level.auto_open_door = false;
+    
     
     game["allies"] = "marines";
     game["axis"] = "opfor";

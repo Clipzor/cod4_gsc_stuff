@@ -37,11 +37,17 @@ startdoor()
 {
 	door=getent("startdoor","targetname");
 	trig=getent("startdoor_trig","targetname");
-	trig waittill("trigger");
-	trig delete();
-	door movez(-179,10);
-	wait 4;
-	door delete();
+
+    if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		door delete();
+        trig delete();
+	} else {
+        trig waittill("trigger");
+        trig delete();
+        door movez(-179,10);
+        wait 4;
+        door delete();
+	}
 }	
 
 trap1()

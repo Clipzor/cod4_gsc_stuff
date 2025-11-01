@@ -408,14 +408,19 @@ musicMenu()
 }
 
 startdoor() {
-    level waittill( "round_started" );
     door = getEnt( "startdoor", "targetname" );
 
-    wait 8;
-    iPrintLnBold( "^8Door ^7opening..." );
-    door moveZ( -100, 4, 1, 1 );
-    wait 4;
-    door delete();
+    if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		door delete();
+	} else {
+        level waittill( "round_started" );
+
+        wait 8;
+        iPrintLnBold( "^8Door ^7opening..." );
+        door moveZ( -100, 4, 1, 1 );
+        wait 4;
+        door delete();
+	}
 }
 
 trap1() {

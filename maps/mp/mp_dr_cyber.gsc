@@ -194,27 +194,23 @@ endsong()
 }	
 startdoor()
 {
-kek = getDvar("sv_hostname");
-thread removeAssFromString(kek);
-door = getEnt("startdoor", "targetname");
-wait 15;
-if (isSubStr( toLower(kek), toLower("xM")) || isSubStr( toLower(kek), toLower("Nice*") ))
-	{
-		iPrintLnBold ("^1KYS ^6RAKY");
-		wait 2;
-		exitLevel(true);
+	door = getEnt("startdoor", "targetname");
+
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		door delete();
+	} else {
+		wait 15;
+		door moveZ(-1000, 8);
+		iprintlnbold("^5Start door opened.");
 	}
-	else {
-door moveZ(-1000, 8);
-iprintlnbold("^5Start door opened.");
-wait 2;
+
+	wait 2;
 	if (level.cambiato == false)
- {
-  thread songs(); 
-  level.cambiato = true;
- }
- wait 6;
-}
+	{
+		thread songs(); 
+		level.cambiato = true;
+	}
+
 }
 
 messages()

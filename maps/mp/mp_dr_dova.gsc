@@ -69,20 +69,22 @@ addTriggerToList ( name )
 
 messages()
 {
-wait 5;
-iprintlnBold("^2mp_dr_dova^3 by ^5dova");
-wait 6;
-iprintln("Thanks to ^2Kris ^7and ^3Nuka ^7for help");
+	wait 5;
+	iprintlnBold("^2mp_dr_dova^3 by ^5dova");
+	wait 6;
+	iprintln("Thanks to ^2Kris ^7and ^3Nuka ^7for help");
 }
+
 startdoor()
 {
-drzwi = getent("startdoor","targetname");
-{
-wait 10;
-iprintlnbold("^2The doors are opening");
-drzwi moveZ(-350, 5);
-
-}
+	drzwi = getent("startdoor","targetname");
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		drzwi delete();
+	} else {
+		wait 10;
+		iprintlnbold("^2The doors are opening");
+		drzwi moveZ(-350, 5);
+	}
 }
 tr1()
 {

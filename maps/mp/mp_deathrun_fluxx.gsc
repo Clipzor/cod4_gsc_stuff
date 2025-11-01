@@ -1,8 +1,6 @@
 //map my Sheep Wizard
-//Xfire paap15
 //Youtube paap15
 //mp_deathrun_fluxx
-//Enjoy
 main()
 {
      maps\mp\_load::main();
@@ -77,21 +75,7 @@ addTriggerToList( name )
 
 credits()
 {
-     for(;;)
-	 {
-	 iPrintLn ("^3>>^1Map By Sheep Wizard");
-	 wait 7;
-	 iPrintLn ("^3>>^1Youtube paap15");
-	 wait 7;
-	 iPrintLn ("^3>>^1Xfire paap15");
-	 wait 7;
-	 iPrintLn ("^3>>^1FeZe Clan");
-	 wait 7;
-	 iPrintLn ("^3>>^2Thanks to all the people who helped test the map^6<3^2!");
-	 wait 7;
-	 iPrintLn ("^3>>^1Thanks for playing ^3mp_deathrun_Fluxx, ^1Hope you enjoy!");
-	 wait 14;
-	 }
+	iPrintLn ("^3>>^1Map By Sheep Wizard");
 }
 
 start()
@@ -271,53 +255,7 @@ platform2()
 
 hud() 
 {
-     level.xxx = newHudElem();	
-	 level.xxx.x = 0;	
-	 level.xxx.y = -200;	
-	 level.xxx.horzAlign = "left";	
-	 level.xxx.vertAlign = "middle";
-	 level.xxx.alignX = "left";
-	 level.xxx.alignY = "middle";
-	 level.xxx.sort = 102;	
-	 level.xxx.foreground = 1;	
-	 level.xxx.archived = true;	
-	 level.xxx.alpha = 1;	
-	 level.xxx.fontScale = 1.4;
-	 level.xxx.hidewheninmenu = false;	
-	 level.xxx.color = (255,128,0);	
-	 level.xxx.glowColor = (0.3, 0.6, 0.3);
-	 level.xxx.glowAlpha = 1;
-	 level.xxx2 = newHudElem();	
-	 level.xxx2.x = 10;	
-	 level.xxx2.y = -186;	
-	 level.xxx2.horzAlign = "left";	
-	 level.xxx2.vertAlign = "middle";
-	 level.xxx2.alignX = "left";
-	 level.xxx2.alignY = "middle";
-	 level.xxx2.sort = 102;
-	 level.xxx2.foreground = 1;
-	 level.xxx2.archived = true;	
-	 level.xxx2.alpha = 1;	
-	 level.xxx2.fontScale = 1.4;	
-	 level.xxx2.hidewheninmenu = false;	
-	 level.xxx2.color = (255,0,154);	
-	 level.xxx2.glowColor = (0.3, 0.6, 0.3);
-	 level.xxx2.glowAlpha = 1;
-	 while(1)
-	 {
-	 level.xxx.color = (255,128,0);
-	 level.xxx2.color = (255,0,154);	
-	 level.xxx2.x = 25;
-	 level.xxx.label = &"Map by Sheep Wizard";	//The text for the hud & is required, &&1 is the value which will be added below
-	 level.xxx2.label = &"Have Fun!";
-	 wait 10;
-	 level.xxx.color = (0,50,255);
-	 level.xxx2.color = (255,0,150);
-	 level.xxx2.x = 25;
-	 level.xxx.label = &"Xfire: Paap15";
-	 level.xxx2.label = &"Have Fun!";
-	 wait 5;
-	}
+	iprintln("Map by Sheep Wizard");
 }
 
 fog()

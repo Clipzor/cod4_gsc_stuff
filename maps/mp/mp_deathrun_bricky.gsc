@@ -147,55 +147,7 @@ door()
 
 credit()
 {
-	if( isDefined( self.logoText ) )
-	self.logoText destroy();
-
-	self.logoText = newHudElem();
-	self.logoText.y = 10;
-	self.logoText.alignX = "center";
-	self.logoText.alignY = "middle";
-	self.logoText.horzAlign = "center_safearea";
-
-	self.logoText.alpha = 0;
-	self.logoText.sort = -3;
-	self.logoText.fontScale = 1.6;
-	self.logoText.archieved = true;
-
-	for(;;)
-	{
-		self.logoText fadeOverTime(1);
-		self.logoText.alpha = 1;
-		self.logoText setText("^5----->^2Map Made By DafuqzoR^2.^5<-----");
-		wait 8;
-		self.logoText fadeOverTime(1);
-		self.logoText.alpha = 0;
-		wait 1;
-		self.logoText fadeOverTime(1);
-		self.logoText.alpha = 1;
-		self.logoText setText("^5----->^1!^6PLS REPORT BUGS^1!<^5-----");
-		wait 8;
-		self.logoText fadeOverTime(1);
-		self.logoText.alpha = 0;
-		wait 1;
-		self.logoText fadeOverTime(1);
-		self.logoText.alpha = 1;
-		self.logoText setText("^3-----^2My ^1xFire^3: ^4borstey88^3-----");
-		wait 8;
-		self.logoText fadeOverTime(1);
-		self.logoText.alpha = 0;
-		wait 1;
-		self.logoText fadeOverTime(1);
-		self.logoText.alpha = 1;
-		self.logoText setText("^5---^2Deathrun ^2Bricky^5---");
-		wait 8;
-		self.logoText fadeOverTime(1);
-		self.logoText.alpha = 0;
-		wait 1;
-		self.logoText fadeOverTime(1);
-		self.logoText.alpha = 1;
-		self.logoText setText("^3-----------------------------");
-		wait 8;
-	}
+	iprintln("^5----->^2Map Made By DafuqzoR^2.^5<-----");
 }
 
 trap1()

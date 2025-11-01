@@ -163,11 +163,18 @@ startdoors()
 	door_r = getEnt("red_door","targetname");
 	door_y = getEnt("yellow_door","targetname");
 	door_g = getEnt("green_door","targetname");
-	
-	door_b movex(48, 3,1,2);
-	door_r movey(48, 3,1,2);
-	door_y movey(-48, 3,1,2);
-	door_g movex(-48, 3,1,2);
+
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		door_b delete();
+		door_r delete();
+		door_y delete();
+		door_g delete();
+	} else {
+		door_b movex(48, 3,1,2);
+		door_r movey(48, 3,1,2);
+		door_y movey(-48, 3,1,2);
+		door_g movex(-48, 3,1,2);
+	}
 }
 
 musicmenu()

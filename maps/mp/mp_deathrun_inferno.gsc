@@ -907,12 +907,14 @@ Startdoor()
 {
 	brush1 = getEnt("startdoor_1", "targetname");
 	brush2 = getEnt("startdoor_2", "targetname");
-	
-	wait 12;
-	brush1 moveZ (1200, 3.5);
-	brush2 moveZ (-1250, 3.5);
-	brush1 waittill ("movedone");
-	brush2 waittill ("movedone");
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		brush1 delete();
+		brush2 delete();
+	} else {
+		wait 12;
+		brush1 moveZ (1200, 3.5);
+		brush2 moveZ (-1250, 3.5);
+	}
 }
 Credits()
 {

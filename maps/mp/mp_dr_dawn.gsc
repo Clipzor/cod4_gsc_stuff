@@ -330,30 +330,30 @@ iPrintLn ("^3>> ^7Ur all fgts, Jk love you all! :> ^3<<");
  
 Startdoor()
 {
- 
-    //trig = getEnt( "startdoor", "targetname" );
-    brush = getEnt( "doora", "targetname" );
-    brush2 = getEnt( "doorb", "targetname" );
-   
-        //trig waittill( "trigger");
-        //trig delete();
-       
-        wait 15;
-        iPrintLn("^35");
-        wait 1;
-        iPrintLn("^34");
-        wait 1;
-        iPrintLn("^33");
-        wait 1;
-        iPrintLn("^32");
-        wait 1;
-        iPrintLn("^31");
-        wait 1;
-        brush moveX(200,0.30);
-        brush2 moveX(-200,0.30);
-        wait 0.05;
-        iPrintLn("^1Go!");
-       
+
+        //trig = getEnt( "startdoor", "targetname" );
+        brush = getEnt( "doora", "targetname" );
+        brush2 = getEnt( "doorb", "targetname" );
+        if(isdefined(level.auto_open_door) && level.auto_open_door) {
+                brush delete();
+                brush2 delete();
+        } else {
+                wait 15;
+                iPrintLn("^35");
+                wait 1;
+                iPrintLn("^34");
+                wait 1;
+                iPrintLn("^33");
+                wait 1;
+                iPrintLn("^32");
+                wait 1;
+                iPrintLn("^31");
+                wait 1;
+                brush moveX(200,0.30);
+                brush2 moveX(-200,0.30);
+                wait 0.05;
+                iPrintLn("^1Go!");
+        }
 }
  
 First_Teleport()

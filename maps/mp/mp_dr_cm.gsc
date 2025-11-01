@@ -225,11 +225,16 @@ level.icon_origins[level.icon_origins.size] = positionOfIconAboveTrap;
 }
 startdoor()
 {
-startdoorp1=getent("startdoorp1", "targetname");
-startdoorp2=getent("startdoorp2", "targetname");
-wait 15;
-startdoorp1 rotateyaw(100, 4);
-startdoorp2 rotateyaw(-100, 4);
+	startdoorp1=getent("startdoorp1", "targetname");
+	startdoorp2=getent("startdoorp2", "targetname");
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		startdoorp1 rotateyaw(100, 0.5);
+		startdoorp2 rotateyaw(-100, 0.5);
+	} else {
+		wait 15;
+		startdoorp1 rotateyaw(100, 4);
+		startdoorp2 rotateyaw(-100, 4);
+	}
 }
 teleport1()
 {

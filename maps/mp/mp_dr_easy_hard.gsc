@@ -319,45 +319,50 @@ vision()
 startdoor()
 {	
 	door=getent("startdoor","targetname");
-	level.value = 3;
-	level.device = "d";
+    level.value = 3;
+    level.device = "d";
 
-	level waittill("round_started");
-	startHud=newhudelem();
-	startHud.alignx="center";
-	startHud.aligny="middle";
-	startHud.horzalign="center";
-	startHud.vertalign="middle";
-	startHud.alpha=1;
-	startHud.glowalpha=1;
-	startHud.y = 0;
-	startHud.fontscale= 1.8;
-	startHud.font="default";
-	startHud.glowcolor=(0,1,1);
-	level.conthud = "c";
-	wait 3;
-	startHud setText("Startdoor will open in: " + level.value);
-	startHud.x = 0;
-	startHud.alpha = 0;
-	startHud fadeOverTime(1);
-	startHud.alpha = 1;
-	for(i=0;i<3;i++)
-	{
-		level.value--;
-		wait 1;
-		startHud setText("Startdoor will open in: " + level.value);
+    if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		door delete();
+	} else {
+        level waittill("round_started");
+        startHud=newhudelem();
+        startHud.alignx="center";
+        startHud.aligny="middle";
+        startHud.horzalign="center";
+        startHud.vertalign="middle";
+        startHud.alpha=1;
+        startHud.glowalpha=1;
+        startHud.y = 0;
+        startHud.fontscale= 1.8;
+        startHud.font="default";
+        startHud.glowcolor=(0,1,1);
+        level.conthud = "c";
+        wait 3;
+        startHud setText("Startdoor will open in: " + level.value);
+        startHud.x = 0;
+        startHud.alpha = 0;
+        startHud fadeOverTime(1);
+        startHud.alpha = 1;
+        for(i=0;i<3;i++)
+        {
+            level.value--;
+            wait 1;
+            startHud setText("Startdoor will open in: " + level.value);
+        }
+        startHud fadeovertime(1);
+        startHud.alpha=0;
+        startHud setText("Startdoor opening!");
+        door movez(-400,6);
+        startHud moveOverTime(1);
+        startHud.x = 360;
+        wait 6;
+        door delete();
+        level.align = "layer";
+        if(isdefined(startHud))
+            startHud destroy();	
 	}
-	startHud fadeovertime(1);
-	startHud.alpha=0;
-	startHud setText("Startdoor opening!");
-	door movez(-400,6);
-	startHud moveOverTime(1);
-	startHud.x = 360;
-	wait 6;
-	door delete();
-	level.align = "layer";
-	if(isdefined(startHud))
-		startHud destroy();	
+    
 }
 
 credits()

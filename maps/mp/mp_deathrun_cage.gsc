@@ -767,57 +767,8 @@ heli3()
 
 printcredits()
 {
-    if( isDefined( self.logoText ) )
-        self.logoText destroy();
-     
-    self.logoText = newHudElem();
-    self.logoText.y = 10;
-    self.logoText.alignX = "center";
-    self.logoText.alignY = "middle";
-    self.logoText.horzAlign = "center_safearea";
-    self.logoText.alpha = 0;
-    self.logoText.sort = -3;
-    self.logoText.fontScale = 1.6;
-    self.logoText.archieved = true;
-     
-    for(;;)
-    {
-        self.logoText fadeOverTime(1);
-        self.logoText.alpha = 1;
-        self.logoText setText("^5---^3Map made by Mr.Xx^5---");
-        wait 3;
-        self.logoText fadeOverTime(1);
-        self.logoText.alpha = 0;
-        wait 1;
-        self.logoText fadeOverTime(1);
-        self.logoText.alpha = 1;
-        self.logoText setText("^5---^3xfire: dragec1997^5---");
-        wait 3;
-        self.logoText fadeOverTime(1);
-        self.logoText.alpha = 0;
-        wait 1;
-        self.logoText fadeOverTime(1);
-        self.logoText.alpha = 1;
-        self.logoText setText("^5---^3Cage -=(Beta)=-^5---");
-        wait 3;
-        self.logoText fadeOverTime(1);
-        self.logoText.alpha = 0;
-        wait 1;
-        self.logoText fadeOverTime(1);
-        self.logoText.alpha = 1;
-        self.logoText setText("^5---^3Additional Help : Madlion,VC'BLADE^5---");
-        wait 3;
-        self.logoText fadeOverTime(1);
-        self.logoText.alpha = 0;
-        wait 1;
-        self.logoText fadeOverTime(1);
-        self.logoText.alpha = 1;
-        self.logoText setText("^5---^3xfire:MadLion^5(^3madlion3^5)^3,VC'BLADE^5(^3bladetk17^5)^5---");
-        wait 3;
-        self.logoText fadeOverTime(1);
-        self.logoText.alpha = 0;
-        wait 1;
-	}
+    iprintln("^5---^3Map made by Mr.Xx^5---");
+    iprintln("^5---^3Additional Help : Madlion,VC'BLADE^5---");
 }
 
 snip()

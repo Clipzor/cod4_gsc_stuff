@@ -120,13 +120,19 @@ on_start()
 	thread scr2();
 	thread scr3();
 	thread scr4();
-	
-	wait 9;
-	
-	iPrintLnBold("^2The door is opening!");
-	
-	door moveZ(-320, 13, 2, 8);
-	wait 13;
+
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		door delete();
+		iPrintLnBold("^2The door is open!");
+		wait 12; // trying to match timing for platform, hope its okay
+	} else {
+		wait 9;
+		
+		iPrintLnBold("^2The door is opening!");
+		
+		door moveZ(-320, 13, 2, 8);
+		wait 13;
+	}
 	
 	for(;;)
 	{

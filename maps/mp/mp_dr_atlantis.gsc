@@ -633,30 +633,40 @@ watersound2()
 
 startdoor()
 {
-t = getEnt("sdtop", "targetname");
-l = getEnt("sdleft", "targetname");
-b = getEnt("sdbottom", "targetname");
-r = getEnt("sdright", "targetname");
-level waittill("round_started");
-if(game["roundsplayed"] <= 2)
-		thread credits();
-wait 12;
-iPrintLnBold("^5Start door opened.");
-level notify("door_open");
-if (level.cambiato == false)
- {
-	thread songs(); 
-	level.cambiato = true;
- }
-t moveZ(300, 1.5);
-b moveZ(-300, 1.5);
-l moveY(-550, 1.5);
-r moveY(550, 1.5);
-wait 1.5;
-t delete();
-b delete();
-l delete();
-r delete();
+	t = getEnt("sdtop", "targetname");
+	l = getEnt("sdleft", "targetname");
+	b = getEnt("sdbottom", "targetname");
+	r = getEnt("sdright", "targetname");
+
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		t delete();
+		b delete();
+		l delete();
+		r delete();
+		wait 0.05;
+		level notify("door_open");
+	} else {
+		level waittill("round_started");
+		if(game["roundsplayed"] <= 2)
+				thread credits();
+		wait 12;
+		iPrintLnBold("^5Start door opened.");
+		level notify("door_open");
+		if (level.cambiato == false)
+		{
+			thread songs(); 
+			level.cambiato = true;
+		}
+		t moveZ(300, 1.5);
+		b moveZ(-300, 1.5);
+		l moveY(-550, 1.5);
+		r moveY(550, 1.5);
+		wait 1.5;
+		t delete();
+		b delete();
+		l delete();
+		r delete();
+	}
 }
 
 credits()

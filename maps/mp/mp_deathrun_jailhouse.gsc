@@ -312,12 +312,15 @@ wait 1;
 
 startingdoor()
 {
-ent = level.startdoor;
-trig = level.startdoor_trig;
-trig waittill("trigger", user);
-ent movez(192,3);
-ent waittill("movedone");
-ent delete();
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		level.startdoor delete();
+		level.startdoor_trig delete();
+	} else {
+		level.startdoor_trig waittill("trigger", user);
+		level.startdoor movez(192,3);
+		level.startdoor waittill("movedone");
+		level.startdoor delete();
+	}
 }
 
 endingdoor()

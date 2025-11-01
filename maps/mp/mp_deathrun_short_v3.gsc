@@ -131,9 +131,14 @@ wait 0.1;
 }
 startdoors()
 {
-level.startdoors_trig waittill("trigger");
-level.startdoors_trig delete();
-level.startdoors movez(-124,4);
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		level.startdoors_trig delete();
+		level.startdoors delete();
+	} else {		
+		level.startdoors_trig waittill("trigger");
+		level.startdoors_trig delete();
+		level.startdoors movez(-124,4);
+	}
 }
 trap1()
 {

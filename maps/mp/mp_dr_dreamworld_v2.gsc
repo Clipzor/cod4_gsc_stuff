@@ -223,10 +223,13 @@ Messages()
 startdoor()
 {
 	door = getent("startdoor","targetname");
-	wait 15;
-	door moveZ(400, 5);
-	iPrintLnBold("^8Start door opened.");
-	wait 2;
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		door delete();
+	} else {
+		wait 15;
+		door moveZ(400, 5);
+		iPrintLnBold("^8Start door opened.");
+	}
 }
 
 

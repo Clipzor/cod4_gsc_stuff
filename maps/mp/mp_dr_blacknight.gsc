@@ -41,12 +41,19 @@ startdoor()
 {
 	door=getent("startdoor","targetname");
 	trig=getent("startdoor_trig","targetname");
-	trig sethintstring("^1Press ^0[USE] ^1to open the startdoor");
-	trig waittill("trigger");
-	trig delete();
-	door movez(-322,5);
-	wait 4;
-	door delete();
+
+    if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		door delete();
+		trig delete();
+	} else {
+        trig sethintstring("^1Press ^0[USE] ^1to open the startdoor");
+        trig waittill("trigger");
+        trig delete();
+        door movez(-322,5);
+        wait 4;
+        door delete();
+	}
+    
 }
 
 blacknight()

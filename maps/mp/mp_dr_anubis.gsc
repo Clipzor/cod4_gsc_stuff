@@ -221,7 +221,7 @@ door()
     door2 delete();
     fakedoor delete();
    
-
+    //TODO CHECK IN ORIGINAL GSC FILE
 }
 whitelight()
 {   

@@ -178,11 +178,14 @@ self waittill("movedone");
 
 startdoor()
 {
-door=getent("door","targetname");
-wait(12);
-iPrintLnBold("^2The door is opening !"); //Change the message if you want
-door movez(-325,10,1,9);
-door waittill ("movedone");
+	door = getent("door","targetname");
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		door delete();
+	} else {
+		wait(12);
+		iPrintLnBold("^2The door is opening !"); //Change the message if you want
+		door movez(-325,10,1,9);
+	}
 }
 
 activatorblocker()

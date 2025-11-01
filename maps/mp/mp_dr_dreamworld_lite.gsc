@@ -133,33 +133,24 @@ messages()
 	wait 2;
 
 	thread startdoor();
-
-	for(;;)
-	{
-		iprintln("^2>> ^7Map Made By: ^6N^7ephy");
-		wait 30;
-		iprintln("^2>> ^7Report any map bug to ^2>> ^1Discord^7 : Nephy#3213"); 
-		wait 30;
-		iprintln("^2>> ^7Special Thanks to ^1VC'Blade ^7and ^1Frazzle ^7for helping me"); 
-		wait 30;
-	    iprintln("^2>> ^7Map made for ^6D^7ream^6W^7orld ^6D^7eathrun ^1<3"); 
-		wait 30;
-		iprintln("^2>> ^7Thx to ^1Blade ^7for the checkpoint system ^1<3"); 
-	}	
 }
 
 startdoor()
 {
 	door = getent("startdoor","targetname");
 
-	wait 5;
-	door movez(-400,5);
-	wait 5;
-	door delete();
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		door delete();
+	} else {
+		wait 5;
+		door movez(-400,5);
+		wait 5;
+		door delete();
 
-	iprintlnbold("Start Door Opened !");
-	wait 5;
-	iprintlnbold("^7Map made for ^6D^7ream^6W^7orld ^6D^7eathrun ^1<3");
+		iprintlnbold("Start Door Opened !");
+		wait 5;
+		iprintlnbold("^7Map made for ^6D^7ream^6W^7orld ^6D^7eathrun ^1<3");
+	}
 }
 
 musicbox()

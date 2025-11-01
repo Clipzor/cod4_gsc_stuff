@@ -5,25 +5,25 @@
 
 main()
 {
- maps\mp\_load::main();
- 
- game["allies"] = "marines";
- game["axis"] = "opfor";
- game["attackers"] = "axis";
- game["defenders"] = "allies";
- game["allies_soldiertype"] = "desert";
- game["axis_soldiertype"] = "desert";
- 
+	maps\mp\_load::main();
+
+	game["allies"] = "marines";
+	game["axis"] = "opfor";
+	game["attackers"] = "axis";
+	game["defenders"] = "allies";
+	game["allies_soldiertype"] = "desert";
+	game["axis_soldiertype"] = "desert";
 
 	
+
 	setdvar( "r_specularcolorscale", "1" );
 
 	setdvar("r_glowbloomintensity0",".1");
 	setdvar("r_glowbloomintensity1",".1");
 	setdvar("r_glowskybleedintensity0",".1");
-	
+
 	level.boom_fx = LoadFx("explosions/default_explosion");
-	
+
 	thread startdoor();
 	thread fish();
 	thread trap1();
@@ -42,8 +42,8 @@ main()
 	thread somethingsomething();
 	thread kek();
 	thread wtf();
-	
-	
+
+
 	addTriggerToList( "trig_trap1" );
 	addTriggerToList( "trig_trap2" );
 	addTriggerToList( "trig_trap4" );

@@ -128,21 +128,26 @@ btrfx()
 btsdd()
 {
 	bt=getent("btsdd","targetname");
-	level waittill("round_started");
-	wait 5;
-	thread btc2( "^5Startdoor ^6will open in");
-    wait 0.5;
-    thread btc2( "^5>>| ^65 ^5|<<");
-    wait 1;
-	thread btc2( "^5>>| ^64 ^5|<<");
-	wait 1;
-	thread btc2( "^5>>| ^63 ^5|<<");
-	wait 1;
-	thread btc2( "^5>>| ^62 ^5|<<");
-	wait 1;
-	thread btc2( "^5>>| ^61 ^5|<<");
-	wait 3;
-	bt delete();
+
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		bt delete();
+	} else {
+		level waittill("round_started");
+		wait 5;
+		thread btc2( "^5Startdoor ^6will open in");
+		wait 0.5;
+		thread btc2( "^5>>| ^65 ^5|<<");
+		wait 1;
+		thread btc2( "^5>>| ^64 ^5|<<");
+		wait 1;
+		thread btc2( "^5>>| ^63 ^5|<<");
+		wait 1;
+		thread btc2( "^5>>| ^62 ^5|<<");
+		wait 1;
+		thread btc2( "^5>>| ^61 ^5|<<");
+		wait 3;
+		bt delete();
+	}
 }
 
 bt1()

@@ -72,9 +72,11 @@ music() {
 
 startdoor()
 {
-start = getent("startdoor","targetname");
+    start = getent("startdoor","targetname");
 
-start delete();
+    start delete();
+
+    //TODO check how this is in original script
 }
 
 creatorstext()

@@ -23,11 +23,12 @@
    ▼ ▼ Learn to script bastard!! ▼ ▼
    ▼ ▼ Credits: No one, dont need help. ▼ ▼
    
+   learn to script? mind explaining why u needed 6 seperate gsc scripts for teleporters that are all doing the same?
+   learn to script bro, cringe
 */   
 
 main()
 {
-
     addTriggerToList( "trig_trap1" );
     addTriggerToList( "trig_trap2" );
     addTriggerToList( "trig_trap3" );
@@ -46,7 +47,8 @@ main()
     addTriggerToList( "trig_trap16" );
 	
 	precacheItem("winchester1200_mp");
- 
+	
+	
 
 	maps\mp\mp_deathrun_crystal_fx::main();
 	// maps\createfx\mp_deathrun_crystal_fx::main();

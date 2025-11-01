@@ -83,10 +83,15 @@ startdoor()
 {
 	startdoor=getent("startdoor_lasers","targetname");
 	startdoor_hurt=getent("firstdoor_hurt","targetname");
-	level waittill("round_started");
-	wait 5;
-	startdoor_hurt delete();
-	startdoor delete();
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		startdoor_hurt delete();
+		startdoor delete();
+	} else {
+		level waittill("round_started");
+		wait 5;
+		startdoor_hurt delete();
+		startdoor delete();
+	}
 }
 
 shortcut1()

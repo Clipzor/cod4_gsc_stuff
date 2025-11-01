@@ -10,15 +10,17 @@
 #include braxi\_rank;
 main()
 {
- maps\mp\_load::main();
- 
- game["allies"] = "marines";
- game["axis"] = "opfor";
- game["attackers"] = "axis";
- game["defenders"] = "allies";
- game["allies_soldiertype"] = "desert";
- game["axis_soldiertype"]= "desert";
- 
+    maps\mp\_load::main();
+
+    game["allies"] = "marines";
+    game["axis"] = "opfor";
+    game["attackers"] = "axis";
+    game["defenders"] = "allies";
+    game["allies_soldiertype"] = "desert";
+    game["axis_soldiertype"]= "desert";
+    
+    
+    
 	setdvar("g_speed" ,"210");
 	setdvar("dr_jumpers_speed" ,"1.12");
 	setdvar( "r_specularcolorscale", "0" );
@@ -292,7 +294,7 @@ startdoor1()
 
 startdoor2()
 {
-   door = getent("startdoor2","targetname");
+    door = getent("startdoor2","targetname");
 
     if(isdefined(level.auto_open_door) && level.auto_open_door) {
         door delete();
@@ -302,7 +304,6 @@ startdoor2()
         wait 12;
         door delete();
     }
-
 }
 
 movingplatform()

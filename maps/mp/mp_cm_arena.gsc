@@ -1,4 +1,3 @@
-//Map Dedicated to CheckMate
 ///Mapped by CM'Compy ; re-designed and scripted by CM'death
 #include maps\mp\_utility;
 #include maps\mp\gametypes\_hud_util;
@@ -7,7 +6,6 @@ main()
 {
     maps\mp\_load::main();
     
-    level.auto_open_door = false;
 
     game["allies"] = "marines";
     game["axis"] = "opfor";

@@ -57,10 +57,15 @@ GetEndDoor()
 StartDoor()
 {
 	trig = getent("trigger_startdoor", "targetname");
-	trig waittill("trigger");
-	
 	door = getent("startdoor", "targetname");
-	door MoveZ( 134, 4, 0.5, 0.5 );
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		trig delete();
+		door delete();
+	} else {
+		trig waittill("trigger");
+		door MoveZ( 134, 4, 0.5, 0.5 );
+	}
+
 }
 
 GetTraps()

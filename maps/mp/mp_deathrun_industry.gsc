@@ -72,13 +72,15 @@ main()
 
 startdoor()
 {
-object = getEnt ("startdoor","targetname");
-trig = getEnt ("trig_startdoor","targetname");
-trig waittill ("trigger" , player );
-{
-object moveZ(-160, 3);
-wait 1;
-}
+	object = getEnt ("startdoor","targetname");
+	trig = getEnt ("trig_startdoor","targetname");
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		trig delete();
+		object delete();
+	} else {
+		trig waittill ("trigger" , player );
+		object moveZ(-160, 3);
+	}
 }
 
 plat()

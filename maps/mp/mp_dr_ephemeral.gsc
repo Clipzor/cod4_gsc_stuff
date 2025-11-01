@@ -185,13 +185,16 @@ music()
 startdoor()
 {
 	door = getEnt("startdoor","targetname");
-	level waittill("round_started");
-	wait 7;
-	IPrintLnBold("Map Made By ^1TheHumble_J");
-	door moveZ(300, 6, 3, 3);
-	wait 7;
-	door Delete();
-
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		door delete();
+	} else {
+		level waittill("round_started");
+		wait 7;
+		IPrintLnBold("Map Made By ^1TheHumble_J");
+		door moveZ(300, 6, 3, 3);
+		wait 7;
+		door Delete();
+	}
 }
 
 platform()

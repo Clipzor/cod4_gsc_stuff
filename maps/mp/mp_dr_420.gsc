@@ -740,9 +740,14 @@ bouncewep()
 startdoor()
 {
 	startdoor = getent("startdoor","targetname");
-	level waittill("round_started");
-	wait 8;
-	startdoor delete();
+
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		startdoor delete();
+	} else {
+		level waittill("round_started");
+		wait 8;
+		startdoor delete();
+	}
 }
 
 trap2()

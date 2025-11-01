@@ -122,38 +122,27 @@ messages()
 {
 	level waittill("round_started");
 
-	wait 2;
 	iprintlnBold("Welcome to DaiiZed v1 ^7:3\n^7Made by: ^2DaiiZed");
-	wait 2;
 
 	thread startdoor();
-
-	for(;;)
-	{
-		iprintln("^2>> ^7Made by: ^2DaiiZed");
-		wait 30;
-		iprintln("^2>> ^7Report any map bug to ^2>> ^1Discord^7 : DaiiZed#6873"); 
-		wait 30;
-		iprintln("^2>> ^7Special Thanks to ^1Blade ^7and ^1Frazzle ^7for letting me use some of their scripts"); 
-		wait 30;
-	    iprintln("^2>> ^7This is my 2nd Public map hope you'll enjoy play it ! ^1<3"); 
-		wait 30;
-		iprintln("^2>> ^7Thx to ^1xM#rAKy ^7for helping me testing the map ^1<3"); 
-	}	
+	thread easy();
+	thread easysecret_end();
+	thread hard();
+	thread hardsecret_end();	
 }
 
 startdoor()
 {
 	door = getent("startdoor","targetname");
 
-	wait 5;
-	door movez(-400,5);
-	thread easy();
-	thread easysecret_end();
-	thread hard();
-	thread hardsecret_end();	
-	wait 5;
-	door delete();
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		door delete();
+	} else {
+		wait 9;
+		door movez(-400,5);
+		wait 5;
+		door delete();
+	}
 
 	iprintlnbold("Start Door Opened !");
 	wait 5;

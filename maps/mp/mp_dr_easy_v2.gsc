@@ -87,15 +87,16 @@ addTriggerToList( name )
 
 startdoor()
 {
-object = getent("door","targetname");
-{
-wait 15;
-iprintlnbold("Door Is Opening!!");
-ambientPlay("music");
-object moveZ(-240, 6);
-object waittill("movedone");
-wait 1;
-}
+	object = getent("door","targetname");
+
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		object delete();
+	} else {
+		wait 15;
+		iprintlnbold("Door Is Opening!!");
+		object moveZ(-240, 6);
+	}
+	ambientPlay("music");
 }
 
 messages()
