@@ -21,8 +21,8 @@ main()
 
 	//setdvar("jump_slowdownenable" , "0");
 	setdvar("g_speed" , "210");
-	setdvar("bg_falldamageminheight" , "99998");
-	setdvar("bg_falldamagemaxheight" , "99999");
+	setdvar("bg_falldamagemaxheight" , 99999);
+	setdvar("bg_falldamageminheight" , 99998);
 	
 	
 	thread sniper();
@@ -502,7 +502,7 @@ credits()
         wait 10;
         iPrintln("^3M^7ap created by ^3E^7ryk/^3l^7entava");
 		wait 1;
-		iPrintln("Join DC Discord server: https://discord.gg/y9UPKrm");
+		iPrintln("Join Velocity Discord server: https://discord.gg/7fWhErrSEa");
         wait 10;
 		iPrintln("You^1Tube^7 channel: www.youtube.com/@cod4eryk");
 		wait 5;
@@ -515,8 +515,6 @@ credits()
 		iPrintln("^3D^7eath for scripting help");
 		wait 0.5;
 		iPrintln("^3C^7ompy for ^3DC^7 logo on start");		
-		wait 0.5;
-		iPrintln("^3M^7ap made for ^3DC Deathrun^7: 128.140.0.203:28954");
 		wait 30;
         }
 	
@@ -530,13 +528,11 @@ credits2()
 	trig waittill("trigger" , player);
 	iPrintLnBold("Map made by DC | eryk/lentava");
 	wait 1;
-	iPrintLnBold("Join DC Discord server: ^5https://discord.gg/y9UPKrm^7");
+	iPrintlnBold("Join Velocity Discord server: https://discord.gg/7fWhErrSEa");
 	player giveWeapon("h1_karambit_mp");
 	player switchToWeapon("h1_karambit_mp");
 	wait 5;
 	player iPrintLnBold("Karambit made by SadSlothXL");
-	wait 1;
-	player iPrintLnBold("If this map is on xM server, it means that raky stole this map. Play it at DC Deathrun server.");
 }
 
 

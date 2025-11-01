@@ -52,9 +52,9 @@ maps\mp\_load::main();
 	//thread gap();	
 	//thread gaploader();	
 	//thread old();	
-	thread printcredits();		
-	setDvar("bg_falldamagemaxheight", 99999 );
-	setDvar("bg_falldamageminheight", 99999 ); 		
+	thread printcredits();
+	setdvar("bg_falldamagemaxheight" , 99999);
+	setdvar("bg_falldamageminheight" , 99998);
 }
 
 addTriggerToList( name )

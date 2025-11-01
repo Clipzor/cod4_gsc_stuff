@@ -16,8 +16,8 @@ main() {
 	gas2 = getEnt("trap8_hurt", "targetname");
 	gas2 thread maps\mp\_utility::triggerOff();
 
-    setDvar("bg_falldamagemaxheight", 9999999);
-    setDvar("bg_falldamageminheight", 999999);
+	setdvar("bg_falldamagemaxheight" , 99999);
+	setdvar("bg_falldamageminheight" , 99998);
 
 	if(!isdefined(level.music))
     level.music=[];

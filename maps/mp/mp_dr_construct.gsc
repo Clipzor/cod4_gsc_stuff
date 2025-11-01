@@ -28,8 +28,8 @@ main() {
     setdvar( "cg_fovscale","1.15" );
 
     // Fall Damage
-	setdvar("bg_fallDamageMaxHeight","9999999");
-    setdvar("bg_fallDamageMinHeight","9999998");
+	setdvar("bg_falldamagemaxheight" , 99999);
+	setdvar("bg_falldamageminheight" , 99998);
 
     // Precache
     preCacheModel( "t6_zombie_arms" );

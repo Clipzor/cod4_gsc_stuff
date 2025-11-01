@@ -16,8 +16,8 @@ main()
  
 	setdvar("g_speed" ,"210");
 	setdvar("dr_jumpers_speed" ,"1.12");
-	setdvar("bg_falldamageminheight" , "99999");
-	setdvar("bg_falldamagemaxheight" , "99999");
+	setdvar("bg_falldamagemaxheight" , 99999);
+	setdvar("bg_falldamageminheight" , 99998);
 	setdvar("r_specular" , "0");
 	
 	setdvar( "r_specularcolorscale", "1" );

@@ -210,7 +210,6 @@ startdoor()
 		thread songs(); 
 		level.cambiato = true;
 	}
-
 }
 
 messages()

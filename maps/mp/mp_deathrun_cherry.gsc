@@ -1763,18 +1763,8 @@ jumpheight( strenght ) //Originally Written by Wingzor (Thanks buddy :>)
 
 spam()
 {
-
-	for(;;)
-	{
-	wait 20;
 	iprintln ("^3>> ^7Map created by ^2Darmuh");
-	wait 30;
-	iprintln ("^3>> ^7xfire: ^2irRoy8");
-	wait 30;
 	iprintln ("^3>> ^7http://www.youtube.com/user/^2Darmuh");
-	wait 30;
-	iprintln ("^2<< ^7The Deathrun community is an ^3amazing^7, ^2expanding ^7community that I am ^2glad ^7to be a part of. -^3Darmuh");
-	}
 }
 
 deagle()

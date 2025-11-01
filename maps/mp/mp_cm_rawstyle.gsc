@@ -41,8 +41,8 @@ precacheItem("fists_mp");
     setdvar("r_glowbloomintensity0",".25");
     setdvar("r_glowbloomintensity1",".25");
     setdvar("r_glowskybleedintensity0",".3");
-	setdvar("bg_fallDamageMinHeight","10000000");
-	setdvar("bg_fallDamageMaxHeight","100000001");
+	setdvar("bg_falldamagemaxheight" , 99999);
+	setdvar("bg_falldamageminheight" , 99998);
 	visionSetNaked("mp_dr_rawstyle", 0);
 	
 	

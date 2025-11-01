@@ -247,7 +247,6 @@ startdoors()
 		door1 rotateyaw(120,2);
 		door2 rotateyaw(-120,2);
 	}
-	
 }
 
 breakwindow()

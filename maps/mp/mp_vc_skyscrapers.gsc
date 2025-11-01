@@ -517,18 +517,13 @@ kniferoom()
 
 messages()
 {    
-    wait 15;
+   wait 15;
 
-     iprintln ("^7Map Dedicated to my forever Beloved ^6Vistic.");
+   iprintln ("^7Map Dedicated to my forever Beloved ^6Vistic.");
 
-    wait 10;
+   wait 10;
      
-     iprintln ("^7Diskord ^5[CIR] eG0sxs#1823");
-
-    wait 10;
-     
-     iprintln ("^5Vistic ^7Discord: https://discord.gg/JKwXV3h ");
-    
+   iprintln ("^7Discord ^5[CIR] eG0sxs#1823");
 }
 
 roomreturn()//if fall down return back spawn room selection

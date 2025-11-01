@@ -44,8 +44,8 @@ main()
     level.selectedmusicid = 0;
 
 	//DISABLING FALLDAMAGE
-	setDvar("bg_falldamagemaxheight", 9999999 );
-    setDvar("bg_falldamageminheight", 999999 );
+	setdvar("bg_falldamagemaxheight" , 99999);
+	setdvar("bg_falldamageminheight" , 99998);
 	
     //PRECACHE
     precacheShader("crosslogo");

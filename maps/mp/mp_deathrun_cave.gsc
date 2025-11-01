@@ -96,7 +96,6 @@ main()
 	thread old();
 	thread crazyfloor();
 	thread messages1();
-	thread messages2();
 	
 }
 
@@ -1043,22 +1042,5 @@ wait(1);
 
 messages1()
 {
-while (1)
-	{
-		{
-		iprintln( "^1>>^7Map Creator ^5Xplosive");
-		wait 30;
-		}
-	}
-}
-
-messages2()
-{
-while (1)
-	{
-		{
-		iprintln( "^1>>^7Xfire: ^5seljofk13");
-		wait 30;
-		}
-	}
+	iprintln( "^1>>^7Map Creator ^5Xplosive");
 }

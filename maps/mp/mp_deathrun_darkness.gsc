@@ -1,11 +1,4 @@
-/*
-	I know that this script sux and is horribly shitty
-	but i was in hurry so thats why its all big mess.
-	Script written in 20 minutes, LOL.
-
-	BraX.
-	Xfire: maciusiak
-*/
+//BraX.
 
 main()
 {

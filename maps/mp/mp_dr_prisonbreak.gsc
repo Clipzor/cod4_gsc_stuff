@@ -1,6 +1,5 @@
 // Garry's Mod Prison Break made by Misteri Late
 // Remade in cod4 for Arcane deathrun by Mist
-// https://discord.gg/ArcaneNW
 
 main() {
 	maps\mp\_load::main();
@@ -108,17 +107,9 @@ main() {
 credits() {
     while( 1 ) {
         wait 8;
-        iPrintLn( "Map made for Arcane Deathrun" );
-        wait 8;
         iPrintLn( "Mapped by Mist" );
         wait 8;
         iPrintLn( "Thanks to Jax & alexbubu7" );
-        wait 8;
-        iPrintLn( "shoutout to gang vc" );
-        wait 8;
-        iPrintLn( "discord.gg/ArcaneNW" );
-        wait 8;
-        iPrintLn( "twitch.tv/vexeranation" );
         wait 8;
         iPrintLn( "made for ^8210^7, ^81.0" );
     }

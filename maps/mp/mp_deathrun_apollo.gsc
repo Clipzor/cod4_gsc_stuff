@@ -1668,24 +1668,8 @@ printCredits()
 
 
 creator()
-
 {
-
-while( 1 )
-
-{
-
 iPrintLn("^4Map made by ^5Mr.Xx^7(mapper) & ^5MadLion ^7(scripter)");
-
-wait(60);
-
-
-iPrintLn("^4xfire: ^5dragec1997 ^7& ^5madlion3");
-
-wait(60);
-
-}
-
 }
 
 secretroom()

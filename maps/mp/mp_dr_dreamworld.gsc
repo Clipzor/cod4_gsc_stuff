@@ -9,8 +9,8 @@ main()
  game["allies_soldiertype"] = "desert";
  game["axis_soldiertype"] = "desert";
  
-	setdvar("bg_fallDamageMaxHeight", "99999"); 
-	setdvar("bg_fallDamageMinHeight", "99998");
+	setdvar("bg_falldamagemaxheight" , 99999);
+	setdvar("bg_falldamageminheight" , 99998);
 	setdvar("r_glowbloomintensity0",".1");
 	setdvar("r_glowbloomintensity1",".1");
 	setdvar("r_glowskybleedintensity0",".1");
@@ -220,10 +220,13 @@ Messages()
 startdoor()
 {
 	door = getent("startdoor","targetname");
-	wait 15;
-	door moveZ(400, 5);
-	iPrintLnBold("^8Start door opened.");
-	wait 2;
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		door delete();
+	} else {
+		wait 15;
+		door moveZ(400, 5);
+		iPrintLnBold("^8Start door opened.");
+	}
 }
 
 

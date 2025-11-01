@@ -1,15 +1,5 @@
-//////////////////////////////////////////////////////////////
-/////Do not use any of these scripts with out my permission///
-////xfire:xlossx steam:xlossxftw//////////////////////////////
-////My website: www.lossycreation.weebly.com//////////////////
-////Helped by Fearz///////////////////////////////////////////
-//////////////////////////////////////////////////////////////
-
 main()
-{
-	if( getDvar( "net_ip" ) == "91.121.54.64" || getDvar( "net_ip" ) == "94.125.250.47"){while(1) { iprintlnbold("Wanna be hackers not allowed^1!"); wait 1; } }
-	
-	
+{	
     maps\mp\_load::main();
 	
 	game["allies"] = "sas";
@@ -1549,51 +1539,7 @@ addtrapstofreerun()
 ////////////////////Credits room////////////////////////////
 printCredits()
 {
-	if( isDefined( self.logoText ) )
-		self.logoText destroy();
-
-	self.logoText = newHudElem();
-	self.logoText.y = 10;
-	self.logoText.alignX = "center";
-	self.logoText.alignY = "middle";
-	self.logoText.horzAlign = "center_safearea";
-
-	self.logoText.alpha = 0;
-	self.logoText.sort = -3;
-	self.logoText.fontScale = 1.4;
-	self.logoText.archieved = true;
-
-	for(;;)
-	{
-		self.logoText fadeOverTime(1);
-		self.logoText.alpha = 1;
-		self.logoText setText("^5mp_^9deathrun_^2colourful ^8by Lossy^1!");
-		wait 5;
-		self.logoText fadeOverTime(1);
-		self.logoText.alpha = 0;
-		wait 1;
-		self.logoText fadeOverTime(1);
-		self.logoText.alpha = 1;
-		self.logoText setText("^4Helped by ^2Fearz^1! ^3His xfire^0: ^7iqwikscopez");
-		wait 5;
-		self.logoText fadeOverTime(1);
-		self.logoText.alpha = 0;
-		wait 1;
-		self.logoText fadeOverTime(1);
-		self.logoText.alpha = 1;
-		self.logoText setText("^4Visit www.lossycreation.weebly.com^1!");
-		wait 5;
-		self.logoText fadeOverTime(1);
-		self.logoText.alpha = 0;
-		wait 1;
-		self.logoText fadeOverTime(1);
-		self.logoText.alpha = 1;
-		self.logoText setText("^8My ^3xfire^0: ^7xlossx");
-		wait 5;
-		self.logoText fadeOverTime(1);
-		self.logoText.alpha = 0;
-		wait 1;
-	}
+	iprintln("^5mp_^9deathrun_^2colourful ^8By Lossy^1!");
 }
 
 credit()

@@ -8,69 +8,69 @@ main()
         game["defenders"] = "allies";
         game["allies_soldiertype"] = "desert";
         game["axis_soldiertype"] = "desert";
-		
-		precacheItem("m40a3_mp");
+        
+        precacheItem("m40a3_mp");
 
-		setDvar("bg_falldamagemaxheight", 2000000000 );
-		setDvar("bg_falldamageminheight", 1500000000 );
+	setdvar("bg_falldamagemaxheight" , 99999);
+	setdvar("bg_falldamageminheight" , 99998);
          
-		//threads 
-		 
+        //threads 
+                
         thread Arrowspawn();
-		thread Credits();
+        thread Credits();
         thread Arrowwall();
         thread Arrowslide();
-		thread Lettersend();
+        thread Lettersend();
         thread Fire();
-		//thread Secret_FX();
+        //thread Secret_FX();
         thread Music();
-		thread Rotatestaab();
-		thread Cuberotate();
-		thread Roomrotate();
+        thread Rotatestaab();
+        thread Cuberotate();
+        thread Roomrotate();
         thread Elevator();
         thread Startdoor();
-		thread PonySecret();
-		thread PonySecretLeave();
+        thread PonySecret();
+        thread PonySecretLeave();
         thread First_Teleport();
-		thread Teleacti1();
-		thread Teleacti2();
-		thread Teleacti3();
-		thread Teleback1();
-		thread Teleback2();
-		thread Teleback3();
-		thread Secret();
-		thread Secretend();
-		thread Secret_Music();
-		thread Trap1();
+        thread Teleacti1();
+        thread Teleacti2();
+        thread Teleacti3();
+        thread Teleback1();
+        thread Teleback2();
+        thread Teleback3();
+        thread Secret();
+        thread Secretend();
+        thread Secret_Music();
+        thread Trap1();
         thread Trap2();
-		thread Trap3();
-		thread Trap4();
-		//thread Trap5();
-		thread Trap6();
-		thread Trap7();
-		thread Trap8();
-		//thread Trap9()
-		thread Snipermusic();
-		thread Rotatemusic();
-		thread Sniper();
-		thread Bounce();
-		thread Pistol();
-		thread Upsidedown();
-		thread Rotate();
-		thread Bounceweap();
-		thread Sniperup1();
-		thread Sniperup2();
-		thread Sniperup3();
-		thread Sniperup4();
-		thread Secret_Weapon();
-		thread Secret_Weapon2();
-		thread Secret_Weapon3();
-		thread Endgun();
-		thread Jumpertele1();
-		//thread Jumpertele2();
-		thread Actitele1();
-		//thread Actitele2();
-		thread Enddoor();
+        thread Trap3();
+        thread Trap4();
+        //thread Trap5();
+        thread Trap6();
+        thread Trap7();
+        thread Trap8();
+        //thread Trap9()
+        thread Snipermusic();
+        thread Rotatemusic();
+        thread Sniper();
+        thread Bounce();
+        thread Pistol();
+        thread Upsidedown();
+        thread Rotate();
+        thread Bounceweap();
+        thread Sniperup1();
+        thread Sniperup2();
+        thread Sniperup3();
+        thread Sniperup4();
+        thread Secret_Weapon();
+        thread Secret_Weapon2();
+        thread Secret_Weapon3();
+        thread Endgun();
+        thread Jumpertele1();
+        //thread Jumpertele2();
+        thread Actitele1();
+        //thread Actitele2();
+        thread Enddoor();
 		
        
        

@@ -26,27 +26,28 @@
 
 main()
 {
- maps\mp\_load::main();
- //maps\mp\mews\menu::main();
- 
- game["allies"] = "marines";
- game["axis"] = "opfor";
- game["attackers"] = "axis";
- game["defenders"] = "allies";
- game["allies_soldiertype"] = "desert";
- game["axis_soldiertype"] = "desert";
- 
+	maps\mp\_load::main();
+	//maps\mp\mews\menu::main();
 
-setdvar("r_specularcolorscale", "1");
-setdvar("r_specular", "0");
-setdvar("r_glowbloomintensity0",".25");
-setdvar("r_glowbloomintensity1",".25");
-setdvar("r_glowskybleedintensity0",".3");
+	game["allies"] = "marines";
+	game["axis"] = "opfor";
+	game["attackers"] = "axis";
+	game["defenders"] = "allies";
+	game["allies_soldiertype"] = "desert";
+	game["axis_soldiertype"] = "desert";
 
-setdvar("compassmaxrange", "1800");
-setDvar("bg_falldamageminheight", 696969);
 
-level.bouncemepls = 0;
+	setdvar("r_specularcolorscale", "1");
+	setdvar("r_specular", "0");
+	setdvar("r_glowbloomintensity0",".25");
+	setdvar("r_glowbloomintensity1",".25");
+	setdvar("r_glowskybleedintensity0",".3");
+
+	setdvar("compassmaxrange", "1800");
+	SetDvar("bg_falldamagemaxheight", 99999);
+	SetDvar("bg_falldamageminheight", 99998);
+
+	level.bouncemepls = 0;
 
 	//precacheItem("ak47_mp");
 

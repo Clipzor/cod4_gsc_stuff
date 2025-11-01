@@ -1,9 +1,4 @@
-/*
-	Map by xFearZ
-	Thanks to Viking for making the script so only one trap can be used at once his xfire: vikingkampfsau
-	If you have any problem scripting add my xfire: iqwikscopez or vikings: vikingkampfsau
-	You have no permission to use these scripts!
-*/
+//Map by xFearZ
 
 main()
 {

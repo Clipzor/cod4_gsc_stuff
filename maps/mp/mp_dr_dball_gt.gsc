@@ -3,67 +3,66 @@
 main()
 {
         maps\mp\_load::main();
- 
+
         precacheShellShock( "frag_grenade_mp" );
- 
-                level.abovehuman["powerzone_idle"] = LoadFX("dball/powerzone");
-                level.fx_airstrike_contrail = loadfx ("smoke/jet_contrail");
-                level.abovehuman["fireball_charge"] = LoadFX("dball/kishotcharge");
-                level.abovehuman["fireball_tracer"] = LoadFX("dball/kamehamehatracer");
-                level.abovehuman["fireball_explosion"] = LoadFX("dball/kishotimpact");
-                level.abovehuman["nuke_explosion"] = LoadFX("explosions/nuke_explosion");
- 
-                level.abovehuman["fireball_charge_big"] = LoadFX("dball/kishotcharge_big");
-                level.burn_fx = LoadFX("dball/ssjglow");
-                level.glow = LoadFX("dball/playerburst");
- 
-                level.abovehuman["fireball_tracer_small"] = LoadFX("dball/kamehamehatracer_small");
-                level.abovehuman["fireball_charge_small"] = LoadFX("dball/kishotcharge_small");
-                level.abovehuman["fireball_explosion_small"] = LoadFX("dball/kishotimpact_small");
- 
-                level.fx_shenron["sheron"] = loadFx("dball/shenron_spawn");
- 
- 
+
+        level.abovehuman["powerzone_idle"] = LoadFX("dball/powerzone");
+        level.fx_airstrike_contrail = loadfx ("smoke/jet_contrail");
+        level.abovehuman["fireball_charge"] = LoadFX("dball/kishotcharge");
+        level.abovehuman["fireball_tracer"] = LoadFX("dball/kamehamehatracer");
+        level.abovehuman["fireball_explosion"] = LoadFX("dball/kishotimpact");
+        level.abovehuman["nuke_explosion"] = LoadFX("explosions/nuke_explosion");
+
+        level.abovehuman["fireball_charge_big"] = LoadFX("dball/kishotcharge_big");
+        level.burn_fx = LoadFX("dball/ssjglow");
+        level.glow = LoadFX("dball/playerburst");
+
+        level.abovehuman["fireball_tracer_small"] = LoadFX("dball/kamehamehatracer_small");
+        level.abovehuman["fireball_charge_small"] = LoadFX("dball/kishotcharge_small");
+        level.abovehuman["fireball_explosion_small"] = LoadFX("dball/kishotimpact_small");
+
+        level.fx_shenron["sheron"] = loadFx("dball/shenron_spawn");
+
+
         game["allies"] = "marines";
         game["axis"] = "opfor";
         game["attackers"] = "axis";
         game["defenders"] = "allies";
         game["allies_soldiertype"] = "desert";
         game["axis_soldiertype"] = "desert";
- 
- 
+
+
         setdvar( "r_specularcolorscale", "1" );
         setdvar("r_glowbloomintensity0",".25");
         setdvar("r_glowbloomintensity1",".25");
         setdvar("r_glowskybleedintensity0",".3");
 
- 
+
         thread mapsong();
- 
+
         thread brushes();
         thread enemey_low();
         thread supersaiyan();
- 
+
         thread traps();
         thread shortcutmove1();
         thread logo();
- 
+
         thread dballs();
         thread dragonballsfound();
         thread hud();
         thread pillars();
         thread kniferoom();
-		thread jumpfix();
- 
-	setDvar("bg_falldamagemaxheight", 99999 );
-	setDvar("bg_falldamageminheight", 99999 );  
- 
+        thread jumpfix();
+        setdvar("bg_falldamagemaxheight" , 99999);
+        setdvar("bg_falldamageminheight" , 99998);
+
         addTriggerToList( "trigger1" );
-    addTriggerToList( "trigger2" );
-    addTriggerToList( "trigger3" );
-    addTriggerToList( "trigger4" );
-    addTriggerToList( "trigger5" );
-    addTriggerToList( "trigger6" );
+        addTriggerToList( "trigger2" );
+        addTriggerToList( "trigger3" );
+        addTriggerToList( "trigger4" );
+        addTriggerToList( "trigger5" );
+        addTriggerToList( "trigger6" );
 }
  
 addTriggerToList(name)

@@ -60,7 +60,7 @@ main()
 	thread trapescape();
 	thread bounceroom();
 	thread sniperoom();
-	iprintln("^0[^5SpaceBallv2^0]^7Traps Are Now Able to Activate!");
+	
 	thread trap1();
 	thread trap2();
 	thread trap3();

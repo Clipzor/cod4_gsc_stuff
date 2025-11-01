@@ -18,8 +18,8 @@ main()
 
 	//setdvar("jump_slowdownenable" , "0");
 	setdvar("g_speed" , "210");
-	setdvar("bg_falldamageminheight" , "99998");
-	setdvar("bg_falldamagemaxheight" , "99999");
+	setdvar("bg_falldamagemaxheight" , 99999);
+	setdvar("bg_falldamageminheight" , 99998);
 	
 
 	thread shortcut();

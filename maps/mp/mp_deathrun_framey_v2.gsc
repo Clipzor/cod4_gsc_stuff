@@ -166,14 +166,14 @@ platformjump2 waittill ("movedone");
 
 trap7_mover_mid()
 {
-while(1)
-{
-self movez(-75,1,0.1,0.9);
-self waittill("movedone");
-wait(1);
-self movez(75,0.5,0.1,0.4);
-self waittill("movedone");
-} 
+	while(1)
+	{
+	self movez(-75,1,0.1,0.9);
+	self waittill("movedone");
+	wait(1);
+	self movez(75,0.5,0.1,0.4);
+	self waittill("movedone");
+	} 
 }
 
 startdoor()

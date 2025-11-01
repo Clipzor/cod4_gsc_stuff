@@ -199,8 +199,6 @@ bottomtext()
 	iPrintLn("^1>>^2Map By ^3#Zsever#ABprice^1<<");
 	wait 5;
 	iPrintLn("^1>>^2Hope You Enjoy^1<<");
-	wait 5;
-	iPrintLn("^1>>^2Any Bug? Send Me Pm On Discord : ABprice#7183^1<<");
 	wait 10;
 	iPrintLn("^1>>^2There is ^11 ^5Secret ^2on this map!^1<<");
 	wait 10;
@@ -213,8 +211,6 @@ bottomtext()
 	iPrintLn("^1>>^2Thanks To Testers ^5 #FNRP#Jazz :D ^2, ^5#FNRP#Hunter^1<<");
 	wait 10;
 	iPrintLn("^1>>^2Thanks To All ^3Zsever Members^1<<");
-	wait 10;
-	iPrintLn("^1>>^3zsever-gaming.es^1<<");
 	}
 	
 }

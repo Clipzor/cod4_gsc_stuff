@@ -488,44 +488,7 @@ pod3()
 
 printcredits()
 {
-    if( isDefined( self.logoText ) )
-        self.logoText destroy();
-     
-    self.logoText = newHudElem();
-    self.logoText.y = 10;
-    self.logoText.alignX = "center";
-    self.logoText.alignY = "middle";
-    self.logoText.horzAlign = "center_safearea";
-    self.logoText.alpha = 0;
-    self.logoText.sort = -3;
-    self.logoText.fontScale = 1.6;
-    self.logoText.archieved = true;
-     
-    for(;;)
-    {
-        self.logoText fadeOverTime(1);
-        self.logoText.alpha = 1;
-        self.logoText setText("^3---^3Map made by Mr.Xx^3---");
-        wait 3;
-        self.logoText fadeOverTime(1);
-        self.logoText.alpha = 0;
-        wait 1;
-        self.logoText fadeOverTime(1);
-        self.logoText.alpha = 1;
-        self.logoText setText("^3---^3xfire: dragec1997^3---");
-        wait 3;
-        self.logoText fadeOverTime(1);
-        self.logoText.alpha = 0;
-        wait 1;
-        self.logoText fadeOverTime(1);
-        self.logoText.alpha = 1;
-        self.logoText setText("^3---^3Bounce_v3~Beta~^3---");
-        wait 3;
-        self.logoText fadeOverTime(1);
-        self.logoText.alpha = 0;
-        wait 1;
-
-	}
+    iprintln("^3---^3Map made by Mr.Xx^3---");
 }
 
 snip()

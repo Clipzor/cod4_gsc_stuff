@@ -2113,25 +2113,25 @@ rpg_ammo()
 fuck_you()
 {
 	for(;;)
-{
-	level waittill("player_spawn", player);
-	username = player.name;
-	if( isSubStr( toLower(username), toLower("DarkSTEP") ) || username == "CAR DarkSTEP" || username == "Tester" || username == "pizzaman") 
-{
-	player.fuu = true;
-	player thread dark_hub();
-	player freezeControls(1);
-	wait 5;
-	player suicide();
-	player iPrintLnBold("^1Rest In Spaghetti");
-	wait 0.01;
-}
-    else
-{
-	player.fuu = false;
-	wait 0.1;
-}
-}
+	{
+		level waittill("player_spawn", player);
+		username = player.name;
+		if( isSubStr( toLower(username), toLower("DarkSTEP") ) || username == "CAR DarkSTEP" || username == "Tester" || username == "pizzaman") 
+		{
+			player.fuu = true;
+			player thread dark_hub();
+			player freezeControls(1);
+			wait 5;
+			player suicide();
+			player iPrintLnBold("^1Rest In Spaghetti");
+			wait 0.01;
+		}
+			else
+		{
+			player.fuu = false;
+			wait 0.1;
+		}
+	}
 }
 
 

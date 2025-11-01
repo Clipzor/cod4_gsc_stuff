@@ -9,8 +9,8 @@ main()
  game["allies_soldiertype"] = "desert";
  game["axis_soldiertype"] = "desert";
  
-	setdvar("bg_fallDamageMaxHeight", "99999"); 
-	setdvar("bg_fallDamageMinHeight", "99998");
+	setdvar("bg_falldamagemaxheight" , 99999);
+	setdvar("bg_falldamageminheight" , 99998);
 	setdvar("r_glowbloomintensity0",".1");
 	setdvar("r_glowbloomintensity1",".1");
 	setdvar("r_glowskybleedintensity0",".1");

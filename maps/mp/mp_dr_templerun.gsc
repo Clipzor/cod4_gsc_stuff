@@ -30,10 +30,6 @@ main()
     game["axis_soldiertype"] = "woodland";
         
     ///DVARS       
-	// setdvar("r_specularcolorscale", "1"); // dont touch these dvars they stick on server if they dont get reset
-    // setdvar("r_glowbloomintensity0",".1");
-	// setdvar("r_glowbloomintensity1",".1");
-	// setdvar("r_glowskybleedintensity0",".1");
 
 	setDvar("bg_falldamagemaxheight", 99999);
     setDvar("bg_falldamageminheight", 99998);
@@ -47,14 +43,7 @@ main()
     addTriggerToList("trig_laser");
 
 ///PRECACHE MODEL/ITEM TO SEE MODEL/ITEM IN GAME
-    precacheshader("mtl_laraclothes");
-    precacheshader("mtl_laraface");
-    precacheshader("mtl_eyes_etc");
-    precacheshader("mtl_boots_etc");
-    precacheshader("mtl_larahair");
     precacheModel("plr_terry_laracroft");
-
-    precacheshader("mtl_ursegor_full");
     precacheModel("plr_terry_ursegor");
 
     precacheItem("frag_grenade_mp");

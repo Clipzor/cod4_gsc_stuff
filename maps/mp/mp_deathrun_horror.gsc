@@ -155,12 +155,13 @@ new_ending_hud( align, fade_in_time, x_off, y_off )
 
 startdoor()
 {
-object = getent("startdoor","targetname");
-{
-wait 10;
-object moveZ(172,3);
-object waittill("movedone");
-}
+	object = getent("startdoor","targetname");
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		object delete();
+	} else {
+		wait 10;
+		object moveZ(172,3);
+	}
 }
 
 trap1()

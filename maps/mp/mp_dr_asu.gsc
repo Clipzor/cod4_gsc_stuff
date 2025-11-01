@@ -479,35 +479,40 @@ credit(){
 startdoor(){
 	door = getEnt("sd","targetname");
 
-	level waittill("round_started");
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+		door delete();
+	} else {
+		level waittill("round_started");
 
-	startHud=newhudelem();
-	startHud.alignx="center";
-	startHud.aligny="middle";
-	startHud.horzalign="center";
-	startHud.vertalign="middle";
-	startHud.alpha=5;
-	startHud.glowalpha=5;
-	//startHud moveovertime(.1);
-	startHud.x=0;
-	startHud.y=-30;
-	startHud.fontscale=1.6;
-	startHud.font="objective";
-	startHud.glowcolor=level.asu_glow;
-	startHud.label=&"^1&&1";
+		startHud=newhudelem();
+		startHud.alignx="center";
+		startHud.aligny="middle";
+		startHud.horzalign="center";
+		startHud.vertalign="middle";
+		startHud.alpha=5;
+		startHud.glowalpha=5;
+		//startHud moveovertime(.1);
+		startHud.x=0;
+		startHud.y=-30;
+		startHud.fontscale=1.6;
+		startHud.font="objective";
+		startHud.glowcolor=level.asu_glow;
+		startHud.label=&"^1&&1";
 
-	for(i = 0; i < 10; i++){
-		startHud setvalue(10-i);
-		wait 1;
+		for(i = 0; i < 10; i++){
+			startHud setvalue(10-i);
+			wait 1;
+		}
+
+		door delete();
+
+		startHud fadeovertime(1);
+		startHud.alpha=0;
+
+		if(isdefined(startHud))
+			startHud destroy();
 	}
-
-	door delete();
-
-	startHud fadeovertime(1);
-	startHud.alpha=0;
-
-	if(isdefined(startHud))
-		startHud destroy();
+	
 }
 
 //check if its me on acti side

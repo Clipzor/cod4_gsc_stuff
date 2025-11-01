@@ -243,6 +243,7 @@ startdoor() {
 
     door delete();
 
+    //TODO CHECK ORIGINAL GSC SCRIPT
 }
 
 credits() {

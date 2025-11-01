@@ -2,101 +2,102 @@
 #include maps\mp\_utility;
 main()
 {
-maps\mp\_load::main();
+	maps\mp\_load::main();
 
-////Ambience////
-VisionSetNaked( "mp_dr_jungletemple");
+	////Ambience////
+	VisionSetNaked( "mp_dr_jungletemple");
 
-////game////
-game["allies"] = "sas"; 
-game["axis"] = "spetnaz"; 
-game["attackers"] = "axis";
-game["defenders"] = "allies";
-game["allies_soldiertype"] = "desert"; 
-game["axis_soldiertype"] = "desert"; 
+	////game////
+	game["allies"] = "sas"; 
+	game["axis"] = "spetnaz"; 
+	game["attackers"] = "axis";
+	game["defenders"] = "allies";
+	game["allies_soldiertype"] = "desert"; 
+	game["axis_soldiertype"] = "desert"; 
 
-////SetDvar////
-setdvar( "r_specularcolorscale", "1" );
-setdvar("r_glowbloomintensity0","1");
-setdvar("r_glowbloomintensity1","1");
-setdvar("r_glowskybleedintensity0","1");
-setDvar("bg_fallDamageMinHeight", "99999");
+	////SetDvar////
+	setdvar( "r_specularcolorscale", "1" );
+	setdvar("r_glowbloomintensity0","1");
+	setdvar("r_glowbloomintensity1","1");
+	setdvar("r_glowskybleedintensity0","1");
+	SetDvar("bg_falldamagemaxheight", 99999);
+	SetDvar("bg_falldamageminheight", 99998);
 
-////Fx////
-level._fx["Water"]["FallStream"] = loadfx ("misc/speedex_fallstream");
-level._fx["Water"]["Trap7a"] = loadfx ("speedex_waterfloor");
-level._fx["Water"]["Trap7b"] = loadfx ("speedex_trap7b");
-level._fx["Water"]["FallStreambig"] = loadfx ("speedex_fallstreambig");
-level._fx["Water"]["Water_Pour"] = loadfx ("misc/speedex_waterpour");
-level._fx["Water"]["Pour"] = loadfx ("water_pour");
-level._fx["Lava"]["Pour"] = loadfx ("lava_pour");
-level._fx["Fire"]["Trap1"] = loadfx ("fire/speedex_fire");
-level._fx["Light"]["Env"] = loadfx ("speedex_spotlight");
-level._fx["Light2"]["Env"] = loadfx ("speedex_spot_party");
-level._fx["Light3"]["Env"] = loadfx ("speedex_spot_party2");
-level._fx["Light4"]["Env"] = loadfx ("speedex_endfx");
-level._fx["Water"]["Splash"] = loadfx ("explosions/grenadeExp_water"); 
-level.fx_airstrike_afterburner = loadfx ("fire/jet_afterburner");
-level.fx_airstrike_contrail = loadfx ("smoke/jet_contrail");
-level.airstrikefx = loadfx ("explosions/clusterbomb");
+	////Fx////
+	level._fx["Water"]["FallStream"] = loadfx ("misc/speedex_fallstream");
+	level._fx["Water"]["Trap7a"] = loadfx ("speedex_waterfloor");
+	level._fx["Water"]["Trap7b"] = loadfx ("speedex_trap7b");
+	level._fx["Water"]["FallStreambig"] = loadfx ("speedex_fallstreambig");
+	level._fx["Water"]["Water_Pour"] = loadfx ("misc/speedex_waterpour");
+	level._fx["Water"]["Pour"] = loadfx ("water_pour");
+	level._fx["Lava"]["Pour"] = loadfx ("lava_pour");
+	level._fx["Fire"]["Trap1"] = loadfx ("fire/speedex_fire");
+	level._fx["Light"]["Env"] = loadfx ("speedex_spotlight");
+	level._fx["Light2"]["Env"] = loadfx ("speedex_spot_party");
+	level._fx["Light3"]["Env"] = loadfx ("speedex_spot_party2");
+	level._fx["Light4"]["Env"] = loadfx ("speedex_endfx");
+	level._fx["Water"]["Splash"] = loadfx ("explosions/grenadeExp_water"); 
+	level.fx_airstrike_afterburner = loadfx ("fire/jet_afterburner");
+	level.fx_airstrike_contrail = loadfx ("smoke/jet_contrail");
+	level.airstrikefx = loadfx ("explosions/clusterbomb");
 
-////PrecacheItems////
-PreCacheShellShock( "jeepride_ridedeath");
-preCacheModel("vehicle_mig29_desert");
-preCacheItem("rpg_mp");
-preCacheItem("colt45_mp");
-preCacheItem("m1014_grip_mp");
-preCacheItem("ak74u_mp");
-preCacheItem("artillery_mp");
-preCacheRumble("artillery_rumble");
+	////PrecacheItems////
+	PreCacheShellShock( "jeepride_ridedeath");
+	preCacheModel("vehicle_mig29_desert");
+	preCacheItem("rpg_mp");
+	preCacheItem("colt45_mp");
+	preCacheItem("m1014_grip_mp");
+	preCacheItem("ak74u_mp");
+	preCacheItem("artillery_mp");
+	preCacheRumble("artillery_rumble");
 
-////RunCourseThreads////
-thread boat();
-thread boatb();
-thread trap1();
-thread trap2();
-thread trap3();
-thread trap4();
-thread trap5();
-thread trap6();
-thread trap7();
-thread trap8();
-thread trap9();
-thread Water_gush_efx();
-thread spotlight_efxs();
-thread water_hud();
-thread platforms();
-thread water_splash();
-thread music();
-thread endfx();
-////SecretThreads////
-thread rpg();
-thread secret_access();
-thread secret_finish();
-////EndRoomThreads////
-thread water_bounce();
-thread water_bouncefx();
-thread jump_respawn();
-thread bounce_weapon();
-thread bounce_slpash();
-thread old();
-thread sniperroom();
-thread bounceroom();
-thread weaproom();
-thread kniferoom();
-thread shotroom();
+	////RunCourseThreads////
+	thread boat();
+	thread boatb();
+	thread trap1();
+	thread trap2();
+	thread trap3();
+	thread trap4();
+	thread trap5();
+	thread trap6();
+	thread trap7();
+	thread trap8();
+	thread trap9();
+	thread Water_gush_efx();
+	thread spotlight_efxs();
+	thread water_hud();
+	thread platforms();
+	thread water_splash();
+	thread music();
+	thread endfx();
+	////SecretThreads////
+	thread rpg();
+	thread secret_access();
+	thread secret_finish();
+	////EndRoomThreads////
+	thread water_bounce();
+	thread water_bouncefx();
+	thread jump_respawn();
+	thread bounce_weapon();
+	thread bounce_slpash();
+	thread old();
+	thread sniperroom();
+	thread bounceroom();
+	thread weaproom();
+	thread kniferoom();
+	thread shotroom();
 
-////AddToTriggerList////
-addTriggerToList( "trap1_trigger" );
-addTriggerToList( "trap2_trigger" );
-addTriggerToList( "trap3_trigger" );
-addTriggerToList( "trap4_trigger" ); 
-addTriggerToList( "trap5_trigger" );
-addTriggerToList( "trap6_trigger" );
-addTriggerToList( "trap8_trigger" );
-addTriggerToList( "trap9_trigger" );
-addTriggerToList( "trap10_trigger" );
-////Booleans/////
+	////AddToTriggerList////
+	addTriggerToList( "trap1_trigger" );
+	addTriggerToList( "trap2_trigger" );
+	addTriggerToList( "trap3_trigger" );
+	addTriggerToList( "trap4_trigger" ); 
+	addTriggerToList( "trap5_trigger" );
+	addTriggerToList( "trap6_trigger" );
+	addTriggerToList( "trap8_trigger" );
+	addTriggerToList( "trap9_trigger" );
+	addTriggerToList( "trap10_trigger" );
+	////Booleans/////
 }
 
 addTriggerToList( name )

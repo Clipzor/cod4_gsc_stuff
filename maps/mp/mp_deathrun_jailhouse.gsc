@@ -1,6 +1,3 @@
-// Scripted by iNext.Mieep_v4
-// Clear script! and optimized for cod4 deathrun with free run functions.
-// Do not Change anything please if you want to change ask me before! xfire:wespatrick
 main()
 {
 	//Cod4 Stuff

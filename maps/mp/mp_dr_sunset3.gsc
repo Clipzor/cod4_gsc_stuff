@@ -21,8 +21,8 @@ main()
 	setdvar("r_glowbloomintensity1","1");
 	setdvar("r_glowskybleedintensity0","1");
 	setdvar("compassmaxrange","1800");
-	setDvar("bg_fallDamageMinHeight", "9999");
-	setDvar("bg_fallDamageMaxHeight", "99999");
+	SetDvar("bg_falldamagemaxheight", 99999);
+	SetDvar("bg_falldamageminheight", 99998);
 
 	///Precache///
 	PrecacheMenu("speedex_music_menu");

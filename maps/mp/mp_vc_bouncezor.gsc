@@ -1,7 +1,6 @@
 /*			            				  
 	By VC' Fox
 	Thanks to Blade for his music menu
-	Vistic Disord: https://discord.gg/JKwXV3h
 	vistic-clan
 */
 main()

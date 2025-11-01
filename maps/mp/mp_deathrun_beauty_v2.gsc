@@ -429,15 +429,6 @@ finalRoom( tp, weap, health )
 }
  
 
-creator()
-{
-while(1)
- {
-iPrintln( "^5Map ^7Made ^5By ^1Mr.Xx" );
-wait 20;
-iPrintln( "xFire: ^5dragec^71997" );
-wait 10;
-iPrintln( "^5Map ^7Made ^5By ^1Mr.Xx" );
-wait 30;
-}
+creator(){
+    iPrintln( "^5Map ^7Made ^5By ^1Mr.Xx" );
 }

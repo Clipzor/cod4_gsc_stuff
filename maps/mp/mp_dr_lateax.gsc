@@ -21,8 +21,8 @@ setdvar("r_specularcolorscale", "1");
 setdvar("r_glowbloomintensity0",".1");
 setdvar("r_glowbloomintensity1",".1");
 setdvar("r_glowskybleedintensity0",".1");
-setDvar("bg_falldamagemaxheight", 99999); /* This removes fall damage */
-setDvar("bg_falldamageminheight", 99998); /* This removes fall damage */
+setDvar("bg_falldamagemaxheight", 99999);
+setDvar("bg_falldamageminheight", 99998);
 
 
 /// Trap triggers /// 

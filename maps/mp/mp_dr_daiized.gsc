@@ -18,9 +18,9 @@ main()
     setdvar("r_glowbloomintensity0",".25");
     setdvar("r_glowbloomintensity1",".25");
     setdvar("r_glowskybleedintensity0",".3");
-	setdvar("g_speed","210");
-	setdvar("bg_fallDamageMaxHeight", "99999"); 
-	setdvar("bg_fallDamageMinHeight", "99998");
+	setdvar("g_speed",210);
+	setdvar("bg_falldamagemaxheight" , 99999);
+	setdvar("bg_falldamageminheight" , 99998);
 	setdvar("dr_jumpers_speed" ,"1.2");	
 	setdvar( "r_specular", "0" );
 	setdvar("r_glowbloomintensity0",".1");
