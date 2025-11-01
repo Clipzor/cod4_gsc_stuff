@@ -36,7 +36,6 @@ main()
 	
 	//Precaches
 	precacheItem ( "ak47_acog_mp" );
-	precacheItem ( "ak47_mp" );
 	precacheItem ( "winchester1200_mp" );
 	precacheItem ( "uzi_mp" );
 	precacheItem ( "mp5_mp" );
@@ -62,7 +61,6 @@ main()
 	thread weapon_secret_uzi();
 	thread vip_effect();
 	thread party();
-	thread wtf_hp();
 }
 
 startdoor()
@@ -137,8 +135,6 @@ icohud()
 	level.icomarhud destroy();
 }
 
-//lossy's VIP scipt
-
 unknown()
 {
 	trigger = getEnt ( "unknown_trigger", "targetname" );
@@ -153,7 +149,9 @@ unknown()
 	{
 		trigger waittill( "trigger", player );
 		tempGuid = player getGUID();
-	 
+	
+		player iprintln ( "^2>> ^7Loading..." );
+		wait 1;      
 		if(player isTouching( trigger ) && player useButtonPressed())
 		{
 			if((tempGuid == level.accepted1) || (tempGuid == level.accepted2) || (tempGuid == level.accepted3) || (tempGuid == level.accepted4))
@@ -161,12 +159,14 @@ unknown()
 				player SetPlayerAngles( org.angles ); 
 				player SetOrigin( org.origin );
 				player iprintln ( "^2>> ^7Loading successfull" );
-				player iprintlnBold ( "^2[^7ACCESS PERMITTED^2] " );
-				wait 3;
+				player iprintlnBold ( "^2Access permitted " );
+				wait 0.05;
+				player braxi\_rank::giveRankXp( "trap_activation" );
 			}
 			else
 			{
 				wait 3;
+				player iprintln ( "^1>> ^7Loading failed" );
 			}
 		}
 		else
@@ -221,11 +221,11 @@ secret_end()
 	iPrintlnBold( " ^2" + player.name + " ^7 has finished the ^2secret ^7room first!" );
 	
 	target notSolid();
-	wait 0.05;
+	wait 3;
 	
 	player GiveWeapon ( "uzi_mp" );
 	player GiveMaxAmmo ( "uzi_mp" );
-	wait 1;
+	wait 0.05;
 	player SwitchToWeapon ( "uzi_mp" );
 }
 
@@ -427,21 +427,6 @@ vip_effect()
 	{
 		playFxOnTag( level.vip, player, "j_head" );
 		wait 0.3;
-	}
-}
-
-wtf_hp()
-{
-	trigger = getEnt ( "unknown_hp", "targetname" );
-	
-	while(1)
-	{
-		trigger waittill ( "trigger", player );
-		wait 0.05;
-		
-		self.maxhealth = 500;
-		self.health = self.maxhealth;
-		wait 0.05;
 	}
 }
 

@@ -1,49 +1,7 @@
-						//////////////////////////////////////////////////////////
-						//	 ____  _____    _  _____ _   _ ____  _   _ _   _ 	//	
-						//	|  _ \| ____|  / \|_   _| | | |  _ \| | | | \ | |	//
-						//	| | | |  _|   / _ \ | | | |_| | |_) | | | |  \| |	//
-						//	| |_| | |___ / ___ \| | |  _  |  _ <| |_| | |\  |	//
-						//	|____/|_____/_/   \_\_| |_| |_|_| \_\\___/|_| \_|	//
-						//		 ____  _____ __  __ _____ _______  __			//
-						//		/ ___|| ____|  \/  |_   _| ____\ \/ /			//
-						//		\___ \|  _| | |\/| | | | |  _|  \  / 			//
-						//		 ___) | |___| |  | | | | | |___ /  \ 			//
-						//		|____/|_____|_|  |_| |_| |_____/_/\_\			//
-						//////////////////////////////////////////////////////////
-		
-		//////////////////////////////////////////////////////////////////////////////////
-		//		 __  __           _        _             _  __             _  __    	//
-		//		|  \/  |         | |      | |           | |/ /            | |/ /    	//
-		//		| \  / | __ _  __| | ___  | |__  _   _  | ' / ___  ___ ___| ' / ___ 	//
-		//		| |\/| |/ _` |/ _` |/ _ \ | '_ \| | | | |  < / _ \/ __/ __|  < / _ \	//
-		//		| |  | | (_| | (_| |  __/ | |_) | |_| | | . \  __/ (__\__ \ . \  __/	//
-		//		|_|  |_|\__,_|\__,_|\___| |_.__/ \__, | |_|\_\___|\___|___/_|\_\___|	//
-		//										__/ |                             		//
-		//										|___/                              		//
-		//						_  __      __  __    _ 									//
-		//					   | | \ \    / /  | |  (_)									//
-		//		 __ _ _ __   __| |  \ \  / /_ _| | ___ 									//
-		//		/ _` | '_ \ / _` |   \ \/ / _` | |/ / |									//
-		//	   | (_| | | | | (_| |    \  / (_| |   <| |									//
-		//		\__,_|_| |_|\__,_|     \/ \__,_|_|\_\_|									//
-		//////////////////////////////////////////////////////////////////////////////////
-
 /*
 		Map name: mp_deathrun_semtex
 		Creators: Vaki&KecsKe
-		Date: 2013. 06. 10.
-		Xfire: rohatapad & vakihun
-		Website: www.semtex.tk
-		
-		Update 1.1
-		Fixed some litle bug
-		Removed Bounce After C4 Trap
-		Changed Main Music:Swedish House Mafia Don't You Worry Child
-		No Longer activate the frist trap in Free Round (Added Start Door For The Activator)
-		Date: 2013. 06. 18.
 */
-
-
 		
 #include maps\mp\_utility;
 main()
@@ -944,7 +902,7 @@ s = getent("asd01","targetname");
 for(;;)
 {
 	s waittill("trigger", player);
-	if(player.nyitva != 1 && player UseButtonPressed())
+	if(!isdefined(player.nyitva) && player UseButtonPressed())
 	{
 		player.nyitva = 1;
 		player thread secretopen1();
@@ -1067,10 +1025,9 @@ music()
 level endon("endmusic");
 level endon("round_ended");
 wait 2;
-for(i=0;i<3;i++)
-{
-	iprintln("<<< ^3Now playing ^2((^1Swedish House Mafia don't you worry child^2)) ^3>>>");
-	}
+
+iprintln("<<< ^3Now playing ^2((^1Swedish House Mafia don't you worry child^2)) ^3>>>");
+
 for(;;)
 {
 	AmbientPlay("music");
@@ -1081,14 +1038,8 @@ for(;;)
 }
 creators()
 {
-wait 20;
-iprintln("Map made by ^3KecsKe & Vaki");
-wait 30;
-iprintln("If you found any bug please report it");
-wait 0.5;
-iprintln("x^3F^7ire: ^7rohatapad^3, ^7vakihun");
-wait 30;
-iprintln("Visit:^3www.semtex.tk");
+	wait 10;
+	iprintln("Map made by ^3KecsKe & Vaki");
 }
 mover()
 {
