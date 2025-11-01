@@ -48,8 +48,8 @@ main()
 	setdvar("r_glowbloomintensity0",".1");
 	setdvar("r_glowbloomintensity1",".1");
 	setdvar("r_glowskybleedintensity0",".1");
-	setDvar("bg_falldamagemaxheight", 2000000000 );
-	setDvar("bg_falldamageminheight", 1500000000 );
+	SetDvar("bg_falldamagemaxheight", 99999);
+	SetDvar("bg_falldamageminheight", 99998);
 	//SETDVAR*
 
 	//THREAD**

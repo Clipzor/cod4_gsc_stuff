@@ -20,17 +20,14 @@ main()
 	game["axis_soldiertype"] = "desert";
 
 	//setdvar("jump_slowdownenable" , "0");
-	setdvar("g_speed" , "210");
-	setdvar("bg_falldamageminheight" , "99998");
-	setdvar("bg_falldamagemaxheight" , "99999");
-	setdvar("SetMoveSpeedScale" , "1.12");
-	setdvar("ui_hud_hardcore" , "1");
+	setdvar("g_speed" , 210);
+	SetDvar("bg_falldamagemaxheight", 99999);
+	SetDvar("bg_falldamageminheight", 99998);
 	setup_swim_platforms();
 
 	level.watersplash_large = LoadFX( "misc/watersplash_large" );
 	level.water_splash_dump = LoadFX( "impacts/water_splash_bodydump" );
-	
-	thread force_decals();
+
 	thread sniper();
 	thread ak();
 	thread knife();
@@ -42,14 +39,8 @@ main()
 	thread credits();
 	thread credits2();
 	thread music();
-//	thread endroom_tp();
-//	thread velocity();
 	trigger_overlay_room_setup();
 	thread trigger_water_setup();
-//	thread ele_secret_start();
-//	thread ele_secret_end();
-//	thread skeletons();
-//	thread ui_hud_hc();
 	thread velo_exp1();
 	thread velo_exp1_();
 	thread velo_exp2();
@@ -108,20 +99,6 @@ main()
 	addVlctPlayer("2310346616691877291", "Compy");
 	addVlctPlayer("2310346614881491050", "Clippy");
 	
-}
-
-force_decals()
-{
-    level waittill("round_started");
-    while(1)
-    {
-        players = getEntArray( "player", "classname" );
-        for(i = 0; i < players.size; i++){
-            players[i] setClientDvar("r_drawDecals", 1);
-			players[i] setClientDvar("r_specular", 0);
-        }
-        wait 0.1;
-    }
 }
 
 
@@ -863,23 +840,6 @@ music()
 }
 
 
-endroom_tp()
-{
-
-	trig = getEnt("trigger_end", "targetname");
-	tele = getEnt("origin_end", "targetname");
-	
-	for(;;)
-	{
-		trig waittill("trigger", player);
-		player setOrigin(tele.origin);
-		player setPlayerAngles(tele.angles);
-		player freezeControls(1);
-		wait 1;
-		player freezeControls(0);
-		wait 1;
-	}
-}
 
 
 trigger_water_setup() {
@@ -937,14 +897,6 @@ player_drown_water(water)
     }
 }
 
-
-ui_hud_hc()
-{
-    trig = getEnt("trigger_ui", "targetname");
-    trig waittill("trigger", player);
-	setDvar("ui_hud_hardcore" , "0");
-	setDvar("r_drawDecals" , "1");
-}
 
 //--------------------------------------------
 velo_exp1()

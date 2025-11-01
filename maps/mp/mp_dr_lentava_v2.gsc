@@ -12,12 +12,10 @@ main()
 	game["allies_soldiertype"] = "desert";
 	game["axis_soldiertype"] = "desert";
 
-	setdvar("bg_bobmax" , "0");
-	setdvar("jump_slowdownenable" , "0");
-	setdvar("g_speed" , "210");
-	setdvar("bg_falldamageminheight" , "99998");
-	setdvar("bg_falldamagemaxheight" , "99999");
-	setdvar("r_specular" , "0");
+	setdvar("jump_slowdownenable" , 0);
+	setdvar("g_speed" , 210);
+	SetDvar("bg_falldamagemaxheight", 99999);
+	SetDvar("bg_falldamageminheight", 99998);
 
 	thread woda();
 	thread credits();

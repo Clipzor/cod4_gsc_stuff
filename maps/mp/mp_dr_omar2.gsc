@@ -16,8 +16,9 @@ maps\mp\_load::main();
     setdvar("r_glowskybleedintensity0",".3");
 	setdvar("g_speed","190");
 	//setdvar("r_fullbright","1");
-	setdvar("bg_fallDamageMinHeight","1000000000");
-	setdvar("bg_fallDamageMaxHeight","1000000000");
+	SetDvar("bg_falldamagemaxheight", 99999);
+	SetDvar("bg_falldamageminheight", 99998);
+	
 	level.music=[];
     level.music[0]["song"]    ="JETFIRE - LIVING ON THE EDGE";
     level.music[0]["alias"]    ="song1";

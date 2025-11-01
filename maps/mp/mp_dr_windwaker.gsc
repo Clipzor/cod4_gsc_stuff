@@ -1,15 +1,7 @@
-//////////////////////////////////////////////////////////
-//														//
+
 //	Maker: quaK											//
-//														//
 //	Steam: https://steamcommunity.com/id/Joelrau/		//
 //	Discord: Joel#0426									//
-//														//
-//////////////////////////////////////////////////////////
-//
-//	Thanks to everyone who made maps before me, I was able to make this map thanks to looking at other peoples scripts and improving upon them!
-//	Feel free to do the same!
-//
 
 #include common_scripts\utility;
 #include braxi\_common;
@@ -32,8 +24,8 @@ main()
 	setDvar("r_glowbloomintensity1","1");
 	setDvar("r_glowskybleedintensity0","1");
 	setDvar("compassmaxrange","1800");
-	setDvar("bg_fallDamageMaxHeight", "99999");
-	setDvar("bg_fallDamageMinHeight", "99998");
+	SetDvar("bg_falldamagemaxheight", 99999);
+	SetDvar("bg_falldamageminheight", 99998);
 
 	precacheModel("link");
 	precacheModel("link_outset");

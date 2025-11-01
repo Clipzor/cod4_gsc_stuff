@@ -13,15 +13,9 @@ main() {
 	game["allies_soldiertype"] = "woodland";
 	game["axis_soldiertype"] = "woodland";
 
-    setdvar("bg_fallDamageMaxHeight","9999999");
-    setdvar("bg_fallDamageMinHeight","9999998");
+	SetDvar("bg_falldamagemaxheight", 99999);
+	SetDvar("bg_falldamageminheight", 99998);
 
-    precacheshader("material,loadscreen_mp_dr_liserd");
-    precacheshader("material,liserd_loadscreen");
-    precacheshader("material,mtl_plr_carl_johnson_head");
-    precacheshader("material,mtl_plr_carl_johnson_jeans");
-    precacheshader("material,mtl_plr_carl_johnson_sneaker");
-    precacheshader("material,mtl_plr_carl_johnson_torso");
     precacheModel("plr_carl_johnson");
 
     level.elec = false;

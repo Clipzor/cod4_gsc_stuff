@@ -13,10 +13,9 @@ main()
 	game["defenders"] = "allies";
 	game["allies_soldiertype"] = "desert";
 	game["axis_soldiertype"] = "desert";
- 
-	setdvar("bg_falldamageminheight" , "99999");
-	setdvar("bg_falldamagemaxheight" , "99999");
-	setdvar("r_specular" , "0");
+
+	SetDvar("bg_falldamagemaxheight", 99999);
+	SetDvar("bg_falldamageminheight", 99998);
 	
 	setdvar( "r_specularcolorscale", "1" );
 

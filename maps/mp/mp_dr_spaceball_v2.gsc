@@ -32,8 +32,8 @@ main()
 	setdvar("r_glowbloomintensity1",".25");
 	setdvar("r_glowskybleedintensity0",".3");
 	setdvar("compassmaxrange","1800");
-	setdvar("bg_fallDamageMaxHeight","999999");
-	setdvar("bg_fallDamageMinHeight","99999");
+	SetDvar("bg_falldamagemaxheight", 99999);
+	SetDvar("bg_falldamageminheight", 99998);
 
 	wait 0.05;
 	level.dvar["bunnyhoop"] = 0;

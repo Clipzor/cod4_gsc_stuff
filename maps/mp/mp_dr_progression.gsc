@@ -86,8 +86,8 @@ main()
 	game["allies_soldiertype"] = "woodland";
 	game["axis_soldiertype"] = "woodland";
 	
-	setdvar("bg_fallDamageMaxHeight","300000");
-	setdvar("bg_fallDamageMinHeight","200000");
+	SetDvar("bg_falldamagemaxheight", 99999);
+	SetDvar("bg_falldamageminheight", 99998);
 
 	level.greentrail = loadFX("deathrun/greentrail");
 	level.purple = loadFX("deathrun/purpletrail");

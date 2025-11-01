@@ -38,8 +38,8 @@ main()
 	setdvar("r_glowskybleedintensity0",".1");
     setdvar("r_glowbloomintensity1",".1");
 	setdvar("r_glowskybleedintensity0",".1");
-	setDvar("bg_falldamagemaxheight", 3000000);
-	setDvar("bg_falldamageminheight", 1280000);
+	SetDvar("bg_falldamagemaxheight", 99999);
+	SetDvar("bg_falldamageminheight", 99998);
 
 	precacheMenu("volpe4_music");
 	preCacheShader("vcfox");
@@ -80,7 +80,6 @@ main()
 	thread randommusic();
 	thread precacheFX();
     thread messages();
-    //thread vc_logo_shoot();
     thread map_logo_shoot();
 	thread credit();
 	thread tp_1();
@@ -683,18 +682,6 @@ sec_quit()
 			wait 1;
 			player freezeControls(0);
 		}
-}
-	
-vc_logo_shoot()
-{
-	while(1)
-	{
-	trig = getEnt("trig_vistic", "targetname");
-	trig waittill("trigger", player);
-	player iPrintLnBold("^3Vistic Discord: ^7discord.gg/JKwXV3h");
-	player iPrintLnBold("^3Vistic Discord: ^7discord.gg/JKwXV3h");
-	wait 0.1;
-	}
 }
 
 vc1()

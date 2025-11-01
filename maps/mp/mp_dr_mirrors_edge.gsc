@@ -1,18 +1,5 @@
-//////////////////////\\\\\\\\\\\\\\\\\\\\\\ Helper Crédits: Sheep Wizard / Blade:
-//    __              ___                 \\ ~Script Help
-//   /\ \            /\_ \                \\ SuX Stxly (Cold Coffee) / SuX AyPire:
-//   \ \ \        ___\//\ \    ____       \\ ~ Helped with the beginning of some small Area.
-//    \ \ \  __  / __`\\ \ \  /\_ ,`\     \\ VC'TheLixfe:
-//     \ \ \L\ \/\ \L\ \\_\ \_\/_/  /_    \\ ~ Helped with the trap 7 (Wallrun)
-//      \ \____/\ \____//\____\ /\____\   \\ 3xP' Viruz:
-//       \/___/  \/___/ \/____/ \/____/   \\ ~ Helped with 1 FX for the trap 1.
-// 								          \\ 3xP' Skazalien:
-//////////////////////\\\\\\\\\\\\\\\\\\\\\\ ~ Helped with the Hard Secret of the map :P
-//Map by Lolz      |      Scripted by Lolz\\ #FNRP#Aditya:
-//        Nickname i have in game :       \\ ~ Gave a lot of idea :D
-//   Lolz :] -SuX Lolz :] -#FNRP#Lolz :]  \\ .....................................
-//    Steam:       SuX Lolz :]            \\ Other Crédits:
-//////////////////////\\\\\\\\\\\\\\\\\\\\\\ ~Some Models are Copyright Electronic Arts © For The Models Resource only.
+
+//Map by Lolz Scripted by Lolz\\
 
 #include maps\mp\_utility;
 #include maps\mp\gametypes\_hud_util;

@@ -30,8 +30,8 @@ main()
     setDvar("r_glowbloomintensity1","1");
     setDvar("r_glowskybleedintensity0","1");
     setDvar("compassmaxrange","1800");
-    setDvar("bg_fallDamageMaxHeight", "99999");
-    setDvar("bg_fallDamageMinHeight", "99998");
+	SetDvar("bg_falldamagemaxheight", 99999);
+	SetDvar("bg_falldamageminheight", 99998);
 
     precacheItem("m40a3_mp");
     precacheItem("remington700_mp");

@@ -16,7 +16,7 @@ main()
     game["axis_soldiertype"] = "woodland";
 
     SetDvar("bg_falldamagemaxheight", 99999);
-    SetDvar("bg_falldamageminheight", 99999);
+    SetDvar("bg_falldamageminheight", 99998);
     setdvar("dr_jumpers_speed" , "1.12");
     setdvar("g_speed" , "210");
 
@@ -127,7 +127,7 @@ endmap()
     firstPlace.sort = 0;
     firstPlace.font = "default";
     firstPlace.fontScale = 1.4;
-    firstplace.hidewheninmenu = false;
+    firstPlace.hidewheninmenu = false;
     firstPlace.glowAlpha = 1;
     firstPlace.glowColor = (.3,.0,3);
     firstPlace settext("^5" + player.name + " ^7has finished ^5FIRST^7");
@@ -253,12 +253,12 @@ if( !isDefined( level.room_trig ) )
 return;
 
 acti = GetActivator();
-if(level.firstenter == true)
+if(!isdefined(level.firstenter))
 {
+    level.firstenter = false;
     acti freezeControls(1);
     acti iPrintLnBold("^3Jumper ^7is picking a ^3room ^7so don't ^3move^7!");
     level notify("acti_antiglitch");
-    level.firstenter = false;
 }
 player SetPlayerAngles( room.angles );
 player setOrigin( room.origin );

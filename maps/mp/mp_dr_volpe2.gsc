@@ -1,26 +1,4 @@
-/*			  
-  /\\  /\\  
-  //\\_//\\     ____
-  \_     _/    /   /
-   / ^ ^ \    /^^^|
-   \_\O/_/    |   |
-    /   \_    |   /
-    \     \_  /  /
-    | | | /  \/ _/
-    |_| | \__/_/               				  
-	By VC' Fox.
-	
-	why you decompiled this lmao
-	
-	Thanks to VC'Blade for the Music Menu and Secret Timer scripts.	
-	
-	Thanks to Rotola for Fixing Errors.
-		___    __  _       _______        
-	| | / (_)__/ /_(_)___  / ___/ /__ ____ 
-	| |/ / (_-< __/ / __/ / /__/ / _ `/ _ \
-	|___/_/___|__/_/\__/  \___/_/\_,_/_//_/ 
-	vistic-clan.net
-*/
+
 main()
 {
 	maps\mp\_load::main(); 
@@ -82,6 +60,7 @@ main()
 	thread teleport_14();
 	thread teleport_15();
 	thread teleport_16();
+
 	thread bounce_tp_1();
 	thread bounce_tp_2();
 	thread bounce_tp_3();
@@ -2144,10 +2123,6 @@ fuck_you()
 	player freezeControls(1);
 	wait 5;
 	player suicide();
-	player iPrintLnBold("^1Rest In Spaghetti");
-	player iPrintLnBold("^1Rest In Spaghetti");
-	player iPrintLnBold("^1Rest In Spaghetti");
-	player iPrintLnBold("^1Rest In Spaghetti");
 	player iPrintLnBold("^1Rest In Spaghetti");
 	wait 0.01;
 }

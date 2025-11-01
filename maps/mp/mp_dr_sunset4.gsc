@@ -27,8 +27,8 @@ main()
 	setDvar("r_glowbloomintensity1",".25");
 	setDvar("r_glowskybleedintensity0",".3");
 	setDvar("compassmaxrange","2500");
-	setDvar("bg_fallDamageMinHeight","1000000");
-	setDvar("bg_fallDamageMaxHeight","10000000");
+	SetDvar("bg_falldamagemaxheight", 99999);
+	SetDvar("bg_falldamageminheight", 99998);
 	
 	level.room = true;
 	level.trig_old = getEnt("trig_old", "targetname");

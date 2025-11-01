@@ -39,8 +39,8 @@ main()
 	setdvar("r_glowskybleedintensity0",".1");
     setdvar("r_glowbloomintensity1",".1");
 	setdvar("r_glowskybleedintensity0",".1");
-	setDvar("bg_falldamagemaxheight", 3000000);
-	setDvar("bg_falldamageminheight", 1280000);
+	SetDvar("bg_falldamagemaxheight", 99999);
+	SetDvar("bg_falldamageminheight", 99998);
 
 	precacheModel("playermodel_vcfox_fox");
 	preCacheModel("body_mp_sas_urban_sniper");

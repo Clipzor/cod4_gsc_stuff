@@ -31,8 +31,8 @@ main() {
 	game["allies_soldiertype"] = "desert";
 	game["axis_soldiertype"] = "desert";
 
-	setDvar("bg_FallDamageMaxHeight","99999");
-	setDvar("bg_FallDamageMinHeight","99998"); //remove fall dmg
+	SetDvar("bg_falldamagemaxheight", 99999);
+	SetDvar("bg_falldamageminheight", 99998);
 
 	level.trapTriggers = [];
 	level.roomOccupied = false;

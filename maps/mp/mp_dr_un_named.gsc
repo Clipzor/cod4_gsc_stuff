@@ -18,8 +18,8 @@ main()
 	setdvar("r_glowbloomintensity1",".25");
 	setdvar("r_glowskybleedintensity0",".3");
 	setdvar("compassmaxrange","1800");
-	setDvar("bg_falldamagemaxheight", 99999999 );
-	setDvar("bg_falldamageminheight", 9999999 );
+	SetDvar("bg_falldamagemaxheight", 99999);
+	SetDvar("bg_falldamageminheight", 99998);
 	
 	//MAP
 	thread music();

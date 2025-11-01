@@ -1,25 +1,6 @@
-//////////////////////\\\\\\\\\\\\\\\\\\\\\\
-//    __              ___                 \\
-//   /\ \            /\_ \                \\
-//   \ \ \        ___\//\ \    ____       \\
-//    \ \ \  __  / __`\\ \ \  /\_ ,`\     \\
-//     \ \ \L\ \/\ \L\ \\_\ \_\/_/  /_    \\
-//      \ \____/\ \____//\____\ /\____\   \\
-//       \/___/  \/___/ \/____/ \/____/   \\
-// 								          \\
-//////////////////////\\\\\\\\\\\\\\\\\\\\\\
-//Map by Lolz      |      Scripted by Lolz\\
-//        Nickname i have in game :       \\
-//   Lolz :] -SuX Lolz :] -#FNRP#Lolz :]  \\
-//            xFire: alex1528             \\
-//    Steam: iswenzz1528 / SuX Lolz :]    \\
-//Ty To ColdCoffe & SheepWizard & TheLixfe\\
-//             For Helping Me!            \\
-//////////////////////\\\\\\\\\\\\\\\\\\\\\\
 
-//////////////////////\\\\\\\\\\\\\\\\\\\\\\
-//  LOSSY c'est le piiiiiiiireeeeeeeeeee  \\
-//////////////////////\\\\\\\\\\\\\\\\\\\\\\
+
+//Map by Lolz Scripted by Lolz\\
 
 #include maps\mp\_utility;
 #include maps\mp\gametypes\_hud_util;
@@ -47,8 +28,8 @@ main()
 	setdvar("r_glowbloomintensity0",".1");
 	setdvar("r_glowbloomintensity1",".1");
 	setdvar("r_glowskybleedintensity0",".1");
-	setDvar("bg_falldamagemaxheight", 2000000000 );
-	setDvar("bg_falldamageminheight", 1500000000 );
+	SetDvar("bg_falldamagemaxheight", 99999);
+	SetDvar("bg_falldamageminheight", 99998);
 	//SETDVAR*
 
 	//THREAD**

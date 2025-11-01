@@ -16,8 +16,8 @@ maps\mp\_load::main();
     setdvar("r_glowskybleedintensity0",".3");
 	setdvar("g_speed","190");
 	//setdvar("r_fullbright","1");
-	setdvar("bg_fallDamageMinHeight","1000000000");
-	setdvar("bg_fallDamageMaxHeight","1000000000");
+	SetDvar("bg_falldamagemaxheight", 99999);
+	SetDvar("bg_falldamageminheight", 99998);
 	level.music=[];
     level.music[0]["song"]    ="impulse";
     level.music[0]["alias"]    ="song1";
@@ -72,48 +72,8 @@ wait 2;
 
 messages()
 {
-wait 10;
-iprintlnBold("^3Map by ^6PrOmar21!!!");
-for(;;)
-{
-wait 35;
-x=randomint(7);
-if (x==0)
-{
-iPrintln("^4Map by ^6PrOmar21!!!R");
-}
-
-if (x==1)
-{
-iPrintln("^6Special thankk me friend mustafa :DDD");
-}
-
-if (x==2)
-{
-iPrintln("^5Hey");
-}
-
-if (x==3)
-{
-iPrintln("^3me second map enjoy ok");
-}
-
-if (x==4)
-{
-iPrintln("^4sorry i dont have steam");
-}
-
-if (x==5)
-{
-iPrintln("^3i think this no bug but say me ok");
-}
-
-if (x==6)
-{
-iPrintln("^2map done for pakistan plese no steal");
-}
-
-}
+	wait 5;
+	iprintlnBold("^3Map by ^6PrOmar21!!!");
 }
 
 musicbox()

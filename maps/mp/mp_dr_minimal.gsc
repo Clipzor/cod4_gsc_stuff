@@ -52,8 +52,8 @@ oOOOOOO OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO OOOOOOo
 	setdvar("r_glowbloomintensity0",".1");
 	setdvar("r_glowbloomintensity1",".1");
 	setdvar("r_glowskybleedintensity0",".1");
-	setDvar("bg_falldamagemaxheight", 20000000 );
-	setDvar("bg_falldamageminheight", 15000000 );
+	SetDvar("bg_falldamagemaxheight", 99999);
+	SetDvar("bg_falldamageminheight", 99998);
 
     visionSetNaked("mp_dr_minimal");
 

@@ -1,27 +1,9 @@
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////																									              ///////
-///////																									              ///////
-///////		////////	     //		/////////////	//	 //  ////////////  ////////////  //////////   /////////////   ///////
-///////		//		//    //   //   //         //	//  //   //	                //       //           //         //   ///////
-///////		//		//    //   //   ////////////    // //    //	                //       //           ////////////    ///////
-///////		//		//    ///////	//	  //	    ////     ////////////       //       //////////   //              ///////
-///////		//		//	  //   //	//	   //	    // //              //       //       //           //              ///////
-///////		//		//	  //   //	//		//      //  //             //       //       //           //              ///////
-///////		////////	  //   //   //		 //     //   //  ////////////       //       //////////   //              ///////
-///////																									              ///////
-///////																									              ///////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 //Steam: ^5CAR ^0DarkSTEP
 //Discord: DarkSTEP#7390
 //YouTube: DarkSTEP
 //PayPal: paypal.me/darkstepdonations
-//Every donator will get lifetime VIP access to all my updated maps!
-//Minor thanks: CAR Nepo (this special thanks message ;D)
-//Feel free to copy without permission ;)
-//If you're from xM# and you're reading this then good luck trying to make this map work in your trash server :D
 
 #include maps\mp\_utility;
 #include maps\mp\gametypes\_hud_util;
@@ -42,9 +24,9 @@ main()
 	setDvar("r_glowbloomintensity0",".1");
 	setDvar("r_glowbloomintensity1",".1");
 	setDvar("r_glowskybleedintensity0",".1");
-	setDvar("g_speed","190");
-	setDvar("bg_fallDamageMinHeight","100000000");
-	setDvar("bg_fallDamageMaxHeight","100000000");
+	setDvar("g_speed",190);
+	SetDvar("bg_falldamagemaxheight", 99999);
+	SetDvar("bg_falldamageminheight", 99998);
 	precacheShader("sunset2d");
 	precacheItem("m40a3_mp");
 	precacheItem("ak47_mp");
