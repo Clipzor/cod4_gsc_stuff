@@ -671,14 +671,14 @@ suitgiver()
 	for (;;)
 	{
 		trig waittill("trigger", player);
-					if( player.gas == 0)
+		if( !isdefined(player.gas) || player.gas == 0)
 		{
-		 player.gas = 1;
-        //player detachAll();
-        //player attach( "astrohelmet" );
-		visionSetNight( "mp_dr_glitch_space", 0 );
-		player playSound("breath");
-        player thread gasmask_screen(player);
+			player.gas = 1;
+			//player detachAll();
+			//player attach( "astrohelmet" );
+			visionSetNight( "mp_dr_glitch_space", 0 );
+			player playSound("breath");
+			player thread gasmask_screen(player);
 		}
 	}	
 }
@@ -2878,22 +2878,10 @@ pureendacti()
 
 startvision()
 {
-level waittill("round_started");
-activator = getActivator();
-activator setClientDvar("r_filmTweakEnable", "1");
-	activator  setClientDvar("r_filmUseTweaks", 1);
-	activator  setClientDvar("r_filmTweakInvert", "0");
-	activator  setClientDvar("r_filmTweakContrast", "1.4");
-	activator  setClientDvar("r_filmTweakBrightness", "0.03");
-	activator  setClientDvar("r_filmTweakLightTint", "0 0.7 0.6");
-	activator  setClientDvar("r_filmTweakDarkTint", "0 1.3 1.4");
+	level waittill("round_started");
+
+	players = getAllPlayers();
 	
-	activator  setClientDvar("r_glow", "1");
-	activator  setClientDvar("r_glowRadius0", "8");
-	activator  setClientDvar("r_glowBloomCutoff", "0.4");
-	activator  setClientDvar("r_glowBloomIntensity0", "1");
-	activator  setClientDvar("r_glowSkyBleedIntensity0", "1");
-players = getAllPlayers();
 	for( i = 0; i < players.size; i++ )
 	{
 	players[i] setClientDvar("r_filmTweakEnable", "1");

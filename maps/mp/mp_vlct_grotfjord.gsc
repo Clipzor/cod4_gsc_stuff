@@ -19,6 +19,13 @@ main()
 	game["allies_soldiertype"] = "desert";
 	game["axis_soldiertype"] = "desert";
 
+	precacheitem("h1_karambit_mp");
+	precacheitem("iw8_butterflyknife_mp");
+	precacheitem("iw6_honeybadger_mp");
+
+	precachemodel("mp_body_codo_cyberfemale");
+	precachemodel("vh_codo_cyberfemale");
+    
 	//setdvar("jump_slowdownenable" , "0");
 	setdvar("g_speed" , 210);
 	SetDvar("bg_falldamagemaxheight", 99999);
@@ -68,11 +75,6 @@ main()
 	addTriggerToList("trigger_trap3");
 	addTriggerToList("trigger_trap4");
 
-	precacheitem("h1_karambit_mp");
-	precacheitem("iw8_butterflyknife_mp");
-	precacheitem("iw6_honeybadger_mp");
-//	precacheitem("mp_body_codo_cyberfemale");
-//	precacheitem("vh_codo_cyberfemale");
 
 
 	

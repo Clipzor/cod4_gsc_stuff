@@ -1,12 +1,6 @@
 main()
 {
-	
 	maps\mp\_load::main(); 
-
-
-
-
-	
 
 	game["allies"] = "marines";
 	game["axis"] = "opfor";
@@ -30,7 +24,7 @@ main()
 	precacheItem( "deserteagle_mp" );
 	precacheItem( "winchester1200_mp" );
 	precacheShader("black");
-        precacheShader("white");
+    precacheShader("white");
 
 	
 	if(!isdefined(level.music))
@@ -1409,7 +1403,7 @@ jump_room_battle()
        	while(isalive(player)&&isdefined(player))
             wait 1;
 
-        iPrintlnBold("^1"+self.name+" ^7died^1!");
+        iPrintlnBold("^1"+player.name+" ^7died^1!");
     }
 }
 sniper_room_battle()
@@ -1455,7 +1449,7 @@ sniper_room_battle()
        	while(isalive(player)&&isdefined(player))
             wait 1;
 
-        iPrintlnBold("^1"+self.name+" ^7died^1!");
+        iPrintlnBold("^1"+player.name+" ^7died^1!");
     }
 }
 rpg_room_battle()
@@ -1500,7 +1494,7 @@ rpg_room_battle()
        	while(isalive(player)&&isdefined(player))
             wait 1;
 
-        iPrintlnBold("^1"+self.name+" ^7died^1!");
+        iPrintlnBold("^1"+player.name+" ^7died^1!");
     }
 }
 knife_room_battle()
@@ -1546,7 +1540,7 @@ knife_room_battle()
        	while(isalive(player)&&isdefined(player))
             wait 1;
 
-        iPrintlnBold("^1"+self.name+" ^7died^1!");
+        iPrintlnBold("^1"+player.name+" ^7died^1!");
     }
 }
 sgun_room_battle()
@@ -1588,7 +1582,7 @@ sgun_room_battle()
        	while(isalive(player)&&isdefined(player))
             wait 1;
 
-        iPrintlnBold("^1"+self.name+" ^7died^1!");
+        iPrintlnBold("^1"+player.name+" ^7died^1!");
     }
 }
 ak_room_battle()
@@ -1629,7 +1623,7 @@ ak_room_battle()
        	while(isalive(player)&&isdefined(player))
             wait 1;
 
-        iPrintlnBold("^1"+self.name+" ^7died^1!");
+        iPrintlnBold("^1"+player.name+" ^7died^1!");
     }
 }
 weaproom()

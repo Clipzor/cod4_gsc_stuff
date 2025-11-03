@@ -1,28 +1,8 @@
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////																									              ///////
-///////																									              ///////
-///////		////////	     //		/////////////	//	 //  ////////////  ////////////  //////////   /////////////   ///////
-///////		//		//    //   //   //         //	//  //   //	                //       //           //         //   ///////
-///////		//		//    //   //   ////////////    // //    //	                //       //           ////////////    ///////
-///////		//		//    ///////	//	  //	    ////     ////////////       //       //////////   //              ///////
-///////		//		//	  //   //	//	   //	    // //              //       //       //           //              ///////
-///////		//		//	  //   //	//		//      //  //             //       //       //           //              ///////
-///////		////////	  //   //   //		 //     //   //  ////////////       //       //////////   //              ///////
-///////																									              ///////
-///////																									              ///////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 //Steam: ^5CAR ^0DarkSTEP
 //Discord: DarkSTEP#7390
 //YouTube: DarkSTEP
 //Website: darkstep.altervista.org
 //PayPal: paypal.me/darktest
-//Every donator will get lifetime VIP access to all my updated maps!
-//Minor thanks: Ohh Rexy<3 (finding me the emotiguy model source)
-//Feel free to copy without permission ;)
-
 
 #include braxi\_common;
 #include braxi\_rank;
@@ -3396,7 +3376,7 @@ joinsetter()
 		level waittill( "connected", player );
 		if(!isDefined(player.pers["darkpoints"]) && isDefined(player getStat(2555)))
 		{
-			player.pers["darkpoints"] = stringToInt(player getStat(2555));
+			player.pers["darkpoints"] = stringToInt(player getStat(2555)); //TODO fuck this shit, ur not setting a stat for a specific map, u dont know if this is used by a mod and ur overwriting their stats, stupid
 		}
 		else if(!isDefined(player.pers["darkpoints"]) && !isDefined(player getStat(2555)))
 		{

@@ -1676,7 +1676,7 @@ pure_strafe_room()
         activator setOrigin(actip.origin);
         player takeAllWeapons();
         activator takeAllWeapons();
-        player giveWeapon("deserteagle_mp");
+        player giveWeapon("deserteagle_mp"); //TODO doesnt give weapon, not precached?
         activator giveWeapon("deserteagle_mp");
         player switchToWeapon ("deserteagle_mp");
         activator switchToWeapon("deserteagle_mp");

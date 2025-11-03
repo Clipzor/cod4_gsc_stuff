@@ -829,7 +829,7 @@ sniperroom()
     level.trigger_scope = getEnt ("trig_sniper", "targetname");
 
     jumpersc = getEnt ("sniper_jumper", "targetname");
-    actisc = getEnt ("sniper_activator", "targetname");
+    actisc = getEnt ("sniper_acti", "targetname"); // how do you miss this bro
 
     for(;;)
     {

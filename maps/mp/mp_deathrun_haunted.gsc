@@ -1,13 +1,16 @@
-//sup is ya boy jwofles i helped make this map yo yo was rly gud
 main()
 {
 maps\mp\_load::main();
  
- level.fog = loadFX("custom/mapfog2");
-  level.trap2 = loadFX("custom/traptest");
-   level.trap5 = loadFX("custom/fallingfarmer");
-   level.trap8 = loadFX("custom/trap8");
-   level.trap9 = loadFX("custom/trap9");
+	level.fog = loadFX("custom/mapfog2");
+	level.trap2 = loadFX("custom/traptest");
+	level.trap5 = loadFX("custom/fallingfarmer");
+	level.trap8 = loadFX("custom/trap8");
+	level.trap9 = loadFX("custom/trap9");
+
+	
+	level.PlayerInRoom = false;
+	level.old_trig = true;
 
  
     game["allies"] = "marines";
@@ -501,11 +504,13 @@ sniper()
 		level.sniper waittill("trigger", player);
 		if( !level.PlayerInRoom )
 		{
-			if( isDefined(level.old_trig) )
+			if( isDefined(level.old_trig) ) {
+				level.weaponroom delete();
+				level.bounce delete();
+				level.knife delete();
+				level.old_trig = undefined;
+			}
 			level.PlayerInRoom = true;
-			level.weaponroom delete();
-			level.bounce delete();
-			level.knife delete();
 
 			player.health = player.maxhealth;
 			level.activ.health = level.activ.maxhealth;
@@ -556,11 +561,13 @@ weapon()
 		level.weaponroom waittill("trigger", player);
 		if( !level.PlayerInRoom )
 		{
-			if( isDefined(level.old_trig) )
+			if( isDefined(level.old_trig) ) {
+				level.sniper delete();
+				level.bounce delete();
+				level.knife delete();
+				level.old_trig = undefined;
+			}
 			level.PlayerInRoom = true;
-			level.sniper delete();
-			level.bounce delete();
-			level.knife delete();
 
 			player.health = player.maxhealth;
 			level.activ.health = level.activ.maxhealth;
@@ -611,11 +618,13 @@ bounce()
 		level.bounce waittill("trigger", player);
 		if( !level.PlayerInRoom )
 		{
-			if( isDefined(level.old_trig) )
+			if( isDefined(level.old_trig) ) {
+				level.sniper delete();
+				level.weaponroom delete();
+				level.knife delete();
+				level.old_trig = undefined;
+			}
 			level.PlayerInRoom = true;
-			level.sniper delete();
-			level.weaponroom delete();
-			level.knife delete();
 
 			player.health = player.maxhealth;
 			level.activ.health = level.activ.maxhealth;
@@ -699,11 +708,13 @@ knife()
 		level.knife waittill("trigger", player);
 		if( !level.PlayerInRoom )
 		{
-			if( isDefined(level.old_trig) )
+			if( isDefined(level.old_trig) ) {
+				level.sniper delete();
+				level.weaponroom delete();
+				level.bounce delete();
+				level.old_trig = undefined;
+			}
 			level.PlayerInRoom = true;
-			level.sniper delete();
-			level.weaponroom delete();
-			level.bounce delete();
 
 			player.health = player.maxhealth;
 			level.activ.health = level.activ.maxhealth;

@@ -21,6 +21,7 @@ main()
 	setdvar("r_drawdecals", "1"); //can change if you want, adds a lot to map/secrets require decals for hints (map is well optimized, performance hit is not bad)
 	level.hardsecretxp = 250; //DONT CHANGE
 	level.impossible = 50000;
+	level.PlayerInRoom = false;
 
     thread music();
     thread startdoor();

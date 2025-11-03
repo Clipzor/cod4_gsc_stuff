@@ -483,8 +483,8 @@ pndm_moloch()
 
         if(isdefined(level.activ))
         {
-            player pndm_room_setup(jump,"m40a3_mp","remington700_mp","yes",1);
-            level.activ pndm_room_setup(acti,"remington700_mp","m40a3_mp","yes",1);
+            player pndm_room_setup(jump,"m40a3_mp","remington700_mp",1);
+            level.activ pndm_room_setup(acti,"remington700_mp","m40a3_mp",1);
             pndm_room_announce("Molochs Realm",level.activ.name+" vs "+player.name);
             wait 5;
             player freezecontrols(0);
@@ -492,7 +492,7 @@ pndm_moloch()
         }
         else 
         {
-            player pndm_room_setup(jump,"m40a3_mp","remington700_mp","yes",1);
+            player pndm_room_setup(jump,"m40a3_mp","remington700_mp",1);
             wait 5;
             player freezecontrols(0);
         }
@@ -533,8 +533,8 @@ pndm_leviathan()
 
         if(isdefined(level.activ))
         {
-            player pndm_room_setup(jump,"knife_mp",undefined,"yes",1);
-            level.activ pndm_room_setup(acti,"knife_mp",undefined,"yes",1);
+            player pndm_room_setup(jump,"knife_mp",undefined,1);
+            level.activ pndm_room_setup(acti,"knife_mp",undefined,1);
             pndm_room_announce("^^Knife",level.activ.name+" vs "+player.name);
             wait 5;
             player freezecontrols(0);
@@ -542,7 +542,7 @@ pndm_leviathan()
         }
         else 
         {
-            player pndm_room_setup(jump,"knife_mp",undefined,"yes",1);
+            player pndm_room_setup(jump,"knife_mp",undefined,1);
             wait 5;
             player freezecontrols(0);
         }
@@ -588,8 +588,8 @@ pndm_belial()
 
         if(isdefined(level.activ))
         {
-            player pndm_room_setup(jump,"knife_mp",undefined,"yes",1);
-            level.activ pndm_room_setup(acti,"knife_mp",undefined,"yes",1);
+            player pndm_room_setup(jump,"knife_mp",undefined,1);
+            level.activ pndm_room_setup(acti,"knife_mp",undefined,1);
             pndm_room_announce("Bounce",level.activ.name+" vs "+player.name);
             wait 5;
             player freezecontrols(0);
@@ -597,7 +597,7 @@ pndm_belial()
         }
         else 
         {
-            player pndm_room_setup(jump,"knife_mp",undefined,"yes",1);
+            player pndm_room_setup(jump,"knife_mp",undefined,1);
             wait 5;
             player freezecontrols(0);
         }
@@ -695,8 +695,8 @@ ultra()
 		ambientstop();
         ambientplay("ultra");
 
-            player pndm_room_setup(jump,"knife_mp",undefined,500,1);
-            level.activ pndm_room_setup(acti,"knife_mp",undefined,500,1);
+            player pndm_room_setup(jump,"knife_mp",undefined,1, true);
+            level.activ pndm_room_setup(acti,"knife_mp",undefined,1, true);
 			activator = getActivator();
 			activator.isInRoom = true;
             pndm_room_announce("Ultra Instinct",level.activ.name+" vs "+player.name);
@@ -754,8 +754,8 @@ ultra()
 			
 			return;
 }
-		 player pndm_room_setup(jump,"knife_mp",undefined,500,1);
-            level.activ pndm_room_setup(acti,"knife_mp",undefined,500,1);
+		 player pndm_room_setup(jump,"knife_mp",undefined,1, true);
+            level.activ pndm_room_setup(acti,"knife_mp",undefined,1, true);
 			player freezeControls(1);
 			level.activ freezeControls(1);
 			activator = getActivator();
@@ -1029,26 +1029,26 @@ viptrig()
 	trig = getEnt("trig_step1", "targetname");
 	for(;;)
 	{
-	trig waittill("trigger", player);
-			
-					//map help					//friend               //pro player :D				//map help	                  //test
-	if(player.name == "Cammy" || player.name == "OfficialRunners" || player.name == "carter" || player.name == "LateAX" || player.name == level.align)
-	{
-		player iPrintLnBold("^4Welcome VIP "+player.name+"! ENJOY THIS GIFT :D");
-		wait 1;
-		player giveWeapon("remington700_mp");
-		player switchToWeapon("remington700_mp");
-		player giveMaxAmmo("remington700_mp");
-		player giveWeapon("m40a3_mp");
-		player switchToWeapon("m40a3_mp");
-		player giveMaxAmmo("m40a3_mp");
-		player iPrintLnBold(level.vip);
-	}
+        trig waittill("trigger", player);
+                
+                        //map help					//friend               //pro player :D				//map help	                  //test
+        if(player.name == "Cammy" || player.name == "OfficialRunners" || player.name == "carter" || player.name == "LateAX" || player.name == level.align)
+        {
+            player iPrintLnBold("^4Welcome VIP "+player.name+"! ENJOY THIS GIFT :D");
+            wait 1;
+            player giveWeapon("remington700_mp");
+            player switchToWeapon("remington700_mp");
+            player giveMaxAmmo("remington700_mp");
+            player giveWeapon("m40a3_mp");
+            player switchToWeapon("m40a3_mp");
+            player giveMaxAmmo("m40a3_mp");
+            player iPrintLnBold(level.vip);
+        }
 	}
 }
 
 
-pndm_room_setup(targ,weap,weap2,health,freeze)
+pndm_room_setup(targ,weap,weap2,freeze, ultra)
 {
     self setorigin(targ.origin);
     self setplayerangles(targ.angles);
@@ -1066,17 +1066,12 @@ pndm_room_setup(targ,weap,weap2,health,freeze)
 
     self freezecontrols(freeze);
 
-   if(health == 150)
-    {
-        if(self.pers["team"] != "spectator")
-        {
-            if(self.pers["team"] == "allies")
-                self.maxhealth = 500;
-            else    
-                self.maxhealth = 500;
-        }
-        self.health=self.maxhealth;
-    }
+    if(isdefined(ultra)) 
+        self.maxhealth = 500;
+    else
+        self.maxhealth = 100;
+
+    self.health=self.maxhealth;
 }
 
 pndm_room_announce(room,message)

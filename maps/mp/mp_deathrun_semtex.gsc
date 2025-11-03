@@ -264,7 +264,7 @@ acti = getent(jumper.target,"targetname");
 for(;;)
 {
 	bounce waittill("trigger", player);
-	old delete();
+	old delete(); // TODO fix this, gets deleted every time someone enters room in all rooms
 	if(!isdefined(level.roommusic))
 	{
 		thread endmusic("lava", 215, "^1<<< ^3Now playing ^2[[^3 Find You (Clark Kent Remix) ^2]] ^1>>>");
@@ -296,10 +296,10 @@ for(;;)
 
 fakesecret()
 {
-s = getentarray("fakesecret","targetname");
-for(i=0;i<s.size;i++)
-{
-	s[i] thread fakesecretsetup(i);
+	s = getentarray("fakesecret","targetname");
+	for(i=0;i<s.size;i++)
+	{
+		s[i] thread fakesecretsetup(i);
 	}
 }
 
@@ -310,6 +310,9 @@ k = s.size + 2;
 for(;;)
 {
 	self waittill("trigger", idiot);
+	if(!isdefined(idiot.fakesecret))
+		idiot.fakesecret = [];
+
 	if(!isdefined(idiot.fakesecret[i]))
 	{
 		idiot.fakesecret[i] = 1;
@@ -714,34 +717,36 @@ if(isdefined(hud_start))
 
 waitdead()
 {
-weapons = getent("weapons","targetname");
-bounce = getent("bounce","targetname");
-sniper = getent("sniper","targetname");
-lava = getent("lava","targetname");
-knife = getentarray("knife","targetname");
-knife[0] triggerOff();
-knife[1] triggerOff();
-bounce triggerOff();
-sniper triggerOff();
-weapons triggerOff();
-lava triggerOff();
-self common_scripts\utility::waittill_any("death","disconnect");
-thread createhud("[[" + self.name + "]] ^1K.I.A");
-activator = GetActivator();
-activator freezeControls(false);
-level notify("Bouncehudstop");
-level.jumperbouncehud destroy();
-level.actibouncehud destroy();
-bounce triggerOn();
-sniper triggerOn();
-weapons triggerOn();
-knife[0] triggerOn();
-knife[1] triggerOn();
-if(level.lavadown == 1)
-{
-	lava triggerOn();
-}	
-level.jatekosend = 0;
+	weapons = getent("weapons","targetname");
+	bounce = getent("bounce","targetname");
+	sniper = getent("sniper","targetname");
+	lava = getent("lava","targetname");
+	knife = getentarray("knife","targetname");
+	knife[0] triggerOff();
+	knife[1] triggerOff();
+	bounce triggerOff();
+	sniper triggerOff();
+	weapons triggerOff();
+	lava triggerOff();
+	self common_scripts\utility::waittill_any("death","disconnect");
+	thread createhud("[[" + self.name + "]] ^1K.I.A");
+	activator = GetActivator();
+	activator freezeControls(false);
+	level notify("Bouncehudstop");
+	if(isdefined(level.jumperbouncehud))
+		level.jumperbouncehud destroy();
+	if(isdefined(level.actibouncehud))
+		level.actibouncehud destroy();
+	bounce triggerOn();
+	sniper triggerOn();
+	weapons triggerOn();
+	knife[0] triggerOn();
+	knife[1] triggerOn();
+	if(level.lavadown == 1)
+	{
+		lava triggerOn();
+	}	
+	level.jatekosend = 0;
 }
 
 finaldoor()
@@ -1133,7 +1138,9 @@ welcomecuc(text)
 	welcomehud moveOverTime( 2 );
 	welcomehud.x = 1000 * -1;
 	wait 1;
-	welcomehud destroy();
+
+	if(isdefined(welcomehud))
+		welcomehud destroy();
 }
 new_hud( align, fade_in_time, x_off, y_off )
 {

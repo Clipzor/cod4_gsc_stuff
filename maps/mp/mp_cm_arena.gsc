@@ -104,14 +104,6 @@ fightHUD(room, jumper, activ)
 
     if (!isDefined(room))
         room = "undefined";
-    if (!isDefined(jumper))
-        jumper = "undefined";
-    else
-        jumper = jumper.name;
-    if (!isDefined(activ))
-        activ = getactivator();
-    else
-        activ = level.activ.name;
 
     waitTime = 3; //s
     offset = 200; //ms
@@ -124,7 +116,7 @@ fightHUD(room, jumper, activ)
     level.hud_fight setPulseFX( 40, waitTime*1000-offset, offset );
 
     level.hud_fight2 = createHUD( 0, 100, "center", "top", 1, "objective", 1.5 );
-    level.hud_fight2 setText("^0" + jumper + " ^5VS^3 ^0" + activ);
+    level.hud_fight2 setText("^0" + jumper.name + " ^5VS^3 ^0" + activ.name);
     level.hud_fight2 setPulseFX( 40, waitTime*1000-offset, offset );
 
     wait waitTime;
@@ -178,45 +170,14 @@ GetActivator()
 
 messages()
 {
-   wait 1;
+    wait 1;
     AmbientPlay ("katatonia");
-   wait 5;
-   iprintlnBold("^0Map Dedicated to ^5CheckMate");
-   for(;;)
-{  
-   wait 7;
- x = randomintrange(0,5);
-   if (x==0)
-{
-   iPrintln("^0Map by ^5CM'CoMpy ^0; improved and fixed by ^5CM'death");
-}
 
-   if (x==1)
-{
-   iPrintln("^0Visit: ^5teamcmdr^0.^5clanwebsite");
-}
+    wait 7;
 
-   if (x==2)
-{
-   iPrintln("^5CM'Deathrun ^0IP: ^5cm-clan.com:^028960");
-}
-
-if (x==3)
-{
-   iPrintln("^0Feel free to report any ^5bugs^0.");
-}
-
-if (x==4)
-{
-   iPrintln("^0Discord: ^5Death#7416 ^0; ^5CoMpy#1823");
-}
-
-if (x==5)
-{
-   iPrintLn("^0Map speed: ^5[^0"+getDvar("g_speed")+"^5]");
-}
-
-}
+    iPrintln("^0Map by ^5CM'CoMpy ^0; improved and fixed by ^5CM'death");
+    wait 1;
+    iPrintln("^0Discord: ^5Death#7416 ^0; ^5CoMpy#1823");
 }
 
 startdoor()

@@ -1032,6 +1032,7 @@ secret_timer()
 	self endon("secret_done");
 	self endon("death");
 	self endon("round_ended");
+	self endon("disconnect");
 	self thread destroyOnDeath();
 	
 	if(isdefined(self.secretTimer))
@@ -1071,12 +1072,11 @@ secret_timer()
 
 destroyOnDeath()
 {
-
+    self endon("secret_done");
 	self waittill("death");
 
 	if(isDefined(self.secretTimer))
-
-	self.secretTimer destroy();
+	    self.secretTimer destroy();
 }
 
 shortcut()
@@ -2127,8 +2127,7 @@ mazeend(who, who2)
 	origWin = getEnt ("orig_mazewinner", "targetname");
 	origLose = getEnt ("orig_mazelooser", "targetname");
 	
-	while(1)
-	{
+
 		trig waittill("trigger", winner);
         winner freezeControls (1);
 		winner setOrigin (origWin.origin);
@@ -2137,7 +2136,7 @@ mazeend(who, who2)
         winner iPrintLnBold("^3You won^7!");
         wait 1;
         winner freezeControls (0);
-        winner giveWeapon("frag_grenade_mp");
+        winner giveWeapon("frag_grenade_mp"); //VLCT change weap
         winner giveMaxAmmo("frag_grenade_mp");
         winner switchToWeapon("frag_grenade_mp");
         winner thread frag_ammo();
@@ -2156,7 +2155,6 @@ mazeend(who, who2)
 			loser takeAllWeapons();
             loser iPrintLnBold("^3You have lost ^7!");
 		}
-	}
 }
 
 spinball()
@@ -2230,9 +2228,7 @@ spinend(who, who2)
 	trig = getEnt ("trig_spinfinish", "targetname");
 	origWin = getEnt ("orig_spinwinner", "targetname");
 	origLose = getEnt ("orig_spinlooser", "targetname");
-	
-	while(1)
-	{
+
 		trig waittill("trigger", loser);
 
         loser freezeControls (1);
@@ -2250,21 +2246,19 @@ spinend(who, who2)
 		
 		if (isDefined(winner))
 		{
-        winner freezeControls (1);
-        winner setOrigin (origWin.origin);
-        winner setPlayerAngles (origWin.angles);
-        winner SetClientDVAR("cg_thirdperson", 0);
-        winner takeAllWeapons();
-        winner iPrintLnBold("^3You won^7!");
-        wait 1;
-        winner freezeControls (0);
-        winner giveWeapon("frag_grenade_mp");
-        winner giveMaxAmmo("frag_grenade_mp");
-        winner switchToWeapon("frag_grenade_mp");
-        winner thread frag_ammo();
-        wait 0.1;
-		}
-	}
+            winner freezeControls (1);
+            winner setOrigin (origWin.origin);
+            winner setPlayerAngles (origWin.angles);
+            winner SetClientDVAR("cg_thirdperson", 0);
+            winner takeAllWeapons();
+            winner iPrintLnBold("^3You won^7!");
+            wait 1;
+            winner freezeControls (0);
+            winner giveWeapon("frag_grenade_mp");
+            winner giveMaxAmmo("frag_grenade_mp");
+            winner switchToWeapon("frag_grenade_mp");
+            winner thread frag_ammo();
+        }
 }
 
 spin_wait()
