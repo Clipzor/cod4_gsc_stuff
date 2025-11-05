@@ -1174,21 +1174,11 @@ jgap5()
 	{
 		trig waittill("trigger", player);
 		iPrintLnBold ("^3" +player.name+ " completed the GAP room!");
-		if (level.trash == false)
-		{
-		player braxi\_rank::giveRankXp( "", 1000);
+
+		player braxi\_rank::giveRankXp( "", 500);
 		player takeAllWeapons();
 		player giveWeapon("ak47_mp");
 		player switchToWeapon("ak47_mp");
-		wait 2;
-		}
-		else
-		{
-		player takeAllWeapons();
-		player giveWeapon("ak47_mp");
-		player switchToWeapon("ak47_mp");
-		wait 2;
-		}
 	}
 }
 
@@ -1386,21 +1376,11 @@ agap5()
 	{
 		trig waittill("trigger", player);
 		iPrintLnBold ("^8Activator completed the GAP room!");
-		if (level.trash == false)
-		{
-		player braxi\_rank::giveRankXp( "", 1000);
+		player braxi\_rank::giveRankXp( "", 500);
 		player takeAllWeapons();
 		player giveWeapon("ak47_mp");
 		player switchToWeapon("ak47_mp");
 		wait 2;
-		}
-		else
-		{
-		player takeAllWeapons();
-		player giveWeapon("ak47_mp");
-		player switchToWeapon("ak47_mp");
-		wait 2;
-		}
 	}
 }
 
@@ -2663,7 +2643,7 @@ thread removeColorFromString(gametag);
 	  ambientPlay("darkstep");
 	  iPrintLn("^3DarkSTEP ^1is here!");
 	  thread partymode();
-	  player braxi\_rank::giveRankXp( "", 1000);	
+	  player braxi\_rank::giveRankXp( "", 500);	
 	  level.changed = true;
 	  trigger delete();
 	  while(isAlive(player))

@@ -243,8 +243,6 @@ water_moving()
     bounce_trigger = getEnt("bounce_fail_trig","targetname");
     water = getEnt("water_model","targetname");
 
-    bounce_trigger enableLinkTo();
-    hurt_trigger enableLinkTo();
     bounce_trigger linkTo(water);
     hurt_trigger linkTo(water);
 
@@ -446,7 +444,7 @@ musicMenu()
             level.selectedmusicid = self.selection;
             self freezecontrols(0);
 
-            if(self.selection == 3 && game["roundsplayed"] == 8)
+            if(self.selection == 3 /*&& game["roundsplayed"] == 8*/)
                 thread ee_steps();
 
             break;
@@ -710,16 +708,6 @@ trap1()
 
 	trap_trig setHintString ("[^4Trap activated!^7]");
 
-    trap_1_plants[0] enableLinkTo();
-    trap_1_plants[1] enableLinkTo();
-    trap_1_plants[2] enableLinkTo();
-
-    trap_2_plants[0] enableLinkTo();
-    trap_2_plants[1] enableLinkTo();
-
-    trap_3_plants[0] enableLinkTo();
-    trap_3_plants[1] enableLinkTo();
-    trap_3_plants[2] enableLinkTo();
     
     trap_1_plants[0] linkTo(trap_1);
     trap_1_plants[1] linkTo(trap_1);
@@ -730,7 +718,6 @@ trap1()
 
     trap_3_plants[0] linkTo(trap_3);
     trap_3_plants[1] linkTo(trap_3);
-    trap_3_plants[2] linkTo(trap_3);
 
     trap_1 movez(-200, 1);
     trap_3 movez(-200, 1);
@@ -793,10 +780,6 @@ trap3()
 
 	trap_trig setHintString ("[^4Trap activated!^7]");
 
-    trap_plants[0] enableLinkTo();
-    trap_plants[1] enableLinkTo();
-    trap_plants[2] enableLinkTo();
-    trap_plants[3] enableLinkTo();
 
     trap_plants[0] linkTo(trap);
     trap_plants[1] linkTo(trap);
@@ -852,12 +835,6 @@ trap5()
     level.trap5_spinner_activated show();
 
 	trap_trig setHintString ("[^4Trap activated!^7]");
-
-    trap_1_plants[0] enableLinkTo();
-    trap_1_plants[1] enableLinkTo();
-    trap_2_plants enableLinkTo();
-    trap_3_plants enableLinkTo();
-    trap_4_plants enableLinkTo();
 
     trap_1_plants[0] linkTo(trap_1);
     trap_1_plants[1] linkTo(trap_1);

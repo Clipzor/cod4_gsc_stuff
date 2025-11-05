@@ -1679,10 +1679,8 @@ for(;;)
 	activator giveweapon("labm40a3_mp");
 	player giveweapon("labr700_mp");
 	activator giveweapon("labr700_mp");
-	setDvar( "sv_cheats", "1" );
 	player show();
 	activator show();
-	setDvar( "sv_cheats", "0" );
 	thread createhud(player.name + " ^5selected ^1Sniper ^5room!");
 	AmbientStop(3);
 	MusicStop(3);
@@ -1724,10 +1722,8 @@ for(;;)
 	player giveweapon("labdeagle_mp");
 	player setMoveSpeedScale(1);
 	activator setMoveSpeedScale(1);
-	setDvar( "sv_cheats", "1" );
 	player show();
 	activator show();
-	setDvar( "sv_cheats", "0" );
 	thread createhud(player.name + " ^5entered ^4GAP ^5room!");
 		AmbientStop(3);
 		MusicStop(3);
@@ -2406,10 +2402,8 @@ for(;;)
 	activator setPlayerAngles(acti.angles);
 	player takeallweapons();
 	activator takeallweapons();
-	setDvar( "sv_cheats", "1" );
 	player show();
 	activator show();
-	setDvar( "sv_cheats", "0" );
 	thread createhud(player.name + " ^5selected ^3Weapon ^5room!");
 	AmbientStop(3);
 	MusicStop(3);
@@ -2582,10 +2576,8 @@ for(;;)
 	activator setPlayerAngles(acti.angles);
 	activator giveweapon("labowie_mp");
 	player giveweapon("labowie_mp");
-	setDvar( "sv_cheats", "1" );
 	player show();
 	activator show();
-	setDvar( "sv_cheats", "0" );
 	thread createhud(player.name + " ^5entered ^2Knife^5 room!");
 		AmbientStop(3);
 		MusicStop(3);
@@ -2640,10 +2632,8 @@ for(;;)
 	activator setPlayerAngles(acti.angles);
 	activator giveweapon("labowie_mp");
 	player giveweapon("labowie_mp");
-	setDvar( "sv_cheats", "1" );
 	player show();
 	activator show();
-	setDvar( "sv_cheats", "0" );
 	thread createhud(player.name + " ^5entered ^2Jump^5 room!");
 		AmbientStop(3);
 		MusicStop(3);
