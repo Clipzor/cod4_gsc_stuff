@@ -911,7 +911,10 @@ secfinish()
         continue;
 
     player notify("secret_done");
-	player.secretTimer destroy();
+    
+    if(isdefined(player.secretTimer))
+	    player.secretTimer destroy();
+
 	player setOrigin(tele1.origin);
     player setPlayerAngles(tele1.angles);
     player.sc_pos = 0;
@@ -1053,9 +1056,9 @@ secret_timer()
 	self.secretTimer.hidewheninmenu = true;
 	self.secretTimer.label = &"^3Time left: ^0&&1";
 	if(isdefined(level.randomcolor))
-	self.secretTimer.glowColor = level.randomcolor;
+	    self.secretTimer.glowColor = level.randomcolor;
 	else 
-	self.secretTimer.glowColor = (1,0,0);
+	    self.secretTimer.glowColor = (1,0,0);
 
 	time = 120; 
 	for(i=0;i<time;i++)
@@ -1074,6 +1077,8 @@ destroyOnDeath()
 {
     self endon("secret_done");
 	self waittill("death");
+
+    wait 0.05;
 
 	if(isDefined(self.secretTimer))
 	    self.secretTimer destroy();
@@ -1141,7 +1146,6 @@ actireturn()
     {   
      trig waittill("trigger", player);
      level notify("secret_done");
-     level notify("disconnect");
 	 player setOrigin(tele.origin);
      player setPlayerAngles(tele.angles);
      player iprintlnBOld ("^3Well...try next ^0time^3!");
@@ -1165,7 +1169,10 @@ actisecfinish()
         continue;
 
     player notify("secret_done");
-	player.secretTimer destroy();
+
+    if(isdefined(player.secretTimer))
+	    player.secretTimer destroy();
+    
 	player setOrigin(tele.origin);
     player setPlayerAngles(tele.angles);
     player iprintlnBOld ("^3Nice! You finished ^3Activator Secret ^0!");

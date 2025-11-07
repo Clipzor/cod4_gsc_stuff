@@ -61,7 +61,6 @@ main()
     thread jumperskin();
     thread actiskin();
     thread arrow();
-    thread coinsmover();
     thread coins();
 
     thread spinner();
@@ -234,15 +233,8 @@ messagescreen()
 {
 	level waittill("round_started");
 	wait 1;
-	noti = SpawnStruct();
-	noti.TitleText = "^7Welcome to ^3TempleRun^7!";
-    noti.notifyText = "^7Mapped and Scripted by ^3CM'death^7!";
-	noti.duration = 8;
-	noti.glowcolor = (0,0,0);
-	players = getentarray("player", "classname");
-	for(i=0;i<players.size;i++)
-	players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-
+	iprintln("^7Welcome to ^3TempleRun^7!");
+    iprintln("^7Mapped and Scripted by death^7!");
 }
 
 messages()
@@ -584,38 +576,28 @@ sectp()
         player.sc_pos = 0;
         player.insec = true;
         player iprintlnBOld ("^3You ^7entered in ^3Secret Room ^7!");
-
-        player thread secend();
     }
 }
 
 secend()
 {
-    self endon( "spawned_player" );
-    self endon( "joined_spectators" );
-    self endon( "death" );
-
-
    trig = getent("trig_secend", "targetname");
    tele = getent ("orig_secend", "targetname");
 
    for(;;)
     {   
-     trig waittill("trigger", player);
+        trig waittill("trigger", player);
 
-      if(player != self)
-        continue;
+        player notify("secret_done");
+        player.secretTimer destroy();
+        player setOrigin(tele.origin);
+        player setPlayerAngles(tele.angles);
+        player.sc_pos = 0;
+        player.insec = false;
+        player braxi\_rank::giveRankXP("", 500);
+        iprintln ("^3" + player.name + " ^7finished the ^3Secret Room^7!");
 
-     player notify("secret_done");
-	 player.secretTimer destroy();
-	 player setOrigin(tele.origin);
-     player setPlayerAngles(tele.angles);
-     player.sc_pos = 0;
-     player.insec = false;
-     player braxi\_rank::giveRankXP("", 500);
-     iprintln ("^3" + player.name + " ^7finished the ^3Secret Room^7!");
-
-      break;
+        break;
     }
 }
 

