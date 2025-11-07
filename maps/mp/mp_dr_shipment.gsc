@@ -17,6 +17,8 @@ main()
 	level.explosion = loadFX("custom/explosion1");
 	level.trail = loadFX("custom/genesis1");
 	level.flasheffect = loadFX("muzzleflashes/syndcarnage");
+
+	level.PlayerInRoom = false;
 	PrecacheItem( "python_mp" );
 	PrecacheItem( "syndcarnage_mp" );
 	PrecacheItem( "ak74u_mp" );
@@ -29,7 +31,7 @@ main()
 	precacheModel("deadpool");
 	
 	
-/////dvars\\\\\\\\	
+	/////dvars\\\\\\\\	
 	setdvar( "r_specularcolorscale", "1" );
 
 	setdvar("r_glowbloomintensity0",".1");
@@ -38,6 +40,7 @@ main()
 	setdvar("compassmaxrange","1500");
 	
 	thread creds();
+
 	thread music();
 	thread teleport1();
 	thread teleport2();
@@ -49,16 +52,17 @@ main()
 	thread trap6();
 	thread trap7();
 	thread trap8();
-    thread vip();
+
 	thread secret();
+
 	thread endroom();
 	thread endroom2();
 	thread endroom3();
+
 	thread trap9();
 	thread trap10();
 	thread hsecretp1();
 	thread hsecretp2();
-	thread synd();
 	
 	 addTriggerToList( "explosiontrig" );
 	 addTriggerToList( "dissapear_strafestrig" );
@@ -83,40 +87,8 @@ addTriggerToList( name )
 
 creds()
 {
-     level.xxx = newHudElem(); 
-         level.xxx.x = 0;      
-         level.xxx.y = -200;   
-         level.xxx.horzAlign = "left"; 
-         level.xxx.vertAlign = "middle";
-         level.xxx.alignX = "left";
-         level.xxx.alignY = "middle";
-         level.xxx.sort = 102; 
-         level.xxx.foreground = 1;     
-         level.xxx.archived = true;    
-         level.xxx.alpha = 1;  
-         level.xxx.fontScale = 1.4;
-         level.xxx.hidewheninmenu = false;     
-         level.xxx.color = (255,128,0);
-         level.xxx.glowColor = (0.3, 0.6, 0.3);
-         level.xxx.glowAlpha = 1;
-while(1)
-         {
-         level.xxx.color = (255,124,0);
-         level.xxx.label = &"Map By Synd";    
-         wait 3;
-         level.xxx.color = (0,50,258);
-         level.xxx.label = &"Thanks to iMtroll";
-         wait 5;
-		 level.xxx.color = (100,45,255);
-         level.xxx.label = &"Thanks to Sheep Wizard for these amazing credits c:";
-         wait 5;
-		 level.xxx.color = (1,0,0);
-         level.xxx.label = &"Thanks to everyone that helped test ^.^";
-		 wait 5;
+	iprintln("Map By Synd");
 }
-}
-
-
 	 
 music()
 {
@@ -291,32 +263,6 @@ wait 0.5;
 }	
 }
 
-vip()
-{
-	level waittill( "round_started" );
-	wait 3;
-
-	players = GetEntArray("player", "classname");
-	for(i=0;i<players.size;i++)
-	{
-		Guid = getSubStr(players[i] getGuid(),24,32);
-		if( (Guid == "65586cbf" || Guid == "e194bab0") || (Guid == "8df4b8b9" || Guid == "9f6491a0") || (Guid == "fde5baa9" || Guid == "22b565c8") || (Guid == "8df4b8b9" || Guid == "9f6491a0") || (Guid == "07987968" || Guid == "9e3ed98b") && players[i].pers["team"] == "allies" )
-		{
-			players[i] GiveWeapon( "python_mp" );
-			players[i] GiveMaxAmmo( "python_mp" );
-			wait .05;
-			players[i] SwitchToWeapon( "python_mp" );
-			players[i] iPrintlnBold( "^3Grats on VIP " + players[i].name );
-			wait 1;
-			players[i] endon("disconnect");
-			players[i] detachAll();
-			players[i] setModel("deadpool");
-			players[i] iprintLnBold("^5You are Deadpool, and have a random color python!");	
-			
-		}
-	}
-}
-
 secret()
 {
 	secret = GetEnt("secret","targetname");
@@ -346,10 +292,13 @@ endroom()
 		level.endroom waittill("trigger", player);
 		if( !level.PlayerInRoom )
 		{
-			if( isDefined(level.old_trig) )
+			if( !isDefined(level.old_trig) ) {
+				level.endroom2 delete();
+				level.endroom3 delete();
+				level.old_trig = true;
+			}
 			level.PlayerInRoom = true;
-			level.endroom2 delete();
-			level.endroom3 delete();
+
 
 			player.health = player.maxhealth;
 			level.activ.health = level.activ.maxhealth;
@@ -396,10 +345,13 @@ endroom2()
 		level.endroom2 waittill("trigger", player);
 		if( !level.PlayerInRoom )
 		{
-			if( isDefined(level.old_trig) )
+			if( !isDefined(level.old_trig) ) {
+				level.endroom3 delete();
+				level.endroom delete();
+				level.old_trig = true;
+			}
+
 			level.PlayerInRoom = true;
-			level.endroom3 delete();
-			level.endroom delete();
 
 			player.health = player.maxhealth;
 			level.activ.health = level.activ.maxhealth;
@@ -418,17 +370,20 @@ endroom2()
 	        level.activ SwitchToWeapon( "remington700_mp" );
 	        player FreezeControls(1);
 			level.activ FreezeControls(1);
+
 			noti = SpawnStruct();
-					noti.titleText = "Welcome to Shipment!";
-					noti.notifyText = level.activ.name + " ^3VS^5 " + player.name;
-					noti.glowcolor = (1,0,0.9);
-					noti.duration = 5;
-					players = getentarray("player", "classname");
-					for(i=0;i<players.size;i++)
-						players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-					wait 5;
-					player FreezeControls(0);
-					level.activ FreezeControls(0);
+			noti.titleText = "Welcome to Shipment!";
+			noti.notifyText = level.activ.name + " ^3VS^5 " + player.name;
+			noti.glowcolor = (1,0,0.9);
+			noti.duration = 5;
+			players = getentarray("player", "classname");
+			for(i=0;i<players.size;i++)
+				players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
+			wait 5;
+					
+			player FreezeControls(0);
+			level.activ FreezeControls(0);
+
 			player waittill( "death" );
 			level.PlayerInRoom = false;
 		}
@@ -446,10 +401,13 @@ endroom3()
 		level.endroom3 waittill("trigger", player);
 		if( !level.PlayerInRoom )
 		{
-			if( isDefined(level.old_trig) )
+			if( !isDefined(level.old_trig) ) {
+				level.endroom2 delete();
+				level.endroom delete();
+				level.old_trig = true;
+			}
+
 			level.PlayerInRoom = true;
-			level.endroom2 delete();
-			level.endroom delete();
 
 			player.health = player.maxhealth;
 			level.activ.health = level.activ.maxhealth;
@@ -548,24 +506,3 @@ hsecretp2()
 	        player setOrigin( secretorigin2.origin );
    wait 2;
 }			
-
-
-synd()
-{
-	level waittill( "round_started" );
-	wait 5;
-
-	players = GetEntArray("player", "classname");
-	for(i=0;i<players.size;i++)
-	{
-		Guid = getSubStr(players[i] getGuid(),24,32);
-		if( (Guid == "65586cbf" || Guid == "11111111") && players[i].pers["team"] == "allies" )
-		{
-			players[i] GiveWeapon( "syndcarnage_mp" );
-			players[i] GiveMaxAmmo( "syndcarnage_mp" );
-			wait .05;
-			players[i] SwitchToWeapon( "syndcarnage_mp" );
-			players[i] iPrintlnBold( "^3you need this");
-		}
-	}
-}

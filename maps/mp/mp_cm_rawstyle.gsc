@@ -574,10 +574,10 @@ player antiglitcher();
 
 antiglitcher() 
 {
-level.activator1 = GetActivator();
-level.activ = GetActivator();  
-self common_scripts\utility::waittill_any("death","disconnect");
-//self waittill("death");
+	level.activator1 = GetActivator();
+	level.activ = GetActivator();  
+	self common_scripts\utility::waittill_any("death","disconnect");
+	//self waittill("death");
 	if(isDefined(self))
 	{
 		self notify("matchend");
@@ -588,10 +588,10 @@ self common_scripts\utility::waittill_any("death","disconnect");
 		//wait 3;
 		self notify("matchend");
 	}
-self freezeControls(0);
-level.activ notify("matchend");
-//level.activKills++;
-//thread killstreak();
+	self freezeControls(0);
+	level.activ notify("matchend");
+	//level.activKills++;
+	//thread killstreak();
 	iPrintlnBold("^6"+self.name+" ^1died"); 
 	wait 0.2; 
 	iPrintlnBold("^6Room selection open!");

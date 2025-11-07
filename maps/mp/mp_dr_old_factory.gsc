@@ -389,7 +389,6 @@ traplaser()
 {
 	move_trig = getent("traplasertrig","targetname"); //Name of your hurt_trigger
 	move = getent("traplaser","targetname"); //Name of your base
-	move_trig enablelinkto(); 
 	move_trig linkto(move); //Now you must link the trigger to the base
 
 	move moveZ (1, 0.5);
@@ -399,7 +398,6 @@ trap1a()
 {
 	move_trig = getent("move_trig","targetname"); //Name of your hurt_trigger
 	move = getent("move","targetname"); //Name of your base
-	move_trig enablelinkto(); // This is the most important part of the script. this allows you to move the trigger.
 	move_trig linkto(move); //Now you must link the trigger to the base
     for(;;)
     {
@@ -413,7 +411,6 @@ trap1b()
 {
 	move_trig2 = getent("move_trig2","targetname"); //Name of your hurt_trigger
 	move2 = getent("move2","targetname"); //Name of your base
-	move_trig2 enablelinkto(); // This is the most important part of the script. this allows you to move the trigger.
 	move_trig2 linkto(move2); //Now you must link the trigger to the base	
 	while(1)
 	{
@@ -427,7 +424,6 @@ trap1c()
 {
 	move_trig3 = getent("move_trig3","targetname"); //Name of your hurt_trigger
 	move3 = getent("move3","targetname"); //Name of your base
-	move_trig3 enablelinkto(); // This is the most important part of the script. this allows you to move the trigger.
 	move_trig3 linkto(move3); //Now you must link the trigger to the base	
 	while(1)
 	{
@@ -442,7 +438,6 @@ trap1a2()
 {
 	move_trig = getent("move_trig","targetname"); //Name of your hurt_trigger
 	move = getent("move","targetname"); //Name of your base
-	move_trig enablelinkto(); // This is the most important part of the script. this allows you to move the trigger.
 	move_trig linkto(move); //Now you must link the trigger to the base
     for(;;)
     {
@@ -457,7 +452,6 @@ trap1b2()
 {
 	move_trig2 = getent("move_trig2","targetname"); //Name of your hurt_trigger
 	move2 = getent("move2","targetname"); //Name of your base
-	move_trig2 enablelinkto(); // This is the most important part of the script. this allows you to move the trigger.
 	move_trig2 linkto(move2); //Now you must link the trigger to the base	
 	while(1)
 	{
@@ -472,7 +466,6 @@ trap1c2()
 {
 	move_trig3 = getent("move_trig3","targetname"); //Name of your hurt_trigger
 	move3 = getent("move3","targetname"); //Name of your base
-	move_trig3 enablelinkto(); // This is the most important part of the script. this allows you to move the trigger.
 	move_trig3 linkto(move3); //Now you must link the trigger to the base	
 	while(1)
 	{
@@ -722,7 +715,6 @@ trap2a()
 {
     move = getent("trap2_a", "targetname");
     move_trig = getent("trap2_a_trig","targetname");
-	move_trig enablelinkto();
 	move_trig linkto(move);
 
     move moveZ (45, 0.5);
@@ -733,7 +725,6 @@ trap2b()
 {
     move = getent("trap2_b", "targetname");
     move_trig = getent("trap2_b_trig","targetname");
-	move_trig enablelinkto();
 	move_trig linkto(move);
 
     move moveZ (45, 0.5);
@@ -744,7 +735,6 @@ trap2c()
 {
     move = getent("trap2_c", "targetname");
     move_trig = getent("trap2_c_trig","targetname");
-	move_trig enablelinkto();
 	move_trig linkto(move);
 
     move moveZ (45, 0.5);
@@ -755,7 +745,6 @@ trap2d()
 {
     move = getent("trap2_d", "targetname");
     move_trig = getent("trap2_d_trig","targetname");
-	move_trig enablelinkto();
 	move_trig linkto(move);
 
     move moveZ (45, 0.5);
@@ -766,7 +755,6 @@ trap2e()
 {
     move = getent("trap2_e", "targetname");
     move_trig = getent("trap2_e_trig","targetname");
-	move_trig enablelinkto();
 	move_trig linkto(move);
 
     move moveZ (45, 0.5);
@@ -777,7 +765,6 @@ trap2f()
 {
     move = getent("trap2_f", "targetname");
     move_trig = getent("trap2_f_trig","targetname");
-	move_trig enablelinkto();
 	move_trig linkto(move);
 
     move moveZ (45, 0.5);
@@ -836,7 +823,7 @@ trap7all()
     thread trap7k();
     thread trap7l();
     thread trap7m();
-    thread trap7n();
+
     thread trap7o();
     thread trap7p();
     thread trap7_1();
@@ -872,11 +859,6 @@ trap7all()
 trap7()
 {
     block1 = getent("trap7_a", "targetname");
-    block2 = getent("trap7_b", "targetname");
-    block3 = getent("trap7_c", "targetname");
-    block4 = getent("trap7_d", "targetname");
-    block5 = getent("trap7_e", "targetname");
-    block6 = getent("trap7_f", "targetname");
 
     for(;;)
     {
@@ -893,12 +875,7 @@ trap7()
 
 trap7b()
 {
-    block1 = getent("trap7_a", "targetname");
     block2 = getent("trap7_b", "targetname");
-    block3 = getent("trap7_c", "targetname");
-    block4 = getent("trap7_d", "targetname");
-    block5 = getent("trap7_e", "targetname");
-    block6 = getent("trap7_f", "targetname");
 
     wait 0.56;
     for(;;)
@@ -916,12 +893,7 @@ trap7b()
 
 trap7c()
 {
-    block1 = getent("trap7_a", "targetname");
-    block2 = getent("trap7_b", "targetname");
     block3 = getent("trap7_c", "targetname");
-    block4 = getent("trap7_d", "targetname");
-    block5 = getent("trap7_e", "targetname");
-    block6 = getent("trap7_f", "targetname");
 
     wait 1.12;
     for(;;)
@@ -939,12 +911,7 @@ trap7c()
 
 trap7d()
 {
-    block1 = getent("trap7_a", "targetname");
-    block2 = getent("trap7_b", "targetname");
-    block3 = getent("trap7_c", "targetname");
     block4 = getent("trap7_d", "targetname");
-    block5 = getent("trap7_e", "targetname");
-    block6 = getent("trap7_f", "targetname");
 
     wait 1.58;
     for(;;)
@@ -963,12 +930,7 @@ trap7d()
 
 trap7e()
 {
-    block1 = getent("trap7_a", "targetname");
-    block2 = getent("trap7_b", "targetname");
-    block3 = getent("trap7_c", "targetname");
-    block4 = getent("trap7_d", "targetname");
     block5 = getent("trap7_e", "targetname");
-    block6 = getent("trap7_f", "targetname");
 
     wait 2.14;
     for(;;)
@@ -986,14 +948,7 @@ trap7e()
 
 trap7f()
 {
-    block1 = getent("trap7_a", "targetname");
-    block2 = getent("trap7_b", "targetname");
-    block3 = getent("trap7_c", "targetname");
-    block4 = getent("trap7_d", "targetname");
-    block5 = getent("trap7_e", "targetname");
     block6 = getent("trap7_f", "targetname");
-    block7 = getent("trap7_g", "targetname");
-    block8 = getent("trap7_h", "targetname");
 
     wait 2.7;
     for(;;)
@@ -1011,14 +966,7 @@ trap7f()
 
 trap7g()
 {
-    block1 = getent("trap7_a", "targetname");
-    block2 = getent("trap7_b", "targetname");
-    block3 = getent("trap7_c", "targetname");
-    block4 = getent("trap7_d", "targetname");
-    block5 = getent("trap7_e", "targetname");
-    block6 = getent("trap7_f", "targetname");
     block7 = getent("trap7_g", "targetname");
-    block8 = getent("trap7_h", "targetname");
 
     wait 3.26;
     for(;;)
@@ -1037,13 +985,6 @@ trap7g()
 
 trap7h()
 {
-    block1 = getent("trap7_a", "targetname");
-    block2 = getent("trap7_b", "targetname");
-    block3 = getent("trap7_c", "targetname");
-    block4 = getent("trap7_d", "targetname");
-    block5 = getent("trap7_e", "targetname");
-    block6 = getent("trap7_f", "targetname");
-    block7 = getent("trap7_g", "targetname");
     block8 = getent("trap7_h", "targetname");
 
     wait 3.82;
@@ -1062,18 +1003,7 @@ trap7h()
 
 trap7i()
 {
-    block1 = getent("trap7_a", "targetname");
-    block2 = getent("trap7_b", "targetname");
-    block3 = getent("trap7_c", "targetname");
-    block4 = getent("trap7_d", "targetname");
-    block5 = getent("trap7_e", "targetname");
-    block6 = getent("trap7_f", "targetname");
-    block7 = getent("trap7_g", "targetname");
-    block8 = getent("trap7_h", "targetname");
     block9 = getent("trap7_i", "targetname");
-    block10 = getent("trap7_j", "targetname");
-    block11 = getent("trap7_k", "targetname");
-    block12 = getent("trap7_l", "targetname");
 
     wait 4.28;
     for(;;)
@@ -1091,18 +1021,7 @@ trap7i()
 
 trap7j()
 {
-    block1 = getent("trap7_a", "targetname");
-    block2 = getent("trap7_b", "targetname");
-    block3 = getent("trap7_c", "targetname");
-    block4 = getent("trap7_d", "targetname");
-    block5 = getent("trap7_e", "targetname");
-    block6 = getent("trap7_f", "targetname");
-    block7 = getent("trap7_g", "targetname");
-    block8 = getent("trap7_h", "targetname");
-    block9 = getent("trap7_i", "targetname");
     block10 = getent("trap7_j", "targetname");
-    block11 = getent("trap7_k", "targetname");
-    block12 = getent("trap7_l", "targetname");
 
     wait 4.84;
     for(;;)
@@ -1120,18 +1039,7 @@ trap7j()
 
 trap7k()
 {
-    block1 = getent("trap7_a", "targetname");
-    block2 = getent("trap7_b", "targetname");
-    block3 = getent("trap7_c", "targetname");
-    block4 = getent("trap7_d", "targetname");
-    block5 = getent("trap7_e", "targetname");
-    block6 = getent("trap7_f", "targetname");
-    block7 = getent("trap7_g", "targetname");
-    block8 = getent("trap7_h", "targetname");
-    block9 = getent("trap7_i", "targetname");
-    block10 = getent("trap7_j", "targetname");
     block11 = getent("trap7_k", "targetname");
-    block12 = getent("trap7_l", "targetname");
 
     wait 5.40;
     for(;;)
@@ -1149,17 +1057,6 @@ trap7k()
 
 trap7l()
 {
-    block1 = getent("trap7_a", "targetname");
-    block2 = getent("trap7_b", "targetname");
-    block3 = getent("trap7_c", "targetname");
-    block4 = getent("trap7_d", "targetname");
-    block5 = getent("trap7_e", "targetname");
-    block6 = getent("trap7_f", "targetname");
-    block7 = getent("trap7_g", "targetname");
-    block8 = getent("trap7_h", "targetname");
-    block9 = getent("trap7_i", "targetname");
-    block10 = getent("trap7_j", "targetname");
-    block11 = getent("trap7_k", "targetname");
     block12 = getent("trap7_l", "targetname");
 
     wait 5.96;
@@ -1178,18 +1075,6 @@ trap7l()
 
 trap7m()
 {
-    block1 = getent("trap7_a", "targetname");
-    block2 = getent("trap7_b", "targetname");
-    block3 = getent("trap7_c", "targetname");
-    block4 = getent("trap7_d", "targetname");
-    block5 = getent("trap7_e", "targetname");
-    block6 = getent("trap7_f", "targetname");
-    block7 = getent("trap7_g", "targetname");
-    block8 = getent("trap7_h", "targetname");
-    block9 = getent("trap7_i", "targetname");
-    block10 = getent("trap7_j", "targetname");
-    block11 = getent("trap7_k", "targetname");
-    block12 = getent("trap7_l", "targetname");
     block13 = getent("trap7_m", "targetname");
 
     wait 6.52;
@@ -1206,41 +1091,9 @@ trap7m()
     }
 }
 
-trap7n()
-{
-    block7 = getent("trap7_g", "targetname");
-    block8 = getent("trap7_h", "targetname");
-    block9 = getent("trap7_i", "targetname");
-    block10 = getent("trap7_j", "targetname");
-    block11 = getent("trap7_k", "targetname");
-    block12 = getent("trap7_l", "targetname");
-    block13 = getent("trap7_m", "targetname");
-    block14 = getent("trap7_n", "targetname");
-
-    wait 7.08;
-    for(;;)
-    {
-    block14 moveX (640, 4);
-    wait 5;
-    block14 moveZ (-50, 0.5);
-    wait 1;
-    block14 moveX (-640, 0.5);
-    wait 1;
-    block14 moveZ (50, 0.5);
-    wait 1;
-    }
-}
 
 trap7o()
 {
-    block7 = getent("trap7_g", "targetname");
-    block8 = getent("trap7_h", "targetname");
-    block9 = getent("trap7_i", "targetname");
-    block10 = getent("trap7_j", "targetname");
-    block11 = getent("trap7_k", "targetname");
-    block12 = getent("trap7_l", "targetname");
-    block13 = getent("trap7_m", "targetname");
-    block14 = getent("trap7_n", "targetname");
     block15 = getent("trap7_o", "targetname");
 
     wait 7;
@@ -1259,15 +1112,6 @@ trap7o()
 
 trap7p()
 {
-    block7 = getent("trap7_g", "targetname");
-    block8 = getent("trap7_h", "targetname");
-    block9 = getent("trap7_i", "targetname");
-    block10 = getent("trap7_j", "targetname");
-    block11 = getent("trap7_k", "targetname");
-    block12 = getent("trap7_l", "targetname");
-    block13 = getent("trap7_m", "targetname");
-    block14 = getent("trap7_n", "targetname");
-    block15 = getent("trap7_o", "targetname");
     block16 = getent("trap7_p", "targetname");
 
     wait 7.5;
@@ -1862,7 +1706,6 @@ trap13a()
 {
     move_trig7 = getent("move_trig7","targetname"); //Name of your hurt_trigger
     move7 = getent("move7","targetname"); //Name of your base
-    move_trig7 enablelinkto(); // This is the most important part of the script. this allows you to move the trigger.
     move_trig7 linkto(move7); //Now you must link the trigger to the base
     move7 moveZ(-256, 0.5);
     wait 1;
@@ -1878,7 +1721,6 @@ trap13b()
 {
     move_trig6 = getent("move_trig6","targetname"); //Name of your hurt_trigger
     move6 = getent("move6","targetname"); //Name of your base
-    move_trig6 enablelinkto(); // This is the most important part of the script. this allows you to move the trigger.
     move_trig6 linkto(move6); //Now you must link the trigger to the base   
     move6 moveZ(-256, 0.5);
     wait 1;

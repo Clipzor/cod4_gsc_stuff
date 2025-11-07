@@ -1142,7 +1142,7 @@ jump_room()
        	while(isalive(player)&&isdefined(player))
             wait 1;
 
-        iPrintlnBold("^1"+self.name+" ^7died^1!");
+        iPrintlnBold("^1"+player.name+" ^7died^1!");
 	}
 }
 
@@ -1193,7 +1193,7 @@ rpg_room()
        	while(isalive(player)&&isdefined(player))
             wait 1;
 
-        iPrintlnBold("^1"+self.name+" ^7died^1!");
+        iPrintlnBold("^1"+player.name+" ^7died^1!");
 	}
 }
 
@@ -1239,7 +1239,7 @@ knife_room()
        	while(isalive(player)&&isdefined(player))
             wait 1;
 
-        iPrintlnBold("^1"+self.name+" ^7died^1!");
+        iPrintlnBold("^1"+player.name+" ^7died^1!");
 	}
 }
 
@@ -1289,7 +1289,7 @@ sniper_room()
        	while(isalive(player)&&isdefined(player))
             wait 1;
 
-        iPrintlnBold("^1"+self.name+" ^7died^1!");
+        iPrintlnBold("^1"+player.name+" ^7died^1!");
 	}
 }
 
