@@ -837,7 +837,7 @@ sniper_room()
             player freezecontrols(0);
         }
 
-        while(isAlive(player) && isDefined(player))
+        while(isDefined(player) && isAlive(player))
             wait 1;
     }
 }
@@ -885,7 +885,7 @@ deagle_room()
             player freezecontrols(0);
         }
 
-        while(isAlive(player) && isDefined(player))
+        while(isDefined(player) && isAlive(player))
             wait 1;
     }
 }
@@ -933,7 +933,7 @@ shotgun_room()
             player freezecontrols(0);
         }
 
-        while(isAlive(player) && isDefined(player))
+        while(isDefined(player) && isAlive(player))
             wait 1;
     }
 }
@@ -981,7 +981,7 @@ knife_room()
             player freezecontrols(0);
         }
 
-        while(isAlive(player) && isDefined(player))
+        while(isDefined(player) && isAlive(player))
             wait 1;
     }
 }
@@ -1029,7 +1029,7 @@ bounce_room()
             player freezecontrols(0);
         }
 
-        while(isAlive(player) && isDefined(player))
+        while(isDefined(player) && isAlive(player))
             wait 1;
     }
 }

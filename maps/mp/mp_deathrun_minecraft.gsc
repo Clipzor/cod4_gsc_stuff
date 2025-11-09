@@ -546,7 +546,7 @@ finish()
 	finishdoor movez( -200, 10 );
 	AmbientPlay( "finish" );
 	PlayFX( level.final_fx, (-656,1524,-32) );
-	player TakeAllWeapons();
+	// player TakeAllWeapons();
 	player giveWeapon("pickaxe_mp");
 	wait 0.01;
 	player SwitchToWeapon("pickaxe_mp");
@@ -560,6 +560,7 @@ addTriggerToList( name )
       level.trapTriggers = [];
    level.trapTriggers[level.trapTriggers.size] = getEnt( name, "targetname" );
 }
+
 addtrapstofreerun()
 {
 	addTriggerToList("trigger1");

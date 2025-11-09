@@ -80,66 +80,17 @@ createHUD( x, y, alignX, alignY, alpha, font, fontScale )
     return hud;
 }
 
-DoorHUD(messages)
-{
-    self notify("newFhud");
-    self endon("newFhud");
 
-    waitTime = 4; //s
-    offset = 200; //ms
-
-    if (isDefined(level.hud_door)) level.hud_door destroy();
-	if (isDefined(level.hud_door2)) level.hud_door2 destroy();
-
-    level.hud_door = createHUD( 0, 100, "center", "top", 1, "objective", 1.5 );
-    level.hud_door setText("^4Poolv2");
-    level.hud_door setPulseFX( 40, waitTime*1000-offset, offset );
-    
-	level.hud_door2 = createHUD( 0, 100, "center", "middle", 1, "objective", 1.5 );
-    level.hud_door2 setText("^7Map by ^4death");
-    level.hud_door2 setPulseFX( 40, waitTime*1000-offset, offset );
-	
-    wait waitTime;
-    if (isDefined(level.hud_door)) level.hud_door destroy();
-	if (isDefined(level.hud_door2)) level.hud_door2 destroy();
-}
 
 messages()
 {
    wait 1;
-   thread DoorHUD("^4messages");
    AmbientPlay("poolsong");
    wait 3;
-   for(;;)
-{  
-   wait 5;
- x = randomintrange(0,4);
-   if (x==0)
-{
-   iPrintln("^7Map made by ^4CM'Death");
-}
 
-   if (x==1)
-{
-   iPrintln("^7Visit ^5cm^7-clan.tk");
-}
-
-   if (x==2)
-{
-   iPrintln("^5CM^0'Deathrun IP: ^778.46.244.1:28960");
-}
-
-if (x==3)
-{
-   iPrintln("^4Feel free to report any bugs.");
-}
-
-if (x==4)
-{
+   iPrintln("^7Pool V2");
+   iPrintln("^7Map made by Death");
    iPrintln("^4Discord:^7Death#7416");
-}
-
-}
 }
 
 startdoor()

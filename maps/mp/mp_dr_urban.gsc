@@ -196,7 +196,7 @@ end_tp_rooms()
 		player setPlayerAngles(jumper.angles);
         player setOrigin(jumper.origin);
 
-        while(isAlive(player) && isDefined(player))
+        while(isDefined(player) && isAlive(player))
             wait 1;
         endroom_door setHintString("Press ^3[USE] ^7to enter Rooms-section");
         level.in_end_room = false;
@@ -262,7 +262,7 @@ endroom_template(trigger, jumper_origin, acti_origin, weapon, weapon2, weapon_ro
         player freezecontrols(false);
         level.activ freezecontrols(false);
 
-        while(isAlive(player) && isDefined(player))
+        while(isDefined(player) && isAlive(player))
             wait 1;
     }
 }

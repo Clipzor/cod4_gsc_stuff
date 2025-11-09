@@ -751,7 +751,7 @@ strafe() {
 
         thread pureend(player, level.activ);
 
-        while(isAlive(player) && isDefined(player))
+        while(isDefined(player) && isAlive(player))
             wait .05;
 
         level notify("strafeend");
@@ -871,7 +871,7 @@ race() {
         thread raceend(player, level.activ);
         thread racefail();
 
-        while(isAlive(player) && isDefined(player))
+        while(isDefined(player) && isAlive(player))
             wait .05;
 
         level notify("strafeend");

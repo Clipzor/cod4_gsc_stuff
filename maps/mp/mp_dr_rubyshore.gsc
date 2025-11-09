@@ -386,7 +386,7 @@ bounce(player)
 	{
     	trigger waittill ( "trigger", player );
 		
-		if (isalive(player) && isdefined(player))
+		if (isDefined(player) && isAlive(player))
 		{
 			oldpos = player.origin;
 			playFx( level.fx_fire_up, player.origin );
@@ -411,7 +411,7 @@ bounce_scrt(player)
 	{
     	trigger waittill ( "trigger", player );
 		
-		if (isalive(player) && isdefined(player))
+		if (isDefined(player) && isAlive(player))
 		{
 			oldpos = player.origin;
 			playFx( level.fx_fire_up, player.origin );
@@ -518,7 +518,7 @@ rope()
 	{
 		trigger waittill ( "trigger", player );
 		
-		if (isalive(player) && isdefined(player))
+		if (isDefined(player) && isAlive(player))
 		{			
 			player disableWeapons();
 			thread rope_move(player, rope_src_origin, rope_dest_origin, rope_drop_origin);
@@ -889,7 +889,7 @@ do_secret_respawn(player, spawn)
 	player setOrigin( spawn.origin );
 	player setPlayerAngles( spawn.angles );
 	
-	if (isalive(player) && isdefined(player))
+	if (isDefined(player) && isAlive(player))
 	{	
 		playSoundAtLocation( "spawn", spawn.origin );
 		playFx ( level.fx_teleport, spawn.origin );
@@ -1249,7 +1249,7 @@ endroom_rope()
 		
 		trigger sethintstring("^1Wait till its your turn!" );
 		
-		if (isalive(player) && isdefined(player))
+		if (isDefined(player) && isAlive(player))
 		{			
 			player disableWeapons();
 			

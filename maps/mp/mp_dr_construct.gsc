@@ -907,7 +907,7 @@ purestrafe() {
         level.activ freezecontrols(0);
         thread purestrafe_finish(player, level.activ);
 
-        while(isAlive(player) && isDefined(player))
+        while(isDefined(player) && isAlive(player))
             wait .05;
 
         level notify("strafeend");

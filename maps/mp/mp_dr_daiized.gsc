@@ -500,7 +500,7 @@ sniperroom()
             player freezecontrols(0);
         }
 
-		while(isAlive(player) && isDefined(player))
+		while(isDefined(player) && isAlive(player))
             wait 1;
 
         iPrintLnBold("^6"+player.name+" ^7is dead ^6!"); 
@@ -569,7 +569,7 @@ pistolroom()
             player freezecontrols(0);
         }
 
-		while(isAlive(player) && isDefined(player))
+		while(isDefined(player) && isAlive(player))
             wait 1;
 
         iPrintLnBold("^6"+player.name+" ^7is dead ^6!"); 
@@ -638,7 +638,7 @@ kniferoom()
             player freezecontrols(0);
         }
 
-		while(isAlive(player) && isDefined(player))
+		while(isDefined(player) && isAlive(player))
             wait 1;
 
         iPrintLnBold("^6"+player.name+" ^7is dead ^6!"); 
@@ -706,7 +706,7 @@ bounceroom()
             player freezecontrols(0);
         }
 
-		while(isAlive(player) && isDefined(player))
+		while(isDefined(player) && isAlive(player))
             wait 1;
 
         iPrintLnBold("^6"+player.name+" ^7is dead ^6!"); 

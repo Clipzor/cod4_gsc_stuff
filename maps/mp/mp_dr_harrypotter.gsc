@@ -233,7 +233,7 @@ endroom_template(trigger, jumper_origin, acti_origin, weapon, weapon2, weapon_ro
         player freezecontrols(false);
         level.activ freezecontrols(false);
  
-        while(isAlive(player) && isDefined(player)){
+        while(isDefined(player) && isAlive(player)){
             wait 0.1;
 		}
 		

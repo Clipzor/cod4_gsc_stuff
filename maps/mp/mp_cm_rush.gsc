@@ -1409,7 +1409,7 @@ purestraferoom()
         level.activ setWeaponAmmoStock("deserteagle_mp", 0);
         level.activ switchToWeapon("deserteagle_mp");
 
-        while (isAlive(player) && isDefined(player) && player.sessionstate == "playing")
+        while (isDefined(player) && isAlive(player) && player.sessionstate == "playing")
             wait 0.5;
 
         iPrintLnBold("^3" + player.name + "^7 has died!");
@@ -1529,7 +1529,7 @@ slideroom()
         level.activ setWeaponAmmoStock("deserteagle_mp", 0);
         level.activ switchToWeapon("deserteagle_mp");
 
-        while (isAlive(player) && isDefined(player) && player.sessionstate == "playing")
+        while (isDefined(player) && isAlive(player) && player.sessionstate == "playing")
             wait 0.5;
 
         iPrintLnBold("^3" + player.name + "^7 has died!");

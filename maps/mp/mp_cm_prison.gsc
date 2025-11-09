@@ -150,71 +150,14 @@ fightHUD(room, jumper, activ)
     if (isDefined(level.hud_fight2)) level.hud_fight2 destroy();
 }
 
-DoorHUD(messages)
-{
-    self notify("newFhud");
-    self endon("newFhud");
 
-    waitTime = 4; //s
-    offset = 400; //ms
-
-    if (isDefined(level.hud_door)) level.hud_door destroy();
-	if (isDefined(level.hud_door2)) level.hud_door2 destroy();
-
-    level.hud_door = createHUD( 0, 85, "center", "middle", 1, "objective", 1.5 );
-    level.hud_door setText("^0Map ^6Prison.");
-    level.hud_door setPulseFX( 40, waitTime*1000-offset, offset );
-    
-	level.hud_door2 = createHUD( 0, 100, "center", "middle", 1, "objective", 1.5 );
-    level.hud_door2 setText("^0Map by ^6CM'Death");
-    level.hud_door2 setPulseFX( 40, waitTime*1000-offset, offset );
-	
-    wait waitTime;
-    if (isDefined(level.hud_door)) level.hud_door destroy();
-	if (isDefined(level.hud_door2)) level.hud_door2 destroy();
-}
 
 messages()
 {
-   wait 5;
-   thread doorHUD("messages");
    wait 8;
-   for(;;)
-{  
-   wait 7;
-  x = randomintrange(0,5);
-
-   if (x==0)
-{
-   iPrintln("^6Mapped ^7and ^6scripted ^7by ^6CM'Death");
-}
-
-   if (x==1)
-{
-   iPrintln("^7Visit: ^6teamcmdr^7.^6clanwebsite");
-}
-
-   if (x==2)
-{
-   iPrintln("^6CM'^6Deathrun ^7IP: ^6cm^7-^6clan^7.^6com^7:^628960");
-}
-
-if (x==3)
-{
+   iPrintln("^6Mapped ^7and ^6scripted ^7by ^6Death");
    iPrintln("^7Discord:^6Death#7416");
-}
-
-if (x==4)
-{
-   iPrintln("^7Thanks ^6CM'Exe ^7for fixing ^6SimonSays Room ^7<3");
-}
-
-if (x==5)
-{
-   iPrintln("^6Feel free to report any bugs.");
-}
-
-}
+   iPrintln("^7Thanks ^6Exe ^7for fixing ^6SimonSays Room ^7<3");
 }
 
 arrow()

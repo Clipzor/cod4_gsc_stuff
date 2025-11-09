@@ -871,7 +871,7 @@ room_snipe()
 		
 		level.snipe_entry_trigger setHintString("^1Wait till its your turn!" );
 		
-		if (isalive(player) && isdefined(player))
+		if (isDefined(player) && isAlive(player))
 		{	
 			level.playerInRoom = player;
 		
@@ -973,7 +973,7 @@ room_jump()
 		
 		level.jump_entry_trigger setHintString("^1Wait till its your turn!" );
 		
-		if (isalive(player) && isdefined(player))
+		if (isDefined(player) && isAlive(player))
 		{	
 			level.playerInRoom = player;
 		
@@ -2121,7 +2121,7 @@ move_to_pos(target, x, y, z, time, time_start, time_end)
 
 exec_bounce(player, multiplyer, strenght)
 {
-	if (isAlive(player) && isDefined(player))
+	if (isDefined(player) && isAlive(player))
 	{
 		oldpos = player.origin;
 		playFx( level.fx_fire_up, player.origin);

@@ -79,8 +79,7 @@ main()
    
 ///MESSAGES   
    thread messages();
-   thread messagescreen1();
-   thread messagescreen2();
+
    thread messagescreen3();
 ///FX
    thread effect();
@@ -268,83 +267,15 @@ fightHUD(room, jumper, activ)
 messages()
 {
    wait 4;
-   for(;;)
-{  
-   wait 10;
- x = randomint(6);
-   if (x==0)
-{
-   iPrintln("^3Mapped ^7and ^3scripted ^7by ^3CM'death^7,officially started by ^3CM'Probz ^7and ^3Sr- Noodle^7!");
-}
 
-   if (x==1)
-{
-   iPrintln("^7Visit ^3CM'Discord Server: ^7dv82mEHCY7");
-}
 
-   if (x==2)
-{
-   iPrintln("^3CM'Deathrun IP: ^7cm-clan.com:28960");
-}
-
-   if (x==3)
-{
-   iPrintln("^7Feel free to report any ^3bugs^7.");
-}
-
-   if (x==4)
-{
-   iPrintLn("^3Map speed: ^0[^3"+getDvar("g_speed")+"^0]^0, ^0[^3"+getDvar("dr_jumpers_speed")+"^0]");
-}
-
-   if (x==5)
-{
+   iPrintln("^3Mapped ^7and ^3scripted ^7by ^3Death");
+   wait 1;
+   iPrintln("^3officially started by ^3Probz ^7and ^3Noodle^7!");
+   wait 1;
    iPrintLn("^7Thanks to ^3CM'ArnArt ^7for awesome loadscreen!");
-}
-}
-}
-
-messagescreen1()
-{
-	level waittill("round_started");
-	wait 1;
-	noti = SpawnStruct();
-	noti.TitleText = "^3Map Finished and Scripted by ^3CM'Death^0!";
-    noti.notifyText = "^3Officially started by CM'Probz and Noodle^0!";
-	noti.duration = 8;
-	noti.glowcolor = (7,7,7);
-	players = getentarray("player", "classname");
-	for(i=0;i<players.size;i++)
-	players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-
-}
-
-messagescreen2()
-{
-	level waittill("round_started");
-	wait 10;
-	noti = SpawnStruct();
-    noti.notifyText = "^3Thanks to Ohh'Rexy<3 for helping me with the bugs^0!";
-	noti.duration = 7;
-	noti.glowcolor = (7,7,7);
-	players = getentarray("player", "classname");
-	for(i=0;i<players.size;i++)
-	players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-
-}
-
-messagescreen3()
-{
-	level waittill("round_started");
-	wait 18;
-	noti = SpawnStruct();
-    noti.notifyText = "^3Thanks to CM'Nobody for testing map^0!";
-	noti.duration = 6;
-	noti.glowcolor = (7,7,7);
-	players = getentarray("player", "classname");
-	for(i=0;i<players.size;i++)
-	players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-
+   wait 1;
+   iPrintLn("^3Thanks to Ohh'Rexy<3 for helping me with the bugs^0!");
 }
 
 ///FX
@@ -395,7 +326,7 @@ startdoor()
 		door delete();
 	} else {
         wait 10;
-        iprintlnbold("^3Start door ^0is ^3openning^0...");
+        iprintlnbold("^3Start door ^0is ^3opening^0...");
         door moveZ(-160,2);
         wait 2;
         door delete();

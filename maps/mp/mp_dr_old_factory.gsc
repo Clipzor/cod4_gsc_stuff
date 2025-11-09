@@ -2353,7 +2353,7 @@ purestart()
 		thread fightHUD("PureStrafe Room!", player, level.activ);
 		thread pureend(player, level.activ);
 
-        while(isAlive(player) && isDefined(player))
+        while(isDefined(player) && isAlive(player))
             wait .05;
 
         iPrintLnBold ("^5" + player.name + " ^7has died in ^5PureStrafe Room!");
@@ -3290,7 +3290,7 @@ runstart()
 		thread fightHUD("Race Room", player, level.activ);
 		thread runend(player, level.activ);
 
-        while(isAlive(player) && isDefined(player))
+        while(isDefined(player) && isAlive(player))
             wait .05;
 
         iPrintLnBold ("^5" + player.name + " ^7has died in ^5Race Room!");

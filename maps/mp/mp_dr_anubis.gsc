@@ -4,7 +4,6 @@
 // Discord : Derazerr | Nobody#3996
 //Steam :  xderazerr
 
-
 #include maps\mp\_utility;
 #include maps\mp\gametypes\_hud_util;
 #include common_scripts\utility;
@@ -20,7 +19,6 @@ main()
  game["defenders"] = "allies";
  game["allies_soldiertype"] = "desert";
  game["axis_soldiertype"] = "desert";
- 
     
     setdvar( "r_specularcolorscale", "1" );
 
@@ -45,6 +43,7 @@ main()
     addtriggerTolist("trig_trap5");
     addtriggerTolist("trig_trap6");
     addtriggerTolist("trig_trap7");
+    addtriggerTolist("trig_trap8");    
     addtriggerTolist("trig_trap9");
     addtriggerTolist("trig_trap10");
     addTriggerToList("trig_trap11");
@@ -60,8 +59,7 @@ main()
     precacheItem("remington700_mp");
     precacheItem("deserteagle_mp");
     precacheItem("rpg_mp");
-    
-    //thread hud();
+
     thread sand();
     thread trap1();
     thread trap2();
@@ -88,7 +86,6 @@ main()
     thread selectionroom();
     thread enddoor();
     thread message();
-    //thread speed();
 
     thread door();
 
@@ -111,12 +108,6 @@ main()
 
     thread turningroom();
 
-    //thread jumper_karambit();
-
-    thread random_ambient();
-
-    //thread cm_check();
-
     thread whitelight();
     thread pharaoh_eyes(); 
     thread pharaoh_sound();
@@ -132,74 +123,6 @@ main()
 
 }
 
-hud()
-{
-	wait 3;
-	
-   thread hud_set_1("District League - Final Round 5/5 !");
-	wait 0.95;
-	thread hud_set_2("Mp_Dr_Anubis | Map 1/4!");
-	
-}
-
-hud_set_1(text_1)
-{
-	if(!isdefined(text_1))
-		return;
-
-	level.hud_set_1=newhudelem();
-	level.hud_set_1.alignx="left";
-	level.hud_set_1.aligny="top";
-	level.hud_set_1.horzalign="left";
-	level.hud_set_1.vertalign="top";
-	level.hud_set_1.alpha=1;
-	level.hud_set_1.x=-400;
-	level.hud_set_1.y=300;
-	level.hud_set_1.font = "objective";
-	level.hud_set_1.fontscale=1.5;	
-	level.hud_set_1.glowalpha=1;
-	level.hud_set_1.glowcolor=(0.85,0.76,0.14);
-	
-	level.hud_set_1 settext("^7"+text_1);
-	wait .1;
-	level.hud_set_1 moveovertime(1);
-	level.hud_set_1.x=7;
-}
-
-hud_set_2(text_2)
-{
-	if(!isdefined(text_2))
-		return;
-
-	level.hud_set_2=newhudelem();
-	level.hud_set_2.alignx="left";
-	level.hud_set_2.aligny="top";
-	level.hud_set_2.horzalign="left";
-	level.hud_set_2.vertalign="top";
-	level.hud_set_2.alpha=2;
-	level.hud_set_2.x=-400;
-	level.hud_set_2.y=320;
-	level.hud_set_2.font = "objective";
-	level.hud_set_2.fontscale=1.4;	
-	level.hud_set_2.glowalpha=1;
-	level.hud_set_2.glowcolor=(0.85,0.76,0.14);
-	
-	level.hud_set_2 settext("^7"+text_2);
-	wait .1;
-	level.hud_set_2 moveovertime(1);
-	level.hud_set_2.x=7;
-}
-
-speed()
-{
-    wait 1;
-    speed = getDvar("g_speed"); 
-    if( speed == "190")
-    {
-        setdvar("g_speed" ,"200");
-        //You re free to remove this speed script but i recommend you to play this map with at least speed 200, the map can be finished in 190 but people will cry ^^ //
-    }
-}
 
 sand()
 {
@@ -211,18 +134,49 @@ sand()
 
 door()
 {
-    //thread garbagecheck();
     door1 = getEnt("startdoor1", "targetname");
     door2 = getEnt("startdoor2", "targetname");
     fakedoor = getEnt("fakedoor", "targetname");
 
-  
-    door1 delete();
-    door2 delete();
-    fakedoor delete();
-   
-    //TODO CHECK IN ORIGINAL GSC FILE
+    if(isdefined(level.auto_open_door) && level.auto_open_door) {
+        fakedoor delete();
+        door1 delete();
+        door2 delete();
+        iprintlnbold("^3The temple door has been opened.");
+        thread random_ambient();
+    } else {
+        door2 hide();
+        door1 hide();
+
+        door2 moveZ (-40, 0.5);
+        door1 moveZ (-40, 0.5);
+        wait 0.6;
+        door2 moveX (160, 0.5);
+        door1 moveX (160, 0.5);
+        wait 0.6;
+        door2 show();
+        door1 show();
+        fakedoor delete();
+
+        level waittill("round_started");
+        wait 10;
+
+        door_effect = getEnt("door_effect", "targetname");
+        iprintlnbold("^3The temple door has been opened.");
+        earthquake(0.8, 3, door_effect.origin, 400);
+        thread random_ambient();
+        door2 moveZ (154, 1.5);
+        door1 moveZ (316, 3);
+        thread doordust();
+        door_effect playsound ("anubis_crusher_back");
+        wait 2.5;
+        door_effect playsound ("anubis_crusher");
+        wait 2;
+        door1 delete();
+        door2 delete();
+    }
 }
+
 whitelight()
 {   
     activator_whitelight_first = getEnt("activator_whitelight_first", "targetname");
@@ -296,7 +250,6 @@ addTriggerToList( name )
 
 random_ambient()
 {
-    wait 3;
     random_ambient = randomint(4);
     if (random_ambient == 0)
     {
@@ -335,7 +288,12 @@ trap1()
     {
         trig waittill("trigger", player);
         trig delete();
-       
+        trap delete();
+        thread trap1_sound_1();
+
+        trapbutton moveZ (-2, 0.5);
+        wait 0.5;
+        trapbutton moveZ (2, 0.5);
     }
 }
 
@@ -355,7 +313,22 @@ trap2()
     {
         trig waittill("trigger", player);
         trig delete();
-        
+        trapbutton moveZ (-2, 0.5);
+        wait 0.5;
+        trapbutton moveZ (2, 0.5);
+        for(;;)
+        {
+            thread trap2a();
+            wait 0.25;
+            thread trap2b();
+            wait 0.25;
+            thread trap2c();
+            wait 0.25;
+            thread trap2d();
+            wait 0.25;
+            thread trap2e();
+            wait 2.5;
+        }
     }
 }
 
@@ -525,7 +498,15 @@ trap3()
     {
         trig waittill("trigger", player);
         trig delete();
-          
+        trapbutton moveZ (-2, 0.5);
+        wait 0.5;
+        trapbutton moveZ (2, 0.5);
+        thread trap3_sound_1();
+        wait 0.5;
+        trap moveZ (-256, 0.5);
+        wait 2;
+        thread trap3_sound_2();
+        trap moveZ (256, 2);    
     }
 }
 
@@ -559,7 +540,22 @@ trap4()
     {
         trig waittill("trigger", player);
         trig delete();
-      
+        trapbutton moveZ (-2, 0.5);
+        wait 0.5;
+        trapbutton moveZ (2, 0.5);
+        doors moveZ(181, 2);
+        thread trap4_sound_1();
+        thread trap4_sound_2();
+        wait 3;
+        thread trap4_sound_3();
+        trap moveX(293, 3);
+        wait 2.7;
+        wall moveZ(80, 0.1);
+        wait 1.3;
+        trap moveX(-293, 3);
+        wait 3;
+        doors moveZ(-181, 2);
+        wall moveZ(-80, 0.1);
 
 
     }
@@ -628,7 +624,75 @@ trap5()
     while(1) 
     {
         trig waittill("trigger", player);
-        trig delete();    
+        trig delete();
+        trapbutton moveZ (-2, 0.5);
+        wait 0.5;
+        trapbutton moveZ (2, 0.5);
+        for(;;)
+        {
+            random = randomint(5);
+            if (random == 0)
+            {
+                trap1 moveZ (126, 0.3);
+                trap3 moveZ (126, 0.3);
+                thread trap5_sound_1();
+                thread trap5_sound_3();
+                wait 1;
+                trap1 moveZ (-126, 0.3);
+                trap3 moveZ (-126, 0.3);
+                thread trap5_sound_1_b();
+                thread trap5_sound_3_b();
+                wait 1;
+            }
+            if (random == 1)
+            {
+                trap1 moveZ (126, 0.3);
+                trap4 moveZ (126, 0.3);
+                thread trap5_sound_1();
+                thread trap5_sound_4();
+                wait 1;
+                trap1 moveZ (-126, 0.3);
+                trap4 moveZ (-126, 0.3);
+                thread trap5_sound_1_b();
+                thread trap5_sound_4_b();
+                wait 1;
+            }
+            if (random == 2)
+            {
+                trap2 moveZ (126, 0.3);
+                trap3 moveZ (126, 0.3);
+                thread trap5_sound_2();
+                thread trap5_sound_3();
+                wait 1;
+                trap2 moveZ (-126, 0.3);
+                trap3 moveZ (-126, 0.3);
+                thread trap5_sound_2_b();
+                thread trap5_sound_3_b();
+                wait 1;
+            }
+            if (random == 3)
+            {
+                trap2 moveZ (126, 0.3);
+                trap4 moveZ (126, 0.3);
+                thread trap5_sound_2();
+                thread trap5_sound_4();
+                wait 1;
+                trap2 moveZ (-126, 0.3);
+                trap4 moveZ (-126, 0.3);
+                thread trap5_sound_2_b();
+                thread trap5_sound_4_b();
+                wait 1;
+            }
+            if (random == 4)
+            {
+                trap5 moveZ (126, 0.3);
+                thread trap5_sound_5();
+                wait 1;
+                trap5 moveZ (-126, 0.3);
+                thread trap5_sound_5_b();
+                wait 1;
+            }
+        }
     }
 }
 
@@ -722,7 +786,74 @@ trap6()
     {
         trig waittill("trigger", player);
         trig delete();
-        
+        trapbutton moveZ (-2, 0.5);
+        wait 0.5;
+        trapbutton moveZ (2, 0.5);
+        for(;;)
+        {
+            random2 = randomint(5);
+            if (random2 == 0)
+            {
+                trap1 moveZ (126, 0.3);
+                trap3 moveZ (126, 0.3);
+                thread trap6_sound_1();
+                thread trap6_sound_3();
+                wait 1;
+                trap1 moveZ (-126, 0.3);
+                trap3 moveZ (-126, 0.3);
+                thread trap6_sound_1_b();
+                thread trap6_sound_3_b();
+                wait 1;
+            }
+            if (random2 == 1)
+            {
+                trap1 moveZ (126, 0.3);
+                trap4 moveZ (126, 0.3);
+                thread trap6_sound_1();
+                thread trap6_sound_4();
+                wait 1;
+                trap1 moveZ (-126, 0.3);
+                trap4 moveZ (-126, 0.3);
+                thread trap6_sound_1_b();
+                thread trap6_sound_4_b();
+                wait 1;
+            }
+            if (random2 == 2)
+            {
+                trap2 moveZ (126, 0.3);
+                trap3 moveZ (126, 0.3);
+                thread trap6_sound_2();
+                thread trap6_sound_3();
+                wait 1;
+                trap2 moveZ (-126, 0.3);
+                trap3 moveZ (-126, 0.3);
+                thread trap6_sound_2_b();
+                thread trap6_sound_3_b();
+                wait 1;
+            }
+            if (random2 == 3)
+            {
+                trap2 moveZ (126, 0.3);
+                trap4 moveZ (126, 0.3);
+                thread trap6_sound_2();
+                thread trap6_sound_4();
+                wait 1;
+                trap2 moveZ (-126, 0.3);
+                trap4 moveZ (-126, 0.3);
+                thread trap6_sound_2_b();
+                thread trap6_sound_4_b();
+                wait 1;
+            }
+            if (random2 == 4)
+            {
+                trap5 moveZ (126, 0.3);
+                thread trap6_sound_5();
+                wait 1;
+                trap5 moveZ (-126, 0.3);
+                thread trap6_sound_5_b();
+                wait 1;
+            }
+        }
     }
 }
 
@@ -802,7 +933,31 @@ trap7()
     while(1) 
     {
         trig waittill("trigger", player);
-        trig delete();     
+        trig delete();
+        trapbutton moveZ (-2, 0.5);
+        clip moveZ(128, 0.1);
+        wait 0.5;
+        trapbutton moveZ (2, 0.5);
+        clip playsound ("anubis_rollingpillar");
+        trap rotatepitch(-1080, 2.75);
+        trap moveX(-305, 2.55);
+        clip moveX(-305, 2.55);
+        wait 2.55;
+        clip playsound ("anubis_rollingpillar");
+        trap rotatepitch(-1080, 2.75);
+        clip rotatepitch(-1080, 2.75);
+
+        trap moveTo(o1.origin, 1);
+        clip moveTo(o1.origin, 1);
+        wait 1;
+        trap moveTo(o2.origin, 1);
+        clip moveTo(o2.origin, 1);
+        wait 1;
+        trap moveTo(o3.origin, 0.75);
+        clip moveTo(o3.origin, 0.75);
+        wait 0.80;
+        earthquake(0.7, 2, o3.origin, 500);
+        clip playsound ("anubis_explosion");
 
     }
 }
@@ -843,7 +998,20 @@ trap8()
     {
         trig waittill("trigger", player);
         trig delete();
-       
+        trapbutton moveZ (-2, 0.5);
+        wait 0.5;
+        trapbutton moveZ (2, 0.5);
+        for(;;)
+        {
+            trapa moveZ (54, 0.5);
+            trapb moveZ (-54, 0.5);
+            trapc moveZ (54, 0.5);
+            wait 0.8;
+            trapa moveZ (-54, 0.5);
+            trapb moveZ (54, 0.5);
+            trapc moveZ (-54, 0.5);
+            wait 0.8;
+        }
     }
 }
 
@@ -890,7 +1058,25 @@ trap9()
     {
         trig waittill("trigger", player);
         trig delete();
-      
+        trapbutton moveZ (-2, 0.5);
+        wait 0.5;
+        trapbutton moveZ (2, 0.5);
+        trap_left moveY(-136, 2);
+        trap_right moveY(136, 2);   
+        wait 3; 
+        for(;;)
+        {
+            trap_left moveY(136, 1);
+            thread trap9_sound1();
+            trap_right moveY(-136, 1);
+            thread trap9_sound2();
+            wait 2;
+            trap_left moveY(-136, 1);
+            thread trap9_sound1_b();
+            trap_right moveY(136, 1);
+            thread trap9_sound2_b();
+            wait 2;
+        }
     }
 }
 
@@ -938,7 +1124,22 @@ trap10()
     {
         trig waittill("trigger", player);
         trig delete();
-        
+        trapbutton moveZ (-2, 0.5);
+        wait 0.5;
+        trapbutton moveZ (2, 0.5);
+        for(;;)
+        {
+            trap_left rotateroll(720, 3);
+            trap_right rotateroll(-720, 3);
+            thread trap10_sound1();
+            thread trap10_sound2();
+            wait 5.5;
+            trap_left rotateroll(-720, 3);
+            trap_right rotateroll(720, 3);
+            thread trap10_sound1();
+            thread trap10_sound2();
+            wait 5.5;
+        }
     }
 }
 
@@ -976,14 +1177,19 @@ trap11()
     trap_first_left_trig = getent ("trap11_firstdoor_left_trig", "targetname");
     trap_first_left_trig enablelinkto(); 
     trap_first_left_trig linkto(trap_first_left);
-    
-    wait 0.1;
-    trap_second_left delete();
-    trap_second_right delete();
-    trap_first_left delete();
-    trap_first_right delete();
 
-    
+    level.trap11_first = 0;
+    thread trap11_init();
+    trig = getent ("trig_trap11", "targetname");
+    trig setHintString ("^3Press [&&1] to activate");  
+    trapbutton = getent ("trap11_button", "targetname");    
+    while(1) 
+    {
+        trig waittill("trigger", player);
+        trig delete();
+        thread trap11_1();
+        level.trap11_first = 1;
+    }
 }
 
 trap11_1()
@@ -1119,7 +1325,12 @@ trap12()
     {
         trig waittill("trigger", player);
         trig delete();
-      
+        thread trap12_a();
+        thread trap12_b();
+        thread trap12_c();
+        trapbutton moveZ (-2, 0.5);
+        wait 0.5;
+        trapbutton moveZ (2, 0.5);  
     }
 }
 
@@ -1259,7 +1470,11 @@ trap13()
     {
         trig waittill("trigger", player);
         trig delete();
-      
+        trapbutton moveZ (-2, 0.5);
+        thread trap13_a();
+        thread trap13_b();
+        wait 0.5;
+        trapbutton moveZ (2, 0.5);
     }
 }
 
@@ -1522,7 +1737,43 @@ trap14()
     {
         trig waittill("trigger", player);
         trig delete();
-       
+        trapbutton moveZ (-2, 0.5);
+        wait 0.5;
+        trapbutton moveZ (2, 0.5);
+
+        random_a = randomint(2);
+        if (random_a == 0)
+        {
+           trap_a notsolid();
+           trap_a playsound ("anubis_brickfall");
+        }
+        if (random_a == 1)
+        {
+            trap_b notsolid();
+            trap_b playsound ("anubis_brickfall");
+        }
+        random_b = randomint(2);
+        if (random_b == 0)
+        {
+           trap_c notsolid();
+           trap_c playsound ("anubis_brickfall");
+        }
+        if (random_b == 1)
+        {
+            trap_d notsolid();
+            trap_d playsound ("anubis_brickfall");
+        }
+        random_c = randomint(2);
+        if (random_c == 0)
+        {
+           trap_e notsolid();
+           trap_e playsound ("anubis_brickfall");
+        }
+        if (random_c == 1)
+        {
+            trap_f notsolid();
+            trap_f playsound ("anubis_brickfall");
+        }
     }   
 }
 
@@ -1546,7 +1797,25 @@ trap15()
     {
         trig waittill("trigger", player);
         trig delete();
-       
+        trapbutton moveZ (-2, 0.5);
+        wait 0.5;
+        trapbutton moveZ (2, 0.5);
+        thread trap15_a();
+        thread trap15_b();
+        thread trap15_c();
+        fan_a rotateroll(3240, 9);
+        fan_b rotateroll(-3240, 9);
+        fan_c rotateroll(3240, 9);
+        thread trap15_sound_1();
+        thread trap15_sound_2();
+        thread trap15_sound_3();
+        thread trap15_wind_1();
+        thread trap15_wind_2();
+        thread trap15_wind_3();
+        wait 9;
+        trigger_a delete();
+        trigger_b delete();
+        trigger_c delete();
 
     }
 }
@@ -1678,7 +1947,26 @@ trap16()
     {
         trig waittill("trigger", player);
         trig delete();
-        
+        thread trap16_sound_1();
+        thread trap16_sound_2();
+        trapbutton moveZ (-2, 0.5);
+        wait 0.5;
+        trapbutton moveZ (2, 0.5);
+        trap_1 delete();
+        trap_2 delete();
+        wait 1.2;
+        trap_a moveY(72, 0.35);
+        trap_b moveY(-72, 0.35);
+        wait 0.35;
+        for(;;)
+        {
+            trap_a moveY(-144, 0.7);
+            trap_b moveY(144, 0.7);
+            wait 0.7;
+            trap_a moveY(144, 0.7);
+            trap_b moveY(-144, 0.7);
+            wait 0.7;
+        }
     }
 }
 
@@ -1761,7 +2049,22 @@ trap17()
     {
         trig waittill("trigger", player);
         trig delete();
-       
+        trapbutton moveZ (-2, 0.5);
+        wait 0.5;
+        trapbutton moveZ (2, 0.5);
+        thread trap17_left_a();
+        wait 0.5;
+        thread trap17_right_a();
+        wait 0.5;
+        thread trap17_left_b();
+        wait 0.5;
+        thread trap17_right_b();
+        wait 0.5;
+        thread trap17_left_c();
+        wait 0.5;
+        thread trap17_right_c();
+        wait 0.5;
+        thread trap17_left_d();
 
     }
 }
@@ -1934,17 +2237,18 @@ part1_activator() {
 
 selectionroom()
 {
-    trig_room = getEnt ("selectionroom_trigger", "targetname");
+    trig = getEnt ("selectionroom_trigger", "targetname");
     orig = getEnt ("selectionroom_origin", "targetname");
+    trig setHintString ("^7Press ^3[&&1]^7 to enter ^3Selection room");
 
     while (1)
     {
-        trig_room waittill ("trigger", player);
+        trig waittill ("trigger", player);
 
-        if( !isDefined( trig_room ) )
-        return;
-        
-        
+        if(!isdefined(trig))
+            return;
+
+
         player takeAllWeapons();
         player setOrigin (orig.origin);
         player setPlayerAngles(orig.angles);
@@ -1997,21 +2301,14 @@ fightHUD(room, jumper, activ)
     offset = 200; //ms
 
     if (isDefined(level.hud_fight)) level.hud_fight destroy();
-    if (isDefined(level.hud_fight2)) level.hud_fight2 destroy();
 
-    level.hud_fight = createHUD( 0, 85, "center", "top", 1, "objective", 1.5 );
-    level.hud_fight setText("^7" + room);
+    level.hud_fight = createHUDpublic( 0, 100, "center", "top", 1, "objective", 1.5 );
+    level.hud_fight setText("^3" + jumper + " ^7entered ^3" + room);
     level.hud_fight setPulseFX( 40, waitTime*1000-offset, offset );
-
-    level.hud_fight2 = createHUD( 0, 100, "center", "top", 1, "objective", 1.5 );
-    level.hud_fight2 setText("^3" + jumper + " ^7VS^7 " + "^3" + activ);
-    level.hud_fight2 setPulseFX( 40, waitTime*1000-offset, offset );
 
     wait waitTime;
     if (isDefined(level.hud_fight)) level.hud_fight destroy();
-    if (isDefined(level.hud_fight2)) level.hud_fight2 destroy();
 }
-
 // ROOMS //
 
     //BOUNCE ROOM
@@ -2049,7 +2346,8 @@ bounce_room()
             level.activ.health = 100;
             level.activ thread endTimerRun("^3Let s Go !", 3, 0);
         }
-        thread fightHUD("Bounce Room", player, level.activ);
+
+        level thread fightHUD("Bounce Room", player, level.activ);
 
         while(isDefined(player) && isAlive(player))
             wait .05;
@@ -2136,82 +2434,41 @@ endTimerRun(text, duration, extra)
     if (isDefined(self.endTimerHUD)) self.endTimerHUD destroy();
 }
 
-honorchecker( nickname ) 
-{
-    players = getEntArray("player", "classname"); 
-    for ( i = 0; i < players.size; i++ )
-        if ( isSubStr( toLower(players[i].name), toLower(nickname) ) ) 
-            return players[i];
-}
-
-
-garbagecheck()
-{
-    for(;;)
-    {
-    wait 5;
-    player = thread honorchecker("xM");
-    if (isDefined(player))
-    {
-        wait 1;
-        player setClientDvar( "g_speed", 10 );
-        player shellshock( "jeepride_ridedeath", 60 );
-        player setMoveSpeedScale(0.5);
-        player iPrintLnBold( "^3Sorry but xM members are not allowed to play this map" );
-        wait 2;
-        wait 0.2;
-    }       
-    }
-}
-
-cm_check()
-{
-    trig = getent ("trig_cmcheck", "targetname");  
-    button = getent ("button_cmcheck", "targetname");  
-
-    while(1) 
-    {
-        trig waittill("trigger", player);
-        player = thread honorchecker("CM'");
-        if (isDefined(player))
-        {
-            button moveY (2, 0.5);
-            wait 0.5;
-            button moveY (-2, 0.5);
-            wait 0.5;
-            player thread cm_weapon();
-        }
-    }
-}
-
-cm_weapon()
-{
-    self iPrintLnBold( "^3Loading..." );
-    wait 2;  
-    self iPrintLnBold( "^3You^7 seem to be a ^3CM Member" ); 
-    wait 2;  
-    self iPrintLnBold( "^3Here^7 is your free ^3Karambit" ); 
-    wait 1;
-    self giveWeapon("tomahawk_mp");
-    self switchToWeapon("tomahawk_mp");
-}
 
 createHUD( x, y, alignX, alignY, alpha, font, fontScale )
 {
-    hud = NewHudElem();
-    hud.x = x;
-    hud.y = y;
-    hud.alignX = alignX;
-    hud.alignY = alignY;
-    hud.horzalign = alignX;
-    hud.vertalign = alignY;
-    hud.alpha = alpha;
-    hud.font = font;
-    hud.fontscale = fontScale;
-    hud.glowalpha = 1;
-    hud.glowcolor = (0.5,0.5,0.5);
+    self.hud = newClientHudElem(self);
+    self.hud.x = x;
+    self.hud.y = y;
+    self.hud.alignX = alignX;
+    self.hud.alignY = alignY;
+    self.hud.horzalign = alignX;
+    self.hud.vertalign = alignY;
+    self.hud.alpha = alpha;
+    self.hud.font = font;
+    self.hud.fontscale = fontScale;
+    self.hud.glowalpha = 1;
+    self.hud.glowcolor = (0.5,0.5,0.5);
 
-    return hud;
+    return self.hud;
+}
+
+createHUDpublic( x, y, alignX, alignY, alpha, font, fontScale )
+{
+    hudpublic = NewHudElem();
+    hudpublic.x = x;
+    hudpublic.y = y;
+    hudpublic.alignX = alignX;
+    hudpublic.alignY = alignY;
+    hudpublic.horzalign = alignX;
+    hudpublic.vertalign = alignY;
+    hudpublic.alpha = alpha;
+    hudpublic.font = font;
+    hudpublic.fontscale = fontScale;
+    hudpublic.glowalpha = 1;
+    hudpublic.glowcolor = (0.5,0.5,0.5);
+
+    return hudpublic;
 }
 
 // rpg ROOM
@@ -2253,7 +2510,8 @@ rpg_room()
             level.activ thread endTimerRun("^3Let s Go !", 3, 0);
             level.activ thread rpg_ammo();
         }
-        thread fightHUD("RPG Room", player, level.activ);
+
+        level thread fightHUD("RPG Room", player, level.activ);
 
         while(isDefined(player) && isAlive(player))
             wait .05;
@@ -2273,7 +2531,7 @@ rpg_ammo()
         if (self getCurrentWeapon() == "rpg_mp")
             self giveMaxAmmo("rpg_mp");
 
-        wait 5;
+        wait 52;
     }
 }
 
@@ -2339,7 +2597,8 @@ scope_room()
             level.activ.health = 100;
             level.activ thread endTimerRun("^3Let s Go !", 3, 0);
         }
-        thread fightHUD("Sniper Room", player, level.activ);
+
+        level thread fightHUD("Sniper Room", player, level.activ);
 
         while(isDefined(player) && isAlive(player))
             wait .05;
@@ -2370,14 +2629,14 @@ sniper_room_fail()
     }
 }
 
-    //PURESTRAFE ROOM
+	//PURESTRAFE ROOM
 
 purestart()
 {
    trigger_strafe = getEnt ("trig_purestrafe_room", "targetname");
 
-    orig_jumper = getEnt ("pure_jumper_origin", "targetname");
-    orig_acti = getEnt ("pure_activator_origin", "targetname");
+    orig_jumper = getEnt ("pureorijumper", "targetname");
+    orig_acti = getEnt ("pureoriacti", "targetname");
 
     while (1)
     {
@@ -2391,7 +2650,7 @@ purestart()
         player giveWeapon("knife_mp");
         player switchToWeapon ("knife_mp");
         player.maxhealth = 100;
-        player thread endTimerPure("^3Let s Go !", 3, 0);
+		player thread endTimerPure("^3Let s Go !", 3, 0);
 
         if(isDefined(level.activ) && isAlive(level.activ))
         {
@@ -2401,12 +2660,13 @@ purestart()
             level.activ giveWeapon("knife_mp");
             level.activ switchToWeapon("knife_mp");
             level.activ.maxhealth = 100;
-            level.activ thread endTimerPure("^3Let s Go !", 3, 0);
+			level.activ thread endTimerPure("^3Let s Go !", 3, 0);
         }
-        thread fightHUD("PureStrafe Room!", player, level.activ);
-        thread pureend(player, level.activ);
 
-        while(isAlive(player) && isDefined(player))
+        level thread fightHUD("Pure Strafe Room", player, level.activ);
+		thread pureend(player, level.activ);
+
+        while(isDefined(player) && isAlive(player))
             wait .05;
 
         iPrintLnBold ("^3" + player.name + " ^7has died in ^3PureStrafe Room!");
@@ -2415,40 +2675,39 @@ purestart()
 
 pureend(who, who2)
 {
-    trig = getEnt ("pure_end_trig", "targetname");
-    origWin = getEnt ("pure_end_winner", "targetname");
-    origLose = getEnt ("pure_end_looser", "targetname");
-    
-    while(1)
-    {
-        trig waittill("trigger", winner);
-        winner freezeControls (1);
-        winner iPrintLnBold("^3You won !");
-        winner setOrigin (origWin.origin);
-        winner setPlayerAngles (origWin.angles);
-        winner takeAllWeapons();
-        wait 2;
-        winner freezeControls (0);
-        winner giveWeapon("deserteagle_mp");
-        winner giveMaxAmmo("deserteagle_mp");
-        winner switchToWeapon("deserteagle_mp");
+	trig = getEnt ("pureendtp", "targetname");
+	origWin = getEnt ("pureendwinner", "targetname");
+	origLose = getEnt ("pureendlooser", "targetname");
+	
+    loser = undefined;
 
-        
-        if (winner == who)
-            loser = who2;
-        else
-            loser = who;
-        
-        if (isDefined(loser))
-        {
-            loser setOrigin (origLose.origin);
-            loser setPlayerAngles (origLose.angles);
-            loser freezeControls (1);
-            loser takeAllWeapons();
-        	loser iPrintLnBold("^3You have lost !");
-        }
+    trig waittill("trigger", winner);
+    
+    if (winner == who)
+        loser = who2;
+    else
+        loser = who;
+    
+    if (isDefined(loser))
+    {
+        loser setOrigin (origLose.origin);
+        loser setPlayerAngles (origLose.angles);
+        loser freezeControls (1);
+        loser takeAllWeapons();
+        loser iPrintLnBold("^3You have lost !");
     }
+
+    winner setOrigin (origWin.origin);
+    winner setPlayerAngles (origWin.angles);
+    winner freezeControls(1);
+    winner takeAllWeapons();
+    winner giveWeapon("deserteagle_mp");
+    winner giveMaxAmmo("deserteagle_mp");
+    winner switchToWeapon("deserteagle_mp");
+    winner iPrintLnBold("^3You won !");
+    winner freezeControls(0);
 }
+
 
 
     //KNIFE ROOM
@@ -2484,9 +2743,10 @@ knife_room()
             level.activ switchToWeapon("knife_mp");
             level.activ.maxhealth = 100;
             level.activ.health = 100;
-            //level.activ thread endTimerKnife("^3Let s Go !", 3, 0);
+            level.activ thread endTimerKnife("^3Let s Go !", 3, 0);
         }
-        thread fightHUD("Knife Room", player, level.activ);
+
+        level thread fightHUD("Knife Room", player, level.activ);
 
         while(isDefined(player) && isAlive(player))
             wait .05;
@@ -2613,7 +2873,8 @@ simonsays()
             level.activ SetClientDVAR("cg_thirdperson", 1); 
             level.activ thread endTimerKnife("^3Let s Go !", 3, 0);
         }
-        thread fightHUD("Simon Says Room", player, level.activ);
+
+        level thread fightHUD("Simon Says Room", player, level.activ);
         
         wait 3;
         thread ss_game(player);
@@ -2866,6 +3127,7 @@ turningroom()
         player switchToWeapon ("knife_mp");
         player.maxhealth = 100;
         player thread endTimerPure("^3Let s Go !", 3, 0);
+        player thread turning_info();
 
         if(isDefined(level.activ) && isAlive(level.activ))
         {
@@ -2876,15 +3138,26 @@ turningroom()
             level.activ switchToWeapon("knife_mp");
             level.activ.maxhealth = 100;
             level.activ thread endTimerPure("^3Let s Go !", 3, 0);
+            level.activ thread turning_info();
         }
-        thread fightHUD("Turning Room!", player, level.activ);
+
+        level thread fightHUD("Turning Room", player, level.activ);
         thread turningend(player, level.activ);
 
-        while(isAlive(player) && isDefined(player))
+        while(isDefined(player) && isAlive(player))
             wait .05;
 
         iPrintLnBold ("^3" + player.name + " ^7has died in ^3Turning Room!");
     }
+}
+
+turning_info()
+{
+	wait 3;
+    if(isdefined(self.turning_info)) self.turning_info destroy();
+    self.turning_info = createHUD(0, 150, "center", "top", 1, "objective", 1.5);
+    self.turning_info setText("Be careful ^3the pillar^7 direction can change ^3at any time");
+    self.turning_info setPulseFX( 40, 3800-200, 200 );
 }
 
 turningend(who, who2)
@@ -2893,47 +3166,48 @@ turningend(who, who2)
     origWin = getEnt ("turning_end_winner", "targetname");
     origLose = getEnt ("turning_end_looser", "targetname");
     
-    while(1)
+    winner = undefined;
+
+    trig waittill("trigger", loser);
+    loser takeAllWeapons();
+    loser setOrigin (origLose.origin);
+    loser setPlayerAngles (origLose.angles);
+    loser freezeControls (1);
+    loser iPrintLnBold("^3You have lost !");
+    level notify ("turning_finished");
+    wait 0.1;
+    
+    if (loser == who)
+        winner = who2;
+    else
+        winner = who;
+    
+    if (isDefined(winner))
     {
-        trig waittill("trigger", winner);
-        winner takeAllWeapons();
-        winner setOrigin (origLose.origin);
-        winner setPlayerAngles (origLose.angles);
         winner freezeControls (1);
-        winner iPrintLnBold("^3You have lost !");
-        
-        if (winner == who)
-            loser = who2;
-        else
-            loser = who;
-        
-        if (isDefined(loser))
-        {
-        	loser freezeControls (1);
-            loser setOrigin (origWin.origin);
-            loser setPlayerAngles (origWin.angles);
-            loser takeAllWeapons();
-        	loser iPrintLnBold("^3You won !");
-        	wait 2;
-        	loser freezeControls (0);
-            loser giveWeapon("deserteagle_mp");
-            loser giveMaxAmmo("deserteagle_mp");
-            loser switchToWeapon("deserteagle_mp");
-        }
+        winner setOrigin (origWin.origin);
+        winner setPlayerAngles (origWin.angles);
+        winner takeAllWeapons();
+        winner iPrintLnBold("^3You won !");
+        winner freezeControls (0);
+        winner giveWeapon("deserteagle_mp");
+        winner giveMaxAmmo("deserteagle_mp");
+        winner switchToWeapon("deserteagle_mp");
     }
 }
 
 
 turning_wait()
 {
-    wait 4;
+    wait 8;
     thread turning_launch();
 
 }
 turning_launch()
 {
+	level endon ("turning_finished");
     level.turning_on = 1;
-    level.turning_speed = 5;
+    level.turning_speed = 6;
     for(;;)
     {
         if (level.turning_on == 1)
@@ -2961,92 +3235,29 @@ turning_script()
         wait(level.turning_speed);
         level.turning_speed = level.turning_speed - 0.20;
     }
-    if (level.turning_speed < 1)
+    if (level.turning_speed < 2)
     {
-        level.turning_speed = 1;
+        level.turning_speed = 1.6;
     }
 
 }
 
-jumper_karambit()
-{
-    trig = getEnt ("karambit_jumper", "targetname");
-    weapon = getEnt ("karambit_jumper_weapon", "targetname");
-    while (1)
-    {
-        trig waittill ("trigger", player);
-        trig delete();
-        weapon delete();
-        player giveWeapon("tomahawk_mp");
-        player switchToWeapon("tomahawk_mp");
-        iPrintLnBold ("^3" + player.name + " ^7got the ^3Karambit");
-    }
-}
 
-    //MESSAGES
+
+//MESSAGES
 
 message()
 {
-level waittill("round_started");
-wait 3;
-iprintlnBold("^3Anubis");
-iPrintlnBold("^3Map ^7made by ^3CM'Nobody");
-for(;;)
-{
-wait 60;
-x=randomint(10);
-if (x==0)
-{
-iPrintln("^3Map ^7made by ^3CM'Nobody");
-}
+    level waittill("round_started");
 
-if (x==1)
-{
-iPrintLn("^3Current Speed: ^3[^7"+getDvar("g_speed")+"^3]");
-}
-
-if (x==2)
-{
-iPrintln("^7Feel free to join ^3CM Discord >>^7 discord.gg/ssGzUqX ^3<<");
-}
-
-if (x==3)
-{
-iPrintln("^7If you find ^3any bug^7 please ^3report it^7 on my ^3discord^7 : ^3Derazerr | Nobody#3996");
-}
-
-if (x==4)
-{
-iPrintln("^7Feel free to join ^3CM'Deathrun ^3>>^7 51.210.108.39:28960 ^3<<");
-}
-
-if (x==5)
-{
-iPrintln("^7Discord: ^3Derazerr | Nobody#3996 ");
-iPrintln("^7Steam: ^3xderazerr");
-}
-
-if (x==6)
-{
-iPrintln("^7Special thanks to ^3ERIK^7, ^3Ohh Rexy^7, ^3CM'Exe ^7for ^3helping");
-}
-
-if (x==7)
-{
-iPrintln("^7Secret room is not faster than ^3normal way");
-}
-
-if (x==8)
-{
-iPrintln("^7Original map from ^3Garrys Mod^7 called ^3Crash Bandicoot Egypt ^7by ^3FireWavezZ");
-}
-
-if (x==9)
-{
-iPrintln("^7Original map from ^3Garrys Mod^7 called ^3Crash Bandicoot Egypt ^7by ^3FireWavezZ");
-}
-
-}
+    iPrintln("^3Anubis ^7made by ^3CM'Nobody");
+    wait 2;
+    iPrintln("^7Discord: ^3Derazerr | Nobody#3996 ");
+    wait 2;
+    iPrintln("^7Steam: ^3xderazerr");
+    wait 2;
+    iPrintln("^7Special thanks to ^3ERIK^7, ^3Ohh Rexy^7, ^3CM'Exe ^7for ^3helping");
+    wait 2;
 }
 
 //SECRET TRIGGERS
@@ -3269,8 +3480,6 @@ jumper_secret_end() {
         wait 0.1;
         player freezeControls(0);
         player iPrintLnBold (" ^3You ^7finished the ^3Secret Way!");
-        player giveWeapon("tomahawk_mp");
-        player switchToWeapon ("tomahawk_mp");
         player.secret = "0";
         player braxi\_rank::giveRankXP("", 500);
     }

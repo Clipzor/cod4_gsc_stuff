@@ -25,6 +25,8 @@ main()
 	setdvar("r_glowbloomintensity1",".25");
 	setdvar("r_glowskybleedintensity0",".3");
 	setdvar("compassmaxrange","1800");
+
+	level.first_room_enter = false;
 	
 	
 	//<- Threads -->
@@ -1057,9 +1059,8 @@ easy_enter()
 		{
 			trig waittill("trigger", player);
 			player setOrigin(tele1.origin);
-			player thread secret_timer_easy();
 			player setPlayerAngles(tele1.angles);
-			wait 0.01;
+			player thread secret_timer_easy();
 		}
 }
 
@@ -1084,6 +1085,8 @@ easy_finish()
 secret_timer_easy() //blades timer
 {
 	self endon("secret1_done");
+	self endon("disconnect");
+	self endon("death");
 	
 
 	if(isdefined(self.secretTimer))
@@ -1094,19 +1097,21 @@ secret_timer_easy() //blades timer
 	self.secretTimer.alignX = "center";
 	self.secretTimer.alignY = "bottom";
 	self.secretTimer.horzAlign = "center";
-        self.secretTimer.vertAlign = "bottom";
-        self.secretTimer.x = 0;
-        self.secretTimer.y = -7;
-        self.secretTimer.sort = 5;
-        self.secretTimer.fontScale = 1.6;
-        self.secretTimer.font = "default";
-        self.secretTimer.glowAlpha = 1;
-        self.secretTimer.hidewheninmenu = true;
-        self.secretTimer.label = &"Time in Secret: &&1";
-        if(isdefined(level.randomcolor))
-	self.secretTimer.glowColor=level.randomcolor;
+	self.secretTimer.vertAlign = "bottom";
+	self.secretTimer.x = 0;
+	self.secretTimer.y = -7;
+	self.secretTimer.sort = 5;
+	self.secretTimer.fontScale = 1.6;
+	self.secretTimer.font = "default";
+	self.secretTimer.glowAlpha = 1;
+	self.secretTimer.hidewheninmenu = true;
+	self.secretTimer.label = &"Time in Secret: &&1";
+	if(isdefined(level.randomcolor))
+		self.secretTimer.glowColor=level.randomcolor;
 	else 
-	self.secretTimer.glowColor=(1,0,0);
+		self.secretTimer.glowColor=(1,0,0);
+
+	self thread end_secrettimer();
 
 	time=100;
 	for(i=0;i<time;i++)
@@ -1118,7 +1123,16 @@ secret_timer_easy() //blades timer
 	self suicide();
 
 	if(isdefined(self.secretTimer))
-	self.secretTimer destroy();
+		self.secretTimer destroy();
+}
+
+end_secrettimer() {
+	self endon("disconnect");
+
+	self waittill("death");
+
+	if(isdefined(self.secretTimer))
+		self.secretTimer destroy();
 }
 
 easy_sec_fail_2()
@@ -1220,9 +1234,12 @@ knife_room()
 	
 	level.trigknife waittill("trigger", player);
 	
-	level.trigsniper delete();
-	level.trigrpg delete();
-	level.trigbounce delete();
+	if(level.first_room_enter == false) {
+		level.first_room_enter = true;
+		level.trigsniper delete();
+		level.trigrpg delete();
+		level.trigbounce delete();
+	}
 
 	
 	iPrintLnBold("^2 " + player.name + " ^7Entered The ^2Knife ^7Room^2!");
@@ -1398,9 +1415,8 @@ hard_sec_enter()
 		{
 			trig waittill("trigger", player);
 			player setOrigin(tele1.origin);
-			player thread secret_timer_hard();
 			player setPlayerAngles(tele1.angles);
-			wait 0.01;
+			player thread secret_timer_hard();
 		}
 }
 
@@ -1500,10 +1516,10 @@ hard_finish()
 			player braxi\_rank::giveRankXP( "", 500 );
 			iPrintLnBold("^2"+ player.name + " ^7Has Finished the ^1Hard ^7Secret^1!");	
 			player notify("secret2_done");
-			player.secretTimer destroy();
 			player setOrigin(tele1.origin);
 			player setPlayerAngles(tele1.angles);
-			wait 0.01;
+			if(isdefined(player.secretTimer))
+				player.secretTimer destroy();
 		}
 }
 
@@ -1511,6 +1527,8 @@ hard_finish()
 secret_timer_hard() //blades timer
 {
 	self endon("secret2_done");
+	self endon("disconnect");
+	self endon("death");
 	
 
 	if(isdefined(self.secretTimer))
@@ -1521,31 +1539,33 @@ secret_timer_hard() //blades timer
 	self.secretTimer.alignX = "center";
 	self.secretTimer.alignY = "bottom";
 	self.secretTimer.horzAlign = "center";
-        self.secretTimer.vertAlign = "bottom";
-        self.secretTimer.x = 0;
-        self.secretTimer.y = -7;
-        self.secretTimer.sort = 5;
-        self.secretTimer.fontScale = 1.6;
-        self.secretTimer.font = "default";
-        self.secretTimer.glowAlpha = 1;
-        self.secretTimer.hidewheninmenu = true;
-        self.secretTimer.label = &"Time in Secret: &&1";
-        if(isdefined(level.randomcolor))
-	self.secretTimer.glowColor=level.randomcolor;
+	self.secretTimer.vertAlign = "bottom";
+	self.secretTimer.x = 0;
+	self.secretTimer.y = -7;
+	self.secretTimer.sort = 5;
+	self.secretTimer.fontScale = 1.6;
+	self.secretTimer.font = "default";
+	self.secretTimer.glowAlpha = 1;
+	self.secretTimer.hidewheninmenu = true;
+	self.secretTimer.label = &"Time in Secret: &&1";
+	if(isdefined(level.randomcolor))
+		self.secretTimer.glowColor=level.randomcolor;
 	else 
-	self.secretTimer.glowColor=(1,0,0);
+		self.secretTimer.glowColor=(1,0,0);
+
+	self thread end_secrettimer();
 
 	time=120;
 	for(i=0;i<time;i++)
-		{
+	{
 		self.secretTimer setvalue(time-i);
 		wait 1;
-		}
+	}
 	self.secretTimer setvalue(0);
 	self suicide();
 
 	if(isdefined(self.secretTimer))
-	self.secretTimer destroy();
+		self.secretTimer destroy();
 }
 
 
@@ -1560,9 +1580,12 @@ sniper_room()
 	
 	level.trigsniper waittill("trigger", player);
 	
-	level.trigknife delete();
-	level.trigrpg delete();
-	level.trigbounce delete();
+	if(level.first_room_enter == false) {
+		level.first_room_enter = true;
+		level.trigknife delete();
+		level.trigrpg delete();
+		level.trigbounce delete();
+	}
 	
 	iPrintLnBold("^2 " + player.name + " ^7Entered The ^2Sniper ^7Room^2!");
 	player.health = player.maxhealth;
@@ -1628,9 +1651,13 @@ bounce_room()
 	actiorigin = getEnt("bf_2", "targetname");
 	
 	level.trigbounce waittill("trigger", player);
-	level.trigknife delete();
-	level.trigrpg delete();
-	level.trigsniper delete();
+
+	if(level.first_room_enter == false) {
+		level.first_room_enter = true;
+		level.trigknife delete();
+		level.trigrpg delete();
+		level.trigsniper delete();
+	}
 
 	
 	iPrintLnBold("^2 " + player.name + " ^7Entered The ^2Bounce ^7Room^2!");
@@ -1689,9 +1716,13 @@ rpg_room()
 	actiorigin = getEnt("rpgf_2", "targetname");
 	
 	level.trigrpg waittill("trigger", player);
-	level.trigknife delete();
-	level.trigsniper delete();
-	level.trigbounce delete();
+
+	if(level.first_room_enter == false) {
+		level.first_room_enter = true;
+		level.trigknife delete();
+		level.trigsniper delete();
+		level.trigbounce delete();
+	}
 	
 	iPrintLnBold("^2 " + player.name + " ^7Entered The ^2RPG ^7Room^2!");
 	player.health = player.maxhealth;

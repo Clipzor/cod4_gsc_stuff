@@ -247,16 +247,11 @@ startdoor() {
 }
 
 credits() {
-    while( 1 ) {
-        iPrintLn( "Original made by METZ & FIBBS" );
-        wait 8;
-        iPrintLn( "Remade by Mist" );
-        wait 8;
+        iPrintLn( "Original made by METZ & FIBBS, Remade by Mist" );
+        wait 1;
         iPrintLn( "Thanks to alexbubu7 for making the secret, knife, sniper & jump room!" );
-        wait 8;
+        wait 1;
         iPrintLn( "Thanks to Rex109 for making the Jump Rope room" );
-        wait 8;
-    }
 }
 
 fx() {
@@ -873,6 +868,7 @@ classic() {
     iPrintLnBold( "^8" + player.name + " ^7chose the classic way!" );
 
     door moveZ( -200, 5, 1, 1 );
+
     level.classic delete();
     level.sniper delete();
     level.jump delete();
@@ -899,19 +895,21 @@ sniper() {
             level.sniper setHintString( "^8" + player.name + " ^7is batteling it out in the sniper room with ^8" + level.activ.name + "^7!" );  // change to level.activ
 
             
+            if(!isdefined(level.first_room)) {
+                level.first_room = true;
+                level.classic delete();
+                //level.sniper delete();
+                level.jump delete();
+                level.knife delete();
+                level.strafe delete();
+                level.rope delete();
 
-            level.classic delete();
-            //level.sniper delete();
-            level.jump delete();
-            level.knife delete();
-            level.strafe delete();
-            level.rope delete();
-
-            //level.sniper_sign delete();
-            level.jump_sign delete();
-            level.knife_sign delete();
-            level.strafe_sign delete();
-            level.rope_sign delete();
+                //level.sniper_sign delete();
+                level.jump_sign delete();
+                level.knife_sign delete();
+                level.strafe_sign delete();
+                level.rope_sign delete();
+            }
 
             thread sniper_deag();
 
@@ -1000,19 +998,21 @@ jump() {
             level.jump setHintString( "^8" + player.name + " ^7is batteling it out in the bounce room with ^8" + level.activ.name + "^7!" );  // change to level.activ
 
             
+            if(!isdefined(level.first_room)) {
+                level.first_room = true;
+                level.classic delete();
+                level.sniper delete();
+                //level.jump delete();
+                level.knife delete();
+                level.strafe delete();
+                level.rope delete();
 
-            level.classic delete();
-            level.sniper delete();
-            //level.jump delete();
-            level.knife delete();
-            level.strafe delete();
-            level.rope delete();
-
-            level.sniper_sign delete();
-            //level.jump_sign delete();
-            level.knife_sign delete();
-            level.strafe_sign delete();
-            level.rope_sign delete();
+                level.sniper_sign delete();
+                //level.jump_sign delete();
+                level.knife_sign delete();
+                level.strafe_sign delete();
+                level.rope_sign delete();
+            }
 
             thread jump_ak();
             thread jump_fail();
@@ -1124,19 +1124,21 @@ knife() {
             level.knife setHintString( "^8" + player.name + " ^7is batteling it out in the knife room with ^8" + level.activ.name + "^7!" );  // change to level.activ
 
             
+            if(!isdefined(level.first_room)) {
+                level.first_room = true;
+                level.classic delete();
+                level.sniper delete();
+                level.jump delete();
+                //level.knife delete();
+                level.strafe delete();
+                level.rope delete();
 
-            level.classic delete();
-            level.sniper delete();
-            level.jump delete();
-            //level.knife delete();
-            level.strafe delete();
-            level.rope delete();
-
-            level.sniper_sign delete();
-            level.jump_sign delete();
-            //level.knife_sign delete();
-            level.strafe_sign delete();
-            level.rope_sign delete();
+                level.sniper_sign delete();
+                level.jump_sign delete();
+                //level.knife_sign delete();
+                level.strafe_sign delete();
+                level.rope_sign delete();
+            }
 
             if(!level.inroom) {
 
@@ -1211,19 +1213,21 @@ strafe() {
         level.strafe setHintString( "^8" + player.name + " ^7is batteling it out in the strafe room with ^8" + level.activ.name + "^7!" );
 
         
+        if(!isdefined(level.first_room)) {
+            level.first_room = true;
+            level.classic delete();
+            level.sniper delete();
+            level.jump delete();
+            level.knife delete();
+            //level.strafe delete();
+            level.rope delete();
 
-        level.classic delete();
-        level.sniper delete();
-        level.jump delete();
-        level.knife delete();
-        //level.strafe delete();
-        level.rope delete();
-
-        level.sniper_sign delete();
-        level.jump_sign delete();
-        level.knife_sign delete();
-        //level.strafe_sign delete();
-        level.rope_sign delete();
+            level.sniper_sign delete();
+            level.jump_sign delete();
+            level.knife_sign delete();
+            //level.strafe_sign delete();
+            level.rope_sign delete();
+        }
 
         player setOrigin (orig_jumper.origin);
         player setPlayerAngles (orig_jumper.angles);
@@ -1275,7 +1279,7 @@ strafe() {
 
         thread pureend(player, level.activ);
 
-        while(isAlive(player) && isDefined(player))
+        while(isDefined(player) && isAlive(player))
             wait .05;
 
         level notify("strafeend");
@@ -1345,8 +1349,9 @@ rope()
 
         
 
-        if(isDefined(level.classic))
+        if(!isdefined(level.first_room))
         {
+            level.first_room = true;
             level.classic delete();
             level.sniper delete();
             level.jump delete();

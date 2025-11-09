@@ -149,18 +149,6 @@ removeTextActivator()
     }
 } 
 
-removehudsondeath()
-{
-    self endon ("death");
-    self.owner waittill_any("death", "disconnect");
-    
-    if( isDefined( self ) )
-    {
-        self destroy();
-    }
-    
-}
-
 GetActivator()
 {
 	players = getentarray( "player", "classname" );
@@ -356,9 +344,9 @@ coins() {
         if(i>9)
             coin_array[i] thread coin_think(getentArray("sparkle", "targetname")[i], getent("trig_coin"+(i+1), "targetname"), int(200));
         else if(i>6)
-            coin_array[i] thread coin_think(getentArray("sparkle", "targetname")[i], getent("trig_coinred"+(i-6), "targetname"), int(500), false);
+            coin_array[i] thread coin_think(getentArray("sparkle", "targetname")[i], getent("trig_coinred"+(i-6), "targetname"), int(300), false);
         else
-            coin_array[i] thread coin_think(getentArray("sparkle", "targetname")[i], getent("trig_coinblue"+(i-9), "targetname"), int(1000), true);
+            coin_array[i] thread coin_think(getentArray("sparkle", "targetname")[i], getent("trig_coinblue"+(i-9), "targetname"), int(500), true);
     }       
 }
 
@@ -589,7 +577,10 @@ secend()
         trig waittill("trigger", player);
 
         player notify("secret_done");
-        player.secretTimer destroy();
+
+        if(isdefined(player.secretTimer))
+            player.secretTimer destroy();
+
         player setOrigin(tele.origin);
         player setPlayerAngles(tele.angles);
         player.sc_pos = 0;
@@ -640,6 +631,7 @@ secret_timer()
 	self endon("secret_done");
 	self endon("death");
 	self endon("round_ended");
+
 	self thread destroyOnDeath();
 	
 	if(isdefined(self.secretTimer))
@@ -830,7 +822,8 @@ fan_fx()
 
     triggerFX(fx);
     wait 9;
-    fx delete();
+    if(isdefined(fx))
+        fx delete();
 }
 
 fan_sound()
@@ -910,7 +903,8 @@ fire(index)
 
     triggerFX(fx);
     wait 6;
-    fx delete();
+    if(isdefined(fx))
+        fx delete();
 }
 
 hurt_fire(hurta,hurtb)
@@ -1061,6 +1055,7 @@ board()
     PlayFX(level.board, origin_effect[0].origin);
     PlayFX(level.board, origin_effect[1].origin);
     PlayFX(level.board, origin_effect[2].origin);
+    
     boarda delete();
     wait 0.2;
     board[0] show();

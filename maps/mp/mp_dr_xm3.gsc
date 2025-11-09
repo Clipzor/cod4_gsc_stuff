@@ -986,7 +986,7 @@ room_selection()
         player takeallweapons();
         player thread teleport_init(targ);
 
-        while(isalive(player) && isdefined(player))
+        while(isDefined(player) && isAlive(player))
 			wait .05;
 
 		if(isdefined(level.simon_started) && level.simon_started)

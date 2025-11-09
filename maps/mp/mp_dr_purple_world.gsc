@@ -418,7 +418,7 @@ Endrooms()
 	iPrintLnBold( " ^6" + player.name + " ^7has entered the ^6game selection ^7!!!" );
 	player RoomDeath();
 
-	while(isAlive(player) && isDefined(player))
+	while(isDefined(player) && isAlive(player))
 	if(isDefined(level.activ) && isAlive(level.activ))
 	wait 1;
 	}
