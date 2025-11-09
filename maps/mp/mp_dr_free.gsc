@@ -708,7 +708,7 @@ knife()
 		player FreezeControls(0);
 		level.activ FreezeControls(0);
 
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
 
     }
@@ -767,7 +767,7 @@ bounce()
         player FreezeControls(0);
         level.activ FreezeControls(0);
 
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
 
     }

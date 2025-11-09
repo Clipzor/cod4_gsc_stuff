@@ -1008,7 +1008,7 @@ sniper()
                 player freezecontrols(0);
                 level.activ freezecontrols(0);
                 
-                while( isAlive( player ) && isDefined( player ) ) 
+                while( isDefined( player ) && isAlive( player ) ) 
                     wait 0.05;
 
                 ambientPlay(level.music[level.selectedmusicid]["alias"],2);
@@ -1071,7 +1071,7 @@ knife()
                 player freezecontrols(0);
                 level.activ freezecontrols(0);
                 
-                while( isAlive( player ) && isDefined( player ) ) 
+                while( isDefined( player ) && isAlive( player ) ) 
                     wait 0.05;
 
                 ambientPlay(level.music[level.selectedmusicid]["alias"],2);
@@ -1136,7 +1136,7 @@ deagle()
                 player freezecontrols(0);
                 level.activ freezecontrols(0);
                 
-                while( isAlive( player ) && isDefined( player ) ) 
+                while( isDefined( player ) && isAlive( player ) ) 
                     wait 0.05;
 
                 ambientPlay(level.music[level.selectedmusicid]["alias"],2);
@@ -1200,7 +1200,7 @@ bounce()
                 player freezecontrols(0);
                 level.activ freezecontrols(0);
                 
-                while( isAlive( player ) && isDefined( player ) ) 
+                while( isDefined( player ) && isAlive( player ) ) 
                     wait 0.05;
 
                 ambientPlay(level.music[level.selectedmusicid]["alias"],2);
@@ -1268,7 +1268,7 @@ strafe()
                 player freezecontrols(0);
                 level.activ freezecontrols(0);
                 
-                while( isAlive( player ) && isDefined( player ) ) 
+                while( isDefined( player ) && isAlive( player ) ) 
                     wait 0.05;
 
                 level.other = undefined;
@@ -1334,7 +1334,7 @@ sphero()
                 player freezecontrols(0);
                 level.activ freezecontrols(0);
                 
-                while( isAlive( player ) && isDefined( player ) ) 
+                while( isDefined( player ) && isAlive( player ) ) 
                     wait 0.05;
 
                 ambientPlay(level.music[level.selectedmusicid]["alias"],2);

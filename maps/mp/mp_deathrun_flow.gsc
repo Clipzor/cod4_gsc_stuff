@@ -334,7 +334,6 @@ scarywall()
 	upme movex( 224, 15 );
 
 	player SetClientDvar( "cg_drawhud", "0" );
-//	player SayAll( "Help me im dying!" );
 }
 
 

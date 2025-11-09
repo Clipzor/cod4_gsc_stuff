@@ -438,7 +438,7 @@ acti = getEnt( "actijug", "targetname" ); //the origin the acti will teleport
 		level.activ freezeControls(false);
 		wait 1;
 		}
-	while( isAlive( player ) && isDefined( player ) ) //if the player is alive the room will stay closed so no one can enter.
+	while( isDefined( player ) && isAlive( player ) ) //if the player is alive the room will stay closed so no one can enter.
 		wait 1;	
 	}
 	
@@ -506,7 +506,7 @@ acti1 = getEnt( "tomaacti", "targetname" ); //the origin the acti will teleport
 		wait 1;
 		
 		}
-		while( isAlive( player ) && isDefined( player ) ) //if the player is alive the room will stay closed so no one can enter.
+		while( isDefined( player ) && isAlive( player ) ) //if the player is alive the room will stay closed so no one can enter.
 		wait 1;
 	}
 	

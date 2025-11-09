@@ -385,7 +385,7 @@ credits()
         player switchToWeapon( "tomahawk_mp" ); //activator weapon
         level.activ SwitchToWeapon( "tomahawk_mp" );
         iPrintlnBold( " ^6" + player.name + " ^5 HAS CHOSEN ^7KNIFE^1!" );     //change to what you want it to be
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
     }
 }
@@ -417,7 +417,7 @@ bounce()
         player switchToWeapon( "tomahawk_mp" ); //activator weapon
         level.activ SwitchToWeapon( "tomahawk_mp" );
         iPrintlnBold( " ^6" + player.name + " ^5 HAS CHOSEN BOUNCE^1!" );     //change to what you want it to be
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
     }
 }
@@ -449,7 +449,7 @@ sniper()
         player switchToWeapon( "m40a3_mp" ); //activator weapon
         level.activ SwitchToWeapon( "m40a3_mp" );
         iPrintlnBold( " ^6" + player.name + " ^5 HAS CHOSEN SNIPAH^1!" );     //change to what you want it to be
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
     }
 }
@@ -481,7 +481,7 @@ sr()
         player switchToWeapon( "tomahawk_mp" ); //activator weapon
         level.activ SwitchToWeapon( "tomahawk_mp" );
         iPrintlnBold( " ^6" + player.name + " ^5 HAS CHOSEN SpeedRun^1!" );     //change to what you want it to be
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
     }
 }      

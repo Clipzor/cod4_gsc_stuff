@@ -234,14 +234,12 @@ player_bounce(trigger)
   
 transporter()
 {
+		entTarget = getEnt( self.target, "targetname" );
 	while(true)
 	{
 		self waittill( "trigger", player );
-		entTarget = getEnt( self.target, "targetname" );
-		wait 0.1;
 		player setOrigin( entTarget.origin );
 		player setplayerangles( entTarget.angles );
-		wait 0.1;
 	}
 }
 
@@ -829,7 +827,7 @@ WatchSniper()
 		player switchToWeapon( "remington700_mp" );
 		level.activ SwitchToWeapon( "remington700_mp" );
 		iPrintlnBold( " ^2" + player.name + " ^7has chosen ^2SNIPER^7 room^2!" );				
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
 		wait 1;
 	}
 }
@@ -867,7 +865,7 @@ WatchKnife()
 		player switchToWeapon( "knife_mp" );
 		level.activ SwitchToWeapon( "knife_mp" );
 		iPrintlnBold( " ^4" + player.name + " ^7has chosen ^4KNIFE^7 room^4!" );		 
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 		wait 1;
 	}
 }
@@ -911,7 +909,7 @@ Watchak()
 		player switchToWeapon( "ak47_mp" );
 		level.activ SwitchToWeapon( "ak47_mp" );
 		iPrintlnBold( " ^1" + player.name + " ^7has chosen ^1Ak47 ^7room^1!" );
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
 		wait 1;
 	}
 }
@@ -955,7 +953,7 @@ Watchaku()
 		player switchToWeapon( "ak74u_mp" );
 		level.activ SwitchToWeapon( "ak74u_mp" );
 		iPrintlnBold( " ^5" + player.name + " ^7has chosen ^5Ak74-u ^7room^5!" );		
-	    while( isAlive( player ) && isDefined( player ) )
+	    while( isDefined( player ) && isAlive( player ) )
 		wait 1;
 	}
 }
@@ -993,7 +991,7 @@ Watchbounce()
 		player switchToWeapon( "knife_mp" );
 		level.activ switchToWeapon( "knife_mp" );
 		iPrintlnBold( " ^6" + player.name + " ^7has chosen ^6BOUNCE^7 room^6!" );		
-	    while( isAlive( player ) && isDefined( player ) )
+	    while( isDefined( player ) && isAlive( player ) )
 		wait 1;
 	}
 }

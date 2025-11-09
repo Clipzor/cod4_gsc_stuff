@@ -472,7 +472,7 @@ for(;;)
 	lavak moveto((-2560, 1536, -280), 10);
 	lavak waittill("movedone");
 	level.lavadown = 1;
-	while( isAlive( player ) && isDefined( player ) )
+	while( isDefined( player ) && isAlive( player ) )
             wait .1;
 	lava triggerOn();
 	}

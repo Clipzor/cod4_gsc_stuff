@@ -967,7 +967,7 @@ sniper() {
                     level.activ freezecontrols(0);
                 }
                 
-                while( isAlive( player ) && isDefined( player ) ) 
+                while( isDefined( player ) && isAlive( player ) ) 
                     wait 0.05;
 
                 iPrintlnBold( "^8" + player.name + " ^7died in the sniper room!" );
@@ -1070,7 +1070,7 @@ jump() {
                     level.activ freezecontrols(0);
                 }
                 
-                while( isAlive( player ) && isDefined( player ) ) 
+                while( isDefined( player ) && isAlive( player ) ) 
                     wait 0.05;
 
                 iPrintlnBold( "^8" + player.name + " ^7died in the bounce room!" );
@@ -1193,7 +1193,7 @@ knife() {
                     level.activ freezecontrols(0);
                 }
                 
-                while( isAlive( player ) && isDefined( player ) ) 
+                while( isDefined( player ) && isAlive( player ) ) 
                     wait 0.05;
 
                 iPrintlnBold( "^8" + player.name + " ^7died in the knife room!" );

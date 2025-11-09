@@ -398,7 +398,7 @@ sniper()
             level.activ iPrintlnBold( "^7Fight^5!" );
             player freezecontrols(false); //Disables the freeze.
             level.activ freezecontrols(false);
-                while( isAlive( player ) && isDefined( player ) ) 
+                while( isDefined( player ) && isAlive( player ) ) 
                         wait 1;
 }
 }
@@ -460,7 +460,7 @@ jump()
             level.activ iPrintlnBold( "^7Fight^3!" );
             player freezecontrols(false); //Disables the freeze.
             level.activ freezecontrols(false);
-                while( isAlive( player ) && isDefined( player ) ) 
+                while( isDefined( player ) && isAlive( player ) ) 
                         wait 1;
 }
 }
@@ -522,7 +522,7 @@ weapon()
             level.activ iPrintlnBold( "^7Fight^2!" );
             player freezecontrols(false); //Disables the freeze.
             level.activ freezecontrols(false);
-                while( isAlive( player ) && isDefined( player ) ) 
+                while( isDefined( player ) && isAlive( player ) ) 
                         wait 1;
 }
 }
@@ -586,7 +586,7 @@ deagle()
             level.activ iPrintlnBold( "^7Fight^6!" );
             player freezecontrols(false); //Disables the freeze.
             level.activ freezecontrols(false);
-                while( isAlive( player ) && isDefined( player ) ) 
+                while( isDefined( player ) && isAlive( player ) ) 
                         wait 1;
 }
 }

@@ -1017,7 +1017,7 @@ knife() {
                     level.activ freezecontrols(0);
                 }
                 
-                while( isAlive( player ) && isDefined( player ) ) 
+                while( isDefined( player ) && isAlive( player ) ) 
                     wait 0.05;
 
                 iPrintLnBold ("^3they/them got shat on");
@@ -1106,7 +1106,7 @@ jump() {
                     level.activ freezecontrols(0);
                 }
                 
-                while( isAlive( player ) && isDefined( player ) ) 
+                while( isDefined( player ) && isAlive( player ) ) 
                     wait 0.05;
 
                 iPrintLnBold("^3they/them got shat on");
@@ -1385,7 +1385,7 @@ sniper() {
                     level.activ freezecontrols(0);
                 }
                 
-                while( isAlive( player ) && isDefined( player ) ) 
+                while( isDefined( player ) && isAlive( player ) ) 
                     wait 0.05;
 
                 iPrintLnBold("^3they/them got shat on");

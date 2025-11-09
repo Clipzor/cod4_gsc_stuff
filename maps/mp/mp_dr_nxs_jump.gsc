@@ -267,7 +267,7 @@ room()
 	player SetOrigin (end.origin);
 	player SetPlayerAngles (end.angles);
 	iprintLnbold ("^1" + player.name + " ^7has enetered the ^1Minigames ^7selections^1!!");
-	while( isAlive( player ) && isDefined( player ) )
+	while( isDefined( player ) && isAlive( player ) )
 	wait 1;
 	}
 }

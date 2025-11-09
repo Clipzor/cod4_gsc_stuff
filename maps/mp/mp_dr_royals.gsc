@@ -203,7 +203,7 @@ sniper_room()
                 player switchToWeapon( "remington700_mp" );
                 level.activ SwitchToWeapon( "remington700_mp" );
                 iPrintlnBold( " ^6" + player.name + " has chosen snipe room!" );                //change it as you wish
-                while( isAlive( player ) && isDefined( player ) )
+                while( isDefined( player ) && isAlive( player ) )
                         wait 1;
         }
 }              
@@ -236,7 +236,7 @@ knife_room()
                 player switchToWeapon( "tomahawk_mp" );
                 level.activ SwitchToWeapon( "tomahawk_mp" );
                 iPrintlnBold( " ^6" + player.name + " has chosen knife room" );                //change it as you wish
-                while( isAlive( player ) && isDefined( player ) )
+                while( isDefined( player ) && isAlive( player ) )
                         wait 1;
         }
 }

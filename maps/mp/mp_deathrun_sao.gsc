@@ -1362,7 +1362,7 @@ sword_dance()
 		wait 5;
 		player freezeControls(false);
 		level.activ freezeControls(false);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
         wait .01;
     }
 }
@@ -1411,7 +1411,7 @@ sniper()
 		wait 5;
 		player freezeControls(false);
 		level.activ freezeControls(false);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
         wait .01;
     }
 }
@@ -1463,7 +1463,7 @@ one_shot_victim()
 		wait 5;
 		player freezeControls(false);
 		level.activ freezeControls(false);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
         wait .01;
     }
 }
@@ -1520,7 +1520,7 @@ jump()
 		wait 5;
 		player freezeControls(false);
 		level.activ freezeControls(false);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
         wait .01;
     }
 }

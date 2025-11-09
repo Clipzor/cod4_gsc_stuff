@@ -903,7 +903,7 @@ endroom_knife()
 		level.activ freezeControls(0);
 		wait 3;
 		
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 			wait 1;
 	}
 }
@@ -988,7 +988,7 @@ endroom_snipe()
 		level.activ freezeControls(0);
 		wait 3;
 		
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 			wait 1;
 	}
 }
@@ -1067,7 +1067,7 @@ endroom_jump()
 		level.activ freezeControls(0);
 		wait 3;
 		
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 			wait 1;
 	}
 }

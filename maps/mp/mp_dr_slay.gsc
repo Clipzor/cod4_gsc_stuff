@@ -638,7 +638,7 @@ rm_snip()
 				wait 5;
 				player FreezeControls(0);
 				level.activ FreezeControls(0);
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 			wait 1;
 	}
 }
@@ -687,7 +687,7 @@ rm_knife()
 				wait 5;
 				player FreezeControls(0);
 				level.activ FreezeControls(0);
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 			wait 1;
 	}
 }
@@ -766,7 +766,7 @@ rm_jump()
 				wait 5;
 				player FreezeControls(0);
 				level.activ FreezeControls(0);
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 			wait 1;
 	}
 }

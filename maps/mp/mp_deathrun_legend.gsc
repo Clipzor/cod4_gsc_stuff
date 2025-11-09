@@ -66,28 +66,24 @@ addTriggerToList( name )
 
 transporter1()
 {
+	entTarget = getEnt( self.target, "targetname" );
 	for(;;)
 	{
 		self waittill( "trigger", player );
-		entTarget = getEnt( self.target, "targetname" );
-		wait 0.1;
 		player setOrigin( entTarget.origin );
 		player setplayerangles( entTarget.angles );
-		wait 0.1;
 	}
 }
 
 
 transporter2()
 {
+	entTarget = getEnt( self.target, "targetname" );
 	for(;;)
 	{
 		self waittill( "trigger", player );
-		entTarget = getEnt( self.target, "targetname" );
-		wait 0.1;
 		player setOrigin( entTarget.origin );
 		player setplayerangles( entTarget.angles );
-		wait 0.1;
 	}
 }
 
@@ -280,7 +276,7 @@ Jumproom()
         level.activ SwitchToWeapon( "knife_mp" );
         iPrintlnBold( " ^4" + player.name + " ^2 picked ^9JUMP^7!" );
 		wait 0.1;
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
     }
 }
@@ -321,7 +317,7 @@ sniperoom()
 	wait 0.1;
 	player switchToWeapon( "remington700_mp" );
         level.activ SwitchToWeapon( "remington700_mp" );
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
     }
 }
@@ -357,7 +353,7 @@ kniferoom()
         player switchToWeapon( "knife_mp" );
         level.activ SwitchToWeapon( "knife_mp" );
         iPrintlnBold( " ^4" + player.name + " ^2 picked ^9KNIFE^7!" );
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
     }
 }

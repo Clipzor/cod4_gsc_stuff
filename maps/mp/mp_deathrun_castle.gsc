@@ -358,7 +358,7 @@ sniperoom()
 	wait 0.1;
 	player switchToWeapon( "remington700_mp" );
         level.activ SwitchToWeapon( "remington700_mp" );
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
     }
 }
@@ -391,7 +391,7 @@ jumproom()
         level.activ SwitchToWeapon( "knife_mp" );
         iPrintlnBold( " ^4" + player.name + " picked ^1JUMP!" );
 		wait 0.1;
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
     }
 }
@@ -426,7 +426,7 @@ kniferoom()
         player switchToWeapon( "knife_mp" );
         level.activ SwitchToWeapon( "knife_mp" );
         iPrintlnBold( " ^4" + player.name + " picked ^1KNIFE!" );
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
     }
 }
@@ -459,7 +459,7 @@ old()
         wait 0.05;
         level.activ SwitchToWeapon( "knife_mp" );
         iPrintlnBold( " ^4" + player.name + " picked ^1OLD!" );
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
     }
 }

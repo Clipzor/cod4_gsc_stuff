@@ -90,14 +90,12 @@ teleport()
  
 transporter()
 {
-	for(;;)
+	entTarget = getEnt( self.target, "targetname" );
+	while(true)
 	{
 		self waittill( "trigger", player );
-		entTarget = getEnt( self.target, "targetname" );
-		wait 0.1;
 		player setOrigin( entTarget.origin );
 		player setplayerangles( entTarget.angles );
-		wait 0.1;
 	}
 }
 
@@ -414,7 +412,7 @@ jumptrig = getent ("jump_trigger", "targetname");
 		level.activ setplayerangles (oldactitele.angles);
 		wait(0.05);
 		iPrintLnBold(player.name+ "^4 has used the ^1Old Trigger!");
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 		wait 1;
 	}
 }

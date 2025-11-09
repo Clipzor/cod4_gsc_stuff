@@ -436,7 +436,7 @@ Sniper()
 		level.activ iPrintLnBold("^5FIGHT^3!");
 		player freezeControls(0);
 		level.activ freezeControls(0);
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 		wait 1;
 	}
 }
@@ -491,7 +491,7 @@ Knife()
 		level.activ iPrintLnBold("^5FIGHT^3!");
 		player freezeControls(0);
 		level.activ freezeControls(0);
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 		
 		wait 1;
 		
@@ -559,7 +559,7 @@ Jump()
 		level.activ iPrintLnBold("^5FIGHT^3!");
 		player freezeControls(0);
 		level.activ freezeControls(0);
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 		
 		wait 1;
 		
@@ -650,7 +650,7 @@ Rpg()
 		level.activ iPrintLnBold("^5FIGHT^3!");
 		player freezeControls(0);
 		level.activ freezeControls(0);
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 		
 		wait 1;
 		

@@ -591,7 +591,7 @@ kniferoom()
         player switchToWeapon( "knife_mp" );
         level.activ SwitchToWeapon( "knife_mp" );
         iPrintlnBold( " ^5" + player.name + " ^3 picked ^1knife^7!" );
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
     }
 }
@@ -761,7 +761,7 @@ Jumproom()
 		AmbientStop( 2 );
 		AmbientPlay( "jumproom" );
 		wait 1;
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
     }
 }
@@ -929,7 +929,7 @@ sniperoom()
 		iprintlnbold ( "^7GO^5!" );
 		player switchToWeapon( "m40a3_mp" );
         level.activ SwitchToWeapon( "m40a3_mp" );
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
     }
 }
@@ -942,7 +942,7 @@ room_random()
 		level.random_trigger waittill("trigger", player);
 		iprintlnbold ( " ^5" + player.name + " ^3 picked ^1RANDOM^5!" );
 		player thread randomroom();
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 			wait 1;
 	}
 

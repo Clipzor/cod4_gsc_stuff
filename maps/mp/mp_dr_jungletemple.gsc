@@ -1425,7 +1425,7 @@ actik = getEnt( "whole_area_acti", "targetname" ); //the origin the acti will te
 		player freezeControls(false);
 		level.activ freezeControls(false);
 		wait 1;
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 	if( isDefined( level.activ ) && isAlive( level.activ ) )
 	wait 1;
 		}
@@ -1496,7 +1496,7 @@ actik = getEnt( "small_area_acti", "targetname" ); //the origin the acti will te
 		player freezeControls(false);
 		level.activ freezeControls(false);
 		wait 1;
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 	if( isDefined( level.activ ) && isAlive( level.activ ) )
 	wait 1;
 		}
@@ -1567,7 +1567,7 @@ actik = getEnt( "whole_area_acti", "targetname" ); //the origin the acti will te
 		player freezeControls(false);
 		level.activ freezeControls(false);
 		wait 1;
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 	if( isDefined( level.activ ) && isAlive( level.activ ) )
 	wait 1;
 		}
@@ -1638,7 +1638,7 @@ actik = getEnt( "whole_area_acti", "targetname" ); //the origin the acti will te
 		player freezeControls(false);
 		level.activ freezeControls(false);
 		wait 1;
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 	if( isDefined( level.activ ) && isAlive( level.activ ) )
 	wait 1;
 		}
@@ -1710,7 +1710,7 @@ level.bouncea = getEnt( "bouncea_orig", "targetname" ); //the origin the acti wi
 		player freezeControls(false);
 		level.activ freezeControls(false);
 		wait 1;
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 	if( isDefined( level.activ ) && isAlive( level.activ ) )
 	wait 1;
 		}

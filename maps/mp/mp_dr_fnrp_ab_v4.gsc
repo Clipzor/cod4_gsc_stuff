@@ -1005,7 +1005,7 @@ knife_room()
 	
 	player freezeControls(0);
 	level.activ freezeControls(0);
-	while( isAlive( player ) && isDefined( player ) )
+	while( isDefined( player ) && isAlive( player ) )
     wait 1;
 	
 
@@ -1078,7 +1078,7 @@ sniper_room()
 	
 	player freezeControls(0);
 	level.activ freezeControls(0);
-	while( isAlive( player ) && isDefined( player ) )
+	while( isDefined( player ) && isAlive( player ) )
     wait 1;
 	
 
@@ -1152,7 +1152,7 @@ shotgun_room()
 	
 	player freezeControls(0);
 	level.activ freezeControls(0);
-	while( isAlive( player ) && isDefined( player ) )
+	while( isDefined( player ) && isAlive( player ) )
     wait 1;
 	
 
@@ -1220,7 +1220,7 @@ rpg_room()
 	
 	player freezeControls(0);
 	level.activ freezeControls(0);
-	while( isAlive( player ) && isDefined( player ) )
+	while( isDefined( player ) && isAlive( player ) )
     wait 1;
 	
 

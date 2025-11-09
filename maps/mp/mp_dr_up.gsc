@@ -90,7 +90,7 @@ main()
 	thread expandTimeLimit();
 
 	thread tele();
-	thread tele2();
+	
 	thread stage4();
 	thread trap1();
 	thread trap2();
@@ -406,9 +406,14 @@ r7002()
  wait 3;
  }
  }
+
 tele()
 {
 	entTransporter = getentarray( "enter", "targetname" );
+	if(isdefined(entTransporter))
+		for( i = 0; i < entTransporter.size; i++ )
+			entTransporter[i] thread transporter();
+	entTransporter = getentarray( "enter2", "targetname" );
 	if(isdefined(entTransporter))
 		for( i = 0; i < entTransporter.size; i++ )
 			entTransporter[i] thread transporter();
@@ -416,35 +421,13 @@ tele()
  
 transporter()
 {
+		entTarget = getEnt( self.target, "targetname" );
 	for(;;)
 	{
 		self waittill( "trigger", player );
-		entTarget = getEnt( self.target, "targetname" );
-		wait 0.1;
+		
 		player setOrigin( entTarget.origin );
 		player setplayerangles( entTarget.angles );
-		wait 0.1;
-
-	}
-}
-tele2()
-{
-	entTransporter = getentarray( "enter2", "targetname" );
-	if(isdefined(entTransporter))
-		for( i = 0; i < entTransporter.size; i++ )
-			entTransporter[i] thread transporter2();
-}
- 
-transporter2()
-{
-	for(;;)
-	{
-		self waittill( "trigger", player );
-		entTarget = getEnt( self.target, "targetname" );
-		wait 0.1;
-		player setOrigin( entTarget.origin );
-		player setplayerangles( entTarget.angles );
-		wait 0.1;
 	}
 }
 
@@ -749,7 +732,7 @@ WatchSniper()
 	
 		player thread countdown();
 		level.activ thread countdown();
-                                     while( isAlive( player ) && isDefined( player ) )
+                                     while( isDefined( player ) && isAlive( player ) )
 			wait 1;
 			iPrintlnBold( " ^9" + player.name + "^7 got Raped by ^9"+ level.activ.name+ "^7" );
 			player iPrintlnBold( "^1Please do not respawn." );
@@ -824,7 +807,7 @@ WatchKnife()
 		players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
 		player thread countdown();
 		level.activ thread countdown();
-                                     while( isAlive( player ) && isDefined( player ) )
+                                     while( isDefined( player ) && isAlive( player ) )
 			wait 1;
 			iPrintlnBold( " ^9" + player.name + "^7 got Raped by ^9"+ level.activ.name+ "^7" );
 			player iPrintlnBold( "^1Please do not respawn." );
@@ -916,7 +899,7 @@ WatchWeapon()
 	
 
 		}
-                                     while( isAlive( player ) && isDefined( player ) )
+                                     while( isDefined( player ) && isAlive( player ) )
 			wait 1;
 			iPrintlnBold( " ^9" + player.name + "^7 got Raped by ^9"+ level.activ.name+ "^7" );
 			player iPrintlnBold( "^1Please do not respawn." );

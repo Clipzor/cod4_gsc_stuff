@@ -151,7 +151,7 @@ addTriggerToList( name )
         player switchToWeapon( "knife_mp" );
         level.activ SwitchToWeapon( "knife_mp" );
         iPrintlnBold( " ^3" + player.name + " ^7 HAS CHOSEN KNIFE^5!" );
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
     }
 }
@@ -190,7 +190,7 @@ addTriggerToList( name )
         player switchToWeapon( "remington700_mp" );
         level.activ SwitchToWeapon( "remington700_mp" );
         iPrintlnBold( " ^3" + player.name + " ^7 HAS CHOSEN SCOPE^5!" );
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
     }
 }
@@ -228,7 +228,7 @@ addTriggerToList( name )
         player switchToWeapon( "knife_mp" );
         level.activ SwitchToWeapon( "knife_mp" );
         iPrintlnBold( " ^3" + player.name + " ^7 HAS CHOSEN OLD^5!" );
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
     }
 }
@@ -267,7 +267,7 @@ addTriggerToList( name )
         player switchToWeapon( "knife_mp" );
         level.activ SwitchToWeapon( "knife_mp" );
         iPrintlnBold( " ^3" + player.name + " ^7 HAS CHOSEN JUMP^5!" );
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
     }
 }

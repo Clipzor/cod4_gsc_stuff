@@ -825,7 +825,7 @@ sniper_room()
 		player freezeControls(0);
 		level.activ freezeControls(0);
 	
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 		wait 1;
 		
 		iprintlnbold("^3" + player.name + "^7 Has Died!");
@@ -885,7 +885,7 @@ wep_room()
 		player freezeControls(0);
 		level.activ freezeControls(0);
 	
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 		wait 1;
 		
 		iprintlnbold("^3" + player.name + "^7 Has Died!");
@@ -942,7 +942,7 @@ tar_room()
 		player freezeControls(0);
 		level.activ freezeControls(0);
 	
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 		wait 1;
 		
 		iprintlnbold("^3" + player.name + "^7 Has Died!");
@@ -1001,7 +1001,7 @@ bounce_room()
 		player freezeControls(0);
 		level.activ freezeControls(0);
 	
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 		wait 1;
 		
 		iprintlnbold("^3" + player.name + "^7 Has Died!");
@@ -1063,7 +1063,7 @@ race_room()
 		player freezeControls(0);
 		level.activ freezeControls(0);
 	
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 		wait 1;
 		
 		iprintlnbold("^3" + player.name + "^7 Has Died!");

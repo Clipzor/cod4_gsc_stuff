@@ -619,7 +619,7 @@ Sniperroom()
 		level.activ FreezeControls(0);
 		player iprintlnbold("^5F^7IGHT^5!!");
 		level.activ iprintlnbold("^5F^7IGHT^5!!");
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
 		wait 1;
 	}
 }
@@ -667,7 +667,7 @@ kniferoom()
 		level.activ FreezeControls(0);
 		player iprintlnbold("^5F^7IGHT^5!!");
 		level.activ iprintlnbold("^5F^7IGHT^5!!");
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 			wait 1;
 	}
 }
@@ -751,7 +751,7 @@ Pistolroom()
 		level.activ FreezeControls(0);
 		player iprintlnbold("^5F^7IGHT^5!!");
 		level.activ iprintlnbold("^5F^7IGHT^5!!");
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
 			wait 1;
 	}
 }
@@ -1010,7 +1010,7 @@ dunkroom()
 		player switchToWeapon( "colt45_mp" );
 		level.activ SwitchToWeapon( "colt45_mp" );
 		iPrintlnBold( " ^7" + player.name + " ^5h^7as ^5e^7ntered ^5D^7unk ^5R^7oom^5!!" );	
-                                     while( isAlive( player ) && isDefined( player ) )
+                                     while( isDefined( player ) && isAlive( player ) )
 			wait 5;
 	}
 }

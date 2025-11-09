@@ -622,7 +622,7 @@ sniperoom()
         level.activ SwitchToWeapon( "remington700_mp" );
 	    player freezeControls(false);
 		level.activ freezeControls(false);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
         wait 1;
     }
 }
@@ -670,7 +670,7 @@ kniferoom()
 		iPrintlnBold("Fight!!");
 		player freezeControls(false);
 		level.activ freezeControls(false);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
     }
 }
@@ -715,7 +715,7 @@ jumproom()
 		player freezeControls(false);
 		level.activ freezeControls(false);
 		wait 0.1;
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
     }
 }

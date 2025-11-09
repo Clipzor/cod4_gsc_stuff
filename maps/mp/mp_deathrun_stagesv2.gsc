@@ -90,17 +90,16 @@ teleporters()
  
 transporter()
 {
+	entTarget = getEnt( self.target, "targetname" );
+	
 	if(self.classname == "trigger_use_touch")
 		self sethintstring(">> ^5Press ^1[^7&&1^1] ^5To Teleport ^7 <<");
 
 	for(;;)
 	{
 		self waittill( "trigger", player );
-		entTarget = getEnt( self.target, "targetname" );
-		wait 0.01;
 		player setOrigin( entTarget.origin );
 		player setplayerangles( entTarget.angles );
-		wait 0.01;
 	}
 }
 

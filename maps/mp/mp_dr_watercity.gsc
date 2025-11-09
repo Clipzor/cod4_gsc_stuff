@@ -89,7 +89,7 @@ WatchSniper()
 		level.activ SwitchToWeapon( "remington700_mp" );
 		iPrintlnBold( " ^5" + player.name + " has chosen Sniper room!" );		
 //change it as you wish		
-                                     while( isAlive( player ) && isDefined( player ) )
+                                     while( isDefined( player ) && isAlive( player ) )
 			wait 1;
 	}
 }
@@ -120,7 +120,7 @@ WatchKnife()
 		player switchToWeapon( "tomahawk_mp" );
 		level.activ SwitchToWeapon( "tomahawk_mp" );
 		iPrintlnBold( " ^6" + player.name + " has chosen Tomahawk room!" );		//change it as you wish 
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 			wait 1;
 	}
 }
@@ -154,7 +154,7 @@ WatchPistol()
 		level.activ SwitchToWeapon( "colt45_mp" );
 		iPrintlnBold( " ^3" + player.name + " has chosen Pistol room!" );		
 //change it as you wish		
-                                     while( isAlive( player ) && isDefined( player ) )
+                                     while( isDefined( player ) && isAlive( player ) )
 			wait 1;
 	}
 }
@@ -176,7 +176,7 @@ WatchOld()
 		wait 0.05;		
 		iPrintlnBold( " ^3" + player.name + " has chosen Old!" );		
 //change it as you wish		
-                                     while( isAlive( player ) && isDefined( player ) )
+                                     while( isDefined( player ) && isAlive( player ) )
 			wait 1;
 	}
 }

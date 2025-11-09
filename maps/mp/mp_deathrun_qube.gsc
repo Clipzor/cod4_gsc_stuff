@@ -850,7 +850,7 @@ level.telejumporigin delete();
 iPrintLnBold(player.name+ "^4 has entered the ^1Trampoline Room"); //Change the message if you want
 AmbientStop( 2 );
 		ambientplay( "knife" );
-while( isAlive( player ) && isDefined( player ) )
+while( isDefined( player ) && isAlive( player ) )
             wait 1;
 }
 }
@@ -885,7 +885,7 @@ level.telebounceorigin delete();
 iPrintLnBold(player.name+ "^4 has entered the ^1Bounce Room"); //Change the message if you want
 AmbientStop( 2 );
 		ambientplay( "bounce" );
-while( isAlive( player ) && isDefined( player ) )
+while( isDefined( player ) && isAlive( player ) )
             wait 1;
 }
 }
@@ -918,7 +918,7 @@ player switchToWeapon( "knife_mp" );
 level.activ SwitchToWeapon( "knife_mp" );
 level.teleknifeorigin delete();
 iPrintLnBold(player.name+ "^4 has entered the ^1Knife Room"); //Change the message if you want
-while( isAlive( player ) && isDefined( player ) )
+while( isDefined( player ) && isAlive( player ) )
             wait 1;
 }
 }
@@ -955,7 +955,7 @@ level.teleorigin delete();
 iPrintLnBold(player.name+ "^4 has entered the ^1Sniper Room"); //Change the message if you want
 AmbientStop( 2 );
 		ambientplay( "sniper" );
-while( isAlive( player ) && isDefined( player ) )
+while( isDefined( player ) && isAlive( player ) )
             wait 1;
 }
 }

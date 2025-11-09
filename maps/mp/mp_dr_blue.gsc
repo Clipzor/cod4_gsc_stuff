@@ -2,25 +2,26 @@
 #include common_scripts\utility;
 #include maps\mp\gametypes\_hud_util;
 */
-                                                                   //Map Made by Poyser
-																   // Add amb2.mp3 to mp_dr_blue.iwd/sound/ if you wish (its linked to soundaliases "skrillex") 
+//Map Made by Poyser
+// Add amb2.mp3 to mp_dr_blue.iwd/sound/ if you wish (its linked to soundaliases "skrillex") 
+
 main()
 {
-             //Please Use without Permission ©
+
     maps\mp\_load::main();
 	setExpFog(500, 1000, 0.4, 0.425, 0.44, 0.0);
-level.prop = LoadFX("blue/up");
-level.ring = LoadFX("blue/blue");
-level.gate = LoadFX("blue/gate");
-level.prop = LoadFX("blue/up");
-level.kool = LoadFX("blue/pro");
-level.b = LoadFX("blue/bou");
-level.t = LoadFX("blue/tx");
-level.e = LoadFX("blue/ends");
-level.shower = LoadFX("blue/blue_shower");
-level.knife_fx = LoadFX("blue/blue_ball");
-level.sm = LoadFX("blue/sm");
-level.fog = LoadFX("blue/fog");
+	level.prop = LoadFX("blue/up");
+	level.ring = LoadFX("blue/blue");
+	level.gate = LoadFX("blue/gate");
+	level.prop = LoadFX("blue/up");
+	level.kool = LoadFX("blue/pro");
+	level.b = LoadFX("blue/bou");
+	level.t = LoadFX("blue/tx");
+	level.e = LoadFX("blue/ends");
+	level.shower = LoadFX("blue/blue_shower");
+	level.knife_fx = LoadFX("blue/blue_ball");
+	level.sm = LoadFX("blue/sm");
+	level.fog = LoadFX("blue/fog");
 
 
 	game["allies"] = "sas";
@@ -48,8 +49,8 @@ level.fog = LoadFX("blue/fog");
 	setDvar("bg_falldamageminheight", 15000 );
 	thread addtriggers();
 
-	thread help();
-    level thread onPlayerConnect();
+    // level thread onPlayerConnect();
+
 	thread X();
 	thread lights();
 	thread gate();
@@ -94,19 +95,19 @@ fog()
 }
 addtriggers()
 {
-    addTriggerToList("t1t");
-   addTriggerToList("t2t");
-   addTriggerToList("t3t");
-   addTriggerToList("t4t");
-   addTriggerToList("t5t");
-    addTriggerToList("t6t");
-   addTriggerToList("t7t");
-   addTriggerToList("t8t");
-   addTriggerToList("t9t");
-   addTriggerToList("t10t");
-    addTriggerToList("t11t");
-   addTriggerToList("t_newt");
-    addTriggerToList("t_new2t");
+	addTriggerToList("t1t");
+	addTriggerToList("t2t");
+	addTriggerToList("t3t");
+	addTriggerToList("t4t");
+	addTriggerToList("t5t");
+	addTriggerToList("t6t");
+	addTriggerToList("t7t");
+	addTriggerToList("t8t");
+	addTriggerToList("t9t");
+	addTriggerToList("t10t");
+	addTriggerToList("t11t");
+	addTriggerToList("t_newt");
+	addTriggerToList("t_new2t");
 }
 
 addTriggerToList( name )
@@ -115,35 +116,34 @@ addTriggerToList( name )
       level.trapTriggers = [];
   level.trapTriggers[level.trapTriggers.size] = getEnt( name, "targetname" );
 }
-onPlayerConnect()
-{
-	for(;;)
-	{
-		level waittill( "connected", player );
-		player thread onPlayerSpawned();
-		player SetClientDvars("r_fullbright", 1, "r_fog", 1, "fx_enable", 1 );
-		player thread fov();
-		wait 3;
-		player SetClientDvars("r_fullbright", 1, "r_fog", 1, "fx_enable", 1 );
-	}
-}
-onPlayerSpawned()
-{
-	self endon("disconnect");
+// onPlayerConnect()
+// {
+// 	for(;;)
+// 	{
+// 		level waittill( "connected", player );
+// 		player thread onPlayerSpawned();
+// 		player SetClientDvars("r_fullbright", 1, "r_fog", 1, "fx_enable", 1 );
+// 		wait 3;
+// 		player SetClientDvars("r_fullbright", 1, "r_fog", 1, "fx_enable", 1 );
+// 	}
+// }
 
-	for(;;)
-	{
-		self waittill("spawned_player");
-setDvar("bg_falldamagemaxheight", 20000 );
-	setDvar("bg_falldamageminheight", 15000 );
-		self SetClientDvars("r_fullbright", 1, "r_fog", 1, "fx_enable", 1 );
-	}
-} 
+// onPlayerSpawned()
+// {
+// 	self endon("disconnect");
+
+// 	for(;;)
+// 	{
+// 		self waittill("spawned_player");
+// 		self SetClientDvars("r_fullbright", 1, "r_fog", 1, "fx_enable", 1 );
+// 	}
+// } 
+
 lights()
 {
 
 	wait 0.5;
-	thread adv_light();
+	// thread adv_light();
 }
 
 adv_light()
@@ -159,7 +159,8 @@ adv_light()
 	}
 	self SetClientDvar("r_lightTweakSunLight", 0 );
 	wait 1;
-}	
+}
+
 X()
 {
 
@@ -169,18 +170,10 @@ X()
 	thread tx();
 	  x = getent ("smile9_fx" ,"targetname");
     PlayFX( level.sm, x.origin);
-	/*thread ring1();
-	thread ring2();
-	thread ring3();
-	thread ring4();
-	thread ring5();
-	thread ring6();*/
 	ambientPlay("krewella");
     wait 5;
 	thread misc();
 	thread ends();
-	setDvar("bg_falldamagemaxheight", 20000 );
-	setDvar("bg_falldamageminheight", 15000 );
 }
 
 blue()
@@ -230,27 +223,6 @@ blue()
 	//EarthQuake( 100, 5, gate, 200 );
 
 }
-fov()
-{	
-	self endon("disconnect");
-        while(1)
-	{			
-                while(!self secondaryoffhandButtonPressed())
-                {
-                        wait 0.05;
-                }
-		self SetClientDvar("cg_fovscale", 1.4 );
-		
-                  while(!self MeleebuttonPressed())
-                        {
-                        wait 0.05;
-                }
-	 self SetClientDvar("cg_fovscale", 1 );
-	
-	
-	
-         }
-}
  
 bbe()
 {
@@ -283,19 +255,19 @@ b12 = getent ("b12" ,"targetname");
 }
 tx()
 {
-t1 = getent ("t1x" ,"targetname");
-t2 = getent ("t2x" ,"targetname");
-t3 = getent ("t3x" ,"targetname");
-t4 = getent ("t4x" ,"targetname");
-t5 = getent ("t5x" ,"targetname");
-t6 = getent ("t6x" ,"targetname");
-t7 = getent ("t7x" ,"targetname");
-t8 = getent ("t8x" ,"targetname");
-t9 = getent ("t9x" ,"targetname");
-t10 = getent ("t10x" ,"targetname");
-t11 = getent ("t11x" ,"targetname");
-t12 = getent ("t_newx" ,"targetname");
-t13 = getent ("t_new2x" ,"targetname");
+	t1 = getent ("t1x" ,"targetname");
+	t2 = getent ("t2x" ,"targetname");
+	t3 = getent ("t3x" ,"targetname");
+	t4 = getent ("t4x" ,"targetname");
+	t5 = getent ("t5x" ,"targetname");
+	t6 = getent ("t6x" ,"targetname");
+	t7 = getent ("t7x" ,"targetname");
+	t8 = getent ("t8x" ,"targetname");
+	t9 = getent ("t9x" ,"targetname");
+	t10 = getent ("t10x" ,"targetname");
+	t11 = getent ("t11x" ,"targetname");
+	t12 = getent ("t_newx" ,"targetname");
+	t13 = getent ("t_new2x" ,"targetname");
 
 	PlayFX( level.t, t1.origin);
 	PlayFX( level.t, t2.origin);
@@ -339,17 +311,14 @@ gate()
  
 transporter()
 {
+		entTarget = getEnt( self.target, "targetname" );
 	for(;;)
 	{
 		self waittill( "trigger", player );
-			self PlaySound("tfx");
-		entTarget = getEnt( self.target, "targetname" );
-		wait 0.3;
+		self PlaySound("tfx");
 	
 		player setOrigin( entTarget.origin );
 		player setplayerangles( entTarget.angles );
-
-		wait 0.1;
 	}
 }
 jumper1()
@@ -930,7 +899,7 @@ WatchSniper()
 	
 		player thread countdown_snip();
 		level.activ thread countdown_snip();
-                                     while( isAlive( player ) && isDefined( player ) )
+                                     while( isDefined( player ) && isAlive( player ) )
 			wait 1;
 			iPrintlnBold( " ^9" + player.name + "^7 got Owned by ^9"+ level.activ.name+ "^7" );
 			
@@ -994,7 +963,7 @@ WatchKnife()
 	
 		player thread countdown_knife();
 		level.activ thread countdown_knife();
-                                     while( isAlive( player ) && isDefined( player ) )
+                                     while( isDefined( player ) && isAlive( player ) )
 			wait 1;
 			iPrintlnBold( " ^9" + player.name + "^7 got Owned by ^9"+ level.activ.name+ "^7" );
 			
@@ -1053,7 +1022,7 @@ WatchPistol()
 	
 		player thread countdown_pistol();
 		level.activ thread countdown_pistol();
-                                     while( isAlive( player ) && isDefined( player ) )
+                                     while( isDefined( player ) && isAlive( player ) )
 			wait 1;
 			iPrintlnBold( " ^9" + player.name + "^7 got Owned by ^9"+ level.activ.name+ "^7" );
 			
@@ -1117,7 +1086,7 @@ WatchSpec()
 	
 		player thread countdown_spec();
 		level.activ thread countdown_spec();
-                                     while( isAlive( player ) && isDefined( player ) )
+                                     while( isDefined( player ) && isAlive( player ) )
 			wait 1;
 			iPrintlnBold( " ^9" + player.name + "^7 got Owned by ^9"+ level.activ.name+ "^7" );
 			
@@ -1141,32 +1110,7 @@ self freezeControls( false );
 	  self GiveMaxAmmo("ak74u_silencer_mp");
 	self switchToWeapon( "mp5_silencer_mp" );
 }
-help()
-{
-    //Please use Without Permisson
 
-level.xxx2 = newHudElem();	//hud visible for all, to make it only visible for one replace level. with self. and change newHudElem() to newClientHudElem(self)
-	level.xxx2.x = 0;	//position on the x-axis
-	level.xxx2.y = 150;	//position on the <-axis
-	level.xxx2.horzAlign = "left";	
-	level.xxx2.vertAlign = "middle";
-	level.xxx2.alignX = "left";
-	level.xxx2.alignY = "middle";
-	level.xxx2.sort = 102;	//if there are lots of huds you can tell them which is infront of which
-	level.xxx2.foreground = 1;	//to do with the one above, if it's in front a lower sorted hud
-	level.xxx2.archived = false;	//visible in killcam
-	level.xxx2.alpha = 1;	//transparency	0 = invicible, 1 = visible
-	level.xxx2.fontScale = 1.9;	//textsize
-	level.xxx2.hidewheninmenu = false;	//will it be visble when a player is in a menu
-	level.xxx2.color = (1,0,1);	//RGB color code
-	while(1)
-	{
-	level.xxx2.label = &"xfire:poyser1911";	//The text for the hud & is required, &&1 is the value which will be added below
-	wait 10;
-	level.xxx2.label = &"";
-	wait 5;
-	}
-}
 smile1()
 {
      b = getEnt( "smile1", "targetname" );
@@ -1238,7 +1182,7 @@ WatchSlick()
 	
 		player thread countdown_slick();
 		level.activ thread countdown_slick();
-                                     while( isAlive( player ) && isDefined( player ) )
+                                     while( isDefined( player ) && isAlive( player ) )
 			wait 1;
 			iPrintlnBold( " ^9" + player.name + "^7 got Owned by ^9"+ level.activ.name+ "^7" );
 			
@@ -1297,7 +1241,7 @@ WatchMaze()
 	
 		player thread countdown_maze();
 		level.activ thread countdown_maze();
-                                     while( isAlive( player ) && isDefined( player ) )
+                                     while( isDefined( player ) && isAlive( player ) )
 			wait 1;
 			iPrintlnBold( " ^9" + player.name + "^7 got Owned by ^9"+ level.activ.name+ "^7" );
 			

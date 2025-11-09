@@ -45,7 +45,7 @@
 	players = getentarray("player","classname");
 	for(i=0;i<players.size;i++)
 		players[i] PlayLocalSound("joker");
-	iprintlnbold ("^1Escape from the acti! ^5Acti CAN´T SHOOT IN FREE!");
+	iprintlnbold ("^1Escape from the acti! ^5Acti CANï¿½T SHOOT IN FREE!");
 
 }
 
@@ -212,7 +212,7 @@ bold()
 	trig waittill( "trigger", player);
     player.maxhealth = 500;
 	player.health = player.maxhealth;
-	player iprintlnbold ("^8Do NOT FREERUN! You can´t shoot in free run! ");	
+	player iprintlnbold ("^8Do NOT FREERUN! You canï¿½t shoot in free run! ");	
 
 }
 
@@ -257,14 +257,12 @@ teleport()
  
 transporter()
 {
-for(;;)
+		entTarget = getEnt( self.target, "targetname" );
+	for(;;)
     {
 		self waittill( "trigger", player );
-		entTarget = getEnt( self.target, "targetname" );
-		wait 0.3;
 		player setOrigin( entTarget.origin );
 		player setplayerangles( entTarget.angles );
-		wait 0.3;
     }
 	
 }

@@ -214,14 +214,12 @@ tele()
  
 transporter()
 {
-	for(;;)
+	entTarget = getEnt( self.target, "targetname" );
+	while(true)
 	{
 		self waittill( "trigger", player );
-		entTarget = getEnt( self.target, "targetname" );
-		wait 0.1;
 		player setOrigin( entTarget.origin );
 		player setplayerangles( entTarget.angles );
-		wait 0.1;
 	}
 }
 
@@ -252,7 +250,7 @@ knife()
 		player switchToWeapon( "tomahawk_mp" );
 		level.activ SwitchToWeapon( "tomahawk_mp" );
 		iPrintlnBold( " ^6" + player.name + " has chosen Knife room!" );		//change it as you wish 
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 			wait 1;
 	}
 }
@@ -284,7 +282,7 @@ wall()
 		player switchToWeapon( "remington700_mp" );
 		level.activ SwitchToWeapon( "remington700_mp" );
 		iPrintlnBold( " ^6" + player.name + " has chosen hide room!" );		//change it as you wish 
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 			wait 1;
 	}
 }
@@ -316,7 +314,7 @@ hide()
 		player switchToWeapon( "tomahawk_mp" );
 		level.activ SwitchToWeapon( "tomahawk_mp" );
 		iPrintlnBold( " ^6" + player.name + " has chosen Knife room!" );		//change it as you wish 
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 			wait 1;
 	}
 }

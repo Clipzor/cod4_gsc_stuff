@@ -863,7 +863,7 @@ Sniper()
 		player switchToWeapon( "remington700_mp" );
 		level.activ switchToWeapon( "remington700_mp" );
 		iPrintLnBold( " ^4" + player.name + " ^7has chosen ^4SNIPER^7 room^4!" );				
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
 		wait 1;
 	}
 }
@@ -962,7 +962,7 @@ Cowboy()
 		iPrintLnBold ("^6SHOOT!");
 		player freezeControls( false );
 		level.activ freezeControls( false );				
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
 		wait 1;
 	}
 }
@@ -1075,7 +1075,7 @@ old()
 		AmbientStop();
 		AmbientPlay("skrillex");
 		iPrintLnBold( " ^4" + player.name + " ^7has chosen the ^4Old way ^7!" );				
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
 		wait 1;
 	}
 }
@@ -1114,7 +1114,7 @@ bounce()
 		player switchToWeapon( "knife_mp" );
 		level.activ switchToWeapon( "knife_mp" );
 		iPrintLnBold( " ^4" + player.name + " ^7has chosen ^4Bounce^7 room^4!" );				
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
 		wait 1;
 	}
 }

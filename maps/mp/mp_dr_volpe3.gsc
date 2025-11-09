@@ -1409,7 +1409,7 @@ knife_room()
 		player freezeControls(0);
 		level.activ freezeControls(0);
 	
-		while( isAlive( player ) && isDefined( player ) && player.sessionstate == "playing" )
+		while( isDefined( player ) && isAlive( player ) && player.sessionstate == "playing" )
 		wait 0.5;
 		
 		iPrintLnBold("^3" + player.name + "^7 Has Died!");
@@ -1479,7 +1479,7 @@ bounce_room()
 		player freezeControls(0);
 		level.activ freezeControls(0);
 	
-		while( isAlive( player ) && isDefined( player ) && player.sessionstate == "playing" )
+		while( isDefined( player ) && isAlive( player ) && player.sessionstate == "playing" )
 		wait 0.5;
 		
 		iPrintLnBold("^3" + player.name + "^7 Has Died!");
@@ -1550,7 +1550,7 @@ race_room()
 		player freezeControls(0);
 		level.activ freezeControls(0);
 	
-		while( isAlive( player ) && isDefined( player ) && player.sessionstate == "playing" )
+		while( isDefined( player ) && isAlive( player ) && player.sessionstate == "playing" )
 		wait 0.5;
 		
 		iPrintLnBold("^3" + player.name + "^7 Has Died!");
@@ -1628,7 +1628,7 @@ sniper_room()
 		player freezeControls(0);
 		level.activ freezeControls(0);
 	
-		while( isAlive( player ) && isDefined( player ) && player.sessionstate == "playing" )
+		while( isDefined( player ) && isAlive( player ) && player.sessionstate == "playing" )
 		wait 0.5;
 		
 		iPrintLnBold("^3" + player.name + "^7 Has Died!");
@@ -1701,7 +1701,7 @@ karma_room()
 		player freezeControls(0);
 		level.activ freezeControls(0);
 	
-		while( isAlive( player ) && isDefined( player ) && player.sessionstate == "playing" )
+		while( isDefined( player ) && isAlive( player ) && player.sessionstate == "playing" )
 		wait 0.5;
 		
 		iPrintLnBold("^3" + player.name + "^7 Has Died!");
@@ -1774,7 +1774,7 @@ shotgun_room()
 		player freezeControls(0);
 		level.activ freezeControls(0);
 	
-		while( isAlive( player ) && isDefined( player ) && player.sessionstate == "playing" )
+		while( isDefined( player ) && isAlive( player ) && player.sessionstate == "playing" )
 		wait 0.5;
 		
 		iPrintLnBold("^3" + player.name + "^7 Has Died!");

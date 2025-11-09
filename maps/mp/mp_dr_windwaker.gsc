@@ -1854,7 +1854,7 @@ old_room()
 		}
 		iPrintLnBold( " ^4" + player.name + " ^7has chosen the ^4Old ^7Room!" );
 
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
             wait .05;
 
 		iPrintLnBold ("^4" + player.name + " ^7has ^1died!" );
@@ -1914,7 +1914,7 @@ knife_room()
 		}
 		iPrintLnBold( " ^4" + player.name + " ^7has chosen the ^4Knife ^7Room!" );
 
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
             wait .05;
 
 		iPrintLnBold ("^4" + player.name + " ^7has ^1died!" );
@@ -1985,7 +1985,7 @@ sniper_room()
 		}
 		iPrintLnBold( " ^4" + player.name + " ^7has chosen the ^4Sniper ^7Room!" );
 
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
             wait .05;
 
 		iPrintLnBold ("^4" + player.name + " ^7has ^1died!" );
@@ -2106,7 +2106,7 @@ bounce_room()
 		level notify("Bouncehudstop"); //stops old bouncehud threads
 		thread bouncehud(player, level.activ);
 
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
             wait .05;
 
 		iPrintLnBold ("^4" + player.name + " ^7has ^1died!" );
@@ -2499,7 +2499,7 @@ space_room()
 		}
 		iPrintLnBold( " ^4" + player.name + " ^7has chosen the ^4Space ^7Room!" );
 
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
             wait .05;
 
 		iPrintLnBold ("^4" + player.name + " ^7has ^1died!" );

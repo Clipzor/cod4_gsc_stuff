@@ -215,14 +215,12 @@ main()
 
 	transporter()
 {
+		entTarget = getEnt( self.target, "targetname" );
 	for(;;)
 	{
 		self waittill( "trigger", player );
-		entTarget = getEnt( self.target, "targetname" );
-		wait 0.1;
 		player setOrigin( entTarget.origin );
 		player setplayerangles( entTarget.angles );
-		wait 0.1;
 	}
 }
 	
@@ -517,14 +515,12 @@ main()
 	
 	transporter02()
 {
+		entTarget = getEnt( self.target, "targetname" );
 	for(;;)
 	{
 		self waittill( "trigger", player );
-		entTarget = getEnt( self.target, "targetname" );
-		wait 0.1;
 		player setOrigin( entTarget.origin );
 		player setplayerangles( entTarget.angles );
-		wait 0.1;
 	}
 }
 
@@ -638,27 +634,23 @@ main()
 
 	acti_bounce69_1()
 {
+		entTarget = getEnt( self.target, "targetname" );
 	for(;;)
 	{
 		self waittill( "trigger", player );
-		entTarget = getEnt( self.target, "targetname" );
-		wait 0.1;
 		player setOrigin( entTarget.origin );
 		player setplayerangles( entTarget.angles );
-		wait 0.1;
 	}
 }
 
 	acti_bounce69_2()
 {
+		entTarget = getEnt( self.target, "targetname" );
 	for(;;)
 	{
 		self waittill( "trigger", player );
-		entTarget = getEnt( self.target, "targetname" );
-		wait 0.1;
 		player setOrigin( entTarget.origin );
 		player setplayerangles( entTarget.angles );
-		wait 0.1;
 	}
 }
 
@@ -730,54 +722,46 @@ main()
 
 	secret_69()
 {
+		entTarget = getEnt( self.target, "targetname" );
 	while(true)
 	{
 		self waittill( "trigger", player );
-		entTarget = getEnt( self.target, "targetname" );
-		wait 0.1;
 		player setOrigin( entTarget.origin );
 		player setplayerangles( entTarget.angles );
-		wait 0.1;
 	}
 }
 
 	secret_fail()
 {
+		entTarget = getEnt( self.target, "targetname" );
 	for(;;)
 	{
 		self waittill( "trigger", player );
 		player iprintlnbold ("^6YOU ^1FAILED!? ^5HAHAHHA!");
-		entTarget = getEnt( self.target, "targetname" );
-		wait 0.1;
 		player setOrigin( entTarget.origin );
 		player setplayerangles( entTarget.angles );
-		wait 0.1;
 	}
 }
 
 	bounce_room_acti()
 {
+		entTarget = getEnt( self.target, "targetname" );
 	for(;;)
 	{
 		self waittill( "trigger", player );
-		entTarget = getEnt( self.target, "targetname" );
-		wait 0.1;
 		player setOrigin( entTarget.origin );
 		player setplayerangles( entTarget.angles );
-		wait 0.1;
 	}
 }
 
 	bounce_room_jumper()
 {
+		entTarget = getEnt( self.target, "targetname" );
 	for(;;)
 	{
 		self waittill( "trigger", player );
-		entTarget = getEnt( self.target, "targetname" );
-		wait 0.1;
 		player setOrigin( entTarget.origin );
 		player setplayerangles( entTarget.angles );
-		wait 0.1;
 	}
 }
 
@@ -804,15 +788,13 @@ main()
 
 	secret_finish()
 {
+		entTarget = getEnt( self.target, "targetname" );
 	for(;;)
 	{
 		self waittill( "trigger", player );
 		player braxi\_rank::giveRankXP("", 500);
-		entTarget = getEnt( self.target, "targetname" );
-		wait 0.1;
 		player setOrigin( entTarget.origin );
 		player setplayerangles( entTarget.angles );
-		wait 0.1;
 	}
 }
 
@@ -1067,14 +1049,12 @@ main()
 
 	secret_21()
 {
+		entTarget = getEnt( self.target, "targetname" );
 	for(;;)
 	{
 		self waittill( "trigger", player );
-		entTarget = getEnt( self.target, "targetname" );
-		wait 0.1;
 		player setOrigin( entTarget.origin );
 		player setplayerangles( entTarget.angles );
-		wait 0.1;
 	}
 }
 
@@ -1092,15 +1072,14 @@ main()
 {
 	trigger = getent("secret_21_out","targetname");
 	object = getent("secret_21_key","targetname");
+	entTarget = getEnt( self.target, "targetname" );
 	self waittill( "trigger", player );
 	player braxi\_rank::giveRankXP("", 250);
 	player GiveWeapon( "knife_mp" );
 	player switchToWeapon ( "knife_mp" );
-	entTarget = getEnt( self.target, "targetname" );
-	wait 0.1;
 	player setOrigin( entTarget.origin );
 	player setplayerangles( entTarget.angles );
-	wait 0.1;
+
 	object movex(69, 3);
 	player GiveWeapon( "knife_mp" );
 }
@@ -1118,14 +1097,12 @@ main()
 }
 	jumpers_secret1()
 {
+		entTarget = getEnt( self.target, "targetname" );
 	for(;;)
 	{
 		self waittill( "trigger", player );
 		player braxi\_rank::giveRankXP("", 250);
-		entTarget = getEnt( self.target, "targetname" );
-		wait 0.1;
 		player setOrigin( entTarget.origin );
 		player setplayerangles( entTarget.angles );
-		wait 0.1;
 	}
 }

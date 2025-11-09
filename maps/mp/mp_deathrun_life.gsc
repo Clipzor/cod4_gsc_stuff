@@ -220,16 +220,14 @@ teleporters()
  
 transporters()
 {
+	entTarget = getEnt( self.target, "targetname" );
 	for(;;)
 	{
 		self sethintstring("Press &&1 To Teleport");
 
 		self waittill( "trigger", player );
-		entTarget = getEnt( self.target, "targetname" );
-		wait 0.1;
 		player setOrigin( entTarget.origin );
 		player setplayerangles( entTarget.angles );
-		wait 0.1;
 	}
 }
 
@@ -869,7 +867,7 @@ kniferoom()
         level.activ SwitchToWeapon( "deserteagle_mp" );
 		player freezeControls(false);
 		level.activ freezeControls(false);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
         wait 0.1;
     }
 }
@@ -917,7 +915,7 @@ sniperroom()
         level.activ SwitchToWeapon( "remington700_mp" );
 		player freezeControls(false);
 		level.activ freezeControls(false);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
         wait 0.1;
     }
 }
@@ -965,7 +963,7 @@ jumproom()
         level.activ SwitchToWeapon( "deserteagle_mp" );
 		player freezeControls(false);
 		level.activ freezeControls(false);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
         wait 0.1;
     }
 }

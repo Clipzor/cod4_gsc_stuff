@@ -821,7 +821,7 @@ player switchToWeapon( "knife_mp" );
 level.activ SwitchToWeapon( "knife_mp" );
 level.teleknifeorigin delete();
 iPrintLnBold(player.name+ "^4 has entered the ^1Knife Room"); //Change the message if you want
-while( isAlive( player ) && isDefined( player ) )
+while( isDefined( player ) && isAlive( player ) )
             wait 1;
 }
 }
@@ -857,7 +857,7 @@ level.teleorigin delete();
 iPrintLnBold(player.name+ "^4 has entered the ^1Sniper Room"); //Change the message if you want	
 AmbientStop( 2 );
 		ambientplay( "snipe" );
-while( isAlive( player ) && isDefined( player ) )
+while( isDefined( player ) && isAlive( player ) )
             wait 1;
 }
 }
@@ -905,7 +905,7 @@ iPrintLnBold("^1Lava Is Lowering ....");
 object movez ( -940 , 10 );
 object waittill("movedone");
 wait 0.5 ;
-while( isAlive( player ) && isDefined( player ) )
+while( isDefined( player ) && isAlive( player ) )
             wait 1;
 }
 }

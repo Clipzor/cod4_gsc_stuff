@@ -351,21 +351,13 @@ Secrets()
 
 Transporter()
 {
+    entTarget = getent(self.target, "targetname");
   while(1)
   {
     self waittill("trigger",other);
-    entTarget = getent(self.target, "targetname");
-	other.tempguid = other getguid();
-	if ((other.tempguid == "dc907ae71f12491c4f77f25e378cac70") || (other.tempguid == "0e9ba693de5cbd4737562cdff807bff2"))
-		{
-    wait(0.10);
     other setorigin(entTarget.origin);
     other setplayerangles(entTarget.angles);
     iprintlnbold ("The Secret has been found !!! ");
 	iprintln("Tip: Be careful and watch behind you!!!");
-	}
-	else{
-    wait(0.10);
-	}
   }
 }	

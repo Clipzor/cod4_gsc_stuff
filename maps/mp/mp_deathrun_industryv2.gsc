@@ -1087,7 +1087,7 @@ kniferoom()
         wait 3;
 		player freezeControls(false);
 		level.activ freezeControls(false);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
         wait 0.1;
     }
 }
@@ -1161,7 +1161,7 @@ sniperroom()
         wait 3;
 		player freezeControls(false);
 		level.activ freezeControls(false);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
         wait 0.1;
     }
 }
@@ -1219,7 +1219,7 @@ jumproom()
         wait 3;
 		player freezeControls(false);
 		level.activ freezeControls(false);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
         wait 0.1;
     }
 }
@@ -1323,7 +1323,7 @@ deagleroom()
         wait 3;
 		player freezeControls(false);
 		level.activ freezeControls(false);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
         wait 0.1;
     }
 }
@@ -1401,7 +1401,7 @@ weaponroom()
         wait 3;
 		player freezeControls(false);
 		level.activ freezeControls(false);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
         wait 0.1;
     }
 }

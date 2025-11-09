@@ -543,7 +543,7 @@ gravityknife()
 		level.activ thread jumpheight(4);
 		player SetMoveSpeedScale (3.2);
 		level.activ SetMoveSpeedScale(3.2);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
         wait .05;
     }
 }
@@ -629,7 +629,7 @@ sniperoom()
 			level.activ switchToWeapon("remington700_mp");
 			player freezeControls(false);
 			level.activ freezeControls(false);
-			while( isAlive( player ) && isDefined( player ) )
+			while( isDefined( player ) && isAlive( player ) )
 			wait .05;
 	}
 }
@@ -686,7 +686,7 @@ trapescape()
 			level.activ switchToWeapon("hands_mp");
 			player freezeControls(false);
 			level.activ freezeControls(false);
-			while( isAlive( player ) && isDefined( player ) )
+			while( isDefined( player ) && isAlive( player ) )
 			wait .05;
 	}
 }
@@ -820,7 +820,7 @@ bounceroom()
 			level.activ switchToWeapon("knife_mp");
 			player freezeControls(false);
 			level.activ freezeControls(false);
-			while( isAlive( player ) && isDefined( player ) )
+			while( isDefined( player ) && isAlive( player ) )
 			wait .05;
 	}
 }

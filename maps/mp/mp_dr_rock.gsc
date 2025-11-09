@@ -631,7 +631,7 @@ mazeroom()
 		level.activ FreezeControls(0);
 		player iprintlnbold("^5F^7IGHT^5!!");
 		level.activ iprintlnbold("^5F^7IGHT^5!!");
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
 		wait 1;
 	}
 }
@@ -729,7 +729,7 @@ Sniperroom()
 		level.activ FreezeControls(0);
 		player iprintlnbold("^5F^7IGHT^5!!");
 		level.activ iprintlnbold("^5F^7IGHT^5!!");
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
 		wait 1;
 	}
 }

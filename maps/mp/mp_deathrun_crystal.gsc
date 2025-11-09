@@ -673,7 +673,7 @@ sniperoom()
 		level.activ giveMaxammo("remington700_mp");
 	    player freezeControls(false);
 		level.activ freezeControls(false);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
         wait 1;
     }
 }
@@ -729,7 +729,7 @@ shotgunroom()
 		level.activ giveMaxammo("winchester1200_mp");
 	    player freezeControls(false);
 		level.activ freezeControls(false);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
         wait 1;
     }
 }
@@ -784,7 +784,7 @@ kniferoom()
 		iPrintlnBold("Fight!!");
 		player freezeControls(false);
 		level.activ freezeControls(false);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
         wait 1;
     }
 }
@@ -819,7 +819,7 @@ oldroom()
         iPrintlnBold( " ^4" + player.name + "^7 Entered ^0OLD!" );
 		wait 5;
 		old_door delete();
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
         wait 1;
     }
 }
@@ -872,7 +872,7 @@ jumproom()
 		player freezeControls(false);
 		level.activ freezeControls(false);
 		wait 0.1;
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
     }
 }

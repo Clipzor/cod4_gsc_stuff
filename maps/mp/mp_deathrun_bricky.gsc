@@ -4,15 +4,7 @@
  ║ ║║ ║║ ╚╝ ║╠╩══╗ ║║  ║║║ ╔╗ ║ ╔══╝ ║║ ║║ ║║ ╚╝ ║
  ║ ║║ ║║╔══╗║╠╦══╝ ║║  ║║║ ║║ ║ ║ ╔══╝║ ║║ ║╠═╦╦╦╝
 ╔╣ ╚╝ ║║║  ║║║║    ║╚══╝║║ ╚╝ ╠╗║ ╚══╗║ ╚╝ ║║ ║║╠╗╔═╗
-╚═════╝╚╝  ╚╝╚╝	   ╚════╝╚════╩╝╚════╝╚════╝╚═╝╚╩╝╚═╝
-
-                              ___________________________________________________________________________
-                             //_______________- BRICKY -  Scripted and Made by DafuqzoR. -______________\\
-                             \\ If you have a question about the following code, x-Fire add me borstey88//
-                              \\!Please don't use this code or any variant of it without my permission!//
-                               \\¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯//
-							
-THANKS ;)							
+╚═════╝╚╝  ╚╝╚╝	   ╚════╝╚════╩╝╚════╝╚════╝╚═╝╚╩╝╚═╝						
 */
 
 main() 
@@ -480,7 +472,7 @@ ammo2() //nade room ammo
 {
 	if(isdefined(level.disablenaderoom) && level.disablenaderoom)
 		return;
-		
+
 	trig = getEnt ("nade2_trig", "targetname");
 	
 	while(1)
@@ -567,7 +559,7 @@ sniper()
 				wait 5;
 				player FreezeControls(0);
 				level.activ FreezeControls(0);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
 			
     }
@@ -629,7 +621,7 @@ rpg()
 				wait 5;
 				player FreezeControls(0);
 				level.activ FreezeControls(0);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
 			
     }
@@ -664,7 +656,7 @@ weapon()
 		player SetPlayerAngles( jump.angles );
         player setOrigin( jump.origin );
         player TakeAllWeapons();
-        player GiveWeapon( "winchester1200_reflex_mp" );
+        player GiveWeapon( "winchester1200_reflex_mp" ); //vlct Change Weapon
 		player GiveWeapon( "winchester1200_reflex_mp" );        
         level.activ setPlayerangles( acti.angles );
         level.activ setOrigin( acti.origin );
@@ -687,7 +679,7 @@ weapon()
 				wait 5;
 				player FreezeControls(0);
 				level.activ FreezeControls(0);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
 			
     }
@@ -695,57 +687,69 @@ weapon()
 
 nade()
 {
-
 	level.final_nade_trig = getEnt( "final_nade_trig", "targetname");
     jump = getEnt ("nade_j", "targetname");
     acti = getEnt ("nade_a", "targetname");
-	
-    while(1)
-    {
-        level.final_nade_trig waittill( "trigger", player );
-        if( !isDefined( level.final_nade_trig ) )
-            return;
-        
-		if(!level.firstenter) {
-			level.firstenter = true;
-			level.final_sniper_trig delete();
-			level.final_knife_trig delete();
-			level.final_wep_trig delete();
-			level.final_rpg_trig delete();
-			//level.final_nade_trig delete();
+
+	if(isdefined(level.disablenaderoom) && level.disablenaderoom) {
+		while(1)
+		{
+			level.final_nade_trig waittill( "trigger", player );
+			if( !isDefined( level.final_nade_trig ) )
+				return;
+
+			player iprintln("Nade Room Disabled");
 		}
-      
-		player.health = player.maxhealth;
-		level.activ.health = level.activ.maxhealth;
-		player SetPlayerAngles( jump.angles );
-        player setOrigin( jump.origin );
-        player TakeAllWeapons();
-        player GiveWeapon( "frag_grenade_mp" );
-		player GiveWeapon( "frag_grenade_mp" );        
-        level.activ setPlayerangles( acti.angles );
-        level.activ setOrigin( acti.origin );
-        level.activ TakeAllWeapons();
-        level.activ GiveWeapon( "frag_grenade_mp" );
-        level.activ GiveWeapon( "frag_grenade_mp" );         
-        wait 0.05;
-        player switchToWeapon( "frag_grenade_mp" ); 
-        level.activ SwitchToWeapon( "frag_grenade_mp" );
-        player FreezeControls(1);
-		level.activ FreezeControls(1);
-		noti = SpawnStruct();
-				noti.titleText = "^5Nade ^5Room";
-				noti.notifyText = level.activ.name + " ^3VS^7 " + player.name;
-				noti.glowcolor = (0.9,0,0.9);
-				noti.duration = 5;
-				players = getentarray("player", "classname");
-				for(i=0;i<players.size;i++)
-					players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-				wait 5;
-				player FreezeControls(0);
-				level.activ FreezeControls(0);
-        while( isAlive( player ) && isDefined( player ) )
-            wait 1;		
-    }
+
+	} else {
+		while(1)
+		{
+			level.final_nade_trig waittill( "trigger", player );
+			if( !isDefined( level.final_nade_trig ) )
+				return;
+			
+			if(!level.firstenter) {
+				level.firstenter = true;
+				level.final_sniper_trig delete();
+				level.final_knife_trig delete();
+				level.final_wep_trig delete();
+				level.final_rpg_trig delete();
+				//level.final_nade_trig delete();
+			}
+		
+			player.health = player.maxhealth;
+			level.activ.health = level.activ.maxhealth;
+			player SetPlayerAngles( jump.angles );
+			player setOrigin( jump.origin );
+			player TakeAllWeapons();
+			player GiveWeapon( "frag_grenade_mp" );
+			player GiveWeapon( "frag_grenade_mp" );        
+			level.activ setPlayerangles( acti.angles );
+			level.activ setOrigin( acti.origin );
+			level.activ TakeAllWeapons();
+			level.activ GiveWeapon( "frag_grenade_mp" );
+			level.activ GiveWeapon( "frag_grenade_mp" );         
+			wait 0.05;
+			player switchToWeapon( "frag_grenade_mp" ); 
+			level.activ SwitchToWeapon( "frag_grenade_mp" );
+			player FreezeControls(1);
+			level.activ FreezeControls(1);
+			noti = SpawnStruct();
+					noti.titleText = "^5Nade ^5Room";
+					noti.notifyText = level.activ.name + " ^3VS^7 " + player.name;
+					noti.glowcolor = (0.9,0,0.9);
+					noti.duration = 5;
+					players = getentarray("player", "classname");
+					for(i=0;i<players.size;i++)
+						players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
+					wait 5;
+					player FreezeControls(0);
+					level.activ FreezeControls(0);
+			while( isDefined( player ) && isAlive( player ) )
+				wait 1;		
+		}
+	}
+	
 }
 
 knife()
@@ -798,7 +802,7 @@ knife()
 				wait 5;
 				player FreezeControls(0);
 				level.activ FreezeControls(0);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
     }
 }

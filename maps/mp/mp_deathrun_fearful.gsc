@@ -128,14 +128,12 @@ addTriggerToList( name )
 	
 transporter()
 {
-	for(;;)
+	entTarget = getEnt( self.target, "targetname" );
+	while(true)
 	{
 		self waittill( "trigger", player );
-		entTarget = getEnt( self.target, "targetname" );
-		wait 0.1;
 		player setOrigin( entTarget.origin );
 		player setplayerangles( entTarget.angles );
-		wait 0.1;
 	}
 }
 
@@ -1182,7 +1180,7 @@ player TakeAllWeapons();
 player died(); 
 
 
-while( isAlive( player ) && isDefined( player ) ) 
+while( isDefined( player ) && isAlive( player ) ) 
 if( isDefined( level.activ ) && isAlive( level.activ ) ) 
 wait 1; 
 } 

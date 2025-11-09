@@ -845,7 +845,7 @@ bounce()
                     level.activ FreezeControls(0);
      
      
-            while( isAlive( player ) && isDefined( player ) )
+            while( isDefined( player ) && isAlive( player ) )
                 wait 1;
         }
     }
@@ -900,7 +900,7 @@ shotgun()
                     level.activ FreezeControls(0);
      
      
-            while( isAlive( player ) && isDefined( player ) )
+            while( isDefined( player ) && isAlive( player ) )
                 wait 1;
         }
     }

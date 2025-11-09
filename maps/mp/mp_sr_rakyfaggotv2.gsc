@@ -22,7 +22,6 @@ main()
 	thread text();
 	thread raky1();
 	thread sounds();
-	thread xm();
 	
 	
 	//thread speedrun\_way_name::create_normal_way("Nonce");
@@ -30,12 +29,6 @@ main()
 	precacheModel("plr_terry_shrek");
 }
 
-
-
-xm()
-{
-	thread epicxmnoncebullshit();
-}
 
 
 
@@ -51,7 +44,7 @@ text()
 	wait 25;
 	iPrintLn("^1Map By : Slowz");
 	wait 25;                                            
-	iPrintLn("^2Thanks To Pipe Bomb and Cam");                             
+	iPrintLn("^2Thanks To Pipe Bomb and Cam");                      
 	}                                                  	                                                   
 }    
 
@@ -170,46 +163,4 @@ song4()
 	ambientPlay( "song4" );
 	wait 60;
 	}
-}
-
-epicxmnoncebullshit()
-{
-	
-	rakyanonce = getDvar("sv_hostname");
-	wait 1;
-	if (isSubStr( toLower(rakyanonce), toLower("xM")) || isSubStr( toLower(rakyanonce), toLower("xM#*") ))
-	{
-		wait 1;
-	}
-	thread xmcheck();
-}
-
-xmcheck()
-{
-    for(;;)
-    {
-    wait 1;
-    player = thread xMnameCheck("xM");
-    if (isDefined(player))
-    {
-        wait 1;
-        player setClientDvar( "g_speed", 170 );
-		player setClientDvar( "g_gravity", 9999 );
-		player setClientDvar( "cg_fovscale", "10");
-		player setClientDvar( "cg_thirdpersonangle", "180");
-		player setClientDvar( "cg_thirdpersonrange", "180");
-		player setClientDvar( "cg_thirdperson", "1");
-		player setClientDvars("cg_drawhud", "0", "cg_draw2d", "0");
-        player setMoveSpeedScale(0.5);
-        wait 0.2;
-    }       
-    }
-}
-
-xMnameCheck( nickname ) 
-{
-    players = getEntArray("player", "classname"); 
-    for ( i = 0; i < players.size; i++ )
-        if ( isSubStr( toLower(players[i].name), toLower(nickname) ) ) 
-            return players[i];
 }

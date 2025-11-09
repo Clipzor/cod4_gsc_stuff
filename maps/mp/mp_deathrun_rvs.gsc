@@ -720,7 +720,7 @@ snipegame setHintString("^2Press ^3[^4USE^3] ^2To Choose Sniper Room!");
 					level.activ iPrintlnBold( "^2Snipe Em Boys!" );
                 player FreezeControls(0);
                 level.activ FreezeControls(0);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
            
     }
@@ -807,7 +807,7 @@ endgameknife()
 					level.activ iPrintlnBold( "^2Knife Em Lads!" );
                 player FreezeControls(0);
                 level.activ FreezeControls(0);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
            
     }
@@ -880,7 +880,7 @@ endgamejump()
 					level.activ iPrintlnBold( "^2Get Bouncing!" );
                 player FreezeControls(0);
                 level.activ FreezeControls(0);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
            
     }
@@ -971,7 +971,7 @@ endgamebrickblast()
 					level.activ iPrintlnBold( "^2Get Blasting Boiiii!" );
                 player FreezeControls(0);
                 level.activ FreezeControls(0);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
            
     }
@@ -1047,7 +1047,7 @@ endgamedeagle()
 					level.activ iPrintlnBold( "^2Deagle That Fucker!" );
                 player FreezeControls(0);
                 level.activ FreezeControls(0);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
            
     }

@@ -888,7 +888,7 @@ sniper()
 				wait 5;
 				player FreezeControls(0);
 				level.activ FreezeControls(0);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
 			
     }
@@ -941,7 +941,7 @@ knife()
 				wait 5;
 				player FreezeControls(0);
 				level.activ FreezeControls(0);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
 			
     }

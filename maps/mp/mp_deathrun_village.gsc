@@ -364,7 +364,7 @@ while (1)
                             level.activ freezeControls( false );
                            
                     }
-                    while( isAlive( player ) && isDefined( player ) )
+                    while( isDefined( player ) && isAlive( player ) )
                     wait 1;
             }
      
@@ -427,7 +427,7 @@ while (1)
                             level.activ freezeControls( false );
                            
                     }
-                    while( isAlive( player ) && isDefined( player ) )
+                    while( isDefined( player ) && isAlive( player ) )
                     wait 1;
             }
      
@@ -492,7 +492,7 @@ rpgtele()
                             level.activ freezeControls( false );
                            
                     }
-                    while( isAlive( player ) && isDefined( player ) )
+                    while( isDefined( player ) && isAlive( player ) )
                     wait 1;
             }
      
@@ -561,7 +561,7 @@ rpgtele()
                             level.activ freezeControls( false );
                            
                     }
-                    while( isAlive( player ) && isDefined( player ) )
+                    while( isDefined( player ) && isAlive( player ) )
                     wait 1;
             }
      
@@ -707,14 +707,12 @@ hint4()
 
 transporter()
 {
+   entTarget = getent(self.target, "targetname");
   while(true)
   {
    self waittill("trigger");
-   entTarget = getent(self.target, "targetname");
-   wait(0.10);
    self setorigin(entTarget.origin);
    self setplayerangles(entTarget.angles);
    self iPrintLnBold ("DUNNOT SHOOT DA BABY");
-   wait(0.10);
   }
 }

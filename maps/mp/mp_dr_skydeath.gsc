@@ -858,7 +858,7 @@ ambientPlay("blue");
             wait 2;
 					player freezeControls(false);
 					 level.activ freezeControls(false);
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
             wait 1;
     }
 }
@@ -904,7 +904,7 @@ ambientPlay("blue");
 					player freezeControls(false);
 											level.activ freezeControls(false);
 											
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
             wait 1;
     }
 }
@@ -1041,7 +1041,7 @@ ambientPlay("blue");
 	
 
 
-while( isAlive( player ) && isDefined( player ) )
+while( isDefined( player ) && isAlive( player ) )
 wait 1;
 
 

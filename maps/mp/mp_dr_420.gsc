@@ -243,7 +243,7 @@ endroom()
 		player antiglitch();
 
 
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 		if( isDefined( level.activ ) && isAlive( level.activ ) )
 		wait 1;
 	}

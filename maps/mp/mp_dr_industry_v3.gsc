@@ -73,10 +73,10 @@ teleports()
  
 transporter()
 {
+		entTarget = getEnt( self.target, "targetname" );
 	for(;;)
 	{
 		self waittill( "trigger", player );
-		entTarget = getEnt( self.target, "targetname" );
 		player setOrigin( entTarget.origin );
 		player setplayerangles( entTarget.angles );
 	}

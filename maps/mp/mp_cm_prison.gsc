@@ -874,7 +874,7 @@ simonsaysroom()
 		wait 3;
 		thread ss_game(player);
 		thread ss_check(player);
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 			wait 0.1;
 		level.ss_on = 0;
 

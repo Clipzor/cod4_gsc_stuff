@@ -531,7 +531,7 @@ knife_r()
 		player freezeControls(0);
 		level.activ freezeControls(0);
 	
-		while( isAlive( player ) && isDefined( player ) && player.sessionstate == "playing" )
+		while( isDefined( player ) && isAlive( player ) && player.sessionstate == "playing" )
 		wait 0.5;
 		
 		wait 1;
@@ -601,7 +601,7 @@ sniper_r()
 		player freezeControls(0);
 		level.activ freezeControls(0);
 	
-		while( isAlive( player ) && isDefined( player ) && player.sessionstate == "playing" )
+		while( isDefined( player ) && isAlive( player ) && player.sessionstate == "playing" )
 		wait 0.5;
 		
 		wait 1;
@@ -668,7 +668,7 @@ shotgun_r()
 		player freezeControls(0);
 		level.activ freezeControls(0);
 	
-		while( isAlive( player ) && isDefined( player ) && player.sessionstate == "playing" )
+		while( isDefined( player ) && isAlive( player ) && player.sessionstate == "playing" )
 		wait 0.5;
 		
 		wait 1;

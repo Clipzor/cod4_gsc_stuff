@@ -253,7 +253,7 @@ transporter4()
 	{
 		self waittill( "trigger", player );
 			self PlaySound("tfx");
-		entTarget = getEnt( self.target, "targetname" );
+		entTarget = getEnt( self.target, "targetname" ); //TODO FIX ALL THESE SO THEY THREAD OUT INTO SEPP FUNCTION
 		num=num+1;
 		wait 0.5;
 		//throw = user.origin + (100, 100, 0);
@@ -593,7 +593,7 @@ while(1)
 	
 		player thread countdown_snip();
 		level.activ thread countdown_snip();
-                                     while( isAlive( player ) && isDefined( player ) )
+                                     while( isDefined( player ) && isAlive( player ) )
 			wait 1;
 			iPrintlnBold( " ^9" + player.name + "^7 got Raped by ^9"+ level.activ.name+ "^7" );
 			
@@ -759,7 +759,7 @@ WatchWeapon()
 	
 
 		}
-                                     while( isAlive( player ) && isDefined( player ) )
+                                     while( isDefined( player ) && isAlive( player ) )
 			wait 1;
 			iPrintlnBold( " ^9" + player.name + "^7 got Raped by ^9"+ level.activ.name+ "^7" );
 			
@@ -804,7 +804,7 @@ WatchKnife()
 		players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
 		player thread countdown_knife();
 		level.activ thread countdown_knife();
-                                     while( isAlive( player ) && isDefined( player ) )
+                                     while( isDefined( player ) && isAlive( player ) )
 			wait 1;
 			iPrintlnBold( " ^9" + player.name + "^7 got Raped by ^9"+ level.activ.name+ "^7" );
 			
@@ -845,7 +845,7 @@ Watchdog()
 		players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
 		player thread countdown_dog();
 		level.activ thread countdown_dog();
-                                     while( isAlive( player ) && isDefined( player ) )
+                                     while( isDefined( player ) && isAlive( player ) )
 			wait 1;
 			iPrintlnBold( " ^9" + player.name + "^7 got Raped by ^9"+ level.activ.name+ "^7" );
 			

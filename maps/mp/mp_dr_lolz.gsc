@@ -1224,7 +1224,7 @@ player TakeAllWeapons();
 player antiglitch();
 
 
-while( isAlive( player ) && isDefined( player ) )
+while( isDefined( player ) && isAlive( player ) )
 if( isDefined( level.activ ) && isAlive( level.activ ) )
 wait 1;
 }
@@ -2080,7 +2080,7 @@ speedon()
 		player setgravity( 500 );
 		player reset_speed_grav();
 
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 			if( isDefined( level.activ ) && isAlive( level.activ ) )
 				wait 1;
 	}
@@ -2106,7 +2106,7 @@ speedoff()
 		player setmovespeed( getdvarint("g_speed") );
 		player setgravity( getdvarint("g_gravity") );
 
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 			if( isDefined( level.activ ) && isAlive( level.activ ) )
 				wait 1;
 	}

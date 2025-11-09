@@ -165,6 +165,7 @@ sniper_ele_velocity(velocity) {
 }
 
 sniper_ele_velocity_var_reset(trig) {
+	self endon("disconnect");
 	while(self istouching(trig))
 			wait 0.05;
 
@@ -203,6 +204,8 @@ detect_stuck_in_sniper_reverser(center) {
 }
 
 detect_stuck_in_sniper_reverser_timer(trigger, center) {
+	self endon("disconnect");
+
 	while(self istouching(trigger)) {
 		wait 0.1;
 		self.fljbndksjnvsl++;
@@ -1065,6 +1068,8 @@ secret_insta_ele(coard, x) {
 }
 
 secret_ele(trig, coard, x) {
+	self endon("disconnect");
+
 	if(x)
 		self setorigin((coard,self.origin[1],self.origin[2]));
 	else
@@ -1212,6 +1217,7 @@ setup_traps() {
 trap_1() {
 	trap_1_trigger = GetEnt("trap_1_trigger", "targetname");
 	trap_1 = GetEnt("trap_1", "targetname");
+	trap_1 solid();
 
 	thread arrow_logic("trap_1", trap_1_trigger);
 
@@ -1239,6 +1245,9 @@ trap_2() {
 	arrow_kill_notify("trap_2");
 
 	trap_2 RotateTo((0,0,-90), 3, 0.5, 1);
+
+	wait 1.5;
+	trap_2 NotSolid();
 }
 
 trap_3() {

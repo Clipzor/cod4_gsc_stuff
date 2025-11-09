@@ -194,7 +194,7 @@ sniper()
         player switchToWeapon( "m40a3_mp" ); //activator weapon
         level.activ SwitchToWeapon( "m40a3_mp" );
         iPrintlnBold( " ^6" + player.name + " ^5 HAS CHOSEN SNIPE^1!" );     //change to what you want it to be
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
 		
 		
             wait 1;	
@@ -227,7 +227,7 @@ knife()
         player switchToWeapon( "tomahawk_mp" ); //activator weapon
         level.activ SwitchToWeapon( "tomahawk_mp" );
         iPrintlnBold( " ^6" + player.name + " ^5 HAS CHOSEN KNIFE^1!" );     //change to what you want it to be
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
 		
 		
             wait 1;	

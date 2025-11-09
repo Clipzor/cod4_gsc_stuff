@@ -441,7 +441,7 @@ old()
 		}
 		iPrintLnBold( " ^4" + player.name + " ^7has chosen ^4Old ^7Room!" );
 
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
             wait .05;
 	}
 	level.PlayerInRoom = false;
@@ -499,7 +499,7 @@ sniper()
 		}
 		iPrintLnBold( " ^4" + player.name + " ^7has chosen ^4Sniper ^7Room!" ); 
 		
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
             wait .05;
 	}
 	level.PlayerInRoom = false;
@@ -584,7 +584,7 @@ bounce()
 		}
 		iPrintLnBold( " ^4" + player.name + " ^7has chosen ^4Bounce ^7Room!" ); 
 		
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
             wait .05;
 	}
 	level.PlayerInRoom = false;

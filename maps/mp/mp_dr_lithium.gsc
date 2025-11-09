@@ -130,7 +130,7 @@ player TakeAllWeapons();
 player died(); 
 
 
-while( isAlive( player ) && isDefined( player ) ) 
+while( isDefined( player ) && isAlive( player ) ) 
 if( isDefined( level.activ ) && isAlive( level.activ ) ) 
 wait 1; 
 } 

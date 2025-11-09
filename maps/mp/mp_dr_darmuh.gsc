@@ -78,24 +78,25 @@ AmbientPlay ( "werk" );
 
 transporter()
 {
+  	entTarget = getEnt( self.target, "targetname" );
 	for(;;)
 	{
   		self waittill( "trigger", player );
-  		entTarget = getEnt( self.target, "targetname" );
-  		wait (0.1);
-  		player setOrigin( entTarget.origin );
-  		player setplayerangles( entTarget.angles );
- 	 	wait (0.1);
-		player GiveWeapon("deserteaglegold_mp");
-		wait (0.05);
-		player SwitchToWeapon("remington700_mp");
-		wait (0.05);
-   		self playsound("mp_enemy_obj_captured");
-   		iprintlnbold ("^1Dafuq?");
-		player braxi\_rank::giveRankXP("", 5);
-		
+  		player thread tp_thread(entTarget, self);
 	}
+}
 
+tp_thread(entTarget, trigger) {
+	self setOrigin( entTarget.origin );
+	self setplayerangles( entTarget.angles );
+	wait (0.1);
+	self GiveWeapon("deserteaglegold_mp");
+	wait (0.05);
+	self SwitchToWeapon("remington700_mp");
+	wait (0.05);
+	trigger playsound("mp_enemy_obj_captured");
+	iprintlnbold ("^1Dafuq?");
+	self braxi\_rank::giveRankXP("", 5);
 }
 
 trap6()
@@ -306,7 +307,7 @@ kniferoom()
         player switchToWeapon( "knife_mp" );
         level.activ SwitchToWeapon( "knife_mp" );
         iPrintlnBold( " ^5" + player.name + " ^3 picked ^1knife^7!" );
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
     }
 }
@@ -346,7 +347,7 @@ sniperoom()
         player switchToWeapon( "m40a3_acog_mp" );
         level.activ SwitchToWeapon( "m40a3_acog_mp" );
         iPrintlnBold( " ^5" + player.name + " ^3 picked ^1SHNIPAH^7!" );
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
     }
 }
@@ -369,7 +370,7 @@ room_gun()
 		wait 0.05;
 		player SwitchToWeapon( gun );
 		level.activ SwitchToWeapon( gun );
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 		    wait (1);	
 	}
 }
@@ -425,7 +426,7 @@ weaponroom()
         level.activ TakeAllWeapons();       
         wait 0.05;
         iPrintlnBold( " ^5" + player.name + " ^3 picked ^1WEAPON^7!" );
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
     }
 }
@@ -585,7 +586,7 @@ Jumproom()
 		AmbientStop( 2 );
 		AmbientPlay( "jumproom" );
 		wait 1;
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
     }
 }

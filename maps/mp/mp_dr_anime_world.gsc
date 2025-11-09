@@ -619,7 +619,7 @@ room_section_tp()
             return;
 		player setorigin(spot.origin);
 
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
         wait 0.01;
 	}
 }

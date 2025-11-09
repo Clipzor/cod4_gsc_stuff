@@ -1239,7 +1239,7 @@ games()
 		wait 1;
 	
 	             
-         	while( isAlive( player ) && isDefined( player ) )
+         	while( isDefined( player ) && isAlive( player ) )
              	wait 1;
      	}
 }

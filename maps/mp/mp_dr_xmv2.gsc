@@ -169,14 +169,12 @@ teleporters()
  
 transporters()
 {
+	entTarget = getEnt( self.target, "targetname" );
 	for(;;)
 	{
 		self waittill( "trigger", player );
-		entTarget = getEnt( self.target, "targetname" );
-		wait 0.1;
 		player setOrigin( entTarget.origin );
 		player setplayerangles( entTarget.angles );
-		wait 0.1;
 	}
 }
 
@@ -465,7 +463,7 @@ kniferoom()
 		iPrintlnBold("Fight!!");
 		player freezeControls(false);
 		level.activ freezeControls(false);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
         wait 0.1;
     }
 }
@@ -518,7 +516,7 @@ sniperroom()
 		iPrintlnBold("Fight!!");
 		player freezeControls(false);
 		level.activ freezeControls(false);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
         wait 0.1;
     }
 }
@@ -567,7 +565,7 @@ shotgunroom()
 		iPrintlnBold("Fight!!");
 		player freezeControls(false);
 		level.activ freezeControls(false);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
         wait 0.1;
     }
 }
@@ -615,7 +613,7 @@ jumproom()
 		iPrintlnBold("Fight!!");
 		player freezeControls(false);
 		level.activ freezeControls(false);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
         wait 0.1;
     }
 }

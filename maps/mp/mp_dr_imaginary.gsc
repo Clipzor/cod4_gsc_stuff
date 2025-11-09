@@ -521,7 +521,7 @@ player switchToWeapon( "m40a3_mp" );
 level.activ SwitchToWeapon( "m40a3_mp" );
 level.telejumporigin delete();
 iPrintlnBold( " ^7" +  player.name  + " ^3 HAS ENTERED THE SNIPER ROOM^7!" ); //Change the message if you want
-while( isAlive( player ) && isDefined( player ) )
+while( isDefined( player ) && isAlive( player ) )
             wait 1;
 }
 }
@@ -574,7 +574,7 @@ level.activ SwitchToWeapon( "knife_mp" );
 level.telejumporigin delete();
 iPrintlnBold( " ^7" + player.name + " ^3 HAS ENTERED THE BOUNCE ROOM^7!" ); 
 				
-while( isAlive( player ) && isDefined( player ) )
+while( isDefined( player ) && isAlive( player ) )
             wait 1;
         }
 }
@@ -680,7 +680,7 @@ player switchToWeapon( "knife_mp" );
 level.activ SwitchToWeapon( "knife_mp" );
 level.telejumporigin delete();
 iPrintlnBold( " ^7" + player.name + " ^3 HAS ENTERED THE KNIFE ROOM^7!" ); //Change the message if you want
-while( isAlive( player ) && isDefined( player ) )
+while( isDefined( player ) && isAlive( player ) )
             wait 1;
 }
 }

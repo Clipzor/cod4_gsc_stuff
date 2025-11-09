@@ -1,57 +1,54 @@
 main()
 {
-maps\mp\_load::main();
-setdvar( "r_specularcolorscale", "1" );
+        maps\mp\_load::main();
+        setdvar( "r_specularcolorscale", "1" );
 
 	setdvar("r_glowbloomintensity0",".25");
 	setdvar("r_glowbloomintensity1",".25");
 	setdvar("r_glowskybleedintensity0",".3");
 	setdvar("compassmaxrange","1200");
-	precacheItem("rpg_mp");
-PreCacheItem("deserteaglegold_mp");
+        precacheItem("rpg_mp");
+        PreCacheItem("deserteaglegold_mp");
         PreCacheItem("winchester1200_mp");
         PreCacheItem("skorpion_mp");
         PreCacheItem("remington700_mp");
 	ambientPlay("rock");
 
-    end = spawn("trigger_radius",(1171,1007,236),0,100,200);
-    end.radius = 100;
-    end.targetname = "endmap_trig";
+        end = spawn("trigger_radius",(1171,1007,236),0,100,200);
+        end.radius = 100;
+        end.targetname = "endmap_trig";
 
-thread first_door();
-thread tele1();
-thread tele2();
-thread tele3();
-thread tele4();
-thread tele5();
-thread tele6();
-thread tele7();
-thread move();
-thread trap1();
-thread trap2();
-thread trap3();
-thread trap4();
-thread trap5();
-thread trap6();
-thread trap7();
-thread trap8();
-thread trap9();
-thread trap10();
-thread jackpot();
-thread sniper_room();
-thread jump_room();
-thread knife_room();
-thread givexp();
-addTriggerToList( "t1" );
-		addTriggerToList( "t2" );
-		addTriggerToList( "t3" );
-		addTriggerToList( "t4" );
-		addTriggerToList( "t5" );
-		addTriggerToList( "t6" );
-		addTriggerToList( "t7" );
-		addTriggerToList( "t8" );
-		addTriggerToList( "t9" );
-		addTriggerToList( "t10" );
+        thread first_door();
+
+        thread tele_setup();
+
+        thread move();
+        thread trap1();
+        thread trap2();
+        thread trap3();
+        thread trap4();
+        thread trap5();
+        thread trap6();
+        thread trap7();
+        thread trap8();
+        thread trap9();
+        thread trap10();
+        thread jackpot();
+        thread sniper_room();
+        thread jump_room();
+        thread knife_room();
+        thread givexp();
+
+        addTriggerToList( "t1" );
+        addTriggerToList( "t2" );
+        addTriggerToList( "t3" );
+        addTriggerToList( "t4" );
+        addTriggerToList( "t5" );
+        addTriggerToList( "t6" );
+        addTriggerToList( "t7" );
+        addTriggerToList( "t8" );
+        addTriggerToList( "t9" );
+        addTriggerToList( "t10" );
 }
 
 addTriggerToList( name )
@@ -230,153 +227,51 @@ wait 5;
 }
 
 
-tele1()
+tele_setup()
 {
         entTransporter = getentarray( "easy", "targetname" );
         if(isdefined(entTransporter))
                 for( i = 0; i < entTransporter.size; i++ )
-                        entTransporter[i] thread transporter1();
-}
- 
-transporter1()
-{
-        for(;;)
-        {
-                self waittill( "trigger", player );
-                entTarget = getEnt( self.target, "targetname" );
-                wait 0.1;
-                player setOrigin( entTarget.origin );
-                player setplayerangles( entTarget.angles );
-                wait 0.1;
-        }
-}
-
-tele2()
-{
+                        entTransporter[i] thread transporter();
         entTransporter = getentarray( "starttele", "targetname" );
         if(isdefined(entTransporter))
                 for( i = 0; i < entTransporter.size; i++ )
-                        entTransporter[i] thread transporter2();
-}
- 
-transporter2()
-{
-        for(;;)
-        {
-                self waittill( "trigger", player );
-                entTarget = getEnt( self.target, "targetname" );
-                wait 0.1;
-                player setOrigin( entTarget.origin );
-                player setplayerangles( entTarget.angles );
-                wait 0.1;
-        }
-}
-
-tele3()
-{
+                        entTransporter[i] thread transporter();
         entTransporter = getentarray( "wtf", "targetname" );
         if(isdefined(entTransporter))
                 for( i = 0; i < entTransporter.size; i++ )
-                        entTransporter[i] thread transporter3();
-}
- 
-transporter3()
-{
-        for(;;)
-        {
-                self waittill( "trigger", player );
-                entTarget = getEnt( self.target, "targetname" );
-                wait 0.1;
-                player setOrigin( entTarget.origin );
-                player setplayerangles( entTarget.angles );
-                wait 0.1;
-        }
-}
-
-tele4()
-{
+                        entTransporter[i] thread transporter();
         entTransporter = getentarray( "lol", "targetname" );
         if(isdefined(entTransporter))
                 for( i = 0; i < entTransporter.size; i++ )
-                        entTransporter[i] thread transporter4();
-}
- 
-transporter4()
-{
-        for(;;)
-        {
-                self waittill( "trigger", player );
-                entTarget = getEnt( self.target, "targetname" );
-                wait 0.1;
-                player setOrigin( entTarget.origin );
-				iPrintlnBold( "^10ooo0 my ^0God" + player.name + " ^3Completed the ^1Hard" ); 
-                player setplayerangles( entTarget.angles );
-                wait 0.1;
-        }
-}
-
-tele5()
-{
+                        entTransporter[i] thread transporter(true);
         entTransporter = getentarray( "last", "targetname" );
         if(isdefined(entTransporter))
                 for( i = 0; i < entTransporter.size; i++ )
-                        entTransporter[i] thread transporter5();
-}
- 
-transporter5()
-{
-        for(;;)
-        {
-                self waittill( "trigger", player );
-                entTarget = getEnt( self.target, "targetname" );
-                wait 0.1;
-                player setOrigin( entTarget.origin );
-                player setplayerangles( entTarget.angles );
-                wait 0.1;
-        }
-}
-
-tele6()
-{
+                        entTransporter[i] thread transporter();
         entTransporter = getentarray( "jump3", "targetname" );
         if(isdefined(entTransporter))
                 for( i = 0; i < entTransporter.size; i++ )
-                        entTransporter[i] thread transporter6();
-}
- 
-transporter6()
-{
-        for(;;)
-        {
-                self waittill( "trigger", player );
-                entTarget = getEnt( self.target, "targetname" );
-                wait 0.1;
-                player setOrigin( entTarget.origin );
-                player setplayerangles( entTarget.angles );
-                wait 0.1;
-        }
-}
-
-tele7()
-{
+                        entTransporter[i] thread transporter();
         entTransporter = getentarray( "jump2", "targetname" );
         if(isdefined(entTransporter))
                 for( i = 0; i < entTransporter.size; i++ )
-                        entTransporter[i] thread transporter7();
+                        entTransporter[i] thread transporter();
 }
  
-transporter7()
+transporter(hard)
 {
+        entTarget = getEnt( self.target, "targetname" );
         for(;;)
         {
                 self waittill( "trigger", player );
-                entTarget = getEnt( self.target, "targetname" );
-                wait 0.1;
                 player setOrigin( entTarget.origin );
                 player setplayerangles( entTarget.angles );
-                wait 0.1;
+                if(isdefined(hard))
+                        iPrintlnBold( "^10ooo0 my ^0God " + player.name + " ^3Completed ^1Hard" ); 
         }
 }
+
 
 
 move()
@@ -469,7 +364,7 @@ sniper_room()
                 player switchToWeapon( "remington700_mp" );
                 level.activ SwitchToWeapon( "remington700_mp" );
                 iPrintlnBold( " ^6LoL" + player.name + " ^4 has chosen ^1snipe room!" );                //change it as you wish
-                while( isAlive( player ) && isDefined( player ) )
+                while( isDefined( player ) && isAlive( player ) )
                         wait 1;
         }
 }              
@@ -501,7 +396,7 @@ knife_room()
                 player switchToWeapon( "tomahawk_mp" );
                 level.activ SwitchToWeapon( "tomahawk_mp" );
                 iPrintlnBold( " ^6LoL" + player.name + " ^3has chosen ^1knife room" );                //change it as you wish
-                while( isAlive( player ) && isDefined( player ) )
+                while( isDefined( player ) && isAlive( player ) )
                         wait 1;
         }
 }
@@ -533,7 +428,7 @@ jump_room()
                 player switchToWeapon( "tomahawk_mp" );
                 level.activ SwitchToWeapon( "tomahawk_mp" );
                 iPrintlnBold( " ^6 LoL" + player.name + " ^3has chosen ^1Jump room" );                //change it as you wish
-                while( isAlive( player ) && isDefined( player ) )
+                while( isDefined( player ) && isAlive( player ) )
                         wait 1;
         }
 }

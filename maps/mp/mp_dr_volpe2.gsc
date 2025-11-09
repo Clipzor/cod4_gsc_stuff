@@ -1614,7 +1614,7 @@ bounce_room()
 		player freezeControls(0);
 		level.activ freezeControls(0);
 	
-		while( isAlive( player ) && isDefined( player ) && player.sessionstate == "playing" )
+		while( isDefined( player ) && isAlive( player ) && player.sessionstate == "playing" )
 		wait 0.5;
 		
 		iPrintLnBold("^3" + player.name + "^7 Has Died!");
@@ -1690,7 +1690,7 @@ knife_room()
 		player freezeControls(0);
 		level.activ freezeControls(0);
 	
-		while( isAlive( player ) && isDefined( player ) && player.sessionstate == "playing" )
+		while( isDefined( player ) && isAlive( player ) && player.sessionstate == "playing" )
 		wait 0.5;
 		
 		iPrintLnBold("^3" + player.name + "^7 Is too cute and Died! ^2=^.^=");
@@ -1761,7 +1761,7 @@ hop_room()
 		player freezeControls(0);
 		level.activ freezeControls(0);
 	
-		while( isAlive( player ) && isDefined( player ) && player.sessionstate == "playing" )
+		while( isDefined( player ) && isAlive( player ) && player.sessionstate == "playing" )
 		wait 0.5;
 		
 		iPrintLnBold("^3" + player.name + "^7 Has Died!");
@@ -1837,7 +1837,7 @@ sniper_room()
 		player freezeControls(0);
 		level.activ freezeControls(0);
 	
-		while( isAlive( player ) && isDefined( player ) && player.sessionstate == "playing" )
+		while( isDefined( player ) && isAlive( player ) && player.sessionstate == "playing" )
 		wait 0.5;
 		
 		iPrintLnBold("^3" + player.name + "^7 Has Died!");
@@ -1912,7 +1912,7 @@ shotgun_room()
 		player freezeControls(0);
 		level.activ freezeControls(0);
 	
-		while( isAlive( player ) && isDefined( player ) && player.sessionstate == "playing" )
+		while( isDefined( player ) && isAlive( player ) && player.sessionstate == "playing" )
 		wait 0.5;
 		
 		iPrintLnBold("^3" + player.name + "^7 Has Died!");
@@ -2000,7 +2000,7 @@ wep_room()
 		player freezeControls(0);
 		level.activ freezeControls(0);
 	
-		while( isAlive( player ) && isDefined( player ) && player.sessionstate == "playing" )
+		while( isDefined( player ) && isAlive( player ) && player.sessionstate == "playing" )
 		wait 0.5;
 		
 		iPrintLnBold("^3" + player.name + "^7 Has Died!");
@@ -2080,7 +2080,7 @@ rpg_room()
 		player thread rpg_ammo();
 		level.activ thread rpg_ammo();
 	
-		while( isAlive( player ) && isDefined( player ) && player.sessionstate == "playing" )
+		while( isDefined( player ) && isAlive( player ) && player.sessionstate == "playing" )
 		wait 0.5;
 		
 		iPrintLnBold("^3" + player.name + "^7 Has Died!");

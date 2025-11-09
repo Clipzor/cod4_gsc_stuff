@@ -2115,7 +2115,7 @@ room_simonsays()
 		level.activ freezeControls(0);
 		thread ss_game(player);
 		thread ss_check(player);
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 			wait 0.1;
 		level.ss_on = 0;
 		}
@@ -2398,7 +2398,7 @@ room_sniper()
 		player freezeControls(0);
 		level.activ freezeControls(0);
 		
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 			wait 0.1;
 		}
     }
@@ -2478,7 +2478,7 @@ room_knife()
 		player freezeControls(0);
 		level.activ freezeControls(0);
 		
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 			wait 0.1;
 		}
     }
@@ -2510,7 +2510,7 @@ room_bulldog() //This is an absolute fuckin mess
 		iPrintlnBold("^2"+ player.name + " ^7Challenges ^1"+level.activ.name+" ^7To a game of ^1Bulldog");
 		thread bulldog(player);
 		playable = 0;
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 			wait 0.1;
 		}
 		else
@@ -2562,7 +2562,7 @@ bulldog(player)
 	iPrintlnBold(" ^7>>^1B^7ulldog!^7<<");
 	player freezeControls(0);
 	level.activ freezeControls(0);
-	while( isAlive( player ) && isDefined( player ) )
+	while( isDefined( player ) && isAlive( player ) )
 			wait 0.1;
 
 }
@@ -2657,7 +2657,7 @@ attacker_status(player)
 	tp = getent("bulldog_attacker", "targetname"); 
 	trig2 = getent("bulldog_box", "targetname");
 	
-	while( isAlive( player ) && isDefined( player ) )
+	while( isDefined( player ) && isAlive( player ) )
 	{
 	if (level.round1 == 1)
 	{
@@ -2697,7 +2697,7 @@ attacker_status2(player)
 	tp = getent("bulldog_attacker", "targetname"); 
 	trig2 = getent("bulldog_box", "targetname");
 	
-	while( isAlive( player ) && isDefined( player ) )
+	while( isDefined( player ) && isAlive( player ) )
 	{
 	if(level.bulldogOn == 1)
 	{
@@ -3200,7 +3200,7 @@ specialmenu()
 
 bounceme(player)
 {	
-	while( isAlive( player ) && isDefined( player ) )
+	while( isDefined( player ) && isAlive( player ) )
 	{
 		if (player fragButtonPressed())
 		{

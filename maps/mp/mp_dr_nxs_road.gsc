@@ -278,7 +278,7 @@ knife()
 		level.activ freezeControls(0);
 	
 	
-            while( isAlive( player ) && isDefined( player ) )
+            while( isDefined( player ) && isAlive( player ) )
 		wait 1;
 	}
 }
@@ -337,7 +337,7 @@ pistol()
 		level.activ freezeControls(0);
 	
 	
-            while( isAlive( player ) && isDefined( player ) )
+            while( isDefined( player ) && isAlive( player ) )
 		wait 1;
 	}
 }
@@ -395,7 +395,7 @@ sniper()
 		level.activ freezeControls(0);
 	
 	
-            while( isAlive( player ) && isDefined( player ) )
+            while( isDefined( player ) && isAlive( player ) )
 		wait 1;
 	}
 }

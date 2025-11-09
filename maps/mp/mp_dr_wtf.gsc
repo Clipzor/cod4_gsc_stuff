@@ -145,7 +145,7 @@ WatchSniper()
 		player switchToWeapon( "m40a3_mp" );
 		level.activ SwitchToWeapon( "m40a3_mp" );
 		iPrintlnBold( "^1>> ^2" + player.name + " has chosen sniper room!" );
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 			wait 1;
 	}
 }
@@ -178,7 +178,7 @@ WatchKnife()
 		player switchToWeapon( "knife_mp" );
 		level.activ SwitchToWeapon( "knife_mp" );
 		iPrintlnBold( "^1>> ^2" + player.name + " has chosen knife room!" );
-		while( isAlive( player ) && isDefined( player ) )
+		while( isDefined( player ) && isAlive( player ) )
 			wait 1;
 	}
 }

@@ -300,7 +300,7 @@ kniferoom()
         level.activ SwitchToWeapon( "tomahawk_mp" );
         iPrintlnBold( " ^5" + player.name + " ^3 Has entered ^1knife room!" );     //change to what you want it to be
 		ambientPlay("sniper");
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
     }
 }
@@ -332,7 +332,7 @@ sniperoom()
         level.activ SwitchToWeapon( "remington700_mp" );
         iPrintlnBold( " ^5" + player.name + " ^3 Has entered ^1snipe room!" );     //change to what you want it to be
 		ambientPlay("sniper");
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
             wait 1;
     }
 }

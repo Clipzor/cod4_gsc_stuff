@@ -645,7 +645,7 @@ sniper_room()
 		player freezeControls(0);
 		level.activ freezeControls(0);
 	
-		while( isAlive( player ) && isDefined( player ) && player.sessionstate == "playing" )
+		while( isDefined( player ) && isAlive( player ) && player.sessionstate == "playing" )
 		wait 0.5;
 		
 		iPrintLnBold("^3" + player.name + "^7 RIP");
@@ -712,7 +712,7 @@ shotgun_room()
 		player freezeControls(0);
 		level.activ freezeControls(0);
 	
-		while( isAlive( player ) && isDefined( player ) && player.sessionstate == "playing" )
+		while( isDefined( player ) && isAlive( player ) && player.sessionstate == "playing" )
 		wait 0.5;
 		
 		iPrintLnBold("^3" + player.name + "^7 RIP");
@@ -776,7 +776,7 @@ knife_room()
 		player freezeControls(0);
 		level.activ freezeControls(0);
 	
-		while( isAlive( player ) && isDefined( player ) && player.sessionstate == "playing" )
+		while( isDefined( player ) && isAlive( player ) && player.sessionstate == "playing" )
 		wait 0.5;
 		
 		iPrintLnBold("^3" + player.name + "^7 RIP");
@@ -841,7 +841,7 @@ fal_room()
 		player freezeControls(0);
 		level.activ freezeControls(0);
 	
-		while( isAlive( player ) && isDefined( player ) && player.sessionstate == "playing" )
+		while( isDefined( player ) && isAlive( player ) && player.sessionstate == "playing" )
 		wait 0.5;
 		
 		iPrintLnBold("^3" + player.name + "^7 RIP");

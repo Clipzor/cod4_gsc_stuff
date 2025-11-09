@@ -216,7 +216,7 @@ Sniper()
                 level.activ freezecontrols(false);
                 player iPrintlnBold( "^5Fight^1!" );
  
-                while( isAlive( player ) && isDefined( player ) )
+                while( isDefined( player ) && isAlive( player ) )
                 wait 1;      
         }      
 }
@@ -267,7 +267,7 @@ Knife()
                 level.activ freezecontrols(false);
                 player iPrintlnBold( "^5Fight^1!" );
  
-                while( isAlive( player ) && isDefined( player ) )
+                while( isDefined( player ) && isAlive( player ) )
                 wait 1;      
         }      
 }

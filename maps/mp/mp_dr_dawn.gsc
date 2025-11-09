@@ -778,7 +778,7 @@ while(1)
                         level.jumpstart_hud destroy();
                        
                 }
-                while( isAlive( player ) && isDefined( player ) )
+                while( isDefined( player ) && isAlive( player ) )
                 wait 0.1;
         }
  
@@ -926,7 +926,7 @@ while(1)
                         level.jumpstart_hud destroy();
                        
                 }
-                while( isAlive( player ) && isDefined( player ) )
+                while( isDefined( player ) && isAlive( player ) )
                 wait 0.1;
         }
  
@@ -1016,7 +1016,7 @@ while(1)
                         level.jumpstart_hud destroy();
                        
                 }
-                while( isAlive( player ) && isDefined( player ) )
+                while( isDefined( player ) && isAlive( player ) )
                 wait 0.1;
         }
  
@@ -1090,7 +1090,7 @@ while(1)
                         level.jumpstart_hud destroy();
                        
                 }
-                while( isAlive( player ) && isDefined( player ) )
+                while( isDefined( player ) && isAlive( player ) )
                 wait 0.1;
         }
  
@@ -1161,7 +1161,7 @@ while(1)
 			level.jumpstart_hud destroy();
 			
 		} 
-		while( isAlive( player ) && isDefined( player ) ) 
+		while( isDefined( player ) && isAlive( player ) ) 
 		wait 0.1; 
 	} 
 

@@ -298,7 +298,7 @@ snipe()
         wait 0.05;
         player switchToWeapon( "m40a3_mp" );
         level.activ switchToWeapon( "m40a3_mp" );	
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
         wait 1;
 		iPrintln( "^2Look for the Sniper Room secret ;)" );
 		wait 1;
@@ -336,7 +336,7 @@ while(1)
 	level.activ switchToWeapon( "knife_mp" );
 	iPrintlnBold( " ^2" + player.name + " ^7has chosen ^2JUMP^7 room^2!" );	
 	iPrintln( "^2Look for the Jump Room secret ;)" );
-	while( isAlive( player ) && isDefined( player ) )
+	while( isDefined( player ) && isAlive( player ) )
 	wait 1;
 	iPrintln( "^2Look for the Jump Room secret ;)" );
 	wait 1;
@@ -375,7 +375,7 @@ knife()
         player switchToWeapon( "knife_mp" );
         level.activ switchToWeapon( "knife_mp" ); 
         iPrintlnBold( " ^2" + player.name + " ^7has chosen ^2KNIFE^7 room^2!" );      
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
         wait 1;
 		iPrintln( "^2Look for the Knife Room secret ;)" );
 		wait 1;

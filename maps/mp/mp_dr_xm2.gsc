@@ -137,14 +137,12 @@ teleporter()
  
 transporter()
 {
-	for(;;)
+	entTarget = getEnt( self.target, "targetname" );
+	while(true)
 	{
 		self waittill( "trigger", player );
-		entTarget = getEnt( self.target, "targetname" );
-		wait 0.1;
 		player setOrigin( entTarget.origin );
 		player setplayerangles( entTarget.angles );
-		wait 0.1;
 	}
 }
 
@@ -539,7 +537,7 @@ sniperoom()
 			level.activ switchToWeapon("remington700_mp");
 			player freezeControls(false);
 			level.activ freezeControls(false);
-			while( isAlive( player ) && isDefined( player ) )
+			while( isDefined( player ) && isAlive( player ) )
 			wait .05;
 	}
 }
@@ -580,7 +578,7 @@ kniferoom()
 			level.activ switchToWeapon("knife_mp");
 			player freezeControls(false);
 			level.activ freezeControls(false);
-			while( isAlive( player ) && isDefined( player ) )
+			while( isDefined( player ) && isAlive( player ) )
 			wait .05;
 	}
 }
@@ -622,7 +620,7 @@ weaponroom()
         wait 4;
         player freezeControls(false);
 		level.activ freezeControls(false);
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
         wait 1;
     }
 }
@@ -717,7 +715,7 @@ bounceroom()
 			level.activ switchToWeapon("knife_mp");
 			player freezeControls(false);
 			level.activ freezeControls(false);
-			while( isAlive( player ) && isDefined( player ) )
+			while( isDefined( player ) && isAlive( player ) )
 			wait .05;
 	}
 }

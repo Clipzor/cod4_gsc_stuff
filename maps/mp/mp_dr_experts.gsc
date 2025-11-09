@@ -3,16 +3,12 @@ main()
 // Doors \\
 	thread door1();
 // Misc \\
-	thread onPlayerConnect();
 	thread credits();
 	thread rotate1();
 	thread rotate2();
 	thread platform1();
-	thread teleport1();
-	thread teleport2();
-	thread teleport3();
-	thread teleport4();
-	thread teleport5();
+
+	thread teleport_setup();
 // Music Menu \\
 	thread initMusic();
 	thread musictrig();
@@ -58,84 +54,16 @@ addTriggerToList( name )
 
 // Misc Scripts \\
 
-spawn_message()
-{
-	self waittill("spawned_player");
-
-	wait 2;
-
-	for(Idx = 0;Idx < 5;Idx++)
-		self IPrintLn(" ");
-
-	self iPrintLn("^7->xFire - ^3pun1sh3r99");
-	self iPrintLn("^7->Steam - ^3pun1sh3r99");
-	self iPrintLn("^7->Map Created By - ^3JynX^7*");
-}
-onPlayerConnect()
-{
-	for(;;)
-	{
-		level waittill( "connected", player );
-		player thread spawn_message();
-		
-	}
-}
 credits()
 {
 	trig = getEnt ("credits", "targetname");
 	
-	for(;;)
-	{
-		trig waittill ("trigger", player);
-		trig delete();
-		
-		hud_clock = NewHudElem();
-		hud_clock.alignX = "center";
-		hud_clock.alignY = "middle";
-		hud_clock.horzalign = "center";
-		hud_clock.vertalign = "middle";
-		hud_clock.alpha = 1;
-		hud_clock.x = 0;
-		hud_clock.y = 0;
-		hud_clock.font = "objective";
-		hud_clock.fontscale = 1.4;
-		hud_clock.glowalpha = 1;
-		hud_clock.glowcolor = (1,0,0);
-		hud_clock.label = &"^7>> ^3Map Experts -> ^7Made By ^3JynX ^7<<";
-		hud_clock SetPulseFX( 40, 5400, 200 );	
-		wait 6;
-		hud_clock = NewHudElem();
-		hud_clock.alignX = "center";
-		hud_clock.alignY = "middle";
-		hud_clock.horzalign = "center";
-		hud_clock.vertalign = "middle";
-		hud_clock.alpha = 1;
-		hud_clock.x = 0;
-		hud_clock.y = 0;
-		hud_clock.font = "objective";
-		hud_clock.fontscale = 1.4;
-		hud_clock.glowalpha = 1;
-		hud_clock.glowcolor = (1,0,0);
-		hud_clock.label = &"^7>> ^3Special thanks to ^7pXg|^3Manix ^7<<";
-		hud_clock SetPulseFX( 40, 5400, 200 );	
-		wait 6;
-		hud_clock = NewHudElem();
-		hud_clock.alignX = "center";
-		hud_clock.alignY = "middle";
-		hud_clock.horzalign = "center";
-		hud_clock.vertalign = "middle";
-		hud_clock.alpha = 1;
-		hud_clock.x = 0;
-		hud_clock.y = 0;
-		hud_clock.font = "objective";
-		hud_clock.fontscale = 1.4;
-		hud_clock.glowalpha = 1;
-		hud_clock.glowcolor = (1,0,0);
-		hud_clock.label = &"^7>> ^3Visit www.pxg.me ^7<<";
-		hud_clock SetPulseFX( 40, 5400, 200 );	
-		wait 6;
-		wait 300;
-	}
+	
+	trig waittill ("trigger", player);
+	trig delete();
+	
+	iprintln("^7>> ^3Map Experts -> ^7Made By ^3JynX ^7<<");
+	iprintln("^7>> ^3Special thanks to ^7pXg|^3Manix ^7<<");
 }
 rotate1()
 {
@@ -211,111 +139,45 @@ platform1()
 		wait 3;
 	}
 }
-teleport1()
+
+transporter()
+{
+	entTarget = getent(self.target, "targetname");
+	while(true)
+	{
+		self waittill("trigger",player);
+		player setorigin(entTarget.origin);
+		player setplayerangles(entTarget.angles);
+	}
+}
+teleport_setup()
 {
 	entTransporter = getentarray("acti2","targetname");
 	if(isdefined(entTransporter))
-  {
-    for(lp=0;lp<entTransporter.size;lp=lp+1)
-      entTransporter[lp] thread Transporter();
-  }
-}
-transporter()
-{
-	while(true)
-	{
-		self waittill("trigger",player);
-		entTarget = getent(self.target, "targetname");
-		wait(0.10);
-		player setorigin(entTarget.origin);
-		player setplayerangles(entTarget.angles);
-		wait(0.10);
-	}
-}
-teleport2()
-{
+    	for(lp=0;lp<entTransporter.size;lp=lp+1)
+    		entTransporter[lp] thread Transporter();
+
 	entTransporter = getentarray("acti3","targetname");
 	if(isdefined(entTransporter))
-  {
-    for(lp=0;lp<entTransporter.size;lp=lp+1)
-      entTransporter[lp] thread Transporter2();
-  }
-}
-transporter2()
-{
-	while(true)
-	{
-		self waittill("trigger",player);
-		entTarget = getent(self.target, "targetname");
-		wait(0.10);
-		player setorigin(entTarget.origin);
-		player setplayerangles(entTarget.angles);
-		wait(0.10);
-	}
-}
-teleport3()
-{
+    	for(lp=0;lp<entTransporter.size;lp=lp+1)
+    		entTransporter[lp] thread Transporter();
+
 	entTransporter = getentarray("acti4","targetname");
 	if(isdefined(entTransporter))
-  {
-    for(lp=0;lp<entTransporter.size;lp=lp+1)
-      entTransporter[lp] thread Transporter3();
-  }
-}
-transporter3()
-{
-	while(true)
-	{
-		self waittill("trigger",player);
-		entTarget = getent(self.target, "targetname");
-		wait(0.10);
-		player setorigin(entTarget.origin);
-		player setplayerangles(entTarget.angles);
-		wait(0.10);
-	}
-}
-teleport4()
-{
+    	for(lp=0;lp<entTransporter.size;lp=lp+1)
+    		entTransporter[lp] thread Transporter();
+
 	entTransporter = getentarray("acti5","targetname");
 	if(isdefined(entTransporter))
-  {
-    for(lp=0;lp<entTransporter.size;lp=lp+1)
-      entTransporter[lp] thread Transporter4();
-  }
-}
-transporter4()
-{
-	while(true)
-	{
-		self waittill("trigger",player);
-		entTarget = getent(self.target, "targetname");
-		wait(0.10);
-		player setorigin(entTarget.origin);
-		player setplayerangles(entTarget.angles);
-		wait(0.10);
-	}
-}
-teleport5()
-{
+    	for(lp=0;lp<entTransporter.size;lp=lp+1)
+    		entTransporter[lp] thread Transporter();
+
 	entTransporter = getentarray("acti6","targetname");
 	if(isdefined(entTransporter))
-  {
-    for(lp=0;lp<entTransporter.size;lp=lp+1)
-      entTransporter[lp] thread Transporter5();
-  }
+    	for(lp=0;lp<entTransporter.size;lp=lp+1)
+    		entTransporter[lp] thread Transporter();
 }
-transporter5()
-{
-	while(true)
-	{
-		self waittill("trigger",player);
-		entTarget = getent(self.target, "targetname");
-		wait(0.10);
-		player setorigin(entTarget.origin);
-		player setplayerangles(entTarget.angles);
-		wait(0.10);
-	}
-}
+
 
 // Music Menu Script \\
 
@@ -751,7 +613,7 @@ games()
 	 	player died();
 	
 	             
-         	while( isAlive( player ) && isDefined( player ) )
+         	while( isDefined( player ) && isAlive( player ) )
 		if( isDefined( level.activ ) && isAlive( level.activ ) )
              	wait 1;
      	}

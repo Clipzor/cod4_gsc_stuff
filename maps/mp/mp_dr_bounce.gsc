@@ -198,15 +198,13 @@ teleport()
  
 transporter()
 {
+		entTarget = getEnt( self.target, "targetname" );
 	while(true)
 	{
 		self waittill( "trigger", player );
-		entTarget = getEnt( self.target, "targetname" );
-		wait 0.1;
 		player setOrigin( entTarget.origin );
 		player setplayerangles( entTarget.angles );
 		player iPrintLn("^7You got ^3teleported!");
-		wait 0.1;
 	}
 }
 

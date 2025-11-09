@@ -53,6 +53,7 @@ end()
 	trig delete();
 	level.disableRoomPlugin = true;
 	jumpers = getEntArray("player", "classname");
+	
 	if(player.pers["team"] == "axis")
 	{
 		iPrintLnBold("^1Activator won!");
@@ -87,11 +88,15 @@ end()
 
 gunChecker()
 {
+	self endon("disconnect");
 	for(;;)
 	{
-	wait .5;
-	self.gun = self getCurrentWeapon();
-		if (isAlive(self) && self.gun != "knife_mp")
+		wait .5;
+		if(!isAlive(self))
+			continue;
+			
+		self.gun = self getCurrentWeapon();
+		if (self.gun != "knife_mp")
 		{
 			self takeAllWeapons();
 			self giveWeapon("knife_mp");

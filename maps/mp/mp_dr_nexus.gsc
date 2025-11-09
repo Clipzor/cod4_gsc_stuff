@@ -488,7 +488,7 @@ sniper()
 		level.activ freezeControls(0);
 	
 	
-            while( isAlive( player ) && isDefined( player ) )
+            while( isDefined( player ) && isAlive( player ) )
 		wait 1;
 	}
 }
@@ -542,7 +542,7 @@ knife()
 		level.activ freezeControls(0);
 	
 	
-            while( isAlive( player ) && isDefined( player ) )
+            while( isDefined( player ) && isAlive( player ) )
 		wait 1;
 	}
 }
@@ -596,7 +596,7 @@ bounce()
 		level.activ freezeControls(0);
 	
 	
-            while( isAlive( player ) && isDefined( player ) )
+            while( isDefined( player ) && isAlive( player ) )
 		wait 1;
 	}
 }
@@ -650,7 +650,7 @@ fun()
 		level.activ freezeControls(0);
 	
 	
-            while( isAlive( player ) && isDefined( player ) )
+            while( isDefined( player ) && isAlive( player ) )
 		wait 1;
 	}
 }

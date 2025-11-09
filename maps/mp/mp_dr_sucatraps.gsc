@@ -99,14 +99,14 @@ tp()
  
 transporter()
 {
+		entTarget = getEnt( self.target, "targetname" );
 	while(true)
 	{
 		self waittill( "trigger", player );
-		entTarget = getEnt( self.target, "targetname" );
-		wait 0.1;
+
 		player setOrigin( entTarget.origin );
 		player setplayerangles( entTarget.angles );
-		wait 0.1;
+
 	}
 }
 
@@ -378,7 +378,7 @@ sniperoom()
 
 		
 		
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
         wait 0.1;
     }
 }
@@ -428,7 +428,7 @@ kniferoom()
 
 		
 		
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
         wait 0.1;
     }
 }
@@ -496,7 +496,7 @@ speedrunroom()
 		player freezeControls(false);
 		level.activ freezeControls(false);
 
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
         wait 0.1;
     }
 }
@@ -587,7 +587,7 @@ bounceroom()
 		
 
 
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
         wait 0.1;
     }
 }
@@ -669,7 +669,7 @@ rpgroom()
 		player thread refreshAmmo();
         level.activ thread refreshAmmo();
 		
-        while( isAlive( player ) && isDefined( player ) )
+        while( isDefined( player ) && isAlive( player ) )
         wait 0.1;
     }
 }
