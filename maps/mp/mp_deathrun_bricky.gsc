@@ -49,6 +49,9 @@ main()
 	level._effect["blii"] = loadfx("custom/end_blitz");
 	level._effect["fireway"] = loadfx("custom/fire");
 
+	level.firstenter = false;
+	level.disablenaderoom = false;
+
 	thread door();
 	thread credit();
 	thread dele();
@@ -80,15 +83,15 @@ main()
 
 
 
-					addTriggerToList("trap1_trig");
-					addTriggerToList("trap2_trig");
-					addTriggerToList("trap3_trig");
-					addTriggerToList("trap4_trig");
-					addTriggerToList("trap5_trig");
-					addTriggerToList("trap6_trig");
-					addTriggerToList("trap7_trig");
-					addTriggerToList("trap8_trig");
-					addTriggerToList("trap9_trig");
+	addTriggerToList("trap1_trig");
+	addTriggerToList("trap2_trig");
+	addTriggerToList("trap3_trig");
+	addTriggerToList("trap4_trig");
+	addTriggerToList("trap5_trig");
+	addTriggerToList("trap6_trig");
+	addTriggerToList("trap7_trig");
+	addTriggerToList("trap8_trig");
+	addTriggerToList("trap9_trig");
 
 }
 
@@ -460,6 +463,9 @@ fail3()
 
 ammo() //nade room ammo
 {
+	if(isdefined(level.disablenaderoom) && level.disablenaderoom)
+		return;
+
 	trig = getEnt ("nade_trig", "targetname");
 	
 	while(1)
@@ -472,6 +478,9 @@ ammo() //nade room ammo
 
 ammo2() //nade room ammo
 {
+	if(isdefined(level.disablenaderoom) && level.disablenaderoom)
+		return;
+		
 	trig = getEnt ("nade2_trig", "targetname");
 	
 	while(1)
@@ -520,15 +529,18 @@ sniper()
         if( !isDefined( level.final_sniper_trig ) )
             return;
         
-		//level.final_sniper_trig delete();
-		level.final_knife_trig delete();
-        level.final_wep_trig delete();
-		level.final_rpg_trig delete();
-		level.final_nade_trig delete();
+		if(!level.firstenter) {
+			level.firstenter = true;
+			//level.final_sniper_trig delete();
+			level.final_knife_trig delete();
+			level.final_wep_trig delete();
+			level.final_rpg_trig delete();
+			level.final_nade_trig delete();
+		}
 		
 		
-         player.health = player.maxhealth;
-		 level.activ.health = level.activ.maxhealth;
+		player.health = player.maxhealth;
+		level.activ.health = level.activ.maxhealth;
 		player SetPlayerAngles( jump.angles );
         player setOrigin( jump.origin );
         player TakeAllWeapons();
@@ -576,14 +588,17 @@ rpg()
         if( !isDefined( level.final_rpg_trig ) )
             return;
         
-		level.final_sniper_trig delete();
-		level.final_knife_trig delete();
-        level.final_wep_trig delete();
-		//level.final_rpg_trig delete();
-		level.final_nade_trig delete();
+		if(!level.firstenter) {
+			level.firstenter = true;
+			level.final_sniper_trig delete();
+			level.final_knife_trig delete();
+			level.final_wep_trig delete();
+			//level.final_rpg_trig delete();
+			level.final_nade_trig delete();
+		}
       
-         player.health = player.maxhealth;
-		 level.activ.health = level.activ.maxhealth;
+		player.health = player.maxhealth;
+		level.activ.health = level.activ.maxhealth;
 		player SetPlayerAngles( jump.angles );
         player setOrigin( jump.origin );
         player TakeAllWeapons();
@@ -634,11 +649,14 @@ weapon()
         if( !isDefined( level.final_wep_trig ) )
             return;
         
-		level.final_sniper_trig delete();
-		level.final_knife_trig delete();
-        //level.final_wep_trig delete();
-		level.final_rpg_trig delete();
-		level.final_nade_trig delete();
+		if(!level.firstenter) {
+			level.firstenter = true;
+			level.final_sniper_trig delete();
+			level.final_knife_trig delete();
+			//level.final_wep_trig delete();
+			level.final_rpg_trig delete();
+			level.final_nade_trig delete();
+		}
 
       
          player.health = player.maxhealth;
@@ -682,20 +700,23 @@ nade()
     jump = getEnt ("nade_j", "targetname");
     acti = getEnt ("nade_a", "targetname");
 	
-     while(1)
+    while(1)
     {
         level.final_nade_trig waittill( "trigger", player );
         if( !isDefined( level.final_nade_trig ) )
             return;
         
-     	level.final_sniper_trig delete();
-		level.final_knife_trig delete();
-        level.final_wep_trig delete();
-		level.final_rpg_trig delete();
-		//level.final_nade_trig delete();
+		if(!level.firstenter) {
+			level.firstenter = true;
+			level.final_sniper_trig delete();
+			level.final_knife_trig delete();
+			level.final_wep_trig delete();
+			level.final_rpg_trig delete();
+			//level.final_nade_trig delete();
+		}
       
-         player.health = player.maxhealth;
-		 level.activ.health = level.activ.maxhealth;
+		player.health = player.maxhealth;
+		level.activ.health = level.activ.maxhealth;
 		player SetPlayerAngles( jump.angles );
         player setOrigin( jump.origin );
         player TakeAllWeapons();
@@ -740,14 +761,17 @@ knife()
         if( !isDefined( level.final_knife_trig ) )
             return;
         
-		level.final_sniper_trig delete();
-		//level.final_knife_trig delete();
-        level.final_wep_trig delete();
-		level.final_rpg_trig delete();
-		level.final_nade_trig delete();
+		if(!level.firstenter) {
+			level.firstenter = true;
+			level.final_sniper_trig delete();
+			//level.final_knife_trig delete();
+			level.final_wep_trig delete();
+			level.final_rpg_trig delete();
+			level.final_nade_trig delete();
+		}
       
-         player.health = player.maxhealth;
-		 level.activ.health = level.activ.maxhealth;
+		player.health = player.maxhealth;
+		level.activ.health = level.activ.maxhealth;
 		player SetPlayerAngles( jump.angles );
         player setOrigin( jump.origin );
         player TakeAllWeapons();

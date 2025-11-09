@@ -5,11 +5,10 @@
 
 main()
 {
+	// map version 1.0
+	
 	maps\mp\mp_dr_flippery_fx::main();
 	maps\mp\_load::main();
-
-	// thread maps\saveload::main();
-	// thread maps\entity_visualizer::init();
 
 	game["allies"] = "sas";
 	game["axis"] = "russian";
@@ -21,9 +20,6 @@ main()
 	level.water_splash_player_fx = LoadFX( "custom/water_splash_player" );
 	level.bounce_fx = LoadFX( "custom/bounce_fx" );
 	level.sniper_room_fx = LoadFX( "custom/sniper_room_fx" );
-
-	level.trail_launcher_acti = LoadFX( "custom/grenade_launcher_trail" );
-	level.trail_launcher_jump = LoadFX( "custom/grenade_launcher_trail_2" );
 
 	SetDvar("bg_falldamagemaxheight", 99999);
 	SetDvar("bg_falldamageminheight", 99998);
@@ -77,7 +73,8 @@ main()
 	songlist[songlist.size] = "rainynight";
 	songlist[songlist.size] = "danceforme";
 	notify_message("^7Welcome to ^3Flippery^7!", "^7Map by ^3Clippy^7!", 5, (1, 0.74, 0.47), undefined, undefined );
-	ambientstop();
+	wait 1;
+	ambientstop(2);
 	ambientplay(songlist[randomint(songlist.size)]);
 }
 
@@ -94,6 +91,7 @@ water_splash_fx() {
 }
 
 reset_var_splash_fx(trigger) {
+	self endon("disconnect");
 	while(self istouching(trigger))
 		wait 0.05;
 
@@ -194,6 +192,29 @@ sniper_fail() {
 	}
 }
 
+detect_stuck_in_sniper_reverser(center) {
+	for(;;) {
+		self waittill("trigger" , player);
+		if(!isdefined(player.fljbndksjnvsl)) {
+			player.fljbndksjnvsl = 1;
+			player thread detect_stuck_in_sniper_reverser_timer(self, center);
+		}
+	}
+}
+
+detect_stuck_in_sniper_reverser_timer(trigger, center) {
+	while(self istouching(trigger)) {
+		wait 0.1;
+		self.fljbndksjnvsl++;
+		if(self.fljbndksjnvsl > 10) {
+			pp = vectornormalize((center.origin + (0,0,800)) - self.origin);
+			self setvelocity(pp * 600);
+			wait 1;
+		}
+	}
+	self.fljbndksjnvsl = undefined;
+}
+
 sniper_room(trigger) {
 	sniper_acti = GetEnt("sniper_acti", "targetname");
 	sniper_jumper = GetEnt("sniper_jumper", "targetname");
@@ -214,8 +235,12 @@ sniper_room(trigger) {
 	sniper_velocity_1 = getEnt ("velocity_trigger1", "targetname");
 	sniper_velocity_2 = getEnt ("velocity_trigger2", "targetname");
 	
+	mid_point = getent(sniper_fail.target,"targetname");
 	sniper_velocity_1 thread snipervelocity();
 	sniper_velocity_2 thread snipervelocity();
+
+	sniper_velocity_1 thread detect_stuck_in_sniper_reverser(mid_point);
+	sniper_velocity_2 thread detect_stuck_in_sniper_reverser(mid_point);
 
 	for(;;)
     {
@@ -256,9 +281,6 @@ sniper_room(trigger) {
         player switchToWeapon("m40a3_mp");
         activator switchToWeapon("m40a3_mp");
 
-        player.maxhealth = 100;
-		activator.maxhealth = 100;
-
         player.health = player.maxhealth;
         activator.health = activator.maxhealth;
         
@@ -268,12 +290,16 @@ sniper_room(trigger) {
 }
 
 reset_var_touching_sniper(trig) {
+	self endon("disconnect");
+
 	while(self istouching(trig))
 		wait 0.05;
 
 	self.vsidjnvlsmnvlsj = undefined;
 }
 reset_var_touching_sniper_2(trig) {
+	self endon("disconnect");
+
 	while(self istouching(trig))
 		wait 0.05;
 
@@ -366,7 +392,7 @@ ghost_secret() {
 	ghost_secret_protect thread ghost_secret_protect(ghost_secret_protect_org);
 	ghost_secret_open thread ghost_secret_gate(ghost_secret_gate);
 
-	amount = 250;
+	amount = 150;
 
 	offset_01 = 4416;
 	offset_2 = 1776;
@@ -612,6 +638,7 @@ jump_room(trigger)
 
 		player freeze_on_tps(4);
 		activator freeze_on_tps(4);
+		thread countdown_timer_string(4, "^1Fight", "^3");
 
 	    player setOrigin (bounce_jumper_1.origin);
         activator setOrigin (bounce_acti_1.origin);
@@ -627,9 +654,6 @@ jump_room(trigger)
 
         player switchToWeapon("h1_bayonet_mp");
         activator switchToWeapon("h1_bayonet_mp");
-
-        player.maxhealth = 100;
-		activator.maxhealth = 100;
 
         player.health = player.maxhealth;
         activator.health = activator.maxhealth;
@@ -663,6 +687,7 @@ knife_room(trigger)
 
 		player freeze_on_tps(4);
 		activator freeze_on_tps(4);
+		thread countdown_timer_string(4, "^1Fight", "^3");
 
 	    player setOrigin (knife_jumper.origin);
         activator setOrigin (knife_acti.origin);
@@ -678,9 +703,6 @@ knife_room(trigger)
 
         player switchToWeapon("h1_bayonet_mp");
         activator switchToWeapon("h1_bayonet_mp");
-
-        player.maxhealth = 100;
-		activator.maxhealth = 100;
 
         player.health = player.maxhealth;
         activator.health = activator.maxhealth;
@@ -724,6 +746,7 @@ rpg_room(trigger) {
 
 		player freeze_on_tps(4);
 		activator freeze_on_tps(4);
+		thread countdown_timer_string(4, "^1Fight", "^3");
 
 		player setOrigin (rpg_room_sur.origin);
         activator setOrigin (rpg_room_acti.origin);
@@ -743,14 +766,8 @@ rpg_room(trigger) {
 		player thread unlimited_stock_ammo_end_death("h2_m79a_mp", 1);
 		activator thread unlimited_stock_ammo_end_death("h2_m79b_mp", 1);
 
-        player.maxhealth = 100;
-		activator.maxhealth = 100;
-
         player.health = player.maxhealth;
         activator.health = activator.maxhealth;
-
-		playfxontag(rpg_trail_fx(player), player, "tag_origin");
-		playfxontag(rpg_trail_fx(activator), activator, "tag_origin");
         
 		while(isDefined(player) && isAlive(player))
             wait .05;
@@ -761,9 +778,9 @@ countdown_timer_string(time, string, color) {
 	for(i=time;i>0;i--) {
 
 		if(isdefined(color))
-			iprintlnbold(color + time);
+			iprintlnbold(color + i);
 		else
-			iprintlnbold(time);
+			iprintlnbold(i);
 		wait 1;
 	}
 	iprintlnbold(string);
@@ -835,6 +852,24 @@ createHUD( x, y, alignX, alignY, alpha, font, fontScale )
     return hud;
 }
 
+createClientHUD( x, y, alignX, alignY, alpha, font, fontScale )
+{
+    hud = NewclientHudElem(self);
+    hud.x = x;
+    hud.y = y;
+    hud.alignX = alignX;
+    hud.alignY = alignY;
+    hud.horzalign = alignX;
+    hud.vertalign = alignY;
+    hud.alpha = alpha;
+    hud.font = font;
+    hud.fontscale = fontScale;
+    hud.glowalpha = 0;
+    hud.glowcolor = (1,1,1);
+
+    return hud;
+}
+
 rpg_fall_trigger(mid, acti, sur) {
 	for(;;) {
 		self waittill("trigger", player);
@@ -847,17 +882,9 @@ rpg_fall_trigger(mid, acti, sur) {
 			player setorigin(sur.origin);
 			player setplayerangles((player getplayerangles()[0], sur.angles[1], 0)); 
 		}
-
-		playfxontag(rpg_trail_fx(player), player, "tag_origin");
 	}
 }
 
-rpg_trail_fx(gaylord) {
-	if(gaylord.team == "axis")
-		return level.trail_launcher_acti;
-	else
-		return level.trail_launcher_jump;
-}
 
 rpg_bounce_trigger(ent) {
 	for(;;) {
@@ -865,7 +892,6 @@ rpg_bounce_trigger(ent) {
 		if(player GetVelocity()[2] > 30) {
 			player setorigin((player.origin[0],ent.origin[1],ent.origin[2]));
 			player special_bounce_fx();
-			playfxontag(rpg_trail_fx(player), player, "tag_origin");
 		}
 	}
 }
@@ -916,6 +942,50 @@ setup_secret() {
 	gun_secret_shot thread gun_secret("Press ^3[&&1] ^7For a ^2M1014 ^7& ^2Bayonet", "m1014");
 	gun_secret_uzi thread gun_secret("Press ^3[&&1] ^7For a ^1Uzi ^7& ^1Tactical Knife", "uzi");
 	gun_secret_aku thread gun_secret("Press ^3[&&1] ^7For a ^6AK74-u ^7& ^6Gold Deagle", "ak74u");
+}
+
+secret_timer(label, time, ent, fail_string) {
+	self endon("disconnect");
+	self notify("new_secret");
+	self endon("new_secret");
+	self endon("finish_secret");
+
+	if (isDefined(self.secret_timer)) self.secret_timer destroy();
+
+    self.secret_timer = createClientHUD( 180, -10, "left", "bottom", 1, "objective", 1.4 );
+    self.secret_timer.label = label;
+
+	for(i=time;i>0;i--) {
+		self.secret_timer setvalue(i);
+		wait 1;
+	}
+
+	if(isdefined(fail_string))
+		iprintln(fail_string);
+	
+	self freeze_on_tps(0.05);
+
+	self setorigin(ent.origin);
+	self setplayerangles((self getplayerangles()[0], ent.angles[1], 0));
+
+	if (isDefined(self.secret_timer)) self.secret_timer destroy();
+
+	self.disallow_secret = true;
+	self thread disallow_secret();
+}
+
+disallow_secret() {
+	self endon("disconnect");
+	self waittill("death");
+	self.disallow_secret = undefined;
+}
+
+stop_secret_enter(ent) {
+	wait 0.05;
+	self iprintln("^1You Are Not Allowed In Secret!\n^1You Suck Too Much");
+	self freeze_on_tps(0.05);
+	self setorigin(ent.origin);
+	self setplayerangles((self getplayerangles()[0], ent.angles[1], 0));
 }
 
 gun_secret(hintstring, weapon) {
@@ -969,7 +1039,7 @@ hard_secret_secret() {
 			player.dsfgbdfsdgfvdf = true;
 			player iprintlnbold("How did you find this?");
 			if(!isdefined(player.ghost)){
-				self braxi\_rank::giveRankXP("", 500);
+				self braxi\_rank::giveRankXP("", 700);
 			}
 		}
 	}
@@ -1061,22 +1131,39 @@ teleporter_logic(trigger, exit_ent, angles, freeze, function) {
 }
 
 enter_hard_secret_msg() {
+	if(isdefined(self.disallow_secret)) {
+		wait 0.05;
+		self thread stop_secret_enter(GetEnt("failed_hard_secret", "targetname"));
+		return;
+	}
+
+	self thread secret_timer(&"^1Hard ^7Secret Timer:^3 ", 60, GetEnt("failed_hard_secret", "targetname"), "^6" + self.name + " ^1Failed ^1Hard ^3Secret");
 	iprintln("^6" + self.name + " ^7Entered ^1Hard ^3Secret");
 }
 enter_easy_secret_msg() {
+	if(isdefined(self.disallow_secret)) {
+		wait 0.05;
+		self thread stop_secret_enter(GetEnt("failed_easy_secret", "targetname"));
+		return;
+	}
 	self.easy_secret_pos = 1;
+	self thread secret_timer(&"^2Easy ^7Secret Timer:^3 ", 80, GetEnt("failed_easy_secret", "targetname"), "^6" + self.name + " ^1Failed ^2Easy ^3Secret");
 	iprintln("^6" + self.name + " ^7Entered ^2Easy ^3Secret");
 }
 exit_hard_secret_msg() {
 	iprintln("^6" + self.name + " ^7Finished ^1Hard ^3Secret");
+	self notify("finish_secret");
+	if (isDefined(self.secret_timer)) self.secret_timer destroy();
 	if(!isdefined(self.ghost)){
 		self braxi\_rank::giveRankXP("", 500);
 	}
 }
 exit_easy_secret_msg() {
 	iprintln("^6" + self.name + " ^7Finished ^2Easy ^3Secret");
+	self notify("finish_secret");
+	if (isDefined(self.secret_timer)) self.secret_timer destroy();
 	if(!isdefined(self.ghost)){
-		self braxi\_rank::giveRankXP("", 500);
+		self braxi\_rank::giveRankXP("", 300);
 	}
 }
 
@@ -1502,6 +1589,7 @@ arrow_kill_notify(string) {
 
 arrow_kill_on_freerun(string) {
 	level waittill_any( "round_freerun", string );
+	wait 0.25;
 	self delete();
 }
 
@@ -1523,9 +1611,11 @@ arrow_logic(string, trigger) {
 			}
 		}
 		for(j=0;j<arrows.size;j++) {
-			arrows[j] Hide();
-			for(k=0;k<touching_players.size;k++)
-				arrows[j] ShowToPlayer(touching_players[k]);
+			if(isdefined(arrows[j])) {
+				arrows[j] Hide();
+				for(k=0;k<touching_players.size;k++)
+					arrows[j] ShowToPlayer(touching_players[k]);
+			}
 		}
 	}
 }

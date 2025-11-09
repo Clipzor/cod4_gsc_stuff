@@ -19,8 +19,7 @@ main()
     thread trap5();
     thread trap6();
     thread trap7();
-	thread printcredits();
-	thread creator();
+
 	thread snip();
 	thread knife();
  
@@ -29,8 +28,8 @@ main()
 Music()
 {
     wait 5;
+    iPrintLn("^4---^1Around Made By sxzoR^4---");
 	AmbientPlay( "ambient3" );
-	iprintlnbold("^0---^4Map made by ^1sxzoR^0---");
 }
 
 startdoor()
@@ -155,70 +154,6 @@ trap7()
     }
 }
 
-printcredits()
-    {
-            if( isDefined( self.logoText ) )
-                    self.logoText destroy();
-     
-            self.logoText = newHudElem();
-            self.logoText.y = 10;
-            self.logoText.alignX = "center";
-            self.logoText.alignY = "middle";
-            self.logoText.horzAlign = "center_safearea";
-     
-            self.logoText.alpha = 0;
-            self.logoText.sort = -3;
-            self.logoText.fontScale = 1.6;
-            self.logoText.archieved = true;
-     
-            for(;;)
-            {
-                    self.logoText fadeOverTime(1);
-                    self.logoText.alpha = 1;
-                    self.logoText setText("^4---^1Map made by sxzoR^4---");
-                    wait 3;
-                    self.logoText fadeOverTime(1);
-                    self.logoText.alpha = 0;
-                    wait 1;
-                    self.logoText fadeOverTime(1);
-                    self.logoText.alpha = 1;
-                    self.logoText setText("^4---^1xFire: dinac777^4---");
-                    wait 3;
-                    self.logoText fadeOverTime(1);
-                    self.logoText.alpha = 0;
-                    wait 1;
-                    self.logoText fadeOverTime(1);
-                    self.logoText.alpha = 1;
-                    self.logoText setText("^4---^1mp_dr_around^4---");
-                    wait 3;
-                    self.logoText fadeOverTime(1);
-                    self.logoText.alpha = 0;
-                    wait 1;
-                    self.logoText fadeOverTime(1);
-                    self.logoText.alpha = 1;
-                    self.logoText setText("^4---^1Thanks For Playing^4---");
-                    wait 3;
-                    self.logoText fadeOverTime(1);
-                    self.logoText.alpha = 0;
-                    wait 1;
-
-		}
-	
-	}
-
-creator()
-{
-wait(5);
-thread braxi\_mod::drawInformation( 800, 0.8, 1, "mp_dr_around" );
-while( 1 )
-{
-iPrintLn("^4---^1Map made by sxzoR^4---");
-wait(40);
-iPrintLn("^4---^1xFire: dinac777^4---");
-wait(40);
-iPrintLn("^4---^1mp_dr_around^4---");
-}
-}
 
 snip()
 {
@@ -243,32 +178,33 @@ snip()
         level.finalJumper = player;
         level.finalJumper thread finalMonitor();
        
-        level.finalJumper finalroom2( tele_jumper, "m40a3_mp", 100 );
-        level.activ finalroom2( tele_activator, "m40a3_mp", 100 );
+        level.finalJumper FreezeControls(1);
+        level.activ FreezeControls(1);
+        wait 0.05;
+        level.finalJumper finalroom( tele_jumper, "m40a3_mp", 100 );
+        level.activ finalroom( tele_activator, "m40a3_mp", 100 );
        
                
         noti = SpawnStruct();
-                                noti.titleText = "Snip Fight";
-                                noti.notifyText = level.activ.name + " ^5VS^7 " + player.name;
-                                noti.glowcolor = (0,0.9,0.7);
-                                noti.duration = 4;
-                                players = getentarray("player", "classname");
-                                for(i=0;i<players.size;i++)
-                                        players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
+        noti.titleText = "Snip Fight";
+        noti.notifyText = level.activ.name + " ^5VS^7 " + player.name;
+        noti.glowcolor = (0,0.9,0.7);
+        noti.duration = 4;
+        players = getentarray("player", "classname");
+        for(i=0;i<players.size;i++)
+                players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
  
-    level.finalJumper FreezeControls(1);
-    level.activ FreezeControls(1);
-    wait 3;
-    level.finalJumper FreezeControls(0);
-    level.activ FreezeControls(0);
+        wait 3;
+        level.finalJumper FreezeControls(0);
+        level.activ FreezeControls(0);
  
  
  
     }
     // code never gets here
 }
- 
-finalroom2( tp, weap, health )
+
+finalroom( tp, weap, health )
 {
     self SetPlayerAngles( tp.angles );
     self SetOrigin( tp.origin );
@@ -277,8 +213,10 @@ finalroom2( tp, weap, health )
     self GiveWeapon( weap );
     self GiveMaxAmmo( weap );
     self SwitchToWeapon( weap );
+    self.health = health;
  
 }
+ 
  
 knife()
 {
@@ -303,27 +241,25 @@ knife()
         level.finalJumper = player;
         level.finalJumper thread finalMonitor();
        
-        level.finalJumper finalroom1( tele_jumper, "knife_mp", 100 );
-        level.activ finalroom1( tele_activator, "knife_mp", 100 );
+        level.finalJumper FreezeControls(1);
+        level.activ FreezeControls(1);
+        wait 0.05;
+        level.finalJumper finalroom( tele_jumper, "knife_mp", 100 );
+        level.activ finalroom( tele_activator, "knife_mp", 100 );
        
                
         noti = SpawnStruct();
-                                noti.titleText = "Knife Fight";
-                                noti.notifyText = level.activ.name + " ^5VS^7 " + player.name;
-                                noti.glowcolor = (0,0.9,0.7);
-                                noti.duration = 4;
-                                players = getentarray("player", "classname");
-                                for(i=0;i<players.size;i++)
-                                        players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
+        noti.titleText = "Knife Fight";
+        noti.notifyText = level.activ.name + " ^5VS^7 " + player.name;
+        noti.glowcolor = (0,0.9,0.7);
+        noti.duration = 4;
+        players = getentarray("player", "classname");
+        for(i=0;i<players.size;i++)
+                players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
  
-    level.finalJumper FreezeControls(1);
-    level.activ FreezeControls(1);
-    wait 3;
-    level.finalJumper FreezeControls(0);
-    level.activ FreezeControls(0);
- 
- 
- 
+        wait 3;
+        level.finalJumper FreezeControls(0);
+        level.activ FreezeControls(0);
     }
 }
 
@@ -337,25 +273,8 @@ finalMonitor()
     level.finalJumper = undefined;
 }
  
-finalroom( tp, weap, health )
-{
-    self SetPlayerAngles( tp.angles );
-    self SetOrigin( tp.origin );  
  
-}
- 
-finalroom1( tp, weap, health )
-{
-    self SetPlayerAngles( tp.angles );
-    self SetOrigin( tp.origin );
-   
-    self TakeAllWeapons(); //this should be called so it takes away insertion perk in dr 1.2
-    self GiveWeapon( weap );
-    self GiveMaxAmmo( weap );
-    self SwitchToWeapon( weap );
- 
-}
- 
+
 monitorDisconnect()
 {
     self waittill( "disconnect" );

@@ -15,10 +15,10 @@ main()
     setDvar("bg_falldamagemaxheight", 20000 );
 	setDvar("bg_falldamageminheight", 15000 );
 	
-entTransporter = getentarray( "enter", "targetname" );
-	if(isdefined(entTransporter))
-	for( i = 0; i < entTransporter.size; i++ )
-	entTransporter[i] thread transporter();
+	entTransporter = getentarray( "enter", "targetname" );
+		if(isdefined(entTransporter))
+			for( i = 0; i < entTransporter.size; i++ )
+				entTransporter[i] thread transporter();
 
 //essentials 
 thread games();
@@ -101,14 +101,12 @@ addTriggerToList( name )
 
 transporter()
 {
+	entTarget = getEnt( self.target, "targetname" );
 	for(;;)
 	{
 		self waittill( "trigger", player );
-		entTarget = getEnt( self.target, "targetname" );
-		wait 0.1;
 		player setOrigin( entTarget.origin );
 		player setplayerangles( entTarget.angles );
-		wait 0.1;
 	}
 }
 
@@ -163,18 +161,14 @@ wait 3;
 
 credits()                   
 {                                      
-trigger = getent("credits","targetname");         
+	trigger = getent("credits","targetname");         
 
-trigger waittill("trigger", user);       
-trigger delete();
+	trigger waittill("trigger", user);       
+	trigger delete();
 
-iPrintlnBold( "^5MAP LITHIUM" );
-wait 1;  
-iPrintlnBold( "^5Made By Atally from vTx Server" );                    
-wait 1;  
-iPrintlnBold( "^5Thanks to Vc'Blade,Fakiz,Jynx for script help" );   
-wait 1;   
-iPrintlnBold( "^5enjoy" );                  
+	iprintln( "^5LITHIUM By Atally" );                    
+	wait 1;  
+	iprintln( "^5Thanks to Vc'Blade,Fakiz,Jynx for script help" );                
 }
 
 secret11()                   
@@ -243,19 +237,19 @@ wait 2;
 
 trap03()                   
 {                        
-trap03 = getent("trap03","targetname");             
-trigger = getent("trigger_trap03","targetname");   
+	trap03 = getent("trap03","targetname");             
+	trigger = getent("trigger_trap03","targetname");   
 
-trigger waittill("trigger", user);       
-trigger delete();
+	trigger waittill("trigger", user);       
+	trigger delete();
 
-while(1) 
-{                      
-trap03 moveZ(-224,1);      
-wait 4;                   
-trap03 moveZ(224,1); 
-wait 4; 
-}
+	while(1) 
+	{                      
+		trap03 moveZ(-224,1);      
+		wait 4;                   
+		trap03 moveZ(224,1); 
+		wait 4; 
+	}
 }
 
 trap031() 
@@ -401,20 +395,20 @@ wait 4;
 
 trap082()
 {
-trigger = getent("trigger_trap08","targetname");   
-trap082 = getEnt("trap082","targetname");                    
+	trigger = getent("trigger_trap08","targetname");   
+	trap082 = getEnt("trap082","targetname");                    
 
-trigger waittill("trigger", user); 
-trigger delete(); 
-                                          
-while(1) 
-{ 
-trap082 rotateYaw (-360,1.5); 
-trap082 moveZ(-190,2); 
-wait 4;                                                                                         
-trap082 moveZ(190,1.5); 
-wait 4;                            
-}
+	trigger waittill("trigger", user); 
+	trigger delete(); 
+											
+	while(1) 
+	{ 
+	trap082 rotateYaw (-360,1.5); 
+	trap082 moveZ(-190,2); 
+	wait 4;                                                                                         
+	trap082 moveZ(190,1.5); 
+	wait 4;                            
+	}
 }
 
 trap083()
