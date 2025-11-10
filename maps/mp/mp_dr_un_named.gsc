@@ -87,7 +87,6 @@ s1()
 		player setOrigin(ori.origin);
 		player SetPlayerAngles(ori.angles);
 		iPrintLnBold(player.name + "^0 found the secret !");
-		wait 1;
 	}
 }
 
@@ -98,15 +97,19 @@ s2()
 	while(1)
 	{
 		trig waittill("trigger", player);
+        player thread freeze_on_tp();
 		player setOrigin(ori.origin);
 		player SetPlayerAngles(ori.angles);
-		player freezeControls(true);
-		wait 2; 
-		player freezeControls(false);
+		
 		iPrintLnBold(player.name + "^0 finished the secret !");
 		player braxi\_rank::giveRankXP("", 500);
-		wait 1;
 	}
+}
+
+freeze_on_tp() {
+    self freezeControls(true);
+	wait 0.05; 
+	self freezeControls(false);
 }
 
 s3()
@@ -235,8 +238,10 @@ secret1()
 	{
 		secrett waittill("trigger", player);
 		iPrintLnBold("^4" + player.name + " ^3Bhop master");
-		player braxi\_rank::giveRankXP("", 500);
-		wait 1;
+        if(!isdefined(player.ilikefarmingxpcauseimabitch)) {
+		    player braxi\_rank::giveRankXP("", 500);
+            player.ilikefarmingxpcauseimabitch = true;
+        }
 	}
 }
 
@@ -247,8 +252,10 @@ secret2()
 	{
 		secret waittill("trigger", player);
 		iPrintLnBold("^4" + player.name + " ^3pro");
-		player braxi\_rank::giveRankXP("", 500);
-		wait 1;
+		if(!isdefined(player.ilikefarmingxpcauseimabitchtwo)) {
+		    player braxi\_rank::giveRankXP("", 500);
+            player.ilikefarmingxpcauseimabitchtwo = true;
+        }
 	}
 }
 
@@ -436,7 +443,6 @@ e1()
 	e1d=getent("e1d","targetname");
 	e1b=getent("e1b","targetname");
 	e1t=getent("e1t","targetname");
-	e1d enablelinkto();
 	e1d linkto(e1b);
 	e1t SetHintString("^3[USE]");
 	
@@ -457,7 +463,6 @@ e2()
 	e2d=getent("e2d","targetname");
 	e2b=getent("e2b","targetname");
 	e2t=getent("e2t","targetname");
-	e2d enablelinkto();
 	e2d linkto(e2b);
 	e2t SetHintString("^3[USE]");
 	
@@ -572,7 +577,6 @@ e6()
 	e6b1=getent("e6b1","targetname");
 	e6b2=getent("e6b2","targetname");
 	e6d=getent("e6d","targetname");
-	e6d enablelinkto();
 	e6d linkto(e6b2);
 	e6t SetHintString("^3[USE]");
 	
@@ -636,7 +640,6 @@ e9()
 	e9d=getent("e9d","targetname");
 	e9b=getent("e9b","targetname");
 	e9t=getent("e9t","targetname");
-	e9d enablelinkto();
 	e9d linkto(e9b);
 	e9t SetHintString("^3[USE]");
 	

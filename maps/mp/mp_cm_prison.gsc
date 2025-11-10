@@ -467,7 +467,6 @@ trap3()
    hurt = getent("trap3_hurt", "targetname");
    trig setHintString("^6Shoot them!");
    
-   hurt enablelinkto();
    hurt linkto (caulk);
    
    for(;;)
@@ -503,22 +502,16 @@ trap4()
    hurtf = getent("trap4_hurtf", "targetname");
    trig setHintString("^6Activate Lasers in mine!^7.");
    
-   hurta enablelinkto();
    hurta linkto (laser);
    
-   hurtb enablelinkto();
    hurtb linkto (laserb);
    
-   hurtc enablelinkto();
    hurtc linkto (laserc);
    
-   hurtd enablelinkto();
    hurtd linkto (laserd);
 
-   hurte enablelinkto();
    hurte linkto (lasere);
 
-   hurtf enablelinkto();
    hurtf linkto (laserf);
    
    trig waittill ("trigger");
