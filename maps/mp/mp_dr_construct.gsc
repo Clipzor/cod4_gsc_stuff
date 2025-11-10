@@ -25,7 +25,6 @@ main() {
 
     // Testing
 	setdvar( "g_speed","210" );
-    setdvar( "cg_fovscale","1.15" );
 
     // Fall Damage
 	setdvar("bg_falldamagemaxheight" , 99999);
@@ -38,7 +37,6 @@ main() {
     preCacheItem( "syndcarnage_mp" );
     preCacheItem( "r700_noscope_mp");
     preCacheItem( "m40a3_noscope_mp" );
-    preCacheShader( "material,koopa_headicon" );
     PreCacheHeadIcon("koopa_headicon");
 
     // Song List
@@ -789,16 +787,20 @@ zombie() {
             level.pure_tp_red show();
             level.pure_tp_blue hide();
 
+            if(level.firstenter) {
+                level.firstenter = false;
+                level.old delete();
+                level.sniper delete();    
+                level.purestrafe delete();
+                level.bounce delete();
+            }
+
             if( !level.inRoom ) {
 
             if( isDefined( level.zombie ) ) 
             level.inRoom = true;
             level.inKnife = true;
 
-                level.old delete();
-                level.sniper delete();    
-                level.purestrafe delete();
-                level.bounce delete();
 
                 wait 0.05;
 		        knife_hud = SpawnStruct();
@@ -870,10 +872,13 @@ purestrafe() {
         level.zombie_tp_red show();
         level.zombie_tp_blue hide();
 
-        level.old delete();
-        level.sniper delete();    
-        level.zombie delete();
-        level.bounce delete();
+        if(level.firstenter) {
+            level.firstenter = false;
+            level.old delete();
+            level.sniper delete();    
+            level.zombie delete();
+            level.bounce delete();
+        }
 
         player setOrigin (orig_jumper.origin);
         player setPlayerAngles (orig_jumper.angles);
@@ -923,30 +928,28 @@ purestrafe_finish(who, who2)
     origWin = getEnt ("win_purestrafe_finish_org", "targetname");
     origLose = getEnt ("lose_purestrafe_finish_org", "targetname");
 
-    while(1)
+    loser = undefined;
+    trig waittill("trigger", winner);
+    winner iPrintLnBold("^8You won!");
+    winner setOrigin (origWin.origin);
+    winner setPlayerAngles (origWin.angles);
+    winner takeAllWeapons();
+    winner giveWeapon("knife_mp");
+    winner giveMaxAmmo("knife_mp");
+    winner switchToWeapon("knife_mp");
+
+    if (winner == who)
+        loser = who2;
+    else
+        loser = who;
+
+    if (isDefined(loser))
     {
-        trig waittill("trigger", winner);
-        winner iPrintLnBold("^8You won!");
-        winner setOrigin (origWin.origin);
-        winner setPlayerAngles (origWin.angles);
-        winner takeAllWeapons();
-        winner giveWeapon("saw_reflex_mp");
-        winner giveMaxAmmo("saw_reflex_mp");
-        winner switchToWeapon("saw_reflex_mp");
-
-        if (winner == who)
-            loser = who2;
-        else
-            loser = who;
-
-        if (isDefined(loser))
-        {
-            loser setOrigin (origLose.origin);
-            loser setPlayerAngles (origLose.angles);
-            loser freezeControls (1);
-            loser takeAllWeapons();
-            loser iPrintLnBold("^8unlucky");
-        }
+        loser setOrigin (origLose.origin);
+        loser setPlayerAngles (origLose.angles);
+        loser freezeControls (1);
+        loser takeAllWeapons();
+        loser iPrintLnBold("^8unlucky");
     }
 }
 
@@ -978,16 +981,20 @@ sniper() {
         level.pure_tp_red show();
         level.pure_tp_blue hide();
 
+        if(level.firstenter) {
+            level.firstenter = false;
+            level.old delete();
+            level.purestrafe delete();    
+            level.zombie delete();
+            level.bounce delete();
+        }
+
         if( !level.inRoom ) {
         
             if( isDefined( level.sniper ) ) 
             level.inRoom = true;
             level.inSniper = true;
 
-            level.old delete();
-            level.purestrafe delete();    
-            level.zombie delete();
-            level.bounce delete();
 
             wait 0.05;
 		    sniper_hud = SpawnStruct();
@@ -1054,69 +1061,74 @@ bounce() {
         level.bounce waittill( "trigger", player );
         level.bounce setHintString( "^8" + player.name + " ^7is in Bounce battling it out with ^8" + level.activ.name + "^7!" );
 
-            level.old_tp_red show();
-            level.old_tp_blue hide();
-            level.sniper_tp_red show();
-            level.sniper_tp_blue hide();
-            level.zombie_tp_red show();
-            level.zombie_tp_blue hide();
-            level.pure_tp_red show();
-            level.pure_tp_blue hide();
+        level.old_tp_red show();
+        level.old_tp_blue hide();
+        level.sniper_tp_red show();
+        level.sniper_tp_blue hide();
+        level.zombie_tp_red show();
+        level.zombie_tp_blue hide();
+        level.pure_tp_red show();
+        level.pure_tp_blue hide();
 
-            if( !level.inRoom ) {
-            
-                if( isDefined( level.bounce ) ) 
-                level.inRoom = true;
-                level.inBounce = true;  
+        if(level.firstenter) {
+            level.firstenter = false;
+            level.old delete();
+            level.purestrafe delete();    
+            level.zombie delete();
+            level.sniper delete();
 
-                level.old delete();
-                level.purestrafe delete();    
-                level.zombie delete();
-                level.sniper delete();
+            thread bounce_grab();
+            thread bounce_fail();
+        }
 
-                wait 0.05;
-	    	    bounce_hud = SpawnStruct();
-	    	    bounce_hud.titleText = "Bounce Room";
-	    	    bounce_hud.notifyText = player.name + " [^8VS^7] " + level.activ.name;     // change self.name to level.activ.name
-	    	    bounce_hud.glowcolor = (.1725, .7373, .8);
-	    	    bounce_hud.duration = 5;
-	    	    players = getEntArray( "player", "classname" );
-	    	    for ( i = 0; i < players.size; i++ ) {
-	    	        players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( bounce_hud );
-	    	    }
+        if( !level.inRoom ) {
+        
+            if( isDefined( level.bounce ) ) 
+            level.inRoom = true;
+            level.inBounce = true;  
 
-                player SetPlayerAngles( jump.angles );
-                player setOrigin( jump.origin ); 
-                player TakeAllWeapons(); 
-                player GiveWeapon( "knife_mp" );
-                player switchToWeapon( "knife_mp" );
-                player GiveWeapon( "knife_mp" );
-                player switchToWeapon( "knife_mp" );
-                player.maxhealth = 100;
 
-                if( isDefined( level.activ ) && isAlive( level.activ ) ) {
+            wait 0.05;
+            bounce_hud = SpawnStruct();
+            bounce_hud.titleText = "Bounce Room";
+            bounce_hud.notifyText = player.name + " [^8VS^7] " + level.activ.name;     // change self.name to level.activ.name
+            bounce_hud.glowcolor = (.1725, .7373, .8);
+            bounce_hud.duration = 5;
+            players = getEntArray( "player", "classname" );
+            for ( i = 0; i < players.size; i++ ) {
+                players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( bounce_hud );
+            }
 
-                    level.activ setPlayerangles( acti.angles );
-                    level.activ setOrigin( acti.origin ); 
-                    level.activ TakeAllWeapons(); 
-                    level.activ GiveWeapon( "knife_mp" );
-                    level.activ switchToWeapon( "knife_mp" );
-                    level.activ GiveWeapon( "knife_mp" );
-                    level.activ switchToWeapon( "knife_mp" );
-                    level.activ.maxhealth = 100;
-                }
+            player SetPlayerAngles( jump.angles );
+            player setOrigin( jump.origin ); 
+            player TakeAllWeapons(); 
+            player GiveWeapon( "knife_mp" );
+            player switchToWeapon( "knife_mp" );
+            player GiveWeapon( "knife_mp" );
+            player switchToWeapon( "knife_mp" );
+            player.maxhealth = 100;
 
-                thread bounce_grab();
-                thread bounce_fail();
+            if( isDefined( level.activ ) && isAlive( level.activ ) ) {
 
-                level.activ freezeControls( true );
-                player freezeControls( true );
-                wait 3;
-                player freezeControls( false );
-                level.activ freezeControls( false );
-    
-                player waittill( "death" );
-	    	    level.inRoom = false;
+                level.activ setPlayerangles( acti.angles );
+                level.activ setOrigin( acti.origin ); 
+                level.activ TakeAllWeapons(); 
+                level.activ GiveWeapon( "knife_mp" );
+                level.activ switchToWeapon( "knife_mp" );
+                level.activ GiveWeapon( "knife_mp" );
+                level.activ switchToWeapon( "knife_mp" );
+                level.activ.maxhealth = 100;
+            }
+
+
+            level.activ freezeControls( true );
+            player freezeControls( true );
+            wait 3;
+            player freezeControls( false );
+            level.activ freezeControls( false );
+
+            player waittill( "death" );
+            level.inRoom = false;
         }
     }
 }

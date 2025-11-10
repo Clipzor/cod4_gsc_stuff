@@ -9,80 +9,82 @@ main()
    maps\mp\_load::main();
    
    addTriggerToList( "trig_trap1" );
-addTriggerToList( "trig_trap2" );
-addTriggerToList( "trig_trap3" );
-addTriggerToList( "trig_trap4" );
-addTriggerToList( "trig_trap5" );
-addTriggerToList( "trig_trap6" );
-addTriggerToList( "trig_trap7" );
-addTriggerToList( "trig_trap8" );
-addTriggerToList( "trig_trap9" );
-addTriggerToList( "trig_trap10" );
-addTriggerToList( "trig_trap11" );
-addTriggerToList( "trig_trap12" );
-thread trap1();
-thread trap2();
-thread trap3();
-thread trap4();
-thread trap5();
-thread trap6();
-thread trap7();
-thread trap8();
-thread trap9();
-thread trap10();
-thread trap11();
-thread trap12();
-thread mapmaker();
-thread startdoor();
-thread vipsetup();
-//otherstuff
-thread jumpsniper();
-thread shortcut();
-thread jumpplayertele();
-thread jumpactitele();
-thread secretopener();
-//music part
-thread musictrig();
-//welcome messages
-//endrooms
-thread sniper();
-thread deagle();
-thread bounce();
-thread knife();
-thread weapon();
+	addTriggerToList( "trig_trap2" );
+	addTriggerToList( "trig_trap3" );
+	addTriggerToList( "trig_trap4" );
+	addTriggerToList( "trig_trap5" );
+	addTriggerToList( "trig_trap6" );
+	addTriggerToList( "trig_trap7" );
+	addTriggerToList( "trig_trap8" );
+	addTriggerToList( "trig_trap9" );
+	addTriggerToList( "trig_trap10" );
+	addTriggerToList( "trig_trap11" );
+	addTriggerToList( "trig_trap12" );
+	thread trap1();
+	thread trap2();
+	thread trap3();
+	thread trap4();
+	thread trap5();
+	thread trap6();
+	thread trap7();
+	thread trap8();
+	thread trap9();
+	thread trap10();
+	thread trap11();
+	thread trap12();
 
-//teleports
+	thread startdoor();
+	thread vipsetup();
 
-thread teleport1();
-thread teleport2();
-thread actispawn1();
-thread actispawn2();
+	//otherstuff
+	thread jumpsniper();
+	thread shortcut();
+	thread jumpplayertele();
+	thread jumpactitele();
+	thread secretopener();
+	//music part
+	thread musictrig();
+	//welcome messages
+	//endrooms
+	thread sniper();
+	thread deagle();
+	thread bounce();
+	thread knife();
+	thread weapon();
 
-//ezsecret teleports
-thread ezsectele();
+	//teleports
 
-thread ezsectele1();
-thread ezsectele2();
-thread ezsectele3();
-thread ezsectele4();
-thread ezsectele5();
-thread ezsectele6();
-thread ezsecend();
-// hard secret teleports
-thread hardsectele();
-thread hardsectele1();
-thread hardsectele2();
-thread hardsectele3();
-thread hardsectele8();
-thread hardsecend();
+	thread teleport1();
+	thread teleport2();
+	thread actispawn1();
+	thread actispawn2();
 
+	//ezsecret teleports
+	thread ezsectele();
 
-game["allies"] = "marines";
-game["axis"] = "opfor";
-game["attackers"] = "axis";
-game["defenders"] = "allies";
-game["allies_soldiertype"] = "desert";
-game["axis_soldiertype"] = "desert";
+	thread ezsectele1();
+	thread ezsectele2();
+	thread ezsectele3();
+	thread ezsectele4();
+	thread ezsectele5();
+	thread ezsectele6();
+	thread ezsecend();
+	// hard secret teleports
+	thread hardsectele();
+	thread hardsectele1();
+	thread hardsectele2();
+	thread hardsectele3();
+	thread hardsectele8();
+	thread hardsecend();
+
+	level.firstenter = true;
+
+	game["allies"] = "marines";
+	game["axis"] = "opfor";
+	game["attackers"] = "axis";
+	game["defenders"] = "allies";
+	game["allies_soldiertype"] = "desert";
+	game["axis_soldiertype"] = "desert";
 	
 	if(!isdefined(level.music))
 		level.music=[];
@@ -266,12 +268,19 @@ short2 notsolid();
 trig delete();
 wait 1;
 }
+
 startdoor()
 {
-lutje=getent( "introdoor", "targetname" );
-wait 20;
-lutje movez(525, 5);
-wait 2;
+	lutje=getent( "introdoor", "targetname" );
+
+	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+        lutje delete();
+    } else {
+        wait 20;
+		lutje movez(525, 5);
+    }
+
+	
 }
 trap1()
 {
@@ -852,168 +861,156 @@ ezsecret_timer()
 //endrooms
 sniper()
 {
-level.sniper_trigger = getEnt( "sniper_trig", "targetname");
-level.run_trigger = getEnt( "run_trig", "targetname");
-level.weapon_trigger = getEnt( "weapon_trig", "targetname");
-level.knife_trigger = getEnt( "knife_trig", "targetname");
-level.bounce_trigger = getEnt( "bounce_trig", "targetname");
-level.deagle_trigger = getEnt( "deagle_trig", "targetname");
-level.teleactorigin = getEnt( "sniper1", "targetname" ); 
-telejumporigin = getEnt( "sniper2", "targetname" );
+	level.sniper_trigger = getEnt( "sniper_trig", "targetname");
+	level.run_trigger = getEnt( "run_trig", "targetname");
+	level.weapon_trigger = getEnt( "weapon_trig", "targetname");
+	level.knife_trigger = getEnt( "knife_trig", "targetname");
+	level.bounce_trigger = getEnt( "bounce_trig", "targetname");
+	level.deagle_trigger = getEnt( "deagle_trig", "targetname");
+	level.teleactorigin = getEnt( "sniper1", "targetname" ); 
+	telejumporigin = getEnt( "sniper2", "targetname" );
 
-while(1)
-{
-level.sniper_trigger waittill( "trigger", splayer );
+	while(1)
+	{
+		level.sniper_trigger waittill( "trigger", splayer );
 
-level.weapon_trigger delete();
-level.knife_trigger delete();
-level.bounce_trigger delete();
-level.deagle_trigger delete();
-level.run_trigger delete();    
-iprintln("Now Playing<<Pendulum – Crush>>");    
-ambientstop();
-ambientPlay( "sniper" );
-thread sniperfall(splayer);
+		if(level.firstenter==true)
+		{
+			level.firstenter=false;
+			level.weapon_trigger delete();
+			level.knife_trigger delete();
+			level.bounce_trigger delete();
+			level.deagle_trigger delete();
+			level.run_trigger delete();    
+		} 
 
-
-if( !isDefined( level.sniper_trigger ) )
-return;
-if(level.firstenter==true)
-{
-
-level.firstenter=false;
-} 
-wait(0.05);
-
-splayer SetOrigin( telejumporigin.origin );
-splayer setplayerangles( telejumporigin.angles );
-splayer TakeAllWeapons();
-splayer GiveWeapon("m40a3_mp");
-splayer GiveWeapon( "remington700_mp" ); 
-splayer GiveMaxAmmo("m40a3_mp");
-splayer GiveMaxAmmo( "remington700_mp" );
-wait .05;
-splayer SwitchToWeapon("m40a3_mp"); 
-wait(0.05);
-level.activ SetOrigin (level.teleactorigin.origin);
-level.activ setplayerangles (level.teleactorigin.angles);
-level.activ TakeAllWeapons();
-level.activ GiveWeapon( "m40a3_mp" );
-level.activ GiveWeapon( "remington700_mp" );
-level.activ GiveMaxAmmo("m40a3_mp");
-level.activ GiveMaxAmmo( "remington700_mp" );
-wait .05;
-level.activ SwitchToWeapon("m40a3_mp"); 
-iPrintlnBold( " ^8" + splayer.name + " ^4 has entered the Sniper room^8!" ); 
-splayer iPrintlnBold( "^13" );
-            splayer freezecontrols(true);
-			level.activ freezecontrols(true);
-            level.activ iPrintlnBold( "^13" );
-            wait 1;
-            splayer iPrintlnBold( "^32" );
-            level.activ iPrintlnBold( "^32" );
-            wait 1;
-            splayer iPrintlnBold( "^31" );
-            level.activ iPrintlnBold( "^31" );
-            wait 1;
-            splayer iPrintlnBold( "^6Fight^7!" );
-            level.activ iPrintlnBold( "^6Fight^6!" );
-            splayer freezecontrols(false); //Disables the freeze.
-            level.activ freezecontrols(false);
-wait(0.02);
-splayer switchToWeapon( "m40a3_mp" );
-level.activ SwitchToWeapon( "m40a3_mp" );
+		iprintln("Now Playing<<Pendulum – Crush>>");    
+		ambientstop();
+		ambientPlay( "sniper" );
+		thread sniperfall(splayer);
 
 
+		if( !isDefined( level.sniper_trigger ) )
+		return;
 
+		wait(0.05);
 
-splayer waittill( "death" );
-level.PlayerInRoom = false;
+		splayer SetOrigin( telejumporigin.origin );
+		splayer setplayerangles( telejumporigin.angles );
+		splayer TakeAllWeapons();
+		splayer GiveWeapon("m40a3_mp");
+		splayer GiveWeapon( "remington700_mp" ); 
+		splayer GiveMaxAmmo("m40a3_mp");
+		splayer GiveMaxAmmo( "remington700_mp" );
+		wait .05;
+		splayer SwitchToWeapon("m40a3_mp"); 
+		wait(0.05);
+		level.activ SetOrigin (level.teleactorigin.origin);
+		level.activ setplayerangles (level.teleactorigin.angles);
+		level.activ TakeAllWeapons();
+		level.activ GiveWeapon( "m40a3_mp" );
+		level.activ GiveWeapon( "remington700_mp" );
+		level.activ GiveMaxAmmo("m40a3_mp");
+		level.activ GiveMaxAmmo( "remington700_mp" );
+		wait .05;
+		level.activ SwitchToWeapon("m40a3_mp"); 
+		iPrintlnBold( " ^8" + splayer.name + " ^4 has entered the Sniper room^8!" ); 
+		splayer iPrintlnBold( "^13" );
+		splayer freezecontrols(true);
+		level.activ freezecontrols(true);
+		level.activ iPrintlnBold( "^13" );
+		wait 1;
+		splayer iPrintlnBold( "^32" );
+		level.activ iPrintlnBold( "^32" );
+		wait 1;
+		splayer iPrintlnBold( "^31" );
+		level.activ iPrintlnBold( "^31" );
+		wait 1;
+		splayer iPrintlnBold( "^6Fight^7!" );
+		level.activ iPrintlnBold( "^6Fight^6!" );
+		splayer freezecontrols(false); //Disables the freeze.
+		level.activ freezecontrols(false);
+		wait(0.02);
+		splayer switchToWeapon( "m40a3_mp" );
+		level.activ SwitchToWeapon( "m40a3_mp" );
 
-}
+		splayer waittill( "death" );
+		level.PlayerInRoom = false;
+	}
 }
 
 deagle()
 {
-level.sniper_trigger = getEnt( "sniper_trig", "targetname");
-level.run_trigger = getEnt( "run_trig", "targetname");
-level.weapon_trigger = getEnt( "weapon_trig", "targetname");
-level.knife_trigger = getEnt( "knife_trig", "targetname");
-level.bounce_trigger = getEnt( "bounce_trig", "targetname");
-level.deagle_trigger = getEnt( "deagle_trig", "targetname");
-level.dteleactorigin = getEnt( "deagle1", "targetname" ); 
-dtelejumporigin = getEnt( "deagle2", "targetname" );
+	level.sniper_trigger = getEnt( "sniper_trig", "targetname");
+	level.run_trigger = getEnt( "run_trig", "targetname");
+	level.weapon_trigger = getEnt( "weapon_trig", "targetname");
+	level.knife_trigger = getEnt( "knife_trig", "targetname");
+	level.bounce_trigger = getEnt( "bounce_trig", "targetname");
+	level.deagle_trigger = getEnt( "deagle_trig", "targetname");
+	level.dteleactorigin = getEnt( "deagle1", "targetname" ); 
+	dtelejumporigin = getEnt( "deagle2", "targetname" );
 
-while(1)
-{
-level.deagle_trigger waittill( "trigger", player );
+	while(1)
+	{
+		level.deagle_trigger waittill( "trigger", player );
 
-   level.weapon_trigger delete();
-level.knife_trigger delete();
-level.bounce_trigger delete();
-level.sniper_trigger delete(); 
-level.run_trigger delete();
-iprintln("Now Playing<<Linkin Park - BURN IT DOWN >>");    
-ambientstop();
-ambientPlay( "deagle" );
+		if( !isDefined( level.deagle_trigger ) )
+		return;
 
+		if(level.firstenter==true)
+		{
+			level.firstenter=false;
+			level.weapon_trigger delete();
+			level.knife_trigger delete();
+			level.bounce_trigger delete();
+			level.sniper_trigger delete(); 
+			level.run_trigger delete();
+		} 
 
+		iprintln("Now Playing<<Linkin Park - BURN IT DOWN >>");    
+		ambientstop();
+		ambientPlay( "deagle" );
 
-if( !isDefined( level.deagle_trigger ) )
-return;
-if(level.firstenter==true)
-{
+		player SetOrigin( dtelejumporigin.origin );
+		player setplayerangles( dtelejumporigin.angles );
+		player TakeAllWeapons();
+		player GiveWeapon("deserteagle_mp");
+		player GiveWeapon( "deserteaglegold_mp" ); 
+		player GiveMaxAmmo("deserteagle_mp");
+		player GiveMaxAmmo( "deserteaglegold_mp" );
+		player SwitchToWeapon("deserteagle_mp"); 
 
-level.firstenter=false;
-} 
-wait(0.05);
+		level.activ SetOrigin (level.dteleactorigin.origin);
+		level.activ setplayerangles (level.dteleactorigin.angles);
+		level.activ TakeAllWeapons();
+		level.activ GiveWeapon( "deserteagle_mp" );
+		level.activ GiveWeapon( "deserteaglegold_mp" );
+		level.activ GiveMaxAmmo("deserteagle_mp");
+		level.activ GiveMaxAmmo( "deserteaglegold_mp" );
+		level.activ SwitchToWeapon("deserteagle_mp"); 
+		iPrintlnBold( " ^8" + player.name + " ^4 has entered the Deagle room^8!" ); 
+		player iPrintlnBold( "^13" );
+		player freezecontrols(true);
+		level.activ freezecontrols(true);
+		level.activ iPrintlnBold( "^13" );
+		wait 1;
+		player iPrintlnBold( "^32" );
+		level.activ iPrintlnBold( "^32" );
+		wait 1;
+		player iPrintlnBold( "^31" );
+		level.activ iPrintlnBold( "^31" );
+		wait 1;
+		player iPrintlnBold( "^6Fight^7!" );
+		level.activ iPrintlnBold( "^6Fight^6!" );
+		player freezecontrols(false); //Disables the freeze.
+		level.activ freezecontrols(false);
+		wait(0.02);
+		player switchToWeapon( "deserteagle_mp" );
+		level.activ SwitchToWeapon( "deserteagle_mp" );
 
-player SetOrigin( dtelejumporigin.origin );
-player setplayerangles( dtelejumporigin.angles );
-player TakeAllWeapons();
-player GiveWeapon("deserteagle_mp");
-player GiveWeapon( "deserteaglegold_mp" ); 
-player GiveMaxAmmo("deserteagle_mp");
-player GiveMaxAmmo( "deserteaglegold_mp" );
-wait .05;
-player SwitchToWeapon("deserteagle_mp"); 
-wait(0.05);
-level.activ SetOrigin (level.dteleactorigin.origin);
-level.activ setplayerangles (level.dteleactorigin.angles);
-level.activ TakeAllWeapons();
-level.activ GiveWeapon( "deserteagle_mp" );
-level.activ GiveWeapon( "deserteaglegold_mp" );
-level.activ GiveMaxAmmo("deserteagle_mp");
-level.activ GiveMaxAmmo( "deserteaglegold_mp" );
-wait .05;
-level.activ SwitchToWeapon("deserteagle_mp"); 
-iPrintlnBold( " ^8" + player.name + " ^4 has entered the Deagle room^8!" ); 
-player iPrintlnBold( "^13" );
-            player freezecontrols(true);
-			level.activ freezecontrols(true);
-            level.activ iPrintlnBold( "^13" );
-            wait 1;
-            player iPrintlnBold( "^32" );
-            level.activ iPrintlnBold( "^32" );
-            wait 1;
-            player iPrintlnBold( "^31" );
-            level.activ iPrintlnBold( "^31" );
-            wait 1;
-            player iPrintlnBold( "^6Fight^7!" );
-            level.activ iPrintlnBold( "^6Fight^6!" );
-            player freezecontrols(false); //Disables the freeze.
-            level.activ freezecontrols(false);
-wait(0.02);
-player switchToWeapon( "deserteagle_mp" );
-level.activ SwitchToWeapon( "deserteagle_mp" );
-
-
-
-
-player waittill( "death" );
-level.PlayerInRoom = false;
-
-}
+		player waittill( "death" );
+		level.PlayerInRoom = false;
+	}
 }
 
 
@@ -1043,234 +1040,200 @@ player setplayerangles( playertele.angles );
 }
 bounce()
 {
-level.sniper_trigger = getEnt( "sniper_trig", "targetname");
-level.run_trigger = getEnt( "run_trig", "targetname");
-level.weapon_trigger = getEnt( "weapon_trig", "targetname");
-level.knife_trigger = getEnt( "knife_trig", "targetname");
-level.bounce_trigger = getEnt( "bounce_trig", "targetname");
-level.deagle_trigger = getEnt( "deagle_trig", "targetname");
-level.bactiorigin = getEnt( "jump1", "targetname" ); 
-btelejumporigin = getEnt( "jump2", "targetname" );
+	level.sniper_trigger = getEnt( "sniper_trig", "targetname");
+	level.run_trigger = getEnt( "run_trig", "targetname");
+	level.weapon_trigger = getEnt( "weapon_trig", "targetname");
+	level.knife_trigger = getEnt( "knife_trig", "targetname");
+	level.bounce_trigger = getEnt( "bounce_trig", "targetname");
+	level.deagle_trigger = getEnt( "deagle_trig", "targetname");
+	level.bactiorigin = getEnt( "jump1", "targetname" ); 
+	btelejumporigin = getEnt( "jump2", "targetname" );
 
-while(1)
-{
-level.bounce_trigger waittill( "trigger", player );
+	while(1)
+	{
+		level.bounce_trigger waittill( "trigger", player );
 
-level.weapon_trigger delete();
-level.run_trigger delete();
-level.knife_trigger delete();
-level.deagle_trigger delete();
-level.sniper_trigger delete();
-iprintln("Now Playing<<Linkin Park - Breaking the Habit>>");    
-ambientstop();    
-ambientPlay( "bounce" );
+		if( !isDefined( level.bounce_trigger ) )
+		return;
+		if(level.firstenter==true)
+		{
+			level.firstenter=false;
+			level.weapon_trigger delete();
+			level.run_trigger delete();
+			level.knife_trigger delete();
+			level.deagle_trigger delete();
+			level.sniper_trigger delete();
+		} 
 
+		iprintln("Now Playing<<Linkin Park - Breaking the Habit>>");    
+		ambientstop();    
+		ambientPlay( "bounce" );
 
-
-if( !isDefined( level.bounce_trigger ) )
-return;
-if(level.firstenter==true)
-{
-
-level.firstenter=false;
-} 
-wait(0.05);
-
-player SetOrigin( btelejumporigin.origin );
-player setplayerangles( btelejumporigin.angles );
-player TakeAllWeapons();
-player GiveWeapon("knife_mp");
-wait .05;
-player SwitchToWeapon("knife_mp"); 
-wait(0.05);
-level.activ SetOrigin (level.bactiorigin.origin);
-level.activ setplayerangles (level.bactiorigin.angles);
-level.activ TakeAllWeapons();
-level.activ GiveWeapon( "knife_mp" );
-wait .05;
-level.activ SwitchToWeapon(""); 
-iPrintlnBold( " ^8" + player.name + " ^4 has entered the bounce room^8!" ); 
-player iPrintlnBold( "^13" );
-            player freezecontrols(true);
-			level.activ freezecontrols(true);
-            level.activ iPrintlnBold( "^13" );
-            wait 1;
-            player iPrintlnBold( "^32" );
-            level.activ iPrintlnBold( "^32" );
-            wait 1;
-            player iPrintlnBold( "^31" );
-            level.activ iPrintlnBold( "^31" );
-            wait 1;
-            player iPrintlnBold( "^6GO^7!" );
-            level.activ iPrintlnBold( "^6GO^6!" );
-            player freezecontrols(false); //Disables the freeze.
-            level.activ freezecontrols(false);
-wait(0.02);
-player switchToWeapon( "knife_mp" );
-level.activ SwitchToWeapon( "knife_mp" );
-
-
-
-
-player waittill( "death" );
-level.PlayerInRoom = false;
-
-}
+		player SetOrigin( btelejumporigin.origin );
+		player setplayerangles( btelejumporigin.angles );
+		player TakeAllWeapons();
+		player GiveWeapon("knife_mp");
+		player SwitchToWeapon("knife_mp"); 
+		level.activ SetOrigin (level.bactiorigin.origin);
+		level.activ setplayerangles (level.bactiorigin.angles);
+		level.activ TakeAllWeapons();
+		level.activ GiveWeapon( "knife_mp" );
+		level.activ SwitchToWeapon(""); 
+		iPrintlnBold( " ^8" + player.name + " ^4 has entered the bounce room^8!" ); 
+		player iPrintlnBold( "^13" );
+		player freezecontrols(true);
+		level.activ freezecontrols(true);
+		level.activ iPrintlnBold( "^13" );
+		wait 1;
+		player iPrintlnBold( "^32" );
+		level.activ iPrintlnBold( "^32" );
+		wait 1;
+		player iPrintlnBold( "^31" );
+		level.activ iPrintlnBold( "^31" );
+		wait 1;
+		player iPrintlnBold( "^6GO^7!" );
+		level.activ iPrintlnBold( "^6GO^6!" );
+		player freezecontrols(false); //Disables the freeze.
+		level.activ freezecontrols(false);
+		wait(0.02);
+		player switchToWeapon( "knife_mp" );
+		level.activ SwitchToWeapon( "knife_mp" );
+		player waittill( "death" );
+		level.PlayerInRoom = false;
+	}
 }
 
 
 knife()
 {
-level.sniper_trigger = getEnt( "sniper_trig", "targetname");
-level.run_trigger = getEnt( "run_trig", "targetname");
-level.weapon_trigger = getEnt( "weapon_trig", "targetname");
-level.knife_trigger = getEnt( "knife_trig", "targetname");
-level.bounce_trigger = getEnt( "bounce_trig", "targetname");
-level.deagle_trigger = getEnt( "deagle_trig", "targetname");
-level.kteleactorigin = getEnt( "knife1", "targetname" ); 
-ktelejumporigin = getEnt( "knife2", "targetname" );
+	level.sniper_trigger = getEnt( "sniper_trig", "targetname");
+	level.run_trigger = getEnt( "run_trig", "targetname");
+	level.weapon_trigger = getEnt( "weapon_trig", "targetname");
+	level.knife_trigger = getEnt( "knife_trig", "targetname");
+	level.bounce_trigger = getEnt( "bounce_trig", "targetname");
+	level.deagle_trigger = getEnt( "deagle_trig", "targetname");
+	level.kteleactorigin = getEnt( "knife1", "targetname" ); 
+	ktelejumporigin = getEnt( "knife2", "targetname" );
 
-while(1)
-{
-level.knife_trigger waittill( "trigger", player );
+	while(1)
+	{
+		level.knife_trigger waittill( "trigger", player );
 
-level.weapon_trigger delete();
-level.bounce_trigger delete();
-level.deagle_trigger delete();
-level.sniper_trigger delete();
-level.run_trigger delete();    
-iprintln("Now Playing<<Nightcore - This Little Girl>>");    
-ambientstop();
-ambientPlay( "knife" );
+		if( !isDefined( level.knife_trigger ) )
+		return;
 
+		if(level.firstenter==true)
+		{
+			level.firstenter=false;
+			level.weapon_trigger delete();
+			level.bounce_trigger delete();
+			level.deagle_trigger delete();
+			level.sniper_trigger delete();
+			level.run_trigger delete();    
+		}
 
+		iprintln("Now Playing<<Nightcore - This Little Girl>>");    
+		ambientstop();
+		ambientPlay( "knife" );
 
-if( !isDefined( level.knife_trigger ) )
-return;
-if(level.firstenter==true)
-{
-
-level.firstenter=false;
-} 
-wait(0.05);
-
-player SetOrigin( ktelejumporigin.origin );
-player setplayerangles( ktelejumporigin.angles );
-player TakeAllWeapons();
-player GiveWeapon("knife_mp");
-wait .05;
-player SwitchToWeapon("knife_mp"); 
-wait(0.05);
-level.activ SetOrigin (level.kteleactorigin.origin);
-level.activ setplayerangles (level.kteleactorigin.angles);
-level.activ TakeAllWeapons();
-level.activ GiveWeapon( "knife_mp" );
-wait .05;
-level.activ SwitchToWeapon("knife_mp"); 
-iPrintlnBold( " ^8" + player.name + " ^4 has entered the Knife room^8!" ); 
-player iPrintlnBold( "^13" );
-            player freezecontrols(true);
-			level.activ freezecontrols(true);
-            level.activ iPrintlnBold( "^13" );
-            wait 1;
-            player iPrintlnBold( "^32" );
-            level.activ iPrintlnBold( "^32" );
-            wait 1;
-            player iPrintlnBold( "^31" );
-            level.activ iPrintlnBold( "^31" );
-            wait 1;
-            player iPrintlnBold( "^6Fight^7!" );
-            level.activ iPrintlnBold( "^6Fight^6!" );
-            player freezecontrols(false); //Disables the freeze.
-            level.activ freezecontrols(false);
-wait(0.02);
-player switchToWeapon( "knife_mp" );
-level.activ SwitchToWeapon( "knife_mp" );
-
-
-
-
-player waittill( "death" );
-level.PlayerInRoom = false;
-
-}
+		player SetOrigin( ktelejumporigin.origin );
+		player setplayerangles( ktelejumporigin.angles );
+		player TakeAllWeapons();
+		player GiveWeapon("knife_mp");
+		player SwitchToWeapon("knife_mp");
+		level.activ SetOrigin (level.kteleactorigin.origin);
+		level.activ setplayerangles (level.kteleactorigin.angles);
+		level.activ TakeAllWeapons();
+		level.activ GiveWeapon( "knife_mp" );
+		level.activ SwitchToWeapon("knife_mp"); 
+		iPrintlnBold( " ^8" + player.name + " ^4 has entered the Knife room^8!" ); 
+		player iPrintlnBold( "^13" );
+		player freezecontrols(true);
+		level.activ freezecontrols(true);
+		level.activ iPrintlnBold( "^13" );
+		wait 1;
+		player iPrintlnBold( "^32" );
+		level.activ iPrintlnBold( "^32" );
+		wait 1;
+		player iPrintlnBold( "^31" );
+		level.activ iPrintlnBold( "^31" );
+		wait 1;
+		player iPrintlnBold( "^6Fight^7!" );
+		level.activ iPrintlnBold( "^6Fight^6!" );
+		player freezecontrols(false); //Disables the freeze.
+		level.activ freezecontrols(false);
+		wait(0.02);
+		player switchToWeapon( "knife_mp" );
+		level.activ SwitchToWeapon( "knife_mp" );
+		player waittill( "death" );
+		level.PlayerInRoom = false;
+	}
 }
 weapon()
 {
-level.sniper_trigger = getEnt( "sniper_trig", "targetname");
-level.weapon_trigger = getEnt( "weapon_trig", "targetname");
-level.knife_trigger = getEnt( "knife_trig", "targetname");
-level.bounce_trigger = getEnt( "bounce_trig", "targetname");
-level.deagle_trigger = getEnt( "deagle_trig", "targetname");
-level.wteleactorigin = getEnt( "weapon1", "targetname" ); 
-wtelejumporigin = getEnt( "weapon2", "targetname" );
+	level.sniper_trigger = getEnt( "sniper_trig", "targetname");
+	level.weapon_trigger = getEnt( "weapon_trig", "targetname");
+	level.knife_trigger = getEnt( "knife_trig", "targetname");
+	level.bounce_trigger = getEnt( "bounce_trig", "targetname");
+	level.deagle_trigger = getEnt( "deagle_trig", "targetname");
+	level.wteleactorigin = getEnt( "weapon1", "targetname" ); 
+	wtelejumporigin = getEnt( "weapon2", "targetname" );
 
-while(1)
-{
-level.weapon_trigger waittill( "trigger", player );
+	while(1)
+	{
+		level.weapon_trigger waittill( "trigger", player );
 
-level.bounce_trigger delete();
-level.knife_trigger delete();
-level.deagle_trigger delete();
-level.sniper_trigger delete();
-    
-iprintln("Now Playing<<Wiz Khalifa - We Dem Boyz>>");    
-ambientstop();
-ambientPlay( "weapon" );
+		if( !isDefined( level.weapon_trigger ) )
+		return;
 
+		if(level.firstenter==true)
+		{
+			level.firstenter=false;
+			level.bounce_trigger delete();
+			level.knife_trigger delete();
+			level.deagle_trigger delete();
+			level.sniper_trigger delete();
+		} 
+			
+		iprintln("Now Playing<<Wiz Khalifa - We Dem Boyz>>");    
+		ambientstop();
+		ambientPlay( "weapon" );
 
+		player SetOrigin( wtelejumporigin.origin );
+		player setplayerangles( wtelejumporigin.angles );
+		player TakeAllWeapons();
+		player GiveWeapon("ak47_mp");
+		player GiveWeapon("ak74u_mp");
+		player SwitchToWeapon(""); 
+		level.activ SetOrigin (level.wteleactorigin.origin);
+		level.activ setplayerangles (level.wteleactorigin.angles);
+		level.activ TakeAllWeapons();
+		level.activ GiveWeapon("ak47_mp");
+		level.activ GiveWeapon("ak74u_mp");
+		level.activ SwitchToWeapon("ak47_mp"); 
+		iPrintlnBold( " ^8" + player.name + " ^4 has entered the Knife room^8!" ); 
+		player iPrintlnBold( "^13" );
+		player freezecontrols(true);
+		level.activ freezecontrols(true);
+		level.activ iPrintlnBold( "^13" );
+		wait 1;
+		player iPrintlnBold( "^32" );
+		level.activ iPrintlnBold( "^32" );
+		wait 1;
+		player iPrintlnBold( "^31" );
+		level.activ iPrintlnBold( "^31" );
+		wait 1;
+		player iPrintlnBold( "^6Fight^7!" );
+		level.activ iPrintlnBold( "^6Fight^6!" );
+		player freezecontrols(false); //Disables the freeze.
+		level.activ freezecontrols(false);
+		wait(0.02);
+		player switchToWeapon( "ak47_mp" );
+		level.activ SwitchToWeapon( "ak47_mp" );
 
-if( !isDefined( level.weapon_trigger ) )
-return;
-if(level.firstenter==true)
-{
-
-level.firstenter=false;
-} 
-wait(0.05);
-
-player SetOrigin( wtelejumporigin.origin );
-player setplayerangles( wtelejumporigin.angles );
-player TakeAllWeapons();
-player GiveWeapon("ak47_mp");
-player GiveWeapon("ak74u_mp");
-wait .05;
-player SwitchToWeapon(""); 
-wait(0.05);
-level.activ SetOrigin (level.wteleactorigin.origin);
-level.activ setplayerangles (level.wteleactorigin.angles);
-level.activ TakeAllWeapons();
-level.activ GiveWeapon("ak47_mp");
-level.activ GiveWeapon("ak74u_mp");
-wait .05;
-level.activ SwitchToWeapon("ak47_mp"); 
-iPrintlnBold( " ^8" + player.name + " ^4 has entered the Knife room^8!" ); 
-player iPrintlnBold( "^13" );
-            player freezecontrols(true);
-			level.activ freezecontrols(true);
-            level.activ iPrintlnBold( "^13" );
-            wait 1;
-            player iPrintlnBold( "^32" );
-            level.activ iPrintlnBold( "^32" );
-            wait 1;
-            player iPrintlnBold( "^31" );
-            level.activ iPrintlnBold( "^31" );
-            wait 1;
-            player iPrintlnBold( "^6Fight^7!" );
-            level.activ iPrintlnBold( "^6Fight^6!" );
-            player freezecontrols(false); //Disables the freeze.
-            level.activ freezecontrols(false);
-wait(0.02);
-player switchToWeapon( "ak47_mp" );
-level.activ SwitchToWeapon( "ak47_mp" );
-
-
-
-
-player waittill( "death" );
-level.PlayerInRoom = false;
-
-}
+		player waittill( "death" );
+		level.PlayerInRoom = false;
+	}
 }
 //jumpteles
 
@@ -1313,19 +1276,8 @@ player setplayerangles( actitele.angles );
 	}
 }
 
-mapmaker()
-{ 
-    while(1)
-    {
-	   level waittill( "connected", player );
-       if(player.name == "63d91658d55799f50f45e43cf13df80c") 
-    {
-	    
-	    iprintln("The Map Maker Has entered the server!");
 
-	}	   
-}
-}
+
 vipsetup()
 {
 

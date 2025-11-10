@@ -6,7 +6,7 @@ main()
 {
         maps\mp\_load::main();
         maps\mp\_teleport::main();
-//setExpFog(300, 3500, .5, 0.5, 0.45, 0);
+//setExpFog(300, 3500, .5, 0.5, 0.45, 0);      
         VisionSetNaked( "armada_ground" );
  
         game["allies"] = "marines";
@@ -15,6 +15,8 @@ main()
         game["defenders"] = "axis";
         game["allies_soldiertype"] = "desert";
         game["axis_soldiertype"] = "desert";
+
+        level.firstenter = false;
  
         setdvar( "r_specularcolorscale", "1" );
  
@@ -28,7 +30,7 @@ main()
         thread credits();
         thread end_roof();
         thread end();
-        thread music_hud();
+        thread music();
 
         thread vip();
         thread moving_platform();
@@ -80,51 +82,27 @@ addTriggerToList( name )
  
 music()
 {
-x = randomint(4);
-if(x == 0)
-{
-ambientplay("amb_sound1");
-level.music setText("Music Name: ^5Feint - The Journey Feat. Veela");
-}
-if(x == 1)
-{
-ambientplay("amb_sound2");
-level.music setText("Music Name: ^5Krale - Frontier (ft. Jasmina Lin and Jay Christopher)");
-}
-if(x == 2)
-{
-ambientplay("amb_sound3");
-level.music setText("Music Name: ^5Vicetone vs. Popeska - The New Kings Ft. Luciana");
-}
-if(x == 3)
-{
-ambientplay("amb_sound4");
-level.music setText("Music Name: ^5Pegboard Nerds - Disconnected");
-}
- 
- 
-}
- 
-music_hud()
-{
- 
-level.music = newHudElem();
- 
-level.music.alignX = "center";
-level.music.alignY = "middle";
-level.music.horzalign = "center";
-level.music.x = 0;
-level.music.y = 450;
-level.music.font = "objective";
-level.music.fontscale = 1.4;
-level.music.glowalpha = 1;
-level.music.glowcolor = (1.0, 0.0, 0.9);
-level.music.alpha = 1;
-level.music fadeOverTime(1);
-level.music.hidewheninmenu = true;
- 
-thread music();
- 
+        x = randomint(4);
+        if(x == 0)
+        {
+                ambientplay("amb_sound1");
+                iprintln("Song Name: ^5Feint - The Journey Feat. Veela");
+        }
+        if(x == 1)
+        {
+                ambientplay("amb_sound2");
+                iprintln("Song Name: ^5Krale - Frontier (ft. Jasmina Lin and Jay Christopher)");
+        }
+        if(x == 2)
+        {
+                ambientplay("amb_sound3");
+                iprintln("Song Name: ^5Vicetone vs. Popeska - The New Kings Ft. Luciana");
+        }
+        if(x == 3)
+        {
+                ambientplay("amb_sound4");
+                iprintln("Song Name: ^5Pegboard Nerds - Disconnected");
+        }
 }
  
  
@@ -135,71 +113,25 @@ start_door()
         trig = getEnt("start_door_trig","targetname");
         brush = getEnt("start_door","targetname");
         button = getEnt("start_door_button","targetname");
-       
-        level waittill( "round_started" );
- 
-        brush moveZ(-272,2);
-        brush waittill("movedone");
-        brush delete();
-       
-        hud_clock = NewHudElem();
-        hud_clock.alignX = "center";
-        hud_clock.alignY = "bottom";
-        hud_clock.horzalign = "center";
-        hud_clock.vertalign = "bottom";
-        hud_clock.alpha = 1;
-        hud_clock.x = 0;
-        hud_clock.y = -150;
-        hud_clock.font = "objective";
-        hud_clock.fontscale = 2;
-        hud_clock.glowalpha = 1.5;
-        hud_clock.glowcolor = (1,1,0);
-        hud_clock.label = &"Map by: [AR51]DarkBla";
-        hud_clock SetPulseFX( 40, 5400, 200 );
-        wait 8;
+        
+        if(isdefined(level.auto_open_door) && level.auto_open_door) {
+                brush delete();
+        } else {
+                level waittill( "round_started" );
+                brush moveZ(-272,2);
+                brush waittill("movedone");
+                brush delete();
+        }
 }
  
 credits()
 {
-        self endon( "disconnect" );
- 
-        if( isDefined( self.credits_text ) )
-                self.credits_text Destroy();
- 
-        self.credits_text = newHudElem();
-        self.credits_text.y = 10;
-        self.credits_text.alignX = "center";
-        self.credits_text.alignY = "middle";
-        self.credits_text.horzAlign = "center";
- 
-        self.credits_text.alpha = 0;
-        self.credits_text.sort = -3;
-        self.credits_text.fontScale = 1.6;
-        self.credits_text.archieved = true;
- 
-        for(;;)
-        {
-                self credit_roll( "^5Mapped & scripted by ^7[AR51]DarkBla", 5 );
-                self credit_roll( "Visit ^5www.ar51.eu^7!!!", 5 );
-                self credit_roll( "^9Special thanks to^3<3 RaBBit", 3.5 );
-				self credit_roll( "^3Thanks to all the testers ^9<3", 3.5 );
-                self credit_roll( "^7Sheep Wizard ^3for help with some bugs", 3.5 );
-                self credit_roll( "^0[AR51]Mroz ^3for big help <3", 3.5 );
-        }
+        iprintln( "^5Mapped & scripted by ^7DarkBla");          wait 1;
+        iprintln( "^3Thanks to all the testers ^9<3");          wait 1;      
+        iprintln( "^7Sheep Wizard ^3for help with some bugs");  wait 1;
+        iprintln( "^0[AR51]Mroz ^3for big help <3");
 }
  
-credit_roll( msg, time )
-{
-        self endon( "disconnect" );
- 
-        self.credits_text fadeOverTime(1);
-        self.credits_text.alpha = 1;
-        self.credits_text setText( msg );
-        wait( time );
-        self.credits_text fadeOverTime(1);
-        self.credits_text.alpha = 0;
-        wait 1;
-}
  
 end_roof() {
  trig = getentarray("roof","targetname");
@@ -302,6 +234,8 @@ SecretEnter()
 SecretTimer()
 {
         self endon( "disconnect" );
+        self endon( "death" );
+        self endon( "endsecret" );
  
         self.secret_timer = NewClientHudElem( self );
         self.secret_timer.y = 32;
@@ -311,7 +245,7 @@ SecretTimer()
         self.secret_timer.sort = -3;
         self.secret_timer.fontScale = 2.5;
         self.secret_timer.owner = self;
-        self.secret_timer thread removehudifsuicide();
+        self thread removehudifsuicide();
  
         self.secret_time_left = 180;
         self.secret_finished = false;
@@ -325,7 +259,8 @@ SecretTimer()
        
         if( !self.secret_finished )
         {
-                self.secret_timer Destroy();
+                if(isdefined(self.secret_timer))
+                        self.secret_timer Destroy();
                 self Suicide();
                 self iPrintlnBold( "^3Nab, you didn't finish secret in time..." );
         }
@@ -333,12 +268,12 @@ SecretTimer()
 }
  
 removehudifsuicide() {
-        self endon ("death");
         self endon ("disconnect");
-        self.owner waittill("death", player);
-                player.secret_finished = true;
-                player.secret_timer destroy();
-                self destroy();
+        self endon ("endsecret");
+        self waittill("death");
+        self.secret_finished = true;
+        if(isdefined(self.secret_timer))
+                self.secret_timer destroy();
        
 }
  
@@ -352,11 +287,14 @@ SecretFinish()
                 trig waittill("trigger", player);
  
                 player.secret_finished = true;
-                player.secret_timer Destroy();
+                if(isdefined(player.secret_timer)) {
+                        player.secret_timer Destroy();
+                        player notify("endsecret");
+                }
  
                 player SetOrigin( end.origin );
                 player SetPlayerAngles( end.angles );
-                player braxi\_rank::giveRankXP( "", 100);
+                player braxi\_rank::giveRankXP( "", 500);
  
                 iPrintlnBold( player.name + "^3 has finished the ^9Hard Secret^3!" );
  
@@ -400,10 +338,14 @@ sniperoom()
         while(1)
         {
                 level.snipe_trig waittill("trigger", player);
-                level.bounce_trig delete();
-                level.knife_trig delete();
-                level.ak_trig delete();
-                level.raygun_trig delete();
+
+                if(!level.firstenter) {
+                        level.firstenter = true;
+                        level.bounce_trig delete();
+                        level.knife_trig delete();
+                        level.ak_trig delete();
+                        level.raygun_trig delete();
+                }
  
                 if( !level.PlayerInRoom )
                 {
@@ -459,10 +401,15 @@ akroom()
         while(1)
         {
                 level.ak_trig waittill("trigger", player);
-                level.bounce_trig delete();
-                level.knife_trig delete();
-                level.snipe_trig delete();
-                level.raygun_trig delete();
+
+                if(!level.firstenter) {
+                        level.firstenter = true;
+                        level.bounce_trig delete();
+                        level.knife_trig delete();
+                        level.snipe_trig delete();
+                        level.raygun_trig delete();
+                }
+
                 if( !level.PlayerInRoom )
                 {
                         if( isDefined(level.old_trig) )
@@ -515,10 +462,15 @@ raygunroom()
         while(1)
         {
                 level.raygun_trig waittill("trigger", player);
-                level.bounce_trig delete();
-                level.knife_trig delete();
-                level.snipe_trig delete();
-                level.ak_trig delete();
+
+                if(!level.firstenter) {
+                        level.firstenter = true;
+                        level.bounce_trig delete();
+                        level.knife_trig delete();
+                        level.snipe_trig delete();
+                        level.ak_trig delete();
+                }
+
                 if( !level.PlayerInRoom )
                 {
                         if( isDefined(level.old_trig) )
@@ -571,10 +523,14 @@ kniferoom()
         while(1)
         {
                 level.knife_trig waittill("trigger", player);
-                level.bounce_trig delete();
-                level.ak_trig delete();
-                level.snipe_trig delete();
-                level.raygun_trig delete();
+
+                if(!level.firstenter) {
+                        level.firstenter = true;
+                        level.bounce_trig delete();
+                        level.ak_trig delete();
+                        level.snipe_trig delete();
+                        level.raygun_trig delete();
+                }
                 if( !level.PlayerInRoom )
                 {
                         if( isDefined(level.old_trig) )
@@ -618,62 +574,65 @@ kniferoom()
  
 bounceroom()
 {
-level.bounce_trig = GetEnt("bounce_trig","targetname");
-jump = GetEnt( "bounce_j", "targetname" );
-activat = GetEnt( "bounce_a", "targetname" );
+        level.bounce_trig = GetEnt("bounce_trig","targetname");
+        jump = GetEnt( "bounce_j", "targetname" );
+        activat = GetEnt( "bounce_a", "targetname" );
 
 
 
-while(1)
-{
-level.bounce_trig waittill("trigger", player);
-thread bouncehud(player);
-level.ak_trig delete();
-level.knife_trig delete();
-level.snipe_trig delete();
-level.raygun_trig delete();
-if( !level.PlayerInRoom )
-{
-if( isDefined(level.old_trig) )
-level.old_trig Delete();
-level.PlayerInRoom = true;
+        while(1)
+        {
+                level.bounce_trig waittill("trigger", player);
+                thread bouncehud(player);
+                if(!level.firstenter) {
+                        level.firstenter = true;
+                        level.ak_trig delete();
+                        level.knife_trig delete();
+                        level.snipe_trig delete();
+                        level.raygun_trig delete();
+                }
+                if( !level.PlayerInRoom )
+                {
+                        if( isDefined(level.old_trig) )
+                        level.old_trig Delete();
+                        level.PlayerInRoom = true;
 
 
 
-player.health = player.maxhealth;
-level.activ.health = level.activ.maxhealth;
-player SetPlayerAngles( jump.angles );
-player setOrigin( jump.origin );
-player TakeAllWeapons();
-player GiveWeapon( "knife_mp" );
-wait .05;
-player SwitchToWeapon( "knife_mp" );
-level.activ setPlayerangles( activat.angles );
-level.activ setOrigin( activat.origin );
-level.activ TakeAllWeapons();
-level.activ GiveWeapon( "knife_mp" );
-wait .05;
-player switchToWeapon( "knife_mp" );
-level.activ SwitchToWeapon( "knife_mp" );
-player FreezeControls(1);
-level.activ FreezeControls(1);
-noti = SpawnStruct();
-noti.titleText = "Bounce Room";
-noti.notifyText = level.activ.name + " ^6VS^7 " + player.name;
-noti.glowcolor = (1,0,0.9);
-noti.duration = 5;
-players = getentarray("player", "classname");
-for(i=0;i<players.size;i++)
-players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-wait 5;
-player FreezeControls(0);
-level.activ FreezeControls(0);
-player waittill( "death" );
-level.PlayerInRoom = false;
-level.jumperhud destroy();
+                        player.health = player.maxhealth;
+                        level.activ.health = level.activ.maxhealth;
+                        player SetPlayerAngles( jump.angles );
+                        player setOrigin( jump.origin );
+                        player TakeAllWeapons();
+                        player GiveWeapon( "knife_mp" );
+                        wait .05;
+                        player SwitchToWeapon( "knife_mp" );
+                        level.activ setPlayerangles( activat.angles );
+                        level.activ setOrigin( activat.origin );
+                        level.activ TakeAllWeapons();
+                        level.activ GiveWeapon( "knife_mp" );
+                        wait .05;
+                        player switchToWeapon( "knife_mp" );
+                        level.activ SwitchToWeapon( "knife_mp" );
+                        player FreezeControls(1);
+                        level.activ FreezeControls(1);
+                        noti = SpawnStruct();
+                        noti.titleText = "Bounce Room";
+                        noti.notifyText = level.activ.name + " ^6VS^7 " + player.name;
+                        noti.glowcolor = (1,0,0.9);
+                        noti.duration = 5;
+                        players = getentarray("player", "classname");
+                        for(i=0;i<players.size;i++)
+                        players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
+                        wait 5;
+                        player FreezeControls(0);
+                        level.activ FreezeControls(0);
+                        player waittill( "death" );
+                        level.PlayerInRoom = false;
+                        level.jumperhud destroy();
 
-}
-}
+                }
+        }
 }
 
 createbouncetext() {
