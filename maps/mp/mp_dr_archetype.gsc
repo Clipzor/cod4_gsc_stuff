@@ -177,7 +177,6 @@ on_classic()
 	
 	iPrintLnBold("^6" + player.name + " ^7opened the end door!");
 	level.classic_door moveZ(-128, 1, .8, .2);
-	wait 2;
 }
 
 on_knife()
@@ -423,8 +422,6 @@ trap_1_hurt_1(trigger_entity)
 		{					
 			if(player isTouching(trigger) && level.object_1_is_electric)
 				thread trap_1_dmg(player);
-			
-			wait .05;
 		}
 	}
 }
@@ -442,8 +439,7 @@ trap_1_hurt_2(trigger_entity)
 		{					
 			if(player isTouching(trigger) && level.object_2_is_electric)
 				thread trap_1_dmg(player);
-			
-			wait .05;
+
 		}
 	}
 }
@@ -994,7 +990,6 @@ toilet(trigger_entity)
 		trigger waittill("trigger", player);
 		
 		player setOrigin((3520, -1664, -126));
-		wait .5;
 	}
 }
 
@@ -1068,8 +1063,6 @@ death(trigger_entity)
 			player.isDead = true;
 			thread on_death(player);
 		}
-		
-		wait .05;
 	}
 }
 
