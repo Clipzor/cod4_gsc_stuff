@@ -342,11 +342,11 @@ coins() {
 
     for(i=0;i<coin_array.size;i++) {
         if(i>9)
-            coin_array[i] thread coin_think(getentArray("sparkle", "targetname")[i], getent("trig_coin"+(i+1), "targetname"), int(200));
+            coin_array[i] thread coin_think(getentArray("sparkle", "targetname")[i], getent("trig_coinblue"+(i-9), "targetname"), int(200));
         else if(i>6)
             coin_array[i] thread coin_think(getentArray("sparkle", "targetname")[i], getent("trig_coinred"+(i-6), "targetname"), int(300), false);
         else
-            coin_array[i] thread coin_think(getentArray("sparkle", "targetname")[i], getent("trig_coinblue"+(i-9), "targetname"), int(500), true);
+            coin_array[i] thread coin_think(getentArray("sparkle", "targetname")[i], getent("trig_coin"+(i+1), "targetname"), int(500), true);
     }       
 }
 

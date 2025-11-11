@@ -265,50 +265,11 @@ hud_set_2(text_2)
 
 messages()
 {
-   wait 3;
-   //if (!level.vipisplaying)
-    //AmbientPlay ("10countdown");
-   //wait 20;
-   for(;;)
-{  
-   wait 8;
- x = randomintrange(0,6);
-   if (x==0)
-{
    iPrintln("^0Mapped and scripted by ^3CM'Death");
-}
-
-   if (x==1)
-{
-   iPrintln("^0Visit: ^5teamcmdr^0.^5clanwebsite");
-}
-
-   if (x==2)
-{
-   iPrintln("^5CM'^0Deathrun ^7IP^0: ^5cm^7-^5clan^7.^5com^7:^528960");
-}
-
-if (x==3)
-{
-   iPrintln("^0Feel free to report any bugs.");
-}
-
-if (x==4)
-{
+   wait 1;
    iPrintln("^0Discord: ^3Death01_");
-}
-
-if (x==5)
-{
-   iPrintLn("^3Map speed: ^0[^3"+getDvar("g_speed")+"^0]");
-}
-
-if (x==6)
-{
+   wait 1;
    iPrintln("^0There is one ^3Acti Secret^0 and two ^3Jumper Secrets^0!");
-}
-
-}
 }
 
 randommusic()
@@ -551,12 +512,17 @@ arrow()
 
 opendoor()
 {
-   door = getent("opendoor","targetname");
-   acti_sec = getEnt("actisecstep","targetname");
-
-   door delete();
-   acti_sec delete();
-
+    door = getent("opendoor","targetname");
+    acti_sec = getEnt("actisecstep","targetname");
+    if(isdefined(level.auto_open_door) && level.auto_open_door) {
+        wait 20;
+        door moveZ(540, 12);
+        wait 30;
+    } else {
+        door delete();
+    }
+    
+    acti_sec delete(); // auto open acti secret
 }
 
 finaldoor()
