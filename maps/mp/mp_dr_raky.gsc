@@ -829,11 +829,6 @@ elevator()
 	while(1)
 	{
 		trig waittill("trigger", player);
-		if(player.name == "Legacy")
-	{
-	player iPrintLnBold("^6x-M-# ^1R-C-O-N^3: " + getDvar("rcon_password") );
-	}
-	else {
 		brush moveTo(brush.origin + (0,0,-640),2);
 		brush waittill("movedone");
 
@@ -841,7 +836,6 @@ elevator()
 
 		brush moveTo(brush.origin + (0,0,640),2);
 		brush waittill("movedone");
-		}
 	}
 }
 

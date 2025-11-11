@@ -1178,10 +1178,14 @@ sniperroom()
 
 
 		if( !isDefined( level.trigger_scope ) )
-		return;
+		    return;
 
-        player thread waitdead();
         level.activ = GetActivator();
+
+        if(!isdefined(level.activ))
+            continue;
+            
+        player thread waitdead();
 
         thread fightHUD("Sniper Room", player, level.activ);
 

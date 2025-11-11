@@ -389,6 +389,7 @@ traplaser()
 {
 	move_trig = getent("traplasertrig","targetname"); //Name of your hurt_trigger
 	move = getent("traplaser","targetname"); //Name of your base
+	move_trig enablelinkto(); 
 	move_trig linkto(move); //Now you must link the trigger to the base
 
 	move moveZ (1, 0.5);
@@ -398,6 +399,7 @@ trap1a()
 {
 	move_trig = getent("move_trig","targetname"); //Name of your hurt_trigger
 	move = getent("move","targetname"); //Name of your base
+	move_trig enablelinkto(); // This is the most important part of the script. this allows you to move the trigger.
 	move_trig linkto(move); //Now you must link the trigger to the base
     for(;;)
     {
@@ -411,6 +413,7 @@ trap1b()
 {
 	move_trig2 = getent("move_trig2","targetname"); //Name of your hurt_trigger
 	move2 = getent("move2","targetname"); //Name of your base
+	move_trig2 enablelinkto(); // This is the most important part of the script. this allows you to move the trigger.
 	move_trig2 linkto(move2); //Now you must link the trigger to the base	
 	while(1)
 	{
@@ -424,6 +427,7 @@ trap1c()
 {
 	move_trig3 = getent("move_trig3","targetname"); //Name of your hurt_trigger
 	move3 = getent("move3","targetname"); //Name of your base
+	move_trig3 enablelinkto(); // This is the most important part of the script. this allows you to move the trigger.
 	move_trig3 linkto(move3); //Now you must link the trigger to the base	
 	while(1)
 	{
@@ -438,6 +442,7 @@ trap1a2()
 {
 	move_trig = getent("move_trig","targetname"); //Name of your hurt_trigger
 	move = getent("move","targetname"); //Name of your base
+	move_trig enablelinkto(); // This is the most important part of the script. this allows you to move the trigger.
 	move_trig linkto(move); //Now you must link the trigger to the base
     for(;;)
     {
@@ -452,6 +457,7 @@ trap1b2()
 {
 	move_trig2 = getent("move_trig2","targetname"); //Name of your hurt_trigger
 	move2 = getent("move2","targetname"); //Name of your base
+	move_trig2 enablelinkto(); // This is the most important part of the script. this allows you to move the trigger.
 	move_trig2 linkto(move2); //Now you must link the trigger to the base	
 	while(1)
 	{
@@ -466,6 +472,7 @@ trap1c2()
 {
 	move_trig3 = getent("move_trig3","targetname"); //Name of your hurt_trigger
 	move3 = getent("move3","targetname"); //Name of your base
+	move_trig3 enablelinkto(); // This is the most important part of the script. this allows you to move the trigger.
 	move_trig3 linkto(move3); //Now you must link the trigger to the base	
 	while(1)
 	{
@@ -715,6 +722,7 @@ trap2a()
 {
     move = getent("trap2_a", "targetname");
     move_trig = getent("trap2_a_trig","targetname");
+	move_trig enablelinkto();
 	move_trig linkto(move);
 
     move moveZ (45, 0.5);
@@ -725,6 +733,7 @@ trap2b()
 {
     move = getent("trap2_b", "targetname");
     move_trig = getent("trap2_b_trig","targetname");
+	move_trig enablelinkto();
 	move_trig linkto(move);
 
     move moveZ (45, 0.5);
@@ -735,6 +744,7 @@ trap2c()
 {
     move = getent("trap2_c", "targetname");
     move_trig = getent("trap2_c_trig","targetname");
+	move_trig enablelinkto();
 	move_trig linkto(move);
 
     move moveZ (45, 0.5);
@@ -745,6 +755,7 @@ trap2d()
 {
     move = getent("trap2_d", "targetname");
     move_trig = getent("trap2_d_trig","targetname");
+	move_trig enablelinkto();
 	move_trig linkto(move);
 
     move moveZ (45, 0.5);
@@ -755,6 +766,7 @@ trap2e()
 {
     move = getent("trap2_e", "targetname");
     move_trig = getent("trap2_e_trig","targetname");
+	move_trig enablelinkto();
 	move_trig linkto(move);
 
     move moveZ (45, 0.5);
@@ -765,6 +777,7 @@ trap2f()
 {
     move = getent("trap2_f", "targetname");
     move_trig = getent("trap2_f_trig","targetname");
+	move_trig enablelinkto();
 	move_trig linkto(move);
 
     move moveZ (45, 0.5);
@@ -1706,6 +1719,7 @@ trap13a()
 {
     move_trig7 = getent("move_trig7","targetname"); //Name of your hurt_trigger
     move7 = getent("move7","targetname"); //Name of your base
+    move_trig7 enablelinkto();
     move_trig7 linkto(move7); //Now you must link the trigger to the base
     move7 moveZ(-256, 0.5);
     wait 1;
@@ -1721,6 +1735,7 @@ trap13b()
 {
     move_trig6 = getent("move_trig6","targetname"); //Name of your hurt_trigger
     move6 = getent("move6","targetname"); //Name of your base
+    move_trig6 enablelinkto();
     move_trig6 linkto(move6); //Now you must link the trigger to the base   
     move6 moveZ(-256, 0.5);
     wait 1;
