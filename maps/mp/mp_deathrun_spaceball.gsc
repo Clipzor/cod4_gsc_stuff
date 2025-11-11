@@ -190,17 +190,19 @@ teleport10()
      player SetOrigin(target.origin);
      player SetPlayerAngles( target.angles );
      iPrintLnBold(player.name+ "^4 has finished the ^5Secret Room !!");
-     player giveWeapon ( "mp5_mp", 6, false );
-     player switchToWeapon ("mp5_mp");
+     player giveWeapon ( "t6_evoskorpion_mp", 6, false );
+     player switchToWeapon ("t6_evoskorpion_mp");
      iPrintLn(player.name+ "^4 got ^5MP5");
-     self thread drawInformationDown( 800, 0.8, 1, "^4Enjoy the ^5MP5!" );
       }
 }
 
-
 creator()
 {
-    iPrintLn( "^5Map made by ^4MadLion ^5xfire: ^4madlion3");
+while( 1 )
+{
+iPrintLn( "^5Map made by ^4MadLion ^5xfire: ^4madlion3");
+wait(60);
+}
 }
 
 move11()
@@ -802,67 +804,4 @@ secretdoor movez( 272, 2 );
 wait 2;
 
 }
-}
-
- 
-new_ending_hud( align, fade_in_time, x_off, y_off )
-{
-        hud = newClientHudElem( self );
-        hud.foreground = true;
-        hud.x = x_off;
-        hud.y = y_off;
-        hud.alignX = align;
-        hud.alignY = "middle";
-        hud.horzAlign = align;
-        hud.vertAlign = "middle";
- 
-        hud.fontScale = 1.6;
- 
-        hud.color = (1, 1, 1);
-        hud.font = "objective";
-        hud.glowColor = (0.8, 0.3, 0.8);
-        hud.glowAlpha = 0.5;
- 
-        hud.alpha = 1;
-        hud fadeovertime( fade_in_time );
-        hud.alpha = 1;
-        hud.hidewheninmenu = true;
-        hud.sort = 10;
-        return hud;
-}
- 
-drawInformationUp( start_offset, movetime, mult, text )
-{
-        start_offset *= mult;
-        hud = new_ending_hud( "center", 0.1, start_offset, -15 );
-        hud setText( text );
-        hud moveOverTime( movetime );
-        hud.x = -100;
-        wait( movetime );
-        hud moveOverTime( 5 );
-        hud.x = 100;
-        wait 5;
-        hud moveOverTime( movetime );
-        hud.x = start_offset * -1;
- 
-        wait movetime;
-        hud destroy();
-}
- 
-drawInformationDown( start_offset, movetime, mult, text )
-{
-        start_offset *= mult;
-        hud = new_ending_hud( "center", 0.1, start_offset, 15 );
-        hud setText( text );
-        hud moveOverTime( movetime );
-        hud.x = 100;
-        wait( movetime );
-        hud moveOverTime( 5 );
-        hud.x = -100;
-        wait 5;
-        hud moveOverTime( movetime );
-        hud.x = start_offset * -1;
- 
-        wait movetime;
-        hud destroy();
 }

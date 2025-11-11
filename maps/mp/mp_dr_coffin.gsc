@@ -79,8 +79,6 @@ main()
    
 ///MESSAGES   
    thread messages();
-
-   thread messagescreen3();
 ///FX
    thread effect();
 ///DOORS AND MOVING PLATFORM
@@ -347,7 +345,7 @@ doorexplode()
    trig waittill ("trigger",player);
 
    iprintlnBOld ("^3" + player.name + " exploded door^0!");
-   player braxi\_rank::giveRankXP("", 500);
+   player braxi\_rank::giveRankXP("", 100);
 
     PlayFX(level.break_door, origin_effect1.origin);
     PlayFX(level.break_door, origin_effect2.origin);
@@ -400,7 +398,7 @@ freexp()
 for(;;)
 {
  trig waittill("trigger", player);
- player braxi\_rank::giveRankXP("", 500);
+ player braxi\_rank::giveRankXP("", 100);
  player iprintlnBOld ("^7You ^3found ^7hidden ^3XP^7!");
  iPrintLn("^3" + player.name + " ^0found some ^3XP^0!");
  trig delete();
@@ -517,7 +515,7 @@ RTDitem()
     }
     if (randomitem == 4)
     {
-        self braxi\_rank::giveRankXP("", 500);
+        self braxi\_rank::giveRankXP("", 100);
         iPrintLnBold("^3" + self.name + " ^7won ^3RTD XP Jackpot ^0:o"); 
     }
 }
@@ -715,7 +713,7 @@ secret_step1()
 	trig waittill("trigger",player);
 
 	iPrintLn("^0[^3S^0]");
-    player braxi\_rank::giveRankXP("", 500);
+    player braxi\_rank::giveRankXP("", 20);
 
 	trig delete();
 
@@ -729,7 +727,7 @@ secret_step2()
 	trig waittill("trigger",player);
 
 	iPrintLn("^0[^3E^0]");
-    player braxi\_rank::giveRankXP("", 500);
+    player braxi\_rank::giveRankXP("", 20);
 
 	trig delete();
 
@@ -743,7 +741,7 @@ secret_step3()
 	trig waittill("trigger",player);
 
 	iPrintLn("^0[^3C^0]");
-    player braxi\_rank::giveRankXP("", 500);
+    player braxi\_rank::giveRankXP("", 20);
 
 	trig delete();
   
@@ -757,7 +755,7 @@ secret_step4()
 	trig waittill("trigger",player);
 
 	iPrintLn("^0[^3R^0]");
-    player braxi\_rank::giveRankXP("", 500);
+    player braxi\_rank::giveRankXP("", 20);
 
 	trig delete();
 
@@ -772,7 +770,7 @@ secret_step5()
 	trig waittill("trigger",player);
 
 	iPrintLn("^0[^3E^0]");
-    player braxi\_rank::giveRankXP("", 500);
+    player braxi\_rank::giveRankXP("", 20);
 
 	trig delete();
 	
@@ -793,7 +791,7 @@ secret_step6()
 
    iPrintLn("^0[^3T^0]");
    iPrintLn("^0[^3Secret Opened^0.^0]");
-   player braxi\_rank::giveRankXP("", 500);
+   player braxi\_rank::giveRankXP("", 20);
 
 	trig delete();
     trig2 delete();
@@ -852,7 +850,7 @@ secfinish()
     player.insec = false;
     player iprintlnBOld ("^3You ^0finished ^3Secret Room^0.");
     iPrintLn("^3" + player.name + " ^0finished ^3Secret Room^0!");
-    player braxi\_rank::giveRankXP("", 500);
+    player braxi\_rank::giveRankXP("", 100);
 
     brush hide();
 	brush notsolid();
@@ -1027,7 +1025,7 @@ shortcut()
      player setPlayerAngles(tele.angles);
      player iprintlnBOld ("^3You ^0found ^3Shortcut^0!");
      iPrintLn("^3" + player.name + " ^0found ^3Shortcut^0!");
-     player braxi\_rank::giveRankXP("", 500);
+     player braxi\_rank::giveRankXP("", 100);
     }
 }
 
@@ -1108,7 +1106,7 @@ actisecfinish()
     player setPlayerAngles(tele.angles);
     player iprintlnBOld ("^3Nice! You finished ^3Activator Secret ^0!");
     iPrintLn("^3" + player.name + " ^0finished ^3Activator Secret^0!");
-    player braxi\_rank::giveRankXP("", 500);
+    player braxi\_rank::giveRankXP("", 100);
 
     break;
     }
@@ -1188,7 +1186,7 @@ epicroomexit()
 	  player setOrigin(tele1.origin);
      player setPlayerAngles(tele1.angles);
      player iprintlnBOld ("^0Welcome back to ^3real world^0!");
-     player braxi\_rank::giveRankXP("", 500);
+     player braxi\_rank::giveRankXP("", 100);
      trig delete();
     }
 }  

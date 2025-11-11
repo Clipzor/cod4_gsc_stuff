@@ -1195,7 +1195,7 @@ secretexit()
 			player playSoundToPlayer("tp", player);
 			player notify("sec1_done");
 			player.secretTimer destroy();
-			player braxi\_rank::giveRankXP( "", 100000 );
+			player braxi\_rank::giveRankXP( "", 1000 );
 		}
 }
 

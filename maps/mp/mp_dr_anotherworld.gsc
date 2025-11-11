@@ -90,7 +90,7 @@ main()
 	precacheitem ("raygun_mp");
 	precacheitem ("intervention_mp");
 	precacheitem ("tomahawk_mp");
-	precacheItem ("m1014_grip_mp");
+	precacheItem ("t5_spas12_mp");
 	precacheItem ("deserteaglegold_mp");
 	precacheModel("shadow");
 	precacheShader("mtl_shadow_fur");
@@ -553,16 +553,16 @@ for(;;)
 	activator freezeControls(true);
 	activator setorigin(acti.origin);
 	activator setPlayerAngles(acti.angles);
-	activator giveweapon("m1014_grip_mp");
-	player giveweapon("m1014_grip_mp");
-	player givemaxammo("m1014_grip_mp");
-	activator givemaxammo("m1014_grip_mp");
+	activator giveweapon("t5_spas12_mp");
+	player giveweapon("t5_spas12_mp");
+	player givemaxammo("t5_spas12_mp");
+	activator givemaxammo("t5_spas12_mp");
 	thread createhud(player.name + " ^5Selected ^7Shotgun ^5room :^7D");
 	wait 5;
 	player freezeControls(false);
 	activator freezeControls(false);
-	player switchtoweapon("m1014_grip_mp");
-	activator switchtoweapon("m1014_grip_mp");
+	player switchtoweapon("t5_spas12_mp");
+	activator switchtoweapon("t5_spas12_mp");
 	}
 }
 
