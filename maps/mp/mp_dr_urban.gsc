@@ -225,19 +225,23 @@ endroom_template(trigger, jumper_origin, acti_origin, weapon, weapon2, weapon_ro
         player setOrigin(jumper.origin);
         player TakeAllWeapons();
         player giveWeapon(weapon);
-        player giveWeapon(weapon2);
         player giveMaxAmmo(weapon);
-        player giveMaxAmmo(weapon2);
         player switchToWeapon(weapon);
+
 
         level.activ setPlayerAngles(acti.angles);
         level.activ setOrigin(acti.origin);
         level.activ TakeAllWeapons();
         level.activ giveWeapon(weapon);
-        level.activ giveWeapon(weapon2);
         level.activ giveMaxAmmo(weapon);
-        level.activ giveMaxAmmo(weapon2);
         level.activ switchToWeapon(weapon);
+
+        if(isdefined(weapon2)) {
+            player giveWeapon(weapon2);
+            player giveMaxAmmo(weapon2);
+            level.activ giveWeapon(weapon2);
+            level.activ giveMaxAmmo(weapon2);
+        }
 
 	 	ambientstop();
         ambientplay("imlay");
@@ -269,7 +273,7 @@ endroom_template(trigger, jumper_origin, acti_origin, weapon, weapon2, weapon_ro
 
 endroom_deagle()
 {
-    endroom_template("deagleroom_ent", "2ndfloor_go", "2ndfloor_acti", "deserteagle_mp", "deserteaglegold_mp", "Deagle");
+    endroom_template("deagleroom_ent", "2ndfloor_go", "2ndfloor_acti", "deserteaglegold_mp", undefined, "Deagle");
 }
 
 endroom_knife()
@@ -289,7 +293,8 @@ endroom_ak()
 
 endroom_random()
 {
-    endroom_template("randomroom_ent", "3rdfloor_go", "3rdfloor_acti", level.weaponList[level.random], undefined, "Random weapon");
+    // endroom_template("randomroom_ent", "3rdfloor_go", "3rdfloor_acti", level.weaponList[level.random], undefined, "Random weapon"); // temp fix
+    endroom_template("randomroom_ent", "3rdfloor_go", "3rdfloor_acti", "ak47_mp", undefined, "Random weapon"); // temp fix
 }
 
 creators()
