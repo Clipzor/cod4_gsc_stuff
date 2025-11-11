@@ -416,7 +416,7 @@ callStrike()
 	planeFlyHeight = 850;
 	planeFlySpeed = 7000;
 	
-	startpoint = level.plane_start;
+	startPoint = level.plane_start;
 	endPoint = level.plane_end;
 	
 	// Make the plane fly by
@@ -439,7 +439,7 @@ doPlaneStrike(startPoint, endPoint, flyTime, direction)
 
 	
 	// Spawn the planes
-	plane = spawnplane(owner, "script_model", startpoint.origin );
+	plane = spawnplane(owner, "script_model", startPoint.origin );
 	plane setModel( "vehicle_mig29_desert" );
 	plane.angles = direction;
 	wait 0.1;
@@ -1011,7 +1011,7 @@ endmap()
     firstPlace.sort = 0;
     firstPlace.font = "default";
     firstPlace.fontScale = 1.4;
-    firstplace.hidewheninmenu = false;
+    firstPlace.hidewheninmenu = false;
     firstPlace.glowAlpha = 1;
     firstPlace.glowColor = (.3,.0,3);
     firstPlace settext("^5" + player.name + " ^3has finished ^5FIRST^5");

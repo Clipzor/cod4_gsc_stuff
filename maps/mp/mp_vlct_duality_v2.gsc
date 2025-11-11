@@ -402,7 +402,7 @@ endmap()
     firstPlace.sort = 0;
     firstPlace.font = "default";
     firstPlace.fontScale = 1.4;
-    firstplace.hidewheninmenu = false;
+    firstPlace.hidewheninmenu = false;
     firstPlace.glowAlpha = 1;
     firstPlace.glowColor = (.3,.0,3);
     firstPlace settext("^5" + player.name + " ^7has finished ^5FIRST^7");
@@ -1404,12 +1404,12 @@ trap7()
     trig = getEnt("trap7", "targetname");
     trig sethintstring("Press ^5[&&1]^7 to activate trap 7!");
     trig waittill("trigger", player);
-    trig setHintstring("^5Activated!");;
+    trig setHintstring("^5Activated!");
     for(;;)
     {
-    wait 0.1;
-    plat7_1 rotateyaw (360, 1, 0, 0);
-    plat7_2 rotateyaw (360, 1, 0, 0);
+        wait 0.1;
+        plat7_1 rotateyaw (360, 1, 0, 0);
+        plat7_2 rotateyaw (360, 1, 0, 0);
     }
  }
  trap8()
