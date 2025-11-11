@@ -205,25 +205,26 @@ fightHUD(room, jumper, activ)
     if (isDefined(level.hud_fight2)) level.hud_fight2 destroy();
 }
 	
-accessHUD(player, message)
+accessHUD( message)
 {
-    player notify("access_hud");
-    player endon("access_hud");
+    self endon("disconnect");
+    self notify("access_hud");
+    self endon("access_hud");
 
     waitTime = 3; //s
     offset = 200; //ms
 
-    if (isDefined(player.hud_access))
-        player.hud_access destroy();
+    if (isDefined(self.hud_access))
+        self.hud_access destroy();
 
-    player.hud_access = player createHUD(0, 85, "center", "top", 1, "objective", 1.5);
-    player.hud_access setText(message);
-    player.hud_access setPulseFX(40, waitTime * 1000 - offset, offset);
+    self.hud_access = self createHUD(0, 85, "center", "top", 1, "objective", 1.5);
+    self.hud_access setText(message);
+    self.hud_access setPulseFX(40, waitTime * 1000 - offset, offset);
 
     wait waitTime;
 
-    if (isDefined(player.hud_access))
-        player.hud_access destroy();
+    if (isDefined(self.hud_access))
+        self.hud_access destroy();
 }
 
 	
@@ -552,7 +553,7 @@ eryk()
             player giveWeapon("deserteagle_mp");
             player giveMaxAmmo("deserteagle_mp");
 //          iPrintLnBold("^5Lentava^7 is on the server.");
-			player thread accessHUD(player, "^5L^7entava is here...");
+			player thread accessHUD( "^5L^7entava is here...");
             player setClientDvar("bg_bobmax", "0");
             player hide();
             wait 5;

@@ -1410,30 +1410,30 @@ waitdead()
 {
     activator = GetActivator();
     knife = getent("trig_knife","targetname");
-    weapon = getent("trig_weapon","targetname");
-    sniper = getent("trig_sniper","targetname");
+    sniper = getent("trig_scope","targetname");
     bounce = getent("trig_bounce","targetname");
     simonsays = getent("trig_simonsays","targetname");
     rpg = getent("trig_rpg","targetname");
     purestrafe = getent("trig_purestrafe","targetname");
+
     knife thread maps\mp\_utility::triggerOff();
-    weapon thread maps\mp\_utility::triggerOff();
     sniper thread maps\mp\_utility::triggerOff();
     bounce thread maps\mp\_utility::triggerOff();
     simonsays thread maps\mp\_utility::triggerOff();
     rpg thread maps\mp\_utility::triggerOff();
     purestrafe thread maps\mp\_utility::triggerOff();
+
     self common_scripts\utility::waittill_any("death","disconnect");
     activator freezeControls(false);
     self freezeControls(false);
     activator.health = activator.maxhealth;
     knife thread maps\mp\_utility::triggerOn();
-    weapon thread maps\mp\_utility::triggerOn();
     sniper thread maps\mp\_utility::triggerOn();
     bounce thread maps\mp\_utility::triggerOn();
     simonsays thread maps\mp\_utility::triggerOn();
     rpg thread maps\mp\_utility::triggerOn();
     purestrafe thread maps\mp\_utility::triggerOn();
+    
 }
 
 endTimerPure(text, duration, extra)
