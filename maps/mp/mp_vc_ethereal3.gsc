@@ -1,28 +1,5 @@
-/*Map Dedicated to my Beloved Vistic
- Map By CoMpy.
- /devmap mp_vc_ethereal3
-
-
-                                                                                                            
-     ***** *      **           *****  *       *******      ****           *         *****  *       * ***    
-  ******  *    *****        ******  *       *       ***   *  *************       ******  *       *  ****  * 
- **   *  *       *****     **   *  *       *         **  *     *********        **   *  *       *  *  ****  
-*    *  **       * **     *    *  *        **        *   *     *  *            *    *  *       *  **   **   
-    *  ***      *             *  *          ***           **  *  **                *  *       *  ***        
-   **   **      *            ** **         ** ***            *  ***               ** **      **   **        
-   **   **      *            ** **          *** ***         **   **               ** **      **   **        
-   **   **     *           **** **            *** ***       **   **             **** **      **   **        
-   **   **     *          * *** **              *** ***     **   **            * *** **      **   **        
-   **   **     *             ** **                ** ***    **   **               ** **      **   **        
-    **  **    *         **   ** **                 ** **     **  **          **   ** **       **  **        
-     ** *     *        ***   *  *                   * *       ** *      *   ***   *  *         ** *      *  
-      ***     *         ***    *          ***        *         ***     *     ***    *           ***     *   
-       *******           ******          *  *********           *******       ******             *******    
-         ***               ***          *     *****               ***           ***                ***      
-                                        *                                                                   
-                                         **                                                                 
-                                                                                                            
-
+/*
+    Map By CoMpy.
 */
 
 main()
@@ -155,15 +132,12 @@ waitdead()
 {
     activator = GetActivator();
     scope = getent("trigger_sniproom","targetname");
-    knife = getent("trigger_kniferoom","targetname");
     scope thread maps\mp\_utility::triggerOff();
-    knife thread maps\mp\_utility::triggerOff();
     self common_scripts\utility::waittill_any("death","disconnect");
     activator freezeControls(false);
     self freezeControls(false);
     activator.health = activator.maxhealth;
     scope thread maps\mp\_utility::triggerOn();
-    knife thread maps\mp\_utility::triggerOn();
 }
 
 sniproom()

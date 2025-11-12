@@ -144,11 +144,6 @@ addTriggerToList( name )
 
 }
 
-init_test(){
-    texture = getent ("texture_groundmap", "targetname");
-    texture moveZ(-2560, 0.1);
-}
-
 water_moving()
 {
     level endon ("slimeRaising");
@@ -206,16 +201,13 @@ buoy_moving()
 
 DisableHardMode()
 {
-    trig = getent ("trig_hardmodeDsiabled", "targetname");
+    trig = getent ("trig_hardmode", "targetname");
     trig setHintString ("^1HARDMODE has been disabled because you activated one or severals traps");
-
-    trig2 = getent ("trig_hardmode", "targetname");
-    trig2 delete();
-
+    trig.allow_hardmode = false;
 }
 ActivatedHardMode()
 {
-    trig = getent ("trig_hardmodeDsiabled", "targetname");
+    trig = getent ("trig_hardmode", "targetname");
     trig setHintString ("^5HardMode activated");
 
     thread HardModeButton();
@@ -230,10 +222,14 @@ hardMode()
     while(1) 
     {
         trig waittill("trigger", player);
+        if(isdefined(trig.allow_hardmode))
+            continue;
+        if(isdefined(trig.hardmode_enabled))
+            continue;
+        
+        trig.hardmode_enabled = true;
         thread HardModeButton();
-        trig delete();
         thread ActivatedHardMode();
-        thread test();
     }
 }
 
@@ -285,7 +281,6 @@ trap1a()
    trap1a = getent ("trap1_a", "targetname");
    trig = getent ("trap1_a_trig", "targetname");
 
-   trig enablelinkto(); 
    trig linkto(trap1a);
 
    trap1a moveY(211, 0.58);
@@ -304,7 +299,6 @@ trap1b()
    trap1b = getent ("trap1_b", "targetname");
    trig = getent ("trap1_b_trig", "targetname");
 
-   trig enablelinkto(); 
    trig linkto(trap1b);
 
    trap1b moveY(-96, 0.24);
@@ -323,7 +317,6 @@ trap1c()
    trap1c = getent ("trap1_c", "targetname");
    trig = getent ("trap1_c_trig", "targetname");
 
-   trig enablelinkto(); 
    trig linkto(trap1c);
 
    trap1c moveY(122, 0.30);
@@ -1949,10 +1942,8 @@ trap9a()
     trap9_a_link = getent ("trap9_a_link", "targetname");
     trap9_a_damage = getent ("trap9_a_damage", "targetname");
 
-    trap9_a_1 enablelinkto(); 
     trap9_a_1 linkto(trap9_a_link);
 
-    trap9_a_2 enablelinkto(); 
     trap9_a_2 linkto(trap9_a_link);
 
     trap9_a_damage enablelinkto(); 
@@ -1983,10 +1974,8 @@ trap9b()
     trap9_b_link = getent ("trap9_b_link", "targetname");
     trap9_b_damage = getent ("trap9_b_damage", "targetname");
 
-    trap9_b_1 enablelinkto(); 
     trap9_b_1 linkto(trap9_b_link);
 
-    trap9_b_2 enablelinkto(); 
     trap9_b_2 linkto(trap9_b_link);
 
     trap9_b_damage enablelinkto(); 
@@ -2017,10 +2006,8 @@ trap9c()
     trap9_c_link = getent ("trap9_c_link", "targetname");
     trap9_c_damage = getent ("trap9_c_damage", "targetname");
 
-    trap9_c_1 enablelinkto(); 
     trap9_c_1 linkto(trap9_c_link);
 
-    trap9_c_2 enablelinkto(); 
     trap9_c_2 linkto(trap9_c_link);
 
     trap9_c_damage enablelinkto(); 
@@ -2049,8 +2036,21 @@ fall_room_init()
     for(i=1;i<=77;i++)
         thread fall_room("2_" + i);
 
-    for(i=1;i<=77;i++)
-        thread fall_room("3_" + i);
+    for(i=1;i<=77;i++) {
+        if(fall_room_3_missed_ents_check("3_" + i))
+            thread fall_room("3_" + i);
+    }
+
+    //3_ // somehow you missed these ents? you good bro?
+    //12 - 13 - 14 - 21 - 22 - 23 - 24 - 25 - 31/36
+}
+
+fall_room_3_missed_ents_check(index) {
+    check_ent = getent ("fall_room_trigger_" + index, "targetname");
+    if(isdefined(check_ent))
+        return true;
+    else
+        return false;
 }
 
 //1
@@ -2081,11 +2081,17 @@ selectionroom()
     while (1)
     {
         trig waittill ("trigger", player);
+        
+        if(!isdefined(getactivator())){
+            player iprintln("^1No Activator Detected");
+            continue;
+        }
+            
         player takeAllWeapons();
         player setOrigin (orig.origin);
         player setPlayerAngles(orig.angles);
         while (isDefined(player) && isAlive(player))
-        wait .05;
+            wait .05;
     }
 }
 antiDeathColorSpinRoom()
@@ -3271,7 +3277,6 @@ trap3a()
    trap3a = getent ("trap3_a", "targetname");
    trig = getent ("trap3_a_trig", "targetname");
 
-   trig enablelinkto(); 
    trig linkto(trap3a);
 
    trap3a moveY(-191.5, 0.425);
@@ -3290,7 +3295,6 @@ trap3b()
    trap3b = getent ("trap3_b", "targetname");
    trig = getent ("trap3_b_trig", "targetname");
 
-   trig enablelinkto(); 
    trig linkto(trap3b);
 
    trap3b moveY(191.5, 0.425);
@@ -3359,7 +3363,6 @@ trap7a()
    trap7a = getent ("trap7_a", "targetname");
    trig = getent ("trap7_a_trig", "targetname");
 
-   trig enablelinkto(); 
    trig linkto(trap7a);
 
    for(;;)
@@ -3375,7 +3378,6 @@ trap7b()
    trap7b = getent ("trap7_b", "targetname");
    trig = getent ("trap7_b_trig", "targetname");
 
-   trig enablelinkto(); 
    trig linkto(trap7b);
 
    for(;;)
@@ -3391,7 +3393,6 @@ trap7c()
    trap7c = getent ("trap7_c", "targetname");
    trig = getent ("trap7_c_trig", "targetname");
 
-   trig enablelinkto(); 
    trig linkto(trap7c);
 
    for(;;)
@@ -3407,7 +3408,6 @@ trap7d()
    trap7d = getent ("trap7_d", "targetname");
    trig = getent ("trap7_d_trig", "targetname");
 
-   trig enablelinkto(); 
    trig linkto(trap7d);
 
    for(;;)
@@ -3673,7 +3673,8 @@ iprintln("^1Activator turned ON the HARDMODE");
 iprintlnbold("^1HARDMODE Activated: All traps activated");
 
 activator = GetActivator();
-activator braxi\_rank::giveRankXp( "", 10000);
+if(isdefined(activator))
+    activator braxi\_rank::giveRankXp( "", 1000);
 
 thread trap1a();
 thread trap1b();
@@ -3819,7 +3820,10 @@ RadioSongs()
         {
             case 0:
                 self.cooldown = 1;
-                self stopLocalSound();
+                self stopLocalSound("everybodyfalls");
+                self stopLocalSound("finalfall");
+                self stopLocalSound("survivethefall");
+                self stopLocalSound("finalfallremix");
                 wait 0.5;
                 self iprintlnbold("^5Radio Playing ^7>> Everybody Falls ^5<< ^7(1/4)");
                 self iprintln("^5Radio Playing ^7>> Everybody Falls ^5<< ^7(1/4)");
@@ -3831,7 +3835,10 @@ RadioSongs()
                     
             case 1:	
                 self.cooldown = 1;
-                self stopLocalSound();
+                self stopLocalSound("everybodyfalls");
+                self stopLocalSound("finalfall");
+                self stopLocalSound("survivethefall");
+                self stopLocalSound("finalfallremix");
                 wait 0.5;
                 self iprintlnbold("^5Radio Playing ^7>> Final Fall ^5<< ^7(2/4)");
                 self iprintln("^5Radio Playing ^7>> Final Fall ^5<< ^7(2/4)");
@@ -3843,7 +3850,10 @@ RadioSongs()
                     
             case 2:	
                 self.cooldown = 1;
-                self stopLocalSound();
+                self stopLocalSound("everybodyfalls");
+                self stopLocalSound("finalfall");
+                self stopLocalSound("survivethefall");
+                self stopLocalSound("finalfallremix");
                 wait 0.5;
                 self iprintlnbold("^5Radio Playing ^7>> Survive the Fall ^5<< ^7(3/4)");
                 self iprintln("^5Radio Playing ^7>> Survive the Fall ^5<< ^7(3/4)");
@@ -3855,7 +3865,10 @@ RadioSongs()
 
             case 3:	
                 self.cooldown = 1;
-                self stopLocalSound();
+                self stopLocalSound("everybodyfalls");
+                self stopLocalSound("finalfall");
+                self stopLocalSound("survivethefall");
+                self stopLocalSound("finalfallremix");
                 wait 0.5;
                 self iprintlnbold("^5Radio Playing ^7>> Final Fall (Vector U Remix) ^5<< ^7(4/4)");
                 self iprintln("^5Radio Playing ^7>> Final Fall (Vector U Remix) ^5<< ^7(4/4)");
@@ -3908,10 +3921,4 @@ radioTriggerActivator()
         trig waittill("trigger", player);
         player thread RadioSongs();
     }
-}
-
-test() {
-    trig1 = getent ("trig_hardmodeInfo_trap1", "targetname");
-    trig1 setHintString ("^1Trap currently activated (HARDMODE)");
-    trig1 moveZ(1, 0.1);
 }
