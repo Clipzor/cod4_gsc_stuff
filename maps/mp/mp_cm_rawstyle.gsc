@@ -548,28 +548,33 @@ modelRotator()
 
 games() 
 {
-level.games_trig = getEnt( "trig_endselector", "targetname");
-games = getEnt( "o_endselector", "targetname" );
+    level.games_trig = getEnt( "trig_endselector", "targetname");
+    games = getEnt( "o_endselector", "targetname" );
 
-for(;;)
-{
-level.games_trig waittill( "trigger", player );
-if( !isDefined( level.games_trig ) )
-return;
+    for(;;)
+    {
+        level.games_trig waittill( "trigger", player );
+        if( !isDefined( level.games_trig ) )
+        return;
 
-iPrintlnBold( " ^6" + player.name + " is picking a room" );
-acti = GetActivator();
-if(level.firstenter == true)
-{
-	acti freezeControls(1);
-	acti iPrintLnBold("^1Sorry man, antiglitch");
-	level notify("acti_antiglitch");
-}
-player SetPlayerAngles( games.angles );
-player setOrigin( games.origin );
-player TakeAllWeapons();
-player antiglitcher();
-}
+        if(!isdefined(getactivator())){
+            player iprintln("^1No Activator Detected");
+            continue;
+        }
+
+        iPrintlnBold( " ^6" + player.name + " is picking a room" );
+        acti = GetActivator();
+        if(level.firstenter == true)
+        {
+            acti freezeControls(1);
+            acti iPrintLnBold("^1Sorry man, antiglitch");
+            level notify("acti_antiglitch");
+        }
+        player SetPlayerAngles( games.angles );
+        player setOrigin( games.origin );
+        player TakeAllWeapons();
+        player antiglitcher();
+    }
 }
 
 antiglitcher() 

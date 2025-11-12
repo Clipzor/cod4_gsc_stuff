@@ -264,9 +264,11 @@ acti = getent(jumper.target,"targetname");
 for(;;)
 {
 	bounce waittill("trigger", player);
-	old delete(); // TODO fix this, gets deleted every time someone enters room in all rooms
+    if(!isdefined(getactivator())){ player iprintln("^1No Activator Detected"); continue; }
+
 	if(!isdefined(level.roommusic))
 	{
+	    old delete();
 		thread endmusic("lava", 215, "^1<<< ^3Now playing ^2[[^3 Find You (Clark Kent Remix) ^2]] ^1>>>");
 		level.roommusic = 1;
 	}
@@ -433,13 +435,16 @@ dmg thread lavadmg();
 for(;;)
 {
 	lava waittill("trigger", player);
-	old delete();
-	player thread waitdead();
+    if(!isdefined(getactivator())){ player iprintln("^1No Activator Detected"); continue; }
+
 	if(!isdefined(level.roommusic))
 	{
+	    old delete();
 		thread endmusic("lava", 215, "^1<<< ^3Now playing ^2[[^3 Find You (Clark Kent Remix) ^2]] ^1>>>");
+	    level.roommusic = 1;
 	}
-	level.roommusic = 1;
+    
+	player thread waitdead();
 	thread createhud(player.name + " ^1Selected Lava Jump Way^7!!");
 	activator = GetActivator();
 	player freezeControls(true);
@@ -615,12 +620,14 @@ acti = getent(jumper.target,"targetname");
 for(;;)
 {
 	sniper waittill("trigger", player);
-	old delete();
+    if(!isdefined(getactivator())){ player iprintln("^1No Activator Detected"); continue; }
+
 	if(!isdefined(level.roommusic))
 	{
+	    old delete();
 		thread endmusic("sniper", 235, "^3<<< ^3Now playing ^2((^1Lullaby of a Deadman^2)) ^3>>>");
+	    level.roommusic = 1;
 	}
-	level.roommusic = 1;
 	player thread waitdead();
 	activator = GetActivator();
 	player freezeControls(true);
@@ -665,12 +672,14 @@ acti = getent(jumper.target,"targetname");
 for(;;)
 {
 	self waittill("trigger", player);
-	old delete();
+    if(!isdefined(getactivator())){ player iprintln("^1No Activator Detected"); continue; }
+
 	if(!isdefined(level.roommusic))
 	{
+	    old delete();
 		thread endmusic("sniper", 235, "^3<<< ^3Now playing ^2((^1Lullaby of a Deadman^2)) ^3>>>");
+	    level.roommusic = 1;
 	}
-	level.roommusic = 1;
 	player thread waitdead();
 	activator = GetActivator();
 	player freezeControls(true);

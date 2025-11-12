@@ -803,6 +803,9 @@ roomselection()
     {
         trig setHintString ("^7Press ^5[&&1]^7 to enter ^5Selection Room");
         trig waittill ("trigger", player);
+        
+        if(!isdefined(getactivator())){ player iprintln("^1No Activator Detected"); continue; }
+
 		iPrintLnBold ("^5" + player.name + " ^7has entered in ^5Selection Room!");
         player setOrigin (orig.origin);
         player setPlayerAngles(orig.angles);

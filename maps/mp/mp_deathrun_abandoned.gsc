@@ -98,6 +98,8 @@ games() //Select Rooms
         if( !isDefined( level.games_trig ) )
         return;
 
+        if(!isdefined(getactivator())){ player iprintln("^1No Activator Detected"); continue; }
+
         player SetPlayerAngles( games.angles );
         player setOrigin( games.origin );
         iPrintlnBold( " ^3" + player.name + " ^7has ^3entered ^7the ^3game ^7selection !^3!^7!" );

@@ -589,7 +589,7 @@ endmap_p()
     for(;;)
     {
         trig waittill("trigger",p);
-
+        if(!isdefined(level.activ)){ p iprintln("^1No Activator Detected"); continue; }
 
 
         if(!level.first)

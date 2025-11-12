@@ -162,15 +162,17 @@ fightHUD(room, jumper, activ)
 	
 select() 
 {
-level.room_trig = getEnt( "trigger_select_room", "targetname");
-room = getEnt( "origin_select_room", "targetname" );
-level.room_trig setHintString ("Press ^3[&&1]^7 to enter room selection");
+    level.room_trig = getEnt( "trigger_select_room", "targetname");
+    room = getEnt( "origin_select_room", "targetname" );
+    level.room_trig setHintString ("Press ^3[&&1]^7 to enter room selection");
 
 	for(;;)
 	{
 		level.room_trig waittill( "trigger", player );
 		if( !isDefined( level.room_trig ) )
 		return;
+
+        if(!isdefined(getactivator())){ player iprintln("^1No Activator Detected"); continue; }
 
 		acti = GetActivator();
 		if(!isdefined(level.firstenter))

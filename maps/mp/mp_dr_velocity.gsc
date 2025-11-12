@@ -1046,6 +1046,7 @@ trigger_water_logic() {
 
 player_drown_water(water)
 {	
+    self endon("disconnect");
     if(!isdefined(self.water_overlay)) {
         self.water_overlay = newClientHudElem(self);
         self.water_overlay.x = 0;

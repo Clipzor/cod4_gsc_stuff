@@ -296,6 +296,8 @@ main()
 		while(1)
 		{
 			old waittill ("trigger",player);
+            if(!isdefined(getactivator())){ player iprintln("^1No Activator Detected"); continue; }
+
 			player thread waitdead();
 			iPrintLnBold(player.name + " ^1 selected Classic way (OLD)!");
 			activator = GetActivator();
@@ -315,6 +317,8 @@ main()
 		while( 1 )
 		{
 			speedrun waittill ("trigger",player);
+            if(!isdefined(getactivator())){ player iprintln("^1No Activator Detected"); continue; }
+            
 			player thread waitdead();
 			iPrintLnBold(player.name + " ^1 selected Speedrun!");
 			activator = GetActivator();
@@ -367,6 +371,9 @@ main()
 		while( 1 )
 		{
 			weapons waittill("trigger",player);
+
+            if(!isdefined(getactivator())){ player iprintln("^1No Activator Detected"); continue; }
+
 			player thread waitdead();
 			iPrintLnBold(player.name + " ^1 selected Weapons!");
 			activator = GetActivator();
@@ -442,6 +449,9 @@ main()
 		while(1)
 		{
 			bounce waittill("trigger",player);
+
+            if(!isdefined(getactivator())){ player iprintln("^1No Activator Detected"); continue; }
+
 			player thread waitdead();
 			iPrintLnBold(player.name + " ^1 selected Bounce!");
 			activator = GetActivator();
@@ -615,6 +625,7 @@ main()
 		while(1)
 		{
 			sniper waittill("trigger",player);
+            if(!isdefined(getactivator())){ player iprintln("^1No Activator Detected"); continue; }
 			player thread waitdead();
 			iPrintLnBold(player.name + " ^1 selected Sniper!");
 			activator = GetActivator();
@@ -679,6 +690,7 @@ main()
 		while(1)
 		{
 			knife waittill("trigger",player);
+            if(!isdefined(getactivator())){ player iprintln("^1No Activator Detected"); continue; }
 			player thread waitdead();
 			iPrintLnBold(player.name + " ^1 selected Knife!");
 			activator = GetActivator();
@@ -708,6 +720,8 @@ main()
 		while(1)
 		{
 			p_s_r waittill("trigger",player);
+            if(!isdefined(getactivator())){ player iprintln("^1No Activator Detected"); continue; }
+
 			player thread waitdead();
 			iPrintLnBold(player.name + " ^1 selected Paper-Scissors-Rock minigame!");
 			activator = GetActivator();

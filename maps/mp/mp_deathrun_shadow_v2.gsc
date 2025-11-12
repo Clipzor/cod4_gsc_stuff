@@ -341,17 +341,18 @@ sniproom()
     while(1)
     {
         level.sniper waittill("trigger",player);
+        if(!isdefined(level.activ)){ player iprintln("^1No Activator Detected"); continue; }
 
-        ///////RESPECT SCRIPT/////////////////////////
-
-	    ///////RESPECT SCRIPT END/////////////////////////
 		if( !isDefined( level.sniper ) )
 			return;
 
-		level.knife delete();
-		level.deagle delete();		
-        level.old delete();		
-		level.gap delete();	
+        if(!isdefined(level.ngisungsgs)) {
+            level.ngisungsgs = true;
+            level.knife delete();
+            level.deagle delete();		
+            level.old delete();		
+            level.gap delete();	
+        }
 		
         player thread finalroom(1,jumper,"m40a3",100);
         level.activ thread finalroom(1,activator,"m40a3",100);
@@ -375,17 +376,19 @@ knife()
     while(1)
     {
         level.knife waittill("trigger",player);
+        if(!isdefined(level.activ)){ player iprintln("^1No Activator Detected"); continue; }
 
-        ///////RESPECT SCRIPT/////////////////////////
 
-	    ///////RESPECT SCRIPT END/////////////////////////
 		if( !isDefined( level.knife ) )
 			return;
-			
-		level.sniper delete();
-		level.deagle delete();
-        level.old delete();		
-		level.gap delete();			
+
+        if(!isdefined(level.ngisungsgs)) {
+            level.ngisungsgs = true;
+            level.sniper delete();
+            level.deagle delete();
+            level.old delete();		
+            level.gap delete();			
+        }	
 
         player thread finalroom(1,jumper,"knife",100);
         level.activ thread finalroom(1,activator,"knife",100);
@@ -408,17 +411,18 @@ gap()
     while(1)
     {
         level.gap waittill("trigger",player);
+        if(!isdefined(level.activ)){ player iprintln("^1No Activator Detected"); continue; }
 
-        ///////RESPECT SCRIPT/////////////////////////
-
-	    ///////RESPECT SCRIPT END/////////////////////////
 		if( !isDefined( level.gap ) )
 			return;
-			
-		level.sniper delete();
-		level.deagle delete();
-        level.old delete();			
-        level.knife delete();			
+
+        if(!isdefined(level.ngisungsgs)) {
+            level.ngisungsgs = true;
+            level.sniper delete();
+            level.deagle delete();
+            level.old delete();			
+            level.knife delete();			
+        }	
 			
 
         player thread finalroom(1,jumper,"knife",100);
@@ -444,17 +448,18 @@ deagle()
     while(1)
     {
         level.deagle waittill("trigger",player);
+        if(!isdefined(level.activ)){ player iprintln("^1No Activator Detected"); continue; }
 
-        ///////RESPECT SCRIPT/////////////////////////
-
-	    ///////RESPECT SCRIPT END/////////////////////////
 		if( !isDefined( level.deagle ) )
 			return;
-			
-		level.sniper delete();
-		level.knife delete();		
-        level.old delete();		
-		level.gap delete();			
+		
+        if(!isdefined(level.ngisungsgs)) {
+            level.ngisungsgs = true;
+            level.sniper delete();
+            level.knife delete();		
+            level.old delete();		
+            level.gap delete();			
+        }
 
         player thread finalroom(1,jumper,"deserteagle",100);
         level.activ thread finalroom(1,activator,"deserteagle",100);
@@ -473,7 +478,6 @@ old()
 {
     level.old=getent("old_trig","targetname");
     target = getEnt( "old_port", "targetname");	
-    {
         level.old waittill("trigger",player);
 
 		level.sniper delete();
@@ -487,7 +491,6 @@ old()
 	way = getent( "wall", "targetname" );
 	iprintlnbold( "Player ^5"+ player.name +" ^7select classic way." );
 	way movez( -350, 3 );
-	}
 }
 
 /*gapjumper1()

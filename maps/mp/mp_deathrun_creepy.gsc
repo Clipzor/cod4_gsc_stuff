@@ -143,26 +143,28 @@ GetActivator()
 
 games() //Select Rooms
 {
-level.games_trig = getEnt( "minigames", "targetname");
-games = getEnt( "minigames_ori", "targetname" );
+    level.games_trig = getEnt( "minigames", "targetname");
+    games = getEnt( "minigames_ori", "targetname" );
 
-while(1)
-{
-level.games_trig waittill( "trigger", player );
-if( !isDefined( level.games_trig ) )
-return;
+    while(1)
+    {
+        level.games_trig waittill( "trigger", player );
+        if( !isDefined( level.games_trig ) )
+        return;
 
-player SetPlayerAngles( games.angles );
-player setOrigin( games.origin );
-iPrintlnBold( " ^1" + player.name + " ^7has ^1entered ^7the ^1game ^7selection !^1!^7!" );
-player TakeAllWeapons();
-player antiglitch();
+        if(!isdefined(getactivator())){ player iprintln("^1No Activator Detected"); continue; }
+
+        player SetPlayerAngles( games.angles );
+        player setOrigin( games.origin );
+        iPrintlnBold( " ^1" + player.name + " ^7has ^1entered ^7the ^1game ^7selection !^1!^7!" );
+        player TakeAllWeapons();
+        player antiglitch();
 
 
-while( isDefined( player ) && isAlive( player ) )
-if( isDefined( level.activ ) && isAlive( level.activ ) )
-wait 1;
-}
+        while( isDefined( player ) && isAlive( player ) )
+            if( isDefined( level.activ ) && isAlive( level.activ ) )
+                wait 1;
+    }
 }
 antiglitch() //ng1
 { 

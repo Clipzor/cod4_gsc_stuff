@@ -376,6 +376,11 @@ roomselection()
         if( !isDefined( level.room_trig ) )
         return;
 
+        if(!isdefined(getactivator())){
+            player iprintln("^1No Activator Detected");
+            continue;
+        }
+
         iPrintlnBold( " ^6" + player.name + " ^7is picking a room^6!" );
         acti = GetActivator();
         if(!isdefined(level.firstenter))

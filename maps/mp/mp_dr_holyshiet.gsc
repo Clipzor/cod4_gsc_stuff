@@ -1,12 +1,3 @@
-// __/\\\________/\\\_______________________________________________________________________/\\\\\\\\\__/\\\\\\_________________________________        
-//  _\/\\\_______\/\\\____________________________________________________________________/\\\////////__\////\\\_________________________________       
-//   _\//\\\______/\\\___/\\\__________________/\\\_______/\\\___________________________/\\\/______________\/\\\_________________________________      
-//   __\//\\\____/\\\___\///___/\\\\\\\\\\__/\\\\\\\\\\\_\///______/\\\\\\\\____________/\\\________________\/\\\_____/\\\\\\\\\_____/\\/\\\\\\___     
-//    ___\//\\\__/\\\_____/\\\_\/\\\//////__\////\\\////___/\\\___/\\\//////____________\/\\\________________\/\\\____\////////\\\___\/\\\////\\\__    
-//     ____\//\\\/\\\_____\/\\\_\/\\\\\\\\\\____\/\\\______\/\\\__/\\\___________________\//\\\_______________\/\\\______/\\\\\\\\\\__\/\\\__\//\\\_   
-//      _____\//\\\\\______\/\\\_\////////\\\____\/\\\_/\\__\/\\\_\//\\\___________________\///\\\_____________\/\\\_____/\\\/////\\\__\/\\\___\/\\\_  
-//       ______\//\\\_______\/\\\__/\\\\\\\\\\____\//\\\\\___\/\\\__\///\\\\\\\\______________\////\\\\\\\\\__/\\\\\\\\\_\//\\\\\\\\/\\_\/\\\___\/\\\_ 
-//        _______\///________\///__\//////////______\/////____\///_____\////////__________________\/////////__\/////////___\////////\//__\///____\///__
 
 /*
   _   ________   ___  __        __   
@@ -60,6 +51,7 @@ main()
   //fx
   level.holyshiet = LoadFx("vistic/funken");
   level.rainbow = LoadFx("vistic/rainbow_funken");
+  level.roomsong = true;
 
   //Actidoit
   thread doit();
@@ -389,17 +381,22 @@ r_sniper()
         if( !isDefined( level.sniper ) )
             return; 
 
+        if(!isdefined(level.activ)){
+            player iprintln("^1No Activator Detected");
+            continue;
+        }
+
         if(level.roomsong==true)
-    {
-      ambientstop();
-      ambientplay("holyshiet2");
-      level.roomsong = false;
-      thread buildsnip();
-       playLoopedFx( level.rainbow, 0.05, (992, -704, 104));
-       level.weapon delete();
-       level.knife delete();
-       level.sniper setHintString("^1Press ^7F ^1to Port");
-    }
+        {
+            ambientstop();
+            ambientplay("holyshiet2");
+            level.roomsong = false;
+            thread buildsnip();
+            playLoopedFx( level.rainbow, 0.05, (992, -704, 104));
+            level.weapon delete();
+            level.knife delete();
+            level.sniper setHintString("^1Press ^7F ^1to Port");
+        }
 
     
     player FreezeControls(1);
@@ -417,7 +414,7 @@ r_sniper()
         level.activ setroomgun("remington700_mp");
 
         iprintlnbold("^1S^7niper ^1R^7oom");
-        iprintlnbold(player.name+" ^1vs "+level.activ);
+        iprintlnbold(player.name+" ^1vs "+level.activ.name);
 
         wait 5;
 
@@ -440,21 +437,26 @@ r_knife()
 
     while(1)
     {
-         level.knife waittill( "trigger", player );
+        level.knife waittill( "trigger", player );
         if( !isDefined(  level.knife ) )
             return; 
+        
+        if(!isdefined(level.activ)){
+            player iprintln("^1No Activator Detected");
+            continue;
+        }
 
         if(level.roomsong==true)
-    {
-      ambientstop();
-      ambientplay("holyshiet2");
-      level.roomsong = false;
-      thread buildknife();
-       playLoopedFx( level.rainbow, 0.05, (992, -800, 104));
-      level.weapon delete();
-      level.sniper delete();
-       level.knife setHintString("^1Press ^7F ^1to Port");
-    }
+        {
+            ambientstop();
+            ambientplay("holyshiet2");
+            level.roomsong = false;
+            thread buildknife();
+            playLoopedFx( level.rainbow, 0.05, (992, -800, 104));
+            level.weapon delete();
+            level.sniper delete();
+            level.knife setHintString("^1Press ^7F ^1to Port");
+        }
 
     
     player FreezeControls(1);
@@ -472,7 +474,7 @@ r_knife()
         level.activ setroomgun("knife_mp");
 
         iprintlnbold("^1K^7nife ^1R^7oom");
-        iprintlnbold(player.name+" ^1vs^7 "+level.activ);
+        iprintlnbold(player.name+" ^1vs^7 "+level.activ.name);
 
         wait 5;
 
@@ -499,6 +501,11 @@ r_weapon()
         if( !isDefined(  level.weapon ) )
             return; 
 
+        if(!isdefined(level.activ)){
+            player iprintln("^1No Activator Detected");
+            continue;
+        }
+
         if(level.roomsong==true)
     {
       ambientstop();
@@ -523,11 +530,11 @@ r_weapon()
      player takeallweapons();
      level.activ takeallweapons();
       
-      player setroomgun("ak74u_mp");
+      player setroomgun("ak47_mp");
         level.activ setroomgun("ak47_mp");
 
         iprintlnbold("^1W^7eapon ^1R^7oom");
-        iprintlnbold(player.name+" ^1vs "+level.activ);
+        iprintlnbold(player.name+" ^1vs "+level.activ.name);
 
         wait 5;
 
@@ -598,3 +605,4 @@ doit()
   playloopedfx(level.holyshiet,0.5,(-360,-1528,-232));
   playloopedfx(level.holyshiet,0.5,(600,-1544,-232));
 }
+
