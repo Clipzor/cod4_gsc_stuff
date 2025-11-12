@@ -22,7 +22,7 @@ main()
 	PreCacheItem("uzi_mp");
 	PreCacheItem("m4_mp");
 	PreCacheItem("ak47_mp");
-	PreCacheItem("g3_mp");
+	PreCacheItem("honeybadger_mp");
 	PreCacheItem("m60e4_mp");
 	PreCacheItem("p90_mp");
 	PreCacheItem("barrett_mp");
@@ -1406,7 +1406,7 @@ while(1)
 			}
 			if(random == 4)
 			{
-				user rewardWeapon( "primary", "g3_mp", 100, 500 );
+				user rewardWeapon( "primary", "honeybadger_mp", 100, 500 );
 				user iprintLnBold("^1You have recieved a g3");
 			}
 			if(random == 5)

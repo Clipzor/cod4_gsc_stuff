@@ -52,7 +52,7 @@ main()
 	precacheItem("knife_mp");
 	preCacheItem("deserteagle_mp");
     preCacheItem("ak74u_mp");
-	preCacheItem("g3_mp");
+	preCacheItem("honeybadger_mp");
 	precacheItem("artillery_mp");
 
 	thread startdoor();
@@ -430,9 +430,9 @@ race_room_wep()
 		{	
 		trig waittill ("trigger",player );
 		player takeAllWeapons();
-		player giveWeapon("g3_mp");
-		player giveMaxAmmo("g3_mp");
-		player switchToWeapon("g3_mp");
+		player giveWeapon("honeybadger_mp");
+		player giveMaxAmmo("honeybadger_mp");
+		player switchToWeapon("honeybadger_mp");
 		wait 0.1;
 		}
 }

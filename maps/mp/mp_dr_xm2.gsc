@@ -6,7 +6,7 @@ main()
 
 	precacheItem("ak47_mp");
 	precacheItem("ak74u_mp");
-	precacheItem("g3_mp");
+	precacheItem("honeybadger_mp");
 	precacheItem("m21_mp");
 	precacheItem("mp5_mp");
 	precacheItem("p90_mp");
@@ -640,8 +640,8 @@ weaponromo_weapons()
 				self switchToWeapon("ak74u_mp");
 				break;
 		case 2:
-				self giveWeapon("g3_mp");
-				self switchToWeapon("g3_mp");
+				self giveWeapon("honeybadger_mp");
+				self switchToWeapon("honeybadger_mp");
 				break;
 		case 3:
 				self giveWeapon("m21_mp");

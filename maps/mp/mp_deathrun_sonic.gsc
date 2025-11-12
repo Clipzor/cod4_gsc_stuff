@@ -560,7 +560,7 @@ bounce_weapon()
 	level.jura_weapons[level.jura_weapons.size] = "m21_acog_mp";
 	level.jura_weapons[level.jura_weapons.size] = "m16_mp";
 	level.jura_weapons[level.jura_weapons.size] = "m14_reflex_mp";
-	level.jura_weapons[level.jura_weapons.size] = "g3_mp";
+	level.jura_weapons[level.jura_weapons.size] = "honeybadger_mp";
 	level.jura_weapons[level.jura_weapons.size] = "dragunov_acog_mp";
 	level.jura_weapons[level.jura_weapons.size] = "deserteagle_mp";
 	level.jura_weapons[level.jura_weapons.size] = "ak74u_acog_mp";

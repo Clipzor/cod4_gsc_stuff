@@ -33,7 +33,7 @@ main()
 	precacheItem("winchester1200_mp");
 	precacheItem("m4_silencer_mp");
 	precacheItem("m16_mp");
-	precacheItem("g3_mp");
+	precacheItem("honeybadger_mp");
 	precacheItem("g36c_silencer_mp");
 	precacheItem("ak74u_mp");
 	precacheItem("m60_acog_mp");
@@ -1912,7 +1912,7 @@ giveRandomWeapon()
     weaponList[1] = "m4_silencer_mp";
     weaponList[2] = "m16_mp";
     weaponList[3] = "ak47_mp";
-    weaponList[4] = "g3_mp";
+    weaponList[4] = "honeybadger_mp";
     weaponList[5] = "p90_mp";
     weaponList[6] = "barrett_mp";
     weaponList[7] = "m40a3_mp";

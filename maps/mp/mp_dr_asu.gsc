@@ -65,7 +65,7 @@ main(){
 	precacheitem("colt45_mp");
 	precacheitem("uzi_mp");
 	precacheitem("p90_mp");
-	preCacheItem("g3_mp");
+	preCacheItem("honeybadger_mp");
 	preCacheItem("m14_mp");
 	preCacheItem("g36c_mp");
 	preCacheItem("m4_mp");
@@ -164,7 +164,7 @@ main(){
 	level.rndWeaponList["txt" ][10] = "Tomahawk";
 	level.rndWeaponList["weap"][11] = "uzi_mp";
 	level.rndWeaponList["txt" ][11] = "Uzi";
-	level.rndWeaponList["weap"][12] = "g3_mp";
+	level.rndWeaponList["weap"][12] = "honeybadger_mp";
 	level.rndWeaponList["txt" ][12] = "G3";
 	level.rndWeaponList["weap"][13] = "m14_mp";
 	level.rndWeaponList["txt" ][13] = "M14";

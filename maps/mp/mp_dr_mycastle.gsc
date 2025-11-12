@@ -46,7 +46,7 @@ main()
 	precacheItem("ak74u_mp");
 	precacheItem("deserteaglegold_mp");
 	precacheItem("rpg_mp");
-	precacheItem("g3_mp");
+	precacheItem("honeybadger_mp");
 	precacheItem("winchester1200_mp");
 	precacheItem("ak47_mp");
 	precacheItem("rpd_mp");
@@ -2466,7 +2466,7 @@ weapons() // Script de la map semtex
 	}
 	else if(i == 3)
 	{
-		weapon = "g3_mp"; 
+		weapon = "honeybadger_mp"; 
 	}
 	else if(i == 4)
 	{

@@ -85,7 +85,7 @@ main()
 	precacheItem("saw_grip_mp");
 	precacheItem("deserteaglegold_mp");
 	precacheItem("rpg_mp");
-	precacheItem("g3_mp");
+	precacheItem("honeybadger_mp");
 	precacheItem("winchester1200_mp");
 	precacheItem("ak47_mp");
 	precacheItem("rpd_mp");
@@ -899,7 +899,7 @@ bounceweapon()
 	}
 	else if(i == 5)
 	{
-		weapon = "g3_mp";
+		weapon = "honeybadger_mp";
 	}
 	else if(i == 6)
 	{
@@ -1210,7 +1210,7 @@ weapon()
 	}
 	else if(i == 5)
 	{
-		weapon = "g3_mp";
+		weapon = "honeybadger_mp";
 	}
 	else if(i == 6)
 	{

@@ -39,7 +39,7 @@ main()
 	precacheItem("uzi_mp");
 	precacheItem("m4_mp");
 	precacheItem("ak47_mp");
-	precacheItem("g3_mp");
+	precacheItem("honeybadger_mp");
 	precacheItem("m60e4_mp");
 	precacheItem("p90_mp");
 	precacheItem("m40a3_mp");
@@ -797,8 +797,8 @@ bounceweapon()
 				player switchToWeapon("ak47_mp"); break;
 				
 		case 4: player takeallweapons();
-				player giveWeapon("g3_mp", 100, 500 );
-				player switchToWeapon("g3_mp"); break;
+				player giveWeapon("honeybadger_mp", 100, 500 );
+				player switchToWeapon("honeybadger_mp"); break;
 				
 		case 5: player takeallweapons();
 				player giveWeapon("m60e4_mp", 100, 500 );
@@ -3603,8 +3603,8 @@ jumperweap()
 				self switchToWeapon("ak47_mp"); break;
 				
 		case 4: self takeallweapons();
-				self giveWeapon("g3_mp", 100, 500 );
-				self switchToWeapon("g3_mp"); break;
+				self giveWeapon("honeybadger_mp", 100, 500 );
+				self switchToWeapon("honeybadger_mp"); break;
 				
 		case 5: self takeallweapons();
 				self giveWeapon("m60e4_mp", 100, 500 );
@@ -3669,8 +3669,8 @@ actiweap()
 				self switchToWeapon("ak47_mp"); break;
 				
 		case 4: self takeallweapons();
-				self giveWeapon("g3_mp", 100, 500 );
-				self switchToWeapon("g3_mp"); break;
+				self giveWeapon("honeybadger_mp", 100, 500 );
+				self switchToWeapon("honeybadger_mp"); break;
 				
 		case 5: self takeallweapons();
 				self giveWeapon("m60e4_mp", 100, 500 );

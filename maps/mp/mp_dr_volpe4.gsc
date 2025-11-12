@@ -57,7 +57,7 @@ main()
 	preCacheItem("ak74u_mp");
 	preCacheItem("skorpion_mp");
 	preCacheItem("ak47_mp");
-	preCacheItem("g3_mp");
+	preCacheItem("honeybadger_mp");
 	preCacheItem("m4_mp");
 	preCacheItem("mp44_mp");
 	preCacheItem("g36c_mp");
@@ -1993,7 +1993,7 @@ weapon_list()
 	random_weapon[random_weapon.size] = "skorpion_mp";
 	//Assault Rifle
 	random_weapon[random_weapon.size] = "ak47_mp";
-	random_weapon[random_weapon.size] = "g3_mp";
+	random_weapon[random_weapon.size] = "honeybadger_mp";
 	random_weapon[random_weapon.size] = "m4_mp";
 	random_weapon[random_weapon.size] = "mp44_mp";
 	random_weapon[random_weapon.size] = "g36c_mp";

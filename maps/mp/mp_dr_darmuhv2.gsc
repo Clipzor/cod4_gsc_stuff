@@ -8,7 +8,7 @@ main()
  precacheItem("remington700_acog_mp");
  precacheItem("m40a3_acog_mp");
  precacheItem("m4_mp");
- precacheItem("g3_mp");
+ precacheItem("honeybadger_mp");
  precacheItem("ak47_mp");
  precacheItem("rpd_mp");
  precacheItem("knife_mp");

@@ -24,7 +24,7 @@ PreCacheItem("winchester1200_mp");
 	PreCacheItem("skorpion_mp");
 	PreCacheItem("remington700_mp");
 	PreCacheItem("m4_mp");
-	PreCacheItem("g3_mp");
+	PreCacheItem("honeybadger_mp");
 	PreCacheItem("ak47_mp");
 	PreCacheItem("rpd_mp");
 thread hindi();

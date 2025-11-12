@@ -14,7 +14,7 @@ precacheItem( "tomahawk_mp" );
 precacheItem( "winchester1200_mp" );
 precacheItem( "skorpion_mp" );
 precacheItem( "m4_mp" );
-precacheItem( "g3_mp" );
+precacheItem( "honeybadger_mp" );
 precacheItem( "ak47_mp" );
 precacheItem( "rpd_mp" );
 
@@ -481,7 +481,7 @@ GetRandomWeapon( num )
 		if( x > 20 && x < 30 )
 			return "m4_mp";
 		if( x > 30 && x < 40 )
-			return "g3_mp";
+			return "honeybadger_mp";
 		if( x > 40 && x < 50 )
 			return "ak47_mp";
 		if( x == 50 )

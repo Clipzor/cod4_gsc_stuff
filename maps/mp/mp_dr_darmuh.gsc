@@ -8,7 +8,7 @@ main()
  precacheItem("remington700_acog_mp");
  precacheItem("m40a3_acog_mp");
  precacheItem("m4_mp");
- precacheItem("g3_mp");
+ precacheItem("honeybadger_mp");
  precacheItem("ak47_mp");
  precacheItem("rpd_mp");
  precacheItem("knife_mp");
@@ -389,7 +389,7 @@ GetRandomWeapon( num )
         if( x > 20 && x < 30 )
             return "m4_mp";
         if( x > 30 && x < 40 )
-            return "g3_mp";
+            return "honeybadger_mp";
         if( x > 40 && x < 50 )
             return "ak47_mp";
         if( x == 50 )

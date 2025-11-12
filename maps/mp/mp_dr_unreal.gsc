@@ -31,7 +31,7 @@ main()
 	PreCacheItem( "uzi_mp" );
 	PreCacheItem( "m4_mp" );
 	PreCacheItem( "ak47_mp" );
-	PreCacheItem( "g3_mp" );
+	PreCacheItem( "honeybadger_mp" );
 	PreCacheItem( "m60e4_mp" );
 	PreCacheItem( "p90_mp" );
 	PreCacheItem( "barrett_mp" );

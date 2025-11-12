@@ -14,7 +14,7 @@ main()
 	precacheItem("ak74u_mp");
 	precacheItem("deserteaglegold_mp");
 	precacheItem("rpg_mp");
-	precacheItem("g3_mp");
+	precacheItem("honeybadger_mp");
 	precacheItem("winchester1200_mp");
 	precacheItem("ak47_mp");
 	precacheItem("rpd_mp");
@@ -443,7 +443,7 @@ for(;;)
 		thread endmusic("lava", 215, "^1<<< ^3Now playing ^2[[^3 Find You (Clark Kent Remix) ^2]] ^1>>>");
 	    level.roommusic = 1;
 	}
-    
+
 	player thread waitdead();
 	thread createhud(player.name + " ^1Selected Lava Jump Way^7!!");
 	activator = GetActivator();
@@ -529,7 +529,7 @@ for(;;)
 	}
 	else if(i == 5)
 	{
-		weapon = "g3_mp";
+		weapon = "honeybadger_mp";
 	}
 	else if(i == 6)
 	{
@@ -865,7 +865,7 @@ for(u=0;u<16;u++)
 	else if(i == 5)
 	{
 		weapon_m setmodel("weapon_g3");
-		weapon = "g3_mp";
+		weapon = "honeybadger_mp";
 	}
 	else if(i == 6)
 	{

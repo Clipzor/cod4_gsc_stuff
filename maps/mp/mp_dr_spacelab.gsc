@@ -62,7 +62,7 @@ main()
 	precacheItem("ak74u_mp");
 	precacheItem("deserteaglegold_mp");
 	precacheItem("rpg_mp");
-	precacheItem("g3_mp");
+	precacheItem("honeybadger_mp");
 	precacheItem("winchester1200_mp");
 	precacheItem("ak47_mp");
 	precacheItem("rpd_mp");
@@ -2279,12 +2279,12 @@ if (x==3)
 
 if (x==4)
 {
-		player giveWeapon ("g3_mp");
-        player giveMaxAmmo ("g3_mp");
-        player switchToWeapon ("g3_mp");
-		 level.activ giveWeapon ("g3_mp");
-         level.activ giveMaxAmmo ("g3_mp");
-         level.activ switchToWeapon ("g3_mp");
+		player giveWeapon ("honeybadger_mp");
+        player giveMaxAmmo ("honeybadger_mp");
+        player switchToWeapon ("honeybadger_mp");
+		 level.activ giveWeapon ("honeybadger_mp");
+         level.activ giveMaxAmmo ("honeybadger_mp");
+         level.activ switchToWeapon ("honeybadger_mp");
 }
 
 if (x==5)

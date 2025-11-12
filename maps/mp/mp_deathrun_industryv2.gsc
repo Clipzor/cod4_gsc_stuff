@@ -28,7 +28,7 @@ main()
 	PreCacheItem("m4_mp");
 	PreCacheItem("colt45_mp");
 	PreCacheItem("mp5_mp");
-	PreCacheItem("g3_mp");
+	PreCacheItem("honeybadger_mp");
 	PreCacheItem("ak74u_mp");
 
 	precachemodel("body_mp_usmc_cqb");
@@ -1570,9 +1570,9 @@ wepthink(num)
 		for(;;)
 		{
 			self waittill("trigger",player);
-			player GiveWeapon("g3_mp");
-			player switchtoweapon("g3_mp");
-			player givemaxammo("g3_mp");
+			player GiveWeapon("honeybadger_mp");
+			player switchtoweapon("honeybadger_mp");
+			player givemaxammo("honeybadger_mp");
 			wait .1;
 		}
 	}

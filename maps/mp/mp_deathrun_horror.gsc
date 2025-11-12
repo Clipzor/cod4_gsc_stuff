@@ -7,7 +7,7 @@ main()
 	precacheItem( "barrett_mp" );
 	precacheItem( "ak47_mp" );
 	precacheItem( "ak74u_mp" );
-	precacheItem( "g3_mp" );
+	precacheItem( "honeybadger_mp" );
 	precacheItem( "m21_mp" );
 	precacheItem( "mp5_mp" );
 	precacheItem( "deserteagle_mp" );
@@ -867,8 +867,8 @@ player_wep()
 				level.player switchToWeapon("ak74u_mp");
 				break;
 		case 2:
-				level.player giveWeapon("g3_mp");
-				level.player switchToWeapon("g3_mp");
+				level.player giveWeapon("honeybadger_mp");
+				level.player switchToWeapon("honeybadger_mp");
 				break;
 		case 3:
 				level.player giveWeapon("m21_mp");
@@ -919,8 +919,8 @@ acti_wep()
 				level.activ switchToWeapon("ak74u_mp");
 				break;
 		case 2:
-				level.activ giveWeapon("g3_mp");
-				level.activ switchToWeapon("g3_mp");
+				level.activ giveWeapon("honeybadger_mp");
+				level.activ switchToWeapon("honeybadger_mp");
 				break;
 		case 3:
 				level.activ giveWeapon("m21_mp");

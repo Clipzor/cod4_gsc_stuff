@@ -54,7 +54,7 @@ main()
     precacheItem("ak74u_mp");
 	precacheItem("artillery_mp");
 	precacheItem("m21_mp");
-	precacheItem("g3_mp");
+	precacheItem("honeybadger_mp");
 	precacheItem("colt45_silencer_mp");
 	precacheItem("usp_mp");
 	precacheItem("uzi_silencer_mp");
