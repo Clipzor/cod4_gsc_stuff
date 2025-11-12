@@ -64,7 +64,7 @@ main() {
 	precacheItem("m40a3_mp");
 	precacheItem("remington700_mp"); //sniper room
 	precacheItem("knife_mp"); //knife, bounce rooms
-	preCacheItem("mp5_mp"); //weapon room
+	preCacheItem("iw5_mp7_mp"); //weapon room
 	preCacheMenu("frzl_music");
 	preCacheMenu("frzl_music_main"); //Custom music menu
 

@@ -33,7 +33,7 @@ main()
 	precacheItem ("winchester1200_mp");
 	precacheItem ("ak74u_mp");
 	precacheItem ("uzi_mp");
-	precacheItem ("mp5_mp");
+	precacheItem ("iw5_mp7_mp");
 	precacheItem ("barrett_mp" );
 	
 	addTriggerToList( "trap_01_trigger" );
@@ -137,7 +137,7 @@ init_misc()
 	level.guns[0] = "winchester1200_mp";
 	level.guns[1] = "ak74u_mp";
 	level.guns[2] = "uzi_mp";
-	level.guns[3] = "mp5_mp";
+	level.guns[3] = "iw5_mp7_mp";
 	level.guns[4] = "barrett_mp";
 	
 	thread eye();

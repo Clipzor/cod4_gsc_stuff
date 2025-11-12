@@ -38,7 +38,7 @@ main()
 	precacheItem ( "ak47_acog_mp" );
 	precacheItem ( "winchester1200_mp" );
 	precacheItem ( "uzi_mp" );
-	precacheItem ( "mp5_mp" );
+	precacheItem ( "iw5_mp7_mp" );
 	precacheItem ( "barrett_mp" );
 	precacheModel( "vehicle_blackhawk" );
 	precacheShellShock ( "frag_grenade_mp" );
@@ -355,10 +355,10 @@ mp5()
 		trigger waittill ( "trigger", player );
 		wait 0.05;
 	
-		player GiveWeapon ( "mp5_mp" );
-		player GiveMaxAmmo ( "mp5_mp" );
+		player GiveWeapon ( "iw5_mp7_mp" );
+		player GiveMaxAmmo ( "iw5_mp7_mp" );
 		wait 0.05;
-		player SwitchToWeapon ( "mp5_mp" );
+		player SwitchToWeapon ( "iw5_mp7_mp" );
 		player iPrintln( " ^2" + player.name + " ^7 got a ^2mp5" );
 		wait 2;
 	}

@@ -51,7 +51,7 @@ main()
 	preCacheItem("beretta_mp");
 	preCacheItem("usp_mp");
 	preCacheItem("colt45_mp");
-	preCacheItem("mp5_mp");
+	preCacheItem("iw5_mp7_mp");
 	preCacheItem("uzi_mp");
 	preCacheItem("p90_mp");
 	preCacheItem("ak74u_mp");
@@ -1986,7 +1986,7 @@ weapon_list()
 	random_weapon[random_weapon.size] = "colt45_mp";
 	random_weapon[random_weapon.size] = "deserteagle_mp";
 	//SMG
-	random_weapon[random_weapon.size] = "mp5_mp";
+	random_weapon[random_weapon.size] = "iw5_mp7_mp";
 	random_weapon[random_weapon.size] = "uzi_mp";
 	random_weapon[random_weapon.size] = "p90_mp";
 	random_weapon[random_weapon.size] = "ak74u_mp";

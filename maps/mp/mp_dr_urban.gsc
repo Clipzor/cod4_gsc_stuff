@@ -31,7 +31,7 @@ main()
 	PreCacheItem("knife_mp");
     PreCacheItem("dragunov_mp");
     PreCacheItem("p90_mp");
-    PreCacheItem("mp5_mp");
+    PreCacheItem("iw5_mp7_mp");
     PreCacheItem("saw_mp");
     PreCacheItem("uzi_mp");
     PreCacheItem("ak74u_mp");
@@ -70,7 +70,7 @@ main()
     level.weaponList = [];
     level.weaponList[level.weaponList.size] = "dragunov_mp";
     level.weaponList[level.weaponList.size] = "p90_mp";
-    level.weaponList[level.weaponList.size] = "mp5_mp";
+    level.weaponList[level.weaponList.size] = "iw5_mp7_mp";
     level.weaponList[level.weaponList.size] = "saw_mp";
     level.weaponList[level.weaponList.size] = "uzi_mp";
     level.weaponList[level.weaponList.size] = "ak74u_mp";

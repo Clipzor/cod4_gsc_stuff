@@ -41,7 +41,7 @@ main()
 	precacheItem ( "ak47_mp" );
 	precacheItem ( "winchester1200_mp" );
 	precacheItem ( "uzi_mp" );
-	precacheItem ( "mp5_mp" );
+	precacheItem ( "iw5_mp7_mp" );
 	precacheItem ( "barrett_mp" );
 	
 	//fx
@@ -1272,8 +1272,8 @@ vip_weap()
 		player iprintLnBold ( "^2You got uzi" );
 		wait 0.5;
 		
-		player GiveWeapon ( "mp5_mp" );
-		player GiveMaxAmmo ( "mp5_mp" );
+		player GiveWeapon ( "iw5_mp7_mp" );
+		player GiveMaxAmmo ( "iw5_mp7_mp" );
 		player iprintLnBold ( "^2You got mp5" );
 		wait 0.5;
 		

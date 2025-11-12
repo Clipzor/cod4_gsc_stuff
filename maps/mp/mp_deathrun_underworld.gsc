@@ -27,7 +27,7 @@ main()
     maps\mp\_load::main();
 	
 	precacheItem ( "brick_blaster_mp" );
-	precacheItem ( "mp5_mp" );
+	precacheItem ( "iw5_mp7_mp" );
 	precacheItem ( "p90_mp" );
 	precacheItem ( "ak47_mp" );
 	precacheItem ( "ak74u_mp" );

@@ -9,7 +9,7 @@ main()
 	precacheitem("remington700_mp");
 	precacheitem("ak74u_mp");
 	precacheitem("m4_mp");
-	precacheitem("mp5_mp");
+	precacheitem("iw5_mp7_mp");
 	precacheitem("usp_mp");
 	precacheitem("rpg_mp");
 
@@ -1076,7 +1076,7 @@ weapons_room()
 	weapons[2] = "remington700_mp";
 	weapons[3] = "ak74u_mp";
 	weapons[4] = "m4_mp";
-	weapons[5] = "mp5_mp";
+	weapons[5] = "iw5_mp7_mp";
 	weapons[6] = "usp_mp";
 	for(;;)
 	{

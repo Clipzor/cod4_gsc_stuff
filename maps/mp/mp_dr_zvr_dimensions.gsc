@@ -39,7 +39,7 @@ main()
 	precacheItem("m60_acog_mp");
 	precacheItem("skorpion_mp");
 	precacheItem("rpd_mp");
-	precacheItem("mp5_mp");
+	precacheItem("iw5_mp7_mp");
 	precacheItem("k7_mp");
 	precacheModel("fox_batgirl");
 	precacheModel("Elysium_SC5");
@@ -1920,7 +1920,7 @@ giveRandomWeapon()
     weaponList[9] = "ak74u_mp";
 	weaponList[10] = "skorpion_mp";
 	weaponList[11] = "rpd_mp";
-	weaponList[12] = "mp5_mp";
+	weaponList[12] = "iw5_mp7_mp";
     
     randomWeaponChosen = randomInt(weaponList.size);
     

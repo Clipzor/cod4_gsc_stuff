@@ -27,7 +27,7 @@ main()
 	PreCacheItem("rpg_mp");
 	PreCacheItem("m4_mp");
 	PreCacheItem("colt45_mp");
-	PreCacheItem("mp5_mp");
+	PreCacheItem("iw5_mp7_mp");
 	PreCacheItem("honeybadger_mp");
 	PreCacheItem("ak74u_mp");
 
@@ -1592,9 +1592,9 @@ wepthink(num)
 		for(;;)
 		{
 			self waittill("trigger",player);
-			player GiveWeapon("mp5_mp");
-			player switchtoweapon("mp5_mp");
-			player givemaxammo("mp5_mp");
+			player GiveWeapon("iw5_mp7_mp");
+			player switchtoweapon("iw5_mp7_mp");
+			player givemaxammo("iw5_mp7_mp");
 			wait .1;
 		}
 	}

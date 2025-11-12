@@ -47,7 +47,7 @@ main()
 	precacheItem("remington700_mp");
 	precacheitem("uzi_silencer_mp");
 	precacheItem("p90_silencer_mp");
-	precacheItem("mp5_mp");
+	precacheItem("iw5_mp7_mp");
 	precacheItem("skorpion_silencer_mp");
 
 	block_brush = getEnt("trap_6_brush","targetname");
@@ -265,7 +265,7 @@ rooms()
 	room[1].weapons = "slashnburn_mp;knife_mp;";
 	room[2].weapons = "slashnburn_mp;knife_mp;";
 	room[3].weapons = "slashnburn_mp;knife_mp;";
-	room[4].weapons = "uzi_silencer_mp;p90_silencer_mp;mp5_mp;ak47_mp;skorpion_silencer_mp;";
+	room[4].weapons = "uzi_silencer_mp;p90_silencer_mp;iw5_mp7_mp;ak47_mp;skorpion_silencer_mp;";
 	room[5].weapons = "";
 
 	for(i = 0; i < room.size; i++)

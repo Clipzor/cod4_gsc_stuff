@@ -81,7 +81,7 @@ maps\mp\_load::main();
     precacheItem("ak47_mp");
     precacheItem("skorpion_mp");
     precacheItem("m14_mp");
-    precacheItem("mp5_mp");
+    precacheItem("iw5_mp7_mp");
     precacheItem("deserteagle_mp");
     precacheItem("rpd_mp");
     precacheItem("m1014_mp");

@@ -44,7 +44,7 @@ ambientPlay("fullmap");
  thread secretroom();
 
 preCacheItem( "winchester1200_mp" );
-preCacheItem( "mp5_mp" );
+preCacheItem( "iw5_mp7_mp" );
 
  addTriggerToList( "trap1trig" );
  addTriggerToList( "trap2trig" );
@@ -511,9 +511,9 @@ finalFight4()
         level.finalJumper = player;
         level.finalJumper thread finalMonitor();
         
-        level.finalJumper finalRoom( tele_jumper, "mp5_mp", 100 );
+        level.finalJumper finalRoom( tele_jumper, "iw5_mp7_mp", 100 );
         iPrintLnBold(player.name+ "^4 has entered the ^2Crazy Weapon Room");
-        level.activ finalRoom( tele_activator, "mp5_mp", 100 );
+        level.activ finalRoom( tele_activator, "iw5_mp7_mp", 100 );
 
     }
     // code never gets here

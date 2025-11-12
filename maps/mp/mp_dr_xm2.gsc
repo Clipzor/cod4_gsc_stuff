@@ -8,7 +8,7 @@ main()
 	precacheItem("ak74u_mp");
 	precacheItem("honeybadger_mp");
 	precacheItem("m21_mp");
-	precacheItem("mp5_mp");
+	precacheItem("iw5_mp7_mp");
 	precacheItem("p90_mp");
 	precacheItem("rpg_mp");
 	precacheItem("deserteagle_mp");
@@ -648,8 +648,8 @@ weaponromo_weapons()
 				self switchToWeapon("m21_mp");
 				break;
 		case 4:
-				self giveWeapon("mp5_mp");
-				self switchToWeapon("mp5_mp");
+				self giveWeapon("iw5_mp7_mp");
+				self switchToWeapon("iw5_mp7_mp");
 				break;
 		case 5:
 				self giveWeapon("deserteagle_mp");

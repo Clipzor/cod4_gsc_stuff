@@ -438,7 +438,7 @@ bounce_room_weapon()
 	weap[0] = "ak47_mp";
 	weap[1] = "remington700_mp";
 	weap[2] = "honeybadger_mp";
-	weap[3] = "mp5_mp";
+	weap[3] = "iw5_mp7_mp";
 
 	while(1)
 	{

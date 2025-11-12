@@ -71,7 +71,7 @@ main(){
 	preCacheItem("m4_mp");
 	preCacheItem("rpd_mp");
 	preCacheItem("usp_mp");
-	preCacheItem("mp5_mp");
+	preCacheItem("iw5_mp7_mp");
 	preCacheItem("brick_blaster_mp");
 	preCacheItem("winchester1200_mp");
 	preCacheItem("rpg_mp");
@@ -176,7 +176,7 @@ main(){
 	level.rndWeaponList["txt" ][16] = "RPD";
 	level.rndWeaponList["weap"][17] = "winchester1200_mp";
 	level.rndWeaponList["txt" ][17] = "Winchester1200";
-	level.rndWeaponList["weap"][18] = "mp5_mp";
+	level.rndWeaponList["weap"][18] = "iw5_mp7_mp";
 	level.rndWeaponList["txt" ][18] = "Mp5";
 	level.rndWeaponList["weap"][19] = "brick_blaster_mp";
 	level.rndWeaponList["txt" ][19] = "Brick Blaster";
