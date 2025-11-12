@@ -1352,21 +1352,24 @@ trap8()
 
 knife_room()
 {
+    level.trigknife = getEnt("trig_knife","targetname");
+    acti = getEnt("k_1","targetname");
+    jump = getEnt("k_2","targetname");
+    
+    level.trigknife setHintString("^2Knife Room");
 	while(1)
 	{
-		level.trigknife = getEnt("trig_knife","targetname");
-		acti = getEnt("k_1","targetname");
-		jump = getEnt("k_2","targetname");
-		
-		level.trigknife setHintString("^2Knife Room");
-		
 		level.trigknife waittill("trigger", player);
+        if(!isdefined(level.activ)){ player iprintln("^1No Activator Detected"); continue; }
 		
-		level.trigbounce delete();
-		level.trigwep delete();
-		level.trigsniper delete();
-		level.trigrace delete();
-		level.trigshotgun delete();
+        if(!isdefined(level.gmsjkognvlsdkg)) {
+            level.gmsjkognvlsdkg = true;
+            level.trigbounce delete();
+            level.trigwep delete();
+            level.trigsniper delete();
+            level.trigrace delete();
+            level.trigshotgun delete();
+        }
 
 		
 		noti = SpawnStruct();
@@ -1423,22 +1426,25 @@ knife_room()
 
 bounce_room()
 {
+    level.trigbounce = getEnt("trig_bounce","targetname");
+    acti = getEnt("b_1","targetname");
+    jump = getEnt("b_2","targetname");
+    
+    level.trigbounce setHintString("^2Bounce Room");
 	while(1)
 	{
-		level.trigbounce = getEnt("trig_bounce","targetname");
-		acti = getEnt("b_1","targetname");
-		jump = getEnt("b_2","targetname");
-		
-		level.trigbounce setHintString("^2Bounce Room");
-		
 		level.trigbounce waittill("trigger", player);
+        if(!isdefined(level.activ)){ player iprintln("^1No Activator Detected"); continue; }
 		
-		level.trigknife delete();
-		level.trigwep delete();
-		level.trigsniper delete();
-		level.trigrace delete();
-		level.trigshotgun delete();
-		
+        if(!isdefined(level.gmsjkognvlsdkg)) {
+            level.gmsjkognvlsdkg = true;
+            level.trigknife delete();
+            level.trigwep delete();
+            level.trigsniper delete();
+            level.trigrace delete();
+            level.trigshotgun delete();
+        }
+        		
 		noti = SpawnStruct();
 		noti.titleText = "^3" + player.name + " ^7Enterd the ^2Bounce Room";
 		noti.notifyText = level.activ.name + " ^2VS^7 " + player.name;
@@ -1494,21 +1500,24 @@ bounce_room()
 
 race_room()
 {
+    level.trigrace = getEnt("trig_race","targetname");
+    acti = getEnt("r_1","targetname");
+    jump = getEnt("r_2","targetname");
+    
+    level.trigrace setHintString("^2Race Room");
 	while(1)
 	{
-		level.trigrace = getEnt("trig_race","targetname");
-		acti = getEnt("r_1","targetname");
-		jump = getEnt("r_2","targetname");
-		
-		level.trigrace setHintString("^2Race Room");
-		
 		level.trigrace waittill("trigger", player);
+        if(!isdefined(level.activ)){ player iprintln("^1No Activator Detected"); continue; }
 		
-		level.trigbounce delete();
-		level.trigwep delete();
-		level.trigsniper delete();
-		level.trigshotgun delete();
-		level.trigknife delete();
+        if(!isdefined(level.gmsjkognvlsdkg)) {
+            level.gmsjkognvlsdkg = true;
+            level.trigbounce delete();
+            level.trigwep delete();
+            level.trigsniper delete();
+            level.trigshotgun delete();
+            level.trigknife delete();
+        }
 		
 		noti = SpawnStruct();
 		noti.titleText = "^3" + player.name + " ^7Enterd the ^2Race Room";
@@ -1565,21 +1574,24 @@ race_room()
 
 sniper_room()
 {
-	while(1)
-	{
-		level.trigsniper = getEnt("trig_sniper","targetname");
-		acti = getEnt("s_1","targetname");
-		jump = getEnt("s_2","targetname");
-		
-		level.trigsniper setHintString("^2Sniper Room");
-		
+    level.trigsniper = getEnt("trig_sniper","targetname");
+    acti = getEnt("s_1","targetname");
+    jump = getEnt("s_2","targetname");
+    level.trigsniper setHintString("^2Sniper Room");
+	
+    while(1)
+	{	
 		level.trigsniper waittill("trigger", player);
-		
-		level.trigbounce delete();
-		level.trigwep delete();
-		level.trigknife delete();
-		level.trigrace delete();
-		level.trigshotgun delete();
+        if(!isdefined(level.activ)){ player iprintln("^1No Activator Detected"); continue; }
+    
+        if(!isdefined(level.gmsjkognvlsdkg)) {
+            level.gmsjkognvlsdkg = true;
+            level.trigbounce delete();
+            level.trigwep delete();
+            level.trigknife delete();
+            level.trigrace delete();
+            level.trigshotgun delete();
+        }
 		
 		noti = SpawnStruct();
 		noti.titleText = "^3" + player.name + " ^7Enterd the ^2Sniper Room";
@@ -1642,21 +1654,25 @@ sniper_room()
 
 karma_room()
 {
-	while(1)
-	{
-		level.trigwep = getEnt("trig_wep","targetname");
-		acti = getEnt("s_1","targetname");
-		jump = getEnt("s_2","targetname");
-		
-		level.trigwep setHintString("^2Wepon Room");
-		
+    level.trigwep = getEnt("trig_wep","targetname");
+    acti = getEnt("s_1","targetname");
+    jump = getEnt("s_2","targetname");
+    
+    level.trigwep setHintString("^2Weapon Room");
+	
+    while(1)
+	{	
 		level.trigwep waittill("trigger", player);
+        if(!isdefined(level.activ)){ player iprintln("^1No Activator Detected"); continue; }
 		
-		level.trigbounce delete();
-		level.trigsniper delete();
-		level.trigknife delete();
-		level.trigrace delete();
-		level.trigshotgun delete();
+        if(!isdefined(level.gmsjkognvlsdkg)) {
+            level.gmsjkognvlsdkg = true;
+            level.trigbounce delete();
+            level.trigsniper delete();
+            level.trigknife delete();
+            level.trigrace delete();
+            level.trigshotgun delete();
+        }
 
 		noti = SpawnStruct();
 		noti.titleText = "^3" + player.name + " ^7Enterd the ^2Weapon Room";
@@ -1715,21 +1731,24 @@ karma_room()
 
 shotgun_room()
 {
+    level.trigshotgun = getEnt("trig_shot","targetname");
+    acti = getEnt("shot_1","targetname");
+    jump = getEnt("shot_2","targetname");
+    
+    level.trigshotgun setHintString("^2Shotgun Room");
 	while(1)
 	{
-		level.trigshotgun = getEnt("trig_shot","targetname");
-		acti = getEnt("shot_1","targetname");
-		jump = getEnt("shot_2","targetname");
-		
-		level.trigshotgun setHintString("^2Shotgun Room");
-		
 		level.trigshotgun waittill("trigger", player);
+        if(!isdefined(level.activ)){ player iprintln("^1No Activator Detected"); continue; }
 		
-		level.trigbounce delete();
-		level.trigsniper delete();
-		level.trigknife delete();
-		level.trigrace delete();
-		level.trigwep delete();
+        if(!isdefined(level.gmsjkognvlsdkg)) {
+            level.gmsjkognvlsdkg = true;
+            level.trigbounce delete();
+            level.trigsniper delete();
+            level.trigknife delete();
+            level.trigrace delete();
+            level.trigwep delete();
+        }
 		
 		noti = SpawnStruct();
 		noti.titleText = "^3" + player.name + " ^7Enterd the ^2Shotgun Room";

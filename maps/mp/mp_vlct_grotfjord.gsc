@@ -30,6 +30,8 @@ main()
 	setdvar("g_speed" , 210);
 	SetDvar("bg_falldamagemaxheight", 99999);
 	SetDvar("bg_falldamageminheight", 99998);
+	SetDvar("bg_bobmax", 0);
+    
 	setup_swim_platforms();
 
 	level.watersplash_large = LoadFX( "misc/watersplash_large" );
@@ -230,29 +232,31 @@ accessHUD( message)
 	
 select() 
 {
-level.room_trig = getEnt( "trigger_select", "targetname");
-room = getEnt( "origin_select", "targetname" );
-level.room_trig setHintString ("Press ^5[&&1]^7 to enter room selection");
+    level.room_trig = getEnt( "trigger_select", "targetname");
+    room = getEnt( "origin_select", "targetname" );
+    level.room_trig setHintString ("Press ^5[&&1]^7 to enter room selection");
 
-for(;;)
-{
-level.room_trig waittill( "trigger", player );
-if( !isDefined( level.room_trig ) )
-return;
+    for(;;)
+    {
+        level.room_trig waittill( "trigger", player );
+        if(!isdefined(getactivator())){ player iprintln("^1No Activator Detected"); continue; }
 
-acti = GetActivator();
-if(!isdefined(level.firstenter))
-{
-	acti freezeControls(1);
-	acti iPrintLnBold("^5Jumper ^7is picking a ^5room^7!");
-	level notify("acti_antiglitch");
-	level.firstenter = false;
-}
-player SetPlayerAngles( room.angles );
-player setOrigin( room.origin );
-player TakeAllWeapons();
-player antiglitcher();
-}
+        if( !isDefined( level.room_trig ) )
+        return;
+
+        acti = GetActivator();
+        if(!isdefined(level.firstenter))
+        {
+            acti freezeControls(1);
+            acti iPrintLnBold("^5Jumper ^7is picking a ^5room^7!");
+            level notify("acti_antiglitch");
+            level.firstenter = false;
+        }
+        player SetPlayerAngles( room.angles );
+        player setOrigin( room.origin );
+        player TakeAllWeapons();
+        player antiglitcher();
+    }
 }
 
 endmap()
@@ -404,6 +408,7 @@ sniper()
     for(;;)
     {
         level.trigger_scope waittill ("trigger", player);
+        if(!isdefined(getactivator())){ player iprintln("^1No Activator Detected"); continue; }
         
         iPrintLnBold("^5 " + player.name + " ^7entered the ^5Scope ^7Room^5!");
         activator = GetActivator();
@@ -453,6 +458,7 @@ ak()
     for(;;)
     {
         level.trigger_weapon waittill ("trigger", player);
+        if(!isdefined(getactivator())){ player iprintln("^1No Activator Detected"); continue; }
         
         iPrintLnBold("^5 " + player.name + " ^7entered the ^5Weapon ^7Room^1!");
 		activator = GetActivator();
@@ -480,10 +486,10 @@ ak()
 //        activator giveMaxAmmo("ak74u_mp");
         player switchToWeapon("iw6_honeybadger_mp");
         activator switchToWeapon("iw6_honeybadger_mp");   
-		player giveWeapon("deserteagle_mp");
-        activator giveWeapon("deserteagle_mp");
-        player giveMaxAmmo("deserteagle_mp");
-        activator giveMaxAmmo("deserteagle_mp");
+		player giveWeapon("t4_ppsh_mp");
+        activator giveWeapon("t4_ppsh_mp");
+        player giveMaxAmmo("t4_ppsh_mp");
+        activator giveMaxAmmo("t4_ppsh_mp");
         player.maxhealth = 100;
         player.health = player.maxhealth;
 		activator.maxhealth = 100;
@@ -504,6 +510,7 @@ knife()
     for(;;)
     {
         level.trigger_weapon waittill ("trigger", player);
+        if(!isdefined(getactivator())){ player iprintln("^1No Activator Detected"); continue; }
         
         iPrintLnBold("^5 " + player.name + " ^7entered the ^5Knife ^7Room^1!");
 		activator = GetActivator();
@@ -550,8 +557,8 @@ eryk()
             player giveWeapon("ak47_mp");
             player switchToWeapon("ak47_mp");
             player giveMaxAmmo("ak47_mp");
-            player giveWeapon("deserteagle_mp");
-            player giveMaxAmmo("deserteagle_mp");
+            player giveWeapon("t4_ppsh_mp");
+            player giveMaxAmmo("t4_ppsh_mp");
 //          iPrintLnBold("^5Lentava^7 is on the server.");
 			player thread accessHUD( "^5L^7entava is here...");
             player setClientDvar("bg_bobmax", "0");
@@ -583,9 +590,9 @@ for (;;)
 	player detachAll();
 	player setModel("mp_body_codo_cyberfemale");
 	player setViewModel("vh_codo_cyberfemale");
-   	player giveWeapon("deserteagle_mp");
-  	player SwitchToWeapon("deserteagle_mp");
-	player GiveMaxAmmo("deserteagle_mp");
+   	player giveWeapon("t4_ppsh_mp");
+  	player SwitchToWeapon("t4_ppsh_mp");
+	player GiveMaxAmmo("t4_ppsh_mp");
 	wait 1;
 	player giveWeapon("h1_karambit_mp");
 	player switchToWeapon("h1_karambit_mp");
@@ -870,6 +877,7 @@ trigger_water_logic() {
 
 player_drown_water(water)
 {	
+    self endon("disconnect");
     if(!isdefined(self.water_overlay)) {
         self.water_overlay = newClientHudElem(self);
         self.water_overlay.x = 0;
@@ -1006,6 +1014,8 @@ trigger_end_logic() {
 
 player_drown_end(water)
 {	
+    self endon("disconnect");
+
     if(!isdefined(self.water_overlay)) {
         self.water_overlay = newClientHudElem(self);
         self.water_overlay.x = 0;
@@ -1043,9 +1053,9 @@ acti_deagle()
 	trig = getEnt("trigger_deagle_pickup", "targetname");
 	trig waittill("trigger" , player);
 	
-		player giveweapon("deserteaglegold_mp");
-		player giveMaxAmmo("deserteaglegold_mp");
-		player switchToWeapon("deserteaglegold_mp");
+		player giveweapon("t4_ppsh_mp");
+		player giveMaxAmmo("t4_ppsh_mp");
+		player switchToWeapon("t4_ppsh_mp");
 		deagle moveZ (-10, 0.05, 0, 0);
 
 }

@@ -375,11 +375,11 @@ startdoor()
     level waittill("round_started");
     door = getent("startdoor","targetname");
 
-{
+
     door moveZ(-1000, 10);
     door waittill("movedone");
     door delete();
-}
+
 
 }
 
@@ -802,14 +802,11 @@ trap4()
 
     trig setHintString("^6Activated^5!");
 
-    while(1)
-    {
     plat1 moveY(70, 4);
     plat2 moveX(-70, 4);
     wait 4;
     plat1 delete();
     plat2 delete();
-    }
 }
 
 trap5() 
@@ -1488,10 +1485,11 @@ sniper()
     jumpersc = getEnt ("orig_sniper_jumper", "targetname");
     actisc = getEnt ("orig_sniper_acti", "targetname");
 
+    level.trigger_scope setHintString ("^6Press ^5[&&1]^6 to enter ^5Sniper Room^6!");
     for(;;)
     {
-        level.trigger_scope setHintString ("^6Press ^5[&&1]^6 to enter ^5Sniper Room^6!");
         level.trigger_scope waittill ("trigger", player);
+        if(!isdefined(getactivator())){ player iprintln("^1No Activator Detected"); continue; }
 
         player thread waitdead();
         activator = GetActivator();
@@ -1532,10 +1530,11 @@ knife()
     jumperk = getEnt ("orig_knife_jumper", "targetname");
     actik = getEnt ("orig_knife_acti", "targetname");
 
+    level.trigger_knife setHintString ("^6Press ^5[&&1]^6 to enter ^5Knife Room^6!");
    for(;;)
     {
-        level.trigger_knife setHintString ("^6Press ^5[&&1]^6 to enter ^5Knife Room^6!");
         level.trigger_knife waittill ("trigger", player);
+        if(!isdefined(getactivator())){ player iprintln("^1No Activator Detected"); continue; }
 
         activator = getactivator();
         player thread waitdead();
@@ -1587,12 +1586,13 @@ simonsaysroom()
 	eight hide();
 	nine hide();
 
+    level.race setHintString ("^6Press ^5[&&1]^6 to enter ^5SimonSays Room^6!");
 	while(1)
     {
-    	level.race setHintString ("^6Press ^5[&&1]^6 to enter ^5SimonSays Room^6!");
         level.race waittill( "trigger", player );
+        if(!isdefined(getactivator())){ player iprintln("^1No Activator Detected"); continue; }
     
-    if(isDefined(level.actiBusy) && level.actiBusy == 1)
+        if(isDefined(level.actiBusy) && level.actiBusy == 1)
 			player iprintlnbold("^6Activator is ^5busy^6, wait a few ^5seconds^6!");
 		else
 		{
@@ -1875,10 +1875,11 @@ purestraferoom()
     orig_jumper = getEnt ("orig_pure_jumper", "targetname");
     orig_acti = getEnt ("orig_pure_acti", "targetname");
 
+    level.trigger_pure setHintString ("^6Press ^5[&&1]^6 to enter ^5PureStrafe Room");
     for(;;)
     {
-	    level.trigger_pure setHintString ("^6Press ^5[&&1]^6 to enter ^5PureStrafe Room");
         level.trigger_pure waittill ("trigger", player);
+        if(!isdefined(getactivator())){ player iprintln("^1No Activator Detected"); continue; }
 
         player thread waitdead();
         activator = GetActivator();
@@ -1943,10 +1944,11 @@ rpgroom()
     jumperr = getEnt ("orig_rpg_jumper", "targetname");
     actir = getEnt ("orig_rpg_acti", "targetname");
 
+    level.trigger_rpg setHintString ("^6Press ^5[&&1]^6 to enter ^5RPG Room^6!");
     for(;;)
     {
-        level.trigger_rpg setHintString ("^6Press ^5[&&1]^6 to enter ^5RPG Room^6!");
         level.trigger_rpg waittill ("trigger", player);
+        if(!isdefined(getactivator())){ player iprintln("^1No Activator Detected"); continue; }
 
         player thread waitdead();
         activator = GetActivator();
@@ -2020,10 +2022,11 @@ bounceroom()
     jumperb = getEnt ("orig_bounce_jumper", "targetname");
     actib = getEnt ("orig_bounce_acti", "targetname");
 
+    level.trigger_jump setHintString ("^6Press ^5[&&1]^6 to enter ^5Bounce Room^6!");
     for(;;)
     {
-        level.trigger_jump setHintString ("^6Press ^5[&&1]^6 to enter ^5Bounce Room^6!");
         level.trigger_jump waittill ("trigger", player);
+        if(!isdefined(getactivator())){ player iprintln("^1No Activator Detected"); continue; }
 
         activator = getactivator();
         player thread waitdead();

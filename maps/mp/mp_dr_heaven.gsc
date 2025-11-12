@@ -221,7 +221,6 @@ trap_bounce2()
 	object1 delete();
 	clip Solid();
 	clip show();
-	clip enablelinkto ();
 	clip linkto (object2);
 	object2 movez(380,3);
 	object2 waittill ("movedone");

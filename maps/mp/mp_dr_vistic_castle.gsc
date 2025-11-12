@@ -861,17 +861,18 @@ jump_room_battle()
     jump=getent("jumproom_go","targetname");
     acti=getent("jumproom_acti","targetname");
  
+    thread jump_fail();
+    thread jump_room_gun();
+    thread jump_room_gun2();
+
+    thread j_gun1();
+    thread j_gun2();
     while(1)
     {
         level.jump_trig waittill("trigger",player);
-
-        thread jump_fail();
-		thread jump_room_gun();
-		thread jump_room_gun2();
-		thread j_gun1();
-		thread j_gun2();
-        
         if(!isdefined(level.jump_trig)) return;
+        
+        if(!isdefined(level.activ)){ player iprintln("^1No Activator Detected"); continue; }
  
         if(!isdefined(level.entertext)||!level.entertext)
         {
@@ -921,13 +922,15 @@ sniper_room_battle()
  
     while(1)
     {
-       level.sniper_trig waittill("trigger",player);
+        level.sniper_trig waittill("trigger",player);
+        if(!isdefined(level.sniper_trig)) return;
+
+        if(!isdefined(level.activ)){ player iprintln("^1No Activator Detected"); continue; }
 
         thread walls_snip();
 		thread s_gun1();
 		thread s_gun2();
 
-        if(!isdefined(level.sniper_trig)) return;
  
         if(!isdefined(level.entertext)||!level.entertext)
         {
@@ -979,6 +982,8 @@ rpg_room_battle()
     {
        	level.rpg_trig waittill("trigger",player);
         if(!isdefined(level.rpg_trig)) return;
+        
+        if(!isdefined(level.activ)){ player iprintln("^1No Activator Detected"); continue; }
  
         if(!isdefined(level.entertext)||!level.entertext)
         {
@@ -1033,6 +1038,8 @@ sgun_room_battle()
     {
        	level.sgun_trig waittill("trigger",player);
         if(!isdefined(level.sgun_trig)) return;
+        
+        if(!isdefined(level.activ)){ player iprintln("^1No Activator Detected"); continue; }
  
         if(!isdefined(level.entertext)||!level.entertext)
         {
@@ -1087,6 +1094,8 @@ knife_room_battle()
     {
         level.knife_trig waittill("trigger",player);
         if(!isdefined(level.knife_trig)) return;
+        
+        if(!isdefined(level.activ)){ player iprintln("^1No Activator Detected"); continue; }
  
         if(!isdefined(level.entertext)||!level.entertext)
         {
