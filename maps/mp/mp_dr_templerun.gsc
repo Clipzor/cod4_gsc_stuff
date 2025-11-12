@@ -338,7 +338,6 @@ coins() {
     coin_array[coin_array.size] = getent("coinred3", "targetname");
     coin_array[coin_array.size] = getent("coinblue1", "targetname");
     coin_array[coin_array.size] = getent("coinblue2", "targetname");
-    thread coin_move(coin_array);
 
     for(i=0;i<coin_array.size;i++) {
         if(i>9)
@@ -350,19 +349,17 @@ coins() {
     }       
 }
 
-coin_move(coin_array) {
+coin_move() {
+    self endon("death");
     for(;;)
     {
         wait 2.05;
-        for(i=0;i<coin_array.size;i++) {
-            coin_array[i] rotateYaw (-720,4);
-            coin_array[i] moveZ (-15,2);
-        }
+        self rotateYaw (-720,4);
+        self moveZ (-15,2);
+        
         wait 2.05;
-        for(i=0;i<coin_array.size;i++) {
-            coin_array[i] rotateYaw (-720,4);
-            coin_array[i] moveZ (15,2);
-        }
+        self rotateYaw (-720,4);
+        self moveZ (15,2);
     } 
 }
 
@@ -379,6 +376,8 @@ coin_think(sparkle, trig, xp, big)
 
     trig enablelinkto();
     trig linkto (self);
+
+    self thread coin_move();
 
     trig waittill ("trigger",player);
 

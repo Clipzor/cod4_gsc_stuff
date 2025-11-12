@@ -443,6 +443,7 @@ e1()
 	e1d=getent("e1d","targetname");
 	e1b=getent("e1b","targetname");
 	e1t=getent("e1t","targetname");
+	e1d enablelinkto();
 	e1d linkto(e1b);
 	e1t SetHintString("^3[USE]");
 	
@@ -463,6 +464,7 @@ e2()
 	e2d=getent("e2d","targetname");
 	e2b=getent("e2b","targetname");
 	e2t=getent("e2t","targetname");
+	e2d enablelinkto();
 	e2d linkto(e2b);
 	e2t SetHintString("^3[USE]");
 	
@@ -577,6 +579,7 @@ e6()
 	e6b1=getent("e6b1","targetname");
 	e6b2=getent("e6b2","targetname");
 	e6d=getent("e6d","targetname");
+	e6d enablelinkto();
 	e6d linkto(e6b2);
 	e6t SetHintString("^3[USE]");
 	
@@ -640,6 +643,7 @@ e9()
 	e9d=getent("e9d","targetname");
 	e9b=getent("e9b","targetname");
 	e9t=getent("e9t","targetname");
+	e9d enablelinkto();
 	e9d linkto(e9b);
 	e9t SetHintString("^3[USE]");
 	
