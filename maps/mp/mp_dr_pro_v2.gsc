@@ -862,11 +862,11 @@ ezsecret_timer()
 sniper()
 {
 	level.sniper_trigger = getEnt( "sniper_trig", "targetname");
-	level.run_trigger = getEnt( "run_trig", "targetname");
 	level.weapon_trigger = getEnt( "weapon_trig", "targetname");
 	level.knife_trigger = getEnt( "knife_trig", "targetname");
 	level.bounce_trigger = getEnt( "bounce_trig", "targetname");
 	level.deagle_trigger = getEnt( "deagle_trig", "targetname");
+
 	level.teleactorigin = getEnt( "sniper1", "targetname" ); 
 	telejumporigin = getEnt( "sniper2", "targetname" );
 
@@ -880,8 +880,7 @@ sniper()
 			level.weapon_trigger delete();
 			level.knife_trigger delete();
 			level.bounce_trigger delete();
-			level.deagle_trigger delete();
-			level.run_trigger delete();    
+			level.deagle_trigger delete();    
 		} 
 
 		iprintln("Now Playing<<Pendulum – Crush>>");    
@@ -942,7 +941,6 @@ sniper()
 deagle()
 {
 	level.sniper_trigger = getEnt( "sniper_trig", "targetname");
-	level.run_trigger = getEnt( "run_trig", "targetname");
 	level.weapon_trigger = getEnt( "weapon_trig", "targetname");
 	level.knife_trigger = getEnt( "knife_trig", "targetname");
 	level.bounce_trigger = getEnt( "bounce_trig", "targetname");
@@ -964,7 +962,6 @@ deagle()
 			level.knife_trigger delete();
 			level.bounce_trigger delete();
 			level.sniper_trigger delete(); 
-			level.run_trigger delete();
 		} 
 
 		iprintln("Now Playing<<Linkin Park - BURN IT DOWN >>");    
@@ -1041,7 +1038,6 @@ player setplayerangles( playertele.angles );
 bounce()
 {
 	level.sniper_trigger = getEnt( "sniper_trig", "targetname");
-	level.run_trigger = getEnt( "run_trig", "targetname");
 	level.weapon_trigger = getEnt( "weapon_trig", "targetname");
 	level.knife_trigger = getEnt( "knife_trig", "targetname");
 	level.bounce_trigger = getEnt( "bounce_trig", "targetname");
@@ -1059,7 +1055,6 @@ bounce()
 		{
 			level.firstenter=false;
 			level.weapon_trigger delete();
-			level.run_trigger delete();
 			level.knife_trigger delete();
 			level.deagle_trigger delete();
 			level.sniper_trigger delete();
@@ -1078,7 +1073,7 @@ bounce()
 		level.activ setplayerangles (level.bactiorigin.angles);
 		level.activ TakeAllWeapons();
 		level.activ GiveWeapon( "knife_mp" );
-		level.activ SwitchToWeapon(""); 
+		level.activ SwitchToWeapon("knife_mp"); 
 		iPrintlnBold( " ^8" + player.name + " ^4 has entered the bounce room^8!" ); 
 		player iPrintlnBold( "^13" );
 		player freezecontrols(true);
@@ -1095,7 +1090,6 @@ bounce()
 		level.activ iPrintlnBold( "^6GO^6!" );
 		player freezecontrols(false); //Disables the freeze.
 		level.activ freezecontrols(false);
-		wait(0.02);
 		player switchToWeapon( "knife_mp" );
 		level.activ SwitchToWeapon( "knife_mp" );
 		player waittill( "death" );
@@ -1107,12 +1101,12 @@ bounce()
 knife()
 {
 	level.sniper_trigger = getEnt( "sniper_trig", "targetname");
-	level.run_trigger = getEnt( "run_trig", "targetname");
 	level.weapon_trigger = getEnt( "weapon_trig", "targetname");
 	level.knife_trigger = getEnt( "knife_trig", "targetname");
 	level.bounce_trigger = getEnt( "bounce_trig", "targetname");
 	level.deagle_trigger = getEnt( "deagle_trig", "targetname");
 	level.kteleactorigin = getEnt( "knife1", "targetname" ); 
+
 	ktelejumporigin = getEnt( "knife2", "targetname" );
 
 	while(1)
@@ -1128,8 +1122,7 @@ knife()
 			level.weapon_trigger delete();
 			level.bounce_trigger delete();
 			level.deagle_trigger delete();
-			level.sniper_trigger delete();
-			level.run_trigger delete();    
+			level.sniper_trigger delete();    
 		}
 
 		iprintln("Now Playing<<Nightcore - This Little Girl>>");    
