@@ -754,10 +754,8 @@ for(;;)
 	activator  switchtoweapon("demonicm40a3_mp");
 	player giveweapon("demonicr700_mp");
 	activator giveweapon("demonicr700_mp");
-	setDvar( "sv_cheats", "1" );
 	player show();
 	activator show();
-	setDvar( "sv_cheats", "0" );
 	thread createhud(player.name + " ^1selected Sniper room!");
 	AmbientStop(3);
 	MusicStop(3);
@@ -834,10 +832,8 @@ for(;;)
 	activator takeallweapons();
 	player giveweapon("magnum_creepy_mp");
 	activator giveweapon("magnum_creepy_mp");
-	setDvar( "sv_cheats", "1" );
 	player show();
 	activator show();
-	setDvar( "sv_cheats", "0" );
 	thread createhud(player.name + " ^1selected Magnum room!");
 	AmbientStop(3);
 	MusicStop(3);
@@ -878,10 +874,8 @@ for(;;)
 	activator setPlayerAngles(acti.angles);
 	activator giveweapon("demonichuntsman_mp");
 	player giveweapon("demonichuntsman_mp");
-	setDvar( "sv_cheats", "1" );
 	player show();
 	activator show();
-	setDvar( "sv_cheats", "0" );
 	thread createhud(player.name + " ^1entered Bounce room!");
 		AmbientStop(3);
 		MusicStop(3);

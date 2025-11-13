@@ -56,7 +56,6 @@ main()
   
 ///THREADS/ACTIVATES SCRIPT   
     thread messagescreen();
-    thread messages();
     thread randommusic();
     thread jumperskin();
     thread actiskin();
@@ -138,7 +137,6 @@ addTriggerToList( name )
     if( !isDefined( level.trapTriggers ) )
         level.trapTriggers = [];
     level.trapTriggers[level.trapTriggers.size] = getEnt( name, "targetname" );
-
 }
 
 removeTextActivator()
@@ -220,31 +218,11 @@ fightHUD(room, jumper, activ)
 messagescreen()
 {
 	level waittill("round_started");
-	wait 1;
 	iprintln("^7Welcome to ^3TempleRun^7!");
-    iprintln("^7Mapped and Scripted by death^7!");
-}
-
-messages()
-{
-    wait 4;
-    for(;;)
-    {  
-        x = randomint(3);
-        if (x==0)
-        {
-        iPrintln("^3Mapped ^7and ^3scripted ^7by ^3CM'death^7!");
-        }
-        if (x==1)
-        {
-        iPrintLn("^3Map speed: ^7[^3"+getDvar("g_speed")+"^7]^7, ^7[^3"+getDvar("dr_jumpers_speed")+"^7]");
-        }
-        if (x==2)
-        {
-        iPrintLn("^7Thanks to ^3CM'Nobody ^7and ^3Ohh Rexy<3 ^7for helping me with the ^3bugs^7!");
-        }
-        wait 20;
-    }
+    wait 1;
+    iprintln("^7Mapped and Scripted by Death^7!");
+    wait 1;
+    iPrintLn("^7Thanks to ^3CM'Nobody ^7and ^3Ohh Rexy<3^7!");
 }
 
 randommusic()
@@ -341,11 +319,11 @@ coins() {
 
     for(i=0;i<coin_array.size;i++) {
         if(i>9)
-            coin_array[i] thread coin_think(getentArray("sparkle", "targetname")[i], getent("trig_coinblue"+(i-9), "targetname"), int(200));
+            coin_array[i] thread coin_think(getentArray("sparkle", "targetname")[i], getent("trig_coinblue"+(i-9), "targetname"), int(500), true);
         else if(i>6)
             coin_array[i] thread coin_think(getentArray("sparkle", "targetname")[i], getent("trig_coinred"+(i-6), "targetname"), int(300), false);
         else
-            coin_array[i] thread coin_think(getentArray("sparkle", "targetname")[i], getent("trig_coin"+(i+1), "targetname"), int(500), true);
+            coin_array[i] thread coin_think(getentArray("sparkle", "targetname")[i], getent("trig_coin"+(i+1), "targetname"), int(200));
     }       
 }
 
@@ -586,8 +564,6 @@ secend()
         player.insec = false;
         player braxi\_rank::giveRankXP("", 500);
         iprintln ("^3" + player.name + " ^7finished the ^3Secret Room^7!");
-
-        break;
     }
 }
 
@@ -1124,19 +1100,25 @@ rope()
 
 	for(;;)
 	{
-	 trig waittill ("trigger",user);
+        trig waittill ("trigger",user);
 
-	 user thread ropeContent();
+        if(!isdefined(user.rope)) {
+            user.rope = true;
+            user thread ropeContent();
+        }
 	}
 }
 
 ropeContent()
 {
+    self endon("disconnect");
 	self.start = (3328,-377,340);
 	self.end = (3328,670,70);
     self.disableAntiEle = true;
 
-    self.air = spawn ("script_model",(0,0,0));
+    if(!isdefined(self.air))
+        self.air = spawn ("script_model",(0,0,0));
+
     self.air.origin = self.origin;
     self.air.angles = self.angles;
 
@@ -1148,9 +1130,11 @@ ropeContent()
     wait 2;
     self unlink();
 
-    self.air delete();
+    if(isdefined(self.air))
+        self.air delete();
 
     self.disableAntiEle = undefined;
+    self.rope = undefined;
 }
 
 ball()
