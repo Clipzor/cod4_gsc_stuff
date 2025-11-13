@@ -1,24 +1,8 @@
 /*
- .----------------.  .----------------.  .----------------.  .----------------.  .----------------. 
-| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |
-| |  _________   | || | _____  _____ | || |     _____    | || |  ____  ____  | || |     ____     | |
-| | |  _   _  |  | || ||_   _||_   _|| || |    |_   _|   | || | |_  _||_  _| | || |   .'    `.   | |
-| | |_/ | | \_|  | || |  | | /\ | |  | || |      | |     | || |   \ \  / /   | || |  /  .--.  \  | |
-| |     | |      | || |  | |/  \| |  | || |      | |     | || |    \ \/ /    | || |  | |    | |  | |
-| |    _| |_     | || |  |   /\   |  | || |     _| |_    | || |    _|  |_    | || |  \  `--'  /  | |
-| |   |_____|    | || |  |__/  \__|  | || |    |_____|   | || |   |______|   | || |   `.____.'   | |
-| |              | || |              | || |              | || |              | || |              | |
-| '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |
- '----------------'  '----------------'  '----------------'  '----------------'  '----------------' 
- 
+
 	mp_dr_laboratory
 	Map Made by TwiYo	
-	Scripted by TwiYo			
-	xFire: 1buzzz
-	
-	Created for Braxi's Deathrun 1.2 mod for CoD4
-	www.ix-treme.com
-	
+
 	Credits: 
 	Thanks to
 	Luk
@@ -118,9 +102,6 @@ main()
 	thread wepicon();
 	thread bounceweapon();
 	thread onPlayerConnected();
-	thread onPlayerSpawned();
-	thread setupServers();
-	thread text();
 
 	///////////////Traps
 	thread trap1();
@@ -225,37 +206,17 @@ mapmusic() {
 	switch (random) {
 		case 0: Ambientplay("title1");
 				iprintln("^7Now Playing^1:^7 Little Moment ^1- ^7Omar LinX");
-				wait 1;
-				iprintln("^7Now Playing^1:^7 Little Moment ^1- ^7Omar LinX");
-				wait 1;
-				iprintln("^7Now Playing^1:^7 Little Moment ^1- ^7Omar LinX");
 				break;
 		case 1: Ambientplay("title2");
-				iprintln("^7Now Playing^1:^7 One Republic ^1- ^7Counting Stars (SirensCeol Remix)");
-				wait 1;
-				iprintln("^7Now Playing^1:^7 One Republic ^1- ^7Counting Stars (SirensCeol Remix)");
-				wait 1;
 				iprintln("^7Now Playing^1:^7 One Republic ^1- ^7Counting Stars (SirensCeol Remix)");
 				break;
 		case 2: Ambientplay("title3");
 				iprintln("^7Now Playing^1:^7 Young London ^1- ^7Broken");
-				wait 1;
-				iprintln("^7Now Playing^1:^7 Young London ^1- ^7Broken");
-				wait 1;
-				iprintln("^7Now Playing^1:^7 Young London ^1- ^7Broken");
 				break;
 		case 3: Ambientplay("title4");
 				iprintln("^7Now Playing^1:^7 Throttle ^1- ^7Next Big Thing");
-				wait 1;
-				iprintln("^7Now Playing^1:^7 Throttle ^1- ^7Next Big Thing");
-				wait 1;
-				iprintln("^7Now Playing^1:^7 Throttle ^1- ^7Next Big Thing");
 				break;
 		case 4: Ambientplay("title5");
-				iprintln("^7Now Playing^1:^7 F.O.O.L ^1- ^7Afraid");
-				wait 1;
-				iprintln("^7Now Playing^1:^7 F.O.O.L ^1- ^7Afraid");
-				wait 1;
 				iprintln("^7Now Playing^1:^7 F.O.O.L ^1- ^7Afraid");
 				break;
 	}
@@ -709,15 +670,18 @@ shit6() {
 door1() {
 	left = getent ("door_left", "targetname");
 	right = getent ("door_right", "targetname");
-	
-	wait 10;
-
-	
-	left movey (135, 2.5);
-	right movey (-132, 2.5);
-	wait 2.6;
-	left hide();
-	right hide();
+    
+    if(isdefined(level.auto_open_door) && level.auto_open_door) {
+        left delete();
+        right delete();
+    } else {
+        wait 10;
+        left movey (135, 2.5);
+        right movey (-132, 2.5);
+        wait 2.6;
+        left hide();
+        right hide();
+    }
 }
 
 jumppad(who)
@@ -776,67 +740,24 @@ bounceweapon()
 {
 	trigger = getent ("bounce_weap_trigger", "targetname");
 	
-	random = randomInt(14);
-	while(1){
-	trigger waittill ("trigger", player);
-	switch(random){
-		case 0: player takeallweapons();
-				player giveWeapon("deserteagle_mp", 100, 500 );
-				player switchToWeapon("deserteagle_mp"); break;
-				
-		case 1: player takeallweapons();
-				player giveWeapon("uzi_mp", 100, 500 );
-				player switchToWeapon("uzi_mp"); break;
-				
-		case 2: player takeallweapons();
-				player giveWeapon("m4_mp", 100, 500 );
-				player switchToWeapon("m4_mp"); break;
-				
-		case 3: player takeallweapons();
-				player giveWeapon("ak47_mp", 100, 500 );
-				player switchToWeapon("ak47_mp"); break;
-				
-		case 4: player takeallweapons();
-				player giveWeapon("honeybadger_mp", 100, 500 );
-				player switchToWeapon("honeybadger_mp"); break;
-				
-		case 5: player takeallweapons();
-				player giveWeapon("m60e4_mp", 100, 500 );
-				player switchToWeapon("m60e4_mp"); break;
-				
-		case 6: player takeallweapons();
-				player giveWeapon("t4_ppsh_mp", 100, 500 );
-				player switchToWeapon("t4_ppsh_mp"); break;
-				
-		case 7: player takeallweapons();
-				player giveWeapon("m40a3_mp", 100, 500 );
-				player switchToWeapon("m40a3_mp"); break;
-				
-		case 8: player takeallweapons();
-				player giveWeapon("barrett_mp", 100, 500 );
-				player switchToWeapon("barrett_mp"); break;
-				
-		case 9: player takeallweapons();
-				player giveWeapon("g36c_silencer_mp", 100, 0 );
-				player switchToWeapon("g36c_silencer_mp"); break;
-				
-		case 10: player takeallweapons();
-			 	 player giveWeapon("skorpion_silencer_mp", 100, 500 );
-				 player switchToWeapon("skorpion_silencer_mp"); break;
-				
-		case 11: player takeallweapons();
-				 player giveWeapon("saw_grip_mp", 100, 500 );
-			 	 player switchToWeapon("saw_grip_mp"); break;
-				
-		case 12: player takeallweapons();
-				 player giveWeapon("remington700_mp", 100, 500 );
-				 player switchToWeapon("remington700_mp"); break;
-				
-		case 13: player takeallweapons();
-				 player giveWeapon("ak74u_mp", 100, 500 );
-				 player switchToWeapon("ak74u_mp"); break;
+    weaps = [];
+    weaps[weaps.size] = "deserteagle_mp";
+    weaps[weaps.size] = "honeybadger_mp";
+    weaps[weaps.size] = "iw5_msr_mp";
+    weaps[weaps.size] = "t5_1911_mp";
+    weaps[weaps.size] = "t6_s12_mp";
+    weaps[weaps.size] = "t6_evoskorpion_mp";
+    weaps[weaps.size] = "iw4_raffica_mp";
 
-		}
+	while(1){
+	    trigger waittill ("trigger", player);
+
+        wep = weaps[randomint(weaps.size)];
+        player takeallweapons();
+        player giveWeapon(wep, 100, 500 );
+        player switchToWeapon(wep);
+
+        wait 3;
 	}
 }
 
@@ -854,189 +775,6 @@ onPlayerConnected() {
 	}
 }
 
-onPlayerSpawned() {
-	while(1){
-	level waittill( "player_spawn", player );
-	
-	player thread showcredits();
-	}
-}
-
-text()
-{
-	hud_clock = newhudelem();
-	hud_clock.alignX = "center";
-	hud_clock.alignY = "middle";
-	hud_clock.horzalign = "center";
-	hud_clock.vertalign = "middle";
-	hud_clock.alpha = 1;
-	hud_clock.x = 250;
-	hud_clock.y = 220;
-	hud_clock.font = "objective";
-	hud_clock.fontscale = 1.5;
-	hud_clock.glowalpha = 1;
-	hud_clock.glowcolor = (0.0, 1.0, 0.0);
-	while(1){
-		hud_clock fadeOverTime(1);
-		hud_clock.alpha = 1;
-		hud_clock setText("Map by TwiYo");
-		wait 10;
-		hud_clock fadeOverTime(1);
-		hud_clock.alpha = 0;
-		wait 1;	
-		hud_clock fadeOverTime(1);
-		hud_clock.alpha = 1;
-		hud_clock setText("xFire: 1buzzz");
-		wait 10;
-		hud_clock fadeOverTime(1);
-		hud_clock.alpha = 0;
-		wait 1;
-	}
-} 
-
-showcredits() {
-	self thread removeafter();
-	howto = createText("Press [{+activate}] while crouching for credits.");
-	
-	while(!isDefined( self.hasSeenCredits )){		
-		if(self useButtonpressed() && self getStance() == "crouch"){
-			self thread getcredits();
-			
-			break;
-		}		
-		wait .1; 
-	}
-
-}
-removeafter() {
-	wait 10;
-	if(isdefined(self.hud_start))
-		self.hud_start destroy();
-}
-createText(messages)
-{
-	self endon ("death");
-	self endon ("disconnect");
-	self.hud_start = newClientHudElem(self);
-	self.hud_start.alignX = "center";
-	self.hud_start.alignY = "middle";
-	self.hud_start.horzalign = "center";
-	self.hud_start.vertalign = "middle";
-	self.hud_start.alpha = 1;
-	self.hud_start.x = 0;
-	self.hud_start.y = 220;
-	self.hud_start.font = "objective";
-	self.hud_start.fontscale = 1.4;
-	self.hud_start.glowalpha = 1;
-	self.hud_start.glowcolor = (1,0,0);
-	self.hud_start.owner = self;
-	self.hud_start thread removehudsondeath();
-	self.hud_start setText(messages);
-}
-
-getcredits() {
-	
-	level.creditTime = 6;
-		self.hasSeenCredits = true;
-	self thread showCredit( "Special Thanks to:", 2.4);
-	wait 0.5;
-	self thread showCredit( "Luk", 1.8);
-	wait 0.5;
-	self thread showCredit( "rednose", 1.8);
-	wait 0.5;
-	self thread showCredit( "        rabbit\nxfire: eiskiller95", 1.8);
-	wait 1;
-	self thread showCredit( "www.ix-treme.com", 1.8);
-}
-
-
-showCredit( text, scale )
-{
-	self.credit_text = newClientHudElem(self);
-	self.credit_text.font = "objective";
-	self.credit_text.fontScale = scale;
-	self.credit_text.owner = self;
-	self.credit_text thread removehudsondeath();
-	self.credit_text SetText(text);
-	self.credit_text.alignX = "center";
-	self.credit_text.alignY = "top";
-	self.credit_text.horzAlign = "center";
-	self.credit_text.vertAlign = "top";
-	self.credit_text.x = 0;
-	self.credit_text.y = 540;
-	self.credit_text.sort = -1; //-3
-	self.credit_text.alpha = 1;
-	self.credit_text.glowColor = (.1,.8,0);
-	self.credit_text.glowAlpha = 1;
-	self.credit_text moveOverTime(level.creditTime);
-	self.credit_text.y = -60;
-	self.credit_text.foreground = true;
-	wait level.creditTime;
-	wait 2;
-	self thread removeendtext();
-}
-
-removeendtext()
-{
-	if( isDefined( self.credit_text) )
-	{
-        self.credit_text destroy();
-    }
-} 
-
-
-setupServers()
-{
-	serv_deathrun = getEnt( "server_redirect", "targetname" );		
-	serv_deathrun thread serverTrigger( "91.121.0.115:28960 ", "^3Deathrun 1.2" );
-
-}
-
-serverTrigger( ip, name )
-{
-	level endon( "game over" );
-	
-	while(1)
-	{
-		self waittill( "trigger", player );
-		
-		if( !isDefined( player.server_name ) || player.server_name != name  )
-		{
-			player notify( "change_server" );
-			wait 0.05;
-			
-			player.server_name = name;
-			player thread serverMessage( ip, name );
-		}
-		else
-			player notify( "server_choice" );
-		
-		wait 0.05;
-	}
-}
-
-serverMessage( ip, name )
-{
-	level endon( "game over" );
-	self endon( "disconnect" );
-	self endon( "change_server" );
-	
-	self iPrintLnBold( "^7If you want to join the\n^3iXtreme ^3" + name + " ^7Server shoot it 2 times" );
-	
-	while(1)
-	{
-		self waittill( "server_choice" );
-		
-		self iPrintLnBold( "Shoot it once more to join the\n^3iXtreme ^3" + name + " ^7Server" );
-		
-		self waittill( "server_choice" );
-		
-		self setClientDvar( "clientcmd", "disconnect; wait 50; connect " + ip );
-		self openMenu( "clientcmd" );
-		
-		iPrintLn( "^1" + self.name + " ^7joined the ^3iXtreme ^3" + name + " ^7Server" );
-	}
-}
 
 //////////////////////////////// Traps
 
@@ -2928,47 +2666,16 @@ jumpsecret() {
 
 secretTimer()
 {
-	self endon("death");
-	time=180;//60(secs)*3(mins)=180secs
-	self endon("end_secret_timer");
-	self iprintlnbold("^1You get "+time+" ^1seconds to finish the secret");
-	self thread textleft();
 	self thread time();
-	while(1)
-	{
-		wait 1;
-		time--;
-		if(time<=0)
-		self suicide();			
-	}
 }
-
-textleft() {
-	self endon ("death");
-	self endon ("disconnect");
-	self.hud_text = newClientHudElem(self);
-	self.hud_text.alignX = "center";
-	self.hud_text.alignY = "middle";
-	self.hud_text.horzalign = "center";
-	self.hud_text.vertalign = "middle";
-	self.hud_text.alpha = 1;
-	self.hud_text.x = -200;
-	self.hud_text.y = 220;
-	self.hud_text.font = "objective";
-	self.hud_text.fontscale = 1.5;
-	self.hud_text.glowalpha = 1;
-	self.hud_text.glowcolor = (0.0, 1.0, 0.0);
-	self.hud_text.owner = self;
-	self.hud_text setText("Time left:");
-	self.hud_text thread removehudsondeath();	
-	wait 180;
-	self removeText();	
-}
-
 	
 time() {	
-	self endon ("death");
 	self endon ("disconnect");
+	self endon ("death");
+	self endon ("end_secret_timer");
+
+	self iprintlnbold("^1You get "+ 180 +" ^1seconds to finish the secret");
+
 	self.hud_count = newClientHudElem(self);
 	self.hud_count endon ("death");
 	self.hud_count.alignX = "center";
@@ -2982,41 +2689,28 @@ time() {
 	self.hud_count.fontscale = 1.5;
 	self.hud_count.glowalpha = 1;
 	self.hud_count.glowcolor = (0.7,0,0);
-	self.hud_count.label = &"&&1";
-	self.hud_count.owner = self;
-	self.hud_count thread removehudsondeath();
+	self.hud_count.label = &"Time left: &&1";
+	self thread removehudsondeath();
 	for(i = 0; i < 180; i++){
 		self.hud_count setvalue( 180 - i );
 		wait 1;
 	}
 	
+	self suicide();	
 	self removeCountdown();	
 }
 
-removeText()
-{
-	if( isDefined( self.hud_text) )
-	{
-        self.hud_text destroy();
-    }
-} 
-
 removeCountdown() {
 	if( isDefined( self.hud_count) )
-	{
         self.hud_count destroy();
-    }
 }
 
 removehudsondeath() {
-	self endon ("death");
-	self.owner waittill_any("death", "disconnect");
+	self endon ("disconnect");
+	self endon ("end_secret_timer");
+	self waittill("death");
 	
-	if( isDefined( self ) )
-	{
-        self destroy();
-    }
-	
+	self removeCountdown();
 }
 
 respawn0() {
@@ -3218,7 +2912,6 @@ backtomap() {
 		player notify("end_secret_timer");
 		player unsetperk("specialty_fastreload");
 		player thread removeCountdown();
-		player thread removeText();
 		player SetOrigin(target.origin);
 		player SetPlayerAngles( target.angles );
 		iprintlnbold ("^3"+player.name + " ^7is such a pro jumper and finished the Secret^1!");
@@ -3236,7 +2929,6 @@ backtomap2() {
 		player notify("end_secret_timer");
 		player unsetperk("specialty_fastreload");
 		player thread removeCountdown();
-		player thread removeText();
 		player SetOrigin(target.origin);
 		player SetPlayerAngles( target.angles );
 		iprintlnbold ("^3"+player.name + " ^7finished the Secret^1!");
@@ -3519,19 +3211,18 @@ BounceFight(){
 	self setorigin (teleorigin.origin);
 	self setplayerangles (teleorigin.angles);
 	
-	wait(0.05);
-	
-	thread createSelectedRoom(self.name + " ^3 HAS ENTERED THE BOUNCE ROOM^7!"); // change the message if you want
 	self takeallweapons();
 	self GiveWeapon("tomahawk_mp");
 	self SwitchToWeapon( "tomahawk_mp" );
+	
+	thread createSelectedRoom(self.name + " ^3 HAS ENTERED THE BOUNCE ROOM^7!"); // change the message if you want
+
 	
 	if( isDefined( level.activ ) ){
 		level.activ SetOrigin( level.actiorigin.origin );
 		level.activ setplayerangles( level.actiorigin.angles );
 	}
 	
-	wait(0.05);
 	if( isDefined( level.activ ) ){
 		level.activ takeallweapons();	
 		level.activ GiveWeapon("tomahawk_mp");
@@ -3557,20 +3248,17 @@ RandomWeapFight(){
 	self setorigin (teleorigin.origin);
 	self setplayerangles (teleorigin.angles);
 	
-	wait(0.05);
-	self thread jumperweap();	
-	
-	thread createSelectedRoom(self.name + " ^3 HAS ENTERED THE RANDOM WEAPON ROOM^7!"); // change the message if you want
-	
 	if( isDefined( level.activ ) ){
 	level.activ SetOrigin (level.actiorigin.origin);
 	level.activ setplayerangles (level.actiorigin.angles);
 	}
 
 	wait(0.05);
-	if( isDefined( level.activ ) ){
-		level.activ thread actiweap();
-	}
+	self thread jumperweap();	
+	
+	thread createSelectedRoom(self.name + " ^3 HAS ENTERED THE RANDOM WEAPON ROOM^7!"); // change the message if you want
+	
+
 	while( isDefined( self ) && isAlive( self )  )
 		wait 1;
 	
@@ -3583,132 +3271,26 @@ RandomWeapFight(){
 jumperweap()
 {
 	wait 0.25;
-	random = randomInt(14);
-	
-	switch(random){
-		case 0: self takeallweapons();
-				self giveWeapon("deserteagle_mp", 100, 500 );
-				self switchToWeapon("deserteagle_mp"); break;
-				
-		case 1: self takeallweapons();
-				self giveWeapon("uzi_mp", 100, 500 );
-				self switchToWeapon("uzi_mp"); break;
-				
-		case 2: self takeallweapons();
-				self giveWeapon("m4_mp", 100, 500 );
-				self switchToWeapon("m4_mp"); break;
-				
-		case 3: self takeallweapons();
-				self giveWeapon("ak47_mp", 100, 500 );
-				self switchToWeapon("ak47_mp"); break;
-				
-		case 4: self takeallweapons();
-				self giveWeapon("honeybadger_mp", 100, 500 );
-				self switchToWeapon("honeybadger_mp"); break;
-				
-		case 5: self takeallweapons();
-				self giveWeapon("m60e4_mp", 100, 500 );
-				self switchToWeapon("m60e4_mp"); break;
-				
-		case 6: self takeallweapons();
-				self giveWeapon("t4_ppsh_mp", 100, 500 );
-				self switchToWeapon("t4_ppsh_mp"); break;
-				
-		case 7: self takeallweapons();
-				self giveWeapon("m40a3_mp", 100, 500 );
-				self switchToWeapon("m40a3_mp"); break;
-				
-		case 8: self takeallweapons();
-				self giveWeapon("barrett_mp", 100, 500 );
-				self switchToWeapon("barrett_mp"); break;
-				
-		case 9: self takeallweapons();
-				self giveWeapon("g36c_silencer_mp", 100, 0 );
-				self switchToWeapon("g36c_silencer_mp"); break;
-				
-		case 10: self takeallweapons();
-			 	 self giveWeapon("skorpion_silencer_mp", 100, 500 );
-				 self switchToWeapon("skorpion_silencer_mp"); break;
-				
-		case 11: self takeallweapons();
-				 self giveWeapon("saw_grip_mp", 100, 500 );
-			 	 self switchToWeapon("saw_grip_mp"); break;
-				
-		case 12: self takeallweapons();
-				 self giveWeapon("remington700_mp", 100, 500 );
-				 self switchToWeapon("remington700_mp"); break;
-				
-		case 13: self takeallweapons();
-				 self giveWeapon("ak74u_mp", 100, 500 );
-				 self switchToWeapon("ak74u_mp"); break;
+    weaps = [];
+    weaps[weaps.size] = "deserteagle_mp";
+    weaps[weaps.size] = "honeybadger_mp";
+    weaps[weaps.size] = "iw5_msr_mp";
+    weaps[weaps.size] = "t5_1911_mp";
+    weaps[weaps.size] = "t6_s12_mp";
+    weaps[weaps.size] = "t6_evoskorpion_mp";
+    weaps[weaps.size] = "iw4_raffica_mp";
 
-		}
-}
+    wep = weaps[randomint(weaps.size)];
+    self takeallweapons();
+	self giveWeapon(wep, 100, 500 );
+	self switchToWeapon(wep); break;
 
+    if(isdefined(level.activ)) {
+        level.activ takeallweapons();
+        level.activ giveWeapon(wep, 100, 500 );
+        level.activ switchToWeapon(wep); break;
+    }
 
-actiweap()
-{
-	wait 0.25;
-	random = randomInt(14);
-	
-	switch(random){
-		case 0: self takeallweapons();
-				self giveWeapon("deserteagle_mp", 100, 500 );
-				self switchToWeapon("deserteagle_mp"); break;
-				
-		case 1: self takeallweapons();
-				self giveWeapon("uzi_mp", 100, 500 );
-				self switchToWeapon("uzi_mp"); break;
-				
-		case 2: self takeallweapons();
-				self giveWeapon("m4_mp", 100, 500 );
-				self switchToWeapon("m4_mp"); break;
-				
-		case 3: self takeallweapons();
-				self giveWeapon("ak47_mp", 100, 500 );
-				self switchToWeapon("ak47_mp"); break;
-				
-		case 4: self takeallweapons();
-				self giveWeapon("honeybadger_mp", 100, 500 );
-				self switchToWeapon("honeybadger_mp"); break;
-				
-		case 5: self takeallweapons();
-				self giveWeapon("m60e4_mp", 100, 500 );
-				self switchToWeapon("m60e4_mp"); break;
-				
-		case 6: self takeallweapons();
-				self giveWeapon("t4_ppsh_mp", 100, 500 );
-				self switchToWeapon("t4_ppsh_mp"); break;
-				
-		case 7: self takeallweapons();
-				self giveWeapon("m40a3_mp", 100, 500 );
-				self switchToWeapon("m40a3_mp"); break;
-				
-		case 8: self takeallweapons();
-				self giveWeapon("barrett_mp", 100, 500 );
-				self switchToWeapon("barrett_mp"); break;
-				
-		case 9: self takeallweapons();
-				self giveWeapon("g36c_silencer_mp", 100, 0 );
-				self switchToWeapon("g36c_silencer_mp"); break;
-				
-		case 10: self takeallweapons();
-			 	 self giveWeapon("skorpion_silencer_mp", 100, 500 );
-				 self switchToWeapon("skorpion_silencer_mp"); break;
-				
-		case 11: self takeallweapons();
-				 self giveWeapon("saw_grip_mp", 100, 500 );
-			 	 self switchToWeapon("saw_grip_mp"); break;
-				
-		case 12: self takeallweapons();
-				 self giveWeapon("remington700_mp", 100, 500 );
-				 self switchToWeapon("remington700_mp"); break;
-				
-		case 13: self takeallweapons();
-				 self giveWeapon("ak74u_mp", 100, 500 );
-				 self switchToWeapon("ak74u_mp"); break;
-
-		}
 }
 
 
