@@ -162,7 +162,7 @@ ee_steps()
     }
 
     level.ee_xmodel4 hide();
-    org_player thread teleportplayer(org_player.origin,dest,false);
+    org_player thread teleportplayer(org_player,dest,false);
 }
 
 ee_finish()
@@ -174,7 +174,7 @@ ee_finish()
 	{
 		trigger waittill ( "trigger", player );
 
-        player thread teleportplayer(player.origin,dest,false);
+        player thread teleportplayer(player,dest,false);
 	}
 }
 
@@ -243,6 +243,8 @@ water_moving()
     bounce_trigger = getEnt("bounce_fail_trig","targetname");
     water = getEnt("water_model","targetname");
 
+    bounce_trigger enablelinkto();
+    hurt_trigger enablelinkto();
     bounce_trigger linkTo(water);
     hurt_trigger linkTo(water);
 
