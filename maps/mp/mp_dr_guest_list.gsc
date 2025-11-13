@@ -3,14 +3,14 @@
 
 main()
 {
- maps\mp\_load::main();
- 
- game["allies"] = "marines";
- game["axis"] = "opfor";
- game["attackers"] = "axis";
- game["defenders"] = "allies";
- game["allies_soldiertype"] = "desert";
- game["axis_soldiertype"] = "desert";
+    maps\mp\_load::main();
+    
+    game["allies"] = "marines";
+    game["axis"] = "opfor";
+    game["attackers"] = "axis";
+    game["defenders"] = "allies";
+    game["allies_soldiertype"] = "desert";
+    game["axis_soldiertype"] = "desert";
  
 	
 	setdvar( "r_specularcolorscale", "1" );
@@ -18,6 +18,8 @@ main()
 	setdvar("r_glowbloomintensity0",".1");
 	setdvar("r_glowbloomintensity1",".1");
 	setdvar("r_glowskybleedintensity0",".1");
+	setDvar("bg_falldamagemaxheight", 99999);
+    setDvar("bg_falldamageminheight", 99998);
 	
 	level.boom_fx = LoadFx("explosions/default_explosion");
 
@@ -64,9 +66,8 @@ addTriggerToList( name )
 
 messages()
 {
-wait 5;
-iprintlnBold("^1Map by Fish Da Rekter (BETA version)");
-wait 1;
+    wait 5;
+    iprintlnBold("^1Map by Fish Da Rekter");
 }
 
 startdoors()
