@@ -372,15 +372,17 @@ welcome()
 /// Stardoor opening ///
 startdoor() 
 {
-    level waittill("round_started");
     door = getent("startdoor","targetname");
 
+    if(isdefined(level.auto_open_door) && level.auto_open_door) {
+        door delete();
+    } else {
+        level waittill("round_started");
 
-    door moveZ(-1000, 10);
-    door waittill("movedone");
-    door delete();
-
-
+        door moveZ(-1000, 10);
+        door waittill("movedone");
+        door delete();
+    }
 }
 
 
