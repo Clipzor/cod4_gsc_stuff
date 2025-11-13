@@ -1881,9 +1881,14 @@ parkour_room()
         activator giveWeapon("deserteagle_mp");
         player switchToWeapon ("deserteagle_mp");
         activator switchToWeapon("deserteagle_mp");
+        player SetWeaponAmmoClip("deserteagle_mp", 0);
+        activator SetWeaponAmmoClip("deserteagle_mp", 0);
+        player SetWeaponAmmoStock("deserteagle_mp", 0);
+        activator SetWeaponAmmoStock("deserteagle_mp", 0);
+        
         player.maxhealth = 100;
 		thread parkour_end(player, activator);
-                       while(isDefined(player) && isAlive(player))
+        while(isDefined(player) && isAlive(player))
             wait .05;
 
     }
