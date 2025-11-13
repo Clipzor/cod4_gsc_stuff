@@ -5,42 +5,42 @@
 
 main()
 {
-maps\mp\_load::main();
-//otherstuff
-thread teleport1();
-thread teleport2();
-thread startdoor();
-thread startmessages();
-thread actiteleport1();
-thread trap6door();
-thread hardsecretteleports();
-thread ezsecretteleports();
-thread endrooms();
-thread musictrig();
-thread shortcut();
-thread endmaptrig();
-//traps
-addTriggerToList( "trig_trap1" );
-addTriggerToList( "trig_trap2" );
-addTriggerToList( "trig_trap3" );
-addTriggerToList( "trig_trap4" );
-addTriggerToList( "trig_trap5" );
-addTriggerToList( "trig_trap6" );
-addTriggerToList( "trig_trap7" );
-addTriggerToList( "trig_trap8" );
-addTriggerToList( "trig_trap9" );
-thread trap1();
-thread trap2();
-thread trap3();
-thread trap4();
-thread trap5();
-thread trap6();
-thread trap7();
-thread trap8();
-thread trap9();
+    maps\mp\_load::main();
+    //otherstuff
+    thread teleport1();
+    thread teleport2();
+    thread startdoor();
+    thread startmessages();
+    thread actiteleport1();
+    thread trap6door();
+    thread hardsecretteleports();
+    thread ezsecretteleports();
+    thread endrooms();
+    thread musictrig();
+    thread shortcut();
+    thread endmaptrig();
+    //traps
+    addTriggerToList( "trig_trap1" );
+    addTriggerToList( "trig_trap2" );
+    addTriggerToList( "trig_trap3" );
+    addTriggerToList( "trig_trap4" );
+    addTriggerToList( "trig_trap5" );
+    addTriggerToList( "trig_trap6" );
+    addTriggerToList( "trig_trap7" );
+    addTriggerToList( "trig_trap8" );
+    addTriggerToList( "trig_trap9" );
+    thread trap1();
+    thread trap2();
+    thread trap3();
+    thread trap4();
+    thread trap5();
+    thread trap6();
+    thread trap7();
+    thread trap8();
+    thread trap9();
 
 
-if(!isdefined(level.music))
+    if(!isdefined(level.music))
 		level.music=[];
 
 	level.music[0]["song"]	="Goblins from Mars - Cold Blooded";
@@ -52,14 +52,14 @@ if(!isdefined(level.music))
 	level.music[3]["song"]	="Tristam - Till Its Over";
 	level.music[3]["alias"]	="tillitsover";
 	
-game["allies"] = "marines";
-game["axis"] = "opfor";
-game["attackers"] = "axis";
-game["defenders"] = "allies";
-game["allies_soldiertype"] = "desert";
-game["axis_soldiertype"] = "desert";
+    game["allies"] = "marines";
+    game["axis"] = "opfor";
+    game["attackers"] = "axis";
+    game["defenders"] = "allies";
+    game["allies_soldiertype"] = "desert";
+    game["axis_soldiertype"] = "desert";
 
-precacheshader("musicmenu");
+    precacheshader("musicmenu");
 }
 
 
@@ -715,109 +715,111 @@ hardtp4=getent("origin_hardsectp4", "targetname");
 }
 hardsecend()
 {
-trig=getent("trig_hardsecend", "targetname");
-hardend=getent("origin_hardsecend", "targetname");
- for(;;)
-  {
-               trig waittill("trigger", player);
-                player setorigin (hardend.origin);
-                player setplayerangles(hardend.angles);
-				iPrintlnBold( " ^8" + player.name + " ^4 has Finished ^1Hard Secret^8!" ); 
-				player.secretTimer2 destroy();
-				player notify("hardsecret_done");
-				player braxi\_rank::giveRankXP( "", 1000 );
-				}
+    trig=getent("trig_hardsecend", "targetname");
+    hardend=getent("origin_hardsecend", "targetname");
+    for(;;)
+    {
+        trig waittill("trigger", player);
+        player setorigin (hardend.origin);
+        player setplayerangles(hardend.angles);
+        iPrintlnBold( " ^8" + player.name + " ^4 has Finished ^1Hard Secret^8!" ); 
+        if(isdefined(player.secretTimer2))
+            player.secretTimer2 destroy();
+        player notify("hardsecret_done");
+        player braxi\_rank::giveRankXP( "", 1000 );
+    }
 }
+
 //ez secret teleports
 ezsecretteleports()
 {
-thread ezsecfalltele();
-thread ezsecstart();
-thread ezsecend();
+    thread ezsecfalltele();
+    thread ezsecstart();
+    thread ezsecend();
 }
+
 ezsecfalltele()
 {
-trig=getent("trig_ezsecfall", "targetname");
-ezsecfall=getent("origin_ezsecfall", "targetname");
- for(;;)
-  {
-               trig waittill("trigger", player);
-                player setorigin (ezsecfall.origin);
-                player setplayerangles(ezsecfall.angles);
-				
-				
-				}
+    trig=getent("trig_ezsecfall", "targetname");
+    ezsecfall=getent("origin_ezsecfall", "targetname");
+    for(;;)
+    {
+        trig waittill("trigger", player);
+        player setorigin (ezsecfall.origin);
+        player setplayerangles(ezsecfall.angles);
+    }
 }
 ezsecstart()
 {
-trig=getent("trig_eztele", "targetname");
-ezsectele=getent("origin_ezsecfall", "targetname");
- for(;;)
-  {
-               trig waittill("trigger", player);
-                player setorigin (ezsectele.origin);
-                player setplayerangles(ezsectele.angles);
-				player thread ezsecret_timer();
-				
-				}
+    trig=getent("trig_eztele", "targetname");
+    ezsectele=getent("origin_ezsecfall", "targetname");
+    for(;;)
+    {
+        trig waittill("trigger", player);
+        player setorigin (ezsectele.origin);
+        player setplayerangles(ezsectele.angles);
+        player thread ezsecret_timer();
+    }
 }
 ezsecend()
 {
-trig=getent("trig_ezsecend", "targetname");
-ezsecend=getent("origin_ezsecend", "targetname");
- for(;;)
-  {
-               trig waittill("trigger", player);
-                player setorigin (ezsecend.origin);
-                player setplayerangles(ezsecend.angles);
-				iPrintlnBold( " ^8" + player.name + " ^4 has Finished ^2Easy Secret^8!" );
-				player.secretTimer destroy();
-				   player notify("ezsecret_done");
-				   player braxi\_rank::giveRankXP( "", 200 );
-				
-				}
+    trig=getent("trig_ezsecend", "targetname");
+    ezsecend=getent("origin_ezsecend", "targetname");
+    for(;;)
+    {
+        trig waittill("trigger", player);
+        player setorigin (ezsecend.origin);
+        player setplayerangles(ezsecend.angles);
+        iPrintlnBold( " ^8" + player.name + " ^4 has Finished ^2Easy Secret^8!" );
+        player.secretTimer destroy();
+        player notify("ezsecret_done");
+        player braxi\_rank::giveRankXP( "", 200 );
+    }
 }
 hardsecret_timer()
 {
+    self endon("disconnect");
 	self endon("hardsecret_done");
     self endon("suicide");
+
 	if(isdefined(self.secretTimer2))
-	self.secretTimer2 destroy();
+	    self.secretTimer2 destroy();
 
 	self.secretTimer2=newclienthudelem(self);
-        self.secretTimer2.foreground = true;
+    self.secretTimer2.foreground = true;
 	self.secretTimer2.alignX = "center";
 	self.secretTimer2.alignY = "bottom";
 	self.secretTimer2.horzAlign = "center";
-        self.secretTimer2.vertAlign = "bottom";
-        self.secretTimer2.x = 0;
-        self.secretTimer2.y = -7;
-        self.secretTimer2.sort = 5;
-        self.secretTimer2.fontScale = 1.6;
+    self.secretTimer2.vertAlign = "bottom";
+    self.secretTimer2.x = 0;
+    self.secretTimer2.y = -7;
+    self.secretTimer2.sort = 5;
+    self.secretTimer2.fontScale = 1.6;
 	self.secretTimer2.font = "default";
 	self.secretTimer2.glowAlpha = 1;
  	self.secretTimer2.hidewheninmenu = true;
  	self.secretTimer2.label = &"Time in left: &&1";
  	if(isdefined(level.randomcolor))
-	self.secretTimer2.glowColor=level.randomcolor;
+	    self.secretTimer2.glowColor=level.randomcolor;
 	else 
-	self.secretTimer2.glowColor=(1,0,0);
+	    self.secretTimer2.glowColor=(1,0,0);
 
 	time=200;
 	for(i=0;i<time;i++)
-		{
+    {
 		self.secretTimer2 setvalue(time-i);
 		wait 1;
-		}
+    }
 	self.secretTimer2 setvalue(0);
 
 	self suicide();
 
 	if(isdefined(self.secretTimer2))
-	self.secretTimer2 destroy();
+	    self.secretTimer2 destroy();
 }
 ezsecret_timer()
 {
+    self endon("disconnect");
 	self endon("ezsecret_done");
     self endon("suicide");
 	if(isdefined(self.secretTimer))
@@ -828,124 +830,117 @@ ezsecret_timer()
 	self.secretTimer.alignX = "center";
 	self.secretTimer.alignY = "bottom";
 	self.secretTimer.horzAlign = "center";
-        self.secretTimer.vertAlign = "bottom";
-        self.secretTimer.x = 0;
-        self.secretTimer.y = -7;
-        self.secretTimer.sort = 5;
-        self.secretTimer.fontScale = 1.6;
-        self.secretTimer.font = "default";
-        self.secretTimer.glowAlpha = 1;
-        self.secretTimer.hidewheninmenu = true;
-        self.secretTimer.label = &"Time in left: &&1";
-        if(isdefined(level.randomcolor))
-	self.secretTimer.glowColor=level.randomcolor;
+    self.secretTimer.vertAlign = "bottom";
+    self.secretTimer.x = 0;
+    self.secretTimer.y = -7;
+    self.secretTimer.sort = 5;
+    self.secretTimer.fontScale = 1.6;
+    self.secretTimer.font = "default";
+    self.secretTimer.glowAlpha = 1;
+    self.secretTimer.hidewheninmenu = true;
+    self.secretTimer.label = &"Time in left: &&1";
+    if(isdefined(level.randomcolor))
+	    self.secretTimer.glowColor=level.randomcolor;
 	else 
-	self.secretTimer.glowColor=(0,1,0);
+	    self.secretTimer.glowColor=(0,1,0);
 
 	time=70;
 	for(i=0;i<time;i++)
-		{
+    {
 		self.secretTimer setvalue(time-i);
 		wait 1;
-		}
+    }
 	self.secretTimer setvalue(0);
 	self suicide();
 
 	if(isdefined(self.secretTimer))
-	self.secretTimer destroy();
+	    self.secretTimer destroy();
 }
 
 
 //endrooms
 endrooms()
 {
-thread sniper();
-thread bounce();
-thread knife();
+    thread sniper();
+    thread bounce();
+    thread knife();
 
-thread bouncesniper();
-thread bouncejumperfall();
-thread bounceactifall();
+    thread bouncesniper();
+    thread bouncejumperfall();
+    thread bounceactifall();
 
 }
 sniper()
 {
 
-level.bounce_trigger = getEnt( "trig_bounce", "targetname");
-level.sniper_trigger = getEnt( "trig_sniper", "targetname");
-level.knife_trigger = getEnt( "knife_trig", "targetname");
-level.teleactorigin = getEnt( "origin_sniperactifall", "targetname" ); 
-telejumporigin = getEnt( "origin_sniperplayerfall", "targetname" );
+    level.bounce_trigger = getEnt( "trig_bounce", "targetname");
+    level.sniper_trigger = getEnt( "trig_sniper", "targetname");
+    level.knife_trigger = getEnt( "knife_trig", "targetname");
+    level.teleactorigin = getEnt( "origin_sniperactifall", "targetname" ); 
+    telejumporigin = getEnt( "origin_sniperplayerfall", "targetname" );
 
-while(1)
-{
-
-level.sniper_trigger waittill( "trigger", splayer );
-level.bounce_trigger delete();
-level.knife_trigger delete();
-thread sniperfall(splayer);
-    
-iprintln("Now Playing<<PIXL - Sugar Rush [Monstercat EP Release]>>");    
-ambientstop();
-ambientPlay( "sugarrush" );
+    while(1)
+    {
+        level.sniper_trigger waittill( "trigger", splayer );
+        thread sniperfall(splayer);
+            
+        iprintln("Now Playing<<PIXL - Sugar Rush [Monstercat EP Release]>>");    
+        ambientstop();
+        ambientPlay( "sugarrush" );
 
 
 
-if( !isDefined( level.sniper_trigger ) )
-return;
-if(!isdefined(level.firstenter))
-{
+        if( !isDefined( level.sniper_trigger ) )
+            return;
 
-level.firstenter=false;
-} 
-wait(0.05);
+        if(!isdefined(level.firstenter))
+        {
+            level.firstenter=false;
+            level.bounce_trigger delete();
+            level.knife_trigger delete();
+        } 
 
-splayer SetOrigin( telejumporigin.origin );
-splayer setplayerangles( telejumporigin.angles );
-splayer TakeAllWeapons();
-splayer GiveWeapon("m40a3_mp");
-splayer GiveWeapon( "remington700_mp" ); 
-splayer GiveMaxAmmo("m40a3_mp");
-splayer GiveMaxAmmo( "remington700_mp" );
-wait .05;
-splayer SwitchToWeapon("m40a3_mp"); 
-wait(0.05);
-level.activ SetOrigin (level.teleactorigin.origin);
-level.activ setplayerangles (level.teleactorigin.angles);
-level.activ TakeAllWeapons();
-level.activ GiveWeapon( "m40a3_mp" );
-level.activ GiveWeapon( "remington700_mp" );
-level.activ GiveMaxAmmo("m40a3_mp");
-level.activ GiveMaxAmmo( "remington700_mp" );
-wait .05;
-level.activ SwitchToWeapon("m40a3_mp"); 
-iPrintlnBold( " ^8" + splayer.name + " ^4 has entered the Sniper room^8!" ); 
-splayer iPrintlnBold( "^13" );
-            splayer freezecontrols(true);
-			level.activ freezecontrols(true);
-            level.activ iPrintlnBold( "^13" );
-            wait 1;
-            splayer iPrintlnBold( "^32" );
-            level.activ iPrintlnBold( "^32" );
-            wait 1;
-            splayer iPrintlnBold( "^51" );
-            level.activ iPrintlnBold( "^51" );
-            wait 1;
-            splayer iPrintlnBold( "^6Fight^7!" );
-            level.activ iPrintlnBold( "^6Fight^6!" );
-            splayer freezecontrols(false); //Disables the freeze.
-            level.activ freezecontrols(false);
-wait(0.02);
-splayer switchToWeapon( "m40a3_mp" );
-level.activ SwitchToWeapon( "m40a3_mp" );
-
-
-
-
-splayer waittill( "death" );
-level.PlayerInRoom = false;
-
-}
+        splayer SetOrigin( telejumporigin.origin );
+        splayer setplayerangles( telejumporigin.angles );
+        splayer TakeAllWeapons();
+        splayer GiveWeapon("m40a3_mp");
+        splayer GiveWeapon( "remington700_mp" ); 
+        splayer GiveMaxAmmo("m40a3_mp");
+        splayer GiveMaxAmmo( "remington700_mp" );
+        wait .05;
+        splayer SwitchToWeapon("m40a3_mp"); 
+        wait(0.05);
+        level.activ SetOrigin (level.teleactorigin.origin);
+        level.activ setplayerangles (level.teleactorigin.angles);
+        level.activ TakeAllWeapons();
+        level.activ GiveWeapon( "m40a3_mp" );
+        level.activ GiveWeapon( "remington700_mp" );
+        level.activ GiveMaxAmmo("m40a3_mp");
+        level.activ GiveMaxAmmo( "remington700_mp" );
+        wait .05;
+        level.activ SwitchToWeapon("m40a3_mp"); 
+        iPrintlnBold( " ^8" + splayer.name + " ^4 has entered the Sniper room^8!" ); 
+        splayer iPrintlnBold( "^13" );
+        splayer freezecontrols(true);
+        level.activ freezecontrols(true);
+        level.activ iPrintlnBold( "^13" );
+        wait 1;
+        splayer iPrintlnBold( "^32" );
+        level.activ iPrintlnBold( "^32" );
+        wait 1;
+        splayer iPrintlnBold( "^51" );
+        level.activ iPrintlnBold( "^51" );
+        wait 1;
+        splayer iPrintlnBold( "^6Fight^7!" );
+        level.activ iPrintlnBold( "^6Fight^6!" );
+        splayer freezecontrols(false); //Disables the freeze.
+        level.activ freezecontrols(false);
+        wait(0.02);
+        splayer switchToWeapon( "m40a3_mp" );
+        level.activ SwitchToWeapon( "m40a3_mp" );
+        splayer waittill( "death" );
+        level.PlayerInRoom = false;
+    }
 }
 knife()
 {
