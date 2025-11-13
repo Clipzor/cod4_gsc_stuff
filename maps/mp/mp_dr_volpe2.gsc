@@ -31,7 +31,7 @@ main()
 	precacheItem("colt45_mp");
 	precacheItem("deserteagle_mp");
 	precacheItem("uzi_silencer_mp");
-	precacheItem("p90_mp");
+	precacheItem("t4_ppsh_mp");
 	precacheItem("rpd_mp");
 	precacheItem("saw_mp");
 	precacheItem("ak47_mp");
@@ -1973,7 +1973,7 @@ wep_room()
 		random_weapon[random_weapon.size] = "colt45_mp";
 		random_weapon[random_weapon.size] = "deserteagle_mp";
 		random_weapon[random_weapon.size] = "uzi_silencer_mp";
-		random_weapon[random_weapon.size] = "p90_mp";
+		random_weapon[random_weapon.size] = "t4_ppsh_mp";
 		random_weapon[random_weapon.size] = "rpd_mp";
 		random_weapon[random_weapon.size] = "saw_mp";
 		random_weapon[random_weapon.size] = "artillery_mp";

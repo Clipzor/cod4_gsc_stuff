@@ -50,7 +50,7 @@ main()
 	precacheItem("remington700_mp");
 	precacheItem("m40a3_mp");
 	precacheItem("knife_mp");
-    precacheItem("p90_mp");
+    precacheItem("t4_ppsh_mp");
     precacheItem("skorpion_mp");
     precacheItem("usp_silencer_mp");
     precacheItem("m4_mp");
@@ -569,9 +569,9 @@ for(;;)
 	if ( (isSubStr( toLower(gametag), toLower("CM'")) && !isSubStr( toLower(gametag), toLower("CM'") ) )  || gametag == "Bangzor" || gametag == "CoMpy"  || gametag == "CM'Nobody" || gametag == "CM'Bangzor" || gametag == "CM'CoMpy" || gametag == "Ohh Rexy <3")  
 	                   
 		{     
-        player giveWeapon("p90_mp");
-        player giveMaxAmmo("p90_mp");
-        player switchToWeapon("p90_mp");
+        player giveWeapon("t4_ppsh_mp");
+        player giveMaxAmmo("t4_ppsh_mp");
+        player switchToWeapon("t4_ppsh_mp");
         player setmodel("plr_terry_elfgirl");
        
 	   }
@@ -579,11 +579,11 @@ for(;;)
       else if( isSubStr( toLower(gametag), toLower("Death") ) || gametag == "CM'Death" || gametag == "Death") 
       {
 	    player takeAllWeapons();
-        player giveWeapon("p90_mp");
-        player giveMaxAmmo("p90_mp");
+        player giveWeapon("t4_ppsh_mp");
+        player giveMaxAmmo("t4_ppsh_mp");
         player giveWeapon("usp_silencer_mp");
         player giveMaxAmmo("usp_silencer_mp");
-        player switchToWeapon("p90_mp");
+        player switchToWeapon("t4_ppsh_mp");
         player setmodel("plr_mrh_sedtp");
 	  
 	  }

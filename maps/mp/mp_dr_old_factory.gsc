@@ -85,7 +85,7 @@ maps\mp\_load::main();
     precacheItem("deserteagle_mp");
     precacheItem("rpd_mp");
     precacheItem("m1014_mp");
-    precacheItem("p90_mp");
+    precacheItem("t4_ppsh_mp");
     precacheItem("rpg_mp");
     precacheItem("katana_mp");
     precacheItem("v_pist_tec9_mp");

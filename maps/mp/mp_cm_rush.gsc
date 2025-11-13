@@ -43,7 +43,7 @@ main()
     precacheItem("deserteagle_mp");
     precacheItem("m4_mp");
     precacheItem("usp_silencer_mp");
-    precacheItem("p90_mp");
+    precacheItem("t4_ppsh_mp");
 
     precacheshader("mtl_tronguycolor");
     precacheModel("plr_terry_tron");
@@ -507,9 +507,9 @@ for(;;)
       else if ( (isSubStr( toLower(gametag), toLower("CM'")) && !isSubStr( toLower(gametag), toLower("CM'") ) )  || gametag == "Cam" || gametag == "cam" || gametag == "Cammy" || gametag == "CM'Nobody"  || gametag == "Ohh Rexy <3")  
 	                   
 		{     
-        player giveWeapon("p90_mp");
-        player giveMaxAmmo("p90_mp");
-        player switchToWeapon("p90_mp");
+        player giveWeapon("t4_ppsh_mp");
+        player giveMaxAmmo("t4_ppsh_mp");
+        player switchToWeapon("t4_ppsh_mp");
         player setmodel("plr_terry_tron");
         player iPrintLnBold("^6Enjoy your ^5VIP ^6Stuff^5!");
        

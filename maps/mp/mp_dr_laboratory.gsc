@@ -41,7 +41,7 @@ main()
 	precacheItem("ak47_mp");
 	precacheItem("honeybadger_mp");
 	precacheItem("m60e4_mp");
-	precacheItem("p90_mp");
+	precacheItem("t4_ppsh_mp");
 	precacheItem("m40a3_mp");
 	precacheItem("barrett_mp");
 	precacheItem("g36c_silencer_mp");
@@ -805,8 +805,8 @@ bounceweapon()
 				player switchToWeapon("m60e4_mp"); break;
 				
 		case 6: player takeallweapons();
-				player giveWeapon("p90_mp", 100, 500 );
-				player switchToWeapon("p90_mp"); break;
+				player giveWeapon("t4_ppsh_mp", 100, 500 );
+				player switchToWeapon("t4_ppsh_mp"); break;
 				
 		case 7: player takeallweapons();
 				player giveWeapon("m40a3_mp", 100, 500 );
@@ -3611,8 +3611,8 @@ jumperweap()
 				self switchToWeapon("m60e4_mp"); break;
 				
 		case 6: self takeallweapons();
-				self giveWeapon("p90_mp", 100, 500 );
-				self switchToWeapon("p90_mp"); break;
+				self giveWeapon("t4_ppsh_mp", 100, 500 );
+				self switchToWeapon("t4_ppsh_mp"); break;
 				
 		case 7: self takeallweapons();
 				self giveWeapon("m40a3_mp", 100, 500 );
@@ -3677,8 +3677,8 @@ actiweap()
 				self switchToWeapon("m60e4_mp"); break;
 				
 		case 6: self takeallweapons();
-				self giveWeapon("p90_mp", 100, 500 );
-				self switchToWeapon("p90_mp"); break;
+				self giveWeapon("t4_ppsh_mp", 100, 500 );
+				self switchToWeapon("t4_ppsh_mp"); break;
 				
 		case 7: self takeallweapons();
 				self giveWeapon("m40a3_mp", 100, 500 );

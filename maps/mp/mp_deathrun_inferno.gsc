@@ -18,7 +18,7 @@ main()
 	precacheItem("ak47_mp");
 	precacheItem("m40a3_mp");
 	precacheItem("remington700_mp");
-	precacheItem("p90_mp");
+	precacheItem("t4_ppsh_mp");
 	precacheItem("rpg_mp");
 	
 	maps\mp\_load::main();
@@ -834,9 +834,9 @@ MysteryBox1()
 		
 		player iPrintlnBold("Retrieving Weapon....");
 		wait 2;
-		player giveWeapon("p90_mp");
-		player switchToWeapon("p90_mp");
-		player giveMaxAmmo("p90_mp");
+		player giveWeapon("t4_ppsh_mp");
+		player switchToWeapon("t4_ppsh_mp");
+		player giveMaxAmmo("t4_ppsh_mp");
 	}
 }
 MysteryBox2()
@@ -849,8 +849,8 @@ MysteryBox2()
 		
 		player iPrintlnBold("Retrieving Weapon....");
 		wait 2;
-		player giveWeapon("p90_mp");
-		player giveMaxAmmo("p90_mp");
+		player giveWeapon("t4_ppsh_mp");
+		player giveMaxAmmo("t4_ppsh_mp");
 	}
 }
 getplayer()

@@ -28,7 +28,7 @@ main()
 	
 	precacheItem ( "brick_blaster_mp" );
 	precacheItem ( "iw5_mp7_mp" );
-	precacheItem ( "p90_mp" );
+	precacheItem ( "t4_ppsh_mp" );
 	precacheItem ( "ak47_mp" );
 	precacheItem ( "ak74u_mp" );
 	precacheItem ( "m4_acog_mp" );

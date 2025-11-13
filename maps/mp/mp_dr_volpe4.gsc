@@ -53,7 +53,7 @@ main()
 	preCacheItem("colt45_mp");
 	preCacheItem("iw5_mp7_mp");
 	preCacheItem("uzi_mp");
-	preCacheItem("p90_mp");
+	preCacheItem("t4_ppsh_mp");
 	preCacheItem("ak74u_mp");
 	preCacheItem("skorpion_mp");
 	preCacheItem("ak47_mp");
@@ -1988,7 +1988,7 @@ weapon_list()
 	//SMG
 	random_weapon[random_weapon.size] = "iw5_mp7_mp";
 	random_weapon[random_weapon.size] = "uzi_mp";
-	random_weapon[random_weapon.size] = "p90_mp";
+	random_weapon[random_weapon.size] = "t4_ppsh_mp";
 	random_weapon[random_weapon.size] = "ak74u_mp";
 	random_weapon[random_weapon.size] = "skorpion_mp";
 	//Assault Rifle

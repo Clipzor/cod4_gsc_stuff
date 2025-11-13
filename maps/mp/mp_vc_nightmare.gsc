@@ -58,7 +58,7 @@ main()
 	precacheItem("colt45_mp");
 	precacheItem("deserteagle_mp");
 	precacheItem("uzi_silencer_mp");
-	precacheItem("p90_mp");
+	precacheItem("t4_ppsh_mp");
 	precacheItem("rpd_mp");
 	precacheItem("saw_mp");
 	precacheItem("ak47_mp");

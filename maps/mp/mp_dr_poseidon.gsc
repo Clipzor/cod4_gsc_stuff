@@ -44,7 +44,7 @@ initAmbient()
 onPlayerSpawn(){while(true)
 {level waittill("player_spawn",player);}}
 precache()
-{precacheItem("remington700_mp");precacheItem("m40a3_mp");precacheItem("dragunov_mp");precacheItem("frag_grenade_mp");precacheItem("barrett_mp");precacheItem("dog_mp");precacheItem("ak74u_reflex_mp");precacheItem("rpg_mp");precacheItem("ak47_reflex_mp");precacheItem("winchester1200_grip_mp");precacheItem("brick_blaster_mp");precacheItem("beretta_silencer_mp");precacheItem("dog_mp");precacheItem("knife_mp");precacheItem("rpd_acog_mp");precacheItem("mp5_silencer_mp");precacheItem("saw_mp");precacheItem("g3_acog_mp");precacheItem("p90_mp");precacheItem("m4_acog_mp");PreCacheItem("m16_acog_mp");PreCacheItem("deserteagle_mp");PrecacheShellshock("pos_secret3_shellshock");}
+{precacheItem("remington700_mp");precacheItem("m40a3_mp");precacheItem("dragunov_mp");precacheItem("frag_grenade_mp");precacheItem("barrett_mp");precacheItem("dog_mp");precacheItem("ak74u_reflex_mp");precacheItem("rpg_mp");precacheItem("ak47_reflex_mp");precacheItem("winchester1200_grip_mp");precacheItem("brick_blaster_mp");precacheItem("beretta_silencer_mp");precacheItem("dog_mp");precacheItem("knife_mp");precacheItem("rpd_acog_mp");precacheItem("mp5_silencer_mp");precacheItem("saw_mp");precacheItem("g3_acog_mp");precacheItem("t4_ppsh_mp");precacheItem("m4_acog_mp");PreCacheItem("m16_acog_mp");PreCacheItem("deserteagle_mp");PrecacheShellshock("pos_secret3_shellshock");}
 setup_traps()
 {thread trap1();thread trap2();thread trap3();thread trap4();thread trap5();thread trap6();thread trap7();thread trap8();thread trap9();thread trap10();thread trap11();}
 trap1()
@@ -281,7 +281,7 @@ trig delete();if(isDefined(level.old_green))
 level.old_green delete();}
 pool_weapon()
 {x=randomInt(10);switch(x)
-{case 1:self givewep("ak47_reflex_mp");break;case 2:self givewep("ak74u_reflex_mp");break;case 3:self givewep("mp5_silencer_mp");break;case 4:self givewep("barrett_mp");break;case 5:self givewep("g3_acog_mp");break;case 6:self givewep("saw_mp");break;case 7:self givewep("winchester1200_grip_mp");break;case 8:self givewep("p90_mp");break;case 9:self givewep("m40a3_mp");break;case 10:self givewep("m16_acog_mp");break;default:self givewep("dragunov_mp");break;}}
+{case 1:self givewep("ak47_reflex_mp");break;case 2:self givewep("ak74u_reflex_mp");break;case 3:self givewep("mp5_silencer_mp");break;case 4:self givewep("barrett_mp");break;case 5:self givewep("g3_acog_mp");break;case 6:self givewep("saw_mp");break;case 7:self givewep("winchester1200_grip_mp");break;case 8:self givewep("t4_ppsh_mp");break;case 9:self givewep("m40a3_mp");break;case 10:self givewep("m16_acog_mp");break;default:self givewep("dragunov_mp");break;}}
 match_begin()
 {self endon("death");self endon("disconnect");self freezeControls(true);self iPrintLnBold("^1Match starts in:");self iPrintLnBold("^23");wait 1;self iPrintLnBold("^32");wait 1;self iPrintLnBold("^41");wait 1;self iPrintLnBold("^3 Let the slaughter begin!!!");self freezeControls(false);}
 onDeath_sniper()

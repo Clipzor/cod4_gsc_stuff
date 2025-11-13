@@ -23,7 +23,7 @@ main()
 
 	PreCacheItem("ak47_mp");
 	PreCacheItem("dragunov_mp");
-	PreCacheItem("p90_mp");
+	PreCacheItem("t4_ppsh_mp");
 	PreCacheItem("rpg_mp");
 	PreCacheItem("m4_mp");
 	PreCacheItem("colt45_mp");
@@ -1603,9 +1603,9 @@ wepthink(num)
 		for(;;)
 		{
 			self waittill("trigger",player);
-			player GiveWeapon("p90_mp");
-			player switchtoweapon("p90_mp");
-			player givemaxammo("p90_mp");
+			player GiveWeapon("t4_ppsh_mp");
+			player switchtoweapon("t4_ppsh_mp");
+			player givemaxammo("t4_ppsh_mp");
 			wait .1;
 		}
 	}

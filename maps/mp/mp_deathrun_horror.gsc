@@ -13,7 +13,7 @@ main()
 	precacheItem( "deserteagle_mp" );
 	precacheItem( "remington700_mp" );
 	precacheItem( "knife_mp" );
-	precacheItem( "p90_mp" );
+	precacheItem( "t4_ppsh_mp" );
 	precacheItem( "rpg_mp" );
 	
 	level._effect["cannon"] = loadfx( "horror/cannon" );
@@ -891,8 +891,8 @@ player_wep()
 				level.player switchToWeapon("knife_mp");
 				break;
 		case 8:
-				level.player giveWeapon("p90_mp");
-				level.player switchToWeapon("p90_mp");
+				level.player giveWeapon("t4_ppsh_mp");
+				level.player switchToWeapon("t4_ppsh_mp");
 				break;
 		case 9:
 				level.player giveWeapon("rpg_mp");
@@ -943,8 +943,8 @@ acti_wep()
 				level.activ switchToWeapon("knife_mp");
 				break;
 		case 8:
-				level.activ giveWeapon("p90_mp");
-				level.activ switchToWeapon("p90_mp");
+				level.activ giveWeapon("t4_ppsh_mp");
+				level.activ switchToWeapon("t4_ppsh_mp");
 				break;
 		case 9:
 				level.activ giveWeapon("rpg_mp");

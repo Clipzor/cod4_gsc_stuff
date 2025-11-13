@@ -64,7 +64,7 @@ main(){
 	preCacheItem("beretta_mp");
 	precacheitem("colt45_mp");
 	precacheitem("uzi_mp");
-	precacheitem("p90_mp");
+	precacheitem("t4_ppsh_mp");
 	preCacheItem("honeybadger_mp");
 	preCacheItem("m14_mp");
 	preCacheItem("g36c_mp");

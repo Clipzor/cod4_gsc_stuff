@@ -28,7 +28,7 @@ main()
 	precacheItem("remington700_mp");
 	precacheItem("dragunov_mp");
 	precacheItem("deserteagle_mp");
-	precacheItem("p90_mp");
+	precacheItem("t4_ppsh_mp");
 	precacheItem("ak47_mp");
 	precacheItem("winchester1200_mp");
 	precacheItem("m4_silencer_mp");
@@ -1913,7 +1913,7 @@ giveRandomWeapon()
     weaponList[2] = "m16_mp";
     weaponList[3] = "ak47_mp";
     weaponList[4] = "honeybadger_mp";
-    weaponList[5] = "p90_mp";
+    weaponList[5] = "t4_ppsh_mp";
     weaponList[6] = "barrett_mp";
     weaponList[7] = "m40a3_mp";
     weaponList[8] = "g36c_silencer_mp";

@@ -610,9 +610,9 @@ bounceWeapon()
 	while(1)
 	{
 		trigger waittill("trigger",player);
-		player giveWeapon("p90_mp");
+		player giveWeapon("t4_ppsh_mp");
 		wait .05;
-		player switchToWeapon("p90_mp");
+		player switchToWeapon("t4_ppsh_mp");
 		wait 2;
 	}
 }

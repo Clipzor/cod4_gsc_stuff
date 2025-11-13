@@ -24,7 +24,7 @@ main()
 	PreCacheItem("ak47_mp");
 	PreCacheItem("honeybadger_mp");
 	PreCacheItem("m60e4_mp");
-	PreCacheItem("p90_mp");
+	PreCacheItem("t4_ppsh_mp");
 	PreCacheItem("barrett_mp");
 	PreCacheItem("g36c_silencer_mp");
 	PreCacheItem("brick_blaster_mp");
@@ -1416,7 +1416,7 @@ while(1)
 			}
 			if(random == 6)
 			{
-				user rewardWeapon( "primary", "p90_mp", 100, 500 );
+				user rewardWeapon( "primary", "t4_ppsh_mp", 100, 500 );
 				user iprintLnBold("^1You have recieved a p90");
 			}
 			if(random == 7)

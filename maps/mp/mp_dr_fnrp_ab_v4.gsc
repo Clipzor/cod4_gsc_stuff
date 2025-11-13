@@ -30,7 +30,7 @@ main()
 	precacheItem("winchester1200_mp");
 	precacheItem("pricedeagle_mp");
 	precacheItem("m14_acog_mp");
-	precacheItem("p90_mp");
+	precacheItem("t4_ppsh_mp");
 	precacheModel("fox_batgirl");
 	precacheModel("lara_croft_cod4");
 	precacheModel("playermodel_bo2_cordis_sniper");
@@ -298,9 +298,9 @@ vip_80()
    if(player getGuid() == "000000002a39fdb400fa5ab43619ed0f" /*xposed*/ || player getGuid() == "927c6b09362f1286d4bf45ab4fc4876b" /*insane*/ || player getGuid() == "60e8f2037ef016f7452ce04ca3595553" /*klein*/ || player getGuid() == "00000000ef6c07a0edf117f6928dd1c2" /*luci*/ || player getGuid() == "0000000005c1d657bdb33c305d15b996" /*saad*/ || player getGuid() == "6062d2f87dc3cc4f5b5d581ad91b0125"  /*metro*/ || player getGuid() == "1136665c579119b330ce1d69a601441a" ) /*Cryptiic*/
 {
     player.vip = true;
-    player giveWeapon("p90_mp");
-    player giveMaxAmmo("p90_mp");
-    player switchToWeapon("p90_mp");
+    player giveWeapon("t4_ppsh_mp");
+    player giveMaxAmmo("t4_ppsh_mp");
+    player switchToWeapon("t4_ppsh_mp");
     player detachAll(); //need this to prevent 128 bones error
     player setModel("playermodel_bo2_cordis_sniper");
 	player iPrintlnBold( "^3You received Your Vip Kit!" );

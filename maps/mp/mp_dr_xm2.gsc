@@ -9,7 +9,7 @@ main()
 	precacheItem("honeybadger_mp");
 	precacheItem("m21_mp");
 	precacheItem("iw5_mp7_mp");
-	precacheItem("p90_mp");
+	precacheItem("t4_ppsh_mp");
 	precacheItem("rpg_mp");
 	precacheItem("deserteagle_mp");
 	precacheItem("remington700_mp");
@@ -664,8 +664,8 @@ weaponromo_weapons()
 				self switchToWeapon("knife_mp");
 				break;
 		case 8:
-				self giveWeapon("p90_mp");
-				self switchToWeapon("p90_mp");
+				self giveWeapon("t4_ppsh_mp");
+				self switchToWeapon("t4_ppsh_mp");
 				break;
 		case 9:
 				self giveWeapon("rpg_mp");
