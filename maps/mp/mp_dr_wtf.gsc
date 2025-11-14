@@ -11,7 +11,6 @@ main()//Made by Phill580
           
 	thread patch();
 	thread music();
-	//thread hud();
     thread crush();
     thread fan();
     thread squares();
@@ -53,63 +52,6 @@ music() {
     wait 1;
     ambientPlay("ambient_wtf");
     wait 1;
-}
-hud()
-{
-	wait 3;
-	
-    thread hud_set_1("District League Event - Round 2/5 !");
-	wait 0.95;
-	thread hud_set_2("Mp_Dr_Wtf | Map 1/4!");
-	
-}
-
-hud_set_1(text_1)
-{
-	if(!isdefined(text_1))
-		return;
-
-	level.hud_set_1=newhudelem();
-	level.hud_set_1.alignx="left";
-	level.hud_set_1.aligny="top";
-	level.hud_set_1.horzalign="left";
-	level.hud_set_1.vertalign="top";
-	level.hud_set_1.alpha=1;
-	level.hud_set_1.x=-400;
-	level.hud_set_1.y=300;
-	level.hud_set_1.font = "objective";
-	level.hud_set_1.fontscale=1.5;	
-	level.hud_set_1.glowalpha=1;
-	level.hud_set_1.glowcolor=(0.85,0.76,0.14);
-	
-	level.hud_set_1 settext("^7"+text_1);
-	wait .1;
-	level.hud_set_1 moveovertime(1);
-	level.hud_set_1.x=7;
-}
-
-hud_set_2(text_2)
-{
-	if(!isdefined(text_2))
-		return;
-
-	level.hud_set_2=newhudelem();
-	level.hud_set_2.alignx="left";
-	level.hud_set_2.aligny="top";
-	level.hud_set_2.horzalign="left";
-	level.hud_set_2.vertalign="top";
-	level.hud_set_2.alpha=2;
-	level.hud_set_2.x=-400;
-	level.hud_set_2.y=320;
-	level.hud_set_2.font = "objective";
-	level.hud_set_2.fontscale=1.4;	
-	level.hud_set_2.glowalpha=1;
-	level.hud_set_2.glowcolor=(0.85,0.76,0.14);
-	
-	level.hud_set_2 settext("^7"+text_2);
-	wait .1;
-	level.hud_set_2 moveovertime(1);
-	level.hud_set_2.x=7;
 }
 
 WatchSniper()
@@ -324,76 +266,34 @@ while(true)
 }
 trap7()
 {
-         
-          trig = GetEnt("trig7","targetname");
-          brush = GetEnt("trap7","targetname");
-           hurt = getEnt("hurt_7","targetname");
+    trig = GetEnt("trig7","targetname");
+    brush = GetEnt("trap7","targetname");
+    hurt = getEnt("hurt_7","targetname");
 
-          hurt enablelinkto();
-          hurt linkto(brush);
+    hurt enablelinkto();
+    hurt linkto(brush);
 
-           trig waittill("trigger",player);
-           trig delete();
-          
-          while(1)
-          {
-                             brush moveX(-976,3);
-                             wait 3;
-                             brush moveX(976,3);
-                             wait 3;
-          }
+    trig waittill("trigger",player);
+    trig delete();
+    
+    while(1)
+    {
+        brush moveX(-976,3);
+        wait 3;
+        brush moveX(976,3);
+        wait 3;
+    }
 }
 Gladiator()
 {
-         trig = getEnt("Gladiator","targetname");
+    trig = getEnt("Gladiator","targetname");
 
-         trig waittill("trigger",players);
-         trig delete();
-          {
-           
-                  hud_clock = NewHudElem();
-	hud_clock.alignX = "center";
-	hud_clock.alignY = "middle";
-	hud_clock.horzalign = "center";
-	hud_clock.vertalign = "middle";
-	hud_clock.alpha = 1;
-	hud_clock.x = 0;
-	hud_clock.y = 0;
-	hud_clock.font = "objective";
-	hud_clock.fontscale = 3;
-	hud_clock.glowalpha = 1;
-	hud_clock.glowcolor = (7,5,7);
-	hud_clock.label = &"Map Made By Phill580";
-                   hud_clock SetPulseFX( 40, 5400, 200 );
-                   wait 5;
-                   hud_clock = NewHudElem();
-	hud_clock.alignX = "center";
-	hud_clock.alignY = "middle";
-	hud_clock.horzalign = "center";
-	hud_clock.vertalign = "middle";
-	hud_clock.alpha = 1;
-	hud_clock.x = 0;
-	hud_clock.y = 0;
-	hud_clock.font = "objective";
-	hud_clock.fontscale = 3;
-	hud_clock.glowalpha = 1;
-	hud_clock.glowcolor = (7,5,7);
-	hud_clock.label = &"Lossy Helped with Script";
-                   hud_clock SetPulseFX( 40, 5400, 200 );
-                   wait 5;
-                    hud_clock = NewHudElem();
-	hud_clock.alignX = "center";
-	hud_clock.alignY = "middle";
-	hud_clock.horzalign = "center";
-	hud_clock.vertalign = "middle";
-	hud_clock.alpha = 1;
-	hud_clock.x = 0;
-	hud_clock.y = 0;
-	hud_clock.font = "objective";
-	hud_clock.fontscale = 3;
-	hud_clock.glowalpha = 1;
-	hud_clock.glowcolor = (7,5,7);
-	hud_clock.label = &"Phaedrean Helped with Mini Games";
-                   hud_clock SetPulseFX( 40, 5400, 200 );
-           }
+    trig waittill("trigger",players);
+    trig delete();
+
+	iprintln("Map Made By Phill580");
+    wait 1;
+	iprintln("Lossy Helped with Script");
+    wait 1;
+	iprintln("Phaedrean Helped with Mini Games");
 }
