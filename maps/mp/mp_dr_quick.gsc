@@ -67,6 +67,10 @@ main() {
 	preCacheItem("iw5_mp7_mp"); //weapon room
 	preCacheMenu("frzl_music");
 	preCacheMenu("frzl_music_main"); //Custom music menu
+    
+    fix_ent = getent("misc_3_trigger", "targetname");
+    fix_ent.script_noteworthy = "Weapon;2;iw5_mp7_mp";
+    fix_ent setHintString( &"Press ^3&&1 ^7to enter ^5MP7" );
 
 	for (id = 0; id < self.trapCount; id++) {
 		thread trapData(id);

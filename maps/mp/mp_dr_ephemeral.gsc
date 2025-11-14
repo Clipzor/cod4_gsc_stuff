@@ -70,9 +70,31 @@ main()
 	thread i_secret_check_9();
 	thread i_secret_fail();
 	thread i_secretend();
-
+	
+	addTriggerToList( "trig1" );
+	addTriggerToList( "trig2" );
+	addTriggerToList( "trig3" );
+	addTriggerToList( "trig4" );
+	addTriggerToList( "trig5" );
+	addTriggerToList( "trig6" );
+	addTriggerToList( "trig7" );
+	addTriggerToList( "trig8" );
+	addTriggerToList( "trig9" );
+	addTriggerToList( "trig10" );
+	addTriggerToList( "trig11" );
+	addTriggerToList( "trig12" );
+	addTriggerToList( "trig13" );
+	addTriggerToList( "trig14" );
+	addTriggerToList( "trig15" );
 }
 
+addTriggerToList(name)
+{
+    if(!isDefined( level.trapTriggers ))
+        level.trapTriggers = [];
+    
+    level.trapTriggers[level.trapTriggers.size] = getEnt( name, "targetname" );
+}
 
 music()
 {

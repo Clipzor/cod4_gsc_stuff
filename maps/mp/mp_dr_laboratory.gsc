@@ -3283,12 +3283,12 @@ jumperweap()
     wep = weaps[randomint(weaps.size)];
     self takeallweapons();
 	self giveWeapon(wep, 100, 500 );
-	self switchToWeapon(wep); break;
+	self switchToWeapon(wep);
 
     if(isdefined(level.activ)) {
         level.activ takeallweapons();
         level.activ giveWeapon(wep, 100, 500 );
-        level.activ switchToWeapon(wep); break;
+        level.activ switchToWeapon(wep);
     }
 
 }

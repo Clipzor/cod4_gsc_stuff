@@ -94,7 +94,17 @@ main()
     thread spinning_room();
     thread parkour_room();
     thread simonsays_room();
-
+	
+    addTriggerToList("trig_slide_off"); 
+    addTriggerToList("trig_cylinder_1_1");
+    addTriggerToList("trig_cylinder_1_2"); 
+    addTriggerToList("trig_bounce_off_1"); 
+    addTriggerToList("trig_spikes"); 
+    addTriggerToList("trig_hammer");  
+    addTriggerToList("trig_plat_fall"); 
+    addTriggerToList("trig_cylinder_2"); 
+    addTriggerToList("trig_mantles"); 
+    addTriggerToList("trig_bounce_off_2"); 
 
 }
 
@@ -1877,14 +1887,6 @@ parkour_room()
         activator setOrigin(actip.origin);
         player takeAllWeapons();
         activator takeAllWeapons();
-        player giveWeapon("deserteagle_mp");
-        activator giveWeapon("deserteagle_mp");
-        player switchToWeapon ("deserteagle_mp");
-        activator switchToWeapon("deserteagle_mp");
-        player SetWeaponAmmoClip("deserteagle_mp", 0);
-        activator SetWeaponAmmoClip("deserteagle_mp", 0);
-        player SetWeaponAmmoStock("deserteagle_mp", 0);
-        activator SetWeaponAmmoStock("deserteagle_mp", 0);
         
         player.maxhealth = 100;
 		thread parkour_end(player, activator);

@@ -42,7 +42,7 @@ main()
 	level._effect["fireway"] = loadfx("custom/fire");
 
 	level.firstenter = false;
-	level.disablenaderoom = false;
+	level.disablenaderoom = true;
 
 	thread door();
 	thread credit();
