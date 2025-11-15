@@ -3,6 +3,9 @@ main() {
 	
 	maps\mp\_load::main(); 
 
+	trigger = getent("finished_map","targetname");
+    trigger.targetname = "endmap_trig";
+
 	entTransporter = getentarray( "bounce_enter", "targetname" );
 	if(isdefined(entTransporter))
 		for( i = 0; i < entTransporter.size; i++ )
@@ -84,24 +87,24 @@ main() {
 	wall notsolid();
 
 	addTriggerToList("trigger_spikes");
-        addTriggerToList("trigger_trap06");
-        addTriggerToList("trigger_trap5");
-        addTriggerToList("trigger_trap02");
-        addTriggerToList("trigger_bounce01");
-        addTriggerToList("trigger_trap03");
-        addTriggerToList("trigger_spikes02");
-        addTriggerToList("trigger_trap07");
-        addTriggerToList("trigger_trap08");
-        addTriggerToList("trigger_trap09");
-        addTriggerToList("trigger_trap10");
-        addTriggerToList("trigger_trap11");
-        addTriggerToList("trigger_trap12");
-        addTriggerToList("trigger_trap13");
-        addTriggerToList("trigger_trap14");
-        addTriggerToList("trigger_trap15");
-        addTriggerToList("trigger_trap16");
-        addTriggerToList("trigger_trap17");
-        addTriggerToList("trigger_trap18");
+    addTriggerToList("trigger_trap06");
+    addTriggerToList("trigger_trap5");
+    addTriggerToList("trigger_trap02");
+    addTriggerToList("trigger_bounce01");
+    addTriggerToList("trigger_trap03");
+    addTriggerToList("trigger_spikes02");
+    addTriggerToList("trigger_trap07");
+    addTriggerToList("trigger_trap08");
+    addTriggerToList("trigger_trap09");
+    addTriggerToList("trigger_trap10");
+    addTriggerToList("trigger_trap11");
+    addTriggerToList("trigger_trap12");
+    addTriggerToList("trigger_trap13");
+    addTriggerToList("trigger_trap14");
+    addTriggerToList("trigger_trap15");
+    addTriggerToList("trigger_trap16");
+    addTriggerToList("trigger_trap17");
+    addTriggerToList("trigger_trap18");
 
 	thread spikes();
 	thread trap06();
@@ -142,7 +145,6 @@ main() {
 	thread knife_room_BATTLE();
 	thread sniper_room_BATTLE();
 	thread jump_room_BATTLE();
-	thread finished_map();
 	thread teddy_shoot();
 	thread acti_xp1();
 	thread deagle_machine();
@@ -415,8 +417,6 @@ main() {
 	ambientPlay("habits");
 	wait 9;
 	iprintln("<<< ^3Now playing ^2[[^5 Habits - Tove Lo (Cover by Our Last Night) ^2]] ^1>>>");
-	iprintln("<<< ^3Now playing ^2[[^5 Habits - Tove Lo (Cover by Our Last Night) ^2]] ^1>>>");
-	iprintln("<<< ^3Now playing ^2[[^5 Habits - Tove Lo (Cover by Our Last Night) ^2]] ^1>>>");
 	object movez(172, 7);
 	object waittill("movedone");
 	}
@@ -425,8 +425,6 @@ main() {
 	wait 1;
 	ambientPlay("radio");
 	wait 14;
-	iprintln("<<< ^3Now playing ^2[[^5 Radioactive - Imagine Dragons (Cover by Our Last Night) ^2]] ^1>>>");
-	iprintln("<<< ^3Now playing ^2[[^5 Radioactive - Imagine Dragons (Cover by Our Last Night) ^2]] ^1>>>");
 	iprintln("<<< ^3Now playing ^2[[^5 Radioactive - Imagine Dragons (Cover by Our Last Night) ^2]] ^1>>>");
 	object movez(172, 7);
 	object waittill("movedone");
@@ -807,12 +805,6 @@ main() {
 	iprintln("Thanks to ^2VC'Icomar ^7for helping me on the scripts and helping me on the musics!");
 	wait 6;
 	iprintln("Thanks to ^2nobody. ^7for helping me update the map :)");
-	wait 6;
-	iprintln("Thanks ^6Puncake ^7and ^6Pares928 ^7for being my support!");
-	wait 60;
-	iprintln("^3Beeeeeeeeeeeeee     ^7-Kecske 2014");
-	iprintln("^3Beeeeeeeeeeeeee     ^7-Kecske 2014");
-	iprintln("^3Beeeeeeeeeeeeee     ^7-Kecske 2014");
 }
 
 	knife_room_BATTLE()
@@ -833,8 +825,6 @@ main() {
 
 		level.canPlaySound = false;
 
-		iprintln("<<< ^3Now playing ^2[[^5Still - Geto Boys^2]] ^1>>>");
-		iprintln("<<< ^3Now playing ^2[[^5Still - Geto Boys^2]] ^1>>>");
 		iprintln("<<< ^3Now playing ^2[[^5Still - Geto Boys^2]] ^1>>>");
 
 
@@ -894,8 +884,6 @@ main() {
 
 		level.canPlaySound = false;
 
-		iprintln("<<< ^3Now playing ^2[[^5 We Are - Hollywood Undead^2]] ^1>>>");
-		iprintln("<<< ^3Now playing ^2[[^5 We Are - Hollywood Undead^2]] ^1>>>");
 		iprintln("<<< ^3Now playing ^2[[^5 We Are - Hollywood Undead^2]] ^1>>>");
 
 		level.jump_trig delete();
@@ -958,8 +946,6 @@ main() {
 		level.canPlaySound = false;
 
 		iprintln("<<< ^3Now playing ^2[[^5Bad Intentions - Zomboy^2]] ^1>>>");
-		iprintln("<<< ^3Now playing ^2[[^5Bad Intentions - Zomboy^2]] ^1>>>");
-		iprintln("<<< ^3Now playing ^2[[^5Bad Intentions - Zomboy^2]] ^1>>>");
 
 		level.knife_trig delete();
 		level.sniper_trig delete();
@@ -1005,14 +991,6 @@ main() {
  
         self waittill("death");
         iPrintlnBold("^2"+self.name+" ^5died^1!");
-}
-
-	finished_map()
-{
-	trigger = getent("finished_map","targetname");
-		trigger waittill ("trigger" , player );
-		player braxi\_rank::giveRankXP("", 69);
-		iprintln( " ^6" + player.name + " ^5Finished map!" );
 }
 
 	teddy_shoot()
@@ -1069,16 +1047,15 @@ main() {
 
 	secret_21_out()
 {
+	entTarget = getEnt( self.target, "targetname" );
 	trigger = getent("secret_21_out","targetname");
 	object = getent("secret_21_key","targetname");
-	entTarget = getEnt( self.target, "targetname" );
 	self waittill( "trigger", player );
 	player braxi\_rank::giveRankXP("", 250);
 	player GiveWeapon( "knife_mp" );
 	player switchToWeapon ( "knife_mp" );
 	player setOrigin( entTarget.origin );
 	player setplayerangles( entTarget.angles );
-
 	object movex(69, 3);
 	player GiveWeapon( "knife_mp" );
 }
