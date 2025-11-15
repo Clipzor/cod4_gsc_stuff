@@ -19,8 +19,7 @@
 #include maps\mp\gametypes\_hud_util;
 #include common_scripts\utility;
 
-main()
-{
+main() {
  maps\mp\_load::main();
  maps\mp\_teleport::main();
 	
@@ -195,97 +194,98 @@ trigger = GetEnt( "end", "targetname" );
 
 games() //Select Rooms
 {
-level.games_trig = getEnt( "minigames", "targetname");
-games = getEnt( "minigames_ori", "targetname" );
+    level.games_trig = getEnt( "minigames", "targetname");
+    games = getEnt( "minigames_ori", "targetname" );
 
-while(1)
-{
-level.games_trig waittill( "trigger", player );
-if( !isDefined( level.games_trig ) )
-return;
+    while(1)
+    {
+        level.games_trig waittill( "trigger", player );
+        if( !isDefined( level.games_trig ) )
+            return;
 
-player SetPlayerAngles( games.angles );
-player setOrigin( games.origin );
-iPrintlnBold( " ^5" + player.name + " ^7has ^5entered ^7the ^5game ^7selection !^5!^7!" );
-player TakeAllWeapons();
-player antiglitch();
+        player SetPlayerAngles( games.angles );
+        player setOrigin( games.origin );
+        iPrintlnBold( " ^5" + player.name + " ^7has ^5entered ^7the ^5game ^7selection !^5!^7!" );
+        player TakeAllWeapons();
+        player antiglitch();
 
 
-while( isDefined( player ) && isAlive( player ) )
-if( isDefined( level.activ ) && isAlive( level.activ ) )
-wait 1;
+        while( isDefined( player ) && isAlive( player ) )
+            if( isDefined( level.activ ) && isAlive( level.activ ) )
+                wait 1;
+    }
 }
-}
+
 antiglitch() //ng1
 { 
-self common_scripts\utility::waittill_any("death","disconnect");
-iPrintlnBold("^5"+self.name+" ^7is ^5dead"); 
-iPrintlnBold("^5Selection ^7Room ^5is ^5now ^7open^5!!"); 
+    self common_scripts\utility::waittill_any("death","disconnect");
+    iPrintlnBold("^5"+self.name+" ^7is ^5dead"); 
+    iPrintlnBold("^5Selection ^7Room ^5is ^5now ^7open^5!!"); 
 }
 
 waitdead() //ng2
 {
-deagle = getent("deagle_trig","targetname");
-bounce = getent("bounce_trig","targetname");
-sniper = getent("sniper_trig","targetname");
-knife = getent("knife_trig","targetname");
-run = getent("run_trig","targetname");
-shotgun = getent("shotgun_trig","targetname");
-deagle triggerOff();
-bounce triggerOff();
-sniper triggerOff();
-knife triggerOff();
-run triggerOff();
-shotgun triggerOff();
-self common_scripts\utility::waittill_any("death","disconnect");
-activator = GetActivator();
-activator freezeControls(false);
-deagle triggerOn();
-shotgun triggerOn();
-bounce triggerOn();
-sniper triggerOn();
-knife triggerOn();
-run triggerOn();
+    deagle = getent("deagle_trig","targetname");
+    bounce = getent("bounce_trig","targetname");
+    sniper = getent("sniper_trig","targetname");
+    knife = getent("knife_trig","targetname");
+    run = getent("run_trig","targetname");
+    shotgun = getent("shotgun_trig","targetname");
+    deagle triggerOff();
+    bounce triggerOff();
+    sniper triggerOff();
+    knife triggerOff();
+    run triggerOff();
+    shotgun triggerOff();
+    self common_scripts\utility::waittill_any("death","disconnect");
+    activator = GetActivator();
+    activator freezeControls(false);
+    deagle triggerOn();
+    shotgun triggerOn();
+    bounce triggerOn();
+    sniper triggerOn();
+    knife triggerOn();
+    run triggerOn();
 }
 
 sniper() //Sniper Room
 {
-sniper = getent("sniper_trig","targetname");
-jumper = getent("origin_jumper_snip","targetname");
-acti = getent("origin_acti_snip","targetname");
-noobsnip = getEnt("trigger_noob_snip", "targetname");
-for(;;)
-{
-	sniper waittill("trigger", player);
-	player thread waitdead();
-	activator = GetActivator();
-	player freezeControls(true);
-	player setorigin(jumper.origin);
-	player setPlayerAngles(jumper.angles);
-	activator freezeControls(true);
-	activator setorigin(acti.origin);
-	activator setPlayerAngles(acti.angles);
-	player takeallweapons();
-	activator takeallweapons();
-	player giveweapon("m40a3_mp");
-	activator giveweapon("m40a3_mp");
-	player giveweapon("intervention_mp");
-	activator giveweapon("intervention_mp");
-	thread createhud(player.name + " ^5selected ^7snipah ^4war!");
-	noobsnip triggerOn();
-	wait 5;
-	player iprintlnbold("^5FIGHT ^7!!!");
-	activator iprintlnbold("^5FIGHT ^7!!!");
-	player freezeControls(false);
-	activator freezeControls(false);
-	player switchtoweapon("m40a3_mp");
-	activator switchtoweapon("m40a3_mp");
-	player switchtoweapon("intervention_mp");
-	activator switchtoweapon("intervention_mp");
-	player givemaxammo("m40a3_mp");
-	activator givemaxammo("m40a3_mp");
-	player givemaxammo("intervention_mp");
-	activator givemaxammo("intervention_mp");
+    sniper = getent("sniper_trig","targetname");
+    jumper = getent("origin_jumper_snip","targetname");
+    acti = getent("origin_acti_snip","targetname");
+
+    for(;;)
+    {
+        sniper waittill("trigger", player);
+        player thread waitdead();
+
+        activator = GetActivator();
+        player freezeControls(true);
+        player setorigin(jumper.origin);
+        player setPlayerAngles(jumper.angles);
+        activator freezeControls(true);
+        activator setorigin(acti.origin);
+        activator setPlayerAngles(acti.angles);
+        player takeallweapons();
+        activator takeallweapons();
+        player giveweapon("m40a3_mp");
+        activator giveweapon("m40a3_mp");
+        player giveweapon("intervention_mp");
+        activator giveweapon("intervention_mp");
+        thread createhud(player.name + " ^5selected ^7snipah ^4war!");
+        wait 5;
+        player iprintlnbold("^5FIGHT ^7!!!");
+        activator iprintlnbold("^5FIGHT ^7!!!");
+        player freezeControls(false);
+        activator freezeControls(false);
+        player switchtoweapon("m40a3_mp");
+        activator switchtoweapon("m40a3_mp");
+        player switchtoweapon("intervention_mp");
+        activator switchtoweapon("intervention_mp");
+        player givemaxammo("m40a3_mp");
+        activator givemaxammo("m40a3_mp");
+        player givemaxammo("intervention_mp");
+        activator givemaxammo("intervention_mp");
 	}
 }
 
@@ -304,66 +304,68 @@ sniperactifail()
 
 deagle() //deagle room :)
 {
-deagle = getent("deagle_trig","targetname");
-jumper = getent("origin_jumper_deagle","targetname");
-acti = getent("origin_acti_deagle","targetname");
-for(;;)
-{
-	deagle waittill("trigger", player);
-	player thread waitdead();
-	thread createhud(player.name + " ^5Selected ^7Deagle ^5Room ^7!^5!^7!");
-	activator = GetActivator();
-	player freezeControls(true);
-	player setorigin(jumper.origin);
-	player setPlayerAngles(jumper.angles);
-	activator freezeControls(true);
-	activator setorigin(acti.origin);
-	activator setPlayerAngles(acti.angles);
-	player takeallweapons();
-	activator takeallweapons();
-	wait 5;
-	IPrintLnbold("^2Fight!!!.");
-	i = randomintrange(0, 8);
-	player giveweapon("deserteaglegold_mp");
-	player givemaxammo("deserteaglegold_mp");
-	activator giveweapon("deserteaglegold_mp");
-	activator givemaxammo("deserteaglegold_mp");
-	wait .1;
-	player freezeControls(false);
-	activator freezeControls(false);
-	player switchtoweapon("deserteaglegold_mp");
-	activator switchtoweapon("deserteaglegold_mp");
+    deagle = getent("deagle_trig","targetname");
+    jumper = getent("origin_jumper_deagle","targetname");
+    acti = getent("origin_acti_deagle","targetname");
+    for(;;)
+    {
+        deagle waittill("trigger", player);
+
+        player thread waitdead();
+        thread createhud(player.name + " ^5Selected ^7Deagle ^5Room ^7!^5!^7!");
+        activator = GetActivator();
+        player freezeControls(true);
+        player setorigin(jumper.origin);
+        player setPlayerAngles(jumper.angles);
+        activator freezeControls(true);
+        activator setorigin(acti.origin);
+        activator setPlayerAngles(acti.angles);
+        player takeallweapons();
+        activator takeallweapons();
+        wait 5;
+        IPrintLnbold("^2Fight!!!.");
+        player giveweapon("deserteaglegold_mp");
+        player givemaxammo("deserteaglegold_mp");
+        activator giveweapon("deserteaglegold_mp");
+        activator givemaxammo("deserteaglegold_mp");
+        wait .1;
+        player freezeControls(false);
+        activator freezeControls(false);
+        player switchtoweapon("deserteaglegold_mp");
+        activator switchtoweapon("deserteaglegold_mp");
 	}
 }
 
 bounce() //bounce room :p
 {
-bounce = getent("bounce_trig","targetname");
-jumper = getent("origin_jumper_bounce","targetname");
-acti = getent("origin_acti_bounce","targetname");
-for(;;)
-{
-	bounce waittill("trigger", player);
-	player thread waitdead();
-	activator = GetActivator();
-	player takeallweapons();
-	activator takeallweapons();
-	player freezeControls(true);
-	player setorigin(jumper.origin);
-	player setPlayerAngles(jumper.angles);
-	activator freezeControls(true);
-	activator setorigin(acti.origin);
-	activator setPlayerAngles(acti.angles);
-	activator giveweapon("knife_mp");
-	player giveweapon("knife_mp");
-	thread createhud(player.name + " ^5Selected ^7bounce ^5Room ^7:]");
-	wait 5;
-	player iprintlnbold("^5GO^5!!!");
-	activator iprintlnbold("^5GO^5!!!");
-	player freezeControls(false);
-	activator freezeControls(false);
-	player switchtoweapon("knife_mp");
-	activator switchtoweapon("knife_mp");
+    bounce = getent("bounce_trig","targetname");
+    jumper = getent("origin_jumper_bounce","targetname");
+    acti = getent("origin_acti_bounce","targetname");
+    for(;;)
+    {
+        bounce waittill("trigger", player);
+
+        player thread waitdead();
+        activator = GetActivator();
+        player takeallweapons();
+        activator takeallweapons();
+        player freezeControls(true);
+        player setorigin(jumper.origin);
+        player setPlayerAngles(jumper.angles);
+        activator freezeControls(true);
+        activator setorigin(acti.origin);
+        activator setPlayerAngles(acti.angles);
+        activator giveweapon("knife_mp");
+        player giveweapon("knife_mp");
+        thread createhud(player.name + " ^5Selected ^7bounce ^5Room ^7:]");
+        
+        wait 5;
+        player iprintlnbold("^5GO^5!!!");
+        activator iprintlnbold("^5GO^5!!!");
+        player freezeControls(false);
+        activator freezeControls(false);
+        player switchtoweapon("knife_mp");
+        activator switchtoweapon("knife_mp");
 	}
 }
 
@@ -413,32 +415,33 @@ bounceactifail() // when acti fail in jump room
 
 run() //Speedrun room
 {
-run = getent("run_trig","targetname");
-jumper = getent("origin_jumper_run","targetname");
-acti = getent("origin_acti_run","targetname");
-for(;;)
-{
-	run waittill("trigger", player);
-	player thread waitdead();
-	activator = GetActivator();
-	player takeallweapons();
-	activator takeallweapons();
-	player freezeControls(true);
-	player setorigin(jumper.origin);
-	player setPlayerAngles(jumper.angles);
-	activator freezeControls(true);
-	activator setorigin(acti.origin);
-	activator setPlayerAngles(acti.angles);
-	activator giveweapon("deserteaglegold_mp");
-	player giveweapon("deserteaglegold_mp");
-	thread createhud(player.name + " ^5Selected ^7spe^5ed ^7Ru^5n ^7Way !^5!^7!");
-	wait 5;
-	player iprintlnbold("^5GO^5!!!");
-	activator iprintlnbold("^5GO^5!!!");
-	player freezeControls(false);
-	activator freezeControls(false);
-	player switchtoweapon("deserteaglegold_mp");
-	activator switchtoweapon("deserteaglegold_mp");
+    run = getent("run_trig","targetname");
+    jumper = getent("origin_jumper_run","targetname");
+    acti = getent("origin_acti_run","targetname");
+    for(;;)
+    {
+        run waittill("trigger", player);
+        player thread waitdead();
+
+        activator = GetActivator();
+        player takeallweapons();
+        activator takeallweapons();
+        player freezeControls(true);
+        player setorigin(jumper.origin);
+        player setPlayerAngles(jumper.angles);
+        activator freezeControls(true);
+        activator setorigin(acti.origin);
+        activator setPlayerAngles(acti.angles);
+        activator giveweapon("deserteaglegold_mp");
+        player giveweapon("deserteaglegold_mp");
+        thread createhud(player.name + " ^5Selected ^7spe^5ed ^7Ru^5n ^7Way !^5!^7!");
+        wait 5;
+        player iprintlnbold("^5GO^5!!!");
+        activator iprintlnbold("^5GO^5!!!");
+        player freezeControls(false);
+        activator freezeControls(false);
+        player switchtoweapon("deserteaglegold_mp");
+        activator switchtoweapon("deserteaglegold_mp");
 	}
 }
 
@@ -508,61 +511,61 @@ for (;;)
 
 knife() //Knife room lel
 {
-knife = getent("knife_trig","targetname");
-jumper = getent("origin_jumper_knife","targetname");
-acti = getent("origin_acti_knife","targetname");
-for(;;)
-{
-	knife waittill("trigger", player);
-	player thread waitdead();
-	activator = GetActivator();
-	player takeallweapons();
-	activator takeallweapons();
-	player freezeControls(true);
-	player setorigin(jumper.origin);
-	player setPlayerAngles(jumper.angles);
-	activator freezeControls(true);
-	activator setorigin(acti.origin);
-	activator setPlayerAngles(acti.angles);
-	activator giveweapon("tomahawk_mp");
-	player giveweapon("tomahawk_mp");
-	thread createhud(player.name + " ^5Selected ^7Knife ^5room^7!!");
-	wait 5;
-	player freezeControls(false);
-	activator freezeControls(false);
-	player switchtoweapon("tomahawk_mp");
-	activator switchtoweapon("tomahawk_mp");
+    knife = getent("knife_trig","targetname");
+    jumper = getent("origin_jumper_knife","targetname");
+    acti = getent("origin_acti_knife","targetname");
+    for(;;)
+    {
+        knife waittill("trigger", player);
+        player thread waitdead();
+        activator = GetActivator();
+        player takeallweapons();
+        activator takeallweapons();
+        player freezeControls(true);
+        player setorigin(jumper.origin);
+        player setPlayerAngles(jumper.angles);
+        activator freezeControls(true);
+        activator setorigin(acti.origin);
+        activator setPlayerAngles(acti.angles);
+        activator giveweapon("tomahawk_mp");
+        player giveweapon("tomahawk_mp");
+        thread createhud(player.name + " ^5Selected ^7Knife ^5room^7!!");
+        wait 5;
+        player freezeControls(false);
+        activator freezeControls(false);
+        player switchtoweapon("tomahawk_mp");
+        activator switchtoweapon("tomahawk_mp");
 	}
 }
 
 shotgun() //Shot.G room
 {
-shotgun = getent("shotgun_trig","targetname");
-jumper = getent("origin_jumper_shotgun","targetname");
-acti = getent("origin_acti_shotgun","targetname");
-for(;;)
-{
-	shotgun waittill("trigger", player);
-	player thread waitdead();
-	activator = GetActivator();
-	player takeallweapons();
-	activator takeallweapons();
-	player freezeControls(true);
-	player setorigin(jumper.origin);
-	player setPlayerAngles(jumper.angles);
-	activator freezeControls(true);
-	activator setorigin(acti.origin);
-	activator setPlayerAngles(acti.angles);
-	activator giveweapon("t5_spas12_mp");
-	player giveweapon("t5_spas12_mp");
-	player givemaxammo("t5_spas12_mp");
-	activator givemaxammo("t5_spas12_mp");
-	thread createhud(player.name + " ^5Selected ^7Shotgun ^5room :^7D");
-	wait 5;
-	player freezeControls(false);
-	activator freezeControls(false);
-	player switchtoweapon("t5_spas12_mp");
-	activator switchtoweapon("t5_spas12_mp");
+    shotgun = getent("shotgun_trig","targetname");
+    jumper = getent("origin_jumper_shotgun","targetname");
+    acti = getent("origin_acti_shotgun","targetname");
+    for(;;)
+    {
+        shotgun waittill("trigger", player);
+        player thread waitdead();
+        activator = GetActivator();
+        player takeallweapons();
+        activator takeallweapons();
+        player freezeControls(true);
+        player setorigin(jumper.origin);
+        player setPlayerAngles(jumper.angles);
+        activator freezeControls(true);
+        activator setorigin(acti.origin);
+        activator setPlayerAngles(acti.angles);
+        activator giveweapon("t5_spas12_mp");
+        player giveweapon("t5_spas12_mp");
+        player givemaxammo("t5_spas12_mp");
+        activator givemaxammo("t5_spas12_mp");
+        thread createhud(player.name + " ^5Selected ^7Shotgun ^5room :^7D");
+        wait 5;
+        player freezeControls(false);
+        activator freezeControls(false);
+        player switchtoweapon("t5_spas12_mp");
+        activator switchtoweapon("t5_spas12_mp");
 	}
 }
 
@@ -835,7 +838,7 @@ x = randomint(4);
 startdoor()
 {
 	door=getent("startdoor","targetname");
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		door delete();
 	} else {
 		wait 20;
@@ -877,7 +880,6 @@ trap1()
 	object4 = getent("trap1d","targetname");
  
     trig waittill ("trigger",user);
-    trig delete();
 	trig SetHintString("^2Activated");
 	user braxi\_rank::giveRankXP("", 60);
 	
@@ -910,7 +912,6 @@ trap2()
 	part3 = getEntArray("trap2_c","targetname");
  
     trig waittill ("trigger",user);
-    trig delete();
 	trig SetHintString("^2Activated");
 	user braxi\_rank::giveRankXP("", 60);
 	
@@ -940,7 +941,6 @@ trap3()
 	object2 = getent("trap3a","targetname");
  
     trig waittill ("trigger",user);
-    trig delete();
 	trig SetHintString("^2Activated");
 	user braxi\_rank::giveRankXP("", 60);
 	
@@ -958,7 +958,6 @@ trap4()
 	object1 = getent("trap4","targetname");
  
     trig waittill ("trigger",user);
-    trig delete();
 	trig SetHintString("^2Activated");
 	user braxi\_rank::giveRankXP("", 60);
 	
@@ -985,7 +984,6 @@ trap5()
 	object2 = getent("trap5a","targetname");
  
     trig waittill ("trigger",user);
-    trig delete();
 	trig SetHintString("^2Activated");
 	user braxi\_rank::giveRankXP("", 60);
 	
@@ -1012,7 +1010,6 @@ trap6()
     object1 = getent("trap6","targetname");
  
     trig waittill ("trigger",user);
-    trig delete();
 	trig SetHintString("^2Activated");
 	user braxi\_rank::giveRankXP("", 60);
 	
@@ -1034,7 +1031,6 @@ trap7()
 	object2 = getent("trap7a","targetname");
  
     trig waittill ("trigger",user);
-    trig delete();
 	trig SetHintString("^2Activated");
 	user braxi\_rank::giveRankXP("", 60);
 	
@@ -1062,7 +1058,6 @@ trap8()
 	object2 = getEnt( "trap8b", "targetname" );
 
     trig waittill ("trigger",user);
-    trig delete();
 	trig SetHintString("^2Activated");
 	user braxi\_rank::giveRankXP("", 60);
  
@@ -1082,7 +1077,6 @@ trap9()
 	object3 = getEnt( "trap9c", "targetname" );
 
     trig waittill ("trigger",user);
-    trig delete();
 	trig SetHintString("^2Activated");
 	user braxi\_rank::giveRankXP("", 60);
  
@@ -1110,7 +1104,6 @@ trap10()
 	object2 = getent("trap10a","targetname");
  
     trig waittill ("trigger",user);
-    trig delete();
 	trig SetHintString("^2Activated");
 	user braxi\_rank::giveRankXP("", 60);
 	
@@ -1138,7 +1131,6 @@ trap11()
 	object2 = getEnt( "trap11b", "targetname" );
 
     trig waittill ("trigger",user);
-    trig delete();
 	trig SetHintString("^2Activated");
 	user braxi\_rank::giveRankXP("", 60);
  

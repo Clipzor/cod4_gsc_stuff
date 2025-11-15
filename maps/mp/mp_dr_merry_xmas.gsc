@@ -18,8 +18,7 @@
  //       |___/                                                               //
  ///////////////////////////////////////////////////////////////////////////////
 
-main()
-{
+main() {
 	maps\mp\mp_dr_merry_xmas_fx::main();
 	maps\mp\_load::main(); 
 
@@ -104,7 +103,7 @@ main()
 	{
 	ambientPlay("winterwonderland");
 	wait 10;
-	iprintln("^5Song: ^7Winter Wonderland - Michael Bublé");
+	iprintln("^5Song: ^7Winter Wonderland - Michael Bublï¿½");
 	object rotateyaw (100,4);
 	object2 rotateyaw (-100,4);
 	}
@@ -112,7 +111,7 @@ main()
 	{ 
 	ambientPlay("feliznavidad");
 	wait 10;
-	iprintln("^5Song: ^7Feliz Navidad - José Feliciano");
+	iprintln("^5Song: ^7Feliz Navidad - Josï¿½ Feliciano");
 	object rotateyaw (100,4);
 	object2 rotateyaw (-100,4);
 	}
@@ -120,7 +119,7 @@ main()
 	{
 	ambientPlay("santatown");
 	wait 10;
-	iprintln("^5Song: ^7Santa Claus is coming to town - Michael Bublé");
+	iprintln("^5Song: ^7Santa Claus is coming to town - Michael Bublï¿½");
 	object rotateyaw (100,4);
 	object2 rotateyaw (-100,4);
 	}

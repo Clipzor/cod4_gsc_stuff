@@ -11,8 +11,7 @@
 */ 
 #include braxi\_common;
 #include common_scripts\utility;
-main()
- {
+main() {
 	maps\mp\_load::main();
 	//////////////////// Precache
 	precacheItem("ak74u_mp");
@@ -671,7 +670,7 @@ door1() {
 	left = getent ("door_left", "targetname");
 	right = getent ("door_right", "targetname");
     
-    if(isdefined(level.auto_open_door) && level.auto_open_door) {
+    if(getdvarint("dr_auto_open_door")) {
         left delete();
         right delete();
     } else {

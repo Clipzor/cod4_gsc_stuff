@@ -10,8 +10,7 @@ Welcome to mp_dr_crosscode script. Feel free to take any piece of code, no need 
 
 */
 
-main()
-{
+main() {
 	maps\mp\_load::main();
 
 	game["allies"] = "marines";

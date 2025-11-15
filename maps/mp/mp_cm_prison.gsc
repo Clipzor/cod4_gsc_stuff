@@ -6,8 +6,7 @@
 #include braxi\_common;
 #include braxi\_rank;
 
-main()
-{
+main() {
  maps\mp\_load::main();
  
  game["allies"] = "marines";

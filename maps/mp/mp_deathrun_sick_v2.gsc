@@ -32,8 +32,7 @@ case "mp_deathrun_sick_v2":
                         break;
 ------------------------------------
 */
-main()
-{
+main() {
     maps\mp\_load::main();
          
         game["allies"] = "sas";

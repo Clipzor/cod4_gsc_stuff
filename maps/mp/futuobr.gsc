@@ -1,5 +1,4 @@
-main()
-{
+main() {
        // thread key1(); 
        thread easy();
        thread hard();

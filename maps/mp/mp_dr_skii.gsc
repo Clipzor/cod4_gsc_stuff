@@ -2,8 +2,7 @@
 //script by:Lifezor
 //mp_dr_skii
 
-main()
-{
+main() {
 	//maps\mp\_load::main();
 	
 	level.fire1 = loadFX("fire/firelp_med_pm");

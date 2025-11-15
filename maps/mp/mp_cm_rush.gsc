@@ -3,8 +3,7 @@
 #include maps\mp\_utility;
 #include maps\mp\gametypes\_hud_util;
 #include common_scripts\utility;
-main()
-{
+main() {
     maps\mp\_load::main();
 
     level.fire_tv = LoadFx("fire/tv_fire2");
@@ -393,7 +392,7 @@ randommusic()
 startdoor()
 {
     sdoor = getent("startdoor","targetname");
-    if(isdefined(level.auto_open_door) && level.auto_open_door) {
+    if(getdvarint("dr_auto_open_door")) {
         sdoor delete();
     } else {
         wait(5);

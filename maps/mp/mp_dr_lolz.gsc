@@ -6,19 +6,18 @@
 #include maps\mp\gametypes\_hud_util;
 #include common_scripts\utility;
 
-main()
-{
- maps\mp\_load::main();
- maps\mp\_compass::setupMiniMap("compass_map_mp_dr_lolz");
- 
- level._effect[ "beacon_glow" ] = loadfx( "misc/ui_pickup_available" );
- 
- game["allies"] = "marines";
- game["axis"] = "opfor";
- game["attackers"] = "axis";
- game["defenders"] = "allies";
- game["allies_soldiertype"] = "desert";
- game["axis_soldiertype"] = "desert";
+main() {
+    maps\mp\_load::main();
+    maps\mp\_compass::setupMiniMap("compass_map_mp_dr_lolz");
+
+    level._effect[ "beacon_glow" ] = loadfx( "misc/ui_pickup_available" );
+
+    game["allies"] = "marines";
+    game["axis"] = "opfor";
+    game["attackers"] = "axis";
+    game["defenders"] = "allies";
+    game["allies_soldiertype"] = "desert";
+    game["axis_soldiertype"] = "desert";
  
 	//SETDVAR**
 	setdvar( "r_specularcolorscale", "1" );
@@ -499,21 +498,16 @@ onDisconnect() //Music Term.
 
 lift() //Open the door + Start Button
 {
+    lift=getent("lift","targetname");
+    lift_button=getent("startbutton","targetname");
+    lift_trigger=getent("lift_trigger","targetname");
 
-lift=getent("lift","targetname");
-lift_button=getent("startbutton","targetname");
-lift_trigger=getent("lift_trigger","targetname");
 
-	{
 	lift_trigger waittill ("trigger");
 	iprintlnbold("^8Start door opened :]");
-	lift_button movey (-3,5);
+	// lift_button movey (-3,5); // no ent, theres actually 3 in map with same targetname
 	wait 5;
-	}
-		{
-		lift movez (241,4,1,1);
-		wait 2;
-		}
+    lift movez (241,4,1,1);
 }
 
 elev1() // 1st Elevator in Hard way
@@ -606,131 +600,132 @@ watterFX()
 
 Water()
 {
-while (1)
+    while (1)
 	{
-	self waittill("trigger", other);
+        self waittill("trigger", other);
 
-	if(isPlayer(other) && other istouching(self))
-		other thread drown_water(self);
+        if(isPlayer(other) && !isdefined(other.drown_watering)) {
+            self.drown_watering = true;
+            other thread drown_water(self);
+        }
 	}
-}	
+}
+
 drown_water(trigger)
 {
-	dceiling = getent(trigger.target,"targetname");
+    self endon("disconnect");
+	// dceiling = getent(trigger.target,"targetname"); // there is no ent, trigger has no target
 	water_vision = undefined;
-	while (self istouching(trigger) && !self istouching(dceiling))
-	{
-		wait .125;
-		if(isDefined(self.drown_watering))
-			return;		
-		self.drown_watering = true;
 
-	if(!isDefined(water_vision))
-	{
-		water_vision = newClientHudElem(self);
-		water_vision.x = 0;
-		water_vision.y = 0;
-		water_vision setshader ("white", 640, 480);
-		water_vision.alignX = "left";
-		water_vision.alignY = "top";
-		water_vision.horzAlign = "fullscreen";
-		water_vision.vertAlign = "fullscreen";
-		water_vision.color = (.16, .38, .5);
-		water_vision.alpha = .75;
-	}
+    if(isDefined(self.drown_watering))
+        return;
+
+    if(!isDefined(water_vision))
+    {
+        water_vision = newClientHudElem(self);
+        water_vision.x = 0;
+        water_vision.y = 0;
+        water_vision setshader ("white", 640, 480);
+        water_vision.alignX = "left";
+        water_vision.alignY = "top";
+        water_vision.horzAlign = "fullscreen";
+        water_vision.vertAlign = "fullscreen";
+        water_vision.color = (.16, .38, .5);
+        water_vision.alpha = .75;
+    }
 
 
-	level.barincrement = (level.barsize / (20.0 * level.drown_watertime));
+    level.barincrement = (level.barsize / (20.0 * level.drown_watertime));
 //	level.player allowProne(false);
-	if(!isDefined(self.progressbackground))
-	{
-		self.progressbackground = newClientHudElem(self);				
-		self.progressbackground.alignX = "center";
-		self.progressbackground.alignY = "middle";
-		self.progressbackground.x = 320;
-		self.progressbackground.y = 385;
-		self.progressbackground.alpha = 0.5;
-	}
-	self.progressbackground setShader("black", (level.barsize + 4), 14);		
+    if(!isDefined(self.progressbackground))
+    {
+        self.progressbackground = newClientHudElem(self);				
+        self.progressbackground.alignX = "center";
+        self.progressbackground.alignY = "middle";
+        self.progressbackground.x = 320;
+        self.progressbackground.y = 385;
+        self.progressbackground.alpha = 0.5;
+    }
+    self.progressbackground setShader("black", (level.barsize + 4), 14);		
 
-	if(!isDefined(self.progressbar))
-	{
-		self.progressbar = newClientHudElem(self);				
-		self.progressbar.alignX = "left";
-		self.progressbar.alignY = "middle";
-		self.progressbar.x = (320 - (level.barsize / 2.0));
-		self.progressbar.y = 385;
-	}
-	self.progressbar setShader("white", 0, 8);			
-	self.progressbar scaleOverTime(level.drown_watertime, level.barsize, 8);
+    if(!isDefined(self.progressbar))
+    {
+        self.progressbar = newClientHudElem(self);				
+        self.progressbar.alignX = "left";
+        self.progressbar.alignY = "middle";
+        self.progressbar.x = (320 - (level.barsize / 2.0));
+        self.progressbar.y = 385;
+    }
+    self.progressbar setShader("white", 0, 8);			
+    self.progressbar scaleOverTime(level.drown_watertime, level.barsize, 8);
 
-	self.progresstime = 0;
-	d = 0;
-	f = 0;
+    self.progresstime = 0;
+    d = 0;
+    f = 0;
 
-	while(isalive(self) && self istouching(trigger) && !self istouching(dceiling) && (self.progresstime < level.drown_watertime))
-	{		
-		d ++;
-		f ++;
-		
-		wait 0.05;
-		self.progresstime += 0.05;
-
-
-		if(self.progresstime >= level.hurttime)					
-			{
-			if(f >= 4)
-				{
-				radiusDamage(self.origin,9, 1, 1);
-				f = 0;
-				}
-			}
-	}
-
-	if(isalive(self) && self istouching(trigger) && !self istouching(dceiling) && (self.progresstime >= level.drown_watertime))
-	{
-
-		self.progressbackground destroy();
-		self.progressbar destroy();
-
-		wait 0.025;
-		radiusDamage(self.origin,22, 3000, 3000);
-
-		self.drown_watering = undefined;
-		self.sounder = undefined;
+    while(isalive(self) && self istouching(trigger) /*&& !self istouching(dceiling)*/ && (self.progresstime < level.drown_watertime))
+    {		
+        d ++;
+        f ++;
+        
+        wait 0.05;
+        self.progresstime += 0.05;
 
 
+        if(self.progresstime >= level.hurttime)					
+            {
+            if(f >= 4)
+                {
+                radiusDamage(self.origin,9, 1, 1);
+                f = 0;
+                }
+            }
+    }
 
-		randb = randomInt(2);
-		deathmethod1 = " Drowned";	
-		deathmethod2 = " That's water, It Kills.";
-		deathmethod3 = " Swallowed Some Water";
-		deathmethod4 = " That's water, It Kills.";
-		
-		if (randb == 0)
-		iPrintLn( self.name, deathmethod1);
-		if (randb == 1)
-		iPrintLn( self.name, deathmethod2);
-		if (randb == 2)
-		iPrintLn( self.name, deathmethod3);
-		if (randb == 3)
-		iPrintLn( self.name, deathmethod4);
-		wait .05;
-		water_vision destroy();
-	}
-	else
-	{
-		water_vision.alpha = .5;
-		water_vision fadeOverTime(3);
-		water_vision.alpha = 0;
-		wait 0.05;
-		self.progressbackground destroy();
-		self.progressbar destroy();
-		self.drown_watering = undefined;
-		self.sounder = undefined;
-	}			
-	wait .05;
-	}
+    if(isalive(self) && self istouching(trigger) /*&& !self istouching(dceiling)*/ && (self.progresstime >= level.drown_watertime))
+    {
+
+        self.progressbackground destroy();
+        self.progressbar destroy();
+
+        wait 0.025;
+        radiusDamage(self.origin,22, 3000, 3000);
+
+        self.drown_watering = undefined;
+        self.sounder = undefined;
+
+
+
+        randb = randomInt(2);
+        deathmethod1 = " Drowned";	
+        deathmethod2 = " That's water, It Kills.";
+        deathmethod3 = " Swallowed Some Water";
+        deathmethod4 = " That's water, It Kills.";
+        
+        if (randb == 0)
+        iPrintLn( self.name, deathmethod1);
+        if (randb == 1)
+        iPrintLn( self.name, deathmethod2);
+        if (randb == 2)
+        iPrintLn( self.name, deathmethod3);
+        if (randb == 3)
+        iPrintLn( self.name, deathmethod4);
+        wait .05;
+        water_vision destroy();
+        return;
+    }
+    else
+    {
+        water_vision.alpha = .5;
+        water_vision fadeOverTime(3);
+        water_vision.alpha = 0;
+        wait 0.05;
+        self.progressbackground destroy();
+        self.progressbar destroy();
+        self.drown_watering = undefined;
+        self.sounder = undefined;
+        return;
+    }			
 }
 
 traphardmodeon() //Hard mod.

@@ -1,7 +1,6 @@
 //map by LateAX
 //ABprice was here
-main()
-{
+main() {
  maps\mp\_load::main();
 
 

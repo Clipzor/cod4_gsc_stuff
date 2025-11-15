@@ -1,5 +1,4 @@
-main()
-{
+main() {
 maps\mp\_load::main();
 maps\mp\mp_dr_idk_fx::main();
 maps\createfx\mp_dr_idk_fx::main();

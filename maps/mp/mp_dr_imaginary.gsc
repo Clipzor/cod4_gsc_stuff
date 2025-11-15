@@ -1,6 +1,4 @@
-main()
-
-{
+main() {
 maps\mp\_load::main();
 
   precacheItem("m40a3_mp"); 

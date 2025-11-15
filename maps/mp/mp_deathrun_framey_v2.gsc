@@ -1,5 +1,4 @@
-main()
-{
+main() {
 	maps\mp\_load::main();
 	
 	ambientplay("sound_1");
@@ -179,7 +178,7 @@ trap7_mover_mid()
 startdoor()
 {
 	door = getent("door","targetname");
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		door delete();
 	} else {
 		wait(12);

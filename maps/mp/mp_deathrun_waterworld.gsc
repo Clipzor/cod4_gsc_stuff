@@ -1,5 +1,4 @@
-main()
-{
+main() {
 	maps\mp\_load::main();
 	
 	game["allies"] = "marines";
@@ -68,7 +67,7 @@ startdoor()
 	target = getEnt ( "startdoor_target", "targetname" );
 	clip = getEnt ( "startdoor_clip", "targetname" );
 
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		target delete();
 		clip delete();
 	} else {
@@ -83,56 +82,9 @@ startdoor()
 //by Blade
 icohud()
 {
- 
-    level endon( "intermission" );
- 
-    colour = randomInt(5);
-    switch(colour)
-            {
-            case 0:
-            level.hudcolour = (0, 0.9, 2);
-            break;
-            case 1:
-            level.hudcolour = (0, 1, 1);
-            break;
-            case 2:
-            level.hudcolour = (0.8 ,1 ,0.1);
-            break;
-            case 3:
-            level.hudcolour = (1, 0, 0);
-            break;
-            case 4:
-            level.hudcolour = (0.9, 0.1, 0.9);
-            break;
-            }
- 
-    if( isDefined( level.icomarhud ) )
-        level.icomarhud destroy();
- 
-    level.icomarhud = newHudElem();
-    level.icomarhud.foreground = true;
-    level.icomarhud.alignX = "center";
-    level.icomarhud.alignY = "top";
-    level.icomarhud.horzAlign = "center";
-    level.icomarhud.vertAlign = "top";
-    level.icomarhud.x = 4;
-    level.icomarhud.y = 0;
-    level.icomarhud.sort = 0;
-    level.icomarhud.fontScale = 2;
-    level.icomarhud.color = (1.0, 1.0, 1.0);
-    level.icomarhud.font = "objective";
-    level.icomarhud.glowColor = (level.hudcolour);
-    level.icomarhud.glowAlpha = 1;
-    level.icomarhud.hidewheninmenu = true;
-    level.icomarhud setText( "mp_deathrun_waterworld" );
-    wait 10;
-	level.icomarhud setText( "map by Icomar" );
-	wait 10;
-	level.icomarhud setText( "xFire: icomar727" );
-	wait 10;
-	level.icomarhud setText( "additional help: Blade" );
-	wait 10;
-	level.icomarhud destroy();
+	iprintln( "WaterWorld By Icomar" );
+	wait 1;
+	iprintln( "additional help: Blade" );
 }
 
 unknown()
@@ -215,13 +167,13 @@ secret_end()
 	
 	trigger waittill ( "trigger", player );
 	wait 0.05;
+
 	
 	player braxi\_rank::giveRankXp( "trap_activation" );
 	
 	iPrintlnBold( " ^2" + player.name + " ^7 has finished the ^2secret ^7room first!" );
 	
 	target notSolid();
-	wait 3;
 	
 	player GiveWeapon ( "uzi_mp" );
 	player GiveMaxAmmo ( "uzi_mp" );

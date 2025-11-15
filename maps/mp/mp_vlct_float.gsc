@@ -1,8 +1,7 @@
 #include maps\mp\_utility;
 #include common_scripts\utility;
 
-main()
-{
+main() {
 	maps\mp\_load::main();
 	//thread maps\saveload::main();
     SetDvar("bg_falldamagemaxheight", 99999);

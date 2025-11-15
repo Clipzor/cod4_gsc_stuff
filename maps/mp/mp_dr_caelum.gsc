@@ -7,8 +7,7 @@
 //hmpf, nvm. Just gimme credits if you use parts of it^^
 //(C)+(r) DeltaBoss
 
-main()
-{
+main() {
 	maps\mp\_load::main();
 	
 	game["allies"] = "sas";

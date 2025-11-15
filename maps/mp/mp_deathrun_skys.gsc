@@ -3,8 +3,7 @@
 //Death check the bottom - I knew you would be here :)
 
 
-main()
-{
+main() {
 	maps\mp\_load::main();
  
 	game["allies"] = "marines";
@@ -267,7 +266,7 @@ v9x7()
 startdoor()
 {
 	door = getEnt("startdoor","targetname");
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		door delete();
 	} else {
 		level waittill("round_started");

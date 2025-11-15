@@ -2,8 +2,7 @@
 Map by Gabriel
 Credits for helping: Lossy, Xenon, Darmuh
 */
-main()
-{
+main() {
 //-----------------load effects-----------------//
 	
 	level.wall_explosion = LoadFX("explosions/wall_explosion_grnd");
@@ -90,7 +89,7 @@ main()
 startdoor()
 {
 	main_door = getent( "door1", "targetname" );
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		main_door delete();
 	} else {
 		level waittill( "round_started", player );

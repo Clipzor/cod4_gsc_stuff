@@ -9,8 +9,7 @@
 //                                                               //
 //////////////////////////////////////////////////////////////////                                                        
 
-main()
-{
+main() {
 	maps\mp\_load::main();	
 
 	level.platrip=loadfx("explosions/platrip");

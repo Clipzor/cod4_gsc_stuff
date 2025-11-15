@@ -1,8 +1,7 @@
 //Map by Speedy Gonzales (AKA Obamini)
 
 
-main()
-{
+main() {
  maps\mp\_load::main();
  
  game["allies"] = "marines";

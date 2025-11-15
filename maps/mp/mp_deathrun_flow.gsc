@@ -1,5 +1,4 @@
-main()
-{
+main() {
 	level.c4_fx = LoadFX("explosions/aa_explosion");
 	level.barrel_fx = LoadFX("masseffect/orb_explosion");
 	level.fire_fx = LoadFX("fire/firelp_large_pm");

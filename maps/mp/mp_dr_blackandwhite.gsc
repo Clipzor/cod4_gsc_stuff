@@ -1,5 +1,4 @@
-main()
-{
+main() {
 
 /*
 MAP CREATED AND SCRIPTED BY CHUBBS317

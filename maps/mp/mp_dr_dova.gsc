@@ -1,5 +1,4 @@
-main()
-{
+main() {
 	maps\mp\_load::main();	
 	
 
@@ -78,7 +77,7 @@ messages()
 startdoor()
 {
 	drzwi = getent("startdoor","targetname");
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		drzwi delete();
 	} else {
 		wait 10;

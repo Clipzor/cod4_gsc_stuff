@@ -1,5 +1,4 @@
-main()
-{
+main() {
 	level.musicfx = loadfx("jungle/line");
 	level.musiclogo = loadfx("jungle/musiclogo");
 	level.actitp = loadfx("jungle/teleport_acti");

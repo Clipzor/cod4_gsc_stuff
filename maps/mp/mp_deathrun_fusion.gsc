@@ -6,8 +6,7 @@
   MMM  MMM   MMM  MM  MMM   NMMMMM  MMMMMM   NMMMM .  MM MMM                    
 */
 //vehicle_mi17_woodland_fly_static
-main()
-{
+main() {
 	maps\mp\_load::main();
 	
 	//setExpFog(600, 600, 1, 1, 1, 0);

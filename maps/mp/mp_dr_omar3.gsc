@@ -1,7 +1,6 @@
 #include braxi\_common;
 #include common_scripts\utility;
-main()
-{
+main() {
 maps\mp\_load::main();
  
 	game["allies"] = "marines";

@@ -10,8 +10,7 @@
 #include common_scripts\utility;
 #include braxi\_rank;
 #include braxi\_common;
-main()
-{
+main() {
 maps\mp\_load::main();
 
 game["allies"] = "marines";
@@ -289,7 +288,7 @@ openstartdoor()
 {
 	door = getEnt("startdoor" , "targetname");
 
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
       	door delete();
 	} else {
 		wait 8;

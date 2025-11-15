@@ -1,5 +1,4 @@
-main()
-{
+main() {
     level.scr_sound["floor1"] = "floor1";
     level.scr_sound["floor2"] = "floor2";
     level.scr_sound["floor3"] = "floor3";

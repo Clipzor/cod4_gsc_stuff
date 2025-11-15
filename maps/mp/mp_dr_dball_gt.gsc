@@ -1,7 +1,6 @@
 //Fixed by Blade
 #include braxi\_common;
-main()
-{
+main() {
         maps\mp\_load::main();
 
         precacheShellShock( "frag_grenade_mp" );

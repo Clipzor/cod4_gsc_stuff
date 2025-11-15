@@ -1,5 +1,4 @@
-main()
-{
+main() {
 	maps\createart\mp_deathrun_long_art::main();
 	maps\mp\mp_deathrun_long_fx::main();
 	maps\mp\_load::main();

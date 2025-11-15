@@ -1,8 +1,7 @@
 //map by Lifezor
 //scripted by Sheep Wizard and rewritten by Wingzor LOL
 //mp_deathrun_holylife
-main()
-{
+main() {
 	//maps\mp\_load::main();
 
 	setExpFog(500, 2200, 0.81, 0.75, 0.63, 0.5);

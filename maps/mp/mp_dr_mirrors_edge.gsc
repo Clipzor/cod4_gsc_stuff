@@ -6,8 +6,7 @@
 #include common_scripts\utility;
 #include braxi\_common;
 
-main()
-{
+main() {
  maps\mp\_load::main();
  maps\mp\_compass::setupMiniMap("compass_map_mp_dr_mirrors_edge");
  

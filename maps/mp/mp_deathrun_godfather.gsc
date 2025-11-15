@@ -4,8 +4,7 @@
 //Additional help: Neo | Thanks to: IELIITEMODZX & Ratzee & Club27 Team//
 //Traps:13|Our Xfire:undefinedno1 & hundontaki|Map dedicated to Club27!//
 /////////////////////////////////////////////////////////////////////////
-main()
-{
+main() {
 	maps\mp\_load::main();
 	maps\mp\godfather2::main();
 	maps\mp\uziend::main();

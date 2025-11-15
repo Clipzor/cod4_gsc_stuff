@@ -3,8 +3,7 @@
 //Death check the bottom - I knew you would be here :)
 
 
-main()
-{
+main() {
 	maps\mp\_load::main();
  
 	game["allies"] = "marines";

@@ -1,7 +1,6 @@
 ///MAP MADE BY ERYK
 
-main()
-{
+main() {
 	maps\mp\_load::main();
 
 	thread kiti();

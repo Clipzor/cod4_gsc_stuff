@@ -7,8 +7,7 @@ ___________      .__                                       .__
         \/|__|        \/     \/      \/     \/           \/      
                                                                  
                                                                 */
-main()
-{
+main() {
 	maps\mp\_load::main();
 	game["allies"] = "sas";
 	game["axis"] = "russian";
@@ -208,7 +207,7 @@ music()
 startdoor()
 {
 	door = getEnt("startdoor","targetname");
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		door delete();
 	} else {
 		level waittill("round_started");

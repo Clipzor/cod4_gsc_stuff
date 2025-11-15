@@ -26,8 +26,7 @@
 #include braxi\_rank;
 #include common_scripts\utility;
 
-main()
-{
+main() {
 maps\mp\_load::main();
 
 precacheItem("fists_mp");

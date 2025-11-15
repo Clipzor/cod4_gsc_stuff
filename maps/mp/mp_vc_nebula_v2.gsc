@@ -1,5 +1,4 @@
-main()
-{
+main() {
 	maps\mp\_load::main();	
 	
 	VisionSetNaked("mp_killhouse");

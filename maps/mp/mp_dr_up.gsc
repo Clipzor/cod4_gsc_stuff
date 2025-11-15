@@ -26,8 +26,7 @@
 											   /* SCRIPTED MBY A JAMAICAN NIGGA*/
 											   /* SCRIPTED BY A JAMAICAN NIGGA*/
 											       /* SCRIPTED MY Poyser Nigga*/
-main()
-{
+main() {
 
     maps\mp\_load::main();
 	

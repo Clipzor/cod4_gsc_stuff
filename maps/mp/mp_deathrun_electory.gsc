@@ -26,9 +26,7 @@ File Size:
 How long it took to fully make: 8 months +
 */
 
-main()
-
-{
+main() {
 
 	maps\mp\_load::main();
  

@@ -5,8 +5,7 @@ MMMMMMM MMMMMM  MMMMMM  MMMMMM   MMMMMM8  MMMMMM
   MM    MMMMMM  MM MMM .MM DMM   MMMMMM   MM :MM 
 */
 
-main()
-{
+main() {
 	maps\mp\_load::main();
 	
 	addTriggerToList( "trap1_trig" );

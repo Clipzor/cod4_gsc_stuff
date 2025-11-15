@@ -1,5 +1,4 @@
-main()
-{
+main() {
 	maps\mp\_load::main();
 	
 	
@@ -262,7 +261,7 @@ finaldoor()
 startact()
 {
 	door=getent("startact","targetname");
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		door delete();
 	} else {
 		wait(12);
@@ -274,7 +273,7 @@ startdoor()
 {
 	door=getent("startdoor","targetname");
 	door2=getent("startdoor2","targetname");
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		door delete();
 		door2 delete();
 	} else {

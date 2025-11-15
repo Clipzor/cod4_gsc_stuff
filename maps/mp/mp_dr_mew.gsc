@@ -24,8 +24,7 @@
 
 //#include braxi\_common;
 
-main()
-{
+main() {
 	maps\mp\_load::main();
 	//maps\mp\mews\menu::main();
 

@@ -17,8 +17,7 @@ Description: Custom Deathrun Map made for xM# Clan Server.
 ----------------
 */
 
-main()
-{
+main() {
 	maps\mp\_load::main(); 
 
 	game["allies"] = "marines";

@@ -1,5 +1,4 @@
-main()
-{
+main() {
     level._effect["fire_trap"] = loadfx( "custome/fire_trap" );
 	
 	addTriggerToList( "trigger_t_" );
@@ -74,7 +73,7 @@ startdoor()
 {
 	object = getEnt ("startdoor","targetname");
 	trig = getEnt ("trig_startdoor","targetname");
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		trig delete();
 		object delete();
 	} else {

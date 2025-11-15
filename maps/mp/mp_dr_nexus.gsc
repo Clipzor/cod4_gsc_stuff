@@ -7,8 +7,7 @@
 
 	Map made by nexuS|Team
 */
-main()
-{
+main() {
 maps\mp\_load::main();
 
 	ambientPlay ( "nexus" );

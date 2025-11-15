@@ -3,8 +3,7 @@
 #include maps\mp\_utility;
 #include maps\mp\gametypes\_hud_util;
 #include common_scripts\utility;
-main()
-{
+main() {
  maps\mp\_load::main();
  
  game["allies"] = "marines";
@@ -40,7 +39,6 @@ main()
    level.vipisplaying = false;
    level.firstenter = true;
    
-   //thread hud();
    thread messages();
    thread randommusic();
    thread mappername();
@@ -203,64 +201,6 @@ fightHUD(room, jumper, activ)
     wait waitTime;
     if (isDefined(level.hud_fight)) level.hud_fight destroy();
     if (isDefined(level.hud_fight2)) level.hud_fight2 destroy();
-}
-
-hud()
-{
-	wait 3;
-	
-    thread hud_set_1("District League - Round 3/5 !");
-	wait 0.95;
-	thread hud_set_2("Mp_Dr_Bhop | Map 3/4!");
-	
-}
-
-hud_set_1(text_1)
-{
-	if(!isdefined(text_1))
-		return;
-
-	level.hud_set_1=newhudelem();
-	level.hud_set_1.alignx="left";
-	level.hud_set_1.aligny="top";
-	level.hud_set_1.horzalign="left";
-	level.hud_set_1.vertalign="top";
-	level.hud_set_1.alpha=1;
-	level.hud_set_1.x=-400;
-	level.hud_set_1.y=300;
-	level.hud_set_1.font = "objective";
-	level.hud_set_1.fontscale=1.5;	
-	level.hud_set_1.glowalpha=1;
-	level.hud_set_1.glowcolor=(0.85,0.76,0.14);
-	
-	level.hud_set_1 settext("^7"+text_1);
-	wait .1;
-	level.hud_set_1 moveovertime(1);
-	level.hud_set_1.x=7;
-}
-
-hud_set_2(text_2)
-{
-	if(!isdefined(text_2))
-		return;
-
-	level.hud_set_2=newhudelem();
-	level.hud_set_2.alignx="left";
-	level.hud_set_2.aligny="top";
-	level.hud_set_2.horzalign="left";
-	level.hud_set_2.vertalign="top";
-	level.hud_set_2.alpha=2;
-	level.hud_set_2.x=-400;
-	level.hud_set_2.y=320;
-	level.hud_set_2.font = "objective";
-	level.hud_set_2.fontscale=1.4;	
-	level.hud_set_2.glowalpha=1;
-	level.hud_set_2.glowcolor=(0.85,0.76,0.14);
-	
-	level.hud_set_2 settext("^7"+text_2);
-	wait .1;
-	level.hud_set_2 moveovertime(1);
-	level.hud_set_2.x=7;
 }
 
 messages()
@@ -514,7 +454,7 @@ opendoor()
 {
     door = getent("opendoor","targetname");
     acti_sec = getEnt("actisecstep","targetname");
-    if(isdefined(level.auto_open_door) && level.auto_open_door) {
+    if(getdvarint("dr_auto_open_door")) {
         wait 20;
         door moveZ(540, 12);
         wait 30;

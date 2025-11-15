@@ -19,8 +19,7 @@
     Website: vistic-clan.net
 */
 
-main()
-{
+main() {
     maps\mp\_load::main();
          
     game["allies"] = "sas";
@@ -81,7 +80,7 @@ shiet_startdoor()
     trig = getent("shiet_door_trig","targetname");
     door = getent("shiet_startdoor","targetname");
 
-    if(isdefined(level.auto_open_door) && level.auto_open_door) {
+    if(getdvarint("dr_auto_open_door")) {
         trig delete();
         door delete();
     } else {

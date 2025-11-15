@@ -1,5 +1,4 @@
-main()
-{
+main() {
 	level.scr_sound["joker"] = "joker";
 /#
 	if ( getdvar( "clientSideEffects" ) != "1" )

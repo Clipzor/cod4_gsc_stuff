@@ -4,8 +4,7 @@
 */
 		
 #include maps\mp\_utility;
-main()
-{
+main() {
 	maps\mp\_load::main();
 	precacheitem("usp_silencer_mp");
 	precacheitem("uzi_mp");

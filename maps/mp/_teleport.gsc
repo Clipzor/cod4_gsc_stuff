@@ -1,5 +1,4 @@
-main()
-{
+main() {
 	entTransporter = getentarray( "enter", "targetname" );
  
 	if(isdefined(entTransporter))

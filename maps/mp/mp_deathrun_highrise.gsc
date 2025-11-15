@@ -1,7 +1,6 @@
 //Map by xFearZ
 
-main()
-{
+main() {
 	maps\mp\_load::main();
 	setExpFog(500, 1000, 0.4, 0.425, 0.44, 0.0);
 	level.mortar = LoadFX("explosions/artilleryExp_dirt_brown_low");

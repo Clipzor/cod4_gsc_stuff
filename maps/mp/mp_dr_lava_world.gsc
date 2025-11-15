@@ -3,8 +3,7 @@
 #include common_scripts\utility;
 #include braxi\_rank;
 #include braxi\_common;
-main()
-{
+main() {
  maps\mp\_load::main();
  
 

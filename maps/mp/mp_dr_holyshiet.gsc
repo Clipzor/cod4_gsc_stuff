@@ -9,8 +9,7 @@
 
 */
 
-main()
-{
+main() {
   maps\mp\_load::main();
 	
 	ambientPlay("holyshiet");
@@ -88,7 +87,7 @@ startdoor()
 {
   trigger = getEnt("startdoor_trig", "targetname");
   door = getEnt("startdoor", "targetname");
-  if(isdefined(level.auto_open_door) && level.auto_open_door) {
+  if(getdvarint("dr_auto_open_door")) {
     trigger delete();
     door delete();
   } else {
@@ -507,16 +506,16 @@ r_weapon()
         }
 
         if(level.roomsong==true)
-    {
-      ambientstop();
-      ambientplay("holyshiet2");
-      level.roomsong = false;
-      thread buildweapon();
-      playLoopedFx( level.rainbow, 0.05, (992, -896, 104));
-      level.knife delete();
-      level.sniper delete();
-       level.weapon setHintString("^1Press ^7F ^1to Port");
-    }
+        {
+        ambientstop();
+        ambientplay("holyshiet2");
+        level.roomsong = false;
+        thread buildweapon();
+        playLoopedFx( level.rainbow, 0.05, (992, -896, 104));
+        level.knife delete();
+        level.sniper delete();
+        level.weapon setHintString("^1Press ^7F ^1to Port");
+        }
 
     
     player FreezeControls(1);

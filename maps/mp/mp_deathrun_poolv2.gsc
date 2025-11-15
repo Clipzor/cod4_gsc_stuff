@@ -1,7 +1,6 @@
 //Map by CM'Death
 //Discord:Death#7416
-main()
-{
+main() {
  maps\mp\_load::main();
  
  game["allies"] = "marines";
@@ -97,7 +96,7 @@ startdoor()
 {
    door = getent("startdoor","targetname");
 
-   if(isdefined(level.auto_open_door) && level.auto_open_door) {
+   if(getdvarint("dr_auto_open_door")) {
       door delete();
 	} else {
       wait 8;

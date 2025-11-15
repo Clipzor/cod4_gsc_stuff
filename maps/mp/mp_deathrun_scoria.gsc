@@ -1,8 +1,7 @@
 //Most scripts big help from Sheep Wizard
 
 
-main()
-{
+main() {
 
 	maps\mp\_load::main();
 	

@@ -5,8 +5,7 @@
 //NitroFire: 1cac0c03e6cfb44ba80c5d5dd05bc267
 //Preview SS: http:// imgur. com/a/8I7Pm
 //Jumper: 9a688d614d2c923b91023b63f451e2f3
-main()
-{
+main() {
 	maps\mp\_load::main(); 
 
 	//<-- End Rooms -->

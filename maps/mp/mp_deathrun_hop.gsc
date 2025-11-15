@@ -1,6 +1,5 @@
 #include maps\mp\_utility; /* necessary for simple trigger settings */
-main()
-{
+main() {
 	maps\mp\_load::main();
 	
 	/*Weapons*/

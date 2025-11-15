@@ -9,8 +9,7 @@ ___________.__           .____    .__          _____          ____    __________
 .:: Authors: TheLixfe & Phelix ::.
 */
 
-main()
-{
+main() {
 	maps\mp\_load::main();	
 
 	// Map dvars

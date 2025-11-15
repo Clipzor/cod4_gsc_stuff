@@ -1,5 +1,4 @@
-main()
-{
+main() {
 //////////////////////////////thready////////////
   		ambientPlay("indipyramid");
 	

@@ -779,8 +779,7 @@ rope( start, end )
 
 ////////////////////////////////////
 
-trap5_main()
-{
+trap5_main() {
 main=getent("trap5_main","targetname");
 if (!isdefined(main.speed))
  main.speed = 10;

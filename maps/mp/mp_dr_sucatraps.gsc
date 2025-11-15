@@ -2,8 +2,7 @@
 // Big thanks to VC' Legend for helping me with scripts 
 
 
-main()
-{
+main() {
 	
 	maps\mp\futuobr::main();
 	maps\mp\_load::main();

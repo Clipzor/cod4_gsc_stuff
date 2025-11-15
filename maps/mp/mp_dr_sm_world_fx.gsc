@@ -1,5 +1,4 @@
-main()
-{
+main() {
 
 	
 	level._effect[ "flashbang" ]		= loadfx( "explosions/flashbang" );

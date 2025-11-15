@@ -18,8 +18,7 @@
 
 */
 #include braxi\_common;
-main()
-{
+main() {
 	maps\mp\_load::main();
     maps\mp\sanctuary\_others::main();
     maps\mp\sanctuary\_mystic::main();

@@ -20,8 +20,7 @@ Email Pro: suxlolz@outlook.fr
 #include maps\mp\gametypes\_hud_util;
 #include common_scripts\utility;
 
-main()
-{
+main() {
 	maps\mp\_load::main();
 	maps\mp\enter_teleport\_teleport::main();
 	maps\mp\_compass::setupMiniMap("compass_mp_sr_pure_strafe_v2");

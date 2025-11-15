@@ -1,5 +1,4 @@
-main()
-{
+main() {
     addTriggerToList("trig_trap1");
 	addTriggerToList("trig_trap2");
 	addTriggerToList("trig_trap3");

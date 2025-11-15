@@ -2,8 +2,7 @@
 #include common_scripts\utility;
 #include braxi\_rank;
 
-main()
-{
+main() {
 	maps\mp\_load::main();
 	game["allies"] = "marines";
     game["axis"] = "opfor";
@@ -165,7 +164,7 @@ startdoor()
 {
 	door = getEnt("startdoor", "targetname");
 
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		door delete();
 	} else {
 		wait 15;

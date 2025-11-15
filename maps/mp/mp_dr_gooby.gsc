@@ -1,5 +1,4 @@
-main()
-{
+main() {
 
 	maps\mp\_load::main();
 
@@ -17,26 +16,26 @@ main()
 	trigger.radius = 185; 
 
 	level.rnd_weapon_goobster = [];
-	level.rnd_weapon_goobster[level.rnd_weapon_goobster.size] = "winchester1200_grip_mp";
-	level.rnd_weapon_goobster[level.rnd_weapon_goobster.size] = "skorpion_silencer_mp";
-	level.rnd_weapon_goobster[level.rnd_weapon_goobster.size] = "m4_reflex_mp";
-	level.rnd_weapon_goobster[level.rnd_weapon_goobster.size] = "g36c_silencer_mp";
-	level.rnd_weapon_goobster[level.rnd_weapon_goobster.size] = "ak47_reflex_mp";
-	level.rnd_weapon_goobster[level.rnd_weapon_goobster.size] = "m14_acog_mp";
+	level.rnd_weapon_goobster[level.rnd_weapon_goobster.size] = "t5_spas12_mp";
+	level.rnd_weapon_goobster[level.rnd_weapon_goobster.size] = "t4_ppsh_mp";
+	level.rnd_weapon_goobster[level.rnd_weapon_goobster.size] = "t7_mr6_mp";
+	level.rnd_weapon_goobster[level.rnd_weapon_goobster.size] = "iw5_mp7_mp";
+	level.rnd_weapon_goobster[level.rnd_weapon_goobster.size] = "ak47_mp";
+	level.rnd_weapon_goobster[level.rnd_weapon_goobster.size] = "t6_s12_mp";
 
 	level.firstenter = false;
 	level.jump_room_weapon_given = false;
 
 
 	precacheItem("m40a3_mp");
-	precacheItem("m4_reflex_mp");
-	precacheItem("winchester1200_grip_mp");
+	precacheItem("t7_mr6_mp");
+	precacheItem("t5_spas12_mp");
 	precacheItem("remington700_mp");
 	precacheItem("knife_mp");
-	precacheItem("ak47_reflex_mp");
-	precacheItem("m14_acog_mp");
-	precacheItem("skorpion_silencer_mp");
-	precacheItem("g36c_silencer_mp");
+	precacheItem("ak47_mp");
+	precacheItem("t6_s12_mp");
+	precacheItem("t4_ppsh_mp");
+	precacheItem("iw5_mp7_mp");
 
 	setdvar( "r_specularcolorscale", "1" );
 
@@ -327,8 +326,6 @@ weapon_tele()
 	weapontrig = getent ("weapon_trigger", "targetname");
 	weaponactitele = getent ("weapon_acti_tele", "targetname");
 	weaponjumpertele = getent ("weapon_jumper_tele", "targetname");
-
-	thread weapon_room_gun();
 
 	for(;;) {
 		weapontrig waittill ("trigger", player);

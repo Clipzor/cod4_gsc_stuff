@@ -1,6 +1,5 @@
 
-main()
-{
+main() {
 
 //mp_deathrun_portal_sound_fx_v3.gsc (c) rednose
 //Welcome ff-extract guy!

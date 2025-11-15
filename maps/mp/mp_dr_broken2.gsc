@@ -3,8 +3,7 @@
  /devmap mp_dr_broken2
 */
 
-main()
-{
+main() {
     maps\mp\_load::main();
 	maps\mp\mp_dr_broken2_fx::main();
 

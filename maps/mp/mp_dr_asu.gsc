@@ -35,7 +35,7 @@
 #include maps\mp\dr_asu\mp_dr_asu_platforms;
 #include maps\mp\dr_asu\mp_dr_asu_secret;
 
-main(){
+main() {
 	maps\mp\_load::main();
 
 	game["allies"] = "marines";
@@ -479,7 +479,7 @@ credit(){
 startdoor(){
 	door = getEnt("sd","targetname");
 
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		door delete();
 	} else {
 		level waittill("round_started");

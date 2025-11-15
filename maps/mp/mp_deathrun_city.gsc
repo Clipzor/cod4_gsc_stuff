@@ -1,5 +1,4 @@
-main()
-{
+main() {
 	
         thread smrt ();
         thread teleport();

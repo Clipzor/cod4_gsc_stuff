@@ -3,8 +3,7 @@
 
 ///MAP MADE BY ERYK/LENTAVA
 
-main()
-{
+main() {
 	setDvar("scr_fog_disable", 1);
 	maps\mp\_load::main();
 	setDvar("scr_fog_disable", 1);

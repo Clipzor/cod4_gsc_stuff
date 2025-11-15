@@ -2,8 +2,7 @@
 #include maps\mp\gametypes\_hud_util;
 #include common_scripts\utility;
 
-main()
-{
+main() {
     maps\mp\_load::main();
     maps\mp\mp_deathrun_abandoned\_teleport::main();
 
@@ -143,7 +142,7 @@ randomodabir()
 startdoor()
 {
 	door = getent("startdoor","targetname");
-    if(isdefined(level.auto_open_door) && level.auto_open_door) {
+    if(getdvarint("dr_auto_open_door")) {
         door delete();
         thread randomodabir();
     } else {

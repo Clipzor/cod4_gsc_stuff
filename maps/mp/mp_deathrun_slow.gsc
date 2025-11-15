@@ -1,5 +1,4 @@
-main()
-{
+main() {
 
 	maps\mp\_load::main();
 	maps\mp\mp_deathrun_slow\_teleport::main();

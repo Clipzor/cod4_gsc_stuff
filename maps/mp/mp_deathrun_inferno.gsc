@@ -8,8 +8,7 @@
                                            ╚═╝
 	[If you use these scripts, make sure to give me credit pl0x. k thx. bai.]
 */
-main()
-{
+main() {
 	level.mortar = loadFX("explosions/artilleryExp_dirt_brown_low");
 	level.rainbowfire = loadFX("deathrun/rainbowfire");
 	level.fire1 = loadFX("deathrun/fire1");
@@ -907,7 +906,7 @@ Startdoor()
 {
 	brush1 = getEnt("startdoor_1", "targetname");
 	brush2 = getEnt("startdoor_2", "targetname");
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		brush1 delete();
 		brush2 delete();
 	} else {

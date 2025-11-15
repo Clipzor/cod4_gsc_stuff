@@ -19,8 +19,7 @@
 //fixed...
 //re-written(x2) script by Lifezor. 
 
-main()
-{
+main() {
 	//maps\mp\_load::main();
 	
 	
@@ -144,7 +143,7 @@ actitele1()
 startdoor()
 {
 	door=getent("spawndoor","targetname");
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		door delete();
 	} else {
 		wait(8);

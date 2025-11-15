@@ -1,5 +1,4 @@
-main()
-{
+main() {
 	maps\mp\_load::main();
 	maps\mp\_teleportal::main();
 	maps\mp\_teleportal2::main();

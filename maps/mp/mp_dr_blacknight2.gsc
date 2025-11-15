@@ -1,5 +1,4 @@
-main()
-{
+main() {
     maps\mp\_load::main();
  
     game["allies"] = "marines";
@@ -47,7 +46,7 @@ startdoor()
 
     bn2 thread hover();
 
-    if(isdefined(level.auto_open_door) && level.auto_open_door) {
+    if(getdvarint("dr_auto_open_door")) {
 		door delete();
         trig delete();
 	} else {

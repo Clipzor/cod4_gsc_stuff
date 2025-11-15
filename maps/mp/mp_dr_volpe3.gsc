@@ -22,8 +22,7 @@
 	vistic-clan.net
 */
 
-main()
-{
+main() {
 	maps\mp\_load::main();
 
 	game["allies"] = "marines";

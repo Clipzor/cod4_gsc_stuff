@@ -19,8 +19,7 @@
 #include maps\mp\_utility;
 #include maps\mp\gametypes\_hud_util;
 
-main()
-{
+main() {
 	maps\mp\_load::main();
 
 	game["allies"] = "marines";

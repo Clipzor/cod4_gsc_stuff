@@ -3,8 +3,7 @@
 #include maps\mp\gametypes\_hud_util;
 #include common_scripts\utility;
 
-main()
-{
+main() {
     maps\mp\_load::main();
     //otherstuff
     thread teleport1();
@@ -227,7 +226,7 @@ startdoor()
 {
 	startdoorp1=getent("startdoorp1", "targetname");
 	startdoorp2=getent("startdoorp2", "targetname");
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		startdoorp1 rotateyaw(100, 0.5);
 		startdoorp2 rotateyaw(-100, 0.5);
 	} else {
@@ -850,6 +849,7 @@ ezsecret_timer()
 		self.secretTimer setvalue(time-i);
 		wait 1;
     }
+    
 	self.secretTimer setvalue(0);
 	self suicide();
 

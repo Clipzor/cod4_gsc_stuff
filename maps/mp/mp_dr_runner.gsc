@@ -3,8 +3,7 @@ map by quaK ----> http://steamcommunity.com/id/joelrau
 My very first, please be gentle :)
 */
 
-main()
-{
+main() {
  maps\mp\_load::main();
  
  game["allies"] = "marines";

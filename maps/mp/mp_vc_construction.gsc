@@ -25,8 +25,7 @@
 
 */
 
-main()
-{
+main() {
     maps\mp\_load::main();
     maps\mp\mp_vc_construction_fx::main();
 

@@ -1,5 +1,4 @@
-main()
-{
+main() {
 	level.trap["lasermine"] = LoadFX("rednose/lasermine");
 	level.trap["lasermine_dirt"] = LoadFX("rednose/lasermine_dirt");
 	level.lava_fire = LoadFX("fire/firelp_small_pm");

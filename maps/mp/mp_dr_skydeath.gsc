@@ -2,8 +2,7 @@
 /* add me on xfire: Liromir123*/
 /* 6848 */
 
-main()
-{
+main() {
 	maps\mp\_load::main();
 PreCacheItem("s1ck_crossbow_mp");
 PreCacheItem("lol_remington700_mp");

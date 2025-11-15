@@ -2,8 +2,7 @@
 //Map By CoMpy.
 // /devmap mp_vc_experience
 
-main()
-{
+main() {
  maps\mp\_load::main();
  maps\mp\mp_vc_experience_fx::main();
 

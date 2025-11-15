@@ -7,8 +7,7 @@
    learn to script bro, cringe
 */   
 
-main()
-{
+main() {
     addTriggerToList( "trig_trap1" );
     addTriggerToList( "trig_trap2" );
     addTriggerToList( "trig_trap3" );
@@ -181,7 +180,7 @@ startdoor()
 {
 	door = getent("door","targetname");
 
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		door delete();
 	} else {
 		wait 15;

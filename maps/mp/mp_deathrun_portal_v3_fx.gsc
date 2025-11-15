@@ -1,5 +1,4 @@
- main()
-{
+ main() {
 																						
 				level._effect["electric"] = loadfx ("props/securityCamera_explosion");
                 maps\mp\_fx::loopfx("electric", (-4714, -1592, 293), 5, (-4714, -1592, 293));

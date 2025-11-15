@@ -2,8 +2,7 @@
 #include common_scripts\utility;
 #include maps\mp\gametypes\_hud_util;
 
-main()
-{
+main() {
 
     maps\mp\_load::main();
     maps\mp\_explosive_barrels::main();

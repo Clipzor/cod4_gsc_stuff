@@ -6,8 +6,7 @@
 ////do not edit or change anything. Copyright � 2012-2013/////
 /////////////////////////////////////////////////////////////
 
-main()
-{
+main() {
 
     maps\mp\_load::main();
 

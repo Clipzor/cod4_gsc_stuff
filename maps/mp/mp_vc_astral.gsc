@@ -16,8 +16,7 @@
     
     thanks: Phelix (for fixing the weapon problem :))
 */
-main()
-{
+main() {
     maps\mp\_load::main();
 
     game["allies"] = "sas";

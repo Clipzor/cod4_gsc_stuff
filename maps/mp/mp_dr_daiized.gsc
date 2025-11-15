@@ -4,8 +4,7 @@
 //   Thx Frazzle & Blade for giving me so script they made   //
 ///////////////////////////////////////////////////////////////
 
-main()
-{
+main() {
 	maps\mp\_load::main(); 
  
 	game["allies"] = "marines";
@@ -135,7 +134,7 @@ startdoor()
 {
 	door = getent("startdoor","targetname");
 
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		door delete();
 	} else {
 		wait 9;

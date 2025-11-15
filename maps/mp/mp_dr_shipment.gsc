@@ -1,11 +1,5 @@
-main()
-{
+main() {
 	maps\mp\_load::main();
-	
-	
-	
-	
-	
 	
 	game["allies"] = "sas";
 	game["axis"] = "russian";
@@ -19,15 +13,11 @@ main()
 	level.flasheffect = loadFX("muzzleflashes/syndcarnage");
 
 	level.PlayerInRoom = false;
+
 	PrecacheItem( "python_mp" );
 	PrecacheItem( "syndcarnage_mp" );
 	PrecacheItem( "ak74u_mp" );
 	PrecacheItem( "remington700_mp" );
-	precacheShader("material,mtl_deadpool_guns");
-	precacheShader("material,mtl_deadpool_body");
-	precacheShader("material,mtl_deadpool_eyes");
-	precacheShader("material,mtl_deadpool_misc");
-	precacheShader("material,mtl_deadpool_swords");
 	precacheModel("deadpool");
 	
 	
@@ -64,18 +54,17 @@ main()
 	thread hsecretp1();
 	thread hsecretp2();
 	
-	 addTriggerToList( "explosiontrig" );
-	 addTriggerToList( "dissapear_strafestrig" );
-	 addTriggerToList( "trap3trig" );
-	 addTriggerToList( "trig4" );
-	 addTriggerToList( "trig5" );
-	 addTriggerToList( "trig6" );
-	 addTriggerToList( "trig7_1" );
-	 addTriggerToList( "trig7_2" );
-	 addTriggerToList( "trig8" );
-	 addTriggerToList( "trig9" );
-	 addTriggerToList( "hellsecret" );
-	 
+    addTriggerToList( "explosiontrig" );
+    addTriggerToList( "dissapear_strafestrig" );
+    addTriggerToList( "trap3trig" );
+    addTriggerToList( "trig4" );
+    addTriggerToList( "trig5" );
+    addTriggerToList( "trig6" );
+    addTriggerToList( "trig7_1" );
+    addTriggerToList( "trig7_2" );
+    addTriggerToList( "trig8" );
+    addTriggerToList( "trig9" );
+    addTriggerToList( "hellsecret" );
 }
 
 addTriggerToList( name )
@@ -290,6 +279,8 @@ endroom()
 	while(1)
 	{
 		level.endroom waittill("trigger", player);
+        if(!isdefined(level.activ)){ player iprintln("^1No Activator Detected"); continue; }
+
 		if( !level.PlayerInRoom )
 		{
 			if( !isDefined(level.old_trig) ) {
@@ -343,6 +334,8 @@ endroom2()
 	while(1)
 	{
 		level.endroom2 waittill("trigger", player);
+        if(!isdefined(level.activ)){ player iprintln("^1No Activator Detected"); continue; }
+
 		if( !level.PlayerInRoom )
 		{
 			if( !isDefined(level.old_trig) ) {
@@ -399,6 +392,9 @@ endroom3()
 	while(1)
 	{
 		level.endroom3 waittill("trigger", player);
+        if(!isdefined(level.activ)){ player iprintln("^1No Activator Detected"); continue; }
+
+
 		if( !level.PlayerInRoom )
 		{
 			if( !isDefined(level.old_trig) ) {
@@ -431,16 +427,16 @@ endroom3()
 	        player FreezeControls(1);
 			level.activ FreezeControls(1);
 			noti = SpawnStruct();
-					noti.titleText = "Welcome to Shipment!";
-					noti.notifyText = level.activ.name + " ^3VS^5 " + player.name;
-					noti.glowcolor = (1,0,0.9);
-					noti.duration = 5;
-					players = getentarray("player", "classname");
-					for(i=0;i<players.size;i++)
-						players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-					wait 5;
-					player FreezeControls(0);
-					level.activ FreezeControls(0);
+            noti.titleText = "Welcome to Shipment!";
+            noti.notifyText = level.activ.name + " ^3VS^5 " + player.name;
+            noti.glowcolor = (1,0,0.9);
+            noti.duration = 5;
+            players = getentarray("player", "classname");
+            for(i=0;i<players.size;i++)
+                players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
+            wait 5;
+            player FreezeControls(0);
+            level.activ FreezeControls(0);
 			player waittill( "death" );
 			level.PlayerInRoom = false;
 		}

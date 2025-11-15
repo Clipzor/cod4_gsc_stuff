@@ -53,8 +53,7 @@ bounce2()
 
 
 
-main()
-{
+main() {
 	maps\mp\_load::main();
 	
 	PreCacheItem("ppsh_mp");

@@ -28,8 +28,7 @@
 //thanks Wingzor for room scripts, i havent bothered making my own xd
 //tarik's a stupid bosnian cunt that isn't socialist and bosnia is not strong :))))) and you make "Exclusive" maps and comment out _load
 
-main()
-{
+main() {
 	//maps\mp\_load::main();
 	
 	precacheItem ("deserteagle_mp");
@@ -628,7 +627,7 @@ trap7()
 startdoor()
 {
 	startdoor = getent("startdoor","targetname");
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		startdoor delete();
 	} else {
 		level waittill("round_started");

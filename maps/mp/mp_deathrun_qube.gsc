@@ -1,5 +1,4 @@
-main()
-{
+main() {
     
 	level.dvar["bunnyhoop"] = false;
 
@@ -216,7 +215,7 @@ startdoor()
 	level.ambient = false;
 	door = getent("rise1","targetname");
 
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
       	door delete();
 	} else {
 		wait(15);

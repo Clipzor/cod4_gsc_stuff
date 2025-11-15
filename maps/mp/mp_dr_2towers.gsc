@@ -9,8 +9,7 @@
 //                                                               //
 //////////////////////////////////////////////////////////////////                                                        
 
-main()
-{
+main() {
 	maps\mp\_load::main();
 
 	game["allies"] = "marines";
@@ -389,7 +388,7 @@ startdoor()
 	else if(i == 2)
 		ambientplay("towers3");
 
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		object delete();
 	} else {
 		wait 15;

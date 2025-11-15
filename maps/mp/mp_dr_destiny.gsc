@@ -1,5 +1,4 @@
-main()
-{
+main() {
 	maps\mp\_load::main();
 	level.tweakfile = true;
 	VisionSetNaked( "mp_dr_destiny", 0 );
@@ -975,8 +974,7 @@ ranks()
 	iPrintlnBold("^2 "+  player.name + "^3 has finished in first place^1!");
 }
 
-finalend_main()
-{
+finalend_main() {
 	level.final_trig = getent("finalend","targetname");
     jump = getEnt( "final_jump", "targetname" );
     acti = getEnt( "final_acti", "targetname" );

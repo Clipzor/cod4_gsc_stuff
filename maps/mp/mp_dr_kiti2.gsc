@@ -4,8 +4,7 @@
 ///MAP MADE BY ERYK/LENTAVA
 ///DISCORD: lentavakalakukko
 
-main()
-{
+main() {
 
 	setDvar("scr_fog_disable", 1);
 	maps\mp\_load::main();

@@ -1,5 +1,4 @@
-main()
-{
+main() {
     maps\mp\_load::main();
  
     game["allies"] = "marines";
@@ -37,7 +36,7 @@ startdoor()
 	door=getent("startdoor","targetname");
 	trig=getent("startdoor_trig","targetname");
 
-    if(isdefined(level.auto_open_door) && level.auto_open_door) {
+    if(getdvarint("dr_auto_open_door")) {
 		door delete();
         trig delete();
 	} else {

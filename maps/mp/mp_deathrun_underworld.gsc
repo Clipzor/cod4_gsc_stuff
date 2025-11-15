@@ -22,8 +22,7 @@
 
 
 
-main()
-{
+main() {
     maps\mp\_load::main();
 	
 	precacheItem ( "brick_blaster_mp" );

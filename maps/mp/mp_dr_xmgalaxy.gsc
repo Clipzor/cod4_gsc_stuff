@@ -1,6 +1,5 @@
 //is_raky_angry_from_me_??\\IDK// CRY :(
-main()
-{
+main() {
  maps\mp\_load::main();
  precacheModel("plr_hitman");
  

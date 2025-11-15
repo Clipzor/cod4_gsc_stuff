@@ -19,8 +19,7 @@ Steam ID: 321legend123
 Credit: Wingzor, VC'Blade
 
 */
-main()
-{
+main() {
 	level._effect["spiner_xpl"] = loadfx( "explosions/aa_explosion" );
 	level.bigflare = loadfx( "custome/bigflare" );
 	level._roomfx["flare"] = loadfx( "misc/flare" );

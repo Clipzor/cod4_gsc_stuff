@@ -1,5 +1,4 @@
-main()
-{
+main() {
 	//maps\mp\_load::main();
 	
 	//setExpFog(800, 2500, 255/255, 250/255, 250/255, 0.0); //dit is voor enviroment fog 
@@ -83,7 +82,7 @@ startdoor()
 {
 	startdoor=getent("startdoor_lasers","targetname");
 	startdoor_hurt=getent("firstdoor_hurt","targetname");
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		startdoor_hurt delete();
 		startdoor delete();
 	} else {

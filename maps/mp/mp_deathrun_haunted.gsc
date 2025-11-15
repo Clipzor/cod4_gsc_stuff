@@ -1,5 +1,4 @@
-main()
-{
+main() {
 maps\mp\_load::main();
  
 	level.fog = loadFX("custom/mapfog2");
@@ -168,7 +167,7 @@ while(1)
 
 startdoor() {
 	startdoor = getEnt ("startdoor","targetname");
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		startdoor delete();
 	} else {
 		level waittill( "round_started" );

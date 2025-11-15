@@ -1,5 +1,4 @@
-main()
-{
+main() {
 
 	maps\mp\_load::main();
 	maps\mp\_teleport::main();
@@ -178,7 +177,7 @@ startdoor()
 {
 	door = getent("rise1","targetname");
 
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
       	door delete();
 	} else {
 		wait(15);

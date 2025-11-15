@@ -23,8 +23,7 @@ Credits:
 //print3d
 
 
-main()
-{
+main() {
 	maps\mp\_load::main();
 	//maps\mp\mp_vc_haunted\_cards::main();
 	maps\mp\mp_vc_haunted\_rooms::main();

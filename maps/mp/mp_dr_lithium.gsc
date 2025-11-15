@@ -1,5 +1,4 @@
-main()
-{
+main() {
 
 	level.fire2 = loadFX("deathrun/fire2"); 	   
 	maps\mp\_load::main();

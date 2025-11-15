@@ -1,7 +1,6 @@
 #include maps\mp\_utility;
 #include common_scripts\utility;
-main()
-{
+main() {
 	///External scripts///
 	maps\mp\_load::main();
 	

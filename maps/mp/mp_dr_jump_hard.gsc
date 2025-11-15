@@ -2,8 +2,7 @@
 #include braxi\_dvar;
 #include braxi\_common;
 #include braxi\_rank;
-main()
-{
+main() {
         maps\mp\_load::main();
         maps\mp\_teleport::main();
 //setExpFog(300, 3500, .5, 0.5, 0.45, 0);      
@@ -114,7 +113,7 @@ start_door()
         brush = getEnt("start_door","targetname");
         button = getEnt("start_door_button","targetname");
         
-        if(isdefined(level.auto_open_door) && level.auto_open_door) {
+        if(getdvarint("dr_auto_open_door")) {
                 brush delete();
         } else {
                 level waittill( "round_started" );

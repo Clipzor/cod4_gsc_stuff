@@ -18,8 +18,7 @@
 
 	trig_skull();
 */
-main()
-{
+main() {
 	maps\mp\_load::main(); 
 
     ambientPlay("ambient1");

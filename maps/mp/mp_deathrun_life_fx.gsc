@@ -1,5 +1,4 @@
-main()
-{
+main() {
 	level._effect[ "torchfire" ] = loadfx( "fire/firelp_barrel_pm" );
 	
 /#

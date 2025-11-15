@@ -2,8 +2,7 @@
 Map made by Sheep Wizard
 youtube: http://www.youtube.com/user/paap15
 */
-main()
-{
+main() {
      maps\mp\_load::main();
 	 maps\mp\mp_deathrun_island\teleport::main();
 	 maps\mp\mp_deathrun_island\traps::main();

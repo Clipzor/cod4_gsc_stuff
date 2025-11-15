@@ -5,8 +5,7 @@
 //Map Made by Poyser
 // Add amb2.mp3 to mp_dr_blue.iwd/sound/ if you wish (its linked to soundaliases "skrillex") 
 
-main()
-{
+main() {
 
     maps\mp\_load::main();
 	setExpFog(500, 1000, 0.4, 0.425, 0.44, 0.0);

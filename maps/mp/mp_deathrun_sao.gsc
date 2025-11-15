@@ -18,8 +18,7 @@ Credits: VC'Blade - creator script help
 		 Xplosive - some trap ideas
 
 */
-main()
-{
+main() {
 	level._effect["watersuicide"] = loadfx( "custome/watersuicide" );
 	level._effect["explobell"] = loadfx( "explosions/aa_explosion" );
 	level._effect["iron_sword"] = loadfx( "sao/iron_sword" );

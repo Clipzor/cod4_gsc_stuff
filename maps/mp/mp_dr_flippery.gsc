@@ -3,8 +3,7 @@
 #include maps\mp\gametypes\_hud_util;
 
 
-main()
-{
+main() {
 	// map version 1.0
 	
 	maps\mp\mp_dr_flippery_fx::main();

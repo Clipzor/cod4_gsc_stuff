@@ -1,7 +1,6 @@
 #include maps\mp\_utility;
 //#include maps\mp\jr_util;
-main()
-{
+main() {
 //Speedex
 maps\mp\_load::main();
 

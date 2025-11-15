@@ -57,8 +57,7 @@ Map size: Small  					   -
 */
 #include maps\mp\_utility;
 #include maps\mp\gametypes\_hud_util;
-main()
-{
+main() {
 	//All of Scripts traps n secrets, all :>
 	thread door();
 	thread trap1();

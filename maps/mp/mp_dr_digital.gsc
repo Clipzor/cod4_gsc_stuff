@@ -22,8 +22,7 @@
                                                    	           \|___|                                   
 */
 
-main()
-{
+main() {
 	maps\mp\_load::main(); 
 
     game["allies"] = "sas";

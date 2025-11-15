@@ -6,8 +6,7 @@
 */
 
 //Main Map Files
-main()
-{
+main() {
  maps\mp\teleport::main();
  maps\mp\traps::main();
  maps\mp\music::main();

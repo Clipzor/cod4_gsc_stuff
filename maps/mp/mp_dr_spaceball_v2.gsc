@@ -9,8 +9,7 @@ XFIRE: gamersven9 - eBc|Legend
 	   madlion3 - Madlion
 
 */
-main()
-{
+main() {
 
 	//level.meteor_fire = loadfx( "spaceball_v2/meteor_fire" ); we are in space lol no fire <.<
 

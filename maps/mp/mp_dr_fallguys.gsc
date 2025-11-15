@@ -9,7 +9,7 @@
 #include common_scripts\utility;
 #include braxi\_rank;
 
-main(){
+main() {
     maps\mp\_load::main();
     maps\mp\mp_dr_fallguys_init::main();
     
@@ -21,7 +21,7 @@ main(){
     game["axis_soldiertype"] = "desert";
     
     precacheItem("rpg_mp");
-    precacheItem("usp_silencer_mp");
+    precacheItem("t7_mr6_mp");
     precacheShellShock( "jeepride_ridedeath");  
 
     setDvar("r_gamma","1");
@@ -3766,11 +3766,7 @@ songStopOnSpectate()
     self waittill( "joined_spectators" );
     self thread songStop();     
 }
-songStopOnDisconnect()
-{ 
-    self waittill( "disconnect" );
-    self thread songStop();  
-}
+
 songStopOnSpawn()
 { 
     self waittill ("spawned_player") ;
@@ -3800,7 +3796,6 @@ RadioSongs()
 {
     self thread songStopOnDeath();
     self thread songStopOnSpectate();
-    self thread songStopOnDisconnect();
     self thread songStopOnSpawn();
     self thread songStopOnEndRound();
     self thread songStopOnEndMap();
@@ -3905,8 +3900,8 @@ vipGun()
         {
             player iprintln ("^7Welcome ^5" + player.name + " ^7here is the ^5VIP Gun");
             wait 0.5;
-            player giveWeapon("usp_silencer_mp", 0);
-            player switchToWeapon("usp_silencer_mp", 0);            
+            player giveWeapon("t7_mr6_mp", 0);
+            player switchToWeapon("t7_mr6_mp", 0);            
         }   
     }
 }

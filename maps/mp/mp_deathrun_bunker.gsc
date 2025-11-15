@@ -1,5 +1,4 @@
-main()
-{
+main() {
     maps\mp\_load::main();
 	level.effect1 = LoadFX("smoke/hallway_steam_flood");
 	level.effect2 = LoadFX( "fire/killing_fire" );

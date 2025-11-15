@@ -1,5 +1,4 @@
-main()
-{
+main() {
 	maps\mp\_load::main();
 	
 	game["allies"] = "marines";
@@ -114,7 +113,7 @@ startdoor(object_entity)
 {
 	door = getEnt(object_entity, "targetname");
 
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		door delete();
 	} else {
 		wait 10;

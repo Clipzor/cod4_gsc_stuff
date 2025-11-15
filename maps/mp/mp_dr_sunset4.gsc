@@ -3,8 +3,7 @@
 #include braxi\_rank;
 
 
-main()
-{
+main() {
 
 	activ = spawn("script_origin", (608, -916, 244), 0, 360, 0);
     activ.targetname = "mp_activator_spawn";

@@ -13,8 +13,7 @@
 //	addMenuOption("^1Splat !!",Braxi\_mod::gib_splat);
 //iw3mp.exe +set fs_game "mods/" +set gametype "deathrun"
 //mp_cm_quarry
-main()
-{
+main() {
 	maps\mp\_load::main();
 	//maps\mp\_mapper_only::main();
 	

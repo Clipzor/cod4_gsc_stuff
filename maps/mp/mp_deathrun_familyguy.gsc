@@ -124,8 +124,7 @@ ________________________________________________________________________________
 
 #include maps\mp\gametypes\_hud_util;
 
-main()
-{
+main() {
 	thread mikeyInit();
 	maps\mp\_load::main();
 

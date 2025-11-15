@@ -1,5 +1,4 @@
-main()
-{
+main() {
 	level.tweakfile = true;
  
 	setdvar( "scr_fog_disable", "0" );

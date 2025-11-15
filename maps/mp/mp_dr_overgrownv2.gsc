@@ -2,8 +2,7 @@
 //Feel very nubish if you attempt to steal scripts from me, jk I dont care. But if you do pls give me credit and/or the creator of the snippet!
 #include maps\mp\_utility;
 #include common_scripts\utility;
-main()
-{
+main() {
 
 level.heli_crash_paths = [];
 maps\mp\_load::main();

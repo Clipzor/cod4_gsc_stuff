@@ -15,8 +15,7 @@
 ------------- xFire   	: 	bladetk17
 ------------- Homepage	:  	visticdeathrun.x10.mx [Update Soon]
 */
-main()
-{
+main() {
 	maps\mp\_load::main();
 	maps\mp\_traprooms::main();
 	maps\mp\_trancerooms::main();

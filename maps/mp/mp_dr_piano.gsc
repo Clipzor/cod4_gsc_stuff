@@ -32,8 +32,7 @@ Map created by   FNRP-Muffinator      Coding: blu
 
 #include common_scripts\utility;
 
-main()
-{
+main() {
     maps\mp\_load::main();
 
     game["allies"] = "marines";

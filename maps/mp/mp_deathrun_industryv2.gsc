@@ -8,8 +8,7 @@ ___\____/________/\____/_/	    \_/________/
 
 Thanks on decompiling noob... learn to script...
 */
-main()
-{
+main() {
 
 	maps\mp\_load::main();
 
@@ -240,7 +239,7 @@ startdoors()
 {
 	door1 = getent("sdoor1","targetname");
 	door2 = getent("sdoor2","targetname");
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		door1 delete();
 		door2 delete();
 	} else {

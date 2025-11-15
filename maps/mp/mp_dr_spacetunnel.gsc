@@ -3,8 +3,7 @@ Map made by Sheep Wizard
 youtube: http://www.youtube.com/user/paap15
 xfire: paap15
 */
-main()
-{
+main() {
      maps\mp\_load::main();
 	 level.triangle = loadFX("deathrun/triangle");
 	 level.fireball = loadFX("deathrun/fireball");

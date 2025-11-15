@@ -1,5 +1,4 @@
-main()
-{
+main() {
 	precacheItem("remington700_mp");
 	maps\mp\_load::main();
 	

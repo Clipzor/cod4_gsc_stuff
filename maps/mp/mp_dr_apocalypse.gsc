@@ -1,5 +1,4 @@
-main()
-{
+main() {
 	level._effect["lava_1"] = loadFx("fire/lava_effect_01");
 	level._effect["fire_1"] = loadFx("fire/custom_fire_01");
 	level._effect["fire_2"] = loadFx("fire/custom_fire_02");

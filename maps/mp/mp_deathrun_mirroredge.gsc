@@ -5,8 +5,7 @@
   MMM,DMMM   MMM  MM MMMM  MMM  MM  MMM     MM7  MMM  MM MM                     
   MMM  MMM   MMM  MM  MMM   NMMMMM  MMMMMM   NMMMM .  MM MMM                    
 */
-main()
-{
+main() {
 	maps\mp\_load::main();
 	
 
@@ -563,7 +562,7 @@ while(1)
 }
 
 /////
-//Strafe-run ©Duffman
+//Strafe-run ï¿½Duffman
 ////
 StrafeRun() {
 

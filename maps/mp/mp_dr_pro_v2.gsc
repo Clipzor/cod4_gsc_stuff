@@ -3,8 +3,7 @@
 #include maps\mp\gametypes\_hud_util;
 #include common_scripts\utility;
 
-main()
-{
+main() {
 
    maps\mp\_load::main();
    
@@ -273,7 +272,7 @@ startdoor()
 {
 	lutje=getent( "introdoor", "targetname" );
 
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
         lutje delete();
     } else {
         wait 20;

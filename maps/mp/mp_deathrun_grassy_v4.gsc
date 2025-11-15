@@ -1,5 +1,4 @@
-main()
-{
+main() {
 
 	PrecacheModel("vehicle_mig29_desert");
 	PrecacheModel("projectile_cbu97_clusterbomb");

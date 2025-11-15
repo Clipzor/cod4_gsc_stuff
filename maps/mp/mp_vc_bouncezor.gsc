@@ -3,8 +3,7 @@
 	Thanks to Blade for his music menu
 	vistic-clan
 */
-main()
-{
+main() {
 	maps\mp\_load::main(); 
 
 	game["allies"] = "sas";

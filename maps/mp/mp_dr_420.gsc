@@ -39,8 +39,7 @@
 #include maps\mp\gametypes\_hud_util;
 #include common_scripts\utility;
 
-main()
-{
+main() {
 ////////////////			*START OF MAIN*			\\\\\\\\\\\\\\\\\\
 	
 	//maps\mp\_load::main();
@@ -741,7 +740,7 @@ startdoor()
 {
 	startdoor = getent("startdoor","targetname");
 
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		startdoor delete();
 	} else {
 		level waittill("round_started");

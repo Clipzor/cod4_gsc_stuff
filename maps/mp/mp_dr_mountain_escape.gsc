@@ -2,8 +2,7 @@
 #include maps\mp\gametypes\_hud_util;
 #include common_scripts\utility;
 
-main()
-{	  
+main() {	  
 	maps\mp\_load::main();
 	maps\mp\_teleport::main();
 	

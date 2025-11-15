@@ -1,5 +1,4 @@
-main()
-{
+main() {
 	//Cod4 Stuff
 	maps\mp\_load::main();
 
@@ -309,7 +308,7 @@ wait 1;
 
 startingdoor()
 {
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		level.startdoor delete();
 		level.startdoor_trig delete();
 	} else {

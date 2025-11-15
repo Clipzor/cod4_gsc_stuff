@@ -16,8 +16,7 @@ Project finished at: 10/1/2016
 Name: mp_dr_misty
 */
 
-main()
-{
+main() {
 	maps\mp\_load::main();
 	game["allies"] = "marines";
 	game["axis"] = "opfor";

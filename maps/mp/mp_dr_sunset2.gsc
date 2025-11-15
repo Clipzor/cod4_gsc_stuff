@@ -11,8 +11,7 @@
 #include braxi\_rank;
 #include braxi\_common;
 
-main()
-{
+main() {
  
 	game["allies"] = "marines";
     game["axis"] = "opfor";

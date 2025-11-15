@@ -1,5 +1,4 @@
-main()
-{
+main() {
 
     precacheModel( "playermodel_mw2_usmc_smg_a" );
 	precacheModel( "playermodel_ghost_recon" );
@@ -156,7 +155,7 @@ new_ending_hud( align, fade_in_time, x_off, y_off )
 startdoor()
 {
 	object = getent("startdoor","targetname");
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		object delete();
 	} else {
 		wait 10;

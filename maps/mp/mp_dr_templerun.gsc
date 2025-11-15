@@ -8,8 +8,7 @@ Map By: Death
 Code Fixed By: Clippy
 */
 
-main()
-{
+main() {
     maps\mp\_load::main();
 
     ///FX LOAD

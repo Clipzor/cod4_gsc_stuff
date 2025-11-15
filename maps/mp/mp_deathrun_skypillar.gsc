@@ -1,6 +1,5 @@
 //exec deatehrun.cfg +set fs_game Mods/deathrun_updated +set scr_game_playerwaittime 0 +set scr_game_matchstarttime 0 +exec deathrun.cfg +developer 0 +devmap mp_deathrun_skypillar
-main()
-{
+main() {
 	maps\mp\_load::main();
 	
 	ambientPlay("ambient1");
@@ -120,7 +119,7 @@ creatorcredit()
 wait(10);
 thread drawInformation( 800, 0.8, 1, "Skypillar" );
 wait(4);
-thread drawInformation( 800, 0.8, 1, "© Wingzor & Paradise" );
+thread drawInformation( 800, 0.8, 1, "ï¿½ Wingzor & Paradise" );
 wait(4);
 }
 

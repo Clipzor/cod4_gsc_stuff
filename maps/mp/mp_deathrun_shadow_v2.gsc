@@ -3,8 +3,7 @@
 [ASK FIRST FOR PERMISSON TO COPY OR USE SCRIPTS!]
 Steam: bossmadlion - Madlion
 */
-main()
-{
+main() {
 
 //level._effect[ "teleport" ] = loadfx( "misc/ui_pickup_available" );
 

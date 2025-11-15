@@ -11,8 +11,7 @@ Add JUMPER SPAWNS
 Add Global intermission
 */
 
-main()
-{
+main() {
 	maps\mp\_load::main();
 	
 	

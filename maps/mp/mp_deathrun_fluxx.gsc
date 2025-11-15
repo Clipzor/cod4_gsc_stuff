@@ -1,8 +1,7 @@
 //map my Sheep Wizard
 //Youtube paap15
 //mp_deathrun_fluxx
-main()
-{
+main() {
      maps\mp\_load::main();
 	 level.blood = loadFX("deathrun/blood");
 	 level.orangesmoke = loadFX("deathrun/orangesmoke");

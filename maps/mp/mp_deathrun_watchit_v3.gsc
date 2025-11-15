@@ -1,5 +1,4 @@
-main()
-{
+main() {
 	maps\mp\_load::main();
 	maps\mp\_compass::setupMiniMap("compass_map_mp_deathrun_watchit_v3");
 

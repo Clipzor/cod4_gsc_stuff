@@ -1,7 +1,6 @@
 #include maps\mp\_utility;
 
-main()
-{
+main() {
 	level._effect["startfx"] = loadfx( "stagesv2/startfx" );
 
 	precacheitem("ak47_mp");
@@ -163,7 +162,7 @@ startdoors()
 	door_y = getEnt("yellow_door","targetname");
 	door_g = getEnt("green_door","targetname");
 
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		door_b delete();
 		door_r delete();
 		door_y delete();

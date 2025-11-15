@@ -1,5 +1,4 @@
-main()
-{
+main() {
 	maps\mp\_load::main();
 	maps\createfx\mp_deathrun_zero_fx::main();
 	maps\mp\mp_deathrun_zero_fx::main();

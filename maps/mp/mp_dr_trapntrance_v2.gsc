@@ -14,8 +14,7 @@
 			Blade #6504
 			Niko #2926
 */
-main()
-{
+main() {
 	maps\mp\_load::main();
 
 	// ================ Game Settings ================ //

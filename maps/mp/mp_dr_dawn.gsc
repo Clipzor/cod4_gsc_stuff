@@ -1,5 +1,4 @@
-main()
-{      
+main() {      
         maps\mp\_load::main();
        
         game["allies"] = "marines";
@@ -334,7 +333,7 @@ Startdoor()
         //trig = getEnt( "startdoor", "targetname" );
         brush = getEnt( "doora", "targetname" );
         brush2 = getEnt( "doorb", "targetname" );
-        if(isdefined(level.auto_open_door) && level.auto_open_door) {
+        if(getdvarint("dr_auto_open_door")) {
                 brush delete();
                 brush2 delete();
         } else {

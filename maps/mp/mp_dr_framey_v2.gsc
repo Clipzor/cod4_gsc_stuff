@@ -1,5 +1,4 @@
-main()
-{
+main() {
 	maps\mp\_load::main();
 	
 	game["allies"] = "marines";
@@ -121,7 +120,7 @@ on_start()
 	thread scr3();
 	thread scr4();
 
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		door delete();
 		iPrintLnBold("^2The door is open!");
 		wait 12; // trying to match timing for platform, hope its okay

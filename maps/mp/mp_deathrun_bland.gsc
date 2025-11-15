@@ -1,5 +1,4 @@
-main()
-{
+main() {
 	maps\mp\_teleport::main();
 	maps\mp\_load::main();
 	

@@ -1,5 +1,4 @@
-main()
-{
+main() {
 // Doors \\
 	thread door1();
 // Misc \\

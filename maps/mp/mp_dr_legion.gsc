@@ -1,6 +1,5 @@
 
-main()
-{
+main() {
         
 
 	addTriggerToList("trap_1");

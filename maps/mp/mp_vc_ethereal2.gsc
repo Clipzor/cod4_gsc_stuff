@@ -25,8 +25,7 @@
 
 */
 
-main()
-{
+main() {
     maps\mp\_load::main();
     maps\mp\mp_vc_ethereal2_fx::main();
 

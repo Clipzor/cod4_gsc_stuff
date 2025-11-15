@@ -5,8 +5,7 @@
 ///(C) 2024/2025 ALL RIGHTS RESERVED TO ERYK/LENTAVA
 ///NEED A COD4 MAP? CONTACT ME ON DISCORD: lentavakalakukko
 
-main()
-{
+main() {
 	setDvar("scr_fog_disable", 1);
 	maps\mp\_load::main();
 	maps\mp\mp_dc_kalakukko_fx::main();

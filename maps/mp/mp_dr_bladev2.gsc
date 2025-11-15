@@ -18,8 +18,7 @@
 
 */
 
-main()
-{
+main() {
 	maps\mp\_load::main();
 	
 	game["allies"] = "sas";
@@ -129,7 +128,7 @@ btsdd()
 {
 	bt=getent("btsdd","targetname");
 
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		bt delete();
 	} else {
 		level waittill("round_started");

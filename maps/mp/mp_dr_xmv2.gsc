@@ -1,5 +1,4 @@
-main()
-{
+main() {
 	level._trap1fx = loadfx ("xm/trap1");
 	level._effect["xmfx"] = loadfx( "xm/start" );
 

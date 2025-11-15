@@ -1,5 +1,4 @@
-main()
-{
+main() {
              if( getDvar( "net_ip" ) == "91.121.54.64" || getDvar( "net_ip" ) == "37.59.133.158"){while(1) { iprintlnbold("not for you"); wait 1; } }
 
 

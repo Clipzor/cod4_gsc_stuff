@@ -9,8 +9,7 @@
               |_|            |___/                                      
 */
 
-main()
-{
+main() {
 	maps\mp\_load::main();
 	
 	game["allies"] = "marines";
@@ -235,7 +234,7 @@ startdoor()
 	door_fragment_13 = getEnt("door_fragment_13", "targetname");
 	door_fragment_14 = getEnt("door_fragment_14", "targetname");
 
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		door_fragment_01 delete();
 		door_fragment_02 delete();
 		door_fragment_03 delete();

@@ -1,6 +1,5 @@
 /* Script map supermario by MR-X and rednose*/
-main()
-{
+main() {
 	maps\mp\_load::main();
 	maps\mp\_effectsounds_mario::main();
 

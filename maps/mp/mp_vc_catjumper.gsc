@@ -15,8 +15,7 @@
 	|___/_/___|__/_/\__/  \___/_/\_,_/_//_/ 
 	vistic-clan.net
 */
-main()
-{
+main() {
 	maps\mp\_load::main(); 
 
     //ambientPlay("ambient1");

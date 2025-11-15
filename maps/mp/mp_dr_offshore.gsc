@@ -25,8 +25,7 @@
 
 */
 
-main()
-{
+main() {
     maps\mp\_load::main();
     maps\mp\mp_dr_offshore_fx::main();
 

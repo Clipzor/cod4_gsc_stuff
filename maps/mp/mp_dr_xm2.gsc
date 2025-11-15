@@ -1,5 +1,4 @@
-main()
-{
+main() {
 	level._effect["map"] = loadfx( "xm/start" );
 	
 	maps\mp\_load::main();

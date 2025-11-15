@@ -1,7 +1,6 @@
 //Map by CM'Death
 //Discord:Death#7416
-main()
-{
+main() {
  maps\mp\_load::main();
  
  game["allies"] = "marines";

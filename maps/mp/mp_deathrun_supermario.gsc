@@ -1,6 +1,5 @@
 /* Script map supermario beta by MR-X*/
-main()
-{
+main() {
 	//maps\mp\mp_deathrun_supermario_fx::main();
 	maps\mp\_load::main();
 	//maps\mp\_compass::setupMiniMap("compass_map_mp_deathrun_supermario");

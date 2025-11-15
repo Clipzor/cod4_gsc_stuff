@@ -24,7 +24,7 @@
 // Steam: Gabb(Korean girl picture) Bnet: Gabb#2215 or PM on FNRP-Forums.                                 //                                                                      //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-main(){
+main() {
 
 	maps\mp\_load::main();	 
 	game["allies"] = "marines";

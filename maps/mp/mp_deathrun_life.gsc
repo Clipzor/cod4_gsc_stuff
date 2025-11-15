@@ -6,8 +6,7 @@ ______________________________________________
   _/  /__   /_/   /	 /__/ /    \ \ /  /__/  /
 ___\____/________/\____/_/	    \_/________/
 */
-main()
-{
+main() {
 	level._effect["breakwindow"] = loadfx ("custome/glassbreak");
 	level._effect["explosion"] = loadfx ("explosions/aa_explosion");
 	level._effect["roomfx"] = loadfx("custome/life_roomfx");
@@ -237,7 +236,7 @@ startdoors()
 	door1 = getent("door1","targetname");
 	door2 = getent("door2","targetname");
 
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		door1 rotateyaw(120,0.5);
 		door2 rotateyaw(-120,0.5);
 	} else {

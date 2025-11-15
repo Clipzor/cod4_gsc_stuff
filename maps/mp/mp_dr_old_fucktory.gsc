@@ -3,8 +3,7 @@
  /devmap mp_dr_old_fucktory
 */
 
-main()
-{
+main() {
     maps\mp\_load::main();
     maps\mp\mp_dr_old_fucktory_fx::main();
 

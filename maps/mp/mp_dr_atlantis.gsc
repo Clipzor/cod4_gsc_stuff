@@ -8,8 +8,7 @@
 #include braxi\_rank;
 #include common_scripts\utility;
 
-main()
-{
+main() {
 maps\mp\_load::main();
  
 	game["allies"] = "marines";
@@ -180,6 +179,7 @@ maps\mp\_load::main();
 	thread l190();
 	thread secretend190();
 	thread main210();
+    thread gone();
 	thread enter210();
 	thread b210();
 	thread c210();
@@ -352,92 +352,22 @@ iPrintln("^2>>^1Now playing: ^5Rival - Walls^2<<");
 
 messages()
 {
-wait 10;
-for(;;)
-{
-wait 35;
-x=randomint(16);
-if (x==0)
-{
-iPrintln("^1Map made by ^5DarkSTEP");
-}
 
-if (x==1)
+    iPrintln("^1Map made by ^5DarkSTEP");
+    wait 1;
+    iPrintln("^1Discord: ^5DarkSTEP#7390");
+    wait 1;
+    iPrintln("^5You can ^1Roll The Dice ^5once per round at spawn");
+    wait 1;
+    iPrintln("^5You can spend your ^1DARK POINTS ^5at spawn");
+}
+gone()
 {
-iPrintln("^5There are ^22^5 jumper secrets, an ^4EASY^5 and an ^1HARD^5 one!");
-}
-
-if (x==2)
-{
-iPrintln("^5This map took ^12^5 months of work so i hope it's worth it :)");
-}
-
-if (x==3)
-{
-iPrintln("^5Secrets have an antiglitch system so don't try to shortcut ;)");
-}
-
-if (x==4)
-{
-iPrintln("^1Steam: ^5CAR ^0DarkSTEP");
-}
-
-if (x==5)
-{
-iPrintln("^5Feel free to report bugs");
-}
-
-if (x==6)
-{
-iPrintln("^5Feel free to join us on ^1xenia-gaming.net");
-}
-
-if (x==7)
-{
-iPrintln("^1Discord: ^5DarkSTEP#7390");
-}
-
-if (x==8)
-{
-iPrintln("^5Special thanks to ^2Ohh Rexy<3 ^5for finding me that emotiguy model :D");
-}
-
-if (x==9)
-{
-iPrintln("^5After a room fight your ^2health^5 will be restored");
-}
-
-if (x==10)
-{
-iPrintln("^5You can ^1Roll The Dice ^5once per round at spawn");
-}
-
-if (x==11)
-{
-iPrintln("^5You can spend your ^1DARK POINTS ^5at spawn");
-}
-
-if (x==12)
-{
-iPrintln("^1DARK POINTS ^5will get resetted at map end, so spend them!");
-}
-
-if (x==13)
-{
-iPrintln("^5Leaving a race room will get you temporarily ^1BANNED ^5until round ends");
-}
-
-if (x==14)
-{
-iPrintln("^5Delivering all the crystals will get everyone ^3FREE ^210.000 ^1XP!");
-}
-
-if (x==15)
-{
-iPrintln("^5Special thanks to ^2DarkSTEP ^5for that awesome trident weapon :^)");
-}
-
-}
+    thread aaa();
+    wait 4;
+    thread aab();
+    wait 4;
+    thread aac();
 }
 
 maketp(trigname, oname, message, globalmessage, xp) 
@@ -618,7 +548,7 @@ startdoor()
 	b = getEnt("sdbottom", "targetname");
 	r = getEnt("sdright", "targetname");
 
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		t delete();
 		b delete();
 		l delete();

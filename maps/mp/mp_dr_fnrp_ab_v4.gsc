@@ -1,8 +1,7 @@
 //Map by #FNRP#ABprice
 
 
-main()
-{
+main() {
  maps\mp\_load::main();
 
 

@@ -12,8 +12,7 @@
 
 //!ATTENTION!// THIS MAP WAS MADE IN 12 HOURS //
 
-main()
-{
+main() {
 	maps\mp\_load::main();	
 
 	game["allies"] = "marines";

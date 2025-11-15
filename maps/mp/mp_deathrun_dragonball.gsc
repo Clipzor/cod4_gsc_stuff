@@ -12,8 +12,7 @@ MMMMM  MM   MMM8     M    7M    MMM~       MMM.       ~MM       MM      M   .MMM
 MMMMM  MMN MMMM8     M    7M    MMMMM.  M  MM.        ~MMM.   7MMM      M.  =MMM
 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM 
 */
-main()
-{	
+main() {	
 	maps\mp\_load::main();	
 	
 	SetDvar( "player_meleerange", "100" );

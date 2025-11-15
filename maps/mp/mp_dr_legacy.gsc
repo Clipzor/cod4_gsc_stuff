@@ -17,8 +17,7 @@ Feel free to use any part of scripts!( ͡❛ ͜ʖ ͡❛ )
 
 */
 
-main()
-{
+main() {
  maps\mp\_load::main();
  
  ///FX's load///

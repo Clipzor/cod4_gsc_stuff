@@ -1,8 +1,7 @@
 //Map by Fish Da Rekter
 
 
-main()
-{
+main() {
     maps\mp\_load::main();
     
     game["allies"] = "marines";
@@ -74,7 +73,7 @@ startdoors()
 {
 	door = getent("startdoor","targetname");
 
-	if(isdefined(level.auto_open_door) && level.auto_open_door) {
+	if(getdvarint("dr_auto_open_door")) {
 		door delete();
 	} else {
 		wait 10;

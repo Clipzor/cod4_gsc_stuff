@@ -11,8 +11,7 @@
 */
 #include maps\mp\_utility;
 #include maps\mp\gametypes\_hud_util;
-main()
-{
+main() {
 	AmbientPlay( "animals");	
 
 	thread creator();

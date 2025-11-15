@@ -5,8 +5,7 @@
 #include maps\mp\gametypes\_hud_util;
 #include common_scripts\utility;
 #include braxi\_rank;
-main()
-{
+main() {
  maps\mp\_load::main();
  
  game["allies"] = "marines";
@@ -203,7 +202,7 @@ startdoor()
 {
     fences = getent("startdoor","targetname");
 
-    if(isdefined(level.auto_open_door) && level.auto_open_door) {
+    if(getdvarint("dr_auto_open_door")) {
 		fences delete();
 	} else {
         fences show();

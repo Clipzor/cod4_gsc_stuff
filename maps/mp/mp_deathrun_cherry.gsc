@@ -9,8 +9,7 @@
 ///_____/ \__,_/ /_/    /_/ /_/ /_/\__,_/ /_/ /_/ 
                                                 
 
-main()
-{
+main() {
 	maps\mp\_load::main();
 
 	precacheItem("knife_mp");
@@ -239,7 +238,7 @@ startbutton()
 startdoor()
 {
 	brush = getent("startdoor", "targetname");
-	if(isdefined(level.auto_open_door) && level.auto_open_door) { 
+	if(getdvarint("dr_auto_open_door")) { 
 		brush delete();
 	} else {
 		wait 10;

@@ -3,8 +3,7 @@
 //(C)+(r) DeltaBoss
 //Special thx to Wingzor, PetX, Braxi. (and Lossy)
 
-main()
-{
+main() {
 	maps\mp\_load::main();
 	
 	game["allies"] = "sas";

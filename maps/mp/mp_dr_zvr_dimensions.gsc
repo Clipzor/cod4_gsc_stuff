@@ -2,8 +2,7 @@
 
 //#include braxi\_rank;
 
-main()
-{
+main() {
  maps\mp\_load::main();
 
 

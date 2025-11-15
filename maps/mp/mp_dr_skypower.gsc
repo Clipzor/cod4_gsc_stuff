@@ -1,7 +1,6 @@
 #include maps\mp\_utility;
  
-main()
- {
+main() {
 	maps\mp\_load::main();
     ambientPlay("main1234");
 	

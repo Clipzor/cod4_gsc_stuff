@@ -32,8 +32,7 @@ PlayFXOnTag( fx, self, "j_knee_le" );
 */
 
 
-main()
-{
+main() {
 	maps\mp\_load::main();
 	
 	game["allies"] = "marines";

@@ -1,7 +1,6 @@
 #include maps\mp\_utility;
 #include maps\mp\gametypes\_hud_util;
-main()
-{
+main() {
     trigger = spawn( "trigger_radius", (811.708, -136.094, 241.125), 0, 95, 100 );
     trigger.targetname = "endmap_trig";
     trigger.radius = 95;

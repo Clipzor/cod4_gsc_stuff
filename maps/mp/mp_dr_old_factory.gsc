@@ -16,8 +16,7 @@
 #include maps\mp\_utility;
 #include maps\mp\gametypes\_hud_util;
 #include common_scripts\utility;
-main()
-{
+main() {
 maps\mp\_load::main();
 
 
@@ -1849,36 +1848,37 @@ weapon_room()
     {
         level.trigger_weapon setHintString ("^7Press ^5[&&1]^7 to enter ^5Weapon Room");
         level.trigger_weapon waittill ("trigger", player);
+        if(!isDefined(level.activ))
+            continue;
+
         level.trigger_weapon setHintString ("^5" + player.name + "^7 in room!");
 
         thread fightHUD("Weapon Room", player, level.activ);
+        
         player setOrigin (orig_jumper.origin);
-        player thread removeTextActivator();
+        level.activ setOrigin (orig_acti.origin);
         player setPlayerAngles (orig_jumper.angles);
+        level.activ setPlayerAngles (orig_acti.angles);
+
+        level.activ thread removeTextActivator();
+        player thread removeTextActivator();
+
         player takeAllWeapons();
+        level.activ takeAllWeapons();
         player.maxhealth = 100;
+        level.activ.health = 100;
         player.health = player.maxhealth;
+        level.activ.maxhealth = 100;
         player thread endTimerRun("^5Let s Go !", 3, 0);
+        level.activ thread endTimerRun("^5Let s Go !", 3, 0);
+
         wait 3;
         player giveWeapon("ak74u_mp");
+        level.activ giveWeapon("ak74u_mp");
         player giveMaxAmmo("ak74u_mp");
+        level.activ giveMaxAmmo("ak74u_mp");
         player switchToWeapon("ak74u_mp");
-
-        if(isDefined(level.activ) && isAlive(level.activ))
-        {
-        	thread fightHUD("Weapon Room", player, level.activ);
-            level.activ thread removeTextActivator();
-            level.activ setOrigin (orig_acti.origin);
-            level.activ setPlayerAngles (orig_acti.angles);
-            level.activ takeAllWeapons();
-            level.activ.maxhealth = 100;
-            level.activ.health = 100;
-            level.activ thread endTimerRun("^5Let s Go !", 3, 0);
-        	wait 3;
-        	level.activ giveWeapon("ak74u_mp");
-        	level.activ giveMaxAmmo("ak74u_mp");
-        	level.activ switchToWeapon("ak74u_mp");
-        }
+        level.activ switchToWeapon("ak74u_mp");
 
         while(isDefined(player) && isAlive(player))
             wait .05;

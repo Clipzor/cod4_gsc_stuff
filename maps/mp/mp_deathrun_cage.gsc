@@ -1,8 +1,7 @@
 /*
     A WILD BLADE SCRIPT PRO APPEARED XD
 */
-main()
-{
+main() {
     maps\mp\_load::main();
 
     game["allies"] = "marines";

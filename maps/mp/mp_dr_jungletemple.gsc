@@ -1,7 +1,6 @@
 #include common_scripts\utility;
 #include maps\mp\_utility;
-main()
-{
+main() {
 	maps\mp\_load::main();
 
 	////Ambience////
