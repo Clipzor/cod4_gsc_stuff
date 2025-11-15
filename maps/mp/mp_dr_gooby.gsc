@@ -295,15 +295,21 @@ sniper_tele()
 
 		player SetOrigin (sniperjumpertele.origin);
 		player setplayerangles (sniperjumpertele.angles);
+
 		player TakeAllWeapons();
 		player GiveWeapon ("m40a3_mp"); 
 		player GiveWeapon ("remington700_mp"); 
 
+        player.health = player.maxhealth;
+        level.activ.health = level.activ.maxhealth;
+
 		level.activ SetOrigin (sniperactitele.origin);
 		level.activ setplayerangles (sniperactitele.angles);
+
 		level.activ TakeAllWeapons();
 		level.activ GiveWeapon ("m40a3_mp");
 		level.activ GiveWeapon ("remington700_mp");
+        
 		player GiveWeapon ("m40a3_mp"); 
 		player GiveWeapon ("remington700_mp"); 
 
@@ -337,6 +343,9 @@ weapon_tele()
 		}
 
 		gun = GetRandomWeapon();
+
+        player.health = player.maxhealth;
+        level.activ.health = level.activ.maxhealth;
 
 		player SetOrigin (weaponjumpertele.origin);
 		player setplayerangles (weaponjumpertele.angles);
@@ -386,6 +395,9 @@ jump_tele()
 		}
 
 		level.jump_room_weapon_given = false;
+
+        player.health = player.maxhealth;
+        level.activ.health = level.activ.maxhealth;
 
 		player SetOrigin (jumpjumpertele.origin);
 		player setplayerangles (jumpjumpertele.angles);
