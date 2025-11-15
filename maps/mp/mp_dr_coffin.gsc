@@ -61,7 +61,7 @@ main() {
     precacheshader("mtl_scorpion");
     precacheshader("mtl_helldemon_full");
 
-    precacheItem("frag_grenade_mp");
+    precacheItem("deserteagle_mp");
     precacheItem("m40a3_mp");
     precacheItem("remington700_mp");
     precacheItem("knife_mp");
@@ -460,23 +460,23 @@ randommusic()
 ///RTD SYSTEM
 RTDcheck()
 {
-trig = getent("trig_rtd", "targetname");
+    trig = getent("trig_rtd", "targetname");
 
     while(1)
     { 
-    trig waittill("trigger", player);
-    if(!isDefined(player.RTDused))
-    {
-        player.RTDused = true;
-        player thread RTDitem();
+        trig waittill("trigger", player);
+        if(!isDefined(player.RTDused))
+        {
+            player.RTDused = true;
+            player thread RTDitem();
+        }
+        else
+        {
+            player iprintlnbold("^3Told you not to use ^0RTD ^7again...");
+            wait 2;
+            player suicide();
+        }
     }
-    else
-    {
-        player iprintlnbold("^3Told you not to use ^0RTD ^7again...");
-        wait 2;
-        player suicide();
-    }
-}
 }
 
 RTDitem()
@@ -2071,10 +2071,9 @@ mazeend(who, who2)
         winner iPrintLnBold("^3You won^7!");
         wait 1;
         winner freezeControls (0);
-        winner giveWeapon("frag_grenade_mp"); //VLCT change weap
-        winner giveMaxAmmo("frag_grenade_mp");
-        winner switchToWeapon("frag_grenade_mp");
-        winner thread frag_ammo();
+        winner giveWeapon("deserteagle_mp");
+        winner giveMaxAmmo("deserteagle_mp");
+        winner switchToWeapon("deserteagle_mp");
         wait 0.1;
 		
 		if (winner == who)
@@ -2189,10 +2188,9 @@ spinend(who, who2)
             winner iPrintLnBold("^3You won^7!");
             wait 1;
             winner freezeControls (0);
-            winner giveWeapon("frag_grenade_mp");
-            winner giveMaxAmmo("frag_grenade_mp");
-            winner switchToWeapon("frag_grenade_mp");
-            winner thread frag_ammo();
+            winner giveWeapon("deserteagle_mp");
+            winner giveMaxAmmo("deserteagle_mp");
+            winner switchToWeapon("deserteagle_mp");
         }
 }
 
@@ -2240,20 +2238,6 @@ spin_script()
         level.spin_speed = 1.6;
     }
 
-}
-
-frag_ammo()
-{
-	self endon("disconnect");
-	self endon("death");
-
-	for (;;)
-	{
-		if (self getCurrentWeapon() == "frag_grenade_mp")
-			self giveMaxAmmo("frag_grenade_mp");
-
-		wait 5;
-	}
 }
 
 oldroom()

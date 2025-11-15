@@ -73,12 +73,18 @@ lift()
     door = getent("bn2_ele_door","targetname");
     lift = getent("bn2_ele","targetname");
 
-    trig waittill("trigger");
-    trig delete();
+    if(getdvarint("dr_auto_open_door")) {
+        door delete();
+        trig waittill("trigger");
+        trig delete();
+    } else {
+        trig waittill("trigger");
+        trig delete();
 
-    door movez(-160,2);
-    wait 2;
-    door delete();
+        door movez(-160,2);
+        wait 2;
+        door delete();
+    }
 
     while(isdefined(lift))
     {
@@ -96,20 +102,11 @@ creator()
     id = randomint(3);
     ambientplay("ambient"+id);
 
+    iprintln("^1>>^7 Map made by ^5Blade^7 (1 Day Project)");
     wait 1;
-    thread braxi\_mod::drawInformation( 800, 0.8, 1, "mp_dr_^0black^1night^02" );
-
-    while(1)
-    {
-        iprintln("^1>>^7 Map made by ^5Blade^7 (1 Day Project)");
-        wait 10;
-        iprintln("^1>>^7 Version 1 made by ^5sixzoRRR'");
-        wait 10;
-        iprintln("^1>>^7 Discord: ^5Blade #6504");
-        wait 10;
-        iprintln("^1>>^7 Visit ^5vistic-clan.net");
-        wait 30;
-    }
+    iprintln("^1>>^7 V1 made by ^5sixzoRRR'");
+    wait 1;
+    iprintln("^1>>^7 Discord: ^5Blade #6504");
 }
 
 

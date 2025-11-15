@@ -186,16 +186,23 @@ first_door()
 	brush = getEnt("first_door","targetname");
 	button = getEnt("button_door","targetname");
 	roof = getEnt("rooftop","targetname");
+
+    if(getdvarint("dr_auto_open_door")) {
+	    trig delete();
+        brush delete();
+	    roof delete();
+    } else {
+        trig waittill("trigger", user);
+        trig delete();
+        
+        button moveX(-8,2);
+        wait 2;
+        brush moveZ(-240,2);
+        brush waittill("movedone");
+        brush delete();
+        roof delete();
+    }
 	
-	trig waittill("trigger", user);
-	trig delete();
-	
-	button moveX(-8,2);
-	wait 2;
-	brush moveZ(-240,2);
-	brush waittill("movedone");
-	brush delete();
-	roof delete();
 }
 trap1()
 {
