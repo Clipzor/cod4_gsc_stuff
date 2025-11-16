@@ -455,11 +455,11 @@ opendoor()
     door = getent("opendoor","targetname");
     acti_sec = getEnt("actisecstep","targetname");
     if(getdvarint("dr_auto_open_door")) {
+        door delete();
+    } else {
         wait 20;
         door moveZ(540, 12);
         wait 30;
-    } else {
-        door delete();
     }
     
     acti_sec delete(); // auto open acti secret
