@@ -473,6 +473,7 @@ kniferoom()
         level.knife_trig waittill( "trigger", player );
         if( !isDefined( level.knife_trig ) )
             return;
+
         if(!isdefined(level.firstenter))
 		{
 		level.weapon_trig delete();
@@ -708,13 +709,7 @@ wait 0.1;
 
 finish()
 {
-trigger = GetEnt( "finish", "targetname" );	
-	trigger waittill ("trigger", user);
-	trigger delete();
-		{
-		iprintlnbold( "^7" + user.name + " ^3F^1inished ^3F^1irst^7!");
-		wait 4;
-		}
-	
+    trigger = GetEnt( "finish", "targetname" );	
+    trigger.targetname = "endmap_trig";
 }
 
