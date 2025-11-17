@@ -360,7 +360,7 @@ sniper()
                 player GiveWeapon( "remington700_mp" );
                 player giveMaxAmmo( "remington700_mp" );   
             player switchToWeapon( "m40a3_mp" ); //Makes player switch to weapon.
-                player.maxhealth = 100; //Sets players health to normal.
+                //player.maxhealth = 100; //Sets players health to normal.
                
                 
                 if( isDefined( level.activ ) && isAlive( level.activ ) ) 
@@ -425,7 +425,7 @@ jump()
                 player TakeAllWeapons(); 
                 player GiveWeapon( "knife_mp" );
 				player switchToWeapon( "knife_mp" );	
-                player.maxhealth = 100;
+                //player.maxhealth = 100;
                
                 
                 if( isDefined( level.activ ) && isAlive( level.activ ) ) 
@@ -487,7 +487,7 @@ weapon()
                 player TakeAllWeapons(); 
                 player GiveWeapon( "knife_mp" );
 				player switchToWeapon( "knife_mp" );
-                player.maxhealth = 100;
+                //player.maxhealth = 100;
                
                 
                 if( isDefined( level.activ ) && isAlive( level.activ ) ) 
@@ -550,7 +550,7 @@ deagle()
                 player GiveWeapon( "deserteagle_mp" );
 				player giveMaxAmmo( "deserteagle_mp" );
 				player switchToWeapon( "deserteagle_mp" );
-                player.maxhealth = 100;
+                //player.maxhealth = 100;
                
                 
                 if( isDefined( level.activ ) && isAlive( level.activ ) ) 

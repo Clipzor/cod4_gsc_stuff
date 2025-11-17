@@ -435,7 +435,7 @@ sniper()
         activator giveMaxAmmo("m40a3_mp");
         player switchToWeapon("m40a3_mp");
         activator switchToWeapon("m40a3_mp");   
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth; 
 		activator.maxhealth = 100;
 		activator.health = activator.maxhealth; 
@@ -489,7 +489,7 @@ ak()
         activator giveWeapon("t4_ppsh_mp");
         player giveMaxAmmo("t4_ppsh_mp");
         activator giveMaxAmmo("t4_ppsh_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
 		activator.maxhealth = 100;
 		activator.health = activator.maxhealth; 
@@ -531,7 +531,7 @@ knife()
 		activator giveWeapon("h1_karambit_mp");
 		player switchToWeapon("h1_karambit_mp");
         activator switchToWeapon("h1_karambit_mp");   
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
 		activator.maxhealth = 100;
 		activator.health = activator.maxhealth; 

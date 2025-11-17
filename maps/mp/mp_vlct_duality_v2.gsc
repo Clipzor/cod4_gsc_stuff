@@ -560,7 +560,7 @@ sniper()
         activator giveMaxAmmo("m40a3_mp");
         player switchToWeapon("m40a3_mp");
         activator switchToWeapon("m40a3_mp");   
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         //wait 1;
         player thread RoomCountDown("^5Kill each other !", 3, 1);
@@ -630,7 +630,7 @@ sniper()
         activator giveWeapon("h1_karambit_mp");
         player switchtoweapon("h1_karambit_mp");
         activator switchtoweapon("h1_karambit_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         //wait 1;
         player thread RoomCountDown("^5Kill each other !", 3, 1);
@@ -767,7 +767,7 @@ rpg()
         activator giveMaxAmmo("rpg_mp");  
         player switchToWeapon("rpg_mp");
         activator switchToWeapon("rpg_mp"); 
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         player thread RoomCountDown("^5Kill each other !", 3, 0);
         activator thread RoomCountDown("^5Kill each other !", 3, 0);
@@ -839,7 +839,7 @@ rpg_acti_fail()
         activator giveWeapon("h1_karambit_mp");
         player switchtoweapon("h1_karambit_mp");
         activator switchtoweapon("h1_karambit_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         player thread RoomCountDown("^5Get to the end and kill each other !", 3, 1);
         activator thread RoomCountDown("^5Get to the end and kill each other !", 3, 1);

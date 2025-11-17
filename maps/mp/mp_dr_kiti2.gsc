@@ -394,7 +394,7 @@ sniper()
         activator giveMaxAmmo("m40a3_mp");
         player switchToWeapon("m40a3_mp");
         activator switchToWeapon("m40a3_mp");   
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth; 
 		activator.maxhealth = 100;
 		activator.health = activator.maxhealth; 
@@ -444,7 +444,7 @@ ak()
         activator giveWeapon("deserteagle_mp");
         player giveMaxAmmo("deserteagle_mp");
         activator giveMaxAmmo("deserteagle_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
 		activator.maxhealth = 100;
 		activator.health = activator.maxhealth; 
@@ -486,7 +486,7 @@ pistol()
         activator giveMaxAmmo("iw4_deagle_mp");
 		player switchToWeapon("iw4_deagle_mp");
         activator switchToWeapon("iw4_deagle_mp");   
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
 		activator.maxhealth = 100;
 		activator.health = activator.maxhealth; 

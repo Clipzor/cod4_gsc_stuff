@@ -431,7 +431,7 @@ old()
 		
 		player setOrigin (oldjumper.origin);
 		player setPlayerAngles (oldjumper.angles);
-		player.maxhealth = 100;
+		//player.maxhealth = 100;
 		if( isDefined(level.activ) && isAlive(level.activ)) 
 		{
 			level.activ.maxhealth = 100;
@@ -482,7 +482,7 @@ sniper()
 		player GiveWeapon( "remington700_mp" );
 		player giveMaxAmmo( "remington700_mp" );   
 		player switchToWeapon( "m40a3_mp" ); //Makes player switch to weapon.
-		player.maxhealth = 100; //Sets players health to normal.
+		//player.maxhealth = 100; //Sets players health to normal.
 			
 		if( isDefined(level.activ) && isAlive(level.activ)) 
 		{
@@ -569,7 +569,7 @@ bounce()
 		player TakeAllWeapons();
 		player GiveWeapon( "knife_mp" ); //Gives player weapon
 		player SwitchToWeapon ( "knife_mp" );
-		player.maxhealth = 100; //Sets players health to normal.
+		//player.maxhealth = 100; //Sets players health to normal.
 			
 		if( isDefined(level.activ) && isAlive(level.activ)) 
 		{

@@ -613,7 +613,7 @@ sniper_room()
 		player freezeControls(1);
 		level.activ freezeControls(1);
 		
-		player.maxhealth = 100;
+		//player.maxhealth = 100;
 		player.health = player.maxhealth;
 		level.activ.maxhealth = 100;
 		level.activ.health = level.activ.maxhealth;  
@@ -686,7 +686,7 @@ shotgun_room()
 		player freezeControls(1);
 		level.activ freezeControls(1);
 		
-		player.maxhealth = 100;
+		//player.maxhealth = 100;
 		player.health = player.maxhealth;
 		level.activ.maxhealth = 100;
 		level.activ.health = level.activ.maxhealth;  
@@ -754,7 +754,7 @@ knife_room()
 		player freezeControls(1);
 		level.activ freezeControls(1);
 		
-		player.maxhealth = 100;
+		//player.maxhealth = 100;
 		player.health = player.maxhealth;
 		level.activ.maxhealth = 100;
 		level.activ.health = level.activ.maxhealth;  
@@ -819,7 +819,7 @@ fal_room()
 		player freezeControls(1);
 		level.activ freezeControls(1);
 		
-		player.maxhealth = 100;
+		//player.maxhealth = 100;
 		player.health = player.maxhealth;
 		level.activ.maxhealth = 100;
 		level.activ.health = level.activ.maxhealth;  

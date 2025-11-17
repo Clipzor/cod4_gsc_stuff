@@ -596,7 +596,7 @@ kniferoom()
         activator giveWeapon("knife_mp");
         player switchToWeapon("knife_mp");
         activator switchToWeapon("knife_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
                        while(isDefined(player) && isAlive(player))
             wait .05;
@@ -633,7 +633,7 @@ purestraferoom()
         activator giveWeapon("beretta_mp");
         player switchToWeapon ("beretta_mp");
         activator switchToWeapon("beretta_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
 		thread pureend(player, activator);
                        while(isDefined(player) && isAlive(player))
             wait .05;
@@ -701,7 +701,7 @@ slidestraferoom()
         activator giveWeapon("beretta_mp");
         player switchToWeapon ("beretta_mp");
         activator switchToWeapon("beretta_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
 		thread slideend(player, activator);
                        while(isDefined(player) && isAlive(player))
             wait .05;
@@ -798,7 +798,7 @@ sniperroom()
         activator giveMaxAmmo("m40a3_mp");
         player switchToWeapon("m40a3_mp");
         activator switchToWeapon("m40a3_mp");   
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
                        while(isDefined(player) && isAlive(player))
             wait .05;

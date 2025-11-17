@@ -155,7 +155,7 @@ deagle() {
                 player TakeAllWeapons(); 
                 player GiveWeapon("deserteagle_mp");
                 player switchToWeapon("deserteagle_mp");
-                player.maxhealth = 100; 
+                //player.maxhealth = 100; 
 
                 if(isDefined(level.activ) && isAlive(level.activ)) {
 
@@ -219,7 +219,7 @@ weapon() {
                 player TakeAllWeapons(); 
                 player GiveWeapon("ak74u_mp");
                 player switchToWeapon("ak74u_mp");
-                player.maxhealth = 100; 
+                //player.maxhealth = 100; 
 
                 if(isDefined(level.activ) && isAlive(level.activ)) {
 
@@ -283,7 +283,7 @@ shotgun() {
                 player TakeAllWeapons(); 
                 player GiveWeapon("winchester1200_mp");
                 player switchToWeapon("winchester1200_mp");
-                player.maxhealth = 100; 
+                //player.maxhealth = 100; 
 
                 if(isDefined(level.activ) && isAlive(level.activ)) {
 
@@ -330,7 +330,7 @@ purestart() {
         player freezecontrols (1);
         player giveWeapon("knife_mp");
         player switchToWeapon ("knife_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
 
         if(isDefined(level.activ) && isAlive(level.activ))
         {
@@ -443,7 +443,7 @@ knife() {
                 player TakeAllWeapons(); 
                 player GiveWeapon("knife_mp");
                 player switchToWeapon("knife_mp");
-                player.maxhealth = 100; 
+                //player.maxhealth = 100; 
 
                 if(isDefined(level.activ) && isAlive(level.activ)) {
 
@@ -511,7 +511,7 @@ sniper() {
                 player GiveWeapon("remington700_mp");
                 player giveMaxAmmo("remington700_mp");   
                 player switchToWeapon("remington700_mp");
-                player.maxhealth = 100;
+                //player.maxhealth = 100;
 
             if(isDefined(level.activ) && isAlive(level.activ)) {
     

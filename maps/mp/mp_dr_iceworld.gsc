@@ -1235,7 +1235,7 @@ strafe() {
         player giveWeapon("knife_mp");
         player switchToWeapon ("knife_mp");
         player iPrintLnBold("Get ready!");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
 
         if(isDefined(level.activ) && isAlive(level.activ))
         {

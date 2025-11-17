@@ -785,7 +785,7 @@ linkHouseSoup()
 		trig waittill ("trigger", player);
 		if(player.health < 100)
 		{
-			player.maxhealth = 100;
+			//player.maxhealth = 100;
 			player.health = player.maxhealth;
 			player iPrintLn("TASTY ^3SOUP");
 		}
@@ -1841,7 +1841,7 @@ old_room()
 
 		player setOrigin (oldjumper.origin);
 		player setPlayerAngles (oldjumper.angles);
-		player.maxhealth = 100;
+		//player.maxhealth = 100;
 		player thread endTimer("^1Fight!", 0, 0);
 		
 		if( isDefined(level.activ) && isAlive(level.activ))
@@ -1897,7 +1897,7 @@ knife_room()
 		player giveWeapon( "knife_mp" );
 		player giveWeapon("tomahawk_mp");
 		player switchToWeapon("tomahawk_mp");
-		player.maxhealth = 100;
+		//player.maxhealth = 100;
 		player thread endTimer("^1Fight!", 3, 0);
 
 		if( isDefined(level.activ) && isAlive(level.activ))
@@ -1960,7 +1960,7 @@ sniper_room()
 		player giveWeapon( "remington700_mp" );
 		player giveMaxAmmo( "remington700_mp" );
 		player switchToWeapon( "m40a3_mp" );
-		player.maxhealth = 100;
+		//player.maxhealth = 100;
 		player thread endTimer("^1Fight!", 3, 0);
 
 		player.hasNukeBullets = false;
@@ -2079,7 +2079,7 @@ bounce_room()
 		player takeAllWeapons();
 		player giveWeapon( "knife_mp" );
 		player switchToWeapon ( "knife_mp" );
-		player.maxhealth = 100;
+		//player.maxhealth = 100;
 		player thread endTimer("^1Go!", 3, 0);
 
 		player notify ("bounce_checkpointSTOP"); //stops old checkpoint threads

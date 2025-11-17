@@ -1865,7 +1865,7 @@ weapon_room()
 
         player takeAllWeapons();
         level.activ takeAllWeapons();
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         level.activ.health = 100;
         player.health = player.maxhealth;
         level.activ.maxhealth = 100;
@@ -2351,7 +2351,7 @@ purestart()
         player takeAllWeapons();
         player giveWeapon("knife_mp");
         player switchToWeapon ("knife_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
 		player thread endTimerPure("^5Let s Go !", 3, 0);
 
         if(isDefined(level.activ) && isAlive(level.activ))
@@ -2457,7 +2457,7 @@ bounce_room()
         player giveWeapon("knife_mp");
         player giveWeapon("tomahawk_mp");
         player switchToWeapon("tomahawk_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         player thread endTimerRun("^5Let s Go !", 3, 0);
 
@@ -2558,7 +2558,7 @@ knife_room()
         player giveWeapon("knife_mp");
         player giveWeapon("tomahawk_mp");
         player switchToWeapon("tomahawk_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         player thread endTimerKnife("^5Let s Go !", 3, 0);
 
@@ -2608,7 +2608,7 @@ scope_room()
         player giveWeapon("m40a3_mp");
         player giveMaxAmmo("m40a3_mp");
         player switchToWeapon("m40a3_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         player thread endTimerRun("^5Let s Go !", 3, 0);
 
@@ -2680,7 +2680,7 @@ rpg_room()
         player giveWeapon("rpg_mp");
         player giveMaxAmmo("rpg_mp");
         player switchToWeapon("rpg_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         player thread endTimerRun("^5Let s Go !", 3, 0);
 		player thread rpg_ammo();
@@ -3288,7 +3288,7 @@ runstart()
         player takeAllWeapons();
         player giveWeapon("knife_mp");
         player switchToWeapon ("knife_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
 		player thread endTimerRun("^5Let s Go !", 3, 0);
 
         if(isDefined(level.activ) && isAlive(level.activ))

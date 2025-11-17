@@ -1209,7 +1209,7 @@ sniperroom()
         player switchToWeapon("m40a3_mp");
         level.activ switchToWeapon("m40a3_mp");   
 
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         level.activ.maxhealth = 100;
         level.activ.health = level.activ.maxhealth; 
@@ -1259,7 +1259,7 @@ kniferoom()
         player switchToWeapon("knife_mp");
         level.activ switchToWeapon("knife_mp");
 
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         level.activ.maxhealth = 100;
         level.activ.health = level.activ.maxhealth;  
@@ -1308,7 +1308,7 @@ bounceroom()
         player switchToWeapon("knife_mp");
         level.activ switchToWeapon("knife_mp");
 
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         level.activ.maxhealth = 100;
         level.activ.health = level.activ.maxhealth;  
@@ -1395,7 +1395,7 @@ purestraferoom()
         level.activ setPlayerAngles(orig_acti.angles);
         level.activ setOrigin(orig_acti.origin);
    
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         level.activ.maxhealth = 100;
         level.activ.health = level.activ.maxhealth;  
@@ -1515,7 +1515,7 @@ slideroom()
         level.activ setPlayerAngles(orig_acti.angles);
         level.activ setOrigin(orig_acti.origin);
    
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         level.activ.maxhealth = 100;
         level.activ.health = level.activ.maxhealth;  

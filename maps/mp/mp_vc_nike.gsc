@@ -885,7 +885,7 @@ endroom_knife()
 		wait 1;
 	
 		/*
-		player.maxhealth = 100;
+		//player.maxhealth = 100;
 		player.health = player.maxhealth;
 		player iPrintln ( "^1<< ^7your health got restored" );
 		wait 0.05;
@@ -970,7 +970,7 @@ endroom_snipe()
 		wait 1;
 	
 		/*
-		player.maxhealth = 100;
+		//player.maxhealth = 100;
 		player.health = player.maxhealth;
 		player iPrintln ( "^1<< ^7your health got restored" );
 		wait 0.05;
@@ -1049,7 +1049,7 @@ endroom_jump()
 		wait 1;
 	
 		/*
-		player.maxhealth = 100;
+		//player.maxhealth = 100;
 		player.health = player.maxhealth;
 		player iPrintln ( "^1<< ^7your health got restored" );
 		wait 0.05;

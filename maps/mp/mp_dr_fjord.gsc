@@ -338,7 +338,7 @@ sniper()
         activator giveMaxAmmo("m40a3_mp");
         player switchToWeapon("m40a3_mp");
         activator switchToWeapon("m40a3_mp");   
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
 
         while(isDefined(player) && isAlive(player))
@@ -381,7 +381,7 @@ ak()
         activator giveMaxAmmo("ak74u_mp");
         player switchToWeapon("ak47_mp");
         activator switchToWeapon("ak47_mp");   
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
 
         while(isDefined(player) && isAlive(player))

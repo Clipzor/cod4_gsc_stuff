@@ -2330,7 +2330,7 @@ bounce_room()
         player takeAllWeapons();
         player giveWeapon("knife_mp");
         player switchToWeapon("knife_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         player thread endTimerRun("^3Let s Go !", 3, 0);
 
@@ -2491,7 +2491,7 @@ rpg_room()
         player giveWeapon("rpg_mp");
         player giveMaxAmmo("rpg_mp");
         player switchToWeapon("rpg_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         player thread endTimerRun("^3Let s Go !", 3, 0);
         player thread rpg_ammo();
@@ -2578,7 +2578,7 @@ scope_room()
         player giveWeapon("m40a3_mp");
         player giveMaxAmmo("m40a3_mp");
         player switchToWeapon("m40a3_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         player thread endTimerRun("^3Let s Go !", 3, 0);
 
@@ -2648,7 +2648,7 @@ purestart()
         player takeAllWeapons();
         player giveWeapon("knife_mp");
         player switchToWeapon ("knife_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
 		player thread endTimerPure("^3Let s Go !", 3, 0);
 
         if(isDefined(level.activ) && isAlive(level.activ))
@@ -2729,7 +2729,7 @@ knife_room()
         player takeAllWeapons();
         player giveWeapon("knife_mp");
         player switchToWeapon("knife_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         player thread endTimerKnife("^3Let s Go !", 3, 0);
 
@@ -3124,7 +3124,7 @@ turningroom()
         player takeAllWeapons();
         player giveWeapon("knife_mp");
         player switchToWeapon ("knife_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player thread endTimerPure("^3Let s Go !", 3, 0);
         player thread turning_info();
 

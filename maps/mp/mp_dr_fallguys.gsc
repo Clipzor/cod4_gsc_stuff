@@ -2130,7 +2130,7 @@ colorspin_turning_script()
 {
     pillar = getEnt ("colorspin_room_pillar", "targetname");
     dmg_trigger = getEnt ("colorspin_room_dmg_pillar", "targetname");
-    dmg_trigger enablelinkto(); 
+    // dmg_trigger enablelinkto(); 
     dmg_trigger linkto(pillar);
     
     pillar rotateyaw(-360, (level.colorspin_speed));
@@ -2573,7 +2573,7 @@ rpg_room()
         player giveWeapon("rpg_mp");
         player giveMaxAmmo("rpg_mp");
         player switchToWeapon("rpg_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         player thread endTimer("^5Let s Go !", 3, 0);
         player thread rpg_ammo();
@@ -2661,7 +2661,7 @@ sniper_room()
         player giveWeapon("m40a3_mp");
         player giveMaxAmmo("m40a3_mp");
         player switchToWeapon("m40a3_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         player thread endTimer("^5Let s Go !", 3, 0);
 
@@ -2734,7 +2734,7 @@ knife_room()
         player takeAllWeapons();
         player giveWeapon("knife_mp");
         player switchToWeapon("knife_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         player thread endTimer("^5Let s Go !", 3, 0);
 
@@ -2779,7 +2779,7 @@ bounce_room()
         player takeAllWeapons();
         player giveWeapon("knife_mp");
         player switchToWeapon("knife_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         player thread endTimer("^5Let s Go !", 3, 0);
 
@@ -2870,7 +2870,7 @@ fallrun_room()
         player setOrigin (orig_jumper.origin);
         player setPlayerAngles (orig_jumper.angles);
         player takeAllWeapons();
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         player thread endTimer("^5Let s Go !", 3, 0);
 

@@ -415,7 +415,7 @@ sniper_room()
         player giveWeapon("m40a3_mp");
         player giveMaxAmmo("m40a3_mp");
         player switchToWeapon("m40a3_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         player freezeControls(1);
 
@@ -459,7 +459,7 @@ bounce_room()
         player takeAllWeapons();
 		player giveWeapon("knife_mp");
 		player switchToWeapon("knife_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         player freezeControls(1);
 
@@ -500,7 +500,7 @@ knife_room()
         player takeAllWeapons();
 		player giveWeapon("knife_mp");
 		player switchToWeapon("knife_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         player freezeControls(1);
 
@@ -541,7 +541,7 @@ rpg_room()
         player takeAllWeapons();
 		player giveWeapon("rpg_mp");
 		player switchToWeapon("rpg_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         player freezeControls(1);
 
@@ -586,7 +586,7 @@ pistol_room()
         player takeAllWeapons();
 		player giveWeapon("deserteagle_mp");
 		player switchToWeapon("deserteagle_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         player freezeControls(1);
 

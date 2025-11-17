@@ -1404,7 +1404,7 @@ sniperroom()
         activator giveMaxAmmo("m40a3_mp");
         player switchToWeapon("m40a3_mp");
         activator switchToWeapon("m40a3_mp");   
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         
 
         while(isDefined(player) && isAlive(player))
@@ -1467,7 +1467,7 @@ kniferoom()
         activator giveWeapon("knife_mp");
         player switchToWeapon("knife_mp");
         activator switchToWeapon("knife_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
                        while(isDefined(player) && isAlive(player))
             wait .05;
@@ -1503,7 +1503,7 @@ bounceroom()
         activator giveWeapon("knife_mp");
         player switchToWeapon("knife_mp");
         activator switchToWeapon("knife_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
                        while(isDefined(player) && isAlive(player))
             wait .05;
@@ -1892,7 +1892,7 @@ purestraferoom()
         level.activ setPlayerAngles(orig_acti.angles);
         level.activ setOrigin(orig_acti.origin);
    
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         level.activ.maxhealth = 100;
         level.activ.health = level.activ.maxhealth;  
@@ -2001,7 +2001,7 @@ rpgroom()
         activator giveMaxAmmo("rpg_mp");
         player switchToWeapon("rpg_mp");
         activator switchToWeapon("rpg_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         player thread rpg_ammo();
         activator thread rpg_ammo();

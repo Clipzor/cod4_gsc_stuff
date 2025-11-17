@@ -378,7 +378,7 @@ sniper()
         activator giveMaxAmmo("m40a3_mp");
         player switchToWeapon("t6_ballista_mp");
         activator switchToWeapon("t6_ballista_mp");   
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
 
         while(isDefined(player) && isAlive(player))
@@ -413,7 +413,7 @@ knife()
         activator giveWeapon("h1_ringsword_mp");
         player switchToWeapon("h1_ringsword_mp");
         activator switchToWeapon("h1_ringsword_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         
         while(isDefined(player) && isAlive(player))

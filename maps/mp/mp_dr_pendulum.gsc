@@ -401,7 +401,7 @@ sniper()
         activator giveMaxAmmo("m40a3_mp");
         player switchToWeapon("iw8_hdromeo_mp");
         activator switchToWeapon("iw8_hdromeo_mp");   
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
 
         while(isDefined(player) && isAlive(player))
@@ -436,7 +436,7 @@ knife()
         activator giveWeapon("t10_skateboard_mp");
         player switchToWeapon("t10_skateboard_mp");
         activator switchToWeapon("t10_skateboard_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         
         while(isDefined(player) && isAlive(player))
@@ -474,7 +474,7 @@ grenade_launcher()
         activator giveMaxAmmo("china_lake_mp");
         player switchToWeapon("china_lake_mp");
         activator switchToWeapon("china_lake_mp");   
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
 
         while(isDefined(player) && isAlive(player))

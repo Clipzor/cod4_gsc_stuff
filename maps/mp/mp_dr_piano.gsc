@@ -533,7 +533,7 @@ room_start( room )
 		player takeAllWeapons();
 		level.activ takeAllWeapons();
 		
-		player.maxhealth = 100;
+		//player.maxhealth = 100;
 		player.health = player.maxhealth;
 		level.activ.maxhealth = 100;
 		level.activ.health = level.activ.maxhealth;

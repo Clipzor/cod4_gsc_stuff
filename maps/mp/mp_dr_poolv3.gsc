@@ -749,7 +749,7 @@ kniferoom()
         player takeAllWeapons();
         player giveWeapon("knife_mp");
         player switchToWeapon("knife_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         player thread endTimerRun("^5Let s Go !", 3, 0);
 
@@ -795,7 +795,7 @@ sniperroom()
         player giveWeapon("m40a3_mp");
         player giveMaxAmmo("m40a3_mp");
         player switchToWeapon("m40a3_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         player thread endTimerRun("^5Let's Go !", 3, 0);
 
@@ -844,7 +844,7 @@ weaponroom()
         player giveWeapon("ak47_mp");
         player giveMaxAmmo("ak47_mp");
         player switchToWeapon("ak74u_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         player thread endTimerRun("^5Let's Go !", 3, 0);
 
@@ -890,7 +890,7 @@ jumproom()
         player takeAllWeapons();
         player giveWeapon("knife_mp");
         player switchToWeapon("knife_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         player thread endTimerRun("^5Let's Go !", 3, 0);
 

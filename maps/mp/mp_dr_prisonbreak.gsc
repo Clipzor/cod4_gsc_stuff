@@ -707,7 +707,7 @@ strafe() {
         player giveWeapon("knife_mp");
         player switchToWeapon ("knife_mp");
         player iPrintLnBold("Get ready!");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
 
         if(isDefined(level.activ) && isAlive(level.activ))
         {
@@ -826,7 +826,7 @@ race() {
         player setOrigin (level.orig_jumper.origin);
         player setPlayerAngles (level.orig_jumper.angles);
         player iPrintLnBold("Get ready!");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
 
         if(isDefined(level.activ) && isAlive(level.activ))
         {

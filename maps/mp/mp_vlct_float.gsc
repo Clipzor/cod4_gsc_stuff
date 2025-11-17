@@ -612,7 +612,7 @@ secret_fail()
         activator giveMaxAmmo("m40a3_mp");
         player switchToWeapon("m40a3_mp");
         activator switchToWeapon("m40a3_mp");   
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         //wait 1;
         player thread RoomCountDown("^5Kill each other !", 3, 0);
@@ -645,7 +645,7 @@ secret_fail()
         activator giveWeapon("h1_karambit_mp");
         player switchtoweapon("h1_karambit_mp");
         activator switchtoweapon("h1_karambit_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
         //wait 1;
         player thread RoomCountDown("^5Kill each other !", 3, 0);

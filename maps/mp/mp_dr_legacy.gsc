@@ -1488,7 +1488,7 @@ old_room()
         activator giveWeapon("knife_mp");
         player switchToWeapon("knife_mp");
         activator switchToWeapon("knife_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
                        while(isDefined(player) && isAlive(player))
             wait .05;
@@ -1532,7 +1532,7 @@ sniper_room()
         activator giveMaxAmmo("m40a3_mp");
         player switchToWeapon("m40a3_mp");
         activator switchToWeapon("m40a3_mp");   
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         
 
         while(isDefined(player) && isAlive(player))
@@ -1569,7 +1569,7 @@ knife_room()
         activator giveWeapon("knife_mp");
         player switchToWeapon("knife_mp");
         activator switchToWeapon("knife_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
                        while(isDefined(player) && isAlive(player))
             wait .05;
@@ -1606,7 +1606,7 @@ bounce_room()
         activator giveWeapon("knife_mp");
         player switchToWeapon("knife_mp");
         activator switchToWeapon("knife_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
         player.health = player.maxhealth;
                        while(isDefined(player) && isAlive(player))
             wait .05;
@@ -1689,7 +1689,7 @@ pure_strafe_room()
         activator giveWeapon("deserteagle_mp");
         player switchToWeapon ("deserteagle_mp");
         activator switchToWeapon("deserteagle_mp");
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
 		thread pure_end(player, activator);
                        while(isDefined(player) && isAlive(player))
             wait .05;
@@ -1763,7 +1763,7 @@ spinning_room()
         activator setOrigin(orig_acti.origin);
         player takeAllWeapons();
         activator takeAllWeapons();
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
 		thread spin_end(player, activator);
                        while(isDefined(player) && isAlive(player))
             wait .05;
@@ -1887,7 +1887,7 @@ parkour_room()
         player takeAllWeapons();
         activator takeAllWeapons();
         
-        player.maxhealth = 100;
+        //player.maxhealth = 100;
 		thread parkour_end(player, activator);
         while(isDefined(player) && isAlive(player))
             wait .05;

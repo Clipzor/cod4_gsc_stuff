@@ -742,7 +742,7 @@ knife() {
                 player TakeAllWeapons(); 
                 player GiveWeapon( "knife_mp" );
                 player switchToWeapon( "knife_mp" );
-                player.maxhealth = 100; 
+                //player.maxhealth = 100; 
 
                 if( isDefined( level.activ ) && isAlive( level.activ ) ) {
 
@@ -809,7 +809,7 @@ sniper() {
                 player GiveWeapon( "remington700_mp" );
                 player giveMaxAmmo( "remington700_mp" );   
                 player switchToWeapon( "remington700_mp" );
-                player.maxhealth = 100;
+                //player.maxhealth = 100;
 
             if( isDefined( level.activ ) && isAlive( level.activ ) ) {
     
@@ -877,7 +877,7 @@ bounce() {
                 player switchToWeapon( "knife_mp" );
                 player GiveWeapon( "knife_mp" );
                 player switchToWeapon( "knife_mp" );
-                player.maxhealth = 100;
+                //player.maxhealth = 100;
 
                 if( isDefined( level.activ ) && isAlive( level.activ ) ) {
 

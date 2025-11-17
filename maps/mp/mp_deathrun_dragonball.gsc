@@ -669,7 +669,7 @@ while(1)
 trigger waittill("trigger", player);
 if(player.health < 100)
 {
-player.maxhealth = 100;
+//player.maxhealth = 100;
 player.health = player.maxhealth;
 player iPrintLnBold("^3YumYum^7, Aaah that feels pretty: ^2Health boosted and restored"); //Change the message if you want
 }
