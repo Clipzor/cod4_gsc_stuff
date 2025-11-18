@@ -43,9 +43,6 @@ main() {
 	addTriggerToList ("t4_s");
 	addTriggerToList ("t5_s");
 	addTriggerToList ("t6_s");
-
-    end_trig = getent("map_end", "targetname");
-    end_trig.targetname = "endmap_trig";
 }
 addTriggerToList( name )
 {

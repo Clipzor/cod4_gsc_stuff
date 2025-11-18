@@ -8,12 +8,6 @@ main() {
     for(i=0;i<ak47.size;i++)    ak47[i] delete();
     for(i=0;i<r700.size;i++)    r700[i] delete();
 
-    endmap_trig = GetEntArray("endmap_trig", "targetname");
-    for(i=0;i<endmap_trig.size;i++) {
-        if(i>0)
-            endmap_trig[i] delete();
-    }
-
     maps\mp\_load::main();
     maps\mp\_teleport::main();
 
