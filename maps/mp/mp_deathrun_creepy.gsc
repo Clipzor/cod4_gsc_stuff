@@ -1,58 +1,62 @@
 main() {
- maps\mp\_load::main();
- maps\mp\_teleport::main();
-	
-       game["allies"] = "marines";
-       game["axis"] = "opfor";
-       game["attackers"] = "axis";
-       game["defenders"] = "allies";
-       game["allies_soldiertype"] = "desert";
-       game["axis_soldiertype"] = "desert";
+    deagles = getentarray("weapon_deserteagle_mp", "classname");
+    ak74u = getentarray("weapon_ak74u_mp", "classname");
+    ak47 = getentarray("weapon_ak47_mp", "classname");
+    r700 = getentarray("weapon_remington700_mp", "classname");
+    for(i=0;i<deagles.size;i++) deagles[i] delete();
+    for(i=0;i<ak74u.size;i++)   ak74u[i] delete();
+    for(i=0;i<ak47.size;i++)    ak47[i] delete();
+    for(i=0;i<r700.size;i++)    r700[i] delete();
 
-       
-	   thread sixzor();
-	   thread music();
-	   thread games();
-	   thread printcredits();
-	   thread creator();
-	   thread trap2();
-	   thread trap3();
-	   thread trap4();
-	   thread trap5();
-	   thread trap6();
-	   thread trap7();
-	   thread trap8();
-	   thread trap10();
-	   thread snip();
-	   thread knife();
-	   thread jump();
-	   thread deagle();
-	   thread weapon();
+    endmap_trig = GetEntArray("endmap_trig", "targetname");
+    for(i=0;i<endmap_trig.size;i++) {
+        if(i>0)
+            endmap_trig[i] delete();
+    }
+
+    maps\mp\_load::main();
+    maps\mp\_teleport::main();
+
+    game["allies"] = "marines";
+    game["axis"] = "opfor";
+    game["attackers"] = "axis";
+    game["defenders"] = "allies";
+    game["allies_soldiertype"] = "desert";
+    game["axis_soldiertype"] = "desert";
+
     
-       addTriggerToList( "trig_trap2" );
-       addTriggerToList( "trig_trap3" );
-       addTriggerToList( "trig_trap4" );
-       addTriggerToList( "trig_trap5" );
-       addTriggerToList( "trig_trap6" );
-       addTriggerToList( "trig_trap7" );
-       addTriggerToList( "trig_trap8" );
-       addTriggerToList( "trig_trap10" );
-	
+    thread music();
+    thread games();
+    thread printcredits();
+
+    thread trap2();
+    thread trap3();
+    thread trap4();
+    thread trap5();
+    thread trap6();
+    thread trap7();
+    thread trap8();
+    thread trap10();
+    thread snip();
+    thread knife();
+    thread jump();
+    thread deagle();
+    thread weapon();
+
+    addTriggerToList( "trig_trap2" );
+    addTriggerToList( "trig_trap3" );
+    addTriggerToList( "trig_trap4" );
+    addTriggerToList( "trig_trap5" );
+    addTriggerToList( "trig_trap6" );
+    addTriggerToList( "trig_trap7" );
+    addTriggerToList( "trig_trap8" );
+    addTriggerToList( "trig_trap10" );
 }
 addTriggerToList( name )
 {
     if( !isDefined( level.trapTriggers ) )
         level.trapTriggers = [];
     level.trapTriggers[level.trapTriggers.size] = getEnt( name, "targetname" );
-}
-
-sixzor()
-{
-	trig=getent("sixzor","targetname");
-	trig waittill("trigger");
-	trig delete();
-	iprintlnbold("Map Made by ^1`sixzoRR-");
-	iprintlnbold("sKype:^1dinac555");
 }
 
 Music()
@@ -173,68 +177,9 @@ iPrintlnBold("^1Selection ^7Room ^1is ^1now ^7open^1!!");
 }
 
 printcredits()
-    {
-            if( isDefined( self.logoText ) )
-                    self.logoText destroy();
-     
-            self.logoText = newHudElem();
-            self.logoText.y = 10;
-            self.logoText.alignX = "center";
-            self.logoText.alignY = "middle";
-            self.logoText.horzAlign = "center_safearea";
-     
-            self.logoText.alpha = 0;
-            self.logoText.sort = -3;
-            self.logoText.fontScale = 1.6;
-            self.logoText.archieved = true;
-     
-            for(;;)
-            {
-                    self.logoText fadeOverTime(1);
-                    self.logoText.alpha = 1;
-                    self.logoText setText("^1>>^7Map By:^1'sixzoRR- , ^7sKype:^1dinac555");
-                    wait 10;
-                    self.logoText fadeOverTime(1);
-                    self.logoText.alpha = 0;
-                    wait 5;
-                    self.logoText fadeOverTime(1);
-                    self.logoText.alpha = 1;
-                    self.logoText setText("^1>>^7mp_deathrun_creepy Version of ^1Horror ^7:)");
-                    wait 10;
-                    self.logoText fadeOverTime(1);
-                    self.logoText.alpha = 0;
-                    wait 5;
-                    self.logoText fadeOverTime(1);
-                    self.logoText.alpha = 1;
-                    self.logoText setText("^1>>^7Big Thanks Guys:^1SuX Lolz<33,Night,qwzy:]^7(for testing map^1<3^7)");
-                    wait 10;
-                    self.logoText fadeOverTime(1);
-                    self.logoText.alpha = 0;
-                    wait 5;
-                    self.logoText fadeOverTime(1);
-                    self.logoText.alpha = 1;
-                    self.logoText setText("^1>>^7For bugs contact me ^1Skype:dinac555 ^7;)");
-                    wait 10;
-                    self.logoText fadeOverTime(1);
-                    self.logoText.alpha = 0;
-                    wait 5;
-
-		}
-	
-	}
-	
-creator()
 {
-wait(5);
-thread braxi\_mod::drawInformation( 800, 0.8, 1, "^1>>^7mp_deathrun_creepy Version of ^1Horror ^7:)" );
-while( 1 )
-{
-iPrintLn("^1>>^7mp_deathrun_creepy Version of ^1Horror ^7:)");
-wait(10);
-iPrintLn("^1>>^7Big Thanks Guys:^1SuX Lolz<33,Night,qwzy:]^7(for testing map^1<3^7)");
-wait(10);
-iPrintLn("^1>>^7Map By:^1'sixzoRR- , ^7sKype:^1dinac555");
-}
+    iprintln("^1>>^7Creepy By:^1'sixzoRR");
+    iprintln("^1>>^7Big Thanks Guys:^1SuX Lolz<33,Night,qwzy:]");
 }
 
 trap2()

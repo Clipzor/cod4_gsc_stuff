@@ -26,6 +26,8 @@ main() {
     precacheitem("t10_skateboard_mp");
     precacheitem("china_lake_mp");
 
+    level.firstenter = true;
+
     thread secrettp();
     thread secretendtp();
     thread credits();
@@ -40,7 +42,7 @@ main() {
     thread teleportacti2();
     thread teleportacti3();
     thread select();
-    //thread secretxp();
+    thread secretxp();
 }
 
 antiglitcher()
@@ -112,7 +114,7 @@ waitdead()
 
 endmap()
 { 
-    trig = getEnt("endmaptrigger", "targetname");     
+    trig = getEnt("endmap_trig", "targetname");     
     trig waittill ("trigger" , player );
     firstPlace = newHudElem();
     firstPlace.foreground = true;
@@ -252,12 +254,12 @@ if( !isDefined( level.room_trig ) )
 return;
 
 acti = GetActivator();
-if(!isdefined(level.firstenter))
+if(level.firstenter == true)
 {
-    level.firstenter = false;
     acti freezeControls(1);
     acti iPrintLnBold("^3Jumper ^7is picking a ^3room ^7so don't ^3move^7!");
     level notify("acti_antiglitch");
+    level.firstenter = false;
 }
 player SetPlayerAngles( room.angles );
 player setOrigin( room.origin );
@@ -299,6 +301,16 @@ secretendtp()
         wait 0.05;
         iPrintLnBold("^2 " + player.name + " ^7finished the secret and proves his massive skateboard skill!");
     }
+}
+
+secretxp()
+{
+    trig = getEnt("creeper", "targetname");
+    trig waittill("trigger", player);
+    trig delete();
+
+    iPrintLnBold("^1" + player.name + " wants MINE V2 and found bonus XP!^7");
+    player braxi\_rank::giveRankXP("", 600);
 }
 
 trap1()
