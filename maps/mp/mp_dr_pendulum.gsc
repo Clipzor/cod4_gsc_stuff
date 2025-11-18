@@ -277,10 +277,7 @@ secrettp()
         trig waittill("trigger", player);
         player setOrigin(tele.origin);
         player setPlayerAngles(tele.angles);
-        player freezeControls(1);
-        wait 0.05;
-        player freezeControls(0);
-        wait 0.05;
+        player thread freeze_on_tp();
         player giveWeapon("t10_skateboard_mp");
         player switchToWeapon("t10_skateboard_mp");
     }
@@ -295,12 +292,15 @@ secretendtp()
         trig waittill("trigger", player);
         player setOrigin(tele.origin);
         player setPlayerAngles(tele.angles);
-        player freezeControls(1);
-        wait 0.05;
-        player freezeControls(0);
-        wait 0.05;
+        player thread freeze_on_tp();
         iPrintLnBold("^2 " + player.name + " ^7finished the secret and proves his massive skateboard skill!");
+        player braxi\_rank::giveRankXP("", 500);
     }
+}
+freeze_on_tp() {
+    self freezeControls(1);
+    wait 0.05;
+    self freezeControls(0);
 }
 
 secretxp()
@@ -355,10 +355,7 @@ teleportacti2()
         trig waittill("trigger", player);
         player setOrigin(tele.origin);
         player setPlayerAngles(tele.angles);
-        player freezeControls(1);
-        wait 0.05;
-        player freezeControls(0);
-        wait 0.05;
+        player thread freeze_on_tp();
         iPrintLnBold("^2 " + player.name + " ^7Got himself a penthouse!");
     }
 }
@@ -372,10 +369,7 @@ teleportacti3()
         trig waittill("trigger", player);
         player setOrigin(tele.origin);
         player setPlayerAngles(tele.angles);
-        player freezeControls(1);
-        wait 0.05;
-        player freezeControls(0);
-        wait 0.05;
+        player thread freeze_on_tp();
         iPrintLnBold("^2 " + player.name + " ^7ACTIVATED AND GOES TO PRISON!");
     }
 }

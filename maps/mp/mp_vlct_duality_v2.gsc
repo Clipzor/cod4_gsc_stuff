@@ -26,7 +26,7 @@ main() {
     thread antiglitcher();
     thread creditshud();
     thread credits();
-    thread music();
+    thread setup_music();
 
     //teleports
     thread teleport1();
@@ -51,7 +51,6 @@ main() {
     thread bounce_acti_fail();
     //secrets
     thread secret_raky();
-    thread secret_raky_xp();
     thread practise();
     thread practise_fail();
     thread practise_exit();
@@ -164,31 +163,35 @@ startDeathTimer(duration)
     }
     self.deathTimerCancelled = true;
 }
-music()
+setup_music()
 {
-    level.music = randomint(4);
-
     level waittill("round_started");
+    default_map_music();
+}
+
+default_map_music() {
+    level.music = randomint(4);
     switch(level.music)
-   {
+    {
     case 0:
-	    AmbientStop(2);
+        AmbientStop(2);
         AmbientPlay( "song1" );
         break;
     case 1:
-	    AmbientStop(2);
+        AmbientStop(2);
         AmbientPlay( "song2" );
         break;
     case 2:
-	    AmbientStop(2);
+        AmbientStop(2);
         AmbientPlay( "song3" );
         break;
     case 3:
-	    AmbientStop(2);
+        AmbientStop(2);
         AmbientPlay( "song4" );
         break; 	 
-	}
+    }
 }
+
 credits()
 {
   while(1) 
@@ -258,26 +261,7 @@ level.activ notify("matchend");
 
 	iPrintln("^5"+self.name+" ^7died^5!"); 
     AmbientStop(2);
-    level.music = randomint(4);
-    switch(level.music)
-   {
-      case 0:
-	        AmbientStop(2);
-     AmbientPlay( "song1" );
-     break;
-      case 1:
-	        AmbientStop(2);
-     AmbientPlay( "song2" );
-     break;
-      case 2:
-	        AmbientStop(2);
-     AmbientPlay( "song3" );
-     break;
-      case 3:
-	        AmbientStop(2);
-     AmbientPlay( "song4" );
-     break; 	 
-	}
+    default_map_music();
 	wait 0.2; 
 	iPrintlnBold("^5Room selection opened^7!");
     
@@ -528,18 +512,8 @@ sniper()
     for(;;)
     {
         level.trigger_scope waittill ("trigger", player, activator);
-        level.musics = randomint(2);
-    switch(level.musics)
-   {
-      case 0:
-	        AmbientStop(2);
-     AmbientPlay( "song5" );
-     break;
-      case 1:
-	        AmbientStop(2);
-     AmbientPlay( "song7" );
-     break;
-    }
+        room_music();
+
         iPrintLnBold("^5 " + player.name + " ^7Entered The ^5Sniper ^7Room^5!");
 		activator = GetActivator();
         player thread waitdead();
@@ -594,7 +568,22 @@ sniper()
             player setPlayerAngles(tele.angles);
         }
     }
-    knife()
+
+room_music() {
+    level.musics = randomint(2);
+    switch(level.musics)
+    {
+        case 0: 
+            AmbientStop(2);
+        AmbientPlay( "song5" );
+        break;
+        case 1:
+            AmbientStop(2);
+        AmbientPlay( "song7" );
+        break;
+    }
+}
+knife()
 {
     level.trigger_knife = getEnt ("trigger_knife", "targetname");
 	level.trigger_knife setHintString("Press ^5[&&1]^7 to enter knife room");
@@ -604,18 +593,8 @@ sniper()
     for(;;)
     {
         level.trigger_knife waittill ("trigger", player, activator);
-       level.musics = randomint(2);
-    switch(level.musics)
-   {
-      case 0: 
-	        AmbientStop(2);
-     AmbientPlay( "song5" );
-     break;
-      case 1:
-	        AmbientStop(2);
-     AmbientPlay( "song7" );
-     break;
-    }
+        room_music();
+
         iPrintLnBold("^5 " + player.name + " ^7Entered The ^5Knife ^7Room^5!");
 		activator = GetActivator();
         player thread waitdead();
@@ -643,12 +622,18 @@ sniper()
     knife_fail()
     {
         trig = getEnt("knife_fail", "targetname");
-        tele = getEnt("knife_fail_origin", "targetname");
+        origins = [];
+        origins[0] = getEnt("knife_fail_origin_1", "targetname");
+        origins[1] = getEnt("knife_fail_origin_2", "targetname");
+        origins[2] = getEnt("knife_fail_origin_3", "targetname");
+        origins[3] = getEnt("knife_fail_origin_4", "targetname");
         for(;;)
         {
             trig waittill("trigger", player);
-            player setOrigin(tele.origin);
-            player setPlayerAngles(tele.angles);
+            random_origin = randomInt(origins.size);
+            random_teleport = origins[random_origin];
+            player setOrigin(random_teleport.origin);
+            player setPlayerAngles(random_teleport.angles);
         }
     }
  pure()
@@ -751,6 +736,7 @@ rpg()
     for(;;)
     {
         level.trigger_rpg waittill ("trigger", player, activator);
+        room_music();
         iPrintLnBold("^5 " + player.name + " ^7Entered The ^5RPG ^7Room^5!");
 		activator = GetActivator();
         player thread waitdead();
@@ -809,20 +795,8 @@ rpg_acti_fail()
     for(;;)
     {
         level.trigger_bounce waittill ("trigger", player);
-        level.musics = randomint(2);
-    switch(level.musics)
-   {
-      case 0:
-	        AmbientStop(2);
-     AmbientPlay( "song5" );
-	 //iPrintLN("Song name: Coals - Dzwony");
-     break;
-      case 1:
-	        AmbientStop(2);
-     AmbientPlay( "song7" );
-	// iPrintLN("Song name: Coals - plasma");
-     break;
-    }
+        room_music();
+
         iPrintLnBold("^5 " + player.name + " ^7Entered The ^5Bounce ^7Room^5!");
 		activator = GetActivator();
         player thread waitdead();
@@ -896,27 +870,22 @@ secret_raky()
     trig = getEnt("secret_raky", "targetname");
     trig setHintString("Press ^5[&&1]^7 for a free vip on XM!");
     tele = getEnt("secret_raky_origin", "targetname");
+    awljkmf = undefined;
     for(;;)
     {
         trig waittill("trigger", player);
         player setOrigin(tele.origin);
-        player setPlayerAngles(tele.origin);
+        player setPlayerAngles(tele.angles);
         iprintlnBold("^5" +player.name+ " ^7tried to get an ^5xM VIP ^7for free... laugh at him in the chat");
+        if(!isDefined(awljkmf)) {
+            awljkmf = true;
+            player iprintLnBold("We're not on xM ^5RETARD^7... have some xp instead");
+            player braxi\_rank::giveRankXP("", 1000);
+        }
         player freezecontrols(1);
         wait 1;
         player freezecontrols(0);
     }
-}
-secret_raky_xp()
-{
-    trig = getEnt("secret_raky_xp", "targetname");
-    for(;;)
-        {
-            trig waittill("trigger", player);
-            trig delete();
-            player iprintLnBold("We're not on xM ^5RETARD^7... have some xp instead");
-            player braxi\_rank::giveRankXP("", 1000);
-        }
 }
 practise()
 {
@@ -1406,9 +1375,9 @@ trap7()
     trig setHintstring("^5Activated!");
     for(;;)
     {
-        wait 0.1;
-        plat7_1 rotateyaw (360, 1, 0, 0);
-        plat7_2 rotateyaw (360, 1, 0, 0);
+    wait 0.1;
+    plat7_1 rotateyaw (360, 1, 0, 0);
+    plat7_2 rotateyaw (360, 1, 0, 0);
     }
  }
  trap8()
