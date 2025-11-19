@@ -1,8 +1,10 @@
 // if using this please call this function inside your braxi/_maps (replace the big case statement with a thread out to the main here)
 
 main() {
+//  delete_from_endmap_trigger_array(mapname, targetname, index)
     delete_from_endmap_trigger_array("mp_deathrun_creepy", "endmap_trig", 0);
 
+//  add_endmap_trigger(mapname, origin, radius, height)
     add_endmap_trigger("mp_deathrun_azteca", (6.59441, -808.602, 32.125), 60, 50);
     add_endmap_trigger("mp_deathrun_backlot", (-939.774, 222.606, 106.125), 96, 48);
     add_endmap_trigger("mp_deathrun_bricky", (26, 1642, 125), 174, 30);
@@ -69,6 +71,7 @@ main() {
     add_endmap_trigger("mp_dr_un_named", (4660, 8956, -2036), 90, 85);
     add_endmap_trigger("mp_dr_watercity", (1786, 592, 444), 94, 30);
 
+//  add_endmap_trigger_change_targetname(mapname, targetname)
     add_endmap_trigger_change_targetname("mp_dr_experts", "map_end");
 
     spawn_endmap_trigger();
