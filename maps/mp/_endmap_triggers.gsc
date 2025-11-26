@@ -74,10 +74,36 @@ main() {
 //  add_endmap_trigger_change_targetname(mapname, targetname)
     add_endmap_trigger_change_targetname("mp_dr_experts", "map_end");
 
-    spawn_endmap_trigger();
+    spawn_endmap_trigger(); // actually spawns the actual trig/changes targetname
+
+
+    // trap triggers
+
+//  add_trap_triggers_for_freerun(mapname, string_array)
+    add_trap_triggers_for_freerun("mp_deathrun_darkness"        , "t1;t2;t3;t4;t5;t6;t7");
+    add_trap_triggers_for_freerun("mp_deathrun_long"            , "trigger1;trigger2;trigger3;trigger4;trigger5;trigger7;trigger8;trigger9;trigger10;trigger11;trigger12;trigger13");
+    add_trap_triggers_for_freerun("mp_deathrun_watchit_v2"      , "t1;t2;t3;t4;t5;t6;t7;t8;t9;t10;t11;t12;t13");
+    add_trap_triggers_for_freerun("mp_deathrun_watchit_v3"      , "t1;t2;t3;t4;t5;t6;t7;t8;t9;t10;t11;t12;t13");
+    add_trap_triggers_for_freerun("mp_deathrun_takecare"        , "trig_1;trig_2;trig_3;trig_4;trig_5;trig_6;trig_7;trig_8");
+    add_trap_triggers_for_freerun("mp_deathrun_glass"           , "trig_1;trig_2;trig_3;trig_4;trig_5;trig_6;trig_7;trig_8;trig_9");
+    add_trap_triggers_for_freerun("mp_deathrun_dungeon"         , "trig_1;trig_2;trig_3;trig_4;trig_5;trig_6;trig_7;trig_8;trig_9");
+    add_trap_triggers_for_freerun("mp_deathrun_supermario"      , "trig1;trig2;trig3;trig4;trig5;trig6;trig7;trig8;trig9");
+    add_trap_triggers_for_freerun("mp_deathrun_short"           , "t1;t2;t3;t4;t5");
+    add_trap_triggers_for_freerun("mp_deathrun_short_v2"        , "t1;t2;t3;t4;t5");
+    add_trap_triggers_for_freerun("mp_deathrun_grassy"          , "trigger1;trigger2;trigger3;trigger4;trigger5;trigger6;trigger7;trigger8");
+    add_trap_triggers_for_freerun("mp_deathrun_portal"          , "trigger1;trigger2;trigger3;trigger4;trigger5;trigger6;trigger7");
+    add_trap_triggers_for_freerun("mp_dr_jurapark"              , "t3;t1_;t4_;t5_;t6_;t7_;t8;t9_;t10_;t11_;t12_;t13_;t14_;t15_;t16_");
+    add_trap_triggers_for_freerun("mp_dr_indipyramid"           , "t1;t2;t3;t4;t5;t6;t7;t8;t9;t10;t11;t12;t13;t14;t15");
+    add_trap_triggers_for_freerun("mp_deathrun_diehard"         , "hardlevel;trigger_4squares;trigger_pusher;trigger_rollers;trigger_spikes;trigger_lifter;spintest;trap_rotatefloor");
+    add_trap_triggers_for_freerun("mp_deathrun_wipeoutv2"       , "act1;act2;act5;act7;act8;act4;act6;act3");
+    add_trap_triggers_for_freerun("mp_dr_sewers"                , "trap2_trig;trap5_trig;trap4_trig;trap3_trig;trap7_trig;trap8_trig;trap6_trig");
+
 }
 
 add_endmap_trigger(mapname, origin, radius, height) {
+    if(mapname != getdvar("mapname"))
+        return;
+    
     if(!isdefined(level.endmap_triggers))
         level.endmap_triggers = [];
 
@@ -107,6 +133,9 @@ delete_from_endmap_trigger_array(mapname, targetname, index) {
 }
 
 add_endmap_trigger_change_targetname(mapname, targetname) {
+    if(mapname != getdvar("mapname"))
+        return;
+
     if(!isdefined(level.endmap_triggers))
         level.endmap_triggers = [];
     
@@ -141,5 +170,21 @@ spawn_endmap_trigger() {
             return endmap_trig;
         }
     }
+}
 
+add_trap_triggers_for_freerun(mapname, string_array) {
+    if(mapname != getdvar("mapname"))
+        return;
+
+    if (isDefined(level.trapTriggers)) // overwrite if there already is one but maybe missing
+        level.trapTriggers = [];
+
+    trigger_array = StrTok(string_array, ";");
+    for(i=0;i<trigger_array.size;i++) {
+        test_ent = getEnt(trigger_array[i], "targetname");
+        if(isdefined(test_ent)) {
+            level.trapTriggers[level.trapTriggers.size] = getEnt(trigger_array[i], "targetname");
+            test_ent = undefined;
+        }
+    }
 }

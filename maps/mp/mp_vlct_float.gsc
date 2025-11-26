@@ -1,7 +1,8 @@
 #include maps\mp\_utility;
 #include common_scripts\utility;
 
-main() {
+main()
+{
 	maps\mp\_load::main();
 	//thread maps\saveload::main();
     SetDvar("bg_falldamagemaxheight", 99999);
@@ -15,12 +16,14 @@ main() {
 	game["allies_soldiertype"] = "desert";
 	game["axis_soldiertype"] = "desert";
 
-	SetDvar("bg_bobmax" , "0");
-	SetDvar("jump_slowdownenable" , "0");
-	SetDvar("r_specular" , "1");
-	SetDvar("r_drawDecals" , "1");
-	SetDvar("dr_jumpers_speed" , "1.12");
-
+	setdvar("bg_bobmax" , "0");
+	setdvar("jump_slowdownenable" , "0");
+	setdvar("g_speed" , "210");
+	setdvar("bg_falldamageminheight" , "99998");
+	setdvar("bg_falldamagemaxheight" , "99999");
+	setdvar("r_specular" , "1");
+	setdvar("r_drawDecals" , "1");
+	setdvar("dr_jumpers_speed" , "1.12");
 
 	thread antiglitcher();
     thread music();
@@ -30,11 +33,11 @@ main() {
     thread velocity();
 
 	thread endmap();
+    thread creditshud();
 	thread select();
     thread sniper();
     thread knife();
-    thread teleport_sniper_jumper();
-    thread teleport_sniper_acti();
+    thread teleport_sniper();
 
     thread secret_check_1();
 	thread secret_check_2();
@@ -42,7 +45,7 @@ main() {
 	thread secret_check_4();
     thread secret_fail();
     thread secret_end();
-    thread secret();
+    //thread secret();
     
     thread teleport12();
 	thread teleport23();
@@ -52,6 +55,12 @@ main() {
 	thread teleport34_acti();
 	thread teleportend();
 	thread teleportendlogo();
+
+    thread tip1();
+    thread tip2();
+    thread tip3();
+    thread tip4();
+    thread tip5();
 
     thread trap1();
     thread trap2();
@@ -73,6 +82,7 @@ main() {
 
     precacheitem("h1_karambit_mp");
 }
+
 addTriggerToList( name )
 {
     if( !isDefined( level.trapTriggers ) )
@@ -98,7 +108,7 @@ GetActivator()
 			return player;
 	}
 	
-	return "Noactivator";
+	return undefined;
 }
 antiglitcher() 
 {
@@ -211,7 +221,7 @@ if( !isDefined( level.room_trig ) )
 return;
 
 acti = GetActivator();
-if(level.firstenter == true)
+if(!isdefined(level.firstenter))
 {
 	acti freezeControls(1);
 	acti iPrintLnBold("^5Jumper ^7is picking a ^5room ^7so don't ^5move^7!");
@@ -240,7 +250,7 @@ endmap()
     firstPlace.sort = 0;
     firstPlace.font = "default";
     firstPlace.fontScale = 1.4;
-    firstPlace.hidewheninmenu = false;
+    firstplace.hidewheninmenu = false;
     firstPlace.glowAlpha = 1;
     firstPlace.glowColor = (.3,.0,3);
     firstPlace settext("^5" + player.name + " ^7has finished ^5FIRST^7");
@@ -265,6 +275,32 @@ waitdead()
     activator.health = activator.maxhealth;
     level.trigger_scope thread maps\mp\_utility::triggerOn();
     level.trigger_knife thread maps\mp\_utility::triggerOn();
+}
+creditshud()
+{    
+    mapby = newHudElem();
+    mapby.foreground = true;
+    mapby.alpha = 1;
+    mapby.alignX = "left";
+    mapby.alignY = "middle";
+    mapby.horzAlign = "left";
+    mapby.vertAlign = "middle"; 
+    mapby.x = -400;
+    mapby.y = 0;
+    mapby.sort = 0;
+    mapby.font = "default";
+    mapby.fontScale = 1.4;
+    mapby.hidewheninmenu = false;
+    mapby.glowAlpha = 1;
+    mapby.glowColor = (.3,.0,3);
+    mapby settext("^0Map by ^5LEGz criz");
+    mapby moveOverTime(2); 
+    mapby.x = 5;
+    wait 5;
+    mapby moveOverTime(2); 
+    mapby.x = -500;
+    wait 7;
+    mapby destroy();
 }
 creditsall()
 {
@@ -296,12 +332,8 @@ credits()
 		wait 0.5;
 		iPrintln("^5S^7loth for karambit model");
 		wait 0.5;
-		iPrintln("Map made for ^5Velocity ^7Deathrun: 162.19.241.204:28960");
+		iPrintln("Map made for ^5Velocity ^7Deathrun: 51.38.35.106:28960");
 		wait 30;
-        iPrintln("^5M^7ap created by ^5LEGz criz");
-		wait 1;
-		iPrintln("Join ^5Velocity ^7Discord server: https://discord.gg/7fWhErrSEa");
-        wait 30;
         }
 }
 music()
@@ -331,7 +363,7 @@ music()
 }
 velocity()
 {
-    boat1 = getent("logo_velocity" , "targetname");
+    boat1 = getent("logo_velocity1" , "targetname");
     boat2 = getent("logo_velocity2" , "targetname");
     boat3 = getent("logo_velocity3" , "targetname");
     boat4 = getent("logo_velocity4" , "targetname");
@@ -354,9 +386,9 @@ startdoor()
 {
     door1 = getEnt("door", "targetname");
     door2 = getEnt("door_2","targetname");
-    //level waittill("round_started");
-    //wait 2;
-    wait 10;
+    while(1)
+    {
+    wait 7;
     iprintlnbold("Door opening in");
     iprintlnbold("^5 3");
     wait 1;
@@ -365,9 +397,12 @@ startdoor()
     iprintlnbold("^5 1");
     wait 1;
     door1 moveZ(-50, 3);
+    wait 1;
     door2 notsolid();
     wait 3;
     door1 delete();
+    break;
+    }
 }
 //secret
 secret()
@@ -395,15 +430,19 @@ secret()
         return;
 
     player = self;
+    if (isDefined(player.deathTimerHud))
+    {
+        player.deathTimerHud destroy();
+        player.deathTimerHud = undefined;
+    }
     player.deathTimerCancelled = false;
 
-    // HUD z samą liczbą
     hudTimer = newClientHudElem(player);
     hudTimer.alignX = "center";
     hudTimer.alignY = "bottom";
     hudTimer.horzAlign = "center";
     hudTimer.vertAlign = "bottom";
-    hudTimer.y = -10; // pozycja pionowa
+    hudTimer.y = -10;
     hudTimer.fontScale = 2;
     hudTimer.alpha = 1;
     hudTimer.color = (0.26, 0.95, 0.96);
@@ -412,6 +451,8 @@ secret()
     hudTimer setValue(duration);
 
     player.deathTimerHud = hudTimer;
+
+    player thread [[::deathWatcher]]();
 
     for (i = duration; i >= 0; i--)
     {
@@ -432,6 +473,16 @@ secret()
             hudTimer destroy();
         player suicide();
     }
+}
+    deathWatcher()
+{
+    self waittill_any("death", "disconnect");
+    if (isDefined(self.deathTimerHud))
+    {
+        self.deathTimerHud destroy();
+        self.deathTimerHud = undefined;
+    }
+    self.deathTimerCancelled = true;
 }
 secret_check_1()
 {
@@ -560,25 +611,25 @@ secret_fail()
             player setPlayerAngles(tele.angles);
             player freezecontrols(1);
             iprintlnBold("^5 " + player.name + "^7 is ^5pretty good^7!");
-            //players3 = getEntArray("player", "classname");
-            //for (i = 0; i < players3.size; i++) 
-               // {
-               // if (isDefined(players3[i])) 
-                 //   {
-			     //   players3[i] playLocalSound("sound1"); 	
-                 //   }
-              //  }
+            players = getEntArray("player", "classname");
+            for (i = 0; i < players.size; i++) 
+                {
+                if (isDefined(players[i])) 
+                    {
+			        players[i] playLocalSound("sound1"); 	
+                    }
+                }
                  if (isDefined(player.deathTimerHud))
-        {
-            player.deathTimerHud destroy();
-        }
+                {
+                    player.deathTimerHud destroy();
+                }
 
-        player.deathTimerCancelled = true;
+            player.deathTimerCancelled = true;
             wait 1;
             player freezecontrols(0);
             player giveweapon("h1_karambit_mp");
             player switchtoweapon("h1_karambit_mp");
-            //player braxi_rank::giveRankXP("", 10000);
+            player braxi\_rank::giveRankXP("", 1000);
         }
     }
 //rooms
@@ -612,7 +663,7 @@ secret_fail()
         activator giveMaxAmmo("m40a3_mp");
         player switchToWeapon("m40a3_mp");
         activator switchToWeapon("m40a3_mp");   
-        //player.maxhealth = 100;
+        player.maxhealth = 100;
         player.health = player.maxhealth;
         //wait 1;
         player thread RoomCountDown("^5Kill each other !", 3, 0);
@@ -645,7 +696,7 @@ secret_fail()
         activator giveWeapon("h1_karambit_mp");
         player switchtoweapon("h1_karambit_mp");
         activator switchtoweapon("h1_karambit_mp");
-        //player.maxhealth = 100;
+        player.maxhealth = 100;
         player.health = player.maxhealth;
         //wait 1;
         player thread RoomCountDown("^5Kill each other !", 3, 0);
@@ -655,28 +706,24 @@ secret_fail()
 }
     
 }
-teleport_sniper_jumper()
+teleport_sniper()
     {
-        trig = getEnt("jumper_sniper_fail", "targetname");
-        tele = getEnt("jumper_sniper_fail_origin", "targetname");
+        trig = getEnt("sniper_fail", "targetname");
+        jumper = getEnt("jumper_sniper_fail_origin", "targetname");
+        acti = getEnt("acti_sniper_fail_origin", "targetname");
 
         for(;;)
         {
             trig waittill("trigger", player);
-            player setOrigin(tele.origin);
-            player setPlayerAngles(tele.angles);
-        }
-    }
-     teleport_sniper_acti()
-    {
-        trig = getEnt("acti_sniper_fail", "targetname");
-        tele = getEnt("acti_sniper_fail_origin", "targetname");
-
-        for(;;)
-        {
-            trig waittill("trigger", player);
-            player setOrigin(tele.origin);
-            player setPlayerAngles(tele.angles);
+            if(player.team == "axis"){
+                player setOrigin(acti.origin);
+                player setPlayerAngles(acti.angles);
+            }
+            else{
+                player setOrigin(jumper.origin);
+                player setPlayerAngles(jumper.angles);
+            }
+            
         }
     }
 //teleports
@@ -684,12 +731,17 @@ teleport12()
 {
 	trig = getEnt("teleport12", "targetname");
     tele = getEnt("teleport12_origin", "targetname");
-    
+    awljkmf = undefined;
     for(;;)
     {
         trig waittill("trigger", player);
         player setOrigin(tele.origin);
         player setPlayerAngles(tele.angles);
+        if(!isDefined(awljkmf)) {
+            awljkmf = true;
+            player braxi\_rank::giveRankXP("", 1000);
+            iPrintlnBold("^5"+player.name+" ^7got to Stage 2 first!");
+        }
         player iprintlnbold("^5Stage 2");
     }
 }
@@ -697,12 +749,17 @@ teleport23()
 {
 	trig = getEnt("teleport23", "targetname");
     tele = getEnt("teleport23_origin", "targetname");
-    
+    awadljkmf = undefined;
     for(;;)
     {
         trig waittill("trigger", player);
         player setOrigin(tele.origin);
         player setPlayerAngles(tele.angles);
+        if(!isDefined(awadljkmf)) {
+            awadljkmf = true;
+            player braxi\_rank::giveRankXP("", 1000);
+            iPrintlnBold("^5"+player.name+" ^7got to Stage 3 first!");
+        }
         player iprintlnbold("^5Stage 3");
     }
 }
@@ -710,12 +767,17 @@ teleport34()
 {
 	trig = getEnt("teleport34", "targetname");
     tele = getEnt("teleport34_origin", "targetname");
-    
+    awdawdadawda = undefined;
     for(;;)
     {
         trig waittill("trigger", player);
         player setOrigin(tele.origin);
         player setPlayerAngles(tele.angles);
+        if(!isDefined(awdawdadawda)) {
+            awdawdadawda = true;
+            player braxi\_rank::giveRankXP("", 1000);
+            iPrintlnBold("^5"+player.name+" ^7got to the Final Stage first!");
+        }
         player iprintlnbold("^5Final stage");
     }
 }
@@ -781,7 +843,7 @@ teleportendlogo()
         player setOrigin(tele.origin);
         player setPlayerAngles(tele.angles);
 		iprintlnbold("^5"+player.name+" ^7landed on the ^5Velocity ^7logo!");
-        //player braxi_rank::giveRankXP("", 2000);
+        player braxi\_rank::giveRankXP("", 1000);
     }
 }
 //random
@@ -791,6 +853,7 @@ trap1()
     trig = getEnt("trap1", "targetname");
     trig sethintstring("Press ^5[&&1]^7 to activate trap 1!");
     trig waittill("trigger", player);
+    trig setHintstring("^5Activated!");
     bounce1 = getEnt("trap1_1", "targetname");
     while(true)
     {
@@ -804,6 +867,7 @@ trap2()
     trig = getEnt("trap2", "targetname");
     trig sethintstring("Press ^5[&&1]^7 to activate trap 2!");
     trig waittill("trigger", player);
+    trig setHintstring("^5Activated!");
     bounce2 = getEnt("trap2_1", "targetname");
     while(true)
     {
@@ -817,6 +881,7 @@ trap3()
     trig = getEnt("trap3", "targetname");
     trig sethintstring("Press ^5[&&1]^7 to activate trap 3!");
     trig waittill("trigger", player);
+    trig setHintstring("^5Activated!");
     bounce3 = getEnt("trap3_1", "targetname");
     while(true)
     {
@@ -830,6 +895,7 @@ trap4()
     trig = getEnt("trap4", "targetname");
     trig sethintstring("Press ^5[&&1]^7 to activate trap 4!");
     trig waittill("trigger", player);
+    trig setHintstring("^5Activated!");
     bounce4 = getEnt("trap4_1", "targetname");
     while(true)
     {
@@ -843,6 +909,7 @@ trap5()
     trig = getEnt("trap5", "targetname");
     trig sethintstring("Press ^5[&&1]^7 to activate trap 5!");
     trig waittill("trigger", player);
+    trig setHintstring("^5Activated!");
     bounce5 = getEnt("trap5_1", "targetname");
     while(true)
     {
@@ -856,7 +923,7 @@ trap6()
     trig = getEnt("trap6", "targetname");
     trig sethintstring("Press ^5[&&1]^7 to activate trap 6!");
     trig waittill("trigger", player);
-
+    trig setHintstring("^5Activated!");
     trap6_dis = [];
     island6 = getEntArray("trap6_1", "targetname");
     bush6 = getEntArray("trap6_model", "targetname");
@@ -884,6 +951,7 @@ trap7()
     trig = getEnt("trap7","targetname");
     trig sethintstring("Press ^5[&&1]^7 to activate trap 7!");
     trig waittill("trigger", player); 
+    trig setHintstring("^5Activated!");
     plat7_1 = getEnt("trap7_1", "targetname");
     plat7_2 = getEnt("trap7_2", "targetname");
     plat7_3 = getEnt("trap7_3", "targetname");
@@ -908,12 +976,10 @@ while(true)
 }
 trap8()
 {
-    // Czekanie na aktywację triggera
     trig = getEnt("trap8", "targetname");
     trig sethintstring("Press ^5[&&1]^7 to activate trap 8!");
     trig waittill("trigger", player);
-
-    // Zbierz lewą stronę pułapki
+    trig setHintstring("^5Activated!");
     groupLeft = [];
     platformsLeft = getEntArray("trap8_1", "targetname");
     bushesLeft = getEntArray("trap8_bush1", "targetname");
@@ -923,8 +989,6 @@ trap8()
 
     for (i = 0; i < bushesLeft.size; i++)
         groupLeft[groupLeft.size] = bushesLeft[i];
-
-    // Zbierz prawą stronę pułapki
     groupRight = [];
     platformsRight = getEntArray("trap8_2", "targetname");
     bushesRight = getEntArray("trap8_bush2", "targetname");
@@ -934,29 +998,44 @@ trap8()
 
     for (i = 0; i < bushesRight.size; i++)
         groupRight[groupRight.size] = bushesRight[i];
-
-    // Uruchom pułapkę w pętli
     while (true)
     {
-        // Lewa grupa: lewo
         for (i = 0; i < groupLeft.size; i++)
             groupLeft[i] moveX(-150, 0.5);
-
-        // Prawa grupa: prawo
         for (i = 0; i < groupRight.size; i++)
             groupRight[i] moveX(150, 0.5);
-
         wait 1;
-
-        // Lewa grupa: prawo
         for (i = 0; i < groupLeft.size; i++)
             groupLeft[i] moveX(150, 0.5);
-
-        // Prawa grupa: lewo
         for (i = 0; i < groupRight.size; i++)
             groupRight[i] moveX(-150, 0.5);
 
         wait 1;
     }
-    trig delete();
 }
+
+ tip1()
+    {
+        trig = getEnt("tip1", "targetname");
+        trig setHintString("^532-321");
+    }
+ tip2()
+    {
+        trig = getEnt("tip2", "targetname");
+        trig setHintString("^532-323");
+    }
+     tip3()
+    {
+        trig = getEnt("tip3", "targetname");
+        trig setHintString("^532-3");
+    }
+     tip4()
+    {
+        trig = getEnt("tip4", "targetname");
+        trig setHintString("^532 slide 32 bhop 32-321");
+    }
+     tip5()
+    {
+        trig = getEnt("tip5", "targetname");
+        trig setHintString("^532-23");
+    }

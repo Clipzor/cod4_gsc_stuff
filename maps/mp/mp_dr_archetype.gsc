@@ -1077,12 +1077,13 @@ on_death(player)
 			break;
 	}
 
-	player.isBounced = undefined;
-	player.isDead = undefined;
 	
 	playFx(level.fx_death, player.origin);
 	player playSound("bone_crack");
 	
 	if(isDefined(player) && isAlive(player))
 		player suicide();
+        
+	player.isBounced = undefined;
+	player.isDead = undefined;
 }

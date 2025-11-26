@@ -18,6 +18,9 @@ main() {
  addTriggerToList("trap7_trig");
  addTriggerToList("trap8_trig");
 
+ setdvar("bg_falldamagemaxheight" , 99999);
+ setdvar("bg_falldamageminheight" , 99998);
+
  
  level.BounceWalls = false;
  

@@ -80,11 +80,6 @@ on_start()
 	
 	players = getEntArray("player", "classname");
 	
-	for(i = 0; i < players.size; i++)
-	{
-		players[i].isBouncing = false;
-		players[i].isDead = false;
-	}
 	
 	level.isSniper = false;
 	level.isKnife = false;
@@ -464,7 +459,7 @@ death(trigger_entity)
 	{
 		trigger waittill("trigger", player);
 		
-		if(isDefined(player) && isAlive(player) && !player.isDead)
+		if(isDefined(player) && isAlive(player) && !isdefined(player.isDead))
 		{
 			player.isDead = true;
 			thread on_death(player);
@@ -482,11 +477,12 @@ on_death(player)
 			break;
 	}
 	
-	player.isDead = false;
 	playFx(level.fx_death, player.origin);
 	
 	if(isDefined(player) && isAlive(player))
 		player suicide();
+
+	player.isDead = undefined;
 }
 
 platform(object_entity)
@@ -508,7 +504,7 @@ bounce_pad(trigger_entity)
 	{
 		trigger waittill("trigger", player);
 		
-		if(isDefined(player) && isAlive(player) && !player.isBouncing)
+		if(isDefined(player) && isAlive(player) && !isdefined(player.isBouncing))
 		{
 			player.isBouncing = true;
 			thread do_bounce(player, 180, 4, (-50, -180, 0), "none");
@@ -530,7 +526,7 @@ do_bounce(player, strength, multiplyer, angle, pos)
 				player finishPlayerDamage(player, level.jumpattacker, strength, 0, "MOD_FALLING", "jump_mp", player.origin, AnglesToForward(angle), pos, 0);
 			}
 			
-			player.isBouncing = false;
+			player.isBouncing = undefined;
 			wait .05;
 			
 			while(isDefined(player) && isAlive(player))
@@ -547,6 +543,7 @@ do_bounce(player, strength, multiplyer, angle, pos)
 
 		wait .05;
 	}
+    player.isBouncing = undefined;
 }
 
 do_teleport(player, teleport, delay)
