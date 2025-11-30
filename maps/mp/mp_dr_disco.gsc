@@ -765,10 +765,7 @@ end()
 {
 	trig = getEnt("endmap_trig","targetname");
 	trig waittill("trigger",player);
-	iPrintLnBold("^5"+player.name+" "+"^6"+"reached the end!");
-	trig delete();
 	ambientStop(1);
-	iPrintLn("Map by DeltaBoss");
 }
 end_doors()
 {
