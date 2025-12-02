@@ -825,7 +825,7 @@ deagle()
          	level.activ TakeAllWeapons();
 		level.activ giveweapon( "usp_mp" );
         level.activ GiveWeapon( "usp_mp" );	
-		iPrintlnBold( " ^2" + player.name + " ^5 has entered the wepon room^1!" );         
+		iPrintlnBold( " ^2" + player.name + " ^5 has entered the weapon room^1!" );         
          	wait 0.05;
 		level.activ switchtoweapon( "usp_mp" );
 		player switchtoweapon( "usp_mp" );

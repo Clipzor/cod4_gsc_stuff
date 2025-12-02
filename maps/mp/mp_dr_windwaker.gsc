@@ -2358,7 +2358,7 @@ bounce_weapon()
 	player giveMaxAmmo ( "deserteagle_mp" );
 	player switchToWeapon( "m40a3_mp" );
 
-	if (isDefined(level.activ) && player == level.activ && player.hasGottenBounceWeapon == false)
+	    if (isDefined(level.activ) && player == level.activ && player.hasGottenBounceWeapon == false)
 		{
 			iPrintLnBold ("The ^1Activator^7 has gotten the ^1weapon!");
 			player.hasGottenBounceWeapon = true;

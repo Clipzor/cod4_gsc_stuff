@@ -1,29 +1,29 @@
 main() {
 //////////////////////////////thready////////////
-  		ambientPlay("indipyramid");
-	
-      thread door_a();
-	  thread door_b();
-      thread jump_teleport();
-      thread secret_teleport();	
+    ambientPlay("indipyramid");
 
-precacheItem( "remington700_mp" );
-precacheItem( "knife_mp" );
-precacheItem( "tomahawk_mp" );
-precacheItem( "winchester1200_mp" );
-precacheItem( "skorpion_mp" );
-precacheItem( "m4_mp" );
-precacheItem( "honeybadger_mp" );
-precacheItem( "ak47_mp" );
-precacheItem( "rpd_mp" );
+    thread door_a();
+    thread door_b();
+    thread jump_teleport();
+    thread secret_teleport();	
 
-thread old(); //64
-thread jump(); //64
-thread snip();  //304
-thread secret2();
-thread jump_room_gun();
+    precacheItem( "remington700_mp" );
+    precacheItem( "knife_mp" );
+    precacheItem( "tomahawk_mp" );
+    precacheItem( "winchester1200_mp" );
+    precacheItem( "skorpion_mp" );
+    precacheItem( "m4_mp" );
+    precacheItem( "honeybadger_mp" );
+    precacheItem( "ak47_mp" );
+    precacheItem( "rpd_mp" );
+
+    thread old(); //64
+    thread jump(); //64
+    thread snip();  //304
+    thread secret2();
+    thread jump_room_gun();
 	  
-        maps\mp\_load::main();
+    maps\mp\_load::main();
 	
 	maps\mp\mp_dr_indipyramid_script1::main();
 	maps\mp\mp_dr_indipyramid_script2::main();
@@ -87,221 +87,177 @@ door_b()
 	ambientPlay("indipyramid_final");
 }
 
+waitdead()
+{
+    activator = GetActivator();
+    jump = getent("jump_enter","targetname");
+    sniper = getent("snip_enter","targetname");
+    // old = getent("old_enter","targetname");
+    jump thread maps\mp\_utility::triggerOff();
+    sniper thread maps\mp\_utility::triggerOff();
+    // old thread maps\mp\_utility::triggerOff();
+    self common_scripts\utility::waittill_any("death","disconnect");
+
+    self freezeControls(false);
+
+    if(isdefined(activator)) {
+        activator freezeControls(false);
+        activator.health = activator.maxhealth;
+    }
+
+    jump thread maps\mp\_utility::triggerOn();
+    sniper thread maps\mp\_utility::triggerOn();
+    // old thread maps\mp\_utility::triggerOn();
+}
+
 old()
 {
-enter_old = getent ("old_enter" , "targetname");
-door = getentarray ("final_door" , "targetname");
-sipka = getent ("sipka" , "targetname");
-enter_snip = getent ("snip_enter" , "targetname");
-enter_jump = getent ("jump_enter" , "targetname");
+    enter_old = getent ("old_enter" , "targetname");
+    door = getentarray ("final_door" , "targetname");
+    sipka = getent ("sipka" , "targetname");
 
-for(;;)
-{
-enter_old waittill ("trigger" , player);
-///////RESPECT SCRIPT/////////////////////////
+    jump = getent("jump_enter","targetname");
+    sniper = getent("snip_enter","targetname");
+    for(;;)
+    {
+        enter_old waittill ("trigger" , player);
 
+        if(!isdefined(level.firstenter)) {
+            level.firstenter = true;
+            iprintlnbold ("^3---^1" + player.name + "^3--- ^2Open Old Room!");
 
-enter_snip delete();
-enter_jump delete();
+            sipka delete(); 
+            door delete();
 
-iprintlnbold ("^3---^1" + player.name + "^3--- ^2open FINAL door!");
-
-sipka delete(); 
-door delete();
-}
+            jump delete();
+            sniper delete();
+        }
+    }
 }
 
 jump()
 {
-enter_old = getent ("old_enter" , "targetname");
-sipka = getent ("sipka" , "targetname");
-enter_snip = getent ("snip_enter" , "targetname");
-level.enter_jump = getent ("jump_enter" , "targetname");
+    enter_old = getent ("old_enter" , "targetname");
+    sipka = getent ("sipka" , "targetname");
+    enter_jump = getent ("jump_enter" , "targetname");
 
-for(;;)
-{
+    for(;;)
+    {
+        enter_jump waittill ("trigger" , jumper);
 
-level.enter_jump waittill ("trigger" , jumper);
+        if(!isdefined(level.firstenter)) {
+            level.firstenter = true;
+            enter_old delete();
+            sipka delete();
+        }
 
-enter_snip delete();
-enter_old delete();
-sipka delete();
+        acti = GetActivator();
+        if(isdefined(acti))
+            acti thread acti_jump();
 
-thread aktiv_teleport_jump();
-jumper thread jumper_jump();
-}
+        jumper thread jumper_jump();
+
+        jumper waitdead();
+
+        iprintlnbold ("^3---^1" + self.name + "^3--- ^2Died!");
+        iprintlnbold ("^2JUMP ^3room opened!!");
+    }
 }
 
 snip()
 {
-enter_old = getent ("old_enter" , "targetname");
-sipka = getent ("sipka" , "targetname");
-level.enter_snip = getent ("snip_enter" , "targetname");
-enter_jump = getent ("jump_enter" , "targetname");
+    enter_old = getent ("old_enter" , "targetname");
+    sipka = getent ("sipka" , "targetname");
+    enter_snip = getent ("snip_enter" , "targetname");
 
-for(;;)
-{
-level.enter_snip waittill ("trigger" , jumper);
- 
-enter_jump delete();
-enter_old delete();
-sipka delete();
+    for(;;)
+    {
+        enter_snip waittill ("trigger" , jumper);
+        
+        if(!isdefined(level.firstenter)) {
+            level.firstenter = true;
+            enter_old delete();
+            sipka delete();
+        }
 
-thread aktiv_teleport_snip();
-jumper thread jumper_snip();
-}
+        acti = GetActivator();
+        if(isdefined(acti))
+            acti thread acti_snip();
+
+        jumper thread jumper_snip();
+
+        jumper waitdead();
+
+        iprintlnbold ("^3---^1" + self.name + "^3--- ^2Died!");
+        iprintlnbold ("^2SNIPER ^3room opened!!");
+    }
 }
 
 jumper_snip()
 {
-enter_jumper_room = getent ("jumper_enter_snip_2" , "targetname");
+    enter_jumper_room = getent ("jumper_enter_snip_2" , "targetname");
 
-self setorigin (enter_jumper_room.origin);
-self setplayerangles (enter_jumper_room.angles);
+    self setorigin (enter_jumper_room.origin);
+    self setplayerangles (enter_jumper_room.angles);
 
-iprintlnbold ("^3---^1" + self.name + "^3--- ^2go in SNIPER room!");
+    iprintlnbold ("^3---^1" + self.name + "^3--- ^2Entered The SNIPER room!");
 
-self TakeAllWeapons();
-self GiveWeapon("remington700_mp");
-wait 0.01;
-self SwitchToWeapon("remington700_mp");
-
-self death();
-self thread jumper_port();
-
-iprintlnbold ("^3---^1" + self.name + "^3--- ^2death!");
-iprintlnbold ("^2SNIPER ^3room opened!!");
+    self TakeAllWeapons();
+    self GiveWeapon("remington700_mp");
+    wait 0.01;
+    self SwitchToWeapon("remington700_mp");
 }
 
-death()
-{
-self endon("disconnect");
 
-self waittill ("death");
+
+
+acti_jump()
+{
+    i = RandomIntRange(1,4);
+    enter_aktiv_room = getent ("aktivator_enter_jump_"+i , "targetname");
+
+    self setorigin (enter_aktiv_room.origin);
+    self setplayerangles (enter_aktiv_room.angles);
+
+    self TakeAllWeapons();
+    self GiveWeapon("knife_mp");
+    //self GiveWeapon("ak47_mp");
+    wait 0.01;
+    self SwitchToWeapon("knife_mp");
+    //self SwitchToWeapon("ak47_mp");
 }
 
-jumper_port()
+
+acti_snip()
 {
-while(1)
-{
-level.enter_snip waittill ("trigger" ,jumper);
+    i = RandomIntRange(1,4);
+    enter_aktiv_room = getent ("aktivator_enter_snip_"+i , "targetname");
 
-i = RandomIntRange(1,4);
-enter_jumper_room2 = getent ("jumper_enter_snip_"+i , "targetname");
+    self setorigin (enter_aktiv_room.origin);
+    self setplayerangles (enter_aktiv_room.angles);
 
-jumper setorigin (enter_jumper_room2.origin);
-jumper setplayerangles (enter_jumper_room2.angles);
-
-iprintlnbold ("^3---^1" + jumper.name + "^3--- ^2go in SNIPER room!");
-
-jumper TakeAllWeapons();
-jumper GiveWeapon("remington700_mp");
-wait 0.01;
-jumper SwitchToWeapon("remington700_mp");
-
-jumper death();
-
-iprintlnbold ("^3---^1" + jumper.name + "^3--- ^2death!");
-iprintlnbold ("^2SNIPER ^3room opened!!");
-}
-}
-
-aktiv_teleport_jump()
-{
-	players = getEntArray("player", "classname");
-	for(i=0;i<players.size;i++)
-	{
-		if( IsAlive(players[i]))
-		{
-			if( players[i].pers["team"] == "axis" )
-			{
-				players[i] thread atj_1();
-			}
-		}
-	}
-}
-
-atj_1()
-{
-i = RandomIntRange(1,4);
-enter_aktiv_room = getent ("aktivator_enter_jump_"+i , "targetname");
-
-self setorigin (enter_aktiv_room.origin);
-self setplayerangles (enter_aktiv_room.angles);
-
-self TakeAllWeapons();
-self GiveWeapon("knife_mp");
-//self GiveWeapon("ak47_mp");
-wait 0.01;
-self SwitchToWeapon("knife_mp");
-//self SwitchToWeapon("ak47_mp");
-}
-
-aktiv_teleport_snip()
-{
-	players = getEntArray("player", "classname");
-	for(i=0;i<players.size;i++)
-	{
-		if( IsAlive(players[i]))
-		{
-			if( players[i].pers["team"] == "axis" )
-			{
-				players[i] thread ats_1();
-			}
-		}
-	}
-}
-
-ats_1()
-{
-i = RandomIntRange(1,4);
-enter_aktiv_room = getent ("aktivator_enter_snip_"+i , "targetname");
-
-self setorigin (enter_aktiv_room.origin);
-self setplayerangles (enter_aktiv_room.angles);
-
-self TakeAllWeapons();
-self GiveWeapon("remington700_mp");
-wait 0.01;
-self SwitchToWeapon("remington700_mp");
+    self TakeAllWeapons();
+    self GiveWeapon("remington700_mp");
+    wait 0.01;
+    self SwitchToWeapon("remington700_mp");
 }
 
 jumper_jump()
 {
-j = RandomIntRange(1,4);
-enter_jumper_room = getent ("jumper_enter_jump_"+j , "targetname"); //1,2,3
+    j = RandomIntRange(1,4);
+    enter_jumper_room = getent ("jumper_enter_jump_"+j , "targetname"); //1,2,3
 
-self setorigin (enter_jumper_room.origin);
-self setplayerangles (enter_jumper_room.angles);
+    self setorigin (enter_jumper_room.origin);
+    self setplayerangles (enter_jumper_room.angles);
 
-iprintlnbold ("^3---^1" + self.name + "^3--- ^2go in JUMP room!");
+    iprintlnbold ("^3---^1" + self.name + "^3--- ^2Entered The JUMP Room!");
 
-self TakeAllWeapons();
-self GiveWeapon("knife_mp");
-//self GiveWeapon("ak47_mp");
-wait 0.01;
-self SwitchToWeapon("knife_mp");
-//self SwitchToWeapon("ak47_mp");
-
-while (1)
-{
-i = RandomIntRange(1,4);
-enter_jumper_room2 = getent ("jumper_enter_jump_"+i , "targetname"); //1,2,3
-
-level.enter_jump waittill ("trigger" ,jumper);
-
-jumper setorigin (enter_jumper_room2.origin);
-jumper setplayerangles (enter_jumper_room2.angles);
-
-iprintlnbold ("^3---^1" + jumper.name + "^3--- ^2go in JUMP room!");
-
-jumper TakeAllWeapons();
-jumper GiveWeapon("knife_mp");
-//jumper GiveWeapon("ak47_mp");
-wait 0.01;
-jumper SwitchToWeapon("knife_mp");
-//jumper SwitchToWeapon("ak47_mp");
-}
+    self TakeAllWeapons();
+    self GiveWeapon("knife_mp");
+    //self GiveWeapon("ak47_mp");
+    wait 0.01;
+    self SwitchToWeapon("knife_mp");
+    //self SwitchToWeapon("ak47_mp");
 }
 
 jump_teleport()
@@ -486,4 +442,19 @@ GetRandomWeapon( num )
 		if( x == 50 )
 			return "rpd_mp";
 	}
+}
+
+GetActivator()
+{
+	players = getentarray( "player", "classname" );
+	
+	for(i = 0;i < players.size;i++)
+	{
+		player = players[i];
+		
+		if( isdefined( player ) && isplayer( player ) && isalive( player ) && player.pers["team"] == "axis"	)
+			return player;
+	}
+	
+	return undefined;
 }

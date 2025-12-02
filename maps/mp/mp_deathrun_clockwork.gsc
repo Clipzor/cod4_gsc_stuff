@@ -258,6 +258,9 @@ Sniper()
         player SetPlayerAngles( sniper_origin.angles );
         acti SetOrigin(sniperacti.origin);
         acti SetPlayerAngles( sniperacti.angles );
+
+        player.health = player.maxhealth;
+        acti.health = acti.maxhealth;
         
         player TakeAllWeapons();
         acti TakeAllWeapons();
@@ -318,6 +321,7 @@ Knife()
     
         wait 2;
         player FreezeControls (0);
+        acti FreezeControls (0);
         iPrintlnbold ("Go!");
         
         while(isAlive(player))
