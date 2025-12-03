@@ -20,7 +20,6 @@ main() {
 	thread Bounce();
 	thread Clock();
 	thread jumpreset1();
-	
 }
 
 trap1()
@@ -258,9 +257,6 @@ Sniper()
         player SetPlayerAngles( sniper_origin.angles );
         acti SetOrigin(sniperacti.origin);
         acti SetPlayerAngles( sniperacti.angles );
-
-        player.health = player.maxhealth;
-        acti.health = acti.maxhealth;
         
         player TakeAllWeapons();
         acti TakeAllWeapons();
@@ -269,6 +265,9 @@ Sniper()
         wait 0.05;
         player SwitchToWeapon("remington700_mp");
         acti SwitchToWeapon("remington700_mp");
+
+        player.health = player.maxhealth;
+        acti.health = acti.maxhealth;
         
         wait 2;
         player FreezeControls (0);

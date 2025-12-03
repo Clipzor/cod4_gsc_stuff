@@ -578,7 +578,7 @@ labirintroom()
    trigger_strafe = getEnt ("trig_labirintescape", "targetname");
 
     orig_jumper = getEnt ("orig_labjumper", "targetname");
-    orig_acti = getEnt ("orig_labeacti", "targetname");
+    orig_acti = getEnt ("orig_labacti", "targetname");
 
     for(;;)
     {

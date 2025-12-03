@@ -78,33 +78,38 @@ addTriggerToList( name )
       level.trapTriggers = [];
    level.trapTriggers[level.trapTriggers.size] = getEnt( name, "targetname" );
 }
- 
+
 music()
 {
+    level.music = randomint(4);
     level waittill("round_started");
-    x = randomint(4);
-    if(x == 0)
-    {
-            ambientplay("amb_sound1");
-            iprintln("Song Name: ^5Feint - The Journey Feat. Veela");
-    }
-    if(x == 1)
-    {
-            ambientplay("amb_sound2");
-            iprintln("Song Name: ^5Krale - Frontier (ft. Jasmina Lin and Jay Christopher)");
-    }
-    if(x == 2)
-    {
-            ambientplay("amb_sound3");
-            iprintln("Song Name: ^5Vicetone vs. Popeska - The New Kings Ft. Luciana");
-    }
-    if(x == 3)
-    {
-            ambientplay("amb_sound4");
-            iprintln("Song Name: ^5Pegboard Nerds - Disconnected");
-    }
+    switch(level.music)
+   {
+      case 0:
+	        AmbientStop(2);
+     AmbientPlay( "amb_sound1" );
+	 iPrintLN("Song Name: ^5Feint - The Journey Feat. Veela");
+     break;
+
+     case 1:
+	 AmbientStop(2);
+     AmbientPlay( "amb_sound2" );
+	 iPrintln("Song Name: ^5Krale - Frontier (ft. Jasmina Lin and Jay Christopher");
+     break;
+	 
+	  case 2:
+	 AmbientStop(2);
+     AmbientPlay( "amb_sound3" );
+	 iPrintln("Song Name: ^5Vicetone vs. Popeska - The New Kings Ft. Luciana");
+     break;
+
+	  case 3:
+	 AmbientStop(2);
+     AmbientPlay( "amb_sound4" );
+	 iPrintln("Song Name: ^5Pegboard Nerds - Disconnected");
+     break;
+	}
 }
- 
  
  
  

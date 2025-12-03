@@ -111,6 +111,7 @@ addTriggerToList( name )
     level.trapTriggers[level.trapTriggers.size] = getEnt( name, "targetname" );
 }
 
+
 startele()
 {
 	object = getent("startele","targetname");
@@ -168,7 +169,6 @@ player SetMoveSpeedScale(1.1);
 wait(0.1);
 }
 }
-
 
 //////////////////////////////////////////////////////
 
@@ -925,9 +925,6 @@ secretend()
 		wait .1;
 	}
 }
-
-//////////////////////////////////////////////////////////
-
 
 initMusic()
 

@@ -50,6 +50,7 @@ main() {
     add_endmap_trigger("mp_deathrun_wipeout_v2", (2110, 3765, 533), 10, 20);
     add_endmap_trigger("mp_deathrun_wood_v3", (2884.08, 1041.26, 1024.06), 96, 48);
     add_endmap_trigger("mp_deathrun_zero", (-1860.46, -8.91591, 16.125), 96, 48);
+    add_endmap_trigger("mp_deathrun_clockwork", (16445.1, 0, 76.1), 100, 150);
 
     add_endmap_trigger("mp_dr_apocalypse_v2", (-7.09212, 3671.36, 976.125), 96, 48);
     add_endmap_trigger("mp_dr_bananaphone_v2", (2445.84, -424.875, 176.125), 96, 48);
@@ -71,6 +72,8 @@ main() {
     add_endmap_trigger("mp_dr_un_named", (4660, 8956, -2036), 90, 85);
     add_endmap_trigger("mp_dr_watercity", (1786, 592, 444), 94, 30);
     add_endmap_trigger("mp_dr_xm", (-10496.9, 2975.6, -1363.9), 200, 200);
+    add_endmap_trigger("mp_dr_around", (-11469.4, 21.3959, -100.875), 440, 150);
+    add_endmap_trigger("mp_dr_lithium", (6678.5, -2458, -163.9), 200, 150);
 
     add_endmap_trigger("mp_vc_nike", (1566.8, -4626.1, 44.1), 150, 150);
 
@@ -100,7 +103,7 @@ main() {
     add_trap_triggers_for_freerun("mp_deathrun_diehard"         , "hardlevel;trigger_4squares;trigger_pusher;trigger_rollers;trigger_spikes;trigger_lifter;spintest;trap_rotatefloor");
     add_trap_triggers_for_freerun("mp_deathrun_wipeoutv2"       , "act1;act2;act5;act7;act8;act4;act6;act3");
     add_trap_triggers_for_freerun("mp_dr_sewers"                , "trap2_trig;trap5_trig;trap4_trig;trap3_trig;trap7_trig;trap8_trig;trap6_trig");
-
+    add_trap_triggers_for_freerun("mp_deathrun_clockwork"       ,"trap1_acti;trap2_acti;trap3_acti;trap4_acti;trap5_acti;trap6_acti;trap7_acti;trap8_acti;trap9_acti;trap10_acti");
 }
 
 add_endmap_trigger(mapname, origin, radius, height) {

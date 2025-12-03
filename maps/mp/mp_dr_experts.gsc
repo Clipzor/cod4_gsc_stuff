@@ -44,6 +44,8 @@ main() {
 	addTriggerToList ("t5_s");
 	addTriggerToList ("t6_s");
 }
+
+
 addTriggerToList( name )
 {
     if( !isDefined( level.trapTriggers ) )

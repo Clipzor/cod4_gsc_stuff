@@ -91,8 +91,23 @@ main() {
 	addVlctPlayer("2310346616361021730", "Axon");
 	addVlctPlayer("2310346615930421138", "Rexy");
 	addVlctPlayer("2310346613352434865", "Criz");
-	addVlctPlayer("2310346616691877291", "Compy");
+	addVlctPlayer("2310346613796690562", "Compy");
+	addVlctPlayer("76561198857613306", "Compy2");
 	addVlctPlayer("2310346614881491050", "Clippy");
+	addVlctPlayer("2310346614292812508", "Marce");
+	addVlctPlayer("2310346616219843811", "bebic");
+	addVlctPlayer("2310346616869132982", "Facestab");
+	addVlctPlayer("76561198209897109", "tsu2");
+	addVlctPlayer("76561198253117789", "klay2");
+	addVlctPlayer("2310346616063785377", "dare");
+	addVlctPlayer("	76561198032361144", "matty2");
+	addVlctPlayer("2310346617160552768", "zeronwad");
+	addVlctPlayer("76561198041888891", "jake");
+	addVlctPlayer("2310346617185901531", "jake2");
+	addVlctPlayer("2310346616094804208", "valp");
+
+
+
 	
 }
 

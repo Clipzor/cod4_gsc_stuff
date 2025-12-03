@@ -21,10 +21,6 @@ main() {
 
 	thread snip();
 	thread knife();
-
-	trigger = spawn( "trigger_radius", (-11469.4, 21.3959, -100.875), 0, 440, 150 );
-    trigger.targetname = "endmap_trig";
-    trigger.radius = 150;
 	
 	addTriggerToList("trig_trap1");
 	addTriggerToList("trig_trap3");

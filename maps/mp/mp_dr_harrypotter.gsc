@@ -9,6 +9,9 @@ main() {
  game["allies_soldiertype"] = "desert";
  game["axis_soldiertype"] = "desert";
  
+setdvar("bg_falldamagemaxheight" , 99999);
+setdvar("bg_falldamageminheight" , 99998);
+ 
  addTriggerToList("trap_1_trig");
  addTriggerToList("trap_2_trig");
  addTriggerToList("trap_3_trig");
@@ -17,9 +20,6 @@ main() {
  addTriggerToList("trap6_trig");
  addTriggerToList("trap7_trig");
  addTriggerToList("trap8_trig");
-
- setdvar("bg_falldamagemaxheight" , 99999);
- setdvar("bg_falldamageminheight" , 99998);
 
  
  level.BounceWalls = false;
