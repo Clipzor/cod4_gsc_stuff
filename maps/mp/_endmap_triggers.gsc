@@ -79,6 +79,7 @@ main() {
 
 //  add_endmap_trigger_change_targetname(mapname, targetname)
     add_endmap_trigger_change_targetname("mp_dr_experts", "map_end");
+    add_endmap_trigger_change_targetname("mp_dr_neon", "end_trig");
 
     spawn_endmap_trigger(); // actually spawns the actual trig/changes targetname
 

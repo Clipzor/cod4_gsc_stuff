@@ -62,7 +62,7 @@ main()
 	
 	thread lol();
 	thread onplayerconnect();
-	thread map_finish();
+
 	thread nade_ammoo();
 	thread nade_ammoo1();
 	thread snipe_ammoo();
@@ -779,15 +779,6 @@ trap8()
 		wait 10;
 		brush moveY (-260,3);
 	}
-}
-
-		
-
-
-map_finish()
-{
-	trig = getEnt ("end_trig", "targetname");
-	trig.targetname = "endmap_trig";
 }
 
 secret()
