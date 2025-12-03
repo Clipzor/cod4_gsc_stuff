@@ -4,33 +4,34 @@
 #include maps\mp\gametypes\_hud_util;
 #include common_scripts\utility;
 main() {
- maps\mp\_load::main();
+    maps\mp\_load::main();
+
+    game["allies"] = "marines";
+    game["axis"] = "opfor";
+    game["attackers"] = "axis";
+    game["defenders"] = "allies";
+    game["allies_soldiertype"] = "desert";
+    game["axis_soldiertype"]= "desert";
  
- game["allies"] = "marines";
- game["axis"] = "opfor";
- game["attackers"] = "axis";
- game["defenders"] = "allies";
- game["allies_soldiertype"] = "desert";
- game["axis_soldiertype"]= "desert";
- 
-   setdvar("g_speed" ,"210");
-   setdvar("dr_jumpers_speed" ,"1.12");
-   setdvar( "r_specularcolorscale", "1" );
-   setdvar("r_glowbloomintensity0",".1");
-   setdvar("r_glowbloomintensity1",".1");
-   setdvar("r_glowskybleedintensity0",".1");
-   setDvar("bg_falldamagemaxheight", 99999);
-   setDvar("bg_falldamageminheight", 99998);
-   
-   addTriggerToList("trig_trap1");
-   addTriggerToList("trig_trap2");
-   addTriggerToList("trig_trap3");
-   addTriggerToList("trig_trap4");
-   addTriggerToList("trig_trap5");
+    setdvar("g_speed" ,"210");
+    setdvar("dr_jumpers_speed" ,"1.12");
+    setdvar( "r_specularcolorscale", "1" );
+    setdvar("r_glowbloomintensity0",".1");
+    setdvar("r_glowbloomintensity1",".1");
+    setdvar("r_glowskybleedintensity0",".1");
+    setDvar("bg_falldamagemaxheight", 99999);
+    setDvar("bg_falldamageminheight", 99998);
+
+    addTriggerToList("trig_trap1");
+    addTriggerToList("trig_trap2");
+    addTriggerToList("trig_trap3");
+    addTriggerToList("trig_trap4");
+    addTriggerToList("trig_trap5");
     addTriggerToList("trig_trap6");
 
-  if(!isdefined(level.music))
-   level.music=[];
+    if(!isdefined(level.music))
+    level.music=[];
+
     level.music[0]["song"]    ="^3Bangzor - Chillstep";
     level.music[0]["alias"]    ="chillstep";
     level.music[1]["song"]    ="^3Psognar - Leaving You";
@@ -50,7 +51,7 @@ main() {
 	precacheItem("m40a3_mp");
 	precacheItem("knife_mp");
     precacheItem("t4_ppsh_mp");
-    precacheItem("skorpion_mp");
+    precacheItem("t4_ppsh_mp");
     precacheItem("usp_silencer_mp");
     precacheItem("m4_mp");
     precacheModel("plr_mrh_djskully");
@@ -61,54 +62,54 @@ main() {
 
     level.vipisplaying = false;
     
-   thread starttp();
-   thread startplat();
-   thread letterend();
-   thread arrow();
-   thread messages();
-   thread mappername();
-   thread startfence();
-   thread deadsound();
+    thread starttp();
+    thread startplat();
+    thread letterend();
+    thread arrow();
+    thread messages();
+    thread mappername();
+    thread startfence();
+    thread deadsound();
 
-   thread musicbox();
-   thread vipmusic();
-   thread vipweapon();
-   thread RTDitem();
-   thread freexp();
-   thread freecharacter();
-   thread freeweapon();
+    thread musicbox();
+    thread vipmusic();
+    thread vipweapon();
+    thread RTDitem();
+    thread freexp();
+    thread freecharacter();
+    thread freeweapon();
 
-   thread secretstep();
-   thread sectp();
-   thread secfinish();
-   thread actisectp1();
-   thread actisectp2();
-   thread actisectp3();
-   thread actisectp4();
-   thread actisecfail1();
-   thread actisecfail2();
-   thread actistage3bouncetip();
-   thread save_load_logic();
+    thread secretstep();
+    thread sectp();
+    thread secfinish();
+    thread actisectp1();
+    thread actisectp2();
+    thread actisectp3();
+    thread actisectp4();
+    thread actisecfail1();
+    thread actisecfail2();
+    thread actistage3bouncetip();
+    thread save_load_logic();
 
-   thread actitp1();
-   thread actitp2();
-   thread actitp3();
-   thread actitp4();
+    thread actitp1();
+    thread actitp2();
+    thread actitp3();
+    thread actitp4();
 
-   thread roomselection();
-   thread sniperroom();
-   thread kniferoom();
-   thread bounceroom();
-   thread bounceweapon();
-   thread bounceroomfailacti();
-   thread bounceroomfailjumper();
+    thread roomselection();
+    thread sniperroom();
+    thread kniferoom();
+    thread bounceroom();
+    thread bounceweapon();
+    thread bounceroomfailacti();
+    thread bounceroomfailjumper();
 
-   thread trap1();
-   thread trap2();
-   thread trap3();
-   thread trap4();
-   thread trap5();
-   thread trap6();
+    thread trap1();
+    thread trap2();
+    thread trap3();
+    thread trap4();
+    thread trap5();
+    thread trap6();
 }	
 
 addTriggerToList( name )
@@ -273,74 +274,13 @@ arrow()
 
 messages()
 {
-   wait 5;
-   for(;;)
-{  
-   wait 5;
- x = randomint(7);
-   if (x==0)
-{
    iPrintln("^0Mapped and scripted by ^3CM'Death");
-}
-
-   if (x==1)
-{
-   iPrintln("^0Visit: ^3teamcmdr^0.^3clanwebsite");
-}
-
-   if (x==2)
-{
-   iPrintln("^3CM'^0Deathrun ^3IP^0: ^3cm^7-^3clan^7.^3com^7:^328960");
-}
-
-if (x==3)
-{
-   iPrintln("^0Feel free to report any ^3bugs.");
-}
-
-if (x==4)
-{
    iPrintln("^0Discord: ^3Death#7416");
-}
-
-if (x==5)
-{
-   iPrintLn("^3Map speed: ^0[^3"+getDvar("g_speed")+"^0]");
-}
-
-if (x==6)
-{
-   iPrintLn("^3There ^0is ^3Jumper Secret ^0and ^3Activator Practise Secret^0.");
-}
-
-}
 }
 
 mappername()
 { 
-	death = newHudElem();
-	death.foreground = true;
-	death.alpha = 1;
-	death.alignX = "left";
-	death.alignY = "middle";
-	death.horzAlign = "left";
-	death.vertAlign = "middle"; 
-	death.x = -400;
-	death.y = 0;
-	death.sort = 0;
-	death.font = "default";
-	death.fontScale = 1.4;
-	death.hidewheninmenu = false;
-	death.glowAlpha = 0;
-	death.glowColor = (.7,.5,0);
-	death settext("^0Map by ^3CM'^0Death");
-	death moveOverTime(2); 
-	death.x = 5;
-	wait 5;
-	death moveOverTime(2); 
-	death.x = -500;
-	wait 11;
-	death destroy(); 
+	iprintln("^0Map by ^3CM'^0Death");
 }
 
 startfence()
@@ -371,14 +311,27 @@ deadsound()
 {   
     trig = getEnt("trig_dead","targetname");
 
-    trig waittill("trigger", player);
+    for (;;)
+    {
+        trig waittill("trigger", player);
 
+        if(!isdefined(player.has_played_deathsound)) {
+            player.has_played_deathsound = true;
+            player thread death_sound();
+        }
+    }
+}
 
-  for (;;)
-  {
-    player playlocalSound("deadsound");
-  }
-
+death_sound() { // dogshit fix but ye
+    if(isalive(self)) {
+        self playlocalSound("deadsound");
+        wait 2;
+        self.has_played_deathsound = undefined;
+    }
+    else {
+        wait 1;
+        self.has_played_deathsound = undefined;
+    }
 }
 
 musicbox()
@@ -615,9 +568,9 @@ trig = getent("trig_freeweapon", "targetname");
   trig setHintString ("^3Free Weapon");
   trig waittill("trigger", player);
    
-    player giveWeapon("skorpion_mp");
-    player giveMaxAmmo("skorpion_mp");
-    player switchToWeapon("skorpion_mp");
+    player giveWeapon("t4_ppsh_mp");
+    player giveMaxAmmo("t4_ppsh_mp");
+    player switchToWeapon("t4_ppsh_mp");
   
    }
 }
@@ -929,8 +882,6 @@ actistage3bouncetip()
 {   
     trig = getEnt("trig_stage3bouncetip","targetname");
     trig setHintString ("^0Recommended ^3fps ^0for the ^3bounce^0(^32-2 1 and Mantle or 32-3^0).");
-
-    trig waittill("trigger", player);
 
 }
 

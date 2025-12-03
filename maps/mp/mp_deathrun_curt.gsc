@@ -450,10 +450,10 @@ secretgapfailload()
 
    for(;;)
     {   
-      trig waittill("trigger", player);
-	  player setOrigin(tele1.origin);
-      player setPlayerAngles(tele1.angles);
-      player iprintlnbold("^1Try again :/");
+        trig waittill("trigger", player);
+        player setOrigin(tele1.origin);
+        player setPlayerAngles(tele1.angles);
+        player iprintlnbold("^1Try again :/");
     }
 }
 
