@@ -638,23 +638,25 @@ for(;;)
 ///JUMPER SECRET
 secretstep()
 {
-   trig = getent("trig_secstep", "targetname");
-   bounce = getent ("secretstep", "targetname");
+    trig = getent("trig_secstep", "targetname");
+    bounce = getent ("secretstep", "targetname");
 
-   bounce hide();
-   bounce notsolid();
-   for(;;)
-    {   
-     trig waittill("trigger", player);
-	
-     bounce show();
-     bounce solid();
+    bounce hide();
+    bounce notsolid();
+    if(getdvarint("dr_auto_open_secret")) {
+        bounce show();
+        bounce solid();
+    } else {
+        trig waittill("trigger", player);
 
-     trig delete();
+        bounce show();
+        bounce solid();
 
-	 player braxi\_rank::giveRankXP("", 500);
-	 iPrintLn ("^6Secret opened.");
-     player iprintlnBOld ("^6You just opened something...");
+        trig delete();
+
+        player braxi\_rank::giveRankXP("", 500);
+        iPrintLn ("^6Secret opened.");
+        player iprintlnBOld ("^6You just opened something...");
     }
 }
 
@@ -1419,10 +1421,7 @@ purestraferoom()
         wait 0.5;
         iPrintLnBold("^6Pure Strafe Room ^7Opened^6!");
 
-		// Reset player variables for the next race
-        player = undefined;
         level.pure_jumper = undefined;
-        level.activ = undefined; // reset activator for next loop
     }
 }
 
@@ -1539,10 +1538,7 @@ slideroom()
         wait 0.5;
         iPrintLnBold("^6Slide Room ^7Opened^6!");
 
-        // Reset player variables for the next race
-        player = undefined;
         level.slide_jumper = undefined;
-        level.activ = undefined; // reset activator for next loop
     }
 }
 
