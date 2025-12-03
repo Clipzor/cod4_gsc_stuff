@@ -1917,9 +1917,7 @@ purestraferoom()
         iPrintLnBold("^7Pure Strafe Room Open!");
 
 		// Reset player variables for the next race
-        player = undefined;
         level.race_jumper = undefined;
-        level.activ = undefined; // reset activator for next loop
     }
 }
 

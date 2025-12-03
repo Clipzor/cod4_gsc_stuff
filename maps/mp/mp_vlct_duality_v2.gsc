@@ -645,31 +645,29 @@ knife()
 
         for(;;)
         {
-        level.trigger_pure waittill("trigger", player);
-        AmbientStop(2);
-        AmbientPlay("song6");
-        iPrintLnBold("^5" + player.name + " ^7Entered The ^5PureStrafe ^7Room^5!");
-        level.activ = GetActivator();
-        level.pure_jumper = player;
-        player thread waitdead();
-        thread fightHUD("PureStrafe Room", player, level.activ);
-        player setOrigin (jumper.origin);
-        player setPlayerAngles (jumper.angles);    
-        level.activ setOrigin (acti.origin);
-        level.activ setPlayerAngles (acti.angles);
-        player takeAllWeapons();
-        level.activ takeAllWeapons();  
-        player giveWeapon("beretta_mp");
-        level.activ giveWeapon("beretta_mp");
-        player switchtoweapon("beretta_mp");
-        level.activ switchtoweapon("beretta_mp");
-        player thread RoomCountDown("^5Strafe to the end to win!", 3, 1);
-        level.activ thread RoomCountDown("^5Strafe to the end to win!", 3, 1);
-        while(isDefined(player) && isAlive(player))
-        wait .05;
-        player = undefined;
-        level.pure_jumper = undefined;
-        level.activ = undefined;
+            level.trigger_pure waittill("trigger", player);
+            AmbientStop(2);
+            AmbientPlay("song6");
+            iPrintLnBold("^5" + player.name + " ^7Entered The ^5PureStrafe ^7Room^5!");
+            level.activ = GetActivator();
+            level.pure_jumper = player;
+            player thread waitdead();
+            thread fightHUD("PureStrafe Room", player, level.activ);
+            player setOrigin (jumper.origin);
+            player setPlayerAngles (jumper.angles);    
+            level.activ setOrigin (acti.origin);
+            level.activ setPlayerAngles (acti.angles);
+            player takeAllWeapons();
+            level.activ takeAllWeapons();  
+            player giveWeapon("beretta_mp");
+            level.activ giveWeapon("beretta_mp");
+            player switchtoweapon("beretta_mp");
+            level.activ switchtoweapon("beretta_mp");
+            player thread RoomCountDown("^5Strafe to the end to win!", 3, 1);
+            level.activ thread RoomCountDown("^5Strafe to the end to win!", 3, 1);
+            while(isDefined(player) && isAlive(player))
+            wait .05;
+            level.pure_jumper = undefined;
         }
     }
     pure_finish()
