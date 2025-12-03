@@ -445,16 +445,16 @@ easysecrettp()
 
 secretgapfailload()
 {
-   trig = getent("trig_gapsecfail", "targetname");
-   tele1 = getent ("origin_gapsecfail", "targetname");
+//    trig = getent("trig_gapsecfail", "targetname");
+//    tele1 = getent ("origin_gapsecfail", "targetname");
 
-   for(;;)
-    {   
-        trig waittill("trigger", player);
-        player setOrigin(tele1.origin);
-        player setPlayerAngles(tele1.angles);
-        player iprintlnbold("^1Try again :/");
-    }
+//     for(;;)
+//     {   
+//         trig waittill("trigger", player);
+//         player setOrigin(tele1.origin);
+//         player setPlayerAngles(tele1.angles);
+//         player iprintlnbold("^1Try again :/");
+//     }
 }
 
 secretladder()
@@ -462,28 +462,27 @@ secretladder()
     trig = getent("trig_secretladder", "targetname");
     caulk = getent("secretladder", "targetname");
 
-while(1)
-{
- trig waittill("trigger", player);
-iprintln("^4Secret opened.");
+
+    trig waittill("trigger", player);
+    iprintln("^4Secret opened.");
     caulk delete();
     trig delete();
-wait 0.5;
-}
+
+
 }
 
 secretfailload()
 {
-   trig = getent("trig_secretfail", "targetname");
-   tele1 = getent ("origin_secretfail", "targetname");
+//    trig = getent("trig_secretfail", "targetname");
+//    tele1 = getent ("origin_secretfail", "targetname");
 
-   for(;;)
-    {   
-      trig waittill("trigger", player);
-	  player setOrigin(tele1.origin);
-      player setPlayerAngles(tele1.angles);
-      player iprintlnbold("^1Try again :/");
-    }
+//    for(;;)
+//     {   
+//       trig waittill("trigger", player);
+// 	  player setOrigin(tele1.origin);
+//       player setPlayerAngles(tele1.angles);
+//       player iprintlnbold("^1Try again :/");
+//     }
 }
 
 musicbox()
@@ -638,10 +637,12 @@ GetMusicFromArray(searchBy, search)
 
 vipchecksong()
 {
+    level waittill("never");
+
 	trigger = getEnt ("trig_vipsong", "targetname");
 	trigger setHintString ("^3VIP ^1Access!");
-for(;;)
-{
+    for(;;)
+    {
 
 	trigger waittill ("trigger", player);
 	guid = player getGuid();
@@ -685,6 +686,8 @@ gametag = player.name;
 
 vipcheckweapon()
 {
+    level waittill("never");
+
 	trigger = getEnt ("trig_vipweapon", "targetname");
 	trigger setHintString ("^3VIP ^1Access!");
 for(;;)
@@ -726,6 +729,8 @@ for(;;)
 
 freeitem()
 {   
+    level waittill("never");
+
     trig = getEnt("trig_freeitem","targetname");
 
     trig setHintString ("^7Get a ^1Life");
@@ -781,6 +786,7 @@ actiplacetp()
 
 actireturn()
 {
+    level waittill("never");
    trig = getent("trig_actisecreturn", "targetname");
    tele1 = getent ("origin_actiplace", "targetname");
 
