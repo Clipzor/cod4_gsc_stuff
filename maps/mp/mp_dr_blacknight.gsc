@@ -43,7 +43,7 @@ startdoor()
 {
 	door=getent("startdoor","targetname");
 	trig=getent("startdoor_trig","targetname");
-    f(getdvarint("dr_auto_open_door")) {
+    if(getdvarint("dr_auto_open_door")) {
         door delete();
     } else {
         trig sethintstring("^1Press ^0[USE] ^1to open the startdoor");

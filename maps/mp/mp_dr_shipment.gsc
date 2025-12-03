@@ -64,7 +64,6 @@ main() {
     addTriggerToList( "trig7_2" );
     addTriggerToList( "trig8" );
     addTriggerToList( "trig9" );
-    addTriggerToList( "hellsecret" );
 }
 
 addTriggerToList( name )
@@ -474,12 +473,17 @@ hsecretp1()
 {
 	secret = GetEnt("hellsecret","targetname");
 	secretorigin = GetEnt("hellsecretorigin","targetname");
-	secret waittill("trigger", player);
-	secret delete();
-	
-			player SetPlayerAngles( secretorigin.angles );
-	        player setOrigin( secretorigin.origin );
-			player iPrintlnBold( "^9How did you manage to find this.");
+    for(;;) {
+        secret waittill("trigger", player);
+        if(level.freerun)
+            continue;
+
+        secret delete();
+        player SetPlayerAngles( secretorigin.angles );
+        player setOrigin( secretorigin.origin );
+        player iPrintlnBold( "^9How did you manage to find this.");
+        break;
+    }
 }			
 
 hsecretp2()
