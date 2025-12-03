@@ -63,10 +63,6 @@ main() {
     setDvar("bg_falldamagemaxheight", 99999 );
     setDvar("bg_falldamageminheight", 99998 );
 
-	trig = spawn("trigger_radius",(16362,96,205),0,200,250);
-	trig.radius = 200;
-	trig.targetname = "endmap_trig";
-
 	
 	//thread Models();
 	thread hud();

@@ -51,6 +51,9 @@ main() {
     add_endmap_trigger("mp_deathrun_wood_v3", (2884.08, 1041.26, 1024.06), 96, 48);
     add_endmap_trigger("mp_deathrun_zero", (-1860.46, -8.91591, 16.125), 96, 48);
     add_endmap_trigger("mp_deathrun_clockwork", (16445.1, 0, 76.1), 100, 150);
+    add_endmap_trigger("mp_deathrun_saw", (-2277, -2043, 210), 150, 250);
+    add_endmap_trigger("mp_deathrun_framey_v3", (74, 4865, 508), 150, 200);
+    add_endmap_trigger("mp_deathrun_legend", (1981.1, -1723.11, 16.125), 255, 150);
 
     add_endmap_trigger("mp_dr_apocalypse_v2", (-7.09212, 3671.36, 976.125), 96, 48);
     add_endmap_trigger("mp_dr_bananaphone_v2", (2445.84, -424.875, 176.125), 96, 48);
@@ -74,6 +77,13 @@ main() {
     add_endmap_trigger("mp_dr_xm", (-10496.9, 2975.6, -1363.9), 200, 200);
     add_endmap_trigger("mp_dr_around", (-11469.4, 21.3959, -100.875), 440, 150);
     add_endmap_trigger("mp_dr_lithium", (6678.5, -2458, -163.9), 200, 150);
+    add_endmap_trigger("mp_dr_blacknight", (3974, -8576, -2603), 400, 300);
+    add_endmap_trigger("mp_dr_up", (16362, 96, 205), 200, 250);
+    add_endmap_trigger("mp_dr_wtf", (553, -611, 92), 300, 150);
+    add_endmap_trigger("mp_dr_simple", (10615, 163, 951), 150, 150);
+    add_endmap_trigger("mp_dr_nxs_jump", (811.708, -136.094, 241.125), 95, 100);
+    add_endmap_trigger("mp_dr_gooby", (239.342, 1021.27, -271.875), 185, 150);
+    add_endmap_trigger("mp_dr_bouncev2", (1171, 1007, 236), 100, 200);
 
     add_endmap_trigger("mp_vc_nike", (1566.8, -4626.1, 44.1), 150, 150);
 

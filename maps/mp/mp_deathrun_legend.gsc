@@ -1,10 +1,5 @@
 main() {
-
 	maps\mp\_load::main();
-
-	trigger = spawn( "trigger_radius", (1981.1, -1723.11, 16.125), 0, 255, 150 );
-    trigger.targetname = "endmap_trig";
-    trigger.radius = 255; 
 
 	AmbientPlay("song_1");
     

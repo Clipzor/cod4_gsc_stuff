@@ -852,7 +852,8 @@ secret = getEnt("secret_1", "targetname");
 trig = getEnt("startdoor3_trig", "targetname");
 
 	{
-	trig waittill("trigger", player);
+	// trig waittill("trigger", player);
+    wait 4;
 	iPrintLnBold("^5Something Moved...");
 	secret hide();
 	secret notsolid();

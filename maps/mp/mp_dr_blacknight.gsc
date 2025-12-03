@@ -12,10 +12,7 @@ main() {
     ambientPlay("ambient3");
 	SetDvar("bg_falldamagemaxheight", 99999);
 	SetDvar("bg_falldamageminheight", 99998);
-	
-    trig = spawn("trigger_radius",(3974,-8576,-2603),0,400,300);
-    trig.radius = 400;
-    trig.targetname = "endmap_trig";						
+					
 	
         thread startdoor();
 		thread lift();
@@ -46,12 +43,16 @@ startdoor()
 {
 	door=getent("startdoor","targetname");
 	trig=getent("startdoor_trig","targetname");
-	trig sethintstring("^1Press ^0[USE] ^1to open the startdoor");
-	trig waittill("trigger");
-	trig delete();
-	door movez(-322,5);
-	wait 4;
-	door delete();
+    f(getdvarint("dr_auto_open_door")) {
+        door delete();
+    } else {
+        trig sethintstring("^1Press ^0[USE] ^1to open the startdoor");
+        trig waittill("trigger");
+        trig delete();
+        door movez(-322,5);
+        wait 4;
+        door delete();
+    }
 }
 
 blacknight()

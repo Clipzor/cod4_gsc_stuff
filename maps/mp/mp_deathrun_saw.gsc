@@ -9,10 +9,6 @@ main() {
 	game["defenders"] = "axis";
 	game["allies_soldiertype"] = "woodland";
 	game["axis_soldiertype"] = "woodland";
-
-	trig = spawn("trigger_radius",(-2277,-2043,210),0,150,250);
-	trig.radius = 150;
-	trig.targetname = "endmap_trig";
 	
 	elevatorparts = getentarray("elevator","targetname");
 	if(isdefined(elevatorparts))

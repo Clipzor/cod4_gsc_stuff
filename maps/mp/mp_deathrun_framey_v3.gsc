@@ -25,9 +25,6 @@ main() {
 	//////////////caches////////////////	
 	level.fx = loadFx( "framey/aura2" );
 
-	et = spawn("trigger_radius",(74,4865,508),0,150,200);
-	et.radius = 150;
-	et.targetname = "endmap_trig";
 
 	//////////////threads////////////////alle thread hierin pleuren , die je wil starten
 	thread startdoor();

@@ -7,9 +7,6 @@ ambientPlay("muza");
 
         level.fx_sparks = loadFx( "sparks/electric" );
 
-        trig = spawn("trigger_radius",(10615,163,951),0,150,150);
-    trig.radius = 150;
-    trig.targetname = "endmap_trig";
     
         thread elevator();
         thread elevator2();

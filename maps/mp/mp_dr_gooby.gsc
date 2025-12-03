@@ -11,10 +11,6 @@ main() {
 	game["allies_soldiertype"] = "desert";
 	game["axis_soldiertype"] = "desert";
 
-	trigger = spawn( "trigger_radius", (239.342, 1021.27, -271.875), 0, 185, 150 );
-	trigger.targetname = "endmap_trig";
-	trigger.radius = 185; 
-
 	level.rnd_weapon_goobster = [];
 	level.rnd_weapon_goobster[level.rnd_weapon_goobster.size] = "t5_spas12_mp";
 	level.rnd_weapon_goobster[level.rnd_weapon_goobster.size] = "t4_ppsh_mp";

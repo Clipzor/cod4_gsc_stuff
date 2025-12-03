@@ -2,10 +2,6 @@ main()//Made by Phill580
 {
     maps\mp\_load::main();
 
-	trig = spawn("trigger_radius",(553, -611, 92),0,300,150);
-	trig.radius = 300;
-	trig.targetname = "endmap_trig";
-
     PreCacheItem("brick_blaster_mp");
          
           

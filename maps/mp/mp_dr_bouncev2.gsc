@@ -13,9 +13,7 @@ main() {
         PreCacheItem("remington700_mp");
 	ambientPlay("rock");
 
-        end = spawn("trigger_radius",(1171,1007,236),0,100,200);
-        end.radius = 100;
-        end.targetname = "endmap_trig";
+        
 
         thread first_door();
 

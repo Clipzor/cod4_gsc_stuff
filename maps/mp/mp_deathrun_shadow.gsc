@@ -13,13 +13,14 @@ precacheItem("m4_mp");
 precacheShader( "deathrun" );
 precacheShader( "white" );
 
-  old_trig = getEnt("endmap_trig","targetname");
-  pos = old_trig.origin;
-  old_trig delete();
+    //why was this done? maybe ill know soon enough when ppl complain
+//   old_trig = getEnt("endmap_trig","targetname");
+//   pos = old_trig.origin;
+//   old_trig delete();
 
-  trig = spawn("trigger_radius",pos,0,150,250);
-  trig.radius = 150;
-  trig.targetname = "endmap_trig";
+//   trig = spawn("trigger_radius",pos,0,150,250);
+//   trig.radius = 150;
+//   trig.targetname = "endmap_trig";
 
  thread Juggernautact();
  thread snipmove();
