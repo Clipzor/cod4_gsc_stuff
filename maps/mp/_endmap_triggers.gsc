@@ -2,6 +2,7 @@
 
 main() {
 //  delete_from_endmap_trigger_array(mapname, targetname, index)
+//  delete_endmap_trigger(mapname, targetname);
     delete_from_endmap_trigger_array("mp_deathrun_creepy", "endmap_trig", 0);
 
 //  add_endmap_trigger(mapname, origin, radius, height)
@@ -33,7 +34,7 @@ main() {
     add_endmap_trigger("mp_deathrun_max", (671.125, 13371.2, 0.125002), 96, 48);
     add_endmap_trigger("mp_deathrun_metal2", (-465.821, 975.085, 16.125), 96, 48);
     add_endmap_trigger("mp_deathrun_minecraft", (-656.331, 1533.39, -31.875), 96, 48);
-    add_endmap_trigger("mp_deathrun_mine", (910, 5946, -900), 100, 30);
+    add_endmap_trigger("mp_deathrun_mine", (864.379, 5792.93, -991.083), 195, 160);
     add_endmap_trigger("mp_deathrun_mirroredge", (-8559, -6094, -2968), 96, 48);
     add_endmap_trigger("mp_deathrun_palm", (251.21, -256.368, 384.125), 96, 48);
     add_endmap_trigger("mp_deathrun_portal_v3", (-4064.87, 1593.28, -63.875), 96, 48);
@@ -137,6 +138,16 @@ add_endmap_trigger(mapname, origin, radius, height) {
     level.endmap_triggers[mapname]["height"] = height;
 }
 
+delete_endmap_trigger(mapname, targetname) {
+    if(mapname != getdvar("mapname"))
+        return;
+    
+    endmap_triggers = getentarray(targetname, "targetname");
+    for(i=0;i<endmap_triggers.size;i++) {
+        endmap_triggers[i] delete();
+    }
+}
+
 delete_from_endmap_trigger_array(mapname, targetname, index) {
     if(mapname != getdvar("mapname"))
         return;
@@ -168,6 +179,9 @@ spawn_endmap_trigger() {
     if(isdefined(endmap_trig))
         return endmap_trig;
     
+    if(!isdefined(level.endmap_triggers))
+        return undefined;
+
     mapname = getdvar("mapname");
 
     if(isdefined(level.endmap_triggers[mapname])) {
@@ -193,7 +207,7 @@ add_trap_triggers_for_freerun(mapname, string_array) {
     if(mapname != getdvar("mapname"))
         return;
 
-    if (isDefined(level.trapTriggers)) // overwrite if there already is one but maybe missing
+    if(isDefined(level.trapTriggers)) // overwrite if there already is one but maybe missing
         level.trapTriggers = [];
 
     trigger_array = StrTok(string_array, ";");

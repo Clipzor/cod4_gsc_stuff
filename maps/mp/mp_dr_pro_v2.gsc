@@ -261,11 +261,19 @@ shortcut()
 trig=getent("trig_shortcut","targetname");
 short1=getent("shortcut","targetname");
 short2=getent("shortcut2","targetname");
-trig waittill ("trigger", player);
-short1 notsolid();
-short2 notsolid();
-trig delete();
-wait 1;
+if(getdvarint("dr_auto_open_secret"))
+{
+	short1 notsolid();
+	short2 notsolid();
+}
+else 
+{
+	trig waittill ("trigger", player);
+	short1 notsolid();
+	short2 notsolid();
+	trig delete();
+	wait 1;
+}
 }
 
 startdoor()

@@ -640,39 +640,49 @@ knife()
 	}
 }
 
+auto_open_secret() {
+    door = getEnt("secret_door","targetname");
+    door delete();
+}
+
 secretactivate()
 {
-	trig = getEnt("secret_trig1","targetname");
+    if(isdefined(getdvarint("dr_auto_open_secret"))) {
+        thread auto_open_secret();
+        return;
+    }
+    
+    trig = getEnt("secret_trig1","targetname");
 
-	trig waittill ("trigger", player);
-	player iPrintln("Beep");
-	trig delete();
-	thread secretpart2();
+    trig waittill ("trigger", player);
+    player iPrintln("Beep");
+    trig delete();
+    thread secretpart2();
 
 }
 
 secretpart2()
 {
-	trig = getEnt("secret_trig2","targetname");
+    trig = getEnt("secret_trig2","targetname");
 
-	trig waittill ("trigger", player);
-	player iPrintln("Boop");
-	trig delete();
-	thread secretopen();
+    trig waittill ("trigger", player);
+    player iPrintln("Boop");
+    trig delete();
+    thread secretopen();
 
 }
 
 secretopen()
 {
-	trig = getEnt("secret_trig3","targetname");
-	door = getEnt("secret_door","targetname");
+    trig = getEnt("secret_trig3","targetname");
+    door = getEnt("secret_door","targetname");
 
-	trig waittill ("trigger", player);
-	player iPrintln("^5The Doors Have Opened");
-	trig delete();
-	door MoveZ(200, 3, 1.5, 1.5);
-	wait 3;
-	door Delete();
+    trig waittill ("trigger", player);
+    player iPrintln("^5The Doors Have Opened");
+    trig delete();
+    door MoveZ(200, 3, 1.5, 1.5);
+    wait 3;
+    door Delete();
 
 }
 
