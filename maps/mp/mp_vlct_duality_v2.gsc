@@ -36,15 +36,13 @@ main() {
     //rooms
 
     thread sniper();
-    thread sniper_jumper_fail();
-    thread sniper_acti_fail();
+    thread teleport_sniper();
     thread knife();
     thread knife_fail();
     thread pure();
     thread pure_finish();
     thread rpg();
-    thread rpg_jumper_fail();
-    thread rpg_acti_fail();
+    thread teleport_rpg();
     thread bounce();
     thread bounce_sniper();
     thread bounce_jumper_fail();
@@ -544,28 +542,24 @@ sniper()
 
     }
 }
-    sniper_jumper_fail()
+teleport_sniper()
     {
-        trig = getEnt("sniper_jumper_fail", "targetname");
-        tele = getEnt("sniper_jumper_fail_origin", "targetname");
+        trig = getEnt("sniper_fail", "targetname");
+        jumper = getEnt("sniper_jumper_fail_origin", "targetname");
+        acti = getEnt("sniper_acti_fail_origin", "targetname");
 
         for(;;)
         {
             trig waittill("trigger", player);
-            player setOrigin(tele.origin);
-            player setPlayerAngles(tele.angles);
-        }
-    }
-     sniper_acti_fail()
-    {
-        trig = getEnt("sniper_acti_fail", "targetname");
-        tele = getEnt("sniper_acti_fail_origin", "targetname");
-
-        for(;;)
-        {
-            trig waittill("trigger", player);
-            player setOrigin(tele.origin);
-            player setPlayerAngles(tele.angles);
+            if(player.team == "axis"){
+                player setOrigin(acti.origin);
+                player setPlayerAngles(acti.angles);
+            }
+            else{
+                player setOrigin(jumper.origin);
+                player setPlayerAngles(jumper.angles);
+            }
+            
         }
     }
 
@@ -625,7 +619,7 @@ knife()
         origins = [];
         origins[0] = getEnt("knife_fail_origin_1", "targetname");
         origins[1] = getEnt("knife_fail_origin_2", "targetname");
-        origins[2] = getEnt("knife_fail_origin_3", "targetname");
+        origins[2] = getEntarray("knife_fail_origin_3", "targetname")[0];
         origins[3] = getEnt("knife_fail_origin_4", "targetname");
         for(;;)
         {
@@ -645,29 +639,31 @@ knife()
 
         for(;;)
         {
-            level.trigger_pure waittill("trigger", player);
-            AmbientStop(2);
-            AmbientPlay("song6");
-            iPrintLnBold("^5" + player.name + " ^7Entered The ^5PureStrafe ^7Room^5!");
-            level.activ = GetActivator();
-            level.pure_jumper = player;
-            player thread waitdead();
-            thread fightHUD("PureStrafe Room", player, level.activ);
-            player setOrigin (jumper.origin);
-            player setPlayerAngles (jumper.angles);    
-            level.activ setOrigin (acti.origin);
-            level.activ setPlayerAngles (acti.angles);
-            player takeAllWeapons();
-            level.activ takeAllWeapons();  
-            player giveWeapon("beretta_mp");
-            level.activ giveWeapon("beretta_mp");
-            player switchtoweapon("beretta_mp");
-            level.activ switchtoweapon("beretta_mp");
-            player thread RoomCountDown("^5Strafe to the end to win!", 3, 1);
-            level.activ thread RoomCountDown("^5Strafe to the end to win!", 3, 1);
-            while(isDefined(player) && isAlive(player))
-            wait .05;
-            level.pure_jumper = undefined;
+        level.trigger_pure waittill("trigger", player);
+        AmbientStop(2);
+        AmbientPlay("song6");
+        iPrintLnBold("^5" + player.name + " ^7Entered The ^5PureStrafe ^7Room^5!");
+        level.activ = GetActivator();
+        level.pure_jumper = player;
+        player thread waitdead();
+        thread fightHUD("PureStrafe Room", player, level.activ);
+        player setOrigin (jumper.origin);
+        player setPlayerAngles (jumper.angles);    
+        level.activ setOrigin (acti.origin);
+        level.activ setPlayerAngles (acti.angles);
+        player takeAllWeapons();
+        level.activ takeAllWeapons();  
+        player giveWeapon("beretta_mp");
+        level.activ giveWeapon("beretta_mp");
+        player switchtoweapon("beretta_mp");
+        level.activ switchtoweapon("beretta_mp");
+        player thread RoomCountDown("^5Strafe to the end to win!", 3, 1);
+        level.activ thread RoomCountDown("^5Strafe to the end to win!", 3, 1);
+        while(isDefined(player) && isAlive(player))
+        wait .05;
+        player = undefined;
+        level.pure_jumper = undefined;
+        level.activ = undefined;
         }
     }
     pure_finish()
@@ -759,28 +755,24 @@ rpg()
         wait .05;
     }
 }
- rpg_jumper_fail()
+ teleport_rpg()
     {
-        trig = getEnt("jumper_rpg_fail", "targetname");
-        tele = getEnt("jumper_rpg_fail_origin", "targetname");
+        trig = getEnt("rpg_fail", "targetname");
+        jumper = getEnt("jumper_rpg_fail_origin", "targetname");
+        acti = getEnt("acti_rpg_fail_origin", "targetname");
 
         for(;;)
         {
             trig waittill("trigger", player);
-            player setOrigin(tele.origin);
-            player setPlayerAngles(tele.angles);
-        }
-    }
-rpg_acti_fail()
-    {
-        trig = getEnt("acti_rpg_fail", "targetname");
-        tele = getEnt("acti_rpg_fail_origin", "targetname");
-
-        for(;;)
-        {
-            trig waittill("trigger", player);
-            player setOrigin(tele.origin);
-            player setPlayerAngles(tele.angles);
+            if(player.team == "axis"){
+                player setOrigin(acti.origin);
+                player setPlayerAngles(acti.angles);
+            }
+            else{
+                player setOrigin(jumper.origin);
+                player setPlayerAngles(jumper.angles);
+            }
+            
         }
     }
     bounce()
