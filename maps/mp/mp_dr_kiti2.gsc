@@ -251,29 +251,31 @@ accessHUD(player, message)
 	
 select() 
 {
-level.room_trig = getEnt( "trigger_select", "targetname");
-room = getEnt( "origin_select", "targetname" );
-level.room_trig setHintString ("Press ^5[&&1]^7 to enter room selection");
+    level.room_trig = getEnt( "trigger_select", "targetname");
+    room = getEnt( "origin_select", "targetname" );
+    level.room_trig setHintString ("Press ^5[&&1]^7 to enter room selection");
 
-for(;;)
-{
-level.room_trig waittill( "trigger", player );
-if( !isDefined( level.room_trig ) )
-return;
+    for(;;)
+    {
+        level.room_trig waittill( "trigger", player );
+        if( !isDefined( level.room_trig ) )
+        return;
 
-acti = GetActivator();
-if(level.firstenter == true)
-{
-	acti freezeControls(1);
-	acti iPrintLnBold("^5Jumper ^7is picking a ^5room^7!");
-	level notify("acti_antiglitch");
-	level.firstenter = false;
-}
-//player SetPlayerAngles( room.angles );
-player setOrigin( room.origin );
-player TakeAllWeapons();
-player antiglitcher();
-}
+        if(!isdefined(getactivator())){ player iprintln("^1No Activator Detected"); continue; }
+
+        acti = GetActivator();
+        if(level.firstenter == true)
+        {
+            acti freezeControls(1);
+            acti iPrintLnBold("^5Jumper ^7is picking a ^5room^7!");
+            level notify("acti_antiglitch");
+            level.firstenter = false;
+        }
+        //player SetPlayerAngles( room.angles );
+        player setOrigin( room.origin );
+        player TakeAllWeapons();
+        player antiglitcher();
+    }
 }
 
 endmap()
