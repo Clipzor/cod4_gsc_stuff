@@ -338,10 +338,21 @@ teddy_shoot1()
 }
 teddy_shoot2()
 {
+	if(isdefined(getdvarint("dr_auto_open_secret"))) {
+        thread auto_open_secret();
+        return;
+    }
 	trigger = getent("secret_open","targetname");
 	secret_clip = getEnt ("secret_clip","targetname");
 	trigger waittill ("trigger" , player );
 	secret_clip delete();
+	iprintln( "^5TeddySHoot!" );
+}
+auto_open_secret() {
+
+    secret_clip = getEnt ("secret_clip","targetname");
+    secret_clip delete();
+	level waittill("round_started");
 	iprintln( "^5TeddySHoot!" );
 }
 easy_fail1()
