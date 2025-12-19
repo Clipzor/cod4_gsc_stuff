@@ -20,6 +20,7 @@ main() {
 	thread Bounce();
 	thread Clock();
 	thread jumpreset1();
+
 }
 
 trap1()
