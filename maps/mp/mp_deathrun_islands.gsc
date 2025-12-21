@@ -33,7 +33,6 @@ main() {
 	 thread trap();
 	 thread ak();
 	 thread secret2();
-	 thread specmap();
 	 thread deagle();
 	 thread vip();
 	 thread bounceweap();
@@ -165,14 +164,7 @@ player setClientDvar( "r_specularMap", 2 );
 }
 }
 
-specmap()
-{
-while(1)
-{
-level waittill( "player_spawn", player );
-player setClientDvar( "r_specularMap", 1);
-}
-}
+
 
 deagle()
 {
@@ -230,8 +222,8 @@ bounceweap()
 trig = getent("bounceweap", "targetname");
 trig waittill("trigger", player);
 trig delete();
-player giveweapon( "m14_silencer_mp");
-player switchToWeapon( "m14_silencer_mp" );
+player giveweapon( "ak47_mp");
+player switchToWeapon( "ak47_mp" );
 }
 
 start()

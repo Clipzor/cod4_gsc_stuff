@@ -73,21 +73,21 @@ main() {
  		level.inkniferoom = false;
  		level.inpromodroom = false;
 
-	precacheitem("usp_silencer_mp");
-	precacheitem("mp44_mp");
-	precacheitem("uzi_silencer_mp");
+	precacheitem("deserteagle_mp");
+	precacheitem("ak47_mp");
+	precacheitem("ak74u_mp");
 	precacheItem("m40a3_mp");
-	precacheItem("m1014_grip_mp");
+	precacheItem("ak47_mp");
 	precacheItem("remington700_mp");
-	precacheItem("p90_silencer_mp");
 	precacheItem("ak74u_mp");
-	precacheItem("saw_grip_mp");
+	precacheItem("ak74u_mp");
+	precacheItem("ak74u_mp");
 	precacheItem("deserteaglegold_mp");
 	precacheItem("rpg_mp");
-	precacheItem("honeybadger_mp");
-	precacheItem("winchester1200_mp");
 	precacheItem("ak47_mp");
-	precacheItem("rpd_mp");
+	precacheItem("ak47_mp");
+	precacheItem("ak47_mp");
+	precacheItem("ak47_mp");
 	thread sniperthing();
 	thread bomb();
 	thread hintsec();
@@ -665,11 +665,15 @@ cleanUp()
 startdoor()
 {
 	startdoor = GetEnt("start_door", "targetname");
+	if(getdvarint("dr_auto_open_door")) {
+		startdoor delete();
+	}
+	else{
 	level waittill("round_started");
 	wait 8;
 	IPrintLn("Start door is opening...");
 	startdoor MoveZ(176, 6, 3, 3);
-
+	}
 }
 
 credits()
@@ -878,7 +882,7 @@ bounceweapon()
 	weapon = "rpg_mp";
 	if(i == 0)
 	{
-		weapon = "saw_grip_mp";
+		weapon = "ak74u_mp";
 	}
 	else if(i == 1)
 	{
@@ -886,23 +890,23 @@ bounceweapon()
 	}
 	else if(i == 2)
 	{
-		weapon = "winchester1200_mp";
+		weapon = "ak47_mp";
 	}
 	else if(i == 3)
 	{
-		weapon = "m1014_grip_mp";
+		weapon = "ak47_mp";
 	}
 	else if(i == 4)
 	{
-		weapon = "saw_grip_mp";
+		weapon = "ak74u_mp";
 	}
 	else if(i == 5)
 	{
-		weapon = "honeybadger_mp";
+		weapon = "ak47_mp";
 	}
 	else if(i == 6)
 	{
-		weapon = "mp44_mp";
+		weapon = "ak47_mp";
 	}
 	else if(i == 7)
 	{
@@ -910,15 +914,15 @@ bounceweapon()
 	}
 	else if(i == 8)
 	{
-		weapon = "rpd_mp";
+		weapon = "ak47_mp";
 	}
 	else if(i == 9)
 	{
-		weapon = "p90_silencer_mp";
+		weapon = "ak74u_mp";
 	}
 	else if(i == 10)
 	{
-		weapon = "uzi_silencer_mp";
+		weapon = "ak74u_mp";
 	}
 	//precacheItem(weapon);	
     player giveWeapon( weapon );
@@ -1189,7 +1193,7 @@ weapon()
 	weapon = "rpg_mp";
 	if(i == 0)
 	{
-		weapon = "saw_grip_mp";
+		weapon = "ak74u_mp";
 	}
 	else if(i == 1)
 	{
@@ -1197,23 +1201,23 @@ weapon()
 	}
 	else if(i == 2)
 	{
-		weapon = "winchester1200_mp";
+		weapon = "ak47_mp";
 	}
 	else if(i == 3)
 	{
-		weapon = "m1014_grip_mp";
+		weapon = "ak47_mp";
 	}
 	else if(i == 4)
 	{
-		weapon = "saw_grip_mp";
+		weapon = "ak74u_mp";
 	}
 	else if(i == 5)
 	{
-		weapon = "honeybadger_mp";
+		weapon = "ak47_mp";
 	}
 	else if(i == 6)
 	{
-		weapon = "mp44_mp";
+		weapon = "ak47_mp";
 	}
 	else if(i == 7)
 	{
@@ -1221,15 +1225,15 @@ weapon()
 	}
 	else if(i == 8)
 	{
-		weapon = "rpd_mp";
+		weapon = "ak47_mp";
 	}
 	else if(i == 9)
 	{
-		weapon = "p90_silencer_mp";
+		weapon = "ak74u_mp";
 	}
 	else if(i == 10)
 	{
-		weapon = "uzi_silencer_mp";
+		weapon = "ak74u_mp";
 	}
 			//PrecacheItem(weapon);
 	        player GiveWeapon( weapon );

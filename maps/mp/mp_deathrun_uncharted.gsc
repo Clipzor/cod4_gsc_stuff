@@ -50,6 +50,7 @@ main() {
 		 playLoopedFX(level.water, 0.05, (20376, -88, 88));
 		 playLoopedFX(level.water, 0.05, (18304, -64, 80));
 		 
+		 level.PlayerInRoom = false;
 
 thread caveteleport();	
 thread creds();	

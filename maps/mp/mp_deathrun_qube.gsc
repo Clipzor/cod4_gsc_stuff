@@ -20,8 +20,7 @@ main() {
 	precacheModel( "playermodel_terminator" );
 	precacheModel( "sonic" );
 	PrecacheItem( "rpg_mp" );
-	PrecacheItem( "g3_silencer_mp" );
-	PrecacheItem( "uzi_mp" );
+	PrecacheItem( "ak47_mp" );
 
 	level.fx_conj = LoadFX( "deathrun/conjuration" );
 	level.fx_gunfx = LoadFX( "deathrun/gun_fx" );
@@ -577,10 +576,10 @@ trigger waittill ("trigger",user);
 wait(0.2);
 user iprintlnbold("You Have Taken [^4G3^7]");
 wait(0.1);	
-user giveWeapon( "g3_silencer_mp");
-user giveMaxammo("g3_silencer_mp");
+user giveWeapon( "ak47_mp");
+user giveMaxammo("ak47_mp");
 wait 0.1;
-user switchToWeapon("g3_silencer_mp");
+user switchToWeapon("ak47_mp");
 wait 0.1;
 trigger delete();
 }
@@ -595,10 +594,10 @@ trigger waittill ("trigger",user);
 wait(0.2);
 user iprintlnbold("You Have Taken [^4Uzi^7]");
 wait(0.1);	
-user giveWeapon( "uzi_mp");
-user giveMaxammo("uzi_mp");
+user giveWeapon( "ak47_mp");
+user giveMaxammo("ak47_mp");
 wait 0.1;
-user switchToWeapon("uzi_mp");
+user switchToWeapon("ak47_mp");
 wait 0.1;
 trigger delete();
 }
@@ -613,10 +612,10 @@ trigger waittill ("trigger",user);
 wait(0.2);
 user iprintlnbold("You Have Taken [^4Colt.44^7]");
 wait(0.1);	
-user giveWeapon( "colt44_mp");
-user giveMaxammo("colt44_mp");
+user giveWeapon( "deserteagle_mp");
+user giveMaxammo("deserteagle_mp");
 wait 0.1;
-user switchToWeapon("colt44_mp");
+user switchToWeapon("deserteagle_mp");
 wait 0.1;
 }
 }

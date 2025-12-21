@@ -47,6 +47,8 @@ main() {
 	addTriggerToList( "trap11trig" );
 	addTriggerToList( "trap12trig" );
 
+	level.firstenter = true;
+	
 	level waittill("round_started");
 
 	level.startwait = randomint(3)+3;

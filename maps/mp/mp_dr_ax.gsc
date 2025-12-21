@@ -1,4 +1,4 @@
-/*
+ /*
 
       _ _            _ _            _ _       
      | (_)          | (_)          | (_)      
@@ -123,7 +123,10 @@ main() {
 door()
 {
 	brush = GetEnt("door_s","targetname");
-
+	if(getdvarint("dr_auto_open_door")) {
+		brush delete();
+	}
+	else {
 	wait 15;
 	IPrintLnBold("Door is opening in ^55 ^7seconds...");
 	wait 2;
@@ -137,7 +140,7 @@ door()
 	IPrintLnBold("^5GO GO GO^7!");
 	wait 3;
 	brush delete();
-
+	}
 }
 trap1()
 {
