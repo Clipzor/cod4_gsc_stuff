@@ -39,6 +39,8 @@ main() {
     thread DeleteLastTrap();
     thread SpinningTrap2_2();
     thread SpinningTrapXM();
+
+    level.firstenter = undefined;
 }
 
 antiglitcher()

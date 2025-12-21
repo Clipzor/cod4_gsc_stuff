@@ -2,9 +2,11 @@
 #include common_scripts\utility;
 #include maps\mp\gametypes\_hud_util;
 
-main() {
+main()
+{
     //maps\mp\mp_dr_schizo_fx::main();
     maps\mp\_load::main();
+    //thread maps\saveload::main();
 
     game["allies"] = "sas";
     game["axis"] = "russian";
@@ -13,12 +15,10 @@ main() {
     game["allies_soldiertype"] = "woodland";
     game["axis_soldiertype"] = "woodland";
 
-    //SetDvar("bg_falldamagemaxheight", 99999);
-    //SetDvar("bg_falldamageminheight", 99998);
+    SetDvar("bg_falldamagemaxheight", 99999);
+    SetDvar("bg_falldamageminheight", 99998);
     //SetDvar("g_speed", 210);
-    //SetDvar("jump_slowdownenable", 0);
-
-    level.firstenter = true;
+    SetDvar("jump_slowdownenable", 0);
 
     addTriggerToList( "acti1" );
     addTriggerToList( "acti2" );
@@ -43,7 +43,9 @@ main() {
     thread endmap();
     thread antiglitcher();
     thread teleportacti();
-    //thread select();
+    thread select();
+
+    level.firstenter = true;
 }
 
 antiglitcher()
@@ -126,7 +128,7 @@ endmap()
     firstPlace.sort = 0;
     firstPlace.font = "default";
     firstPlace.fontScale = 1.4;
-    firstPlace.hidewheninmenu = false;
+    firstplace.hidewheninmenu = false;
     firstPlace.glowAlpha = 1;
     firstPlace.glowColor = (.3,.0,3);
     firstPlace settext("^5" + player.name + " ^7has finished ^5FIRST^7");
@@ -218,7 +220,7 @@ GetActivator()
             return player;
     }
     
-    return undefined;
+    return "Noactivator";
 }
 
 createHUD( x, y, alignX, alignY, alpha, font, fontScale )
@@ -248,6 +250,9 @@ level.room_trig setHintString ("Press ^3[&&1]^7 to enter room selection");
 for(;;)
 {
 level.room_trig waittill( "trigger", player );
+///////RESPECT SCRIPT/////////////////////////
+if(!plugins_respect::roomCheck(player))
+continue;
 ///////RESPECT SCRIPT END/////////////////////////
 if( !isDefined( level.room_trig ) )
 return;
@@ -456,7 +461,7 @@ sniper()
         activator giveMaxAmmo("m40a3_mp");
         player switchToWeapon("m40a3_mp");
         activator switchToWeapon("m40a3_mp");   
-        //player.maxhealth = 100;
+        player.maxhealth = 100;
         player.health = player.maxhealth;
 
         while(isDefined(player) && isAlive(player))
@@ -491,7 +496,7 @@ rifle()
         activator giveWeapon("ak47_mp");
         player switchToWeapon("ak47_mp");
         activator switchToWeapon("ak47_mp");
-        //player.maxhealth = 100;
+        player.maxhealth = 100;
         player.health = player.maxhealth;
         
         while(isDefined(player) && isAlive(player))
