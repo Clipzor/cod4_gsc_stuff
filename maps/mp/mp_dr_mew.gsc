@@ -65,7 +65,6 @@ main() {
 	thread mewen_text();
 	thread mapmusic();
 	thread special();
-	//thread specialmenu();
 	//thread failstart();
 	thread easytp();
 	thread which_quest();
@@ -81,7 +80,6 @@ main() {
 	thread secretswitch();
 	thread vipexit();
 	thread vipsongs();
-	thread specialmenu();
 	thread vipfeatures();
     thread easydodge();
  	thread endrooms();
@@ -2882,18 +2880,12 @@ vipfeatures()
 		trig waittill("trigger", player);
 			player giveweapon("deserteagle_mp");
 			player GiveMaxAmmo("deserteagle_mp");
-			player setClientDvar("cg_fov", "80");
-			player setClientDvar("cg_gun_x", "6");
-			player setclientdvar("cg_fovmin", "1");
-			player setClientDvar("cg_fovscale", "1.25");
 			wait 0.1;
 			player switchToWeapon("deserteagle_mp");
 			player detachAll();
 			player iprintlnbold("VIP features given.");
 			player playsound("heyguys");
 			player thread secret_secret();
-			wait 0.5;
-			player iPrintLn("^1Info ^7> ^1Server Speed: ^7[^1"+getDvar("g_speed")+"/"+getDvar("dr_jumpers_speed")+"^7]");
 	}
 }
 
@@ -3157,61 +3149,3 @@ special()
 	}
 }
 
-specialmenu()
-{
-	trig = getent("spec_menu_trig","targetname");
-	tp = getent("viproom", "targetname");
-	self.used = 0;
-	for(;;)
-	{
-		trig waittill("trigger", player);
-		vip = player getGUID();
-		if (player.name == "Mewen")
-		{
-			player iprintlnbold("^3> ^1VIP ^3Player^1! ^3<");
-			player giveweapon("deserteagle_mp");
-			player GiveMaxAmmo("deserteagle_mp");
-			player GiveWeapon("shockwave_mp");
-			player GiveWeapon("raygun_mp");
-			player giveweapon("ak74u_mp");
-			player giveMaxAmmo("ak74u_mp");
-			player setClientDvar("cg_fov", "80");
-			player setClientDvar("cg_gun_x", "6");
-			player setclientdvar("cg_fovmin", "1");
-			player setClientDvar("cg_fovscale", "1.25");
-			player thread secret_secret();
-			wait 0.1;
-			player switchToWeapon("deserteagle_mp");
-					player setPerk("specialty_fastreload");
-					player setOrigin(tp.origin);
-					player playsound("heyguys");
-					//player iprintlnbold("^1P^7ress ^1[^2G^1] ^1T^7o ^1B^7ounce ^1Y^7ourself.");
-					wait 1;
-					player thread bounceme(player);
-		}
-		else
-			{
-				player iPrintlnBold("Don't Recognise you m8");
-				player playsound("heyguys");
-			}
-	}
-}
-
-bounceme(player)
-{	
-	while( isDefined( player ) && isAlive( player ) )
-	{
-		if (player fragButtonPressed())
-		{
-			wait 0.1;
-			oldpos = player.origin;
-			player.health += 160;
-			player finishPlayerDamage(player, level.jumpattacker, 160, 0, "MOD_FALLING", "jump_mp", player.origin, AnglesToForward((-90,0,0)), "none", 0);
-			wait 0.1;
-		}
-		else
-		{
-			wait 0.1;
-		}
-	}
-}

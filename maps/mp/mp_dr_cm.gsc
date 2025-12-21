@@ -258,7 +258,7 @@ for(;;)
 trig waittill("trigger", player);
 player setorigin (short.origin);
 player setplayerangles(short.angles);
-player braxi\_rank::giveRankXP( "", 1500 );
+player braxi\_rank::giveRankXP( "", 500 );
 }
 }
 tele1p1()
@@ -725,7 +725,7 @@ hardsecend()
         if(isdefined(player.secretTimer2))
             player.secretTimer2 destroy();
         player notify("hardsecret_done");
-        player braxi\_rank::giveRankXP( "", 1000 );
+        player braxi\_rank::giveRankXP( "", 500 );
     }
 }
 

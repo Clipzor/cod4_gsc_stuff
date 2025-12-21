@@ -423,7 +423,7 @@ sec_done()
 		trig waittill("trigger",player);
 		player notify("secret_done");
 		player.secretTimer destroy();
-		player braxi\_rank::giveRankXp(undefined, 750);
+		player braxi\_rank::giveRankXp(undefined, 500);
 		iPrintLnBold("^3"+ player.name+ " ^7Completed The Secret^7!");
 		player freezeControls(1);
 		player setOrigin(here.origin);
@@ -461,7 +461,7 @@ slide_done()
 		trig waittill("trigger",player);
 		player notify("secret_done");
 		player.secretTimer destroy();
-		player braxi\_rank::giveRankXp(undefined, 1000);
+		player braxi\_rank::giveRankXp(undefined, 500);
 		iPrintLnBold("^3"+ player.name+ " ^7Completed The ^1Slide ^7Secret^7!");
 		player freezeControls(1);
 		player setOrigin(here.origin);

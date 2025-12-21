@@ -618,7 +618,7 @@ bonus_exp1()
 	tele = getEnt("origin_secret", "targetname");
 
     iPrintLnBold("^1" + player.name + " found bonus XP!^7");
-    player braxi\_rank::giveRankXP("", 4000);
+    player braxi\_rank::giveRankXP("", 500);
 	
     players = getEntArray("player", "classname");
     for (i = 0; i < players.size; i++) 
@@ -756,7 +756,7 @@ acti_secret_finish()
 		trig waittill("trigger", player);
 		player setOrigin(tele.origin);
 		player setPlayerAngles(tele.angles);
-		player braxi\_rank::giveRankXP("", 3000);
+		player braxi\_rank::giveRankXP("", 500);
 		iPrintLnBold("^1Activator^7 has finished the secret training room");
 	}
 
@@ -769,7 +769,7 @@ shortcut()
     trig waittill("trigger", player);
 
     iPrintLnBold("^1" + player.name + " found the shortcut!^7");
-    player braxi\_rank::giveRankXP("", 4000);
+    player braxi\_rank::giveRankXP("", 500);
 	
 }
 

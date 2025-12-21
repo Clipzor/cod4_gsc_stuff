@@ -1063,7 +1063,7 @@ hard_finish() //Hard Secret End
 	for(;;)
 		{
 			trig waittill("trigger", player);
-			player braxi\_rank::giveRankXP( "", 1200 );
+			player braxi\_rank::giveRankXP( "", 500 );
 			iPrintLnBold("^2"+ player.name + " ^7Has Finished the ^1Hard ^7Secret^1!");	
 			player notify("hard_secret_done");
 			player.secretTimer destroy();

@@ -9,7 +9,6 @@ main() {
     setdvar( "bg_fallDamageMinHeight","9999999" );
 
     // For testing purposes
-    setdvar( "cg_fovscale","1.2" );
     setdvar( "g_speed", "210" );
 
     setdvar( "bg_bobamplitudesprinting", "0" );

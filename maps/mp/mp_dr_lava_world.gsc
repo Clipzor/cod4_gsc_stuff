@@ -1454,7 +1454,7 @@ jgap5()
 		iPrintLnBold ("^5" +player.name+ " completed the GAP room!");
 		if (level.trash == false)
 		{
-		player braxi\_rank::giveRankXp( "", 1000);
+		player braxi\_rank::giveRankXp( "", 500);
 		player giveWeapon("ak47_mp");
 		player switchToWeapon("ak47_mp");
 		wait 2;
@@ -1529,7 +1529,7 @@ agap5()
 		iPrintLnBold ("^8Activator completed the GAP room!");
 		if (level.trash == false)
 		{
-		player braxi\_rank::giveRankXp( "", 1000);
+		player braxi\_rank::giveRankXp( "", 500);
 		player giveWeapon("ak47_mp");
 		player switchToWeapon("ak47_mp");
 		wait 2;
@@ -1676,7 +1676,7 @@ secretosexit()
 		player setOrigin(o.origin);
 		player setPlayerAngles(o.angles);
 		iPrintLn(player.name+" ^1finished the secret!");
-		player braxi\_rank::giveRankXp( "", 1000);
+		player braxi\_rank::giveRankXp( "", 500);
 		wait .1;
 		player freezeControls(0);
 		player notify("secret_stop");

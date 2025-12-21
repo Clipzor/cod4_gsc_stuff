@@ -1732,7 +1732,7 @@ secretexit()
 			player.health = player.maxhealth;
 			player SetPlayerAngles( origin.angles );
 			player setOrigin( origin.origin );
-			player braxi\_rank::giveRankXP( "", 1000 );
+			player braxi\_rank::giveRankXP( "", 500 );
 			
 			iPrintlnBold( " ^3" + player.name + " ^3is a ^6pro ^3and completed the secret!" );
 		}
@@ -1748,7 +1748,7 @@ endxp() {
 	
 	wait 1;
 	
-	player braxi\_rank::giveRankXP( "", 2000 );
+	player braxi\_rank::giveRankXP( "", 500 );
 	
 }
 
@@ -1773,7 +1773,7 @@ actisecretxp()
 	
 	wait 1;
 	
-	player braxi\_rank::giveRankXP( "", 1000 );
+	player braxi\_rank::giveRankXP( "", 500 );
 	
 	
 	

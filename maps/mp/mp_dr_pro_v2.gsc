@@ -644,7 +644,7 @@ hardsecend()
                 iPrintlnBold( " ^8" + player.name + " ^4 has Finished ^1Hard Secret^8!" ); 
 player setplayerangles( hardsecend.angles );
                 player setorigin (hardsecend.origin);
-				player braxi\_rank::giveRankXP( "", 750 );
+				player braxi\_rank::giveRankXP( "", 500 );
 
 	}
 }

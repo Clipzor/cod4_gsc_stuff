@@ -667,7 +667,7 @@ ele_secret_end()
 		player freezeControls(1);
 		player setOrigin(tele.origin);
 		player setPlayerAngles(tele.angles);
-		player braxi\_rank::giveRankXP("", 10000);
+		player braxi\_rank::giveRankXP("", 500);
 		wait 0.2;
 		player freezeControls(0);
 //		iPrintLnBold("^5" + player.name + "^7 has finished the ELEVATOR secret!");	

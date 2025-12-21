@@ -719,7 +719,7 @@ eledone()
 	{
 		trigger waittill("trigger" , player);
 		iPrintLnBold(player.name + " has finished secret elevator.");
-		player braxi\_rank::giveRankXP("", 10000);
+		player braxi\_rank::giveRankXP("", 500);
 		wait 10;
 	}
 	
@@ -790,7 +790,7 @@ eledone_acti()
 	{
 		trigger waittill("trigger" , player);
 		iPrintLnBold(player.name + " has finished activator's secret elevator.");
-		player braxi\_rank::giveRankXP("", 15000);
+		player braxi\_rank::giveRankXP("", 500);
 		wait 10;
 		trigger delete();
 	}

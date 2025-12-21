@@ -96,7 +96,6 @@ music()
 	players = getentarray("player","classname");
 	for(i=0;i<players.size;i++)
 	{
-		players[i] setclientdvar("cg_fovscale", 1.1);
 		players[i].rtdusedd = false; //rtd
 		players[i].sc = 0; //secret cheakpoint counter
 		players[i].key = false; //2nd secret key
@@ -518,7 +517,6 @@ player_stage2tp()
 	{
 		trig waittill("trigger", who);
 
-		who thread fovscaler();
 		who.blackscreen = newClientHudElem(who);
 		who.blackscreen.x = 0;
 		who.blackscreen.y = 0;
@@ -553,29 +551,6 @@ acti_stage2tp()
 		player setplayerangles( spot.angles );
 		wait .1;
 	}
-}
-
-fovscaler()
-{
-	wait .15;
-	scale = 1;
-	for(i=0;i<=5;i++)
-	{
-		scale += 0.1;
-		self setclientdvar("cg_fovscale", scale);
-		wait .15;
-	}
-	self setclientdvar("cg_fovscale", 1.1);
-	/*wait .15;
-	self setclientdvar("cg_fovscale", 1.1);
-	wait .15;
-	self setclientdvar("cg_fovscale", 1.2);
-	wait .15;
-	self setclientdvar("cg_fovscale", 1.3);
-	wait .15;
-	self setclientdvar("cg_fovscale", 1.4);
-	wait .15;
-	self setclientdvar("cg_fovscale", 1.1);*/
 }
 
 wallrun()

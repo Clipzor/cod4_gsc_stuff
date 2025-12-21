@@ -56,6 +56,8 @@ main() {
 	setdvar("r_glowskybleedintensity0",".3");
 	setdvar("compassmaxrange","1800");
 
+    level.firstenter = true;
+
 	thread startdoor();
 	thread trap1();
 	thread trap2();

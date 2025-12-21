@@ -71,6 +71,8 @@ main() {
 	addTriggerToList("s_trap1_t");
 	addTriggerToList("s_trap2_t");
 
+    level.firstenter = true;
+
 	thread startwallpapers();
 	thread stage3autoplats();
 	thread chetg();

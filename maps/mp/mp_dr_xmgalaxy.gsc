@@ -479,7 +479,7 @@ for(;; )
    {
     trig waittill("trigger", player);
     player setOrigin(tele1.origin);
-	player braxi\_rank::giveRankXp( undefined, 5000 );
+	player braxi\_rank::giveRankXp( undefined, 500 );
 
 	
 

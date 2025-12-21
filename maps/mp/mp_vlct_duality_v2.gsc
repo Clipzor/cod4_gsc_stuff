@@ -870,7 +870,7 @@ secret_raky()
         if(!isDefined(awljkmf)) {
             awljkmf = true;
             player iprintLnBold("We're not on xM ^5RETARD^7... have some xp instead");
-            player braxi\_rank::giveRankXP("", 1000);
+            player braxi\_rank::giveRankXP("", 400);
         }
         player freezecontrols(1);
         wait 1;
@@ -922,7 +922,7 @@ practise_finish()
         trig waittill("trigger", player);
         player setOrigin(tele.origin);
         player setPlayerAngles(tele.angles);
-        player braxi\_rank::giveRankXP("", 1000); 
+        player braxi\_rank::giveRankXP("", 400); 
         player iprintlnbold("You finished the bounce practise room! ^5Congrats!");
         }
 }
@@ -979,7 +979,7 @@ hell_secret()
             {
                 trig waittill("trigger", player);
                 iprintlnbold("^5" + player.name + " ^7is INSANE!");
-                player braxi\_rank::giveRankXP("", 5000);
+                player braxi\_rank::giveRankXP("", 500);
                 player setOrigin(tele.origin);
                 player setplayerAngles(tele.angles);
                 player freezecontrols(1);
@@ -1024,7 +1024,7 @@ hell_secret()
             player setOrigin(tele.origin);
             player setPlayerAngles(tele.angles);
             iprintlnbold("^5" + player.name + " ^7is pretty good!");
-            player braxi\_rank::giveRankXP("", 2000);
+            player braxi\_rank::giveRankXP("", 400);
             players = getEntArray("player", "classname");
             for (i = 0; i < players.size; i++) 
             {

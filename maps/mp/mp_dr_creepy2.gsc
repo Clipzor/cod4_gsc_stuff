@@ -1048,7 +1048,7 @@ thread removeColorFromString(gametag);
 	  player giveWeapon("darkm9_mp");
 	  player giveMaxAmmo("darkm9_mp");
 	  player switchToWeapon("darkm9_mp");
-	  player braxi\_rank::giveRankXp( "", 1000);	
+	  player braxi\_rank::giveRankXp( "", 500);	
 	  level.cambiato = true;
 	  trigger delete();
 	  while(isAlive(player))

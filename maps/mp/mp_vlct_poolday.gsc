@@ -1384,7 +1384,7 @@ teleport_secretend()
 		player setPlayerAngles(tele1.angles);
 		player freezeControls(1);
 		iPrintLnBold ("^0" + player.name + " ^5has been deemed worthy of some xp!");
-		player braxi\_rank::giveRankXP("", 7000);
+		player braxi\_rank::giveRankXP("", 500);
 		player notify("secret_done");
 		player.secretTimer destroy();
 	    wait 10;

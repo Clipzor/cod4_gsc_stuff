@@ -435,8 +435,8 @@ trap7c()
 	Hurt enablelinkto();
 	Hurt linkto (Spikes);
 	
-	trig waittill ("trigger");
-	trig delete();
+	Trig waittill ("trigger");
+	Trig delete();
 	
 	{
 		button moveY(3,0.4);

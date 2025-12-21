@@ -78,7 +78,7 @@ end()
 		iPrintLnBold("^5Jumpers won!");
 		for(i = 0; i < jumpers.size; i++)
 		{
-			jumpers[i] braxi\_rank::giveRankXP("", 1000);
+			jumpers[i] braxi\_rank::giveRankXP("", 500);
 		}
 	}
 }

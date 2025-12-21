@@ -27,7 +27,7 @@ main() {
 	
 	precacheItem("winchester1200_mp");
 	
-	
+	level.firstenter = true;
 
 	maps\mp\mp_deathrun_crystal_fx::main();
 	// maps\createfx\mp_deathrun_crystal_fx::main();

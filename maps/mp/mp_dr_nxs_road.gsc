@@ -262,8 +262,6 @@ knife()
 		wait 0.05;
 		player switchToWeapon( "knife_mp" );
 		level.activ switchToWeapon( "knife_mp" );
-		level.activ setclientDvar("cg_fovscale", 1.3);
-		player setclientDvar("cg_fovscale", 1.3);
   		iPrintLnBold("^1" + player.name + " ^3has choosen ^5Knife^7!");
 		wait 1;
 		iPrintLnBold("^3[3]");
@@ -321,8 +319,6 @@ pistol()
 		player switchToWeapon( "knife_mp" );
 		level.activ SwitchToWeapon( "deserteagle_mp" );
 		level.activ switchToWeapon( "knife_mp" );
-		level.activ setclientDvar("cg_fovscale", 1.3);
-		player setclientDvar("cg_fovscale", 1.3);
   		iPrintLnBold("^1" + player.name + " ^3has choosen ^5Pistol War^7!");
 		wait 1;
 		iPrintLnBold("^33");
@@ -379,8 +375,6 @@ sniper()
 		player switchToWeapon( "m40a3_mp" );
 		level.activ SwitchToWeapon( "remington700_mp" );
 		level.activ switchToWeapon( "m40a3_mp" );
-		level.activ setclientDvar("cg_fovscale", 1.3);
-		player setclientDvar("cg_fovscale", 1.3);
   		iPrintLnBold("^1" + player.name + " ^3has choosen ^5Sniper^7!");
 		wait 1;
 		iPrintLnBold("^33");

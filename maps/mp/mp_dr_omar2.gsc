@@ -936,7 +936,7 @@ secretexit()
 			player iPrintLnBold("^5you has finished ^6secret!!");
 			player notify("sec1_done");
 			player.secretTimer destroy();
-			player braxi\_rank::giveRankXP( "", 10000 );
+			player braxi\_rank::giveRankXP( "", 500 );
 		}
 }
 

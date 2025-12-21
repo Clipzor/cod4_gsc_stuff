@@ -268,7 +268,6 @@ random(jani)
 	jani SetMoveSpeedScale( 2.2 );
 	jani setClientDvar( "player_meleeRange", "150" );
 	jani iprintlnBold("^1Hunter");
-	jani setClientDvar("cg_fov", 100);
     jani takeAllWeapons();
     jani GiveWeapon("knife_mp");
     jani SwitchToWeapon("knife_mp");
@@ -280,7 +279,6 @@ random(jani)
 	jani.health = self.maxhealth;
 	jani SetMoveSpeedScale( 0.5 );
 	jani iprintlnBold("^1HardSuit");
-	jani setClientDvar("cg_fov", 25);
     jani takeAllWeapons();
     jani GiveWeapon("saw_acog_mp");
     jani SwitchToWeapon("saw_acog_mp");

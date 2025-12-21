@@ -217,8 +217,8 @@ chicken7() {
     chicken = getEnt( "chicken7", "targetname" );
 
     trig waittill( "trigger", p );
-    iPrintLnBold( p.name + " found the all chikens so everyone gets 1k xp" );
-    braxi\_rank::giveRankXp(undefined, 1000);
+    iPrintLnBold( p.name + " found the all chikens so everyone gets 400 xp" );
+    braxi\_rank::giveRankXp(undefined, 400);
     chicken delete();
 }
 
@@ -289,7 +289,7 @@ secret_finish() {
         trig waittill( "trigger", p );
         p setOrigin( finish.origin );
         p setPlayerAngles( finish.angles );
-        p braxi\_rank::giveRankXp(undefined, 2500);
+        p braxi\_rank::giveRankXp(undefined, 500);
         iPrintLnBold( p.name + " has finished the secret");
 	}
 }

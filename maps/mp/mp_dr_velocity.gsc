@@ -837,7 +837,7 @@ bonus_exp1()
 	tele = getEnt("origin_secret", "targetname");
 
     iPrintLnBold("^5" + player.name + " found bonus XP!^7");
-    player braxi\_rank::giveRankXP("", 4000);
+    player braxi\_rank::giveRankXP("", 500);
 	
     players = getEntArray("player", "classname");
     for (i = 0; i < players.size; i++) 
@@ -986,7 +986,7 @@ acti_secret_finish()
 		trig waittill("trigger", player);
 		player setOrigin(tele.origin);
 		player setPlayerAngles(tele.angles);
-		player braxi\_rank::giveRankXP("", 3000);
+		player braxi\_rank::giveRankXP("", 500);
 //		iPrintLnBold("^5Activator^7 has finished the secret training room");
 		thread ele_hud("^5" + player.name + "^7 has finished the activator's training room!");
 	}
@@ -1000,7 +1000,7 @@ bonus_exp2()
     trig waittill("trigger", player);
 
     iPrintLnBold("^5" + player.name + " found the second bonus exp!^7");
-    player braxi\_rank::giveRankXP("", 4000);
+    player braxi\_rank::giveRankXP("", 500);
 	
 }
 
@@ -1149,7 +1149,7 @@ ele_secret_end()
 		player freezeControls(1);
 		player setOrigin(tele.origin);
 		player setPlayerAngles(tele.angles);
-		player braxi\_rank::giveRankXP("", 1000);
+		player braxi\_rank::giveRankXP("", 500);
 		wait 0.2;
 		player freezeControls(0);
 //		iPrintLnBold("^5" + player.name + "^7 has finished the ELEVATOR secret!");	
@@ -1220,7 +1220,7 @@ good()
     trig waittill("trigger", player);
 
     iPrintLnBold("^5" + player.name + " is good.^7");
-    player braxi\_rank::giveRankXP("", 3000);
+    player braxi\_rank::giveRankXP("", 500);
 	trig delete();
 	
 }

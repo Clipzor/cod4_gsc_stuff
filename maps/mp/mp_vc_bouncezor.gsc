@@ -754,7 +754,7 @@ hard_leave()
 			trig waittill("trigger", player);
 			player notify("secret_done");
 			player.secretTimer destroy();
-			player braxi\_rank::giveRankXP( "", 950);
+			player braxi\_rank::giveRankXP( "", 550);
 			iPrintLnBold("^3"+ player.name + " ^7completed ^1HARD ^7Secret!");	
 			player setOrigin(tele1.origin);
 			player setPlayerAngles(tele1.angles);

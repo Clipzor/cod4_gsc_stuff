@@ -836,7 +836,7 @@ VIPcontent(vip)
 		for(i=0;i<players.size;i++)
 		{
 			player = players[i];
-			player braxi\_rank::giveRankXp( "", 1000);
+			player braxi\_rank::giveRankXp( "", 500);
 			player iPrintLnBold("^2You^7 got a ^3gift^7 from the ^4MAP^7 Maker!");
 		}
 		vip braxi\_rank::giveRankXp( "", 500);

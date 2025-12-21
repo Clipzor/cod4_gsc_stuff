@@ -714,7 +714,7 @@ velo_exp3_()
 	logo3 = getEnt("velo_exp3" , "targetname");	
     trig3 = getEnt("trigger_velo_exp3", "targetname");
     trig3 waittill("trigger", player);
-    player braxi\_rank::giveRankXP("", 1000);
+    player braxi\_rank::giveRankXP("", 500);
 	player playlocalsound("orb");
 	trig3 delete();
 	logo3 hide();
@@ -734,7 +734,7 @@ velo_exp4_()
 	logo4 = getEnt("velo_exp4" , "targetname");	
     trig4 = getEnt("trigger_velo_exp4", "targetname");
     trig4 waittill("trigger", player);
-    player braxi\_rank::giveRankXP("", 1000);
+    player braxi\_rank::giveRankXP("", 500);
 	player playlocalsound("orb");
 	trig4 delete();
 	logo4 hide();
@@ -755,7 +755,7 @@ velo_exp5_()
 	logo5 = getEnt("velo_exp5" , "targetname");	
     trig5 = getEnt("trigger_velo_exp5", "targetname");
     trig5 waittill("trigger", player);
-    player braxi\_rank::giveRankXP("", 1000);
+    player braxi\_rank::giveRankXP("", 500);
 	player playlocalsound("orb");
 	trig5 delete();
 	logo5 hide();

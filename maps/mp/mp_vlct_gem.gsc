@@ -426,7 +426,7 @@ secret_xp()
     {
         trig waittill("trigger", player);
         iprintlnbold("^5 " + player.name + " ^7found bonus XP!");
-        //player braxi_rank::giveRankXP("", 4000);
+        //player braxi_rank::giveRankXP("", 500);
         trig delete();
     }
 }

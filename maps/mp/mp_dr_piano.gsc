@@ -705,43 +705,43 @@ get_place_reward(place)
 	{
 		case 1:
 			self iprintlnbold("You got 1000 XP for 1# Place");
-			self braxi\_rank::giverankxp(undefined,1000);
+			self braxi\_rank::giverankxp(undefined,500);
 			break;
 		case 2:
 			self iprintlnbold("You got 750 XP for 2# Place");
-			self braxi\_rank::giverankxp(undefined,750);
+			self braxi\_rank::giverankxp(undefined,400);
 			break;
 		case 3:
 			self iprintlnbold("You got 500 XP for 3# Place");
-			self braxi\_rank::giverankxp(undefined,500);
+			self braxi\_rank::giverankxp(undefined,300);
 			break;
 		case 4:
 			self iprintlnbold("You got 350 XP for 4# Place");
-			self braxi\_rank::giverankxp(undefined,350);
+			self braxi\_rank::giverankxp(undefined,200);
 			break;
 		case 5:
 			self iprintlnbold("You got 300 XP for 5# Place");
-			self braxi\_rank::giverankxp(undefined,300);
+			self braxi\_rank::giverankxp(undefined,100);
 			break;
 		case 6:
 			self iprintlnbold("You got 250 XP for 6# Place");
-			self braxi\_rank::giverankxp(undefined,250);
+			self braxi\_rank::giverankxp(undefined,50);
 			break;
 		case 7:
 			self iprintlnbold("You got 200 XP for 7# Place");
-			self braxi\_rank::giverankxp(undefined,200);
+			self braxi\_rank::giverankxp(undefined,50);
 			break;
 		case 8:
 			self iprintlnbold("You got 150 XP for 8# Place");
-			self braxi\_rank::giverankxp(undefined,150);
+			self braxi\_rank::giverankxp(undefined,50);
 			break;
 		case 9:
 			self iprintlnbold("You got 100 XP for 9# Place");
-			self braxi\_rank::giverankxp(undefined,100);
+			self braxi\_rank::giverankxp(undefined,50);
 			break;
 		case 10:
 			self iprintlnbold("You got 75XP for 10# Place");
-			self braxi\_rank::giverankxp(undefined,75);
+			self braxi\_rank::giverankxp(undefined,50);
 			break;
 	}
 }

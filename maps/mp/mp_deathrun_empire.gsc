@@ -32,6 +32,8 @@ main() {
 	maps\mp\_teleport4::main();
 	maps\mp\_teleport5::main();
 	maps\mp\_teleport6::main();
+
+    level.firstenter = true;
 	
 	ambientPlay("music");
 	

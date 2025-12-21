@@ -682,7 +682,7 @@ acti_secret_finish()
 		trig waittill("trigger", player);
 		player setOrigin(tele.origin);
 		player setPlayerAngles(tele.angles);
-		player braxi\_rank::giveRankXP("", 3000);
+		player braxi\_rank::giveRankXP("", 500);
 		iPrintLnBold("^1Activator^7 has finished the secret training room");
 	}
 

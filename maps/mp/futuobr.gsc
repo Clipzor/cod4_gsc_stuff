@@ -542,7 +542,7 @@ exitsecret_easy()
 		player setorigin(exitorigin.origin);
 		player setplayerangles(exitorigin.angles);
 		player.ineasy = 0;
-		player braxi\_rank::giveRankXp( undefined, 777 );
+		player braxi\_rank::giveRankXp( undefined, 300 );
 		wait .1;
 
 	}
@@ -559,7 +559,7 @@ exitsecret_hard()
 		player setorigin(exitorigin.origin);
 		player setplayerangles(exitorigin.angles);
 		player.inhard = 0;
-		player braxi\_rank::giveRankXp( undefined, 1500 );
+		player braxi\_rank::giveRankXp( undefined, 500 );
 		wait .1;
 
 	}

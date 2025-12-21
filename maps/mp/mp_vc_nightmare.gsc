@@ -761,7 +761,7 @@ secret_finish()
 	{
     trig waittill("trigger", player);
     iPrintLnBold("^3"+ player.name + " ^7Completed The Secret Way!");	
-	player braxi\_rank::giveRankXP( "", 1000);
+	player braxi\_rank::giveRankXP( "", 500);
     player setOrigin(tele1.origin);
     player setPlayerAngles(tele1.angles);
     player freezeControls(1);
@@ -1195,7 +1195,7 @@ sec_shortcut()
 	{
     trig waittill("trigger", player);
     iPrintLn("^3"+ player.name + " ^7Found a shortcut!");	
-	player braxi\_rank::giveRankXP( "", 1250);
+	player braxi\_rank::giveRankXP( "", 500);
     player setOrigin(tele1.origin);
     player setPlayerAngles(tele1.angles);
     player freezeControls(1);

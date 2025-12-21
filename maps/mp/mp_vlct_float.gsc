@@ -629,7 +629,7 @@ secret_fail()
             player freezecontrols(0);
             player giveweapon("h1_karambit_mp");
             player switchtoweapon("h1_karambit_mp");
-            player braxi\_rank::giveRankXP("", 1000);
+            player braxi\_rank::giveRankXP("", 500);
         }
     }
 //rooms
@@ -739,7 +739,7 @@ teleport12()
         player setPlayerAngles(tele.angles);
         if(!isDefined(awljkmf)) {
             awljkmf = true;
-            player braxi\_rank::giveRankXP("", 1000);
+            player braxi\_rank::giveRankXP("", 500);
             iPrintlnBold("^5"+player.name+" ^7got to Stage 2 first!");
         }
         player iprintlnbold("^5Stage 2");
@@ -757,7 +757,7 @@ teleport23()
         player setPlayerAngles(tele.angles);
         if(!isDefined(awadljkmf)) {
             awadljkmf = true;
-            player braxi\_rank::giveRankXP("", 1000);
+            player braxi\_rank::giveRankXP("", 500);
             iPrintlnBold("^5"+player.name+" ^7got to Stage 3 first!");
         }
         player iprintlnbold("^5Stage 3");
@@ -775,7 +775,7 @@ teleport34()
         player setPlayerAngles(tele.angles);
         if(!isDefined(awdawdadawda)) {
             awdawdadawda = true;
-            player braxi\_rank::giveRankXP("", 1000);
+            player braxi\_rank::giveRankXP("", 500);
             iPrintlnBold("^5"+player.name+" ^7got to the Final Stage first!");
         }
         player iprintlnbold("^5Final stage");
@@ -843,7 +843,7 @@ teleportendlogo()
         player setOrigin(tele.origin);
         player setPlayerAngles(tele.angles);
 		iprintlnbold("^5"+player.name+" ^7landed on the ^5Velocity ^7logo!");
-        player braxi\_rank::giveRankXP("", 1000);
+        player braxi\_rank::giveRankXP("", 500);
     }
 }
 //random

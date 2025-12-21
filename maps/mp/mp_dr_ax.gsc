@@ -106,8 +106,6 @@ main() {
 	PreCacheItem("ak74u_mp");
 
 
-	setdvar("cg_fovscale", 1.3);
-
 	addTriggerToList("trap1_t");
 	addTriggerToList("trap2_t");
 	addTriggerToList("trap3_t");
@@ -421,8 +419,6 @@ Sniper()
 		player switchToWeapon( "m40a3_mp" );
 		level.activ SwitchToWeapon( "remington700_mp" );
 		level.activ switchToWeapon( "m40a3_mp" );
-		level.activ setclientDvar("cg_fovscale", 1.3);
-		player setclientDvar("cg_fovscale", 1.3);
   		iPrintLnBold("^5" + player.name + " ^7has choosen Sniper!");
 		wait 1;
 		player iPrintLnBold("^53");
@@ -476,8 +472,6 @@ Knife()
 		wait 0.05;
 		player switchToWeapon( "knife_mp" );
 		level.activ SwitchToWeapon( "knife_mp" );
-		level.activ setclientDvar("cg_fovscale", 1.3);
-		player setclientDvar("cg_fovscale", 1.3);
   		iPrintLnBold("^5" + player.name + " ^7has choosen Knife!");
 		wait 1;
 		player iPrintLnBold("^53");
@@ -544,8 +538,6 @@ Jump()
 		wait 0.05;
 		player switchToWeapon( "knife_mp" );
 		level.activ SwitchToWeapon( "knife_mp" );
-		level.activ setclientDvar("cg_fovscale", 1.3);
-		player setclientDvar("cg_fovscale", 1.3);
   		iPrintLnBold("^5" + player.name + " ^7has choosen Jump!");
 		wait 1;
 		player iPrintLnBold("^53");
@@ -635,8 +627,6 @@ Rpg()
 		wait 0.05;
 		player switchToWeapon( "rpg_mp" );
 		level.activ SwitchToWeapon( "rpg_mp" );
-		level.activ setclientDvar("cg_fovscale", 1.3);
-		player setclientDvar("cg_fovscale", 1.3);
   		iPrintLnBold("^5" + player.name + " ^7has choosen RPG!");
 		wait 1;
 		player iPrintLnBold("^53");

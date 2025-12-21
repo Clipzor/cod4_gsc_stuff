@@ -52,6 +52,8 @@ main() {
 	 thread hitman();
 	 thread secret();
 	 thread secretend();
+
+     level.firstenter = true;
 	 
 	 addTriggerToList( "trap1_trig" );
 	addTriggerToList( "trap2_trig" );

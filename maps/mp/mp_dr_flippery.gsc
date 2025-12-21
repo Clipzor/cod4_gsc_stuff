@@ -1041,7 +1041,7 @@ hard_secret_secret() {
 			player.dsfgbdfsdgfvdf = true;
 			player iprintlnbold("How did you find this?");
 			if(!isdefined(player.ghost)){
-				self braxi\_rank::giveRankXP("", 700);
+				self braxi\_rank::giveRankXP("", 500);
 			}
 		}
 	}

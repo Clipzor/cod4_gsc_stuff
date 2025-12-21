@@ -2032,7 +2032,7 @@ hardsecend()
 
                 player setorigin (tele28.origin);
 				iprintlnBold("^2 " + player.name + " ^2 has finished ^1Hard ^2secret^8!");
-				player braxi\_rank::giveRankXP( "", 1000 );
+				player braxi\_rank::giveRankXP( "", 500 );
 
                
 		

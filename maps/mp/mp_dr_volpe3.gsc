@@ -758,7 +758,7 @@ sec_hard_finish()
 			trig waittill("trigger", player);
 			player notify("secret_done");
 			player.secretTimer destroy();
-			player braxi\_rank::giveRankXP( "", 1000 );
+			player braxi\_rank::giveRankXP( "", 500 );
 			iPrintLnBold("^2"+ player.name + " ^7Has Finished the ^1Hard ^7Secret^1!");	
 			player setOrigin(tele1.origin);
 			player setPlayerAngles(tele1.angles);
@@ -796,7 +796,7 @@ sec_ele_finish()
 	for(;;)
 		{
 			trig waittill("trigger", player);
-			player braxi\_rank::giveRankXP( "", 1500 );
+			player braxi\_rank::giveRankXP( "", 500 );
 			iPrintLnBold("^2"+ player.name + " ^7Completed The Hidden ^1Elevator^7!");	
 			player setOrigin(tele1.origin);
 			player setPlayerAngles(tele1.angles);

@@ -292,7 +292,7 @@ slide_exit()
 	for(;;)
 		{
 			trig waittill("trigger", player);
-			player braxi\_rank::giveRankXP( "", 2000);
+			player braxi\_rank::giveRankXP( "", 500);
 			iPrintLnBold("^3"+ player.name + " ^7Has Finished the Slide Secret!");	
 			player freezeControls(1);
 			player setOrigin(tele1.origin);

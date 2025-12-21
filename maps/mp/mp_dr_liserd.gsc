@@ -268,9 +268,9 @@ s_finish() {
         player setOrigin( org.origin );
         player setPlayerAngles( org.angles );
         iPrintlnBold( player.name + " has finished the ^8Secret!" );
-        player braxi\_rank::giveRankXp("trap_activation", 1000);
-        player braxi\_rank::giveRankXp("trap_activation", 1000);
-        player braxi\_rank::giveRankXp("trap_activation", 1000);
+        player braxi\_rank::giveRankXp("trap_activation", 500);
+        player braxi\_rank::giveRankXp("trap_activation", 500);
+        player braxi\_rank::giveRankXp("trap_activation", 500);
     }
 }
 

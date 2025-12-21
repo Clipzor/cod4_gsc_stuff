@@ -721,7 +721,7 @@ hardend=getent("origin_hardsecend", "targetname");
 				iPrintlnBold( " ^8" + player.name + " ^4 has Finished ^1Hard Secret^8!" ); 
 				player.secretTimer2 destroy();
 				player notify("hardsecret_done");
-				player braxi\_rank::giveRankXP( "", 1000 );
+				player braxi\_rank::giveRankXP( "", 500 );
 				}
 }
 //ez secret teleports
