@@ -106,6 +106,7 @@ main() {
 	PreCacheItem("ak74u_mp");
 
 
+
 	addTriggerToList("trap1_t");
 	addTriggerToList("trap2_t");
 	addTriggerToList("trap3_t");
@@ -472,6 +473,7 @@ Knife()
 		wait 0.05;
 		player switchToWeapon( "knife_mp" );
 		level.activ SwitchToWeapon( "knife_mp" );
+
   		iPrintLnBold("^5" + player.name + " ^7has choosen Knife!");
 		wait 1;
 		player iPrintLnBold("^53");
@@ -538,6 +540,7 @@ Jump()
 		wait 0.05;
 		player switchToWeapon( "knife_mp" );
 		level.activ SwitchToWeapon( "knife_mp" );
+		
   		iPrintLnBold("^5" + player.name + " ^7has choosen Jump!");
 		wait 1;
 		player iPrintLnBold("^53");
@@ -627,6 +630,7 @@ Rpg()
 		wait 0.05;
 		player switchToWeapon( "rpg_mp" );
 		level.activ SwitchToWeapon( "rpg_mp" );
+	
   		iPrintLnBold("^5" + player.name + " ^7has choosen RPG!");
 		wait 1;
 		player iPrintLnBold("^53");

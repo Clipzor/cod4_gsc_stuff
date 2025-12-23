@@ -91,7 +91,7 @@ main() {
 //  add_endmap_trigger_change_targetname(mapname, targetname)
     add_endmap_trigger_change_targetname("mp_dr_experts", "map_end");
     add_endmap_trigger_change_targetname("mp_dr_neon", "end_trig");
-
+    add_endmap_trigger_change_targetname("mp_dr_onsea","finalplate_trig");
     spawn_endmap_trigger(); // actually spawns the actual trig/changes targetname
 
 
@@ -179,9 +179,6 @@ spawn_endmap_trigger() {
     if(isdefined(endmap_trig))
         return endmap_trig;
     
-    if(!isdefined(level.endmap_triggers))
-        return undefined;
-
     mapname = getdvar("mapname");
 
     if(isdefined(level.endmap_triggers[mapname])) {

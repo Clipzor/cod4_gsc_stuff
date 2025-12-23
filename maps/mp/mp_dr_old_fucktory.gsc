@@ -397,13 +397,17 @@ trap5()
 
 startdoor()
 {
- startdoor = getent("startdoor", "targetname");
+    startdoor = getent("startdoor", "targetname");
+    if(getdvarint("dr_auto_open_door")) {
+		startdoor delete();
+	} 
+    else {
+    wait 15;
 
- wait 15;
+    startdoor moveZ(-350, 5);
 
- startdoor moveZ(-350, 5);
-
- wait 15;
+    wait 15;
+    }
 }
 messages()
 {    

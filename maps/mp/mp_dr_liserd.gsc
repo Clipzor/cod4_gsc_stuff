@@ -213,13 +213,21 @@ musicMenu()
 
 s_unlock() {
     trig = getEnt( "boot_trig", "targetname" );
-
+    if(isdefined(getdvarint("dr_auto_open_secret"))) {
+        thread auto_open_secret();
+        return;
+    }
+    else{
     trig waittill( "trigger", player );
     trig delete();
-    
     thread s_unlock2();
+    }
 }
-
+auto_open_secret() {
+    dirt = getEnt( "secret_unlock", "targetname" );
+    iPrintlnBold("^7something has unlocked..." );
+    dirt notsolid();
+}
 s_unlock2() {
     sign = getEnt( "secret_unlock_trig", "targetname" );
     dirt = getEnt( "secret_unlock", "targetname" );
@@ -268,9 +276,9 @@ s_finish() {
         player setOrigin( org.origin );
         player setPlayerAngles( org.angles );
         iPrintlnBold( player.name + " has finished the ^8Secret!" );
-        player braxi\_rank::giveRankXp("trap_activation", 500);
-        player braxi\_rank::giveRankXp("trap_activation", 500);
-        player braxi\_rank::giveRankXp("trap_activation", 500);
+        player braxi\_rank::giveRankXp("trap_activation", 1000);
+        player braxi\_rank::giveRankXp("trap_activation", 1000);
+        player braxi\_rank::giveRankXp("trap_activation", 1000);
     }
 }
 

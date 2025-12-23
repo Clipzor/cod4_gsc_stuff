@@ -13,7 +13,7 @@ maps\mp\_load::main();
     setdvar("r_glowbloomintensity0",".25");
     setdvar("r_glowbloomintensity1",".25");
     setdvar("r_glowskybleedintensity0",".3");
-	setdvar("g_speed","190");
+	//setdvar("g_speed","190");
 	//setdvar("r_fullbright","1");
 	SetDvar("bg_falldamagemaxheight", 99999);
 	SetDvar("bg_falldamageminheight", 99998);
@@ -60,11 +60,14 @@ maps\mp\_load::main();
 startdoor()
 {
 door = getEnt("startdoor", "targetname");
+if(getdvarint("dr_auto_open_door")) {
+		door delete();
+	} else {
 wait 15;
 door moveZ(744, 8);
 iprintlnbold("^3START OPEND!!!!!!!!!!!!!");
 wait 2;
-
+	}
 }	
 
 	addTriggerToList( name )
@@ -936,7 +939,7 @@ secretexit()
 			player iPrintLnBold("^5you has finished ^6secret!!");
 			player notify("sec1_done");
 			player.secretTimer destroy();
-			player braxi\_rank::giveRankXP( "", 500 );
+			player braxi\_rank::giveRankXP( "", 1000 );
 		}
 }
 
