@@ -704,9 +704,22 @@ secstephint()
     trig waittill("trigger", player);
 
 }
+auto_open_secret() {
+    brush = getEnt("secopena","targetname");
+    brush2 = getEnt("secopenb","targetname");
+    player thread sectp();
+    brush moveZ(-300,4);
+    brush2 moveZ(300,4);
+    iPrintLn("^0[^3Secret Opened^0.^0]");
+}
 
 secret_step1()
 {
+    if(isdefined(getdvarint("dr_auto_open_secret"))) {
+        thread auto_open_secret();
+        return;
+    }
+    else{
 	trig = getEnt("trig_secstep1","targetname");
 
 	trig waittill("trigger",player);
@@ -717,6 +730,7 @@ secret_step1()
 	trig delete();
 
 	player thread secret_step2();
+    }
 }
 
 secret_step2()
