@@ -102,6 +102,14 @@ main() {
     precacheitem("rpg_mp");
 }
 
+freeze_on_tps(time) {
+    self freezecontrols(true);
+    self thread dddasdasddd(time);
+}
+dddasdasddd(time) {
+    wait time;
+    self freezecontrols(false);
+}
 startDeathTimer(duration)
 {
     if (!isDefined(self) || !isPlayer(self))
@@ -619,7 +627,7 @@ knife()
         origins = [];
         origins[0] = getEnt("knife_fail_origin_1", "targetname");
         origins[1] = getEnt("knife_fail_origin_2", "targetname");
-        origins[2] = getEntarray("knife_fail_origin_3", "targetname")[0];
+        origins[2] = getEnt("knife_fail_origin_3", "targetname");
         origins[3] = getEnt("knife_fail_origin_4", "targetname");
         for(;;)
         {
@@ -661,9 +669,6 @@ knife()
         level.activ thread RoomCountDown("^5Strafe to the end to win!", 3, 1);
         while(isDefined(player) && isAlive(player))
         wait .05;
-        player = undefined;
-        level.pure_jumper = undefined;
-        level.activ = undefined;
         }
     }
     pure_finish()
@@ -797,13 +802,10 @@ rpg()
         activator setPlayerAngles (acti.angles);
         player takeAllWeapons();
         activator takeAllWeapons();  
-        //player giveWeapon("iw8_butterflyknife_mp");
-        //activator giveWeapon("iw8_butterflyknife_mp");
         player giveWeapon("h1_karambit_mp");
         activator giveWeapon("h1_karambit_mp");
         player switchtoweapon("h1_karambit_mp");
         activator switchtoweapon("h1_karambit_mp");
-        //player.maxhealth = 100;
         player.health = player.maxhealth;
         player thread RoomCountDown("^5Get to the end and kill each other !", 3, 1);
         activator thread RoomCountDown("^5Get to the end and kill each other !", 3, 1);
@@ -870,11 +872,9 @@ secret_raky()
         if(!isDefined(awljkmf)) {
             awljkmf = true;
             player iprintLnBold("We're not on xM ^5RETARD^7... have some xp instead");
-            player braxi\_rank::giveRankXP("", 400);
+            player braxi\_rank::giveRankXP("", 1000);
         }
-        player freezecontrols(1);
-        wait 1;
-        player freezecontrols(0);
+        player freeze_on_tps(1);
     }
 }
 practise()
@@ -922,7 +922,7 @@ practise_finish()
         trig waittill("trigger", player);
         player setOrigin(tele.origin);
         player setPlayerAngles(tele.angles);
-        player braxi\_rank::giveRankXP("", 400); 
+        player braxi\_rank::giveRankXP("", 1000); 
         player iprintlnbold("You finished the bounce practise room! ^5Congrats!");
         }
 }
@@ -947,12 +947,10 @@ hell_secret()
         for(;;)
         {
             trig waittill("trigger", player);
-            player freezecontrols(1);
             player setOrigin(tele.origin);
             player setPlayerAngles(tele.angles);
             player iprintlnbold("Welcome to ^1HELL ^7secret... you only have one try");
-            wait 1;
-            player freezecontrols(0);
+            player freeze_on_tps(1);
             player iprintlnbold("If you complete it, you're insane... ^5GOOD LUCK^7!");
         }
     }
@@ -966,9 +964,7 @@ hell_secret()
         player iprintlnBold("You're ^1NOT^7 ready for this challenge lil bro...");
         player setOrigin(tele.origin);
         player setplayerangles(tele.angles);
-        player freezecontrols(1);
-        wait 0.5;
-        player freezecontrols(0);
+        player freeze_on_tps(1);
     }
     }
     hell_secret_finish()
@@ -979,10 +975,9 @@ hell_secret()
             {
                 trig waittill("trigger", player);
                 iprintlnbold("^5" + player.name + " ^7is INSANE!");
-                player braxi\_rank::giveRankXP("", 500);
+                player braxi\_rank::giveRankXP("", 5000);
                 player setOrigin(tele.origin);
                 player setplayerAngles(tele.angles);
-                player freezecontrols(1);
                 players = getEntArray("player", "classname");
                 for (i = 0; i < players.size; i++) 
                 {
@@ -991,8 +986,7 @@ hell_secret()
 			        players[i] playLocalSound("sound1"); 	
                     }
                 }
-                wait 0.5;
-                player freezecontrols(0);
+                player freeze_on_tps(1);
             }
     }
     ice_secret()
@@ -1003,13 +997,11 @@ hell_secret()
         for(;;)
         {
             trig waittill("trigger", player);
-            player freezecontrols(1);
             player setOrigin(tele.origin);
             player setPlayerAngles(tele.angles);
             player iprintlnbold("Welcome to ^5ICE ^7secret!");
             player thread startDeathTimer(120);
-            wait 1;
-            player freezecontrols(0);
+            player freeze_on_tps(1);
             player iprintlnbold("^5GOOD LUCK^7!");
         }
 	}
@@ -1020,11 +1012,10 @@ hell_secret()
         for(;;)
         {
             trig waittill("trigger", player);
-            player freezecontrols(1);
             player setOrigin(tele.origin);
             player setPlayerAngles(tele.angles);
             iprintlnbold("^5" + player.name + " ^7is pretty good!");
-            player braxi\_rank::giveRankXP("", 400);
+            player braxi\_rank::giveRankXP("", 2000);
             players = getEntArray("player", "classname");
             for (i = 0; i < players.size; i++) 
             {
@@ -1036,8 +1027,7 @@ hell_secret()
                     player.deathTimerHud destroy();
             }
             player.deathTimerCancelled = true;
-            wait 1;
-            player freezecontrols(0);
+            player freeze_on_tps(1);
         }
     }
     fail1()
@@ -1047,11 +1037,9 @@ hell_secret()
         for(;;)
         {
             trig waittill("trigger", player);
-            player freezecontrols(1);
             player setOrigin(tele.origin);
             player setPlayerAngles(tele.angles);
-            wait 0.5;
-            player freezecontrols(0);
+            player freeze_on_tps(0.5);
         }
     }
     fail2()
@@ -1061,11 +1049,9 @@ hell_secret()
         for(;;)
         {
             trig waittill("trigger", player);
-            player freezecontrols(1);
             player setOrigin(tele.origin);
             player setPlayerAngles(tele.angles);
-            wait 0.5;
-            player freezecontrols(0);
+            player freeze_on_tps(0.5);
         }
     }
     fail3()
@@ -1075,11 +1061,9 @@ hell_secret()
         for(;;)
         {
             trig waittill("trigger", player);
-            player freezecontrols(1);
             player setOrigin(tele.origin);
             player setPlayerAngles(tele.angles);
-            wait 0.5;
-            player freezecontrols(0);
+            player freeze_on_tps(0.5);
         }
     }
 
@@ -1090,11 +1074,9 @@ hell_secret()
         for(;;)
         {
             trig waittill("trigger", player);
-            player freezecontrols(1);
             player setOrigin(tele.origin);
             player setPlayerAngles(tele.angles);
-            wait 0.5;
-            player freezecontrols(0);
+            player freeze_on_tps(0.5);
         }
     }
     fail5()
@@ -1104,11 +1086,9 @@ hell_secret()
         for(;;)
         {
             trig waittill("trigger", player);
-            player freezecontrols(1);
             player setOrigin(tele.origin);
             player setPlayerAngles(tele.angles);
-            wait 0.5;
-            player freezecontrols(0);
+            player freeze_on_tps(0.5);
         }
     }
     fail6()
@@ -1118,11 +1098,9 @@ hell_secret()
         for(;;)
         {
             trig waittill("trigger", player);
-            player freezecontrols(1);
             player setOrigin(tele.origin);
             player setPlayerAngles(tele.angles);
-            wait 0.5;
-            player freezecontrols(0);
+            player freeze_on_tps(0.5);
         }
     }
     fail7()
@@ -1132,11 +1110,9 @@ hell_secret()
         for(;;)
         {
             trig waittill("trigger", player);
-            player freezecontrols(1);
             player setOrigin(tele.origin);
             player setPlayerAngles(tele.angles);
-            wait 0.5;
-            player freezecontrols(0);
+            player freeze_on_tps(0.5);
         }
     }
     fail8()
@@ -1146,11 +1122,9 @@ hell_secret()
         for(;;)
         {
             trig waittill("trigger", player);
-            player freezecontrols(1);
             player setOrigin(tele.origin);
             player setPlayerAngles(tele.angles);
-            wait 0.5;
-            player freezecontrols(0);
+            player freeze_on_tps(0.5);
         }
     }
         fail9()
@@ -1160,11 +1134,9 @@ hell_secret()
         for(;;)
         {
             trig waittill("trigger", player);
-            player freezecontrols(1);
             player setOrigin(tele.origin);
             player setPlayerAngles(tele.angles);
-            wait 0.5;
-            player freezecontrols(0);
+            player freeze_on_tps(0.5);
         }
     }
     tip1()
