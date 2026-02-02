@@ -30,8 +30,8 @@ main() {
 	setdvar("r_glowbloomintensity1",".25");
 	setdvar("r_glowskybleedintensity0",".3");
 	setdvar("compassmaxrange","1800");
-	setDvar("bg_falldamagemaxheight", 500 );
-	setDvar("bg_falldamageminheight", 250 );
+	setDvar("bg_falldamagemaxheight", 99999 );
+	setDvar("bg_falldamageminheight", 99998 );
 
 	addTriggerToList( "trap1trig" );
 	addTriggerToList( "trap2trig" );
